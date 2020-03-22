@@ -4,7 +4,7 @@ Here you find all TeX sources for our manuscript "Collatz Sequences in the Light
 
 # News
 Added Python script for validating the sum:
-<img src="img/sum.png" />
+<img src="img/sum.png" width="1137" />
 
 # Download
 The manuscript can be downloaded at:
