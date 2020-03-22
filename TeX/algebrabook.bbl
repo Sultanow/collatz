@@ -1,0 +1,2010 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Ref_Sultanow_Volkov_Cox_2017}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7aeb5de34471947b0d1c6c8aa70a8b13}{%
+           family={Sultanow},
+           familyi={S\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d2b28cd20bd3235d8b632ec9eac59866}{%
+           family={Volkov},
+           familyi={V\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=06d173b343b2e65776aab00e5e3d998b}{%
+           family={Cox},
+           familyi={C\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \strng{fullhash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \strng{bibnamehash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \strng{authorbibnamehash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \strng{authornamehash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \strng{authorfullhash}{34fa9fe3724db5bcbd4b238f159f1d20}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Pure Mathematical Sciences}
+      \field{title}{Introducing a Finite State Machine for Processing Collatz Sequences}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{10\bibrangedash 19}
+      \range{pages}{10}
+    \endentry
+    \entry{Ref_Williams_2000}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3f21ef9be738653ed7526251e68ee25b}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={S.\bibnamedelimi W.},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f21ef9be738653ed7526251e68ee25b}
+      \strng{fullhash}{3f21ef9be738653ed7526251e68ee25b}
+      \strng{bibnamehash}{3f21ef9be738653ed7526251e68ee25b}
+      \strng{authorbibnamehash}{3f21ef9be738653ed7526251e68ee25b}
+      \strng{authornamehash}{3f21ef9be738653ed7526251e68ee25b}
+      \strng{authorfullhash}{3f21ef9be738653ed7526251e68ee25b}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Association of Mathematicians Newsletter}
+      \field{number}{2}
+      \field{title}{Million Buck Problems}
+      \field{volume}{31}
+      \field{year}{2000}
+      \field{pages}{1\bibrangedash 3}
+      \range{pages}{3}
+    \endentry
+    \entry{Ref_Lagarias_2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0e632ab1593adc641313fd8e35ec45e8}{%
+           family={Lagarias},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, RI}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{fullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{bibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorbibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authornamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorfullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0821849408}
+      \field{title}{The Ultimate Challenge: The 3x+1 Problem}
+      \field{year}{2010}
+    \endentry
+    \entry{Ref_Lagarias_2011}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0e632ab1593adc641313fd8e35ec45e8}{%
+           family={Lagarias},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{fullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{bibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorbibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authornamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorfullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ArXiv Mathematics e-prints}
+      \field{title}{The 3x + 1 Problem: An Annotated Bibliography (1963-1999)}
+      \field{year}{2011}
+      \verb{eprint}
+      \verb math/0309224v13
+      \endverb
+    \endentry
+    \entry{Ref_Lagarias_2012}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0e632ab1593adc641313fd8e35ec45e8}{%
+           family={Lagarias},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{fullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{bibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorbibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authornamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorfullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \field{extraname}{3}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ArXiv Mathematics e-prints}
+      \field{title}{The 3x + 1 Problem: An Annotated Bibliography, II (2000-2009)}
+      \field{year}{2012}
+      \verb{eprint}
+      \verb math/0608208v6
+      \endverb
+    \endentry
+    \entry{Ref_Lagarias_1985}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0e632ab1593adc641313fd8e35ec45e8}{%
+           family={Lagarias},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{fullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{bibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorbibnamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authornamehash}{0e632ab1593adc641313fd8e35ec45e8}
+      \strng{authorfullhash}{0e632ab1593adc641313fd8e35ec45e8}
+      \field{extraname}{4}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The American Mathematical Monthly}
+      \field{number}{1}
+      \field{title}{The 3x + 1 Problem and Its Generalizations}
+      \field{volume}{92}
+      \field{year}{1985}
+      \field{pages}{3\bibrangedash 23}
+      \range{pages}{21}
+    \endentry
+    \entry{Ref_Kahermanes_2011}{report}{}
+      \name{author}{1}{}{%
+        {{hash=93fc686caa30b1b673ff6f36578112f9}{%
+           family={Kahermanes},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {San Francisco State University}%
+      }
+      \strng{namehash}{93fc686caa30b1b673ff6f36578112f9}
+      \strng{fullhash}{93fc686caa30b1b673ff6f36578112f9}
+      \strng{bibnamehash}{93fc686caa30b1b673ff6f36578112f9}
+      \strng{authorbibnamehash}{93fc686caa30b1b673ff6f36578112f9}
+      \strng{authornamehash}{93fc686caa30b1b673ff6f36578112f9}
+      \strng{authorfullhash}{93fc686caa30b1b673ff6f36578112f9}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{Math 301 Term Paper}
+      \field{title}{Collatz Conjecture}
+      \field{type}{techreport}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_Klisse_2010}{unpublished}{}
+      \name{author}{1}{}{%
+        {{hash=59930b42e0b7ebc623d534c402c4425f}{%
+           family={Klisse},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{59930b42e0b7ebc623d534c402c4425f}
+      \strng{fullhash}{59930b42e0b7ebc623d534c402c4425f}
+      \strng{bibnamehash}{59930b42e0b7ebc623d534c402c4425f}
+      \strng{authorbibnamehash}{59930b42e0b7ebc623d534c402c4425f}
+      \strng{authornamehash}{59930b42e0b7ebc623d534c402c4425f}
+      \strng{authorfullhash}{59930b42e0b7ebc623d534c402c4425f}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Das Collatz-Problem: Lösungs- und Erklärungsansätze für die 1937 von Lothar Collatz entdeckte (3n+1)-Vermutung}
+      \field{year}{2010}
+    \endentry
+    \entry{Ref_Feinstein_2012}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6352ba31772c53596c00a07846b027da}{%
+           family={Feinstein},
+           familyi={F\bibinitperiod},
+           given={C.\bibnamedelimi A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6352ba31772c53596c00a07846b027da}
+      \strng{fullhash}{6352ba31772c53596c00a07846b027da}
+      \strng{bibnamehash}{6352ba31772c53596c00a07846b027da}
+      \strng{authorbibnamehash}{6352ba31772c53596c00a07846b027da}
+      \strng{authornamehash}{6352ba31772c53596c00a07846b027da}
+      \strng{authorfullhash}{6352ba31772c53596c00a07846b027da}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Global Journal of Science Frontier Research Mathematics and Decision Sciences}
+      \field{number}{8}
+      \field{title}{The Collatz 3n+1 Conjecture is Unprovable}
+      \field{volume}{12}
+      \field{year}{2012}
+      \field{pages}{13\bibrangedash 15}
+      \range{pages}{3}
+    \endentry
+    \entry{Ref_Akin_2004}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=8a8605c0c44f8656dd16b5671719da6f}{%
+           family={Akin},
+           familyi={A\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=d4cdac9f30cbfa8523505fd10a694970}{%
+           family={Assani},
+           familyi={A\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, RI}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{fullhash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{bibnamehash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{authorbibnamehash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{authornamehash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{authorfullhash}{8a8605c0c44f8656dd16b5671719da6f}
+      \strng{editorbibnamehash}{d4cdac9f30cbfa8523505fd10a694970}
+      \strng{editornamehash}{d4cdac9f30cbfa8523505fd10a694970}
+      \strng{editorfullhash}{d4cdac9f30cbfa8523505fd10a694970}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Chapel Hill Ergodic Theory Workshops}
+      \field{series}{Contemporary Mathematics}
+      \field{title}{Why is the 3x + 1 Problem Hard?}
+      \field{volume}{356}
+      \field{year}{2004}
+      \field{pages}{1\bibrangedash 20}
+      \range{pages}{20}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1090/conm/364
+      \endverb
+    \endentry
+    \entry{Ref_Bernstein_Lagarias_1996}{article}{}
+      \name{author}{2}{}{%
+        {{hash=dc73c639dc3d308a970c4845085f1c6a}{%
+           family={Bernstein},
+           familyi={B\bibinitperiod},
+           given={D.\bibnamedelimi J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0e632ab1593adc641313fd8e35ec45e8}{%
+           family={Lagarias},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{532831781e491e288206203d37b8221a}
+      \strng{fullhash}{532831781e491e288206203d37b8221a}
+      \strng{bibnamehash}{532831781e491e288206203d37b8221a}
+      \strng{authorbibnamehash}{532831781e491e288206203d37b8221a}
+      \strng{authornamehash}{532831781e491e288206203d37b8221a}
+      \strng{authorfullhash}{532831781e491e288206203d37b8221a}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian Journal of Mathematics}
+      \field{title}{The 3x + 1 Conjugacy Map}
+      \field{volume}{48}
+      \field{year}{1996}
+      \field{pages}{1154\bibrangedash 1169}
+      \range{pages}{16}
+    \endentry
+    \entry{Ref_Michel_2014}{article}{}
+      \name{author}{1}{}{%
+        {{hash=315cab441d841c10e0b25f2596df0726}{%
+           family={Michel},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{315cab441d841c10e0b25f2596df0726}
+      \strng{fullhash}{315cab441d841c10e0b25f2596df0726}
+      \strng{bibnamehash}{315cab441d841c10e0b25f2596df0726}
+      \strng{authorbibnamehash}{315cab441d841c10e0b25f2596df0726}
+      \strng{authornamehash}{315cab441d841c10e0b25f2596df0726}
+      \strng{authorfullhash}{315cab441d841c10e0b25f2596df0726}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ArXiv Mathematics e-prints}
+      \field{title}{Simulation of the Collatz 3x + 1 function by Turing machines}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1409.7322v1
+      \endverb
+    \endentry
+    \entry{Ref_Berg_Meinardus_1994}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4518c5275f9f42113c76c3c57f504e55}{%
+           family={Berg},
+           familyi={B\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=9c58d52d71e35f63f2566c535680583c}{%
+           family={Meinardus},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{fullhash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{bibnamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authorbibnamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authornamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authorfullhash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Results in Mathematics}
+      \field{number}{1}
+      \field{title}{Functional Equations Connected With The Collatz Problem}
+      \field{volume}{25}
+      \field{year}{1994}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/BF03323136
+      \endverb
+    \endentry
+    \entry{Ref_Berg_Meinardus_1995}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=4518c5275f9f42113c76c3c57f504e55}{%
+           family={Berg},
+           familyi={B\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=9c58d52d71e35f63f2566c535680583c}{%
+           family={Meinardus},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Rostock, Germany}%
+      }
+      \list{publisher}{1}{%
+        {University of Rostock}%
+      }
+      \strng{namehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{fullhash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{bibnamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authorbibnamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authornamehash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \strng{authorfullhash}{3bfcaa8de7f4335eade3e193db34aabf}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Rostocker Mathematisches Kolloquium}
+      \field{title}{The 3n+1 Collatz Problem and Functional Equations}
+      \field{volume}{48}
+      \field{year}{1995}
+      \field{pages}{11\bibrangedash 18}
+      \range{pages}{8}
+    \endentry
+    \entry{Ref_Opfer_2011}{article}{}
+      \name{author}{1}{}{%
+        {{hash=67d8083e1a1ede2c50aa03ab054e2e0d}{%
+           family={Opfer},
+           familyi={O\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \strng{fullhash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \strng{bibnamehash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \strng{authorbibnamehash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \strng{authornamehash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \strng{authorfullhash}{67d8083e1a1ede2c50aa03ab054e2e0d}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Hamburger Beiträge zur Angewandten Mathematik}
+      \field{title}{An analytic approach to the Collatz 3n + 1 Problem}
+      \field{volume}{2011-09}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_de_Weger_2011}{report}{}
+      \name{author}{1}{}{%
+        {{hash=18f8fc64f99351d72618474c3596bb27}{%
+           family={Weger},
+           familyi={W\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Eindhoven University of Technology}%
+      }
+      \strng{namehash}{18f8fc64f99351d72618474c3596bb27}
+      \strng{fullhash}{18f8fc64f99351d72618474c3596bb27}
+      \strng{bibnamehash}{18f8fc64f99351d72618474c3596bb27}
+      \strng{authorbibnamehash}{18f8fc64f99351d72618474c3596bb27}
+      \strng{authornamehash}{18f8fc64f99351d72618474c3596bb27}
+      \strng{authorfullhash}{18f8fc64f99351d72618474c3596bb27}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Comments on Opfer's alleged proof of the 3n + 1 Conjecture}
+      \field{type}{techreport}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_Andrei_Masalagiu}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4a44ba88171221a8affad500de3dcfea}{%
+           family={Andrei},
+           familyi={A\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0b3ff894176cc6ef68ad3bc826342e71}{%
+           family={Masalagiu},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{205305b56692e39302857c3c9ae64f66}
+      \strng{fullhash}{205305b56692e39302857c3c9ae64f66}
+      \strng{bibnamehash}{205305b56692e39302857c3c9ae64f66}
+      \strng{authorbibnamehash}{205305b56692e39302857c3c9ae64f66}
+      \strng{authornamehash}{205305b56692e39302857c3c9ae64f66}
+      \strng{authorfullhash}{205305b56692e39302857c3c9ae64f66}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Informatica}
+      \field{number}{2}
+      \field{title}{About the Collatz conjecture}
+      \field{volume}{35}
+      \field{year}{1998}
+      \field{pages}{167\bibrangedash 179}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s002360050117
+      \endverb
+    \endentry
+    \entry{Ref_Kak_2014}{report}{}
+      \name{author}{1}{}{%
+        {{hash=d8d6c80a43316392d7cffa1d3d08c505}{%
+           family={Kak},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Oklahoma State University}%
+      }
+      \strng{namehash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \strng{fullhash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \strng{bibnamehash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \strng{authorbibnamehash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \strng{authornamehash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \strng{authorfullhash}{d8d6c80a43316392d7cffa1d3d08c505}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digit Characteristics in the Collatz 3n+1 Iterations}
+      \field{type}{techreport}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://subhask.okstate.edu/sites/default/files/collatz4.pdf
+      \endverb
+      \verb{url}
+      \verb https://subhask.okstate.edu/sites/default/files/collatz4.pdf
+      \endverb
+    \endentry
+    \entry{Ref_Terras_1976}{article}{}
+      \name{author}{1}{}{%
+        {{hash=17589b9f7eb25634f6d2c25a6ef7b044}{%
+           family={Terras},
+           familyi={T\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \strng{fullhash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \strng{bibnamehash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \strng{authorbibnamehash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \strng{authornamehash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \strng{authorfullhash}{17589b9f7eb25634f6d2c25a6ef7b044}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Arithmetica}
+      \field{number}{3}
+      \field{title}{A stopping time problem on the positive integers}
+      \field{volume}{30}
+      \field{year}{1976}
+      \field{pages}{241\bibrangedash 252}
+      \range{pages}{12}
+    \endentry
+    \entry{Ref_Silva_1999}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1214a714952b02ab83979b4ea57035cb}{%
+           family={Oliveira\bibnamedelimb e\bibnamedelima Silva},
+           familyi={O\bibinitperiod\bibinitdelim e\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1214a714952b02ab83979b4ea57035cb}
+      \strng{fullhash}{1214a714952b02ab83979b4ea57035cb}
+      \strng{bibnamehash}{1214a714952b02ab83979b4ea57035cb}
+      \strng{authorbibnamehash}{1214a714952b02ab83979b4ea57035cb}
+      \strng{authornamehash}{1214a714952b02ab83979b4ea57035cb}
+      \strng{authorfullhash}{1214a714952b02ab83979b4ea57035cb}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{number}{225}
+      \field{title}{Maximum Excursion and Stopping Time Record-Holders for the 3x + 1 Problem: Computational Results}
+      \field{volume}{68}
+      \field{year}{1999}
+      \field{pages}{371\bibrangedash 384}
+      \range{pages}{14}
+    \endentry
+    \entry{Ref_Idowu_2015}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa137ae1bd63d6fcdc9afd0d8d27aacf}{%
+           family={Idowu},
+           familyi={I\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \strng{fullhash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \strng{bibnamehash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \strng{authorbibnamehash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \strng{authornamehash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \strng{authorfullhash}{fa137ae1bd63d6fcdc9afd0d8d27aacf}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{title}{A Novel Theoretical Framework Formulated for Information Discovery from Number System and Collatz Conjecture Data}
+      \field{volume}{61}
+      \field{year}{2015}
+      \field{pages}{105\bibrangedash 111}
+      \range{pages}{7}
+    \endentry
+    \entry{Ref_Wirsching_1998}{book}{}
+      \name{author}{1}{}{%
+        {{hash=37d1470fcd7a42e4b775e79bf88f4d79}{%
+           family={Wirsching},
+           familyi={W\bibinitperiod},
+           given={G.\bibnamedelimi J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \strng{fullhash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \strng{bibnamehash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \strng{authorbibnamehash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \strng{authornamehash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \strng{authorfullhash}{37d1470fcd7a42e4b775e79bf88f4d79}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Dynamical System Generated by the 3n+1 Function}
+      \field{year}{1998}
+      \verb{doi}
+      \verb 10.1007/BFb0095985
+      \endverb
+    \endentry
+    \entry{Ref_Walz_2017}{book}{}
+      \name{editor}{1}{}{%
+        {{hash=d0675f96f9b2e854a91b16af858df6d3}{%
+           family={Walz},
+           familyi={W\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d0675f96f9b2e854a91b16af858df6d3}
+      \strng{fullhash}{d0675f96f9b2e854a91b16af858df6d3}
+      \strng{bibnamehash}{d0675f96f9b2e854a91b16af858df6d3}
+      \strng{editorbibnamehash}{d0675f96f9b2e854a91b16af858df6d3}
+      \strng{editornamehash}{d0675f96f9b2e854a91b16af858df6d3}
+      \strng{editorfullhash}{d0675f96f9b2e854a91b16af858df6d3}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Lexikon der Mathematik}
+      \field{volume}{1}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-3-662-53498-4
+      \endverb
+    \endentry
+    \entry{Ref_Tao_2019}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4bc06d15f96ba9e18fdeb13bee70c0dc}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \strng{fullhash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \strng{bibnamehash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \strng{authorbibnamehash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \strng{authornamehash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \strng{authorfullhash}{4bc06d15f96ba9e18fdeb13bee70c0dc}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ArXiv Mathematics e-prints}
+      \field{title}{Almost all orbits of the collatz map attain almost bounded values}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1909.03562
+      \endverb
+    \endentry
+    \entry{Ref_Allouche_1978}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1f7fda4093bdafa56e4c9cb1645b3ff1}{%
+           family={Allouche},
+           familyi={A\bibinitperiod},
+           given={J.-P.},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \strng{fullhash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \strng{bibnamehash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \strng{authorbibnamehash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \strng{authornamehash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \strng{authorfullhash}{1f7fda4093bdafa56e4c9cb1645b3ff1}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{09895558}
+      \field{journaltitle}{Séminaire de Théorie des Nombres de Bordeaux}
+      \field{title}{Sur la conjecture de "Syracuse-Kakutani-Collatz"}
+      \field{year}{1978}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/44166344
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/44166344
+      \endverb
+    \endentry
+    \entry{Ref_Korec_1994}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6275141e6a830f1c7a9b308779aa342a}{%
+           family={Korec},
+           familyi={K\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{6275141e6a830f1c7a9b308779aa342a}
+      \strng{fullhash}{6275141e6a830f1c7a9b308779aa342a}
+      \strng{bibnamehash}{6275141e6a830f1c7a9b308779aa342a}
+      \strng{authorbibnamehash}{6275141e6a830f1c7a9b308779aa342a}
+      \strng{authornamehash}{6275141e6a830f1c7a9b308779aa342a}
+      \strng{authorfullhash}{6275141e6a830f1c7a9b308779aa342a}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematica Slovaca}
+      \field{number}{1}
+      \field{title}{A density estimate for the 3x+1 problem}
+      \field{volume}{44}
+      \field{year}{1994}
+      \field{pages}{85\bibrangedash 89}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb http://dml.cz/dmlcz/133225
+      \endverb
+      \verb{url}
+      \verb http://dml.cz/dmlcz/133225
+      \endverb
+    \endentry
+    \entry{Ref_Truemper_2014}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d9651f30ec02983a469863123b148a68}{%
+           family={Trümper},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9651f30ec02983a469863123b148a68}
+      \strng{fullhash}{d9651f30ec02983a469863123b148a68}
+      \strng{bibnamehash}{d9651f30ec02983a469863123b148a68}
+      \strng{authorbibnamehash}{d9651f30ec02983a469863123b148a68}
+      \strng{authornamehash}{d9651f30ec02983a469863123b148a68}
+      \strng{authorfullhash}{d9651f30ec02983a469863123b148a68}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chinese Journal of Mathematics}
+      \field{title}{The Collatz Problem in the Light of an Infinite Free Semigroup}
+      \field{year}{2014}
+      \field{pages}{105\bibrangedash 111}
+      \range{pages}{7}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1155/2014/756917
+      \endverb
+    \endentry
+    \entry{Ref_Kohl_2008}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9a4f5be431489f4cff4040f55f1a112a}{%
+           family={Kohl},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a4f5be431489f4cff4040f55f1a112a}
+      \strng{fullhash}{9a4f5be431489f4cff4040f55f1a112a}
+      \strng{bibnamehash}{9a4f5be431489f4cff4040f55f1a112a}
+      \strng{authorbibnamehash}{9a4f5be431489f4cff4040f55f1a112a}
+      \strng{authornamehash}{9a4f5be431489f4cff4040f55f1a112a}
+      \strng{authorfullhash}{9a4f5be431489f4cff4040f55f1a112a}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Number Theory}
+      \field{number}{1}
+      \field{title}{On conjugates of Collatz-type mappings}
+      \field{volume}{4}
+      \field{year}{2008}
+      \field{pages}{117\bibrangedash 120}
+      \range{pages}{4}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1142/S1793042108001237
+      \endverb
+    \endentry
+    \entry{Ref_Hicks_Mullen_Yucas_Zavislak_2008}{article}{}
+      \name{author}{4}{}{%
+        {{hash=7e2d91329c91111c7730adee03c45b34}{%
+           family={Hicks},
+           familyi={H\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e26f62601ee6ef41c34c4d82b6828f4}{%
+           family={Mullen},
+           familyi={M\bibinitperiod},
+           given={G.\bibnamedelimi L.},
+           giveni={G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=8914bc43621b70fc8165f1a4aef6147f}{%
+           family={Yucas},
+           familyi={Y\bibinitperiod},
+           given={J.\bibnamedelimi L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=b39c09a1c41afee1b1bf258bea206a80}{%
+           family={Zavislak},
+           familyi={Z\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a9b0295d981b20602b09fde1cb29ccf}
+      \strng{fullhash}{7ea00134e575e2593f4c5be2b1fd6ca2}
+      \strng{bibnamehash}{9a9b0295d981b20602b09fde1cb29ccf}
+      \strng{authorbibnamehash}{9a9b0295d981b20602b09fde1cb29ccf}
+      \strng{authornamehash}{9a9b0295d981b20602b09fde1cb29ccf}
+      \strng{authorfullhash}{7ea00134e575e2593f4c5be2b1fd6ca2}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The American Mathematical Monthly}
+      \field{number}{7}
+      \field{title}{A Polynomial Analogue of the 3n + 1 Problem}
+      \field{volume}{115}
+      \field{year}{2008}
+      \field{pages}{615\bibrangedash 622}
+      \range{pages}{8}
+    \endentry
+    \entry{Ref_Snapp_Tracy_2008}{article}{}
+      \name{author}{2}{}{%
+        {{hash=68ad6b927d466ae69171927c4f86fb40}{%
+           family={Snapp},
+           familyi={S\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=fef14b379941fc1c3474c95b1274572f}{%
+           family={Tracy},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \strng{fullhash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \strng{bibnamehash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \strng{authorbibnamehash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \strng{authornamehash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \strng{authorfullhash}{32e6cbd8e4e20841ba20d2fb4c5decde}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Integer Sequences}
+      \field{number}{4}
+      \field{title}{The Collatz Problem and Analogues}
+      \field{volume}{11}
+      \field{year}{2008}
+    \endentry
+    \entry{Ref_Loeh}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8468515dd084bf1e26261cda44cc2cd3}{%
+           family={Löh},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8468515dd084bf1e26261cda44cc2cd3}
+      \strng{fullhash}{8468515dd084bf1e26261cda44cc2cd3}
+      \strng{bibnamehash}{8468515dd084bf1e26261cda44cc2cd3}
+      \strng{authorbibnamehash}{8468515dd084bf1e26261cda44cc2cd3}
+      \strng{authornamehash}{8468515dd084bf1e26261cda44cc2cd3}
+      \strng{authorfullhash}{8468515dd084bf1e26261cda44cc2cd3}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Geometric Group Theory: An Introduction}
+      \field{year}{2017}
+      \verb{doi}
+      \verb https://doi.org/10.1007/978-3-319-72254-2
+      \endverb
+    \endentry
+    \entry{Ref_Bondy_Murty}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fc429ec79bbd3ab14fa74a2460ebf4db}{%
+           family={Bondy},
+           familyi={B\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=44cfb76b2ac4dfb64db88edfbc0a8abd}{%
+           family={Murty},
+           familyi={M\bibinitperiod},
+           given={U.\bibnamedelimi S.\bibnamedelimi R.},
+           giveni={U\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Science}%
+      }
+      \strng{namehash}{2f77cd3798975852fc32eaed9d33c411}
+      \strng{fullhash}{2f77cd3798975852fc32eaed9d33c411}
+      \strng{bibnamehash}{2f77cd3798975852fc32eaed9d33c411}
+      \strng{authorbibnamehash}{2f77cd3798975852fc32eaed9d33c411}
+      \strng{authornamehash}{2f77cd3798975852fc32eaed9d33c411}
+      \strng{authorfullhash}{2f77cd3798975852fc32eaed9d33c411}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-444-19451-7}
+      \field{title}{Graph Theory with Applications}
+      \field{year}{1976}
+    \endentry
+    \entry{Ref_Bonnington_Little}{book}{}
+      \name{author}{2}{}{%
+        {{hash=2a9a664f0117539d3cd040481d7c2c64}{%
+           family={Bonnington},
+           familyi={B\bibinitperiod},
+           given={C.\bibnamedelimi P.},
+           giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=399847a3ed7ea0f8b1596a7fd561b816}{%
+           family={Little},
+           familyi={L\bibinitperiod},
+           given={C.\bibnamedelimi H.C.},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8fd300e31c46e2eb81038f76a3993265}
+      \strng{fullhash}{8fd300e31c46e2eb81038f76a3993265}
+      \strng{bibnamehash}{8fd300e31c46e2eb81038f76a3993265}
+      \strng{authorbibnamehash}{8fd300e31c46e2eb81038f76a3993265}
+      \strng{authornamehash}{8fd300e31c46e2eb81038f76a3993265}
+      \strng{authorfullhash}{8fd300e31c46e2eb81038f76a3993265}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Foundations of Topological Graph Theory}
+      \field{year}{1995}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-2540-9
+      \endverb
+    \endentry
+    \entry{Ref_Bender_Williamson}{book}{}
+      \name{author}{2}{}{%
+        {{hash=e10e7e6aa51a86b8e52cbff53fe89a8e}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={E.\bibnamedelimi A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3c050abad1483975b7952114f2e44de1}{%
+           family={Williamson},
+           familyi={W\bibinitperiod},
+           given={S.\bibnamedelimi G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dover}%
+      }
+      \strng{namehash}{626b7e095ddba31aa6f92a2e1b882742}
+      \strng{fullhash}{626b7e095ddba31aa6f92a2e1b882742}
+      \strng{bibnamehash}{626b7e095ddba31aa6f92a2e1b882742}
+      \strng{authorbibnamehash}{626b7e095ddba31aa6f92a2e1b882742}
+      \strng{authornamehash}{626b7e095ddba31aa6f92a2e1b882742}
+      \strng{authorfullhash}{626b7e095ddba31aa6f92a2e1b882742}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-486-44250-0}
+      \field{title}{Mathematics for Algorithm and System Analysis}
+      \field{year}{2005}
+    \endentry
+    \entry{Ref_Almeida}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=44aeaa610b555bdc8af8462d08ab5c2f}{%
+           family={Almeida},
+           familyi={A\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=dd4b9eeaf4bd1f1cfbaf6e7c6d109c50}{%
+           family={Kudryavtsev},
+           familyi={K\bibinitperiod},
+           given={V.\bibnamedelimi B.},
+           giveni={V\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=e340c83dd449ce00edc8d13cf48d2e9d}{%
+           family={Rosenberg},
+           familyi={R\bibinitperiod},
+           given={I.\bibnamedelimi G.},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dordrecht, Netherlands}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{fullhash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{bibnamehash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{authorbibnamehash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{authornamehash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{authorfullhash}{44aeaa610b555bdc8af8462d08ab5c2f}
+      \strng{editorbibnamehash}{e8e8e437f67b127510c725381dcfd6a2}
+      \strng{editornamehash}{e8e8e437f67b127510c725381dcfd6a2}
+      \strng{editorfullhash}{e8e8e437f67b127510c725381dcfd6a2}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Structural Theory of Automata, Semigroups, and Universal Algebra}
+      \field{series}{NATO Science Series II: Mathematics, Physics and Chemistry}
+      \field{title}{Profinite semigroups and applications}
+      \field{volume}{207}
+      \field{year}{2005}
+      \field{pages}{1\bibrangedash 45}
+      \range{pages}{45}
+    \endentry
+    \entry{Ref_Johnsonbaugh}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d086dd94a87b4d0c14ddec70a8023180}{%
+           family={Johnsonbaugh},
+           familyi={J\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{d086dd94a87b4d0c14ddec70a8023180}
+      \strng{fullhash}{d086dd94a87b4d0c14ddec70a8023180}
+      \strng{bibnamehash}{d086dd94a87b4d0c14ddec70a8023180}
+      \strng{authorbibnamehash}{d086dd94a87b4d0c14ddec70a8023180}
+      \strng{authornamehash}{d086dd94a87b4d0c14ddec70a8023180}
+      \strng{authorfullhash}{d086dd94a87b4d0c14ddec70a8023180}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{8}
+      \field{isbn}{0-321-96468-3}
+      \field{title}{Discrete Mathematics}
+      \field{year}{2017}
+    \endentry
+    \entry{Ref_MacLane_Birkhoff}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b52f472451feefbc827bef7a2cdd6e0e}{%
+           family={Mac\bibnamedelima Lane},
+           familyi={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fd4941cce3b0766c7673191a918e714c}{%
+           family={Birkhoff},
+           familyi={B\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AMS Chelsea Publishing}%
+      }
+      \strng{namehash}{f506e91669339c141a412352c3e805e7}
+      \strng{fullhash}{f506e91669339c141a412352c3e805e7}
+      \strng{bibnamehash}{f506e91669339c141a412352c3e805e7}
+      \strng{authorbibnamehash}{f506e91669339c141a412352c3e805e7}
+      \strng{authornamehash}{f506e91669339c141a412352c3e805e7}
+      \strng{authorfullhash}{f506e91669339c141a412352c3e805e7}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{0821816462}
+      \field{title}{Algebra}
+      \field{year}{1999}
+    \endentry
+    \entry{Ref_Novak_etal}{book}{}
+      \name{author}{3}{}{%
+        {{hash=3accb7b629060d73a65e7e5c07d872c8}{%
+           family={Novák},
+           familyi={N\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=464fb8ef0d9428e76182896778e8bd86}{%
+           family={Perfilieva},
+           familyi={P\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=6b1e66c0424e2df67523db52e313abe8}{%
+           family={Močkoř},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \strng{fullhash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \strng{bibnamehash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \strng{authorbibnamehash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \strng{authornamehash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \strng{authorfullhash}{17289c1bd3139c5ae1f67919fd8e75d2}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mathematical Principles of Fuzzy Logic}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.1007/978-1-4615-5217-8
+      \endverb
+    \endentry
+    \entry{Ref_Pellissier}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=18efceca23d8750837a2ca1060a95887}{%
+           family={Angot-Pellissier},
+           familyi={A\bibinithyphendelim P\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=75a1972729bac3184e3b74bdac3484f7}{%
+           family={Koslow},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7ecb369de2fe4107d5bdfb6da6bf3feb}{%
+           family={Buchsbaum},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser}%
+      }
+      \strng{namehash}{18efceca23d8750837a2ca1060a95887}
+      \strng{fullhash}{18efceca23d8750837a2ca1060a95887}
+      \strng{bibnamehash}{18efceca23d8750837a2ca1060a95887}
+      \strng{authorbibnamehash}{18efceca23d8750837a2ca1060a95887}
+      \strng{authornamehash}{18efceca23d8750837a2ca1060a95887}
+      \strng{authorfullhash}{18efceca23d8750837a2ca1060a95887}
+      \strng{editorbibnamehash}{1c63c2e852e4f0b42a0ee7f5fb6530fe}
+      \strng{editornamehash}{1c63c2e852e4f0b42a0ee7f5fb6530fe}
+      \strng{editorfullhash}{1c63c2e852e4f0b42a0ee7f5fb6530fe}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Road to Universal Logic: Festschrift for the 50th Birthday of Jean-Yves Beziau}
+      \field{title}{The Relation Between Logic, Set Theory and Topos Theory as It Is Used by Alain Badiou}
+      \field{volume}{2}
+      \field{year}{2015}
+      \field{pages}{181\bibrangedash 200}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-3-319-15368-1
+      \endverb
+    \endentry
+    \entry{Ref_Helemskii}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9a3af90e2340fb9b2c7c10db0a5b3ecf}{%
+           family={Helemskii},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi Ya.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \strng{fullhash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \strng{bibnamehash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \strng{authorbibnamehash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \strng{authornamehash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \strng{authorfullhash}{9a3af90e2340fb9b2c7c10db0a5b3ecf}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-8218-4098-3}
+      \field{title}{Lectures and Exercises on Functional Analysis}
+      \field{year}{2006}
+    \endentry
+    \entry{Ref_Rosen}{book}{}
+      \name{author}{1}{}{%
+        {{hash=14f2d77753239cec73d02582771b7311}{%
+           family={Rosen},
+           familyi={R\bibinitperiod},
+           given={K.\bibnamedelimi H.},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{14f2d77753239cec73d02582771b7311}
+      \strng{fullhash}{14f2d77753239cec73d02582771b7311}
+      \strng{bibnamehash}{14f2d77753239cec73d02582771b7311}
+      \strng{authorbibnamehash}{14f2d77753239cec73d02582771b7311}
+      \strng{authornamehash}{14f2d77753239cec73d02582771b7311}
+      \strng{authorfullhash}{14f2d77753239cec73d02582771b7311}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{isbn}{978-0-07-338309-5}
+      \field{title}{Discrete Mathematics and Its Applications}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_Makinson}{book}{}
+      \name{author}{1}{}{%
+        {{hash=526967f71aba1ea658ddb510130848d1}{%
+           family={Makinson},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{526967f71aba1ea658ddb510130848d1}
+      \strng{fullhash}{526967f71aba1ea658ddb510130848d1}
+      \strng{bibnamehash}{526967f71aba1ea658ddb510130848d1}
+      \strng{authorbibnamehash}{526967f71aba1ea658ddb510130848d1}
+      \strng{authornamehash}{526967f71aba1ea658ddb510130848d1}
+      \strng{authorfullhash}{526967f71aba1ea658ddb510130848d1}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Sets, Logic and Maths for Computing}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1007/978-1-4471-2500-6
+      \endverb
+    \endentry
+    \entry{Ref_Korte_Vygen}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b6e7bc1b2306396f3c9731e464dea9e8}{%
+           family={Korte},
+           familyi={K\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f5804a2ef553ee00908ef2f139cccc9f}{%
+           family={Vygen},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{14a9b74aa544673c2cffa536e1e20af1}
+      \strng{fullhash}{14a9b74aa544673c2cffa536e1e20af1}
+      \strng{bibnamehash}{14a9b74aa544673c2cffa536e1e20af1}
+      \strng{authorbibnamehash}{14a9b74aa544673c2cffa536e1e20af1}
+      \strng{authornamehash}{14a9b74aa544673c2cffa536e1e20af1}
+      \strng{authorfullhash}{14a9b74aa544673c2cffa536e1e20af1}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{title}{Combinatorial Optimization: Theory and Algorithms}
+      \field{year}{2018}
+      \verb{doi}
+      \verb https://doi.org/10.1007/978-3-662-56039-6
+      \endverb
+    \endentry
+    \entry{Ref_Mehlhorn_Sanders}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d8257ed82dc1c264b5d5dc29347231b6}{%
+           family={Mehlhorn},
+           familyi={M\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7e58970c1572c206234cfb743cd5308d}{%
+           family={Sanders},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{4e274f0c03ce284afaff772d55ac66e4}
+      \strng{fullhash}{4e274f0c03ce284afaff772d55ac66e4}
+      \strng{bibnamehash}{4e274f0c03ce284afaff772d55ac66e4}
+      \strng{authorbibnamehash}{4e274f0c03ce284afaff772d55ac66e4}
+      \strng{authornamehash}{4e274f0c03ce284afaff772d55ac66e4}
+      \strng{authorfullhash}{4e274f0c03ce284afaff772d55ac66e4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algorithms and Data Structures: The Basic Toolbox}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1007/978-3-540-77978-0
+      \endverb
+    \endentry
+    \entry{Ref_Du_Ko_Hu}{book}{}
+      \name{author}{3}{}{%
+        {{hash=98aaf817d41352cc92abb3885d02652c}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={D.-Z.},
+           giveni={D\bibinithyphendelim Z\bibinitperiod}}}%
+        {{hash=75b7026be1745233ae11b8d8e321b8de}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={K.-I},
+           giveni={K\bibinithyphendelim I\bibinitperiod}}}%
+        {{hash=78466fe544514d72cc7ea5a5321418d5}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7b967ddb91f8b92e5dab631452431e02}
+      \strng{fullhash}{7b967ddb91f8b92e5dab631452431e02}
+      \strng{bibnamehash}{7b967ddb91f8b92e5dab631452431e02}
+      \strng{authorbibnamehash}{7b967ddb91f8b92e5dab631452431e02}
+      \strng{authornamehash}{7b967ddb91f8b92e5dab631452431e02}
+      \strng{authorfullhash}{7b967ddb91f8b92e5dab631452431e02}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Design and Analysis of Approximation Algorithms}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1007/978-1-4614-1701-9
+      \endverb
+    \endentry
+    \entry{Ref_Ehrig_etal}{book}{}
+      \name{author}{4}{}{%
+        {{hash=d81ac391af04ac20624d01576c278a5e}{%
+           family={Ehrig},
+           familyi={E\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e12c9e2cd1e9ccece6e2238b692629f7}{%
+           family={Ehrig},
+           familyi={E\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d1483725f10b8fa79f7eb82d3a7ecb99}{%
+           family={Prange},
+           familyi={P\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=dba07a0c89fa9d778edb22b59cab587b}{%
+           family={Taentzer},
+           familyi={T\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d1b5acb823c45a40d62f75d28aa27fee}
+      \strng{fullhash}{e5b57abc8abe422aa7e4325f4ac12db9}
+      \strng{bibnamehash}{d1b5acb823c45a40d62f75d28aa27fee}
+      \strng{authorbibnamehash}{d1b5acb823c45a40d62f75d28aa27fee}
+      \strng{authornamehash}{d1b5acb823c45a40d62f75d28aa27fee}
+      \strng{authorfullhash}{e5b57abc8abe422aa7e4325f4ac12db9}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamentals of Algebraic Graph Transformation}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1007/3-540-31188-2
+      \endverb
+    \endentry
+    \entry{Ref_Childs}{book}{}
+      \name{author}{1}{}{%
+        {{hash=dc3d8f4d93a419722659ea4909f580e5}{%
+           family={Childs},
+           familyi={C\bibinitperiod},
+           given={L.\bibnamedelimi N.},
+           giveni={L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{dc3d8f4d93a419722659ea4909f580e5}
+      \strng{fullhash}{dc3d8f4d93a419722659ea4909f580e5}
+      \strng{bibnamehash}{dc3d8f4d93a419722659ea4909f580e5}
+      \strng{authorbibnamehash}{dc3d8f4d93a419722659ea4909f580e5}
+      \strng{authornamehash}{dc3d8f4d93a419722659ea4909f580e5}
+      \strng{authorfullhash}{dc3d8f4d93a419722659ea4909f580e5}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{A Concrete Introduction to Higher Algebra}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1007/978-0-387-74725-5
+      \endverb
+    \endentry
+    \entry{Ref_Voloshin}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3f72cfbe7a133d7222a9991c70cedc2c}{%
+           family={Voloshin},
+           familyi={V\bibinitperiod},
+           given={V.\bibnamedelimi I.},
+           giveni={V\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nova Science Publishers}%
+      }
+      \strng{namehash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \strng{fullhash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \strng{bibnamehash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \strng{authorbibnamehash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \strng{authornamehash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \strng{authorfullhash}{3f72cfbe7a133d7222a9991c70cedc2c}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-61470-112-5}
+      \field{title}{Introduction to Graph and Hypergraph Theory}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_Loehr}{book}{}
+      \name{author}{1}{}{%
+        {{hash=201c12184e04ea5f028ae1763ec62e8f}{%
+           family={Loehr},
+           familyi={L\bibinitperiod},
+           given={N.\bibnamedelimi A.},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{201c12184e04ea5f028ae1763ec62e8f}
+      \strng{fullhash}{201c12184e04ea5f028ae1763ec62e8f}
+      \strng{bibnamehash}{201c12184e04ea5f028ae1763ec62e8f}
+      \strng{authorbibnamehash}{201c12184e04ea5f028ae1763ec62e8f}
+      \strng{authornamehash}{201c12184e04ea5f028ae1763ec62e8f}
+      \strng{authorfullhash}{201c12184e04ea5f028ae1763ec62e8f}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-1-4987-8025-4}
+      \field{title}{Combinatorics}
+      \field{year}{2017}
+    \endentry
+    \entry{Ref_Conrow}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=605582f3c53584af77bc55dedd405528}{%
+           family={Conrow},
+           familyi={C\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{605582f3c53584af77bc55dedd405528}
+      \strng{fullhash}{605582f3c53584af77bc55dedd405528}
+      \strng{bibnamehash}{605582f3c53584af77bc55dedd405528}
+      \strng{authorbibnamehash}{605582f3c53584af77bc55dedd405528}
+      \strng{authornamehash}{605582f3c53584af77bc55dedd405528}
+      \strng{authorfullhash}{605582f3c53584af77bc55dedd405528}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Structure of the Collatz Graph; A Recursive Production of the Predecessor Tree; Proof of the Collatz 3x+1 Conjecture}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.423.3396
+      \endverb
+      \verb{url}
+      \verb http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.423.3396
+      \endverb
+    \endentry
+    \entry{Ref_Bauer}{book}{}
+      \name{author}{1}{}{%
+        {{hash=729af09497a21b8e309c18ed130cfa06}{%
+           family={Bauer},
+           familyi={B\bibinitperiod},
+           given={F.\bibnamedelimi L.},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{729af09497a21b8e309c18ed130cfa06}
+      \strng{fullhash}{729af09497a21b8e309c18ed130cfa06}
+      \strng{bibnamehash}{729af09497a21b8e309c18ed130cfa06}
+      \strng{authorbibnamehash}{729af09497a21b8e309c18ed130cfa06}
+      \strng{authornamehash}{729af09497a21b8e309c18ed130cfa06}
+      \strng{authorfullhash}{729af09497a21b8e309c18ed130cfa06}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Historische Notizen zur Informatik}
+      \field{year}{2009}
+      \verb{doi}
+      \verb 10.1007/978-3-540-85790-7
+      \endverb
+    \endentry
+    \entry{Ref_Hercher}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5ca67d7629a61b537ddaa8d410c758e7}{%
+           family={Hercher},
+           familyi={H\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \strng{fullhash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \strng{bibnamehash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \strng{authorbibnamehash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \strng{authornamehash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \strng{authorfullhash}{5ca67d7629a61b537ddaa8d410c758e7}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{Hefte 6 und 7}
+      \field{journaltitle}{Die Wurzel}
+      \field{title}{Über die Länge nicht-trivialer Collatz-Zyklen}
+      \field{year}{2018}
+    \endentry
+    \entry{Ref_OESIS}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=77d4d013b3659fed9b676c5a8fb79a5d}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={The\bibnamedelima OEIS},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \strng{fullhash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \strng{bibnamehash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \strng{authorbibnamehash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \strng{authornamehash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \strng{authorfullhash}{77d4d013b3659fed9b676c5a8fb79a5d}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Self-contained numbers: odd numbers n whose Collatz sequence contains a higher multiple of n}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://oeis.org/A005184
+      \endverb
+      \verb{url}
+      \verb https://oeis.org/A005184
+      \endverb
+    \endentry
+    \entry{Ref_Guy}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3ac095eff7ee3c261195f36fd9cf8a18}{%
+           family={Guy},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \strng{fullhash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \strng{bibnamehash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \strng{authorbibnamehash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \strng{authornamehash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \strng{authorfullhash}{3ac095eff7ee3c261195f36fd9cf8a18}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-1-4419-1928-1}
+      \field{title}{Unsolved Problems in Number Theory}
+      \field{year}{2004}
+      \verb{doi}
+      \verb 10.1007/978-0-387-26677-0
+      \endverb
+    \endentry
+    \entry{Ref_Cormen_Leiserson_Rivest_Stein}{book}{}
+      \name{author}{4}{}{%
+        {{hash=45b8a1d10dd28c65dd843a76583308c3}{%
+           family={Cormen},
+           familyi={C\bibinitperiod},
+           given={T.\bibnamedelimi H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=c71fd291b2f1a30d3a8bdcd818638fd0}{%
+           family={Leiserson},
+           familyi={L\bibinitperiod},
+           given={C.\bibnamedelimi E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=6a630bbc1f4da3f000de53a8c3fcda9a}{%
+           family={Rivest},
+           familyi={R\bibinitperiod},
+           given={R.\bibnamedelimi L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=340a9e41a37c56843c3354ab4ef758e7}{%
+           family={Stein},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The MIT Press}%
+      }
+      \strng{namehash}{5cf5d801586d363520fa1998e7e71c6f}
+      \strng{fullhash}{677319d1db3e1c54f3d98b68b2a6a846}
+      \strng{bibnamehash}{5cf5d801586d363520fa1998e7e71c6f}
+      \strng{authorbibnamehash}{5cf5d801586d363520fa1998e7e71c6f}
+      \strng{authornamehash}{5cf5d801586d363520fa1998e7e71c6f}
+      \strng{authorfullhash}{677319d1db3e1c54f3d98b68b2a6a846}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-0-262-03384-8}
+      \field{title}{Introduction to Algorithms}
+      \field{year}{2009}
+    \endentry
+    \entry{Ref_Benjamin_Chartrand_Zhang}{book}{}
+      \name{author}{3}{}{%
+        {{hash=7bfc6a934d25d2c46759ae97698b242c}{%
+           family={Benjamin},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=39c49f4b80b3c928402d5e9ec76bde62}{%
+           family={Chartrand},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c7cc964df728a70ad780d497f5485ea8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \strng{fullhash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \strng{bibnamehash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \strng{authorbibnamehash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \strng{authornamehash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \strng{authorfullhash}{71436f008f4fbdc7faf9d29d00588f9e}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-691-16381-9}
+      \field{title}{The Fascinating World of Graph Theory}
+      \field{year}{2015}
+    \endentry
+    \entry{Ref_Chartrand_Zhang}{book}{}
+      \name{author}{2}{}{%
+        {{hash=39c49f4b80b3c928402d5e9ec76bde62}{%
+           family={Chartrand},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c7cc964df728a70ad780d497f5485ea8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Waveland Press, Inc.}%
+      }
+      \strng{namehash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \strng{fullhash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \strng{bibnamehash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \strng{authorbibnamehash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \strng{authornamehash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \strng{authorfullhash}{1b14fb9929d3aa53fc341464a4a9eb6c}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-57766-730-8}
+      \field{title}{Discrete Mathematics}
+      \field{year}{2011}
+    \endentry
+    \entry{Ref_Knopp}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b0d109e30e504a2e559eb6224858bfbe}{%
+           family={Knopp},
+           familyi={K\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b0d109e30e504a2e559eb6224858bfbe}
+      \strng{fullhash}{b0d109e30e504a2e559eb6224858bfbe}
+      \strng{bibnamehash}{b0d109e30e504a2e559eb6224858bfbe}
+      \strng{authorbibnamehash}{b0d109e30e504a2e559eb6224858bfbe}
+      \strng{authornamehash}{b0d109e30e504a2e559eb6224858bfbe}
+      \strng{authorfullhash}{b0d109e30e504a2e559eb6224858bfbe}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-3-662-41730-0}
+      \field{title}{Theorie und Anwendung der Unendlichen Reihen}
+      \field{year}{1924}
+      \verb{doi}
+      \verb 10.1007/978-3-662-41871-0
+      \endverb
+    \endentry
+    \entry{Ref_Laarhoven}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=213eb5bd2e575c2f972682a4be839b5c}{%
+           family={Laarhoven},
+           familyi={L\bibinitperiod},
+           given={T.M.M.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Eindhoven University of Technology}%
+      }
+      \strng{namehash}{213eb5bd2e575c2f972682a4be839b5c}
+      \strng{fullhash}{213eb5bd2e575c2f972682a4be839b5c}
+      \strng{bibnamehash}{213eb5bd2e575c2f972682a4be839b5c}
+      \strng{authorbibnamehash}{213eb5bd2e575c2f972682a4be839b5c}
+      \strng{authornamehash}{213eb5bd2e575c2f972682a4be839b5c}
+      \strng{authorfullhash}{213eb5bd2e575c2f972682a4be839b5c}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{title}{The 3n + 1 conjecture}
+      \field{year}{2009}
+    \endentry
+    \entry{Ref_Moore}{book}{}
+      \name{author}{1}{}{%
+        {{hash=610bbcd6b52a4e3b0c6c11c19325647c}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={C.\bibnamedelimi G.},
+           giveni={C\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Council of Teachers of Mathematics}%
+      }
+      \strng{namehash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \strng{fullhash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \strng{bibnamehash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \strng{authorbibnamehash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \strng{authornamehash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \strng{authorfullhash}{610bbcd6b52a4e3b0c6c11c19325647c}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Continued Fractions}
+      \field{year}{1964}
+    \endentry
+    \entry{Ref_Hensley}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1a2cf1604b1c653e115848468217c56a}{%
+           family={Hensley},
+           familyi={H\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific Publishing}%
+      }
+      \strng{namehash}{1a2cf1604b1c653e115848468217c56a}
+      \strng{fullhash}{1a2cf1604b1c653e115848468217c56a}
+      \strng{bibnamehash}{1a2cf1604b1c653e115848468217c56a}
+      \strng{authorbibnamehash}{1a2cf1604b1c653e115848468217c56a}
+      \strng{authornamehash}{1a2cf1604b1c653e115848468217c56a}
+      \strng{authorfullhash}{1a2cf1604b1c653e115848468217c56a}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{981-256-477-2}
+      \field{title}{Continued Fractions}
+      \field{year}{2006}
+    \endentry
+    \entry{Ref_Borwe_etal}{book}{}
+      \name{author}{4}{}{%
+        {{hash=1b2fa7483eccdc97e2d5d2df26a16b27}{%
+           family={Borwe},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2144c5be9eee9c827af8ee44ebdd4c73}{%
+           family={Poorten},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=5dfe869d9a95d0441d0493f66c420c6c}{%
+           family={Shallit},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0f89edd52aa6fafcd6ac05c653ab4ea0}{%
+           family={Zudlin},
+           familyi={Z\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{43e33cc8252ecc6788f38ed2a6153e7c}
+      \strng{fullhash}{d9626f2425ac5cc65f8a4eb591c998ed}
+      \strng{bibnamehash}{43e33cc8252ecc6788f38ed2a6153e7c}
+      \strng{authorbibnamehash}{43e33cc8252ecc6788f38ed2a6153e7c}
+      \strng{authornamehash}{43e33cc8252ecc6788f38ed2a6153e7c}
+      \strng{authorfullhash}{d9626f2425ac5cc65f8a4eb591c998ed}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-18649-0}
+      \field{title}{Neverending Fractions: An Introduction to Continued Fractions}
+      \field{year}{2014}
+    \endentry
+    \entry{Ref_Kraaikamp_Wu}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3e0007d1841fbbc8c8181b3683899dbf}{%
+           family={Kraaikamp},
+           familyi={K\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=c9667b22c99aad50bf67c2b9c7a7e6e3}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \strng{fullhash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \strng{bibnamehash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \strng{authorbibnamehash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \strng{authornamehash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \strng{authorfullhash}{ac0a189c224e521d51a35c3fa9a1451f}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{4}
+      \field{journaltitle}{Monatshefte für Mathematik}
+      \field{title}{On a New Continued Fraction Expansion with Non-Decreasing Partial Quotients}
+      \field{volume}{143}
+      \field{year}{2004}
+      \field{pages}{285\bibrangedash 298}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/s00605-004-0246-3
+      \endverb
+    \endentry
+    \entry{Ref_Zwillinger_Kokoska}{book}{}
+      \name{author}{2}{}{%
+        {{hash=eee5cd221949b514b82d85dc9cee1887}{%
+           family={Zwillinger},
+           familyi={Z\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=aeb119696415dbef409be6fd01613e67}{%
+           family={Kokoska},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Chapman \& Hall/CRC}%
+      }
+      \strng{namehash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \strng{fullhash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \strng{bibnamehash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \strng{authorbibnamehash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \strng{authornamehash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \strng{authorfullhash}{bb74b9f3832c8c4751d93c2d854c849f}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-58488-059-7}
+      \field{title}{Standard Probability and Statistics Tables and Formulae}
+      \field{year}{2000}
+    \endentry
+    \entry{Ref_Brychkov}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0ce47f8b7d6f54280c1f599038148a4}{%
+           family={Brychkov},
+           familyi={B\bibinitperiod},
+           given={Y.\bibnamedelimi A.},
+           giveni={Y\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Chapman \& Hall/CRC}%
+      }
+      \strng{namehash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \strng{fullhash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \strng{bibnamehash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \strng{authorbibnamehash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \strng{authornamehash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \strng{authorfullhash}{a0ce47f8b7d6f54280c1f599038148a4}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-58488-956-4}
+      \field{title}{Handbook of Special Functions: Derivatives, Integrals, Series and Other Formulas}
+      \field{year}{2008}
+    \endentry
+    \entry{Ref_Trott}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e4e1cfe30e5677af812d287ee1799f2c}{%
+           family={Trott},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science+Business Media, Inc.}%
+      }
+      \strng{namehash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \strng{fullhash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \strng{bibnamehash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \strng{authorbibnamehash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \strng{authornamehash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \strng{authorfullhash}{e4e1cfe30e5677af812d287ee1799f2c}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0387-95020-4}
+      \field{title}{The Mathematica GuideBook for Symbolics}
+      \field{year}{2006}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'algebrabook.blg'
+[31] biber-MSWIN64:315> INFO - === 
+[49] Biber.pm:375> INFO - Reading 'algebrabook.bcf'
+[142] Biber.pm:905> INFO - Found 66 citekeys in bib section 0
+[155] Biber.pm:4196> INFO - Processing section 0
+[156] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
+[163] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
+[174] Biber.pm:4373> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[177] bibtex.pm:1462> INFO - LaTeX decoding ...
+[241] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[513] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[513] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[513] Biber.pm:4024> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[513] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-US'
+[550] bbl.pm:648> INFO - Writing 'algebrabook.bbl' with encoding 'UTF-8'
+[575] bbl.pm:751> INFO - Output to algebrabook.bbl

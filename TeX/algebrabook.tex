@@ -1,0 +1,68 @@
+\documentclass{algebrabook}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[misc]{ifsym}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,automata,petri}
+
+% Text alignment in tables with fixed column width
+\usepackage{tabularx}
+\usepackage{colortbl}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% Align table headers differently using \thead
+\usepackage{makecell}
+
+% empty all blank pages created by \cleardoublepage
+\usepackage{emptypage}
+
+% Bibliography
+\usepackage[backend=biber,sorting=none]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+
+%--------------------------------------------------------------------------
+% Table of contents
+%--------------------------------------------------------------------------
+\tableofcontents
+\pagestyle{fancy}
+
+%--------------------------------------------------------------------------
+% Chapters
+%--------------------------------------------------------------------------
+\input{./chapter/01_introduction_COX_EDIT.tex}
+\input{./chapter/02_collatz_tree_COX_EDIT.tex}
+\input{./chapter/03_examination_hc3.tex}
+%\input{./chapter/03_examination_hc3_pre.tex}
+\input{./chapter/04_conclusion_update_COX_EDIT.tex}
+\input{./chapter/05_appendix.tex}
+
+%--------------------------------------------------------------------------
+% Bibliography
+%--------------------------------------------------------------------------
+%\ifodd\thepage
+%	\addtocounter{page}{2}
+%\else
+%	\addtocounter{page}{1}
+%\fi
+
+% The bibliography starts on a new right-hand page.
+% To ensure that the entry in the toc comes out with the correct
+% page number, we issue the command "cleardoublepage" (manually)
+% before "addcontentsline", and then we call "printbibliography".
+% See https://tex.stackexchange.com/questions/154740/wrong-page-number-of-
+%     references-in-toc-scrreprt/154744
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\textcolor{wisogreen}{Literature}}
+\printbibliography[title={Literature}]
+
+\input{./chapter/09_about_us_COX_EDIT.tex}
+
+\end{document}
