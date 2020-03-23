@@ -204,9 +204,11 @@ An analoguous example in the Collatz context is the path from $v_9=103$ down to 
 \end{equation*}
 
 \par\medskip\noindent
-According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained} since it divides $310=v_9*3+1$ and $v_9$ results from applying a function (in this case the Collatz function) multiple times using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}.
+According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained} since it divides $155=v_{10}$ and $v_{10}$ results from applying one and the same function (in this case the Collatz function) multiple times using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}. Generally, for any variant $kx+1$ it applies that if $v_1\mid v_{n+1}$, the the product is natural:
+\begin{equation*}
+	\prod_{i=1}^n\left(k+\frac{1}{v_i}\right)\in \mathbb{N}
+\end{equation*}
 
-\par\bigskip
 A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
 
 \begin{remark}
