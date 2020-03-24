@@ -153,7 +153,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 
 \newenvironment{boxdefinition}
 {\begin{tcolorbox}
-[enhanced jigsaw,breakable,pad at break*=1mm,
+[enhanced jigsaw,pad at break*=1mm,
  colback=yellow!10!white,boxrule=0pt,frame hidden,
  borderline west={1.5mm}{-2mm}{tsforestgreen}]}
 {\end{tcolorbox}}
