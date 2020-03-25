@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.11)  24 MAR 2020 07:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.11)  25 MAR 2020 17:49
 entering extended mode
 **./algebrabook.tex
 (algebrabook.tex
@@ -2541,129 +2541,126 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 115.
 
-[9] [10 <./figures/h_c.png>]
-<figures/h_u.png, id=410, 561.97453pt x 580.79485pt>
+[9] [10 <./figures/h_c.png>] [11]
+<figures/h_u.png, id=427, 561.97453pt x 580.79485pt>
 File: figures/h_u.png Graphic file (type png)
 <use figures/h_u.png>
-Package pdftex.def Info: figures/h_u.png  used on input line 189.
+Package pdftex.def Info: figures/h_u.png  used on input line 231.
 (pdftex.def)             Requested size: 443.57848pt x 458.43297pt.
- [11] [12 <./figures/h_u.png>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 235.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 235.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 235.
+(hyperref)                removing `math shift' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `subscript' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 236.
+
+[13 <./figures/h_u.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 253.
+(hyperref)                removing `math shift' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
-
-[13]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `subscript' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 299.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 298.
+(hyperref)                removing `math shift' on input line 299.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 299.
 
 [14]
 <figures/h_c5b.png, id=458, 534.12047pt x 133.24782pt>
 File: figures/h_c5b.png Graphic file (type png)
 <use figures/h_c5b.png>
-Package pdftex.def Info: figures/h_c5b.png  used on input line 328.
+Package pdftex.def Info: figures/h_c5b.png  used on input line 329.
 (pdftex.def)             Requested size: 443.57848pt x 110.66478pt.
 File: images/idea.pdf Graphic file (type pdf)
 <use images/idea.pdf>
-Package pdftex.def Info: images/idea.pdf  used on input line 339.
+Package pdftex.def Info: images/idea.pdf  used on input line 340.
 (pdftex.def)             Requested size: 28.45274pt x 28.45087pt.
  [15 <./figures/h_c5b.png>]
-<figures/h_c5a.png, id=476, 865.73438pt x 253.32141pt>
+<figures/h_c5a.png, id=475, 865.73438pt x 253.32141pt>
 File: figures/h_c5a.png Graphic file (type png)
 <use figures/h_c5a.png>
-Package pdftex.def Info: figures/h_c5a.png  used on input line 349.
+Package pdftex.def Info: figures/h_c5a.png  used on input line 350.
 (pdftex.def)             Requested size: 443.57848pt x 129.7952pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 368.
+(hyperref)                removing `math shift' on input line 369.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 368.
+(hyperref)                removing `subscript' on input line 369.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 368.
+(hyperref)                removing `math shift' on input line 369.
 
-[16 <./figures/h_c5a.png>]
-Overfull \vbox (3.0pt too high) has occurred while \output is active []
-
- [17]
-Underfull \vbox (badness 3068) has occurred while \output is active []
-
- [18]
+[16 <./figures/h_c5a.png>] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 545.
+(hyperref)                removing `math shift' on input line 546.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 545.
+(hyperref)                removing `math shift' on input line 546.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 556.
+(hyperref)                removing `math shift' on input line 557.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 556.
+(hyperref)                removing `math shift' on input line 557.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 556.
+(hyperref)                removing `math shift' on input line 557.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 556.
+(hyperref)                removing `subscript' on input line 557.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 556.
+(hyperref)                removing `math shift' on input line 557.
 
 [19]) (chapter/03_examination_hc3.tex [20]
 Chapter 3.
@@ -2860,10 +2857,10 @@ Package logreq Info: Writing requests to 'algebrabook.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50698 strings out of 492452
- 1033412 string characters out of 3134438
- 1507622 words of memory out of 3000000
- 54082 multiletter control sequences out of 15000+200000
+ 50699 strings out of 492452
+ 1033422 string characters out of 3134438
+ 1507623 words of memory out of 3000000
+ 54083 multiletter control sequences out of 15000+200000
  771308 words of font info for 304 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,21n,107p,1254b,1767s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2889,7 +2886,7 @@ sers/esultano/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/kpfonts/jkpttmn8a.p
 fb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/TeX/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/TeX/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebrabook.pdf (33 pages, 1228533 bytes).
+Output written on algebrabook.pdf (33 pages, 1228758 bytes).
 PDF statistics:
  806 PDF objects out of 1000 (max. 8388607)
  165 named destinations out of 1000 (max. 500000)
