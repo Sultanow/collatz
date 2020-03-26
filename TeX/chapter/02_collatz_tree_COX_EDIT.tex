@@ -173,6 +173,28 @@ In order to demonstrate the construction produced by theorem~\ref{theo:1} in an 
 	$v_{n+1}=r\circ q^{\alpha_{n+1}}\left(v_{n+2}\right)$.
 \end{proof}
 
+Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{1+n},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to get correct results using Theorem~\ref{theo:1} we specify its halting conditions by definition~\ref{def:halting_condition}.
+
+\begin{definition}
+	\label{def:halting_condition}
+	When determining successive nodes starting at $v_1$ according to Theorem~\ref{theo:1}, we halt if one of the following two conditions is fulfilled:
+	\begin{enumerate}
+		\item $v_{n+1}=1$
+		\item $v_{n+1}\in\{v_1,v_2,\ldots,v_n\}$
+	\end{enumerate}
+	If the first condition applies, the Collatz conjecture is true for a specific sequence. When the second condition is fulfilled, the sequence has led to a cycle. For every starting node, except the root node (labeled with $1$), the Collatz conjecture is consequently falsified. Let us consider the example $v_1=13$, where the algorithm halts after two iterations, because after two iterations the first condition holds:
+	\[
+	v_{1+n}=3^2\cdot\left(1+\frac{1}{3\cdot13}\right)\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
+	\]
+	
+	If we examine the case $v_{1}=1$, we realize that the algorithm finishes after the first iteration, since both halting conditions become true. The sequence stops because the final node labeled with $1$ is reached after one iteration. Furthermore the sequence has led to a cycle:
+	\[
+	v_{1+n}=3\cdot\left(1+\frac{1}{3}\right)2^{-2}=1
+	\]
+	
+	As the latter example shows, the trivial cycle is the only sequence where both conditions are fulfilled.
+\end{definition}
+
 \noindent
 Theorem~\ref{theo:1} can be used for specifying the condition of a cycle as follows:
 
@@ -205,29 +227,7 @@ According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self
 
 A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
 
-Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{1+n},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to get correct results using Theorem~\ref{theo:1} we specify its halting conditions by definition~\ref{def:halting_condition}.
-
-\begin{definition}
-\label{def:halting_condition}
-When determining successive nodes starting at $v_1$ according to Theorem~\ref{theo:1}, we halt if one of the following two conditions is fulfilled:
-\begin{enumerate}
-	\item $v_{n+1}=1$
-	\item $v_{n+1}\in\{v_1,v_2,\ldots,v_n\}$
-\end{enumerate}
-If the first condition applies, the Collatz conjecture is true for a specific sequence. When the second condition is fulfilled, the sequence has led to a cycle. For every starting node, except the root node (labeled with $1$), the Collatz conjecture is consequently falsified. Let us consider the example $v_1=13$, where the algorithm halts after two iterations, because after two iterations the first condition holds:
-\[
-v_{1+n}=3^2\cdot\left(1+\frac{1}{3\cdot13}\right)\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
-\]
-
-If we examine the case $v_{1}=1$, we realize that the algorithm finishes after the first iteration, since both halting conditions become true. The sequence stops because the final node labeled with $1$ is reached after one iteration. Furthermore the sequence has led to a cycle:
-\[
-v_{1+n}=3\cdot\left(1+\frac{1}{3}\right)2^{-2}=1
-\]
-
-As the latter example shows, the trivial cycle is the only sequence where both conditions are fulfilled.
-\end{definition}
-
-\begin{figure}[H]
+\begin{figure}
 	\includegraphics[width=1.00\textwidth]{figures/h_u.png}
 	\caption{Section of $H_U$ containing the path from $5$ to $45$}
 	\label{fig:3}
