@@ -207,25 +207,25 @@ v_{1}=3^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{3v_i}\right)2^{-\alpha_i}
 \end{array}
 \end{equation}
 
-A similar condition has been formulated by Hercher \cite{Ref_Hercher}. Taking a first look at equation~\ref{eq:func_cycle}, we are able to recognize the trivial cycle for $n=1$. One might easily come to the false conclusion that only this trivial solution exists since we are multiplying fractional numbers. However, we might change our position on this triviality when we examine the following case of using $5$ instead of $3$ which indeed forms a cycle in the $5x+1$ variant of Collatz sequences:
+A similar condition has been formulated by Hercher \cite{Ref_Hercher}. Taking a first look at equation~\ref{eq:func_cycle}, we are able to recognize the trivial cycle for $n=1$. One might easily come to the false conclusion that the term only results in a natural number for this trivial cylce, since we are multiplying fractions. The following counterexample, starting at $v_1=31$, disproves this assumption:
+\begin{equation*}
+20480=\left(3+\frac{1}{31}\right)\left(3+\frac{1}{47}\right)
+\left(3+\frac{1}{71}\right)\left(3+\frac{1}{107}\right)\left(3+\frac{1}{161}\right)\left(3+\frac{1}{121}\right)\left(3+\frac{1}{91}\right)\left(3+\frac{1}{137}\right)\left(3+\frac{1}{103}\right)
+\end{equation*}
+
+According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained}. The term self-contained is based on the fact that the node $v_{n+1}=v_{10}=155$ is divisible by the starting node $v_1=31$ and $v_{10}$ results from applying one and the same function (in this case the Collatz function) using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}. For such a case equation~\ref{eq:func_cycle} leads to a natural number, but not necessarily to a cycle. A cycle only occurs if the term results in a power of two. One example is the trivial cycle. We find another case if we choose the factor $5$ instead of $3$:
 \begin{center}
 	$128=2^7=\left(5+\frac{1}{13}\right)\left(5+\frac{1}{33}\right)
 	\left(5+\frac{1}{83}\right)$
 \end{center}
 
-An analoguous example in the Collatz context is the path from $v_9=103$ down to $v_1=31$:
-\begin{equation*}
-	20480=\left(3+\frac{1}{31}\right)\left(3+\frac{1}{47}\right)
-	\left(3+\frac{1}{71}\right)\left(3+\frac{1}{107}\right)\left(3+\frac{1}{161}\right)\left(3+\frac{1}{121}\right)\left(3+\frac{1}{91}\right)\left(3+\frac{1}{137}\right)\left(3+\frac{1}{103}\right)
-\end{equation*}
+The above example shows that non-trivial cycles can be found if we generalize the Collatz conjecture by replacing the factor $3$ with the variable $k$. We study this generalized form and the occurance of cycles in chapter \ref{sec:cycles} more deeply. A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
 
-\par\medskip\noindent
-According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained} since it divides $155=v_{10}$ and $v_{10}$ results from applying one and the same function (in this case the Collatz function) multiple times using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}. Generally, for any variant $kx+1$ it applies that if $v_1\mid v_{n+1}$, the the product is natural:
-\begin{equation*}
-	\prod_{i=1}^n\left(k+\frac{1}{v_i}\right)\in \mathbb{N}
-\end{equation*}
-
-A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
+%\par\medskip\noindent
+%Generally, for any variant $kx+1$ it applies that if $v_1\mid v_{n+1}$, the the product is natural:
+%\begin{equation*}
+%	\prod_{i=1}^n\left(k+\frac{1}{v_i}\right)\in \mathbb{N}
+%\end{equation*}
 
 \begin{figure}
 	\includegraphics[width=1.00\textwidth]{figures/h_u.png}
