@@ -114,18 +114,18 @@ definitions of the same tree exist, see for example Conrow
 
 \section{Relationship of successive nodes in \mbox{$H_C$}}
 
-Let $v_1$ and $v_{1+n}$ be two vertices of $H_C$, where $v_1$ is
-reachable from $v_{1+n}$ with $level(v_1)-level(v_{1+n})=n$.
-Hence, a path $(v_{1+n},\ldots,v_1)$ exists between these two
+Let $v_1$ and $v_{n+1}$ be two vertices of $H_C$, where $v_1$ is
+reachable from $v_{n+1}$ with $level(v_1)-level(v_{n+1})=n$.
+Hence, a path $(v_{n+1},\ldots,v_1)$ exists between these two
 vertices. Theorem~\ref{theo:1} specifies the following relationship
-between $v_1$ and $v_{1+n}$.
+between $v_1$ and $v_{n+1}$.
 
 \par\medskip
 \begin{theorem}
 	\label{theo:1}
-	$l_{V(H_C)}(v_{1+n})=3^nl_{V(H_C)}(v_1)\prod_{i=1}^{n}\left(1+\frac{1}{3l_{V(H_C)}(v_{i})}\right)2^{-\alpha_i}$.
+	$l_{V(H_C)}(v_{n+1})=3^nl_{V(H_C)}(v_1)\prod_{i=1}^{n}\left(1+\frac{1}{3l_{V(H_C)}(v_{i})}\right)2^{-\alpha_i}$.
 	In order to simplify readability, we waive writing down the vertex label function and put it shortly:\\
-	$v_{1+n}=3^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)2^{-\alpha_i}$.
+	$v_{n+1}=3^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)2^{-\alpha_i}$.
 	The value $\alpha_i\in\mathbb{N}$ is the number of edges which have been contracted between $v_i$ and $v_{i+1}$ in $H_U$.
 \end{theorem}
 
@@ -163,9 +163,9 @@ In order to demonstrate the construction produced by theorem~\ref{theo:1} in an 
 	&
 	=3\left(1+\frac{1}{3v_{n+1}}\right)2^{-\alpha_{n+1}}3^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{3v_i}\right)2^{-\alpha_i}\\
 	&
-	=3\left(1+\frac{1}{3v_{n+1}}\right)2^{-\alpha_{n+1}}v_{1+n}\\
+	=3\left(1+\frac{1}{3v_{n+1}}\right)2^{-\alpha_{n+1}}v_{n+1}\\
 	&
-	=\left(3v_{1+n}+1\right)2^{-\alpha_{n+1}}
+	=\left(3v_{n+1}+1\right)2^{-\alpha_{n+1}}
 	\end{array}
 	\end{equation*}
 	In this case the path from $v_{n+2}$ to $v_{n+1}$ is conformly 
@@ -173,7 +173,7 @@ In order to demonstrate the construction produced by theorem~\ref{theo:1} in an 
 	$v_{n+1}=r\circ q^{\alpha_{n+1}}\left(v_{n+2}\right)$.
 \end{proof}
 
-Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{1+n},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to get correct results using Theorem~\ref{theo:1} we specify its halting conditions by definition~\ref{def:halting_condition}.
+Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{n+1},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to get correct results using Theorem~\ref{theo:1} we specify its halting conditions by definition~\ref{def:halting_condition}.
 
 \begin{definition}
 	\label{def:halting_condition}
@@ -184,12 +184,12 @@ Even though the tree may theoretically contain two or more identically labeled v
 	\end{enumerate}
 	If the first condition applies, the Collatz conjecture is true for a specific sequence. When the second condition is fulfilled, the sequence has led to a cycle. For every starting node, except the root node (labeled with $1$), the Collatz conjecture is consequently falsified. Let us consider the example $v_1=13$, where the algorithm halts after two iterations, because after two iterations the first condition holds:
 	\[
-	v_{1+n}=3^2\cdot\left(1+\frac{1}{3\cdot13}\right)\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
+	v_{n+1}=3^2\cdot\left(1+\frac{1}{3\cdot13}\right)\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 	\]
 	
 	If we examine the case $v_{1}=1$, we realize that the algorithm finishes after the first iteration, since both halting conditions become true. The sequence stops because the final node labeled with $1$ is reached after one iteration. Furthermore the sequence has led to a cycle:
 	\[
-	v_{1+n}=3\cdot\left(1+\frac{1}{3}\right)2^{-2}=1
+	v_{n+1}=3\cdot\left(1+\frac{1}{3}\right)2^{-2}=1
 	\]
 	
 	As the latter example shows, the trivial cycle is the only sequence where both conditions are fulfilled.
@@ -371,7 +371,7 @@ Obviously, the authors note, it would be interesting to find out what circumstan
 Let us refer to a $kx+1$ variant of $H_C$ as $H_{C,k}$. By having introduced and proven theorem~\ref{theo:1} we already started an assertion about the reachability of successive nodes in $H_C$. This reachability relationship can be generalized for any graph $H_{C,k}$ as follows:
 \begin{equation}
 \label{eq:generalized_reachability}
-v_{1+n}=k^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)2^{-\alpha_i}
+v_{n+1}=k^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)2^{-\alpha_i}
 \end{equation}
 
 This generalization leads to the condition for an existence of an $n$-cycle in any $kx+1$ variant of $H_C$, which looks analogous to the condition given by equation~\ref{eq:func_cycle} that specifies $H_C$ has a cycle:
@@ -496,7 +496,7 @@ The key of theorem~\ref{theo:2} consists in the claim that, in order for an $n$-
 	\end{flalign}
 \end{samepage}
 
-The validity of the first part (\ref{eq:inequality_min}), which specifies $\lfloor n\log_2k\rfloor+1$ as the lower limit for $\bar\alpha$, can be demonstrated in a fairly simple way: Our starting point is equation~\ref{eq:generalized_reachability}, which describes the relationship of successive vertices in $H_{C,k}$. Having a cycle, requires us to consider the first and the last vertex being one and the same $v_{1+n}=v_1$. Setting a smaller exponent $\bar\alpha=\lfloor n\log_2k\rfloor$ into equation~\ref{eq:generalized_reachability} results in the inequality $v_{1+n}>v_1$, which is in any case a true statement:
+The validity of the first part (\ref{eq:inequality_min}), which specifies $\lfloor n\log_2k\rfloor+1$ as the lower limit for $\bar\alpha$, can be demonstrated in a fairly simple way: Our starting point is equation~\ref{eq:generalized_reachability}, which describes the relationship of successive vertices in $H_{C,k}$. Having a cycle, requires us to consider the first and the last vertex being one and the same $v_{n+1}=v_1$. Setting a smaller exponent $\bar\alpha=\lfloor n\log_2k\rfloor$ into equation~\ref{eq:generalized_reachability} results in the inequality $v_{n+1}>v_1$, which is in any case a true statement:
 \begin{equation*}
 	\begin{array}{l}
 		k^nv_12^{-\lfloor n\log_2k\rfloor}\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)>v_1
@@ -509,7 +509,7 @@ The validity of the first part (\ref{eq:inequality_min}), which specifies $\lflo
 	\end{array}	
 \end{equation*}
 
-The validity of the second part (\ref{eq:inequality_max}) is not so trivial to prove. Analogous to the above-shown proof of alpha's lower limit, we again refer to equation~\ref{eq:generalized_reachability} as our starting point and we need to show that $v_{1+n}$ is smaller than $v_1$ if $\alpha=\lfloor\ nlog_2k\rfloor+2$:
+The validity of the second part (\ref{eq:inequality_max}) is not so trivial to prove. Analogous to the above-shown proof of alpha's lower limit, we again refer to equation~\ref{eq:generalized_reachability} as our starting point and we need to show that $v_{n+1}$ is smaller than $v_1$ if $\alpha=\lfloor\ nlog_2k\rfloor+2$:
 \begin{equation*}
 	\begin{array}{l}
 		k^nv_12^{-\left(\lfloor n\log_2k\rfloor+2\right)}\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)<v_1
