@@ -277,10 +277,16 @@ A sketch of evidence of the condition~\ref{eq:condition_max} for other cases, na
 % Informatiker.pdf S. 120
 
 \section{Verifying alpha's upper limit for the $H_{C,k>1}$}
-Let us now validate alpha's upper limit for all $kx+1$ variants of $H_C$ for $k=3$. For this we need to show that the condition~\ref{eq:condition_max} is true for $k>1$. To improve readability, we denote the factor $(1+\frac{1}{3v_i})$ with $\beta_i$:
+%Let us now validate alpha's upper limit for all $kx+1$ variants of $H_C$ for $k=3$. For this we need to show that the condition~\ref{eq:condition_max} is true for $k=3$.
 
+In order to prove the upper limit of $\bar\alpha$ for $k=3$, we have to show that condition~\ref{eq:condition_max} is true:
 \begin{equation*}
-n\log_2k-\lfloor n\log_2k\rfloor<2-log_2\prod_{i=1}^{n}\beta_i
+n\log_2k-\lfloor n\log_2k\rfloor<2-log_2\prod_{i=1}^{n}(1+\frac{1}{3v_i})
+\end{equation*}
+
+To improve readability, we denote the factor $(1+\frac{1}{3v_i})$ with $\beta_i$:
+\begin{equation*}
+	n\log_2k-\lfloor n\log_2k\rfloor<2-log_2\prod_{i=1}^{n}\beta_i
 \end{equation*}
 
 Having a look at the above term makes clear that in order to prove the inequality, we have to show that the following condition is true:
