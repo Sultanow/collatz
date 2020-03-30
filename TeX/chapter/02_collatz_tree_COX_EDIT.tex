@@ -173,7 +173,8 @@ In order to demonstrate the construction produced by theorem~\ref{theo:1} in an 
 	$v_{n+1}=r\circ q^{\alpha_{n+1}}\left(v_{n+2}\right)$.
 \end{proof}
 
-Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{n+1},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to get correct results using Theorem~\ref{theo:1} we specify its halting conditions by definition~\ref{def:halting_condition}.
+Even though the tree may theoretically contain two or more identically labeled vertices, it is essential to emphasize that we only consider such paths $(v_{n+1},\ldots,v_1)$ whose vertices are all labeled differently. Later in section~\ref{sec:cycles}, we even require that identically labeled nodes are one and the same. In order to correctly determine successive nodes using Theorem~\ref{theo:1}, we must consider the halting conditions. These are specified in Definition~\ref{def:halting_condition}.
+
 
 \begin{definition}
 	\label{def:halting_condition}
@@ -182,17 +183,17 @@ Even though the tree may theoretically contain two or more identically labeled v
 		\item $v_{n+1}=1$
 		\item $v_{n+1}\in\{v_1,v_2,\ldots,v_n\}$
 	\end{enumerate}
-	If the first condition applies, the Collatz conjecture is true for a specific sequence. When the second condition is fulfilled, the sequence has led to a cycle. For every starting node, except the root node (labeled with $1$), the Collatz conjecture is consequently falsified. Let us consider the example $v_1=13$, where the algorithm halts after two iterations, because after two iterations the first condition holds:
+	If the first condition applies, the Collatz conjecture is true for a specific sequence. When the second condition is fulfilled, the sequence has led to a cycle. For every starting node, except the root node (labeled with $1$), the Collatz conjecture is consequently falsified. Let us consider the example $v_1=13$, where the algorithm halts after two iterations, because the first condition is met:
 	\[
 	v_{n+1}=3^2\cdot\left(1+\frac{1}{3\cdot13}\right)\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 	\]
 	
-	If we examine the case $v_{1}=1$, we realize that the algorithm finishes after the first iteration, since both halting conditions become true. The sequence stops because the final node labeled with $1$ is reached after one iteration. Furthermore the sequence has led to a cycle:
+	If we examine the case $v_{1}=1$, we realize that the algorithm finishes after the first iteration, since both halting conditions are true. The sequence stops because the final node labeled with $1$ is reached. Furthermore, the sequence has led to a cycle:
 	\[
 	v_{n+1}=3\cdot\left(1+\frac{1}{3}\right)2^{-2}=1
 	\]
 	
-	As the latter example shows, the trivial cycle is the only sequence where both conditions are fulfilled.
+	The trivial cycle is the only sequence where both conditions are fulfilled.
 \end{definition}
 
 \noindent
@@ -213,13 +214,13 @@ A similar condition has been formulated by Hercher \cite{Ref_Hercher}. Taking a 
 \left(3+\frac{1}{71}\right)\left(3+\frac{1}{107}\right)\left(3+\frac{1}{161}\right)\left(3+\frac{1}{121}\right)\left(3+\frac{1}{91}\right)\left(3+\frac{1}{137}\right)\left(3+\frac{1}{103}\right)
 \end{equation*}
 
-According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained}. The term self-contained is based on the fact that the node $v_{n+1}=v_{10}=155$ is divisible by the starting node $v_1=31$ and $v_{10}$ results from applying one and the same function (in this case the Collatz function) using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}. For such a case equation~\ref{eq:func_cycle} leads to a natural number, but not necessarily to a cycle. A cycle only occurs if the term results in a power of two. One example is the trivial cycle. We find another case if we choose the factor $5$ instead of $3$:
+According to OESIS \cite{Ref_OESIS}, the integer $v_1=31$ is called \textit{self-contained}. The term self-contained is based on the fact that the node $v_{n+1}=v_{10}=155$ is divisible by the starting node $v_1=31$. Moreover, $v_{10}$ results from applying one and the same function (in this case the Collatz function) using $v_1$ as input, see also Guy \cite[p.~332]{Ref_Guy}. For such a case equation~\ref{eq:func_cycle} leads to a natural number, but not necessarily to a cycle. A cycle only occurs if the term results in a power of two. One example is the trivial cycle. We find another case when we choose the factor $5$ instead of $3$:
 \begin{center}
 	$128=2^7=\left(5+\frac{1}{13}\right)\left(5+\frac{1}{33}\right)
 	\left(5+\frac{1}{83}\right)$
 \end{center}
 
-The above example shows that non-trivial cycles can be found if we generalize the Collatz conjecture by replacing the factor $3$ with the variable $k$. We study this generalized form and the occurance of cycles in chapter \ref{sec:cycles} more deeply. A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
+The above example shows that non-trivial cycles can be found if we generalize the Collatz conjecture by replacing the factor $3$ with the variable $k$. We study this generalized form and the occurance of cycles in chapter \ref{sec:cycles}. A detailed elaboration of the divisibility and a deeper understanding of the tree $H_C$ needs to be performed in order to get towards any proof of the Collatz conjecture.
 
 %\par\medskip\noindent
 %Generally, for any variant $kx+1$ it applies that if $v_1\mid v_{n+1}$, the the product is natural:
