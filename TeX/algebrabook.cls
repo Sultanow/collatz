@@ -149,7 +149,7 @@ citecolor=wisogreen
 
 \titlecontents{section}[0cm]
 {\addvspace{6pt}\sffamily\bfseries}
-{\contentslabel[\color{black}\thecontentslabel]{1.25cm}}{}
+{\hypersetup{linkcolor=black}\contentslabel[\thecontentslabel]{1.25cm}}{}
 {\sffamily\hfill\color{black}\thecontentspage}[]
 
 % Boxes for theorems
