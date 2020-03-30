@@ -176,7 +176,7 @@ n\log_2k+log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)>\lfloo
 \end{array}	
 \end{equation*}
 
-The validity of the second part (\ref{eq:inequality_max}) is not so trivial to prove. Analogous to the above-shown proof of alpha's lower limit, we again refer to equation~\ref{eq:generalized_reachability} as our starting point and we need to show that $v_{n+1}$ is smaller than $v_1$ if $\alpha=\lfloor\ nlog_2k\rfloor+2$:
+The validity of the second part (\ref{eq:inequality_max}) is not so trivial to prove. Analogous to the above-shown proof of the cylce-alpha's lower limit, we again refer to equation~\ref{eq:generalized_reachability} as our starting point and we need to show that $v_{n+1}$ is smaller than $v_1$ if $\alpha=\lfloor\ nlog_2k\rfloor+2$:
 \begin{equation*}
 \begin{array}{l}
 k^nv_12^{-\left(\lfloor n\log_2k\rfloor+2\right)}\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)<v_1
@@ -184,7 +184,7 @@ k^nv_12^{-\left(\lfloor n\log_2k\rfloor+2\right)}\prod_{i=1}^{n}\left(1+\frac{1}
 k^n\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)<2^{\left(\lfloor n\log_2k\rfloor+2\right)}
 \end{array}	
 \end{equation*}
-This leads to the following general condition for the validity of alpha's upper limit:
+This leads to the following general condition for the validity of the cycle-alpha's upper limit:
 \begin{equation}
 \label{eq:condition_max}
 n\log_2k-\lfloor n\log_2k\rfloor<2-log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)
@@ -202,13 +202,13 @@ As per theorem~\ref{theo:2}, for $k=1$, the only possible alpha for a cycle is $
 \[
 \bar\alpha=\lfloor n\log_21\rfloor+1=1
 \]
-In accordance with the condition $\alpha\ge n$ stated by \ref{eq:n_alpha} it is clear that between two successive vertices at least one edge has been contracted or respectively one division by two took place. This exactly is the reason why, if theorem~\ref{theo:2} is true, a cycle can only occur for $n=1$. Based on equation~\ref{eq:generalized_cycle} we can show that this is the case for the trivial cycle, starting at the root $v_1=1$:
+In accordance with the condition $\alpha\ge n$ stated by \ref{eq:n_alpha} it is clear that between two successive vertices at least one edge has been contracted or respectively one division by two took place. This is the reason why, if theorem~\ref{theo:2} is true, a cycle can only occur for $n=1$. Based on equation~\ref{eq:generalized_cycle} we can show that this is the case for the trivial cycle, starting at the root $v_1=1$:
 \[
 2^{\bar\alpha}=2^{\lfloor 1\log_21\rfloor+1}=2^1=\left(1+\frac{1}{v_1}\right)=\left(1+\frac{1}{1}\right)
 \]
 Since no other value of $v_1$ results in a natural number, no other cycle for $n=1$ is possible. In order to prove theorem~\ref{theo:2} for $k=1$, we now have to show that condition~\ref{eq:condition_max} is true.
 
-\section{Verifying alpha's upper limit for the $1x+1$ variant of $H_C$}
+\section{Verifying cycle-alpha's upper limit for the $1x+1$ variant of $H_C$}
 We prove that theorem~\ref{theo:2} is true for $k=1$ using the so-called Engel expansion, which we will explore more closely later in section~\ref{sec:worstcase_k3}. Setting $b=2$ and $k=1$ into equation~\ref{eq:generalized_asc_continued_fraction} leads to the formula that calculates the node $v_{n+1}$ for a sequence, in which we divide by $2$ only once per iteration:
 \begin{equation}
 \label{eq:appx_1}
@@ -252,9 +252,6 @@ The above given inequality gets simplified to a condition which is true and prov
 4>\prod_{i=1}^{n}\left(1+\frac{1}{v_{i}}\right)
 \]
 
-\par
-A sketch of evidence of the condition~\ref{eq:condition_max} for other cases, namely for those cases where $k>1$, will be provided in subsequent versions of this paper. At this point, the authors again point out that with the above explanation, the Collatz conjecture is still far from being proven. We have proved only a part, namely that the exponent $\alpha$ required for the existence of a cycle is definitely bigger than the specified lower limit $\lfloor n\log_2k\rfloor$. It still needs to be proven that $\alpha$ is smaller than the upper limit $\lfloor n\log_2k\rfloor+2$ for all $k>1$. We further have to prove by using theorem~\ref{theo:2} that no cycles can occur for $k=3$, except the trivial cycle.
-
 %\par\medskip\noindent
 %\textbf{Case 1 (\boldsymbol{$v_1=1$})}
 
@@ -276,7 +273,7 @@ A sketch of evidence of the condition~\ref{eq:condition_max} for other cases, na
 % Science\Mathematics\_Collections\Vieweg+Teubner Studium\Mathematik für
 % Informatiker.pdf S. 120
 
-\section{Verifying alpha's upper limit for the $H_{C,k>1}$}
+\section{Verifying cycle-alpha's upper limit for the $H_{C,k>1}$}
 Let us now validate alpha's upper limit for all $kx+1$ variants of $H_C$ for $k=3$. For this we need to show that the condition~\ref{eq:condition_max} is true for $k>1$. To improve readability, we denote the factor $(1+\frac{1}{3v_i})$ with $\beta_i$:
 
 \begin{equation*}
