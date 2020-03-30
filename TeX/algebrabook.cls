@@ -30,11 +30,11 @@ Typesetters.se]
                 marginparwidth=1.1cm,marginparsep=2mm]{geometry}
 
 % Fonts
-%--------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 \RequirePackage{kpfonts}
 
 % Colors
-%--------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 \RequirePackage{xcolor}
 \definecolor{tsdarkbrown}{RGB}{127,32,2}
 \definecolor{tssteelblue}{RGB}{23,131,181}
@@ -46,7 +46,7 @@ Typesetters.se]
 \definecolor{wisogreen}{HTML}{4e833c}
 
 % Graphics
-%--------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 \RequirePackage{graphicx}
 %\RequirePackage{svg}
 \RequirePackage{tikz}
@@ -55,8 +55,17 @@ Typesetters.se]
 \backgroundsetup{scale=1,color=black,opacity=1.0,angle=0,
 contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 
+% URLs
+%-------------------------------------------------------------------------
+\usepackage[
+colorlinks=true,
+urlcolor=wisogreen,
+linkcolor=wisogreen,
+citecolor=wisogreen
+]{hyperref}
+
 % Header and footer styling
-%--------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 \RequirePackage{fancyhdr}
 \setlength{\headheight}{15.0pt}
 \fancyhf{}
@@ -140,7 +149,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 
 \titlecontents{section}[0cm]
 {\addvspace{6pt}\sffamily\bfseries}
-{\contentslabel[\thecontentslabel]{1.25cm}}{}
+{\contentslabel[\color{black}\thecontentslabel]{1.25cm}}{}
 {\sffamily\hfill\color{black}\thecontentspage}[]
 
 % Boxes for theorems

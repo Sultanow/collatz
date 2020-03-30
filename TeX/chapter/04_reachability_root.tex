@@ -1,0 +1,47 @@
+\chapter{Reachability of the Tree's Root Node}
+
+\section{Latex verlangt eine Sectionueberschrift}
+In the previous section we have shown how many divisions by two lead to a cycle in the Collatz tree. We now study the case in which a Collatz sequence reaches the root node $v_(n+1)=1$. Our proof builds on theorem~\ref{theo:1} As in the last chapter, we replace $(1+\frac{1}{3v_i}$ with the variable $\beta_i$:
+
+\[
+v_{n+1}=3^nv_1\prod_{i=1}^{n}\beta_i\prod_{i=1}^{n}2^{-\alpha_i}
+\]
+
+Setting $v_{n+1}=1$ leads to:
+
+\begin{equation}
+\label{eq:reach_1}
+1=3^nv_1\prod_{i=1}^{n}\beta_i\prod_{i=1}^{n}2^{-\alpha_i}, \prod_{i=1}^{n}2^{-\alpha_i}=3^nv_1\prod_{i=1}^{n}\beta_i
+\end{equation}
+
+Equation~\ref{eq:reach_1} defines the maximum possible value of $\alpha$ for a given Collatz sequence. When a Collatz sequence reaches this alpha value, it finishes at the root node. The number of divisions by two required for this is referred to as $\mathring\alpha$ subsequently:
+
+\[
+2^{\mathring\alpha}=3^nv_1\prod_{i=1}^{n}\beta_i,
+\mathring\alpha=nlog_23+log_2v_1+log_2\prod_{i=1}^{n}\beta_i
+\]
+
+In the previous chapter we proved $1<\prod_{i=1}^{n}\beta_i<2$. We use this knowledge to further restrict $\mathring\alpha$:
+
+\begin{equation}
+\label{eq:reach_2}
+\mathring\alpha=\lfloor n\circ log_23+log_2v_1\rfloor+1
+\end{equation}
+
+Since $\mathring\alpha$ is a whole number, we truncate the fractional part. Knowing that $1<\prod_{i=1}^{n}\beta_i<2$ we add one to the result.
+
+\begin{example}
+Example for $v_{n+1}=13$ and $n=2$:
+\[
+v_{2+1}=3^2\cdot13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{\lfloor2log_3+log_213\rfloor+1}
+\]
+\end{example}
+
+Building on $\mathring\alpha$ we define the following restrictions on the alpha of a Collatz sequence:
+
+\begin{equation}
+\label{eq:reach_3}
+n\le\alpha\le\mathring\alpha
+\end{equation}
+
+Condition~\ref{eq:reach_3} is not only valid for $k=3$, but for all $k$. Similar to $\bar\alpha$, the variable $\mathring\alpha$ could form the basis for a proof of the Collatz conjecture. As $\bar\alpha$ teaches us about cycles in the Collatz tree, $\mathring\alpha$ leads us the way to its root node. If one shows that each Collatz sequence finally reaches $\mathring\alpha$, the problem is solved as a whole. This is, however, not in the scope of this paper, but could be the foundation for a future work.
