@@ -91,10 +91,10 @@ The product in the denominator can be transformed as follows:
 \[\prod_{i=1}^{n}kv_i=k^n\prod_{i=1}^{n}v_i=k^n\prod_{i=1}^{n}(2i-1)=k^n\frac{(2n)!}{2^nn!}\]
 
 \par\medskip
-This product is divergent, it does not converge to a limiting value. Thankfully, the ascending sequence of natural odd numbers overshoots the worst-case scenario. According to this scenario we would not have contracted a single edge between two successive nodes.
+This product is divergent, it does not converge to a limiting value. Thankfully, the ascending sequence of natural odd numbers overshoots the worst-case scenario. According to this scenario we would not have contracted a single edge between two successive nodes. A worst case sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes.
 
-\section{Engel expansions maximize the $v_{n+1}$}
-A worst case sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes. Dividing only once between two successive nodes, maximizes the $v_{n+1}$, but it maximizes not the product contained in condition~\ref{eq:condition_max}. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
+\par\medskip
+A worst case sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes. This sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
 
 \begin{equation}
 \label{eq:asc_continued_fraction}
@@ -134,3 +134,69 @@ The generalized form of equation~\ref{eq:asc_continued_fraction} may be used to 
 \label{eq:generalized_asc_continued_fraction}
 v_{n+1}=\frac{k^n(kv_1-bv_1+1)-b^n}{b^n(k-b)}
 \end{equation}
+
+\section{The product in the condition for alpha's upper limit}
+Taking the Engel expansion as worst case sequence and setting it into the product expressed by condition~\ref{eq:condition_max}, we obtain a product that is limited, or to be more specific, which in the worst case $v_1=1$ converges (for $n$ to infinity) towards $2$:
+\begin{equation}
+\label{eq:product_simplification_k3}
+\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
+=\prod_{i=1}^{n}\left(1+\frac{1}{3\frac{3^{i-1}(v_1+1)-2^{i-1}}{2^{i-1}}}\right)
+=\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
+\end{equation}
+
+The above-illustrated last forming step, simplifies this product significantly into an expression waiving a product formulation. A detailed breakdown including all intermediate steps of this simplification is shown in the appendix~\ref{appx:product_simplification_k3}. The correctness of this simplification can be proven inductively too, which we detail in appendix~\ref{appx:proof_product_simplification_k3}. The most important and the most interesting aspect of this result is, that the above simplified term cannot exceed the value $2$, whatever you choose to insert into $n$ or into $v_1$:
+\[
+\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^{n+1}+1<2
+\]
+
+For this reason, the logarithmic product expression in the condition~\ref{eq:condition_max} cannot exceed the value one, strictly speaking the worst case for that condition is:
+\[
+n\log_23-\lfloor n\log_23\rfloor<2-1
+\]
+
+Thus, we have proved that for $k=3$ the condition~\ref{eq:condition_max} for alphas's upper limit is always met.
+
+\section{Simplying the product for $k=3$ inductively}
+\label{appx:product_simplification_k3}
+Below we will show the simplification of the product in the condition for alpha's upper limit, which has been performed by equation~\ref{eq:product_simplification_k3}:
+\[
+\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
+\]
+
+In fact, this product is a telescoping product. We factor out $\frac{1}{3^n}$, then shift the index in the product of the denominator by one to start with $i=0$, and use the product's telescopic property to cancel equal factors in numerator and denominator:
+\begin{flalign*}
+	&\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+	=\frac{1}{3^n}\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^{i-1}(v_1+1)-2^{i-1}}
+	=\frac{1}{3^n}\frac{\prod_{i=1}^{n}\left(3^i(v_1+1)-2^i\right)}{\prod_{i=1}^{n}\left(3^{i-1}(v_1+1)-2^{i-1}\right)}\\
+	=&\frac{1}{3^n}\frac{\prod_{i=1}^{n}\left(3^i(v_1+1)-2^i\right)}{\prod_{i=0}^{n-1}\left(3^i(v_1+1)-2^i\right)}
+	=\frac{1}{3^n}\frac{3^n(v_1+1)-2^n}{(v_1+1)-1}
+	=\frac{3^nv_1+3^n-2^n}{3^nv_1}
+	=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
+\end{flalign*}
+
+\section{Proving the product simplification for $k=3$ inductively}
+\label{appx:proof_product_simplification_k3}
+Using induction, we prove the simplification below that has been made by equation~\ref{eq:product_simplification_k3}:
+\[
+\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
+\]
+
+The base case $n=1$ is readily comprehensible and obviously correct:
+\[
+\prod_{i=1}^{1}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+=\frac{3(v_1+1)-2}{3(v_1+1)-3}
+=\frac{1}{3v_1}+1
+=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)+1
+\]
+
+The induction step is explained below, and here we arrive at a true statement too:
+\begin{flalign*}
+	\prod_{i=1}^{n+1}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}&=\frac{3^{n+1}(v_1+1)-2^{n+1}}{3^{n+1}(v_1+1)-3*2^n}\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}\\
+	&=\frac{3^{n+1}(v_1+1)-2^{n+1}}{3^{n+1}(v_1+1)-3*2^n}\left(\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1\right)\\
+	&=\frac{3^{n+1}(v_1+1)-2^{n+1}}{3^{n+1}(v_1+1)-3*2^n}\cdot\frac{3^n-2^n+3^nv_1}{3^nv_1}\\
+	&=\frac{3^{n+1}(v_1+1)-2^{n+1}}{\cancel{3^{n+1}(v_1+1)-3*2^n}}\cdot\frac{\cancel{3*(3^n-2^n+3^nv_1)}}{3*3^nv_1}\\
+	&=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^{n+1}+1
+\end{flalign*}
