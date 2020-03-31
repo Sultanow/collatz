@@ -1,7 +1,7 @@
 \chapter{Reachability of the Tree's Root Node}
 
 \section{The neccesary alpha for reaching the root}
-In the previous section we have shown how many divisions by two lead to a cycle in the Collatz tree. We now study the case in which a Collatz sequence reaches the root node $v_{n+1}=1$. Our proof builds on theorem~\ref{theo:1}. As in the last chapter, we replace $(1+\frac{1}{3v_i})$ with the variable $\beta_i$:
+In the previous section we have shown how many divisions by two lead to a cycle in the Collatz tree. We now study the case in which a Collatz sequence reaches the root node $v_{n+1}=1$. Our proof builds on theorem~\ref{theo:1}. As in the last chapter we replace $(1+\frac{1}{3v_i})$ with the variable $\beta_i$:
 
 \[
 v_{n+1}=3^nv_1\prod_{i=1}^{n}\beta_i\prod_{i=1}^{n}2^{-\alpha_i}
@@ -30,7 +30,7 @@ Equation~\ref{eq:reach_1} defines the maximum possible value of $\alpha$ for a g
 \end{equation*}
 
 \par\medskip
-In the previous chapter we proved $1<\prod_{i=1}^{n}\beta_i<2$. We use this knowledge to further restrict $\hat\alpha$ in theorem~\ref{theo:3}:
+In the previous chapter we proved $1<\prod_{i=1}^{n}\beta_i<2$. We use this knowledge to further restrict $\hat\alpha$ in theorem~\ref{theo:3}.
 
 \bigskip
 \begin{theorem}
@@ -39,7 +39,7 @@ The maximum possible number of divisions by two in a Collatz sequence can be cal
 \[
 \hat\alpha=\lfloor n\cdot log_23+log_2v_1\rfloor+1
 \]
-If a sequence reaches $\hat\alpha$ it ends with the final result of one, as conjectured by Lothar Collatz.
+If a Collatz sequence reaches $\hat\alpha$, it ends with the result $v_{n+1}=1$.
 \end{theorem}
 
 \par\medskip
