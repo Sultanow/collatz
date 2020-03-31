@@ -340,22 +340,24 @@ We now assume that the product $\prod_{i=1}^{n+1}\beta_i$ reaches the value $2$ 
 
 Replacing $\beta_{n+1}$ in assumption~\ref{eq:assume_beta_eq_2} with equation~\ref{eq:beta_n_plus_1_theo_1} leads to:
 
-\begin{flalign*}
-2&=\left(1+\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1\prod_{i=1}^{n}\beta_i}\right)\cdot\prod_{i=1}^{n}\beta_i\\
-2&=\prod_{i=1}^{n}\beta_i+\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1}\\
-2&-\prod_{i=1}^{n}\beta_i=\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1}\\
-&3^{n+1}v_1\cdot\left(2-\prod_{i=1}^{n}\beta_i\right) =\prod_{i=1}^{n}2^{\alpha_i}
+\begin{equation}
+\label{eq:prod_power_of_two}
+\arraycolsep=1.4pt\def\arraystretch{2.2}\begin{array}{l}
+2=\left(1+\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1\prod_{i=1}^{n}\beta_i}\right)\cdot\prod_{i=1}^{n}\beta_i\\
+2=\prod_{i=1}^{n}\beta_i+\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1}\\
+2-\prod_{i=1}^{n}\beta_i=\frac{\prod_{i=1}^{n}2^{\alpha_i}}{3^{n+1}v_1}\\
+3^{n+1}v_1\cdot\left(2-\prod_{i=1}^{n}\beta_i\right) =\prod_{i=1}^{n}2^{\alpha_i}
 \prod_{i=1}^{n}2^{\alpha_i}=3^{n+1}v_1\left(2-\prod_{i=1}^{n}\beta_i\right)
-\end{flalign*}
+\end{array}
+\end{equation}
 
 We finally insert equation~\ref{eq:prod_power_of_two} into equation~\ref{eq:based_theo_1} and we increment the vertex's index by one:
-
 \begin{flalign*}
-v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\prod_{i=1}^{n+1}2^{-\alpha_i}
-v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\left(\prod_{i=1}^{n}2^{-\alpha_i}\right)2^{-\alpha_{n+1}}
+v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\prod_{i=1}^{n+1}2^{-\alpha_i}\\
+v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\left(\prod_{i=1}^{n}2^{-\alpha_i}\right)2^{-\alpha_{n+1}}\\
 v_{n+2}&=\frac{3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i}{\left(\prod_{i=1}^{n}2^{\alpha_i}\right)2^{\alpha_{n+1}}}\\
-v_{n+2}=\frac{3^{n+1}\cdot v_1\cdot2}{3^{n+1}v_1\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}
-v_{n+2}=\frac{2}{\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}
+v_{n+2}&=\frac{3^{n+1}\cdot v_1\cdot2}{3^{n+1}v_1\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}\\
+v_{n+2}&=\frac{2}{\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}
 \end{flalign*}
 
 Knowing that $1<\prod_{i=1}^{n}\beta_i<2$ and $2^{\alpha_{i+1}}\ge2$ leads to the following true statement:
