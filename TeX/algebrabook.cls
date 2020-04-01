@@ -55,6 +55,11 @@ Typesetters.se]
 \backgroundsetup{scale=1,color=black,opacity=1.0,angle=0,
 contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 
+% Captions
+%-------------------------------------------------------------------------
+\RequirePackage{caption}
+\captionsetup{justification=centering,singlelinecheck=true,labelfont={bf},aboveskip=1em,belowskip=2em}
+
 % URLs
 %-------------------------------------------------------------------------
 \usepackage[

@@ -3,7 +3,7 @@
 
 \section{Sum of reciprocal vertices}
 \label{appx:sum_reciprocal_vertices}
-We write down the successive vertices and obtain:
+One condition deduced from theorem~\ref{theo:1} is the product condition~\ref{eq:condition_max}, which specifies the validity of the cycle-alpha's upper limit. This condition requires the sum $\frac{1}{kv_1}+\frac{1}{kv_2}+\frac{1}{kv_3}+\ldots$ to be limited. In order to formulate this sum independently from the successive vertices $v_2,v_3,\ldots$, we substitute these as follows:
 \begin{flalign*}
 v_1&=v_1\\
 v_2&=\frac{kv_1+1}{2^{\alpha_1}}\\
@@ -13,7 +13,8 @@ v_4&=\frac{k^3v_1+k^2+k\cdot2^{\alpha_1}+2^{\alpha_1+\alpha_2}}{2^{\alpha_1+\alp
 v_{n+1}&=\frac{k^nv_1+\sum_{j=1}^{n}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}}{2^{\alpha_1+\ldots+\alpha_n}}
 \end{flalign*}
 
-For the sum of the reciprocal vertices we have the following: 
+\par\medskip
+The sum of the reciprocal vertices can be expressed as a term that depends from $v_1$ and from the number of contracted edges, id est the number of dvisions by two, between two successive vertices $\alpha_1,\alpha_2,\alpha_3,\ldots$: 
 \begin{equation*}
 \sum_{i=1}^{n+1}\frac{1}{kv_i}=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{1}{v_{i+1}}\right)=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{2^{\alpha_1+\ldots+\alpha_i}}{k^iv_1+\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}\right)
 \end{equation*}
@@ -60,19 +61,24 @@ For the sum of the reciprocal vertices we have the following:
 
 \section{Which sequence is a worst case?}
 \label{sec:worstcase_k3}
-%Let us take a closer look at the product contained in condition~\ref{eq:condition_max} for the case $k=3$. The exciting main question is, does this product have a limit value even in the worst case?
-Trying to find a worst case sequence means to search for a sequence of odd numbers that rises as high as possible. One could try the ascending sequence of odd integers $v_i=2i-1$ (beginning at $v_1=1$), but will find that for this case the product contained in condition~\ref{eq:condition_max} will not converge against a limit value. This sequence (beginning at $v_1=1$) allow us to transform the product contained in condition~\ref{eq:condition_max} into a limit analyzable function using the Pochhammer’s symbol (sometimes referred to as the \textit{rising factorial} or \textit{shifted factorial}), which is denoted by $(x)_n$ and defined as follows \cite{Ref_Zwillinger_Kokoska}, \cite[p.~679]{Ref_Brychkov} and \cite[p.~1005]{Ref_Trott}:
+Regarding worst case scenarios, two cases must be distinguished:
+\begin{itemize}
+	\item The vertex $v_{n+1}$ becomes a maximum. This kind of worst case we used for proving cycle-alpha's upper limit in $H_{C,1}$ with section~\ref{sec:alphas_upper_limit_k_1}.
+	\item The product in condition~\ref{eq:condition_max} and consequently the sum of reciprocal vertices, formulated in \ref{appx:sum_reciprocal_vertices}, becomes a maximum.
+\end{itemize}
+Trying to find a worst case that maximizes the product in condition~\ref{eq:condition_max} means to search for a sequence of odd numbers that rises as high as possible. One could try the ascending sequence of odd integers $v_i=2i-1$ (beginning at $v_1=1$), but will find that for this case the product will not converge against a limit value. This sequence (beginning at $v_1=1$) allow us to transform the product contained in condition~\ref{eq:condition_max} into a limit analyzable function using the Pochhammer’s symbol (sometimes referred to as the \textit{rising factorial} or \textit{shifted factorial}), which is denoted by $(x)_n$ and defined as follows \cite{Ref_Zwillinger_Kokoska}, \cite[p.~679]{Ref_Brychkov} and \cite[p.~1005]{Ref_Trott}:
 \[
 (x)_n=x(x+1)(x+2)\cdots(x+n-1)=\prod_{i=0}^{n-1}(x+i)=\prod_{i=1}^{n}(x+i-1)=\frac{\Gamma(x+n)}{\Gamma(x)}
 \]
 
 Setting $v_i=2i-1$ into the product expressed by condition~\ref{eq:condition_max} and setting $x=\frac{k+1}{2k}$ into Pochhammer’s symbol $(x)_n$ interestingly makes it possible for us to perform the following transformation:
-\[
+\begin{equation}
+\label{eq:pochhammer}
 \prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)
 =\frac{\prod_{i=1}^{n}(kv_i+1)}{\prod_{i=1}^{n}kv_i}
 =\frac{\prod_{i=1}^{n}\left(k(2i-1)+1\right)}{k^n\prod_{i=1}^{n}(2i-1)}
 =\frac{2^{2n}n!}{(2n)!}\cdot\frac{\Gamma\left(\frac{k+1+2kn}{2k}\right)}{\Gamma\left(\frac{k+1}{2k}\right)}
-\]
+\end{equation}
 
 \begin{example}
 	One simple example that is easy to recalculate may be provided by choosing $k=3$ and $n=4$:
@@ -81,20 +87,20 @@ Setting $v_i=2i-1$ into the product expressed by condition~\ref{eq:condition_max
 	\]
 \end{example}
 
-The product in the numerator will be transformed into a form that allows us to use the Pochhammer’s symbol:
+The product in the numerator in equation~\ref{eq:pochhammer} will be transformed into a form that allows us to use the Pochhammer’s symbol:
 \[\prod_{i=1}^{n}\left((2i-1)k+1\right)=2^nk^n\prod_{i=1}^{n}\frac{(2i-1)k+1}{2k}=2^nk^n\prod_{i=1}^{n}\frac{k+1+2ki-2k}{2k}=2^nk^n\prod_{i=1}^{n}\left(\frac{k+1}{2k}+i-1\right)\]
 
-The product can be written now as $2^nk^n(x)_n$, whwereby $x=\frac{k+1}{2k}$:
+This product can be written now as $2^nk^n(x)_n$, whwereby $x=\frac{k+1}{2k}$:
 \[\prod_{i=1}^{n}\left((2i-1)k+1\right)=2^nk^n\frac{\Gamma\left(\frac{k+1+2kn}{2k}\right)}{\Gamma\left(\frac{k+1}{2k}\right)}\]
 
-The product in the denominator can be transformed as follows:
+The product in the denominator in equation~\ref{eq:pochhammer} can be transformed as follows:
 \[\prod_{i=1}^{n}kv_i=k^n\prod_{i=1}^{n}v_i=k^n\prod_{i=1}^{n}(2i-1)=k^n\frac{(2n)!}{2^nn!}\]
 
 \par\medskip
 This product is divergent, it does not converge to a limiting value. Thankfully, the ascending sequence of natural odd numbers overshoots the worst-case scenario. According to this scenario we would not have contracted a single edge between two successive nodes.
 
 \section{Engel expansions maximize the $v_{n+1}$}
-A worst case sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes. Dividing only once between two successive nodes, maximizes the $v_{n+1}$, but it maximizes not the product contained in condition~\ref{eq:condition_max}. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
+A sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes. Dividing only once between two successive nodes, maximizes the $v_{n+1}$, but it does not maximize the product contained in condition~\ref{eq:condition_max}. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
 
 \begin{equation}
 \label{eq:asc_continued_fraction}
@@ -129,7 +135,10 @@ As illustrated below, we can formulate the ascending continued fractions in a ge
 \cfrac{a_1+\cfrac{a_2+\cfrac{a_3+\cfrac{a_4}{b_4}}{b_3}}{b_2}}{b_1}\dotsb=\frac{a_1}{b_1}+\frac{a_2}{b_1b_2}+\frac{a_3}{b_1b_2b_3}+\frac{a_4}{b_1b_2b_3b_4}+\cdots
 \]
 
+\par\medskip
 The generalized form of equation~\ref{eq:asc_continued_fraction} may be used to compute any of the above-named ascending continued fraction that has $a_i=k^{i-1}$, $b_i=b$ for $i\in\mathbb{N}$ and $a_n=k^{n-1}+k^nv_1$:
+
+\par\medskip
 \begin{equation}
 \label{eq:generalized_asc_continued_fraction}
 v_{n+1}=\frac{k^n(kv_1-bv_1+1)-b^n}{b^n(k-b)}

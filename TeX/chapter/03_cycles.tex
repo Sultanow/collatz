@@ -209,7 +209,8 @@ In accordance with the condition $\alpha\ge n$ stated by \ref{eq:n_alpha} it is 
 Since no other value of $v_1$ results in a natural number, no other cycle for $n=1$ is possible. In order to prove theorem~\ref{theo:2} for $k=1$, we now have to show that condition~\ref{eq:condition_max} is true.
 
 \section{Verifying cycle-alpha's upper limit for the $1x+1$ variant of $H_C$}
-We prove that theorem~\ref{theo:2} is true for $k=1$ using the so-called Engel expansion, which we will explore more closely later in section~\ref{sec:worstcase_k3}. Setting $b=2$ and $k=1$ into equation~\ref{eq:generalized_asc_continued_fraction} leads to the formula that calculates the node $v_{n+1}$ for a sequence, in which we divide by $2$ only once per iteration:
+\label{sec:alphas_upper_limit_k_1}
+We prove that theorem~\ref{theo:2} is true for $k=1$ using the so-called Engel expansion, which we will explore more closely in appendix~\ref{sec:worstcase_k3}. Setting $b=2$ and $k=1$ into equation~\ref{eq:generalized_asc_continued_fraction} leads to the formula that calculates the node $v_{n+1}$ for a sequence, in which we divide by $2$ only once per iteration:
 \begin{equation}
 \label{eq:appx_1}
 v_{n+1}=\frac{v_1+2^n-1}{2^n}
@@ -362,4 +363,5 @@ Knowing that $1<\prod_{i=1}^{n}\beta_i<2$ and $2^{\alpha_{i+1}}\ge2$ leads to th
 v_{n+2}<1
 \end{equation}
 
+\par\bigskip
 The statement~\ref{eq:inequality_v_n_plus_2} shows that $\prod_{i=1}^{n+1}\ge2$ is impossible, since it would result in a final node $v_{n+2}<1$. We therefore have proven theorem~\ref{theo:2} for $k=3$ by contradiction. Having a look at the proof makes clear that it is not only valid for $k=3$ but for all $k>1$. It is also applicable for $k=1$, except for the case $v_1=1$. Here  $\beta_1$ equals $2$ immediately in the first iteration. This is the reason why we had to rely on another proof for $k=1$.
