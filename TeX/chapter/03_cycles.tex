@@ -351,8 +351,8 @@ We finally insert equation~\ref{eq:prod_power_of_two} into equation~\ref{eq:base
 \begin{flalign*}
 v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\prod_{i=1}^{n+1}2^{-\alpha_i}\\
 v_{n+2}&=3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i\left(\prod_{i=1}^{n}2^{-\alpha_i}\right)2^{-\alpha_{n+1}}\\
-v_{n+2}&=\frac{3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i}{\left(\prod_{i=1}^{n}2^{\alpha_i}\right)2^{\alpha_{n+1}}}=\frac{3^{n+1}\cdot v_1\cdot2}{3^{n+1}v_1\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}\\
-v_{n+2}&=\frac{2}{\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{i+1}}}
+v_{n+2}&=\frac{3^{n+1}v_1\prod_{i=1}^{n+1}\beta_i}{\left(\prod_{i=1}^{n}2^{\alpha_i}\right)2^{\alpha_{n+1}}}=\frac{3^{n+1}\cdot v_1\cdot2}{3^{n+1}v_1\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{n+1}}}\\
+v_{n+2}&=\frac{2}{\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{n+1}}}
 \end{flalign*}
 
 Knowing that $1<\prod_{i=1}^{n}\beta_i<2$ and $2^{\alpha_{i+1}}\ge2$ leads to the following true statement:
