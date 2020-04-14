@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  14 APR 2020 20:48
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  14 APR 2020 21:19
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -897,22 +897,16 @@ Package makecell Warning: \multirowcell needs multirow package on input line 34
 
 Package hyperref Warning: Suppressing empty link on input line 360.
 
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
+[6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 408.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 408.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 415.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
+Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
+(rerunfilecheck)             Checksum: B11F9BB208EF08D15669AFF971E4BEDC.
 
-
-Package rerunfilecheck Warning: File `collatz_tree.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `collatz_tree.out':
-(rerunfilecheck)             Before: DB80C9ADB201AF97E11BE07674CDF33A
-(rerunfilecheck)             After:  822D8C527D5AD3FDCE11E4CF9DED239F.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -927,10 +921,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  22276 strings out of 427242
  416853 string characters out of 3147792
- 532401 words of memory out of 3000000
+ 534401 words of memory out of 3000000
  26577 multiletter control sequences out of 15000+200000
  550979 words of font info for 137 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,27n,79p,632b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,27n,79p,1064b,443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on collatz_tree.pdf (7 pages).
+Output written on collatz_tree.pdf (8 pages).
