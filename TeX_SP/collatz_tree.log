@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  15 APR 2020 10:44
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  15 APR 2020 20:57
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -906,6 +906,6 @@ Here is how much of TeX's memory you used:
  26587 multiletter control sequences out of 15000+200000
  550987 words of font info for 138 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,27n,79p,1081b,443s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,27n,79p,1080b,443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on collatz_tree.pdf (11 pages).
