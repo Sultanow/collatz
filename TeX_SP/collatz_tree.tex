@@ -46,7 +46,8 @@
 \newcommand{\abstractformat}{\noindent \textbf}						%	<--- Abstract
 \newcommand{\contentformat}{\rmfamily \normalsize \vspace{18pt}}			%	<--- Main content
 \newcommand{\email}{\sffamily \small \vspace{-8pt}}						%	<--- E-mail
-\renewcommand{\subsection}{\textbf}	
+\renewcommand{\subsection}[1]{\textit{\textbf{#1}}}
+
 %--------------------------------------------- Make all internal and external links - black color%
 \hypersetup{
     colorlinks,%
@@ -136,6 +137,7 @@ In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k
 
 \vspace{1em}\noindent
 \subsection{Halting Conditions}
+\label{sec:halting_conditions}
 \par\noindent
 Being compliant with the Collatz conjecture, the algorithms~\ref{eq:reachability_3} and \ref{eq:reachability_k} halt, if at least one of the following conditions is fulfilled:
 \begin{equation}
@@ -189,6 +191,7 @@ Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. W
 Not surprisingly, we found that all values of $\alpha_i$ in the sample are compliant with theorem~\ref{eq:boundary_alpha_i}.\footnote{Source: Own empirical analysis, see section "\nameref{appx:data_set}" for details.} In the next chapter we move on to more sophisticated considerations and study the properties of $\prod_{1}^{n}2^{\alpha_i}$.
 
 \section{Analyzing \boldmath$\alpha$}
+\label{sec:analysing_alpha}
 \subsection{Boundaries of \boldmath$\alpha$}
 \par\noindent
 In equations~\ref{eq:reachability_3} and \ref{eq:reachability_k}, the expression $\prod_{i=1}^{n}2^{\alpha_i}$  represents the divisions by two performed by the algorithms. The number of divisions by two can be determined with the following formula and will be symbolised by $\alpha$:
@@ -237,7 +240,6 @@ First, we examine the case $k=1$, where theorem~\ref{eq:max_alpha} can be simpli
 In order to prove theorem~\ref{eq:max_alpha}, we have to show that the number of divisions by two, $\alpha$ is less or equal than the maximum $\hat\alpha$. This can be achieved by analysing the binary representation of Collatz numbers.\footnote{To avoid confusion between decimal and binary numbers, we will label binary numbers with a subscripted $2$.} Let us consider the case $v_1=25$ and $k=1$ in the decimal system. Applying theorem~\ref{eq:reachability_k} leads to the sequence shown in the following table~\ref{table:k_1}.
 
 \begin{table}[H]
-	\label{table:k_1}
 	\centering
 	\begin{tabular}{|L|L|R|R|R|R|R|R|R|}
 		\hline
@@ -267,6 +269,7 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to show that the number of
 		\\ \hline
 	\end{tabular}
 	\caption{Binary representation of a Collatz sequence for $k=1$}
+	\label{table:k_1}
 \end{table}
 
 The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a number expressed in the decimal.} This observation is crucial for our proof.
@@ -303,7 +306,6 @@ Only the final iteration increases the length of the binary number. In any other
 \par\medskip
 Let us now reflect what this implies for the maximum $\hat\alpha$. We know that the binary length of the starting value $v_1$ can be calculated with theorem~\ref{eq:binary_length}. In order to reach the final result $v_{n+1}=1$, starting at $v_1$, we have to perform the following number of divisions by two:
 \begin{equation}
-\label{eq:max_alpha_1}
 	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor log_2 v_1\rfloor+1
 \end{equation}
 
@@ -319,7 +321,6 @@ The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next
 Let us now examine the case $k=3$, which is most interesting, because it relates to the original Collatz conjecture. Are the principles discussed in the previous chapter transferable to this form of the problem? To find an answer, we analyse a sequence, starting with $v_1=17$ and $k=3$. The results are shown in the following Table~\ref{table:k_3}.
 
 \begin{table}[H]
-	\label{table:k_3}
 	\centering
 	\begin{tabular}{|L|L|R|R|R|R|R|R|R|}
 		\hline
@@ -355,6 +356,7 @@ Let us now examine the case $k=3$, which is most interesting, because it relates
 		\\ \hline
 	\end{tabular}
 	\caption{Binary representation of a Collatz sequence for $k=3$}
+	\label{table:k_3}
 \end{table}
 
 The example presented in Table~\ref{table:k_3} makes clear, that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
@@ -381,10 +383,250 @@ If one shows that every sequence finally leads to $\hat\alpha$, that means to a 
 \section{Occurences of Cycles}
 \subsection{Definition}
 \par\noindent
-tbd
+A promising possibility to falsify the Collatz conjecture in its original form is a cycle. We have found such a counterexample, if the following halting condition from chapter "\nameref{sec:halting_conditions}" is fulfilled:
+\[
+v_{n+1}\in\{v_1,v_2,v_3,\ldots,v_n\}
+\]
+\par\noindent
+The single known cycle for $k=3$ is the trivial one starting with $v_1=1$:
+\begin{equation}
+\label{eq:cycle}
+	v_1=1=v_{1+1}=3\cdot1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}
+\end{equation}
+
+The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on theorem~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence\footnote{See Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}.}:
+\[
+2^{\alpha}=k^n\cdot\prod_{i=1}^{n}\beta_i
+\]
+
+\par\medskip
+For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that theorem~\ref{eq:cycle} is true for $k=3$, would partially prove the Collatz conjecture. There would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
+
+\par\medskip
+A major difficulty in analysing cycles in Collatz sequences is that there seems to be just one example. This is, however, not true for our generalised form of the problem. Let us consider the example $k=5$ and $v_1=13$. Applying theorem~\ref{eq:reachability_k} leads to a cycle of the length $n=3$:
+\[
+13=5^3\cdot13\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)\cdot2^{-7}
+\]
+
+Setting $k=5$ and $v_1=13$ in equation~\ref{eq:cycle}, we obtain the following result after three iterations:
+\[
+128=5^3\cdot13\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)\cdot2^{-7}
+\]
+
+To determine the number of divisions by two, which can lead to a cycle, we need to investigate the parameter $\beta$ more thoroughly.
+
+\vspace{1em}\noindent
+\subsection{Analysing \boldmath$\beta$}
+\par\noindent
+The starting point of our analysis of β is theorem 3.2. The formula can be used to calculate the maximum possible divisions by two of a Collatz sequence:
+\[
+\hat\alpha=\lfloor n\cdot log_2v_1\rfloor+1
+\]
+
+In chapter "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
+
+\newpage
+\par\noindent
+In order to learn more about the parameter $\beta$, we take a look at the relation between theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k}. We examine the situation in which theorem~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
+\begin{equation}
+	\label{eq:beta}
+	\begin{array}{l}
+	1=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot2^{-\hat\alpha}\\
+	1=k^n\cdot v_1\cdot\beta\cdot2^{-\hat\alpha}\\
+	2^{\hat\alpha}=k^n\cdot v_1\cdot\beta\\
+	\hat\alpha=n\cdot log_2k+log_2v1+log_2\beta\\
+	\lfloor n\cdot log_2k+log_2v_1\rfloor+1=n\cdot \log_2k+log_2v_1+log_2\beta\\
+	log_2\beta=-n log_2k-log_2v_1+\lfloor n\cdot log_2k+log_2v_1\rfloor+1
+	\end{array}
+\end{equation}
+
+For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, theorem~\ref{eq:beta} leads to:
+\[
+\begin{array}{c}
+\log_2\beta=1=-n\cdot\log_21-\log_21+\lfloor n\cdot\log_21+\log_21\rfloor+1\\
+\beta=2
+\end{array}
+\]
+
+Moreover, we study the example where $k=5$, $v_1=19$ and $n=2$. Equation~\ref{eq:beta} in this case results in:
+\[
+\begin{array}{c}
+\log_2\beta=0.1082=-2\cdot\log_25-\log_219+\lfloor 2\cdot\log_25+\log_219\rfloor+1\\
+\beta=1.0780
+\end{array}
+\]
+
+Based on theorem~\ref{eq:beta} and the fact that $\beta$ must always be greater than one, we define the following boundaries of $\beta$:
+\begin{equation}
+\label{eq:boundary_beta}
+\begin{array}{c}
+0<\log_2\beta\le1\\
+1<\beta\le2
+\end{array}
+\end{equation}
+
+In the next chapter we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
+
+\vspace{1em}\noindent
+\subsection{Analysing \boldmath$\bar\alpha$}
+\par\noindent
+How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of theorems~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which theorem~\ref{eq:reachability_k} leads to a cycle by setting  $v_(n+1)=v_1$:
+\begin{equation}
+\label{eq:cycle_alpha}
+\begin{array}{c}
+v_1=k^n\cdot v_1\beta\cdot2^{-\bar\alpha}\\
+2^{\bar\alpha}=k^n\cdot\beta\\
+\bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
+\end{array}
+\end{equation}
+
+\par\medskip
+The last transformation above is applied, since $\bar\alpha$ is a whole number. This requires us to truncate the fractional part. Knowing that $1<\beta\le2$, we add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
+\[
+\begin{array}{c}
+\bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
+71=3^3\cdot83\cdot\left(1+\frac{1}{3\cdot83}\right)\cdot\left(1+\frac{1}{3\cdot125}\right)\cdot\left(1+\frac{1}{3\cdot47}\right)\cdot2^{-5}
+\end{array}
+\]
+
+\par\medskip
+Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}". With the script we searched and evaluated cycles in Collatz sequences for the interval $v_1\in[1\ldots9999]$ and $k\in[1\ldots999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table~\ref{table:known_cycles}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|L|R|R|R|C|}
+		\hline
+		\thead{\boldsymbol{k}} &
+		\thead{\boldsymbol{v_1\ldots v_n}} &
+		\thead{\boldsymbol{n}} &
+		\thead{\boldsymbol{\alpha}} &
+		\thead{\boldsymbol{\bar\alpha}}\\
+		\hline
+		1 &
+		(1) &
+		1 &
+		1 &
+		1\\
+		\hline
+		3 &
+		(1) &
+		1 &
+		2 &
+		2\\
+		\hline
+		5 &
+		(1,3) &
+		2 &
+		5 &
+		5\\
+		\hline
+		5 &
+		(13,33,83) &
+		3 &
+		7 &
+		7 \\
+		\hline
+		5 &
+		(27,17,43) &
+		3 &
+		7 &
+		7 \\
+		\hline
+		7 &
+		(1) &
+		1 &
+		3 &
+		3\\
+		\hline
+		15 &
+		(1) &
+		1 &
+		4 &
+		4\\
+		\hline
+		31 &
+		(1) &
+		1 &
+		5 &
+		5\\
+		\hline
+		63 &
+		(1) &
+		1 &
+		6 &
+		6\\
+		\hline
+		127 &
+		(1) &
+		1 &
+		7 &
+		7\\
+		\hline
+		181 &
+		(27,611) &
+		2 &
+		15 &
+		15\\
+		\hline
+		181 &
+		(35,99) &
+		2 &
+		15 &
+		15\\
+		\hline
+		255 &
+		(1) &
+		1 &
+		8 &
+		8\\
+		\hline
+		511 &
+		(1) &
+		1 &
+		9 &
+		9\\
+		\hline
+	\end{tabular}
+	\caption{Cycles in Collatz sequences}
+	\label{table:known_cycles}
+\end{table}
+
+As we can see in Table~\ref{table:known_cycles}, we found several cycles for our generalised form of the Collatz problem. All of them comply with theorem~\ref{eq:cycle_alpha}.\footnote{Source: Own empirical analysis, see section "\nameref{appx:data_set}" for details.}
+
+\vspace{1em}\noindent
+\subsection{Binary Growth}
+\par\noindent
+As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $v_1$. Furthermore, it accounts for the maximum binary growth, hereinafter denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ is increased in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to calculate $\hat\Lambda$, we have to drop the starting value $v_1$ from theorem~\ref{eq:max_alpha}:
+\begin{equation}
+\label{eq:binary_growth}
+\hat\Lambda=\lfloor n\log_2k\rfloor+1
+\end{equation}
+The parameter $\hat\Lambda$ represents the maximum binary growth of a Collatz sequence. In other words, the binary growth of a sequence cannot exceed $\hat\Lambda$, even if we would not perform any divisions by two. Studying theorem~\ref{eq:binary_growth}, it is not surprising that we find the following relation to theorem~\ref{eq:cycle_alpha}:
+\[
+\hat\Lambda=\bar\alpha=\lfloor n\log_2k\rfloor+1
+\]
+As we know, a cycle occurs in a Collatz sequence, when the condition $v_1=v_{n+1}$ is fulfilled. The binary length of the starting number $v_1$, has therefore to grow exactly as much as it is reduced by the divisions by two. Thus, for a cycle to occur, the number of divisions by two has to be equal to the binary growth.
+
+\par\medskip
+One could argue that this reasoning is erroneous, since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$, we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
+\[
+\begin{array}{c}
+v_1=k^n*v_1*\beta*2^{-\alpha}\\
+2^{\alpha}=k^n*\beta\\
+\alpha=n*\log_2k+\beta
+\end{array}
+\]
+
+\newpage
+\par\noindent
+Knowing that $1<\beta\le2$, we derive the following limits for the binary growth of a Collatz sequence, subsequently called $\Lambda$:
+\[
+n\cdot\log_2k<\Lambda\le\lfloor n\cdot\log_2k\rfloor+1
+\]
+The binary growth Λ of every Collatz sequence must lie within these boundaries. Due to the fact that $\bar\alpha$ is a whole number, it is obvious that it must equal the maximum on the right side of the expression. In any other case a cycle is impossible.
 
 \section{Summary}
-In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers und the underlying operations. Theorem 4.4 determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur, if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:alpha_max} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.
+In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers und the underlying operations. Theorem~\ref{eq:cycle_alpha} determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur, if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:alpha_max} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.
 
 \appendix
 \section{Data Set}
@@ -392,7 +634,8 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the interval $v_1\in[1\ldots3999]$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/master/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains $651,159$ Collatz numbers, which are not necessarily distinct. This is due to the fact, that different starting numbers can lead to the same subsequent values. Both starting values, $v_1=13$ and $v_1=53$, i.e. result in the number five.
 
 \section{Cycle Finder}
-This Python script was used to validate theorem 4.4.\footnote{\url{https://github.com/c4ristian/collatz/blob/master/run_cycle_finder.py}} The program performs a linear search for the intervals $v_1\in[1\ldots9999]$ and $k\in[1\ldots999]$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
+\label{appx:cycle_finder}
+This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/master/run_cycle_finder.py}} The program performs a linear search for the intervals $v_1\in[1\ldots9999]$ and $k\in[1\ldots999]$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
