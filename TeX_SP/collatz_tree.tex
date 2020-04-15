@@ -82,7 +82,7 @@
 
 \contentformat
 \abstractformat{Abstract.}
-The Collatz conjecture is an unsolved number theory problem. We approach the question by examining the divisions by two that are performed within a Collatz sequence. Besides classical mathematical methods we use techniques of data science. Based on the analysis of 10,000 sequences we show that the number of divisions by two lies within clear boundaries. Building on the results, we formulate and prove several theorems on the occurrence of cycles and the termination of Collatz sequences. The findings are useful for further investigations and could form the basis for a comprehensive proof of the conjecture.
+The Collatz conjecture is an unsolved number theory problem. We approach the question by examining the divisions by two that are performed within a Collatz sequence. Aside from classical mathematical methods we use techniques of data science. Based on the analysis of 10,000 sequences we show that the number of divisions by two lies within clear boundaries. Building on the results, we formulate and prove several theorems on the occurrence of cycles and the termination of Collatz sequences. The findings are useful for further investigations and could form the basis for a comprehensive proof of the conjecture.
 
 \section{Introduction}
 \subsection{The Problem}
@@ -98,7 +98,7 @@ x/2		&	\text{if}\ x\equiv 0(\textrm{mod}\ 2)
 \end{cases}
 \end{equation}
 
-The conjecture, as we treat it in this paper, claims that the above function leads to the final result one for every natural starting number, when applied recursively. A series of numbers involved in this process will be called a Collatz sequence. With the aim to contribute to a proof of the conjecture, this paper analyses a central aspect of the problem: the divisions by two.\footnote{Details on our scientific approach can be found in chapter "\nameref{appx:scientific_approach}".}
+The conjecture, as treated in this paper, claims that the above function leads to the final result one for every natural starting number, when applied recursively. A series of numbers involved in this process is called a Collatz sequence. With an aim to contribute to a proof of the conjecture, this paper analyses a central aspect of the problem: the divisions by two.\footnote{Details on our scientific approach can be found in chapter "\nameref{appx:scientific_approach}".}
 
 \vspace{1em}\noindent
 \subsection{Determining Odd Numbers}
@@ -133,7 +133,7 @@ v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\cdot\pr
 v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot\prod_{1=1}^{n}2^{-\alpha_i}
 \end{flalign}
 
-In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k}, we have to define the halting conditions of the algorithm in the next chapter.
+In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k}, we must first define the halting conditions of the algorithm in the next chapter.
 
 \vspace{1em}\noindent
 \subsection{Halting Conditions}
@@ -153,7 +153,7 @@ When the first condition applies, the Collatz conjecture is true for a specific 
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
 
-In the above example the algorithm halts after two iterations, since the first condition is fulfilled. If we examine the case $v_1=1$, we realise that the algorithm finishes after the first iteration, since both halting conditions are true:
+In the above example the algorithm halts after two iterations because the first condition is fulfilled. If we examine the case $v_1=1$, we realise that the algorithm finishes after the first iteration, since both halting conditions are true:
 \[
 v_{1+1}=3^1\cdot 1\cdot\left(1+\frac{1}{3\cdot1}\right)=1
 \]
