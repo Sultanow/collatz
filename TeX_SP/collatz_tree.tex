@@ -596,24 +596,24 @@ As we can see in Table~\ref{table:known_cycles}, we found several cycles for our
 \vspace{1em}\noindent
 \subsection{Binary Growth}
 \par\noindent
-As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $v_1$. Furthermore, it accounts for the maximum binary growth, hereinafter denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ is increased in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to calculate $\hat\Lambda$, we have to drop the starting value $v_1$ from theorem~\ref{eq:max_alpha}:
+As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $v_1$. Furthermore, it accounts for the maximum binary growth, henceforth denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ is increased in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to calculate $\hat\Lambda$, we have to drop the starting value $v_1$ from theorem~\ref{eq:max_alpha}:
 \begin{equation}
 \label{eq:binary_growth}
-\hat\Lambda=\lfloor n\log_2k\rfloor+1
+\hat\Lambda=\lfloor n\cdot\log_2k\rfloor+1
 \end{equation}
-The parameter $\hat\Lambda$ represents the maximum binary growth of a Collatz sequence. In other words, the binary growth of a sequence cannot exceed $\hat\Lambda$, even if we would not perform any divisions by two. Studying theorem~\ref{eq:binary_growth}, it is not surprising that we find the following relation to theorem~\ref{eq:cycle_alpha}:
+The parameter $\hat\Lambda$ represents the maximum binary growth of a Collatz sequence. In other words, the binary growth of a sequence cannot exceed $\hat\Lambda$, even if we would not perform any divisions by two. Examining theorem~\ref{eq:binary_growth}, it is not surprising that we find the following relation to theorem~\ref{eq:cycle_alpha}:
 \[
-\hat\Lambda=\bar\alpha=\lfloor n\log_2k\rfloor+1
+\hat\Lambda=\bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
 \]
 As we know, a cycle occurs in a Collatz sequence, when the condition $v_1=v_{n+1}$ is fulfilled. The binary length of the starting number $v_1$, has therefore to grow exactly as much as it is reduced by the divisions by two. Thus, for a cycle to occur, the number of divisions by two has to be equal to the binary growth.
 
 \par\medskip
-One could argue that this reasoning is erroneous, since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$, we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
+One might argue that this reasoning is erroneous, since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$, we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
 \[
 \begin{array}{c}
-v_1=k^n*v_1*\beta*2^{-\alpha}\\
-2^{\alpha}=k^n*\beta\\
-\alpha=n*\log_2k+\beta
+v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\alpha}\\
+2^{\alpha}=k^n\cdot\beta\\
+\alpha=n\cdot\log_2k+\beta
 \end{array}
 \]
 
