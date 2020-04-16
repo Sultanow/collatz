@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  16 APR 2020 06:52
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  16 APR 2020 07:27
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -881,13 +881,18 @@ Package makecell Warning: \multirowcell needs multirow package on input line 34
 Package makecell Warning: \multirowcell needs multirow package on input line 34
 9.
 
-[6] [7] [8] [9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 658.
+[6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
+
+ []
+
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 659.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 658.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 659.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 658.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 658.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 659.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 659.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
 (rerunfilecheck)             Checksum: A7325C513FA7078B7D60BF92A94C9215.
 
@@ -900,12 +905,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 22287 strings out of 427242
- 417110 string characters out of 3147792
+ 22289 strings out of 427242
+ 417186 string characters out of 3147792
  532401 words of memory out of 3000000
- 26587 multiletter control sequences out of 15000+200000
- 550987 words of font info for 138 fonts, out of 3000000 for 9000
+ 26588 multiletter control sequences out of 15000+200000
+ 550995 words of font info for 139 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,27n,79p,1080b,443s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,27n,79p,1089b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on collatz_tree.pdf (11 pages).
