@@ -418,12 +418,12 @@ To determine the number of divisions by two, which can lead to a cycle, we need 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\beta$}
 \par\noindent
-The starting point of our analysis of β is theorem 3.2. The formula can be used to calculate the maximum possible divisions by two of a Collatz sequence:
+The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The formula can be used to calculate the maximum possible divisions by two of a Collatz sequence:
 \[
 \hat\alpha=\lfloor n\cdot log_2v_1\rfloor+1
 \]
 
-In chapter "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
+In chapter "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
 
 \newpage
 \par\noindent
@@ -436,7 +436,7 @@ In order to learn more about the parameter $\beta$, we take a look at the relati
 	2^{\hat\alpha}=k^n\cdot v_1\cdot\beta\\
 	\hat\alpha=n\cdot log_2k+log_2v1+log_2\beta\\
 	\lfloor n\cdot log_2k+log_2v_1\rfloor+1=n\cdot \log_2k+log_2v_1+log_2\beta\\
-	log_2\beta=-n log_2k-log_2v_1+\lfloor n\cdot log_2k+log_2v_1\rfloor+1
+	log_2\beta=-n\cdot log_2k-log_2v_1+\lfloor n\cdot log_2k+log_2v_1\rfloor+1
 	\end{array}
 \end{equation}
 
@@ -474,7 +474,7 @@ How many divisions by two can lead to a cycle within a Collatz sequence? We can 
 \begin{equation}
 \label{eq:cycle_alpha}
 \begin{array}{c}
-v_1=k^n\cdot v_1\beta\cdot2^{-\bar\alpha}\\
+v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\bar\alpha}\\
 2^{\bar\alpha}=k^n\cdot\beta\\
 \bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
 \end{array}
