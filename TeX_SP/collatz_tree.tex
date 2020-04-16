@@ -237,7 +237,7 @@ First, we examine the case $k=1$, where theorem~\ref{eq:max_alpha} can be simpli
 \end{equation}
 
 \par\noindent
-In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the number of divisions by two, $\alpha$ is less than or equal to the maximum $\hat\alpha$. This can be achieved by analysing the binary representation of Collatz numbers.\footnote{To avoid confusion between decimal and binary numbers, we will label binary numbers with a subscripted $2$.} Let us consider the case $v_1=25$ and $k=1$ in the decimal system. Applying theorem~\ref{eq:reachability_k} leads to the sequence shown in the following table~\ref{table:k_1}.
+In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the number of divisions by two, $\alpha$, is less than or equal to the maximum $\hat\alpha$. This can be achieved by analysing the binary representation of Collatz numbers.\footnote{To avoid confusion between decimal and binary numbers, we will label binary numbers with a subscripted $2$.} Let us consider the case $v_1=25$ and $k=1$ in the decimal system. Applying theorem~\ref{eq:reachability_k} leads to the sequence shown in the following table~\ref{table:k_1}.
 
 \begin{table}[H]
 	\centering
@@ -272,7 +272,7 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 	\label{table:k_1}
 \end{table}
 
-The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a number expressed in the decimal.} This observation is crucial for our proof.
+The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a binary number.} This observation is crucial for our proof.
 
 \newpage
 \par\noindent
@@ -309,7 +309,7 @@ Let us now reflect what this implies for the maximum $\hat\alpha$. We know that 
 	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor log_2 v_1\rfloor+1
 \end{equation}
 
-The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/master/notebooks/binary.ipynb}}.
+The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/master/notebooks/binary.ipynb}}
 
 \newpage
 \par\noindent
