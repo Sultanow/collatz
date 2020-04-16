@@ -318,7 +318,7 @@ The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next
 \vspace{1em}\noindent
 \subsection{Proving \boldmath$\hat\alpha$ for \boldmath$k>1$}
 \par\noindent
-Let us now examine the case $k=3$, which is most interesting, because it relates to the original Collatz conjecture. Are the principles discussed in the previous chapter transferable to this form of the problem? To find an answer, we analyse a sequence, starting with $v_1=17$ and $k=3$. The results are shown in the following Table~\ref{table:k_3}.
+Let us now examine the case $k=3$, which is most interesting because it relates to the original Collatz conjecture. The first question we need to address is whether or not the principles discussed in the previous chapter are transferable to this form of the problem. To find an answer, we analyse a sequence, starting with $v_1=17$ and $k=3$. The results are displayed in the following Table~\ref{table:k_3}.
 
 \begin{table}[H]
 	\centering
@@ -359,15 +359,15 @@ Let us now examine the case $k=3$, which is most interesting, because it relates
 	\label{table:k_3}
 \end{table}
 
-The example presented in Table~\ref{table:k_3} makes clear, that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
+The example presented in Table~\ref{table:k_3} makes clear that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
 \begin{equation}
 	len(3\cdot v_n)=\lfloor log_23+log_2v_n\rfloor+1
 \end{equation}
 
-In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can argue in the same way as in the previous chapter. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will in this case increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resultant power of two will lead to a termination.
+In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous chapter. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
 
 \par\medskip
-In order to prove our hypothesis, we have to adjust theorem~\ref{eq:max_alpha_1} by considering the additional binary growth that is caused by the multiplications with three. Thereby we obtain the following formula:
+In order to prove our hypothesis, we have to adjust theorem~\ref{eq:max_alpha_1} by considering the additional binary growth that is caused by the multiplications with three. Therefore, we obtain the following formula:
 \begin{equation}
 \label{eq:max_alpha_k}
 	\alpha=\hat\alpha=\lfloor n\cdot log_23+log_2v_1\rfloor+1
@@ -378,9 +378,9 @@ The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. A closer lo
 n\le\alpha\le\hat\alpha
 \end{equation}
 
-If one shows that every sequence finally leads to $\hat\alpha$, that means to a binary overflow of $3v_n+1$, the Collatz problem would be solved. In the next chapter we will discuss the consequences of our findings for the occurrence of cycles, further confirming our argumentation.
+If one shows that every sequence finally leads to $\hat\alpha$, that means to a binary overflow of $3v_n+1$, the Collatz problem would be solved. In the next chapter we will discuss the consequences of our findings for the occurrence of cycles, further confirming our line of reasoning.
 
-\section{Occurences of Cycles}
+\section{Occurence of Cycles}
 \subsection{Definition}
 \par\noindent
 A promising possibility to falsify the Collatz conjecture in its original form is a cycle. We have found such a counterexample, if the following halting condition from chapter "\nameref{sec:halting_conditions}" is fulfilled:
@@ -400,7 +400,7 @@ The Collatz conjecture claims that the above example is the only possibility of 
 \]
 
 \par\medskip
-For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that theorem~\ref{eq:cycle} is true for $k=3$, would partially prove the Collatz conjecture. There would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
+For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that theorem~\ref{eq:cycle} is true for $k=3$, would partially prove the Collatz conjecture. Yet there would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
 
 \par\medskip
 A major difficulty in analysing cycles in Collatz sequences is that there seems to be just one example. This is, however, not true for our generalised form of the problem. Let us consider the example $k=5$ and $v_1=13$. Applying theorem~\ref{eq:reachability_k} leads to a cycle of the length $n=3$:
@@ -490,14 +490,14 @@ The last transformation above is applied, since $\bar\alpha$ is a whole number. 
 \]
 
 \par\medskip
-Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}". With the script we searched and evaluated cycles in Collatz sequences for the interval $v_1\in[1\ldots9999]$ and $k\in[1\ldots999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table~\ref{table:known_cycles}.
+Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}". With the script we searched and evaluated cycles in Collatz sequences for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table~\ref{table:known_cycles}.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|L|R|R|R|C|}
 		\hline
 		\thead{\boldsymbol{k}} &
-		\thead{\boldsymbol{v_1\ldots v_n}} &
+		\thead{\boldsymbol{v_1\mathrel{{.}\,{.}}v_n}} &
 		\thead{\boldsymbol{n}} &
 		\thead{\boldsymbol{\alpha}} &
 		\thead{\boldsymbol{\bar\alpha}}\\
