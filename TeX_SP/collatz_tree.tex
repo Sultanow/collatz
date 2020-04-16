@@ -287,13 +287,13 @@ For example, consider the case $v_i=13$ in decimal, rendered in binary that mean
 len(13)=len(1101_2)=\lfloor log_213\rfloor+1=4
 \]
 
-The comparison of equation~\ref{eq:binary_length} with theorem~\ref{eq:max_alpha_1} makes clear that they are identical. This raises the question why the maximum number of divisions by two of a Collatz sequence corresponds to the binary length of $v_1$?\footnote{The statement is only true for $k=1$.} To answer this, we take a closer look at the mechanics of a Collatz sequence in the binary system.
+The comparison of equation~\ref{eq:binary_length} with theorem~\ref{eq:max_alpha_1} makes clear that they are identical. This raises the question why the maximum number of divisions by two of a Collatz sequence corresponds to the binary length of $v_1$.\footnote{The statement is only true for $k=1$.} To answer this, we take a closer look at the mechanics of a Collatz sequence in the binary system.
 
 \par\medskip
 We start with $v_1=11001_2$ in the above example. Adding one, we obtain the even number $v_1+1=11010_2$. The binary length of $v_1$ equals the binary length of $v_1+1$, which is five. Due to the trailing zero we immediately realise that $v_1+1$ is even. A division by two can be performed in the binary system by deleting the trailing zero. The result is $v_2=1101_2$. Adding one again, leads to the next even number $v_2+1=1110_2$. Deleting the trailing zero once more, results in $v_3=111_2$.
 
 \par\medskip
-Up to this point we have performed two divisions by two. The parameter $\alpha$ therefore equals two. The case $v_3=111_2$ is very important for our proof. Adding one to $v_3=111_2$, leads to an overflow of the binary number. As a result, we obtain the even number $v_3+1=1000_2$, which is a power of two and equals $2^3$ in decimal. Knowing that every power of two in a Collatz sequence directly leads to the terminal value $v_{n+1}=1$, we can tell that the sequence ends after the third iteration.
+Up to this point we have performed two divisions by two. The parameter $\alpha$ therefore equals two. The case $v_3=111_2$ is very important for our proof. Adding one to $v_3=111_2$, leads to an overflow of the binary number. As a result, we obtain the even number $v_3+1=1000_2$, which is a power of two and equals $2^3$ in decimal. Knowing that every power of two in a Collatz sequence directly leads to the terminal value $v_{n+1}=1$, we can deduce that the sequence ends after the third iteration.
 
 \par\medskip
 The binary length $len(v_3)=3$ increases to $len(v_3+1)=4$ in the final step. This situation only occurs once in a Collatz sequence for $k=1$. Whenever adding one to a number $v_n$ causes an overflow of its binary representation, the result $v_n+1$ will be a power of two. The binary length will in this scenario increase from $len(v_n)$ to $len(v_n)+1$. The sequence will consequently halt. For all other cases the following condition applies\footnote{The statement is only true for $k=1$.}:
