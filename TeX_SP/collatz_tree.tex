@@ -113,7 +113,7 @@ The variable $v_1$ denotes the first odd number of the sequence, that is, the st
 
 \newpage
 \par\noindent
-Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$. Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:eq:reachability_3} leads to
+Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$. Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
 \[
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
@@ -139,7 +139,7 @@ In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k
 \subsection{Halting Conditions}
 \label{sec:halting_conditions}
 \par\noindent
-Being compliant with the Collatz conjecture, the algorithms~\ref{eq:reachability_3} and \ref{eq:reachability_k} halt, if at least one of the following conditions is fulfilled:
+Being compliant with the Collatz conjecture, the algorithms~\ref{eq:reachability_3} and \ref{eq:reachability_k} halt if at least one of the following conditions is fulfilled:
 \begin{equation}
 \label{eq:halting_condition}
 \begin{array}{ll}
@@ -158,7 +158,7 @@ In the above example the algorithm halts after two iterations because the first 
 v_{1+1}=v_1=3^1\cdot 1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}=1
 \]
 
-The sequence stops in the example above, because the result is one. Furthermore, the sequence has led to a cycle.
+The sequence stops in the example above because the result is one. Furthermore, the sequence has led to a cycle.
 
 \section{Boundaries of \boldmath$\alpha_i$}
 We know that in every iteration of the equations~\ref{eq:reachability_3} and \ref{eq:reachability_k} at least one division by two is performed. This follows from the constraints of the Collatz problem. Consequently, we can define the minimum of $\alpha_i$ with the following condition:
