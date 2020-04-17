@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  16 APR 2020 07:27
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  17 APR 2020 07:05
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -767,10 +767,6 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 
 ]
 
-LaTeX Warning: Reference `eq:eq:reachability_3' on page 2 undefined on input li
-ne 116.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 163.
 
@@ -842,74 +838,116 @@ Package makecell Warning: \multirowcell needs multirow package on input line 26
 
 [4] [5]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 327.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 325.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 327
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 325
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 327.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 325.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 327
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 325
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 327.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 325.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 327
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 325
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 327.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 325.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 327
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 325
 .
 
 
 Package makecell Warning: \multirowcell needs multirow package on input line 33
+5.
+
+
+Package makecell Warning: \multirowcell needs multirow package on input line 34
+1.
+
+
+Package makecell Warning: \multirowcell needs multirow package on input line 34
 7.
 
+[6] [7]
+LaTeX Font Info:    Calculating math sizes for size <> on input line 439.
 
-Package makecell Warning: \multirowcell needs multirow package on input line 34
-3.
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
+(Font)              size <5> substituted on input line 439.
 
 
-Package makecell Warning: \multirowcell needs multirow package on input line 34
-9.
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
+(Font)              size <5> substituted on input line 439.
 
-[6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
+(Font)              size <5> substituted on input line 439.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
+(Font)              size <5> substituted on input line 439.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 439.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 439.
+
+LaTeX Font Info:    External font `cmex7' loaded for size
+(Font)              <> on input line 439.
+LaTeX Font Info:    External font `cmex7' loaded for size
+(Font)              <0.7> on input line 439.
+LaTeX Font Info:    External font `cmex7' loaded for size
+(Font)              <0.5> on input line 439.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
+(Font)              size <5> substituted on input line 439.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 439.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 439.
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 628--629
 
  []
 
 [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 659.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 658.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 659.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 658.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 659.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 659.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 658.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 658.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
-(rerunfilecheck)             Checksum: A7325C513FA7078B7D60BF92A94C9215.
+(rerunfilecheck)             Checksum: 9EFB8BF6FEDD1747957C5D863152289D.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.5pt have occurred.
-
-
-LaTeX Warning: There were undefined references.
+(Font)              up to 4.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 22289 strings out of 427242
- 417186 string characters out of 3147792
- 532401 words of memory out of 3000000
- 26588 multiletter control sequences out of 15000+200000
- 550995 words of font info for 139 fonts, out of 3000000 for 9000
+ 22313 strings out of 427242
+ 417679 string characters out of 3147792
+ 533401 words of memory out of 3000000
+ 26609 multiletter control sequences out of 15000+200000
+ 552273 words of font info for 148 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  48i,27n,79p,1089b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
 

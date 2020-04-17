@@ -171,19 +171,19 @@ The maximum can be specified in a likewise easy way. According to the halting co
 \label{eq:alpha_max}
 \begin{array}{l}
 2^{\hat\alpha_i}=k\cdot v_i+1\\[\medskipamount]
-\hat\alpha_i=log_2k+log_2v_i+log_2\beta_i
+\hat\alpha_i=\log_2k+\log_2v_i+\log_2\beta_i
 \end{array}	
 \end{equation}
 
 The theorem above builds on the fact that the expression $2^{\hat\alpha_i}$ must equal the next even number $k\cdot v_i+1$ in order to lead to $v_{n+1}=1$. Being greater, the result $v_{n+1}$ would be less than one. The second step inverses the exponentiation of $\hat\alpha_i$ by taking the binary logarithm. Appropriately, we replace the operation \textit{plus one} by $\beta_i$. For a better understanding of the above term, let us consider the example $k=3$ and $v_1=5$. In this case theorem~\ref{eq:alpha_max} results in:
 \[
-\alpha_1=\hat\alpha_1=4=log_23+log_25+log_2\left(1+\frac{1}{3\cdot5}\right)
+\alpha_1=\hat\alpha_1=4=\log_23+\log_25+\log_2\left(1+\frac{1}{3\cdot5}\right)
 \]
 
 If a sequence reaches the maximum $\hat\alpha_i$, it finishes with one, thus verifying the Collatz conjecture. If we could prove that every odd number finally leads to this maximum for $k=3$, the Collatz problem would be solved. Summarising, we can define the following boundaries for $\alpha_i$:
 \begin{equation}
 \label{eq:boundary_alpha_i}
-1\le\alpha_i\le log_2k+log_2v_i+log_2\beta_i
+1\le\alpha_i\le\log_2k+\log_2v_i+\log_2\beta_i
 \end{equation}
 
 Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. We will do so at various points in this paper to avoid obvious errors in our mathematical reasoning. The basis for the validation is a sample of $10,000$ Collatz sequences. The data set comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$. Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. For further details on the data set, see appendix "\nameref{appx:data_set}".
@@ -211,7 +211,7 @@ Since we carry out at least one division by two in every iteration of theorem~\r
 \begin{equation}
 \label{eq:max_alpha}
 \begin{array}{l}
-\hat\alpha=\lfloor n\cdot log_2k+log_2v_1\rfloor+1\\[\medskipamount]
+\hat\alpha=\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1\\[\medskipamount]
 \alpha\le\hat\alpha
 \end{array}	
 \end{equation}
@@ -219,7 +219,7 @@ Since we carry out at least one division by two in every iteration of theorem~\r
 The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above formulated maximum, it finishes with one, as conjectured by Lothar Collatz. Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k} leads to:
 \[
 \begin{array}{l}
-\hat\alpha=\lfloor 2\cdot log_23+log_213\rfloor+1=7\\[\medskipamount]
+\hat\alpha=\lfloor 2\cdot\log_23+\log_213\rfloor+1=7\\[\medskipamount]
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \end{array}
 \]
@@ -233,11 +233,11 @@ Throughout the next sections we will formulate a proof of the developed hypothes
 First, we examine the case $k=1$, where theorem~\ref{eq:max_alpha} can be simplified as follows:
 \begin{equation}
 \label{eq:max_alpha_1}
-\hat\alpha=\lfloor n\cdot log_21+log_2v_1\rfloor+1=\lfloor log_2v_1\rfloor+1
+\hat\alpha=\lfloor n\cdot\log_21+\log_2v_1\rfloor+1=\lfloor\log_2v_1\rfloor+1
 \end{equation}
 
 \par\noindent
-In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the number of divisions by two, $\alpha$, is less than or equal to the maximum $\hat\alpha$. This can be achieved by analysing the binary representation of Collatz numbers.\footnote{To avoid confusion between decimal and binary numbers, we will label binary numbers with a subscripted $2$.} Let us consider the case $v_1=25$ and $k=1$ in the decimal system. Applying theorem~\ref{eq:reachability_k} leads to the sequence shown in the following table~\ref{table:k_1}.
+In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the number of divisions by two, $\alpha$, is less than or equal to the maximum $\hat\alpha$. This can be achieved by analysing the binary representation of Collatz numbers.\footnote{To avoid confusion between decimal and binary numbers, we will label binary numbers with a subscripted $2$.} Let us consider the case $v_1=25$ and $k=1$ in the decimal system. Applying theorem~\ref{eq:reachability_k} leads to the sequence shown in the following table.
 
 \begin{table}[H]
 	\centering
@@ -246,7 +246,7 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 		\thead{\boldmath$n$} &
 		\thead{\textbf{variable}} &
 		\thead{\textbf{decimal}} &
-		\thead{\textbf{log2}} &
+		\thead{\boldsymbol{\log2}} &
 		\thead{\textbf{binary}} &
 		\thead{\textbf{binary length}} &
 		\thead{\boldsymbol{\alpha_i}} &
@@ -272,19 +272,17 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 	\label{table:k_1}
 \end{table}
 
-The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a binary number.} This observation is crucial for our proof.
-
 \newpage
 \par\noindent
-For clarification, it is important to note that the length of a binary number can be calculated with the following equation\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}:
+The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}:
 \begin{equation}
 \label{eq:binary_length}
-len(v_i)=\lfloor log_2v_i\rfloor+1
+len(v_i)=\lfloor\log_2v_i\rfloor+1
 \end{equation}
 
 For example, consider the case $v_i=13$ in decimal, rendered in binary that means $v_i=1101_2$. Here, the equation~\ref{eq:binary_length} leads to the following result:
 \[
-len(13)=len(1101_2)=\lfloor log_213\rfloor+1=4
+len(13)=len(1101_2)=\lfloor\log_213\rfloor+1=4
 \]
 
 The comparison of equation~\ref{eq:binary_length} with theorem~\ref{eq:max_alpha_1} makes clear that they are identical. This raises the question why the maximum number of divisions by two of a Collatz sequence corresponds to the binary length of $v_1$.\footnote{The statement is only true for $k=1$.} To answer this, we take a closer look at the mechanics of a Collatz sequence in the binary system.
@@ -306,7 +304,7 @@ Only the final iteration increases the length of the binary number. In any other
 \par\medskip
 Let us now reflect what this implies for the maximum $\hat\alpha$. We know that the binary length of the starting value $v_1$ can be calculated with theorem~\ref{eq:binary_length}. In order to reach the final result $v_{n+1}=1$, starting at $v_1$, we have to perform the following number of divisions by two:
 \begin{equation}
-	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor log_2 v_1\rfloor+1
+	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor\log_2 v_1\rfloor+1
 \end{equation}
 
 The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/master/notebooks/binary.ipynb}}
@@ -318,7 +316,7 @@ The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next
 \vspace{1em}\noindent
 \subsection{Proving \boldmath$\hat\alpha$ for \boldmath$k>1$}
 \par\noindent
-Let us now examine the case $k=3$, which is most interesting because it relates to the original Collatz conjecture. The first question we need to address is whether or not the principles discussed in the previous chapter are transferable to this form of the problem. To find an answer, we analyse a sequence, starting with $v_1=17$ and $k=3$. The results are displayed in the following Table~\ref{table:k_3}.
+Let us now examine the case $k=3$, which is most interesting because it relates to the original Collatz conjecture. The first question we need to address is whether or not the principles discussed in the previous chapter are transferable to this form of the problem. To find an answer, we analyse a sequence, starting with $v_1=17$ and $k=3$. The results are displayed in the following table.
 
 \begin{table}[H]
 	\centering
@@ -327,7 +325,7 @@ Let us now examine the case $k=3$, which is most interesting because it relates 
 		\thead{\boldmath$n$} &
 		\thead{\textbf{variable}} &
 		\thead{\textbf{decimal}} &
-		\thead{\textbf{log2}} &
+		\thead{\boldsymbol{\log2}} &
 		\thead{\textbf{binary}} &
 		\thead{\textbf{binary length}} &
 		\thead{\boldsymbol{\alpha_i}} &
@@ -361,7 +359,7 @@ Let us now examine the case $k=3$, which is most interesting because it relates 
 
 The example presented in Table~\ref{table:k_3} makes clear that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
 \begin{equation}
-	len(3\cdot v_n)=\lfloor log_23+log_2v_n\rfloor+1
+	len(3\cdot v_n)=\lfloor\log_23+\log_2v_n\rfloor+1
 \end{equation}
 
 In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous chapter. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
@@ -370,7 +368,7 @@ In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additiona
 In order to prove our hypothesis, we have to adjust theorem~\ref{eq:max_alpha_1} by considering the additional binary growth that is caused by the multiplications with three. Therefore, we obtain the following formula:
 \begin{equation}
 \label{eq:max_alpha_k}
-	\alpha=\hat\alpha=\lfloor n\cdot log_23+log_2v_1\rfloor+1
+	\alpha=\hat\alpha=\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
 \end{equation}
 
 The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. A closer look makes clear that it is not only valid for $k=3$, but for all $k$. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
@@ -420,7 +418,7 @@ To determine the number of divisions by two, which can lead to a cycle, we need 
 \par\noindent
 The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The formula can be used to calculate the maximum possible divisions by two of a Collatz sequence:
 \[
-\hat\alpha=\lfloor n\cdot log_2v_1\rfloor+1
+\hat\alpha=\lfloor n\cdot\log_2v_1\rfloor+1
 \]
 
 In chapter "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
@@ -429,15 +427,15 @@ In chapter "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates t
 \par\noindent
 In order to learn more about the parameter $\beta$, we take a look at the relation between theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k}. We examine the situation in which theorem~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
 \begin{equation}
-	\label{eq:beta}
-	\begin{array}{l}
+\label{eq:beta}
+\large\def\arraystretch{1.2}\begin{array}{l}
 	1=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot2^{-\hat\alpha}\\
 	1=k^n\cdot v_1\cdot\beta\cdot2^{-\hat\alpha}\\
 	2^{\hat\alpha}=k^n\cdot v_1\cdot\beta\\
-	\hat\alpha=n\cdot log_2k+log_2v1+log_2\beta\\
-	\lfloor n\cdot log_2k+log_2v_1\rfloor+1=n\cdot \log_2k+log_2v_1+log_2\beta\\
-	log_2\beta=-n\cdot log_2k-log_2v_1+\lfloor n\cdot log_2k+log_2v_1\rfloor+1
-	\end{array}
+	\hat\alpha=n\cdot\log_2k+\log_2v1+\log_2\beta\\
+	\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1=n\cdot\log_2k+\log_2v_1+\log_2\beta\\
+	\log_2\beta=-n\cdot\log_2k-\log_2v_1+\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1
+\end{array}
 \end{equation}
 
 For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, theorem~\ref{eq:beta} leads to:
@@ -473,17 +471,17 @@ In the next chapter we will discuss the implications of theorem~\ref{eq:boundary
 How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of theorems~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which theorem~\ref{eq:reachability_k} leads to a cycle by setting  $v_{n+1}=v_1$:
 \begin{equation}
 \label{eq:cycle_alpha}
-\begin{array}{c}
-v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\bar\alpha}\\
-2^{\bar\alpha}=k^n\cdot\beta\\
-\bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
+\large\def\arraystretch{1.2}\begin{array}{c}
+	v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\bar\alpha}\\
+	2^{\bar\alpha}=k^n\cdot\beta\\
+	\bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
 \end{array}
 \end{equation}
 
 \par\medskip
 The last transformation above is applied, since $\bar\alpha$ is a whole number. This requires us to truncate the fractional part. Knowing that $1<\beta\le2$, we add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
 \[
-\begin{array}{c}
+\large\def\arraystretch{1.2}\begin{array}{c}
 \bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
 71=3^3\cdot83\cdot\left(1+\frac{1}{3\cdot83}\right)\cdot\left(1+\frac{1}{3\cdot125}\right)\cdot\left(1+\frac{1}{3\cdot47}\right)\cdot2^{-5}
 \end{array}
@@ -494,6 +492,7 @@ Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. O
 
 \begin{table}[H]
 	\centering
+	\setlength{\tabcolsep}{1,2em}
 	\begin{tabular}{|L|R|R|R|C|}
 		\hline
 		\thead{\boldsymbol{k}} &
@@ -656,4 +655,4 @@ R. Sedgewick and K. Wayne: Algorithms (Fourth Edition). Addison-Wesley Professio
 \end{thebibliography}
 
 
-\end{document} 
+\end{document}
