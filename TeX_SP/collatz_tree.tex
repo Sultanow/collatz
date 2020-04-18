@@ -473,12 +473,13 @@ How many divisions by two can lead to a cycle within a Collatz sequence? We can 
 \large\def\arraystretch{1.2}\begin{array}{c}
 	v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\bar\alpha}\\
 	2^{\bar\alpha}=k^n\cdot\beta\\
+	\bar\alpha=n\cdot \log_2k + \log_2\beta\\
 	\bar\alpha=\lfloor n\cdot\log_2k\rfloor+1
 \end{array}
 \end{equation}
 
 \par\medskip
-The last transformation above is applied, since $\bar\alpha$ is a whole number. This requires us to truncate the fractional part. Knowing that $1<\beta\le2$, we add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
+The last transformation above is applied, since $\bar\alpha$ is a whole number. Knowing that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
 \[
 \large\def\arraystretch{1.2}\begin{array}{c}
 \bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
