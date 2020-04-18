@@ -87,7 +87,7 @@ The Collatz conjecture is an unsolved number theory problem. We approach the que
 \section{Introduction}
 \subsection{The Problem}
 \par\noindent
-The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications.\footnote{An overview is provided by Lagarias \cite{Ref_Lagarias_2010}.}. Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
+The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications.\footnote{An overview is provided by Lagarias \cite{Ref_Lagarias_2010}.} Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
 
 \begin{equation}
 \label{eq:func_collatz}
@@ -98,12 +98,12 @@ x/2		&	\text{if}\ x\equiv 0(\textrm{mod}\ 2)
 \end{cases}
 \end{equation}
 
-The conjecture, as treated in this paper, claims that the above function leads to the final result one for every natural starting number, when applied recursively. A series of numbers involved in this process is called a Collatz sequence. With an aim to contribute to a proof of the conjecture, this paper analyses a central aspect of the problem: the divisions by two.\footnote{Details on our scientific approach can be found in appendix "\nameref{appx:scientific_approach}".}
+The conjecture, as treated in this paper, claims that the above function leads to the final result one for every natural starting number, when applied recursively. A series of numbers involved in this process is called a Collatz sequence. With an aim to contribute to a proof of the conjecture, this paper analyses a central aspect of the problem: the divisions by two.\footnote{Details on our scientific approach can be found in section "\nameref{appx:scientific_approach}" in the appendix.}
 
 \vspace{1em}\noindent
 \subsection{Determining Odd Numbers}
 \par\noindent
-Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calculated with the following recursive equation\footnote{See Sultanow, Koch, and Cox \cite[p.~10]{Ref_Sultanow_Koch_Cox_2020}.}:
+Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calculated with the following recursive equation:\footnote{See Sultanow, Koch, and Cox \cite[p.~10]{Ref_Sultanow_Koch_Cox_2020}.}
 \begin{equation}
 \label{eq:reachability_3}
 v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{1=1}^{n}2^{-\alpha_i}
@@ -186,7 +186,7 @@ If a sequence reaches the maximum $\hat\alpha_i$, it finishes with one, thus ver
 1\le\alpha_i\le\log_2k+\log_2v_i+\log_2\beta_i
 \end{equation}
 
-Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. We will do so at various points in this paper to avoid obvious errors in our mathematical reasoning. The basis for the validation is a sample of $10,000$ Collatz sequences. The data set comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$. Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. For further details on the data set, see appendix "\nameref{appx:data_set}".
+Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. We will do so at various points in this paper to avoid obvious errors in our mathematical reasoning. The basis for the validation is a sample of $10,000$ Collatz sequences. The data set comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$. Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. For further details on the data set, see section "\nameref{appx:data_set}" in the appendix.
 
 Unsurprisingly, we found that all values of $\alpha_i$ in the sample are compliant with theorem~\ref{eq:boundary_alpha_i}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} In the next chapter we move on to more sophisticated considerations and study the properties of $\prod_{1}^{n}2^{\alpha_i}$.
 
@@ -274,13 +274,13 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 
 \newpage
 \par\noindent
-The sequence presented in Table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of the digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}:
+The sequence presented in table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation:\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}
 \begin{equation}
 \label{eq:binary_length}
 len(v_i)=\lfloor\log_2v_i\rfloor+1
 \end{equation}
 
-For example, consider the case $v_i=13$ in decimal, rendered in binary that means $v_i=1101_2$. Here, the equation~\ref{eq:binary_length} leads to the following result:
+For example, consider the case $v_i=13$ in decimal, rendered in binary that means $v_i=1101_2$. Here, equation~\ref{eq:binary_length} leads to the following result:
 \[
 len(13)=len(1101_2)=\lfloor\log_213\rfloor+1=4
 \]
@@ -294,7 +294,7 @@ We start with $v_1=11001_2$ in the above example. Adding one, we obtain the even
 Up to this point we have performed two divisions by two. The parameter $\alpha$ therefore equals two. The case $v_3=111_2$ is very important for our proof. Adding one to $v_3=111_2$, leads to an overflow of the binary number. As a result, we obtain the even number $v_3+1=1000_2$, which is a power of two and equals $2^3$ in decimal. Knowing that every power of two in a Collatz sequence directly leads to the terminal value $v_{n+1}=1$, we can deduce that the sequence ends after the third iteration.
 
 \par\medskip
-The binary length $len(v_3)=3$ increases to $len(v_3+1)=4$ in the final step. This situation only occurs once in a Collatz sequence for $k=1$. Whenever adding one to a number $v_n$ causes an overflow of its binary representation, the result $v_n+1$ will be a power of two. The binary length will in this scenario increase from $len(v_n)$ to $len(v_n)+1$. The sequence will consequently halt. For all other cases the following condition applies\footnote{The statement is only true for $k=1$.}:
+The binary length $len(v_3)=3$ increases to $len(v_3+1)=4$ in the final step. This situation only occurs once in a Collatz sequence for $k=1$. Whenever adding one to a number $v_n$ causes an overflow of its binary representation, the result $v_n+1$ will be a power of two. The binary length will in this scenario increase from $len(v_n)$ to $len(v_n)+1$. The sequence will consequently halt. For all other cases the following condition applies:\footnote{The statement is only true for $k=1$.}
 \begin{equation}
 	len(v_n)=len(v_n+1)>len(v_{n+1})
 \end{equation}
@@ -357,9 +357,9 @@ Let us now examine the case $k=3$, which is most interesting because it relates 
 	\label{table:k_3}
 \end{table}
 
-The example presented in Table~\ref{table:k_3} makes clear that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
+The example presented in table~\ref{table:k_3} makes clear that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
 \begin{equation}
-	len(3\cdot v_n)=\lfloor\log_23+\log_2v_n\rfloor+1
+	len(3v_n)=\lfloor\log_23+\log_2v_n\rfloor+1
 \end{equation}
 
 In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous chapter. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
@@ -391,7 +391,7 @@ The single known cycle for $k=3$ is the trivial one starting with $v_1=1$:
 	v_1=1=v_{1+1}=3\cdot1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}
 \]
 
-The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on theorem~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence\footnote{See Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}.}:
+The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on theorem~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence:\footnote{See Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}.}
 \begin{equation}
 \label{eq:cycle}
     2^{\alpha}=k^n\cdot\prod_{i=1}^{n}\beta_i
@@ -401,7 +401,7 @@ The Collatz conjecture claims that the above example is the only possibility of 
 For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that theorem~\ref{eq:cycle} is true for $k=3$, would partially prove the Collatz conjecture. Yet there would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
 
 \par\medskip
-A major difficulty in analysing cycles in Collatz sequences is that there seems to be just one example. This is, however, not true for our generalised form of the problem. Let us consider the example $k=5$ and $v_1=13$. Applying theorem~\ref{eq:reachability_k} leads to a cycle of the length $n=3$:
+A major difficulty in analysing cycles in Collatz sequences is that there seems to be just one example. This is, however, not true for our generalised form of the problem. Let us consider the case $k=5$ and $v_1=13$. Applying theorem~\ref{eq:reachability_k} leads to a cycle of the length $n=3$:
 \[
 13=5^3\cdot13\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)\cdot2^{-7}
 \]
@@ -488,7 +488,7 @@ The last transformation above is applied, since $\bar\alpha$ is a whole number. 
 \]
 
 \par\medskip
-Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see appendix "\nameref{appx:cycle_finder}". With the script we searched and evaluated cycles in Collatz sequences for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table~\ref{table:known_cycles}.
+Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
 
 \begin{table}[H]
 	\centering
@@ -590,7 +590,7 @@ Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. O
 	\label{table:known_cycles}
 \end{table}
 
-As one can see in Table~\ref{table:known_cycles}, we found several cycles for our generalised form of the Collatz problem. All of them comply with theorem~\ref{eq:cycle_alpha}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.}
+As one can see in table~\ref{table:known_cycles}, we found several cycles for our generalised form of the Collatz problem. All of them comply with theorem~\ref{eq:cycle_alpha}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.}
 
 \vspace{1em}\noindent
 \subsection{Binary Growth}
@@ -639,7 +639,7 @@ This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
-The contents published in this paper have been achieved with an interdisciplinary approach. Not surprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with classical maths alone, we additionally used techniques of data science. We combined the two fields in different ways. On one hand, we analysed sequences and related features empirically, in order to derive new formulas and theorems. On the other hand, we used data science to validate our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode. This might be the topic of another paper.
+The contents published in this paper have been achieved with an interdisciplinary approach. Not surprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with traditional maths alone, we additionally used techniques of data science. We combined the two fields in different ways. On one hand, we analysed sequences and related features empirically, in order to derive new formulas and theorems. On the other hand, we used data science to validate our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode. This might be the topic of another paper.
 
 \begin{thebibliography}{99}
 
