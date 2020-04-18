@@ -26,6 +26,8 @@
 \newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
 \newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
 
+\setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
+
 %\usepackage{fontspec-patches}	
 % <-- DO NOT REMOVE this package,
 % because the fonts (Times New Roman and Arial) will not be used in the document.
@@ -113,7 +115,7 @@ The variable $v_1$ denotes the first odd number of the sequence, that is, the st
 
 \newpage
 \par\noindent
-Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$. Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
+Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
 \[
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
@@ -271,7 +273,6 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 	\label{table:k_1}
 \end{table}
 
-\newpage
 \par\noindent
 The sequence presented in table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation:\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}
 \begin{equation}
@@ -308,8 +309,7 @@ Let us now reflect what this implies for the maximum $\hat\alpha$. We know that 
 
 The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/master/notebooks/binary.ipynb}}
 
-\newpage
-\par\noindent
+\par\medskip
 The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next section we will explain why this argumentation is in principle valid for all $k$.
 
 \vspace{1em}\noindent
@@ -422,8 +422,7 @@ The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The form
 
 In section "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
 
-\newpage
-\par\noindent
+\par\medskip
 In order to learn more about the parameter $\beta$, we take a look at the relation between theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k}. We examine the situation in which theorem~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
 \begin{equation}
 \label{eq:beta}
@@ -444,7 +443,6 @@ For a better understanding of the above term, let us examine two examples. We be
 \beta=2
 \end{array}
 \]
-
 Moreover, we study the example where $k=5$, $v_1=19$ and $n=2$. Equation~\ref{eq:beta} in this case results in:
 \[
 \begin{array}{c}
@@ -452,7 +450,6 @@ Moreover, we study the example where $k=5$, $v_1=19$ and $n=2$. Equation~\ref{eq
 \beta=1.0780
 \end{array}
 \]
-
 Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater than one, we define the following boundaries of $\beta$:
 \begin{equation}
 \label{eq:boundary_beta}
@@ -461,7 +458,6 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
-
 In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
@@ -640,6 +636,58 @@ This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\
 \label{appx:scientific_approach}
 The contents published in this paper have been achieved with an interdisciplinary approach. Not surprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with traditional maths alone, we additionally used techniques of data science. We combined the two fields in different ways. On one hand, we analysed sequences and related features empirically, in order to derive new formulas and theorems. On the other hand, we used data science to validate our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode. This might be the topic of another paper.
 
+\section{Glossary of Notations}
+\label{appx:glossary_of_notations}
+\vspace{-1em}
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{1,2em}\setlength\extrarowheight{3pt}
+	\begin{tabular}{|l|p{13.5cm}|}
+		\hline
+		\thead{\textbf{Notation}} &
+		\thead{\textbf{Description}}\\
+		\hline
+		$v_1$ &
+		First odd number of a Collatz sequence, also referred to as starting value\\
+		\hline
+		$v_i$ &
+		Odd number that is the result of a particular iteration. In the first iteration this is the starting value $v_1$\\
+		\hline
+		$k$ &
+		Factor that is multiplied with odd numbers; equals three for the original Collatz conjecture\\
+		\hline
+		$n$ &
+		Count of odd numbers in a sequence, also referred to as the sequence's length\\
+		\hline
+		$\beta_i$ &
+		Symbolises the term $\left(1+\frac{1}{k\cdot v_i}\right)$\\
+		\hline
+		$\beta$ &
+		Product of all $β_i$\\
+		\hline
+		$\alpha_i$ &
+		Represents the number of divisions by two that is performed in a specific iteration\\
+		\hline
+		$\alpha$ &
+		Number of divisions by two that leads from the starting value $v_1$  to the result $v_{n+1}$\\
+		\hline
+		$\hat\alpha_i$ &
+		Maximum possible number of divisions by two in a specific iteration\\
+		\hline
+		$\hat\alpha$ &
+		Maximum possible number of divisions by two in a Collatz sequence\\
+		\hline
+		$\bar\alpha$ &
+		Number of divisions by two that is required for a cycle\\
+		\hline
+		$\hat\Lambda$ &
+		Maximum binary growth of a Collatz sequence\\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\vspace{1em}
 \begin{thebibliography}{99}
 
 \bibitem{Ref_Lagarias_2010}
