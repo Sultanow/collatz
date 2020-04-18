@@ -196,10 +196,9 @@ Unsurprisingly, we found that all values of $\alpha_i$ in the sample are complia
 \par\noindent
 In equations~\ref{eq:reachability_3} and \ref{eq:reachability_k}, the expression $\prod_{i=1}^{n}2^{\alpha_i}$  represents the divisions by two performed by the algorithms. The number of divisions by two can be determined with the following formula and will be symbolised by $\alpha$:
 
-\begin{equation}
-\label{eq:sum_alpha}
+\[
 \alpha=\sum_{i=1}^{n}2^{\alpha_i}
-\end{equation}
+\]
 
 \newpage
 \par\noindent
@@ -295,9 +294,9 @@ Up to this point we have performed two divisions by two. The parameter $\alpha$ 
 
 \par\medskip
 The binary length $len(v_3)=3$ increases to $len(v_3+1)=4$ in the final step. This situation only occurs once in a Collatz sequence for $k=1$. Whenever adding one to a number $v_n$ causes an overflow of its binary representation, the result $v_n+1$ will be a power of two. The binary length will in this scenario increase from $len(v_n)$ to $len(v_n)+1$. The sequence will consequently halt. For all other cases the following condition applies:\footnote{The statement is only true for $k=1$.}
-\begin{equation}
+\[
 	len(v_n)=len(v_n+1)>len(v_{n+1})
-\end{equation}
+\]
 
 Only the final iteration increases the length of the binary number. In any other case the binary length decreases from $v_n$ to $v_{n+1}$.
 
@@ -358,9 +357,9 @@ Let us now examine the case $k=3$, which is most interesting because it relates 
 \end{table}
 
 The example presented in table~\ref{table:k_3} makes clear that in comparison to the previous case $k=1$, the algorithm performs an additional operation, which is the multiplication with three. This operation leads to a growth of the binary length when comparing $v_n$ to $3v_n$. The result of the operation can be calculated as follows:
-\begin{equation}
+\[
 	len(3v_n)=\lfloor\log_23+\log_2v_n\rfloor+1
-\end{equation}
+\]
 
 In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous chapter. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
 
