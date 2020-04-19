@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  19 APR 2020 10:18
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  19 APR 2020 17:37
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -763,9 +763,16 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <5> on input line 92.
- [1
+
+
+Package hyperref Warning: Suppressing empty link on input line 103.
+
+[1
 
 ]
+
+Package hyperref Warning: Suppressing empty link on input line 118.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 165.
@@ -877,53 +884,8 @@ Package makecell Warning: \multirowcell needs multirow package on input line 34
 Package makecell Warning: \multirowcell needs multirow package on input line 34
 6.
 
-[5] [6]
-LaTeX Font Info:    Calculating math sizes for size <> on input line 437.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 437.
-
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <> on input line 437.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <0.7> on input line 437.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <0.5> on input line 437.
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 437.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 437.
-
-[7]
-Underfull \vbox (badness 2080) has occurred while \output is active []
+[5] [6] [7]
+Underfull \vbox (badness 7133) has occurred while \output is active []
 
  [8]
 [9]
@@ -931,7 +893,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 623--624
 
  []
 
-Missing character: There is no β in font cmmi12!
 [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 705.
  [11]
@@ -944,15 +905,15 @@ Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.5pt have occurred.
+(Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 22313 strings out of 427242
- 417693 string characters out of 3147792
+ 22288 strings out of 427242
+ 417178 string characters out of 3147792
  536401 words of memory out of 3000000
- 26609 multiletter control sequences out of 15000+200000
- 552273 words of font info for 148 fonts, out of 3000000 for 9000
+ 26587 multiletter control sequences out of 15000+200000
+ 550995 words of font info for 139 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  48i,27n,79p,1089b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
 

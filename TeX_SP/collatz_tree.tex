@@ -426,7 +426,7 @@ In section "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates t
 In order to learn more about the parameter $\beta$, we take a look at the relation between theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k}. We examine the situation in which theorem~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
 \begin{equation}
 \label{eq:beta}
-\large\def\arraystretch{1.2}\begin{array}{l}
+\def\arraystretch{1.2}\begin{array}{l}
 	1=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot2^{-\hat\alpha}\\
 	1=k^n\cdot v_1\cdot\beta\cdot2^{-\hat\alpha}\\
 	2^{\hat\alpha}=k^n\cdot v_1\cdot\beta\\
@@ -466,7 +466,7 @@ In the next section we will discuss the implications of theorem~\ref{eq:boundary
 How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of theorems~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which theorem~\ref{eq:reachability_k} leads to a cycle by setting  $v_{n+1}=v_1$:
 \begin{equation}
 \label{eq:cycle_alpha}
-\large\def\arraystretch{1.2}\begin{array}{c}
+\def\arraystretch{1.2}\begin{array}{c}
 	v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\bar\alpha}\\
 	2^{\bar\alpha}=k^n\cdot\beta\\
 	\bar\alpha=n\cdot \log_2k + \log_2\beta\\
@@ -474,16 +474,16 @@ How many divisions by two can lead to a cycle within a Collatz sequence? We can 
 \end{array}
 \end{equation}
 
-\par\medskip
+\par
 The last transformation above is applied, since $\bar\alpha$ is a whole number. Knowing that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
 \[
-\large\def\arraystretch{1.2}\begin{array}{c}
+\def\arraystretch{1.2}\begin{array}{c}
 \bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
 71=3^3\cdot83\cdot\left(1+\frac{1}{3\cdot83}\right)\cdot\left(1+\frac{1}{3\cdot125}\right)\cdot\left(1+\frac{1}{3\cdot47}\right)\cdot2^{-5}
 \end{array}
 \]
 
-\par\medskip
+\par
 Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
 
 \begin{table}[H]
@@ -663,7 +663,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 		Symbolises the term $\left(1+\frac{1}{k\cdot v_i}\right)$\\
 		\hline
 		$\beta$ &
-		Product of all $β_i$\\
+		Product of all $\beta_i$\\
 		\hline
 		$\alpha_i$ &
 		Represents the number of divisions by two that is performed in a specific iteration\\
