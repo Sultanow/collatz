@@ -199,14 +199,14 @@ Unsurprisingly, we found that all values of $\alpha_i$ in the sample are complia
 In equations~\ref{eq:reachability_3} and \ref{eq:reachability_k}, the expression $\prod_{i=1}^{n}2^{\alpha_i}$  represents the divisions by two performed by the algorithms. The number of divisions by two can be determined with the following formula and will be symbolised by $\alpha$:
 
 \[
-\alpha=\sum_{i=1}^{n}2^{\alpha_i}
+\alpha=\sum_{i=1}^{n}{\alpha_i}
 \]
 
 \newpage
 \par\noindent
 Based on theorem~\ref{eq:boundary_alpha_i} we can define the minimum of α as follows:
 \[
-\alpha\ge n
+n\le \alpha
 \]
 Since we carry out at least one division by two in every iteration of theorem~\ref{eq:reachability_3} and theorem~\ref{eq:reachability_k}, the minimum of $\alpha$ equals the sequence's length. The maximum value is harder to determine. In the first step we derive it empirically from the data set mentioned in the previous section. Based on the observed data, we formulate the hypothesis that the maximum of $\alpha$ can be calculated with the following equation:
 \begin{equation}
@@ -361,7 +361,7 @@ The example presented in table~\ref{table:k_3} makes clear that in comparison to
 	len(3v_n)=\lfloor\log_23+\log_2v_n\rfloor+1
 \]
 
-In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous section. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $3v_{n+1}$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
+In determining the maximum $\hat\alpha$ for $k=3$, we have to take the additional binary growth into account. With regard to the operation $+1$ we can utilise the same arguments as in the previous section. Whenever adding one leads to an overflow in the binary representation of $3v_n$, the result will be a power of two, halting the sequence. The length of $(3v_{n}+1)$ will, in this case, increase by one in contrast to $3v_n$. This can happen only once in a Collatz sequence, since the resulting power of two will lead to a termination.
 
 \par\medskip
 In order to prove our hypothesis, we have to adjust equation~\ref{eq:max_alpha_1} by considering the additional binary growth that is caused by the multiplications with three. Therefore, we obtain the following formula:
@@ -608,7 +608,7 @@ One might argue that this reasoning is erroneous, since a sequence does not nece
 \begin{array}{c}
 v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\alpha}\\
 2^{\alpha}=k^n\cdot\beta\\
-\alpha=n\cdot\log_2k+\beta
+\alpha=n\cdot\log_2k+log_2\beta
 \end{array}
 \]
 
@@ -626,7 +626,7 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
-This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/master/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact, that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
+This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/master/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
