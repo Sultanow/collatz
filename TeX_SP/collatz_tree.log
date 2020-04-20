@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  19 APR 2020 20:43
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  20 APR 2020 17:20
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -893,9 +893,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 708.
  (collatz_tree.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 708.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 708.
-Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
-(rerunfilecheck)             Checksum: BC73F0707E09A7B4C9CC1350795902D2.
 
+
+Package rerunfilecheck Warning: File `collatz_tree.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `collatz_tree.out':
+(rerunfilecheck)             Before: 487D4217F0609E2A26E5CD3C9667957E
+(rerunfilecheck)             After:  BC73F0707E09A7B4C9CC1350795902D2.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
