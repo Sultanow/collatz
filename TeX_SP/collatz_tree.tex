@@ -64,7 +64,7 @@
 %--------------------------------------------- For the Publisher to Enter:
 
 \begin{document}
-\title{\titleformat Divisions by Two in Collatz Sequences\\
+\title{\titleformat Divisions by Two in Collatz Sequences:\\
 	A Data Science Approach}
 
 \author{\authorformat Christian Koch\inst{1}$^{,\rm{a{\rm{*}}}}$\textbf{,}
@@ -111,7 +111,7 @@ The conjecture, as treated in this paper, claims that the above function leads t
 Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calculated with the following recursive equation:\footnote{See Sultanow, Koch, and Cox \cite[p.~10]{Ref_Sultanow_Koch_Cox_2020}.}
 \begin{equation}
 \label{eq:reachability_3}
-v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{1=1}^{n}2^{-\alpha_i}
+v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{equation}
 
 The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that is performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
@@ -129,9 +129,9 @@ Improving readability, we denote the factor $\left(1+\frac{1}{3\cdot v_i}\right)
 
 \begin{flalign}
 \label{eq:reachability_k}
-v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\cdot\prod_{1=1}^{n}2^{-\alpha_i}\\
+v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}\\
 \notag
-v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot\prod_{1=1}^{n}2^{-\alpha_i}
+v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{flalign}
 
 In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k}, we must first define the halting conditions of the algorithm in the next section.
