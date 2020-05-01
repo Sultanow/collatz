@@ -474,7 +474,7 @@ How many divisions by two can lead to a cycle within a Collatz sequence? We can 
 \end{array}
 \end{equation}
 
-The last transformation above is applied, since $\bar\alpha$ is a whole number.\footnote{Accordingly, the sum of the mantissas of $n\cdot\log_2k+\log_2\beta$ must be one.} Knowing that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
+The last transformation above is applied, since $\bar\alpha$ is a whole number.\footnote{Accordingly, the sum of the mantissas of $n\cdot\log_2k+\log_2\beta$ must be one.} Now that it is clear that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
 \[
 \def\arraystretch{1.2}\begin{array}{c}
 \bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
@@ -590,7 +590,7 @@ As one can see in table~\ref{table:known_cycles}, we found several cycles for ou
 \vspace{1em}\noindent
 \subsection{Binary Growth}
 \par\noindent
-As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $len(v_1)$. Furthermore, it accounts for the maximum binary growth, henceforth denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ increases in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to reach the final result $v_{n+1}=len(v_{n+1}=1)$, we have to substract $\hat\alpha$ from the sum of the binary length of $v_1$ and the binary growth:
+As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $len(v_1)$. Furthermore, it accounts for the maximum binary growth, henceforth denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ increases in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to reach the final result $v_{n+1}=len(v_{n+1})=1$, we have to substract $\hat\alpha$ from the sum of the binary length of $v_1$ and the binary growth:
 \begin{equation}
 \label{eq:binary_growth}
 \def\arraystretch{1.2}\begin{array}{l}
