@@ -126,7 +126,6 @@ v_{3+1}=3^3\cdot 33\cdot\left(1+\frac{1}{3\cdot33}\right)\cdot\left(1+\frac{1}{3
 \]
 
 Improving readability, we denote the factor $\left(1+\frac{1}{3\cdot v_i}\right)$ with the variable $\beta_i$. In addition, we generalise the formula by replacing the factor three with the variable $k$. This will be useful for further analysis and leads us to the following generalised version of equation~\ref{eq:reachability_3}:
-
 \begin{flalign}
 \label{eq:reachability_k}
 v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}\\
@@ -623,7 +622,7 @@ As we know, a cycle occurs in a Collatz sequence when the condition $v_1=v_{n+1}
 \par\medskip
 One might argue that this reasoning is erroneous, since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$, we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
 \[
-\begin{array}{c}
+\begin{array}{l}
 v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\alpha}\\
 2^{\alpha}=k^n\cdot\beta\\
 \alpha=n\cdot\log_2k+log_2\beta
