@@ -168,11 +168,11 @@ The validity of the first part (\ref{eq:inequality_min}), which specifies $\lflo
 \begin{array}{l}
 k^nv_12^{-\lfloor n\log_2k\rfloor}\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)>v_1
 \\[\medskipamount]
-k^n\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)>2^{\lfloor\ nlog_2k\rfloor}
+k^n\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)>2^{\lfloor\ n\log_2k\rfloor}
 \\[\medskipamount]
 \log_2\left(k^n\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)>\lfloor n\log_2k\rfloor
 \\[\medskipamount]
-n\log_2k+log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)>\lfloor n\log_2k\rfloor
+n\log_2k+\log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)>\lfloor n\log_2k\rfloor
 \end{array}	
 \end{equation*}
 
@@ -187,7 +187,7 @@ k^n\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)<2^{\left(\lfloor n\log_2k\rflo
 This leads to the following general condition for the validity of the cycle-alpha's upper limit:
 \begin{equation}
 \label{eq:condition_max}
-n\log_2k-\lfloor n\log_2k\rfloor<2-log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)
+n\log_2k-\lfloor n\log_2k\rfloor<2-\log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\right)
 \end{equation}
 
 A product $\prod(1+a_n)$ with positive terms $a_n$ is convergent if the series $\sum a_n$ converges, see Knopp \cite[p.~220]{Ref_Knopp}. Thus, to verify whether the product in condition~\ref{eq:condition_max} is converging towards a limiting value, it is sufficient to examine the following sum:
@@ -230,7 +230,7 @@ v_1=1=v_2=\frac{1+2^1-1}{2^1}
 
 The equation above, complies to (and verifies) theorem~\ref{theo:2}, since $1=n=\alpha=\bar\alpha$:
 \[
-\bar\alpha=\lfloor n*log_21\rfloor+1=1
+\bar\alpha=\lfloor n\log_21\rfloor+1=1
 \]
 
 The condition~\ref{eq:n_alpha}, namely the inequality $\alpha\ge n$, can be used to prove that no other $\alpha$ than $\bar\alpha$ leads to a cycle. To show this, we set $v_{n+1}=v_1$:
@@ -245,7 +245,7 @@ v_1>\frac{v_1-1}{2^n}+1
 
 Knowing that theorem~\ref{theo:2} is true, we can revisit condition~\ref{eq:condition_max} determining the upper limit of $\bar\alpha$. We set $k=1$ into this condition and obtain:
 \begin{equation}
-n\log_21-\lfloor n\log_21\rfloor<2-log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{1v_{i}}\right)\right)
+n\log_21-\lfloor n\log_21\rfloor<2-\log_2\left(\prod_{i=1}^{n}\left(1+\frac{1}{1v_{i}}\right)\right)
 \end{equation}
 
 The above given inequality gets simplified to a condition which is true and proves that the product in condition~\ref{eq:condition_max} is always less than four:
@@ -279,7 +279,7 @@ The above given inequality gets simplified to a condition which is true and prov
 
 In order to prove the upper limit of $\bar\alpha$ for $k=3$, we have to show that condition~\ref{eq:condition_max} is true. For better readability we denote the factor $(1+\frac{1}{3v_i})$ with $\beta_i$:
 \begin{equation*}
-	n\log_23-\lfloor n\log_23\rfloor<2-log_2\prod_{i=1}^{n}\beta_i
+	n\log_23-\lfloor n\log_23\rfloor<2-\log_2\prod_{i=1}^{n}\beta_i
 \end{equation*}
 
 Having a look at the above term makes clear that to prove the inequality, we have to show that the following condition is true:
