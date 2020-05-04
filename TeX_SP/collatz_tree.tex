@@ -114,13 +114,13 @@ Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calcu
 v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{equation}
 
-The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that is performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
+The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that are performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two that leads from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} leads to:
 \[
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
 
 \par\noindent
-Starting with $v_1=33$ for $n=3$, we obtain the result:
+Starting with $v_1=33$ for $n=3$ we obtain the result:
 \[
 v_{3+1}=3^3\cdot 33\cdot\left(1+\frac{1}{3\cdot33}\right)\cdot\left(1+\frac{1}{3\cdot25}\right)\cdot\left(1+\frac{1}{3\cdot19}\right)\cdot2^{-5}=29
 \]
@@ -158,7 +158,7 @@ In the above example the algorithm halts after two iterations because the first 
 v_{1+1}=v_1=3^1\cdot 1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}=1
 \]
 
-The sequence stops in the example above since the result is one. Furthermore, the sequence has led to a cycle.
+The sequence stops in the example above due to the result being one. Furthermore, the sequence has led to a cycle.
 
 \section{Boundaries of \boldmath$\alpha_i$}
 We know that in every iteration of the equations~\ref{eq:reachability_3} and \ref{eq:reachability_k} at least one division by two is performed. This follows from the constraints of the Collatz problem. Consequently, we can define the minimum of $\alpha_i$ with the following condition:
@@ -206,7 +206,7 @@ Based on theorem~\ref{eq:boundary_alpha_i} we can define the minimum of α as fo
 \[
 n\le \alpha
 \]
-Since we carry out at least one division by two in every iteration of theorem~\ref{eq:reachability_3} and theorem~\ref{eq:reachability_k}, the minimum of $\alpha$ equals the sequence's length. The maximum value is harder to determine. In the first step we derive it empirically from the data set mentioned in the previous section. Based on the observed data, we formulate the hypothesis that the maximum of $\alpha$ can be calculated with the following equation:
+Since we carry out at least one division by two in every iteration of theorem~\ref{eq:reachability_3} and theorem~\ref{eq:reachability_k}, the minimum of $\alpha$ equals the sequence's length. The maximum value is harder to determine. In the first step we derive it empirically from the data set mentioned in the previous section. Based on the observed data we formulate the hypothesis that the maximum of $\alpha$ can be calculated with the following equation:
 \begin{equation}
 \label{eq:max_alpha}
 \begin{array}{l}
@@ -395,7 +395,7 @@ The Collatz conjecture claims that the above example is the only possibility of 
 \end{equation}
 
 \par\medskip
-For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that equation~\ref{eq:cycle} is true for $k=3$, would partially prove the Collatz conjecture. Yet there would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
+For the convenience of the reader, the expression $\prod_{i=1}^{n}\beta_i$ will be referred to as $\beta$ subsequently. Showing that equation~\ref{eq:cycle} is true for $k=3$ would partially prove the Collatz conjecture. Yet there would still remain the possibility of an eternally growing sequence. This makes theorem~\ref{eq:max_alpha} particularly interesting.
 
 \par\medskip
 A major difficulty in analysing cycles in Collatz sequences is that there seems to be just one example. This is, however, not true for our generalised form of the problem. Let us consider the case $k=5$ and $v_1=13$. Applying theorem~\ref{eq:reachability_k} leads to a cycle of the length $n=3$:
@@ -405,7 +405,7 @@ A major difficulty in analysing cycles in Collatz sequences is that there seems 
 
 Setting $k=5$ and $v_1=13$ in equation~\ref{eq:cycle}, we obtain the following result after three iterations:
 \[
-128=5^3\cdot13\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)\cdot2^{-7}
+128=5^3\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)
 \]
 
 To determine the number of divisions by two, which can lead to a cycle, we need to investigate the parameter $\beta$ more thoroughly.
@@ -473,7 +473,7 @@ How many divisions by two can lead to a cycle within a Collatz sequence? We can 
 \end{array}
 \end{equation}
 
-The last transformation above is applied, since $\bar\alpha$ is a whole number.\footnote{Accordingly, the sum of the mantissas of $n\cdot\log_2k+\log_2\beta$ must be one.} Now that it is clear that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur, if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
+The last transformation above is applied, since $\bar\alpha$ is a whole number.\footnote{Accordingly, the sum of the mantissas of $n\cdot\log_2k+\log_2\beta$ must be one.} Now that it is clear that $1<\beta\le2$, we truncate the fractional part of $(n\cdot \log_2k)$ and add one to the result. In a Collatz sequence a cycle can only occur if the number of divisions by two equals $\bar\alpha$. Conversely, this does not imply that reaching $\bar\alpha$ inevitably leads to a cycle. The following example demonstrates this. Let us consider the case where $k=3$, $v_1=83$ and $n=3$. Here, theorems~\ref{eq:cycle_alpha} and \ref{eq:reachability_k} yield the following result:
 \[
 \def\arraystretch{1.2}\begin{array}{c}
 \bar\alpha=5=\lfloor3\cdot\log_23\rfloor+1\\
@@ -601,7 +601,7 @@ As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha
 \end{array}
 \end{equation}
 
-In the final step, the above equation is condensed by subtracting the starting value $v_1$. As a result, we obtain a range for $\hat\Lambda$. The reason is a possible overflow which can be instigated by the expression $n\cdot\log_2k+\log_2v_1$. Let us examine two examples to illustrate this. Starting with the case $k=3$, $v_1=13$ and $n=2$ we find that the result is equal to the lower limit of $\hat\Lambda$:
+In the final step the above equation is condensed by subtracting the starting value $v_1$. As a result, we obtain a range for $\hat\Lambda$. The reason is a possible overflow which can be instigated by the expression $n\cdot\log_2k+\log_2v_1$. Let us examine two examples to illustrate this. Starting with the case $k=3$, $v_1=13$ and $n=2$ we find that the result is equal to the lower limit of $\hat\Lambda$:
 
 \[
 \hat\Lambda=\lfloor2\cdot\log_23+\log_213\rfloor+1-\lfloor\log_213\rfloor=\lfloor2\cdot\log_23\rfloor+1=4
@@ -620,7 +620,7 @@ The parameter $\hat\Lambda$ represents the maximum binary growth of a Collatz se
 As we know, a cycle occurs in a Collatz sequence when the condition $v_1=v_{n+1}$ is fulfilled. The binary length of the starting number $v_1$, must therefore grow exactly as much as it is reduced by the divisions by two. Thus, for a cycle to occur, the number of divisions by two has to be equal to the binary growth.
 
 \par\medskip
-One might argue that this reasoning is erroneous, since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$, we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
+One might argue that this reasoning is erroneous since a sequence does not necessarily reach the maximum binary growth. We build on theorem~\ref{eq:reachability_k} to show that our arguments are valid. By setting $v_{n+1}=v_1$ we examine the case where the growth of the binary length of a sequence is neutralised by the divisions by two:
 \[
 \begin{array}{l}
 v_1=k^n\cdot v_1\cdot\beta\cdot2^{-\alpha}\\
@@ -634,7 +634,7 @@ Knowing that $1<\beta\le2$, we derive the following limits for the binary growth
 n\cdot\log_2k<\bar\Lambda\le\lfloor n\cdot\log_2k\rfloor+1
 \]
 
-The binary growth $\bar\Lambda$ of every Collatz sequence that leads to a cycle must lie within these boundaries. Due to the fact that $\bar\alpha$ is a whole number, it is obvious that it must equal the maximum on the right side of the expression. For all other cases a cycle is impossible.
+The binary growth of every Collatz sequence that leads to a cycle must lie within these boundaries. Due to the fact that $\bar\alpha$ is a whole number, it is obvious that it must equal the maximum on the right side of the expression. For all other cases a cycle is impossible.
 
 \section{Summary}
 In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers and the underlying operations. Theorem~\ref{eq:cycle_alpha} determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:max_alpha} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.\\[1.5em]
@@ -683,7 +683,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 		Product of all $\beta_i$\\
 		\hline
 		$\alpha_i$ &
-		Represents the number of divisions by two that is performed in a specific iteration\\
+		Represents the number of divisions by two that are performed in a specific iteration\\
 		\hline
 		$\alpha$ &
 		Number of divisions by two that leads from the starting value $v_1$  to the result $v_{n+1}$\\
