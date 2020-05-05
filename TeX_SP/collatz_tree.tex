@@ -114,7 +114,7 @@ Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calcu
 v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{equation}
 
-The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that are performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two leading from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} yields:
+The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that are performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two leading from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} yields\footnote{The result of the first iteration $v_{1+1}$ equals five.}:
 \[
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
@@ -186,7 +186,7 @@ If a sequence reaches the maximum $\hat\alpha_i$, it finishes with one, thus ver
 1\le\alpha_i\le\log_2k+\log_2v_i+\log_2\beta_i
 \end{equation}
 
-Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. We will do so at various points in this paper to avoid obvious errors in our mathematical reasoning. The basis for the validation is a sample of $10,000$ Collatz sequences. The data set comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$. Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. For further details on the data set, see section "\nameref{appx:data_set}" in the appendix.
+Before we continue, we validate theorem~\ref{eq:boundary_alpha_i} empirically. We will do so at various points in this paper to avoid obvious errors in our mathematical reasoning. The basis for the validation is a sample of $10,000$ Collatz sequences. The data set comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$. Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. For further details on the data set, see section "\nameref{appx:data_set}" in the appendix.
 
 Unsurprisingly, we found that all values of $\alpha_i$ in the sample are compliant with theorem~\ref{eq:boundary_alpha_i}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} In the next section we move on to more sophisticated considerations and study the properties of $\prod_{1}^{n}2^{\alpha_i}$.
 
@@ -482,7 +482,7 @@ The last transformation above is applied, since $\bar\alpha$ is a whole number.\
 \]
 
 \par
-Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
+Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
 
 \begin{table}[H]
 	\centering
@@ -643,11 +643,11 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
-This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the interval $v_1\in[1\mathrel{{.}\,{.}}3999]$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
+This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
-This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_cycle_finder.py}} The program performs a linear search for the intervals $v_1\in[1\mathrel{{.}\,{.}}9999]$ and $k\in[1\mathrel{{.}\,{.}}999]$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
+This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in[1\mathrel{{.}\,{.}}999]$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
