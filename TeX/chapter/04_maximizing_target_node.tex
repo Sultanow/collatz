@@ -97,7 +97,7 @@ While the first case minimizes the value of the node $v_{n+1}$, the second case 
 
 This has the consequence that for a given sequence consisting of $n+1$ members, between which a total of $n+m$ divisions have taken place, the permutation of these divisions has a very limited effect on the node $v_{n+1}$ as described by theorem~\ref{theo:permutation}.
 
-
+\par\medskip
 \begin{theorem}
 	\label{theo:permutation}
 	Let $v_{n+1},v_n,\ldots,v_2,v_1$ be a sequence in which a total of $n+m$ divisions took place (a path in which a total of $n+m$ edges has been contracted). No matter how these divisions are permuted, i.e. performed sooner or later, the node $v_{n+1}$ can differ at most by the following product:
@@ -105,22 +105,10 @@ This has the consequence that for a given sequence consisting of $n+1$ members, 
 	\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
 	\]
 \end{theorem}
-One simple example the chain we already know 31,47,71,107,161,242 (n=5) which we additionally one time divide by 2 (m=1):
 
-\[
-((31*3+1)/2*3+1)/2...=121
-\]
-
-Now we make permute the division by two, performing it very early and get: $(31*3+1)/2/2=23,5$ and $(23,5*3+1)/2=35,75$ and $(35,75*3+1)/2=54,125$ and $(54,125*3+1)/2=81,6875$ and finally $(81,6875*3+1)/2=123,03125$.
-
-The difference is $123,03125-121=2,03125$ which we directly can calculate with our formula:
-\[
-\left(\frac{3^4}{2^4}-1\right)\left(1-\frac{1}{2^1}\right)=2,03125
-\]
-
-\section{TO BE DONE}
+\section{The product in the condition for alpha's upper limit}
 \par\medskip
-This ascending continued fraction is helpful for examining the product in the condition~\ref{eq:condition_max} for alpha's upper limit. Setting this worst case sequence into the product expressed by condition~\ref{eq:condition_max}, we obtain a product that is limited, or to be more specific, which in the worst case $v_1=1$ converges (for $n$ to infinity) towards $2$:
+Let us take a closer look at the product contained in condition~\ref{eq:condition_max} for the case $k=3$ and use the ascending continued fractions for examining this product. The exciting question is, does this product have a limit value even in the case where we only contract a single edge between successive nodes? Setting accordingly the sequence, which maximizes $v_{n+1}$, into the product expressed by condition~\ref{eq:condition_max}, we obtain a product that is limited, or to be more specific, which in the worst case $v_1=1$ converges (for $n$ to infinity) towards $2$:
 \begin{equation}
 \label{eq:product_simplification_k3}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
@@ -134,9 +122,9 @@ The above-illustrated last forming step, simplifies this product significantly i
 \frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^{n+1}+1<2
 \]
 
-For this reason, the logarithmic product expression in the condition~\ref{eq:condition_max} cannot exceed the value one, strictly speaking the worst case for that condition is:
+Since, as shown above, the product cannot exceed the value $2$, the logarithmic product expression in the condition~\ref{eq:condition_max} cannot exceed the value one and this condition becomes a consistently true statement:
 \[
 n\log_23-\lfloor n\log_23\rfloor<2-1
 \]
 
-Thus, we have proved that for $k=3$ the condition~\ref{eq:condition_max} for alphas's upper limit is always met.
+Thus, for $k=3$ the condition~\ref{eq:condition_max} for alphas's upper limit is met for all sequences that maximize $v_{n+1}$.
