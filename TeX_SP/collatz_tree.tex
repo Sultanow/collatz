@@ -482,7 +482,7 @@ The last transformation above is applied, since $\bar\alpha$ is a whole number.\
 \]
 
 \par
-Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in[1\mathrel{{.}\,{.}}999]$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
+Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. Our tool is a linear search performed by a Python script. For details on the program see section "\nameref{appx:cycle_finder}" in the appendix. With the script we searched and evaluated cycles in Collatz sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. In order to restrict the runtime of the program we limited the length of the investigated cycles to $n=100$. The results of our empirical validation are shown in the following table.
 
 \begin{table}[H]
 	\centering
@@ -647,7 +647,7 @@ This empirical data set was used to derive and validate theorems~\ref{eq:boundar
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
-This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in[1\mathrel{{.}\,{.}}999]$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
+This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
