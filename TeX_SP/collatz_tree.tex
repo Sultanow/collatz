@@ -114,7 +114,7 @@ Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calcu
 v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{equation}
 
-The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that are performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two leading from the starting value $v_1$  to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} yields\footnote{The result of the first iteration $v_{1+1}$ equals five.}:
+The variable $v_1$ denotes the first odd number of the sequence, that is, the starting value. The variable $v_i$ symbolises the odd number that is the result of a particular iteration.\footnote{For $n=1$ this is the starting value $v_1$.} The exponent $n$ stands for the count of odd numbers that are processed by the algorithm. In the further course of this paper we will call the parameter $n$ the \textit{length} of a sequence. The exponent $\alpha_i$ finally represents the number of divisions by two that are performed in a specific iteration. Accordingly, the sum of $\alpha_i$ is the count of divisions by two leading from the starting value $v_1$ to the outcome $v_{n+1}$.\footnote{For a glossary of notations see section "\nameref{appx:glossary_of_notations}" in the appendix.} Let us consider the example $v_1=13$ and $n=2$. Applying equation~\ref{eq:reachability_3} yields\footnote{The result of the first iteration $v_{1+1}$ equals five.}:
 \[
 v_{2+1}=3^2\cdot 13\cdot\left(1+\frac{1}{3\cdot13}\right)\cdot\left(1+\frac{1}{3\cdot5}\right)\cdot2^{-7}=1
 \]
@@ -194,7 +194,7 @@ Unsurprisingly, we found that all values of $\alpha_i$ in the sample are complia
 \label{sec:analysing_alpha}
 \subsection{Boundaries of \boldmath$\alpha$}
 \par\noindent
-In equations~\ref{eq:reachability_3} and \ref{eq:reachability_k}, the expression $\prod_{i=1}^{n}2^{\alpha_i}$  represents the divisions by two performed by the algorithms. The number of divisions by two can be determined with the following formula and will be symbolised by $\alpha$:
+In equations~\ref{eq:reachability_3} and \ref{eq:reachability_k}, the expression $\prod_{i=1}^{n}2^{\alpha_i}$ represents the divisions by two performed by the algorithms. The number of divisions by two can be determined with the following formula and will be symbolised by $\alpha$:
 
 \[
 \alpha=\sum_{i=1}^{n}{\alpha_i}
@@ -462,7 +462,7 @@ In the next section we will discuss the implications of theorem~\ref{eq:boundary
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\bar\alpha$}
 \par\noindent
-How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of theorems~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which theorem~\ref{eq:reachability_k} leads to a cycle by setting  $v_{n+1}=v_1$:
+How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of theorems~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which theorem~\ref{eq:reachability_k} leads to a cycle by setting $v_{n+1}=v_1$:
 \begin{equation}
 \label{eq:cycle_alpha}
 \def\arraystretch{1.2}\begin{array}{l}
@@ -686,7 +686,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 		Represents the number of divisions by two that are performed in a specific iteration\\
 		\hline
 		$\alpha$ &
-		Number of divisions by two that leads from the starting value $v_1$  to the result $v_{n+1}$\\
+		Number of divisions by two that leads from the starting value $v_1$ to the result $v_{n+1}$\\
 		\hline
 		$\hat\alpha_i$ &
 		Maximum possible number of divisions by two in a specific iteration\\
