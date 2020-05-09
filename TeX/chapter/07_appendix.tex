@@ -103,11 +103,11 @@ The induction step is explained below, and here we arrive at a true statement to
 %\prod_{i=1}^{\infty}\frac{2^i+2}{2^i+1}=\lim_{n\to\infty}\frac{2^{n+1}}{2^n+1}=2
 %\]
 
-\section{Which sequence is a worst case?}
+\section{Further worst-case studies}
 \label{sec:worstcase_k3}
-Regarding worst case scenarios, two cases must be distinguished:
+Regarding worst case scenarios, a distinction must be made between two basic cases:
 \begin{itemize}
-	\item The vertex $v_{n+1}$ becomes a maximum. This kind of worst case we used for proving cycle-alpha's upper limit in $H_{C,1}$ with section~\ref{sec:alphas_upper_limit_k_1}.
+	\item The vertex $v_{n+1}$ becomes a maximum. This kind of worst case we have dealt with in chapter~\ref{ch:maximizing_target_node} and we used for proving cycle-alpha's upper limit in $H_{C,1}$ with section~\ref{sec:alphas_upper_limit_k_1}.
 	\item The product in condition~\ref{eq:condition_max} and consequently the sum of reciprocal vertices, formulated in \ref{appx:sum_reciprocal_vertices}, becomes a maximum.
 \end{itemize}
 Trying to find a worst case that maximizes the product in condition~\ref{eq:condition_max} means to search for a sequence of odd numbers that rises as high as possible. One could try the ascending sequence of odd integers $v_i=2i-1$ (beginning at $v_1=1$), but will find that for this case the product will not converge against a limit value. This sequence (beginning at $v_1=1$) allow us to transform the product contained in condition~\ref{eq:condition_max} into a limit analyzable function using the Pochhammer’s symbol (sometimes referred to as the \textit{rising factorial} or \textit{shifted factorial}), which is denoted by $(x)_n$ and defined as follows \cite{Ref_Zwillinger_Kokoska}, \cite[p.~679]{Ref_Brychkov} and \cite[p.~1005]{Ref_Trott}:

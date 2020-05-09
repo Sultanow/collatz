@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  6 MAY 2020 12:33
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  6 MAY 2020 17:40
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -762,137 +762,137 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5> on input line 95.
+(Font)              <5> on input line 94.
  [1
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 163.
+(hyperref)                removing `\alpha' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 163.
+(hyperref)                removing `subscript' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 162.
 
 [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 193.
+(hyperref)                removing `math shift' on input line 192.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 193.
+(hyperref)                removing `\alpha' on input line 192.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 193.
+(hyperref)                removing `math shift' on input line 192.
 
 [3]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 245.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 244.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 245
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 244
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 245.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 244.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 245
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 244
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 245.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 244.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 245
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 244
 .
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 245.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 244.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 245
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 244
 .
 
 
 Package makecell Warning: \multirowcell needs multirow package on input line 25
-5.
+4.
 
 
 Package makecell Warning: \multirowcell needs multirow package on input line 25
-9.
-
-
-Package makecell Warning: \multirowcell needs multirow package on input line 26
-3.
-
-[4]
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 322.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 322
-.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 322.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 322
-.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 322.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 322
-.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 322.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 322
-.
-
-
-Package makecell Warning: \multirowcell needs multirow package on input line 33
-2.
-
-
-Package makecell Warning: \multirowcell needs multirow package on input line 33
 8.
 
 
+Package makecell Warning: \multirowcell needs multirow package on input line 26
+2.
+
+[4]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 321.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 321
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 321.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 321
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 321.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 321
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 321.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 321
+.
+
+
+Package makecell Warning: \multirowcell needs multirow package on input line 33
+1.
+
+
+Package makecell Warning: \multirowcell needs multirow package on input line 33
+7.
+
+
 Package makecell Warning: \multirowcell needs multirow package on input line 34
-4.
+3.
 
 [5] [6] [7]
 Underfull \vbox (badness 1796) has occurred while \output is active []
 
  [8]
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
 [10] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 726.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 725.
  [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 726.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 725.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 726.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 726.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 725.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 725.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
 (rerunfilecheck)             Checksum: BC73F0707E09A7B4C9CC1350795902D2.
 
