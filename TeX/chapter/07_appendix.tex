@@ -63,6 +63,31 @@ The induction step is explained below, and here we arrive at a true statement to
 	&=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^{n+1}+1
 \end{flalign*}
 
+\section{The condition for an Engel expansion's limited growth}
+\label{appx:condition_limited_growth}
+The steps for transforming the inequality~\ref{eq:condition_limited_growth} as the condition for limiting an Engel expansion's growth (see section~~\ref{sec:condition_limited_growth}) are given below:
+
+\begin{flalign*}
+0&<1+v_1-\frac{3^nv_1}{2^{m+n}}-\frac{3^{n-1}}{2^{m+n}}-\frac{3^{n-1}2^{m+1}}{2^{m+n}}\\
+0&<1+v_1-\frac{3^{n-1}}{2^{m+n}}\left(3v_1+1\right)-\frac{3^{n-1}}{2^{n-1}}\\
+0&<2^{n-1}+2^{n-1}v_1-\frac{3^{n-1}}{2^{m+1}}\left(3v_1+1\right)-3^{n-1}\\
+0&<3\cdot2^{n-1}+3\cdot2^{n-1}v_1-3\cdot\frac{3^{n-1}}{2^{m+1}}\left(3v_1+1\right)-3^n-2\cdot2^{n-1}+2\cdot2^{n-1}\\
+0&<2^{n-1}\left(3v_1+1\right)-3\cdot\frac{3^{n-1}}{2^{m+1}}\left(3v_1+1\right)-3^n+2^n\\
+0&<\left(3v_1+1\right)\left(2^{n-1}-3\cdot\frac{3^{n-1}}{2^{m+1}}\right)-3^n+2^n\\
+3^n-2^n&<\left(3v_1+1\right)\left(2^{n-1}-3\cdot\frac{3^{n-1}}{2^{m+1}}\right)
+\end{flalign*}
+
+Now we reshape the inequality further so that we isolate $v_1$ to the right side of this inequality:
+{\setlength{\jot}{1.2em}
+\begin{flalign*}
+\frac{3^n-2^n}{2^{n-1}-3\cdot\frac{3^{n-1}}{2^{m+1}}}-1&<3v_1\\
+\frac{3^n2^{m+1}-2^n2^{m+1}}{2^{m+1}2^{n-1}-3^n}-1&<3v_1\\
+\frac{3^n2^{m+1}-2\cdot3^n-2^n2^{m+1}+2\cdot3^n}{2^{m+n}-3^n}-1&<3v_1\\
+\frac{3\cdot3^{n-1}2^{m+1}-2\cdot3\cdot3^{n-1}-2\cdot2^{n-1}2^{m+1}+2\cdot3^n}{3\cdot\left(2^{m+n}-3^n\right)}-\frac{1}{3}&<v_1\\
+\frac{\cancel3\cdot3^{n-1}2^{m+1}-2\cdot\cancel3\cdot3^{n-1}}{\cancel3\cdot\left(2^{m+n}-3^n\right)}-\frac{2\cdot\cancel{\left(2^{m+n}-3^n\right)}}{3\cdot\cancel{\left(2^{m+n}-3^n\right)}}-\frac{1}{3}&<v_1\\
+\frac{3^{n-1}2^{m+1}-2\cdot3^{n-1}}{2^{m+n}-3^n}-1&<v_1
+\end{flalign*}}
+
 %\section{An alternative proof for alpha's upper limit for $H_{C,1}$}
 %\label{appx:proof_k1}
 %We demonstrate that condition~\ref{eq:condition_max} is true for $k=1$. What makes this case so special and therefore so manageable is that the equation in theorem~\ref{theo:2} constantly yields $2^1$, whatever value we use for $n$. By setting $k=1$, the condition becomes reduced to:
