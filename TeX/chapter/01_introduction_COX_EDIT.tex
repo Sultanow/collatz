@@ -73,6 +73,16 @@ Akin then defines a transformation $Q:\mathbb{Z}_2\rightarrow\mathbb{Z}_2$ by $Q
 \par\medskip
 \textit{\textbf{A function-theoretic approach}} to this problem has been provided by Berg and Meinardus \cite{Ref_Berg_Meinardus_1994}, \cite{Ref_Berg_Meinardus_1995} as well as Gerhard Opfer \cite{Ref_Opfer_2011}, who consistently relies on the Berg’s and Meinardus’ idea. Opfer tries to prove the Collatz conjecture by determining the kernel intersection of two linear operators U, V that act on complex-valued functions. First he determined the kernel of V, and then he attempted to prove that its image by U is empty. Benne de Weger \cite{Ref_de_Weger_2011} contradicted Opfer’s attempted proof.
 
+\par\medskip\noindent
+\textit{\textbf{A deeper look at the number of divisions by two}} is taken by Paul S. Bruckman \cite{Ref_Bruckman_2008}, who has attempted to provide an elementary proof by contradiction. He repeatedly applies the Collatz function using a starting value $n_0$ and defines:
+\[
+\{e_k\}:n_1=(3n_0+1)\cdot2^{-e_1},n_2=(3n_1+1)\cdot2^{-e_2}=(3^2n_0+3+2^{e_1})\cdot2^{-(e_1+e_2)},\ldots
+\]
+Denoting the sum of exponents as $E_k=e_1+e_2+\ldots+e_k$ Bruckman obtains the following equation:
+\[
+2^{E_k}n_k=3^kn_0+\sum_{j=0}^{k-1}3^{k-1-j}2^{E_j}
+\]
+
 \par\medskip
 \textit{\textbf{Reachability Considerations}} based on a Collatz tree exist as well. It is well known that the inverted Collatz sequence can be represented as a graph; to be more specific, they can be depicted as a tree \cite{Ref_Andrei_Masalagiu}, \cite{Ref_Kak_2014}. It is acknowledged that in order to prove the Collatz conjecture, one needs to demonstrate that this tree covers all odd natural numbers.
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  21 MAY 2020 13:30
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.11)  21 MAY 2020 14:02
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -887,12 +887,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 660--661
  []
 
 [11] [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 765.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 768.
  [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 765.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 768.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 765.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 765.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 768.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 768.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
 (rerunfilecheck)             Checksum: BC73F0707E09A7B4C9CC1350795902D2.
 
@@ -902,10 +902,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 22293 strings out of 427242
- 417269 string characters out of 3147792
+ 22294 strings out of 427242
+ 417290 string characters out of 3147792
  536401 words of memory out of 3000000
- 26592 multiletter control sequences out of 15000+200000
+ 26593 multiletter control sequences out of 15000+200000
  550995 words of font info for 139 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  48i,27n,79p,1089b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
