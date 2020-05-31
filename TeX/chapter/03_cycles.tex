@@ -197,68 +197,68 @@ A product $\prod(1+a_n)$ with positive terms $a_n$ is convergent if the series $
 The sum of reciprocal vertices depending only from $v_1$ is given in appendix~\ref{appx:sum_reciprocal_vertices}.
 
 \section{Cycles and the product in the condition for alpha's upper limit}
-Let us start with the following product equality, which will give us insights into the relationship between cycles and the product in the condition for alpha's upper limit. The variables $X_1,\ldots,X_m$ and $Y_1,\ldots,Y_n$ are all odd positive integers:
+Let us start with the following product equality, which will give us insights into the relationship between cycles and the product in the condition for alpha's upper limit. The variables $V_1,\ldots,V_m$ and $W_1,\ldots,W_n$ are all odd positive integers:
 \begin{equation}
 \label{eq:product_equality}
-(X_1+1)\cdots(X_{m-1}+1)(X_m+1)\cdot Y_1\cdots Y_{n-1}Y_n=X_1\cdots X_{m-1}X_m\cdot(Y_1+1)\cdots(Y_{n-1}+1)(Y_n+1)
+(V_1+1)\cdots(V_{m-1}+1)(V_m+1)\cdot W_1\cdots W_{n-1}W_n=V_1\cdots V_{m-1}V_m\cdot(W_1+1)\cdots(W_{n-1}+1)(W_n+1)
 \end{equation}
 
-Every natural odd number $Y$ can be expressed in the form of $Y=y\cdot2^{\upsilon}-1$ whereby $y$ is an positive odd integer and $\upsilon>0$ is any natural number. This allows us to perform the following substitution (we use the greek letter $\chi$ for denoting the divisions by two between nodes $x_i$ and $\upsilon$ for divisions by two between nodes $y_i$):
+Every natural odd number $V$ can be expressed in the form of $V=v\cdot2^{\alpha}-1$ whereby $v$ is an positive odd integer and $\alpha>0$ is any natural number. This allows us to perform the following substitution (we use $\alpha_V$ for denoting the divisions by two between nodes $v_i$ and $\alpha_W$ for divisions by two between nodes $w_i$):
 
 \[
 \begin{array}{lll}
-X_1&=x_22^{\chi_1}-1&=kx_1\\
-X_2&=x_32^{\chi_2}-1&=kx_2\\
+V_1&=v_22^{\alpha_{V,1}}-1&=kv_1\\
+V_2&=v_32^{\alpha_{V,2}}-1&=kv_2\\
 \vdots&\vdots&\vdots\\
-X_{m-1}&=x_m2^{\chi_{m-1}}-1&=kx_{m-1}\\
-X_m&=x_12^{\chi_m}-1&=kx_m
+V_{m-1}&=v_m2^{\alpha_{V,m-1}}-1&=kv_{m-1}\\
+V_m&=v_12^{\alpha_{V,m}}-1&=kv_m
 \end{array}\qquad
 \begin{array}{lll}
-Y_1&=y_22^{\upsilon_1}-1&=ky_1\\
-Y_2&=y_32^{\upsilon_2}-1&=ky_2\\
+W_1&=w_22^{\alpha_{W,1}}-1&=kw_1\\
+W_2&=w_32^{\alpha_{W,2}}-1&=kw_2\\
 \vdots&\vdots&\vdots\\
-Y_{n-1}&=y_n2^{\upsilon_{n-1}}-1&=ky_{n-1}\\
-Y_n&=y_12^{\upsilon_n}-1&=ky_n
+W_{n-1}&=w_n2^{\alpha_{W,n-1}}-1&=kw_{n-1}\\
+W_n&=w_12^{\alpha_{W,n}}-1&=kw_n
 \end{array}
 \]
 
-The result of these substitutions into equation~\ref{eq:product_equality} is the following equality:
+The substitution rotating from $v_2=(kv_1+1)\cdot2^{-\alpha_{V,1}}$ to $v_m=(kv_{m-1}+1)\cdot2^{-\alpha_{V,m-1}}$ and finally back to $v_1=(kv_m+1)\cdot2^{-\alpha_{V,m}}$ describe a cycle. The result of these substitutions into equation~\ref{eq:product_equality} is the following equality:
 \[
-x_22^{\chi_1}\cdots x_m2^{\chi_{m-1}}x_12^{\chi_m}\cdot ky_1\cdots ky_{n-1}ky_n=kx_1\cdots kx_{m-1}kx_m\cdot y_22^{\upsilon_1}\cdots y_n2^{\upsilon_{n-1}}y_12^{\upsilon_n}
+v_22^{\alpha_{V,1}}\cdots v_m2^{\alpha_{V,m-1}}v_12^{\alpha_{V,m}}\cdot kw_1\cdots kw_{n-1}kw_n=kv_1\cdots kv_{m-1}kv_m\cdot w_22^{\alpha_{W,1}}\cdots w_n2^{\alpha_{W,n-1}}w_12^{\alpha_{W,n}}
 \]
 
-The trivial case where $n=m$ and the sum of exponents are equal $\sum_{i=1}^{m}\chi_i=\sum_{i=1}^{n}\upsilon_i$ turns the product equality into an always true statement:
+The trivial case where $n=m$ and the sum of exponents are equal $\sum_{i=1}^{m}\alpha_{V,i}=\sum_{i=1}^{n}\alpha_{W,i}$ turns the product equality into an always true statement:
 \[
-x_1\cdots x_n\cdot2^{\chi_1+\ldots+\chi_n}\cdot k^n\cdot y_1\cdots y_n=k^n\cdot x_1\cdots x_n\cdot y_1\cdots y_n\cdot2^{\upsilon_1+\ldots+\upsilon_n}
+v_1\cdots v_n\cdot2^{\alpha_{V,1}+\ldots+\alpha_{V,n}}\cdot k^n\cdot w_1\cdots w_n=k^n\cdot v_1\cdots v_n\cdot w_1\cdots w_n\cdot2^{\alpha_{W,1}+\ldots+\alpha_{W,n}}
 \]
 
 \begin{example}
-The following exemplarly product equality fullfills equation~\ref{eq:product_equality}, whereby $X_1=65$, $X_2=165$, $X_3=415$ and $Y_1=135$, $Y_2=85$, $Y_3=215$:
+The following exemplarly product equality fullfills equation~\ref{eq:product_equality}, whereby $V_1=65$, $V_2=165$, $V_3=415$ and $W_1=135$, $W_2=85$, $W_3=215$:
 \[
 (65+1)(165+1)(415+1)\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot(135+1)(85+1)(215+1)
 \]
 We perform the following substitutions:
 \[
 \begin{array}{ll}
-X_1=65&=x_22^{\chi_1}-1=33\cdot2^1-1=5x_1\\
-X_2=165&=x_32^{\chi_2}-1=83\cdot2^1-1=5x_2\\
-X_3=415&=x_12^{\chi_3}-1=13\cdot2^5-1=5x_3
+V_1=65&=v_22^{\alpha_{V,1}}-1=33\cdot2^1-1=5v_1\\
+V_2=165&=v_32^{\alpha_{V,2}}-1=83\cdot2^1-1=5v_2\\
+V_3=415&=v_12^{\alpha_{V,3}}-1=13\cdot2^5-1=5v_3
 \end{array}\enspace
 \begin{array}{ll}
-Y_1=135&=y_22^{\upsilon_1}-1=17\cdot2^3-1=5y_1\\
-Y_2=85&=y_32^{\upsilon_2}-1=43\cdot2^1-1=5y_2\\
-Y_3=215&=y_12^{\upsilon_3}-1=27\cdot2^3-1=5y_3
+W_1=135&=w_22^{\alpha_{W,1}}-1=17\cdot2^3-1=5w_1\\
+W_2=85&=w_32^{\alpha_{W,2}}-1=43\cdot2^1-1=5w_2\\
+W_3=215&=w_12^{\alpha_{W,3}}-1=27\cdot2^3-1=5w_3
 \end{array}
 \]
 The result of these substitutions is:
 \[
 33\cdot\cancel{2^1}\cdot83\cdot\cancel{2^1}\cdot13\cdot\cancel{2^5}\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot17\cdot\cancel{2^3}\cdot43\cdot\cancel{2^1}\cdot27\cdot\cancel{2^3}
 \]
-Since the sum of exponents $\chi_i$ and $\upsilon_i$ are equal, we can cancel out all powers of two and obtain:
+Since the sum of exponents $\alpha_{V,i}$ and $\alpha_{W,i}$ are equal, we can cancel out all powers of two and obtain:
 \[
-x_2x_3x_1Y_1Y_2Y_3=33\cdot83\cdot13\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot17\cdot43\cdot27=X_1X_2X_3y_2y_3y_1
+v_2v_3v_1W_1W_2W_3=33\cdot83\cdot13\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot17\cdot43\cdot27=V_1V_2V_3w_2w_3w_1
 \]
-This product equality becomes true $x_2x_3x_1\cdot k^3\cdot y_1y_2y_3=k^3\cdot x_1x_2x_3\cdot y_2y_3y_1$ when we set $X_i=kx_i$ and $Y_i=ky_i$ (for $i=1,2,3$) which inevitably leads to the two corresponding cycles for $k=5$ that are already presented by table~\ref{table:known_cycles}.
+This product equality becomes true $v_2v_3v_1\cdot k^3\cdot w_1w_2w_3=k^3\cdot v_1v_2v_3\cdot w_2w_3w_1$ when we set $V_i=kv_i$ and $W_i=kw_i$ (for $i=1,2,3$) which inevitably leads to the two corresponding cycles for $k=5$ that are already presented by table~\ref{table:known_cycles}.
 \end{example}
 
 \section{Existence of a solitary cycle for $k=1$}
