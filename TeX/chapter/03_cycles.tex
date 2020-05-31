@@ -205,7 +205,8 @@ Let us start with the following product equality, which will give us insights in
 
 Every natural odd number $V$ can be expressed in the form of $V=v\cdot2^{\alpha}-1$ whereby $v$ is an positive odd integer and $\alpha>0$ is any natural number. This allows us to perform the following substitution (we use $\alpha_V$ for denoting the divisions by two between nodes $v_i$ and $\alpha_W$ for divisions by two between nodes $w_i$):
 
-\[
+\begin{equation}
+\label{eq:product_equality_substitution}
 \begin{array}{lll}
 V_1&=v_22^{\alpha_{V,1}}-1&=kv_1\\
 V_2&=v_32^{\alpha_{V,2}}-1&=kv_2\\
@@ -220,7 +221,7 @@ W_2&=w_32^{\alpha_{W,2}}-1&=kw_2\\
 W_{n-1}&=w_n2^{\alpha_{W,n-1}}-1&=kw_{n-1}\\
 W_n&=w_12^{\alpha_{W,n}}-1&=kw_n
 \end{array}
-\]
+\end{equation}
 
 The substitution rotating from $v_2=(kv_1+1)\cdot2^{-\alpha_{V,1}}$ to $v_m=(kv_{m-1}+1)\cdot2^{-\alpha_{V,m-1}}$ and finally back to $v_1=(kv_m+1)\cdot2^{-\alpha_{V,m}}$ describes a cycle. The result of these substitutions into equation~\ref{eq:product_equality} is the following equality:
 \begin{flalign*}
@@ -228,9 +229,14 @@ v_22^{\alpha_{V,1}}\cdots v_m2^{\alpha_{V,m-1}}v_12^{\alpha_{V,m}}\cdot W_1\cdot
 v_22^{\alpha_{V,1}}\cdots v_m2^{\alpha_{V,m-1}}v_12^{\alpha_{V,m}}\cdot kw_1\cdots kw_n&=kv_1\cdots kv_m\cdot w_22^{\alpha_{W,1}}\cdots w_n2^{\alpha_{W,n-1}}w_12^{\alpha_{W,n}}
 \end{flalign*}
 
-The trivial case where $n=m$ and the sum of exponents are equal $\sum_{i=1}^{m}\alpha_{V,i}=\sum_{i=1}^{n}\alpha_{W,i}$ turns the product equality into an always true statement:
+The trivial case where $n=m$ and the sum of exponents are equal $\sum_{i=1}^{m}\alpha_{V,i}=\sum_{i=1}^{n}\alpha_{W,i}$ simplifies the product equality as follows:
 \begin{flalign*}
-v_1\cdots v_n\cdot\cancel{2^{\alpha_{V,1}+\ldots+\alpha_{V,n}}}\cdot W_1\cdots W_n&=V_1\cdots V_m\cdot w_1\cdots w_n\cdot\cancel{2^{\alpha_{W,1}+\ldots+\alpha_{W,n}}}\\
+(V_1+1)\cdots(V_n+1)\cdot W_1\cdots W_n&=V_1\cdots V_n\cdot(W_1+1)\cdots(W_n+1)\\
+v_1\cdots v_n\cdot\cancel{2^{\alpha_{V,1}+\ldots+\alpha_{V,n}}}\cdot W_1\cdots W_n&=V_1\cdots V_m\cdot w_1\cdots w_n\cdot\cancel{2^{\alpha_{W,1}+\ldots+\alpha_{W,n}}}
+\end{flalign*}
+This equality becomes immediatly true if $V_1\cdots V_n=W_1\cdots W_n$ which is the less spectacular case. The more interesting case arises from setting $V_i=kv_i$ and $W_i=kw_i$ as given by substitution~\ref{eq:product_equality_substitution} wich turns the product equality into an always true statement as well:
+\begin{flalign*}
+v_1\cdots v_n\cdot W_1\cdots W_n&=V_1\cdots V_m\cdot w_1\cdots w_n\\
 v_1\cdots v_n\cdot k^n\cdot w_1\cdots w_n&=k^n\cdot v_1\cdots v_n\cdot w_1\cdots w_n
 \end{flalign*}
 
