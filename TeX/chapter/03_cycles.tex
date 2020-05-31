@@ -139,7 +139,6 @@ Using incremental search, one can calculate cycles through trial and error. Tabl
 	\caption{Known $n$-cycles in $kx+1$ variants of $H_C$ for $k\leq1000$, $n\leq 100$}
 	\label{table:known_cycles}
 \end{table}
-
 Based on the results shown in table~\ref{table:known_cycles} we state the following theorem~\ref{theo:2} that renders more precisely the prerequisite for cycles that may occur in variants of $H_C$.
 
 \par\medskip
@@ -199,9 +198,11 @@ The sum of reciprocal vertices depending only from $v_1$ is given in appendix~\r
 
 \section{Cycles and the product in the condition for alpha's upper limit}
 Let us start with the following product equality, which will give us insights into the relationship between cycles and the product in the condition for alpha's upper limit. The variables $X_1,\ldots,X_m$ and $Y_1,\ldots,Y_n$ are all odd positive integers:
-\[
+\begin{equation}
+\label{eq:product_equality}
 (X_1+1)\cdots(X_{m-1}+1)(X_m+1)\cdot Y_1\cdots Y_{n-1}Y_n=X_1\cdots X_{m-1}X_m\cdot(Y_1+1)\cdots(Y_{n-1}+1)(Y_n+1)
-\]
+\end{equation}
+
 Every natural odd number $Y$ can be expressed in the form of $Y=y\cdot2^{\upsilon}-1$ whereby $y$ is an positive odd integer and $\upsilon>0$ is any natural number. This allows us to perform the following substitution (we use the greek letter $\chi$ for denoting the divisions by two between nodes $x_i$ and $\upsilon$ for divisions by two between nodes $y_i$):
 
 \[
@@ -221,7 +222,7 @@ Y_n&=y_12^{\upsilon_n}-1&=ky_n
 \end{array}
 \]
 
-The result of these substitutions is the following equality:
+The result of these substitutions into equation~\ref{eq:product_equality} is the following equality:
 \[
 x_22^{\chi_1}\cdots x_m2^{\chi_{m-1}}x_12^{\chi_m}\cdot ky_1\cdots ky_{n-1}ky_n=kx_1\cdots kx_{m-1}kx_m\cdot y_22^{\upsilon_1}\cdots y_n2^{\upsilon_{n-1}}y_12^{\upsilon_n}
 \]
@@ -230,6 +231,35 @@ The trivial case where $n=m$ and the sum of exponents are equal $\sum_{i=1}^{m}\
 \[
 x_1\cdots x_n\cdot2^{\chi_1+\ldots+\chi_n}\cdot k^n\cdot y_1\cdots y_n=k^n\cdot x_1\cdots x_n\cdot y_1\cdots y_n\cdot2^{\upsilon_1+\ldots+\upsilon_n}
 \]
+
+\begin{example}
+The following exemplarly product equality fullfills equation~\ref{eq:product_equality}, whereby $X_1=65$, $X_2=165$, $X_3=415$ and $Y_1=135$, $Y_2=85$, $Y_3=215$:
+\[
+(65+1)(165+1)(415+1)\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot(135+1)(85+1)(215+1)
+\]
+We perform the following substitutions:
+\[
+\begin{array}{ll}
+X_1=65&=x_22^{\chi_1}-1=33\cdot2^1-1=5x_1\\
+X_2=165&=x_32^{\chi_2}-1=83\cdot2^1-1=5x_2\\
+X_3=415&=x_12^{\chi_3}-1=13\cdot2^5-1=5x_3
+\end{array}\enspace
+\begin{array}{ll}
+Y_1=135&=y_22^{\upsilon_1}-1=17\cdot2^3-1=5y_1\\
+Y_2=85&=y_32^{\upsilon_2}-1=43\cdot2^1-1=5y_2\\
+Y_3=215&=y_12^{\upsilon_3}-1=27\cdot2^3-1=5y_3
+\end{array}
+\]
+The result of these substitutions is:
+\[
+33\cdot\cancel{2^1}\cdot83\cdot\cancel{2^1}\cdot13\cdot\cancel{2^5}\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot17\cdot\cancel{2^3}\cdot43\cdot\cancel{2^1}\cdot27\cdot\cancel{2^3}
+\]
+Since the sum of exponents $\chi_i$ and $\upsilon_i$ are equal, we can cancel out all powers of two and obtain:
+\[
+x_2x_3x_1Y_1Y_2Y_3=33\cdot83\cdot13\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot17\cdot43\cdot27=X_1X_2X_3y_2y_3y_1
+\]
+This product equality becomes true $x_2x_3x_1\cdot k^3\cdot y_1y_2y_3=k^3\cdot x_1x_2x_3\cdot y_2y_3y_1$ when we set $X_i=kx_i$ and $Y_i=ky_i$ (for $i=1,2,3$) which inevitably leads to the two corresponding cycles for $k=5$ that are already presented by table~\ref{table:known_cycles}.
+\end{example}
 
 \section{Existence of a solitary cycle for $k=1$}
 As per theorem~\ref{theo:2}, for $k=1$, the only possible alpha for a cycle is $1$:
