@@ -26,6 +26,13 @@ x/2		&	\text{otherwise}
 
 This function is surjective, but it is not injective (for example $g(3)=g(20))$ and thus is not reversible. The Collatz conjecture states that for each start number $x_1>0$ the sequence $x_1,x_2=g(x_1),x_3=g(x_2),\ldots$ will at some point enter the so called trivial cycle $1,4,2$. One example is the sequence $17,52,26,13,40,20,10,5,16,8,4,2,1$ starting at $x_1=17$. The assumption has not yet been proven. If the conjecture were wrong, then for a starting number $x_1$ the sequence either would diverge indefinitely or enter a cycle different from the trivial one (a so called non-trivial cycle).
 
+In order to specify compressed Collatz sequences containing only the odd members, Bruckman \cite{Ref_Bruckman_2008} for instance used the more convenient function that opts out all even integers:
+\begin{equation}
+\label{eq:func_collatz_odd}
+f(x)=(3x+1)\cdot2^{-\alpha(x)},\text{where}\hspace{1em}2^{\alpha(x)}\mathrel\Vert(3x+1)
+\end{equation}
+Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ exactly divides $3x+1$. Especially for prime powers, one often says $p^\alpha$ \textit{divides} the integer $x$ \textit{exactly}, denoted as $p^\alpha\mathrel\Vert x$, if $p^\alpha$ is the greatest power of the prime $p$ that divides $x$.
+
 \par\medskip
 In his book “The Ultimate Challenge: The 3x+1 Problem” \cite{Ref_Lagarias_2010}, along with his annotated bibliographies \cite{Ref_Lagarias_2011}, \cite{Ref_Lagarias_2012} and other manuscripts like an earlier paper from 1985 \cite{Ref_Lagarias_1985}, Lagarias reseached and put together different approaches from various authors intended to describe and solve the Collatz conjecture.
 
