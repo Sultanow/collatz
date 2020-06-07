@@ -63,11 +63,11 @@ grestore
 %
 \begin{document}
 
-\title{Narrowing the condition for the existance of Collatz Cycles%\thanks{Grants or other notes
+\title{Cycles in Collatz Sequences: A Data Science Approach%\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
 }
-\subtitle{Do you have a subtitle?\\ If so, write it here}
+\subtitle{Narrowing the condition for the existance of non-trivial Collatz Cycles}
 
 %\titlerunning{Short form of title}        % if too long for running head
 
@@ -95,8 +95,7 @@ grestore
 \maketitle
 
 \begin{abstract}
-Insert your abstract here. Include keywords, PACS and mathematical
-subject classification numbers as needed.
+The Collatz conjecture is an unsolved number theory problem. We approach the question by examining cycles in Collatz sequences. A cycle occurs when a number in a sequence is equal to the starting value. Every cycle, except the trivial variant, starting with the number one, would falsify the conjecture. Our research focuses on the original form of the Collatz problem, 3x+1, as well as the generalised variant kx+1. Aside from classical mathematical methods, we use techniques of data science. Based on the analysis of 250,000 sequences we provide a list of known cycles and show that there are clear restrictions for their occurence. We prove that cycles are are only possible for certain sequence-lengths. Future investigations benefit from this knowledge, as they will be able to concentrate on a significantly narrowed problem space in search for a comprehensive proof of the conjecture.
 \keywords{First keyword \and Second keyword \and More}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
@@ -120,13 +119,18 @@ For this we define a more convenient function opting out all even integers from 
 \label{eq:func_collatz_odd}
 f(x)=(3x+1)\cdot2^{-\alpha(x)}
 \end{equation}
-Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ divides $3x+1$.
+Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ exactly divides $3x+1$. Especially for prime powers one often says $p^\alpha$ \textit{divides} the integer $x$ \textit{exactly}, denoted as $p^\alpha\mathrel\Vert x$, if $p^\alpha$ is the greatest power of the prime $p$ that divides $x$. In order to specify compressed Collatz sequences containing only the odd members, Bruckman \cite{Ref_Bruckman_2008} for instance used this \textit{exact division} as well:
+\begin{equation*}
+f(x)=(3x+1)\cdot2^{-\alpha},\text{where}\hspace{1em}2^\alpha\mathrel\Vert(3x+1)
+\end{equation*}
+
+We follow this notation. A compressed Collatz sequence, which for example starts at $v_1=17$, we denote as $v_1,v_2,v_3,v_4=17,13,5,1$ and $\alpha_1,\alpha_2,\alpha_3=2,3,4$ are the exponents indicating the divisions by two between two Collatz sequence members. For a given sequence $v_1,\ldots,v_{n+1}$ the sum of these exponents we simply call $\alpha=\sum_{i=1}^{n}\alpha_i$.
 
 \section{Related Research}
 \label{sec:1}
 Hercher \cite{Ref_Hercher_2018} dealed with conditions for a cycle and showed that a .
 
-\section{Defining the conditions for cycles}
+\section{(Template) Defining the conditions for cycles}
 \label{sec:1}
 Text with citations \cite{RefB} and \cite{RefJ}.
 \subsection{Subsection title}
@@ -138,48 +142,30 @@ and subsection a unique label (see Sect.~\ref{sec:1}).
 a^2+b^2=c^2
 \end{equation}
 
-% For one-column wide figures use
-\begin{figure}
-% Use the relevant command to insert your figure file.
-% For example, with the graphicx package use
-  \includegraphics{example.eps}
-% figure caption is below the figure
-\caption{Please write your figure caption here}
-\label{fig:1}       % Give a unique label
-\end{figure}
-%
-% For two-column wide figures use
-\begin{figure*}
-% Use the relevant command to insert your figure file.
-% For example, with the graphicx package use
-  \includegraphics[width=0.75\textwidth]{example.eps}
-% figure caption is below the figure
-\caption{Please write your figure caption here}
-\label{fig:2}       % Give a unique label
-\end{figure*}
-%
-% For tables use
-\begin{table}
-% table caption is above the table
-\caption{Please write your table caption here}
-\label{tab:1}       % Give a unique label
-% For LaTeX tables use
-\begin{tabular}{lll}
-\hline\noalign{\smallskip}
-first & second & third  \\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-number & number & number \\
-number & number & number \\
-\noalign{\smallskip}\hline
-\end{tabular}
-\end{table}
 
+%\begin{figure*}
+%\includegraphics[width=0.75\textwidth]{example.eps}
+%\caption{Please write your figure caption here}
+%\label{fig:1}
+%\end{figure*}
+
+%\begin{table}
+%\caption{Please write your table caption here}
+%\label{tab:1}
+%\begin{tabular}{lll}
+%\hline\noalign{\smallskip}
+%first & second & third  \\
+%\noalign{\smallskip}\hline\noalign{\smallskip}
+%number & number & number \\
+%number & number & number \\
+%\noalign{\smallskip}\hline
+%\end{tabular}
+%\end{table}
 
 %\begin{acknowledgements}
 %If you'd like to thank anyone, place your comments here
 %and remove the percent signs.
 %\end{acknowledgements}
-
 
 % Authors must disclose all relationships or interests that 
 % could have direct or potential influence or impart bias on 
@@ -212,6 +198,9 @@ S. W. Williams, Million Buck Problems, National Association of Mathematicians Ne
 \bibitem{Ref_Hercher_2018}
 C. Hercher, Über die Länge nicht-trivialer Collatz-Zyklen, Die Wurzel, 6-7, 1-13 (2018)
 
+\bibitem{Ref_Bruckman_2008}
+P. S. Bruckman, RETRACTED ARTICLE: A proof of the Collatz conjecture, International Journal of Mathematical Education in Science and Technology, 39(3), 403–407 (2008)
+
 % Format for books
 \bibitem{RefB}
 Author, Book title, page numbers. Publisher, place (year)
@@ -219,5 +208,3 @@ Author, Book title, page numbers. Publisher, place (year)
 \end{thebibliography}
 
 \end{document}
-% end of file template.tex
-

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.11)  7 JUN 2020 09:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.11)  7 JUN 2020 12:21
 entering extended mode
 **./collatz_cycles.tex
 (collatz_cycles.tex
@@ -348,68 +348,35 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{C:/Users/esultano/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
-LaTeX Warning: Citation `RefJ' on page 2 undefined on input line 131.
+LaTeX Warning: Citation `RefJ' on page 2 undefined on input line 135.
 
-Package epstopdf Info: Source file: <example.eps>
-(epstopdf)                    date: 2008-06-12 05:31:30
-(epstopdf)                    size: 304 bytes
-(epstopdf)             Output file: <example-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-06-06 19:12:36
-(epstopdf)                    size: 2445 bytes
-(epstopdf)             Command: <epstopdf --outfile=example-eps-converted-to.pd
-f example.eps>
-(epstopdf)             \includegraphics on input line 145.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex.exe (file ./example-eps-converted-to.pdf): PDF inclusi
-on: found PDF version <1.7>, but at most version <1.5> allowed
-<example-eps-converted-to.pdf, id=15, 202.7575pt x 202.7575pt>
-File: example-eps-converted-to.pdf Graphic file (type pdf)
-<use example-eps-converted-to.pdf>
-Package pdftex.def Info: example-eps-converted-to.pdf  used on input line 145.
-(pdftex.def)             Requested size: 202.757pt x 202.757pt.
-Package epstopdf Info: Source file: <example.eps>
-(epstopdf)                    date: 2008-06-12 05:31:30
-(epstopdf)                    size: 304 bytes
-(epstopdf)             Output file: <example-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-06-06 19:12:36
-(epstopdf)                    size: 2445 bytes
-(epstopdf)             Command: <epstopdf --outfile=example-eps-converted-to.pd
-f example.eps>
-(epstopdf)             \includegraphics on input line 155.
-Package epstopdf Info: Output file is already uptodate.
-File: example-eps-converted-to.pdf Graphic file (type pdf)
-<use example-eps-converted-to.pdf>
-Package pdftex.def Info: example-eps-converted-to.pdf  used on input line 155.
-(pdftex.def)             Requested size: 253.5pt x 253.50812pt.
-[2] [3 <./example-eps-converted-to.pdf>] (collatz_cycles.aux)
+[2] [3] (collatz_cycles.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3366 strings out of 492452
- 44788 string characters out of 3134438
- 107187 words of memory out of 3000000
- 7682 multiletter control sequences out of 15000+200000
- 13064 words of font info for 49 fonts, out of 3000000 for 9000
+ 3357 strings out of 492452
+ 44593 string characters out of 3134438
+ 108166 words of memory out of 3000000
+ 7674 multiletter control sequences out of 15000+200000
+ 12755 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,9n,31p,818b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,9n,31p,916b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/TeX/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx8.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/TeX/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/TeX/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Te
-X/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/TeX/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C
-:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on collatz_cycles.pdf (3 pages, 158198 bytes).
+mex10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/TeX/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/TeX/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/TeX
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/TeX/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on collatz_cycles.pdf (3 pages, 154931 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
