@@ -1,8 +1,74 @@
-\chapter{Engel Expansions}
-\label{ch:maximizing_target_node}
+\documentclass[12pt]{amsart}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, anchorcolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{url}
+\usepackage{graphicx,color}
+\usepackage{cite}
+\usepackage{amsthm, amsmath, amssymb, mathtools}
+\usepackage[top=45truemm, bottom=45truemm, left=30truemm, right=30truemm]{geometry}
+\usepackage{nicefrac}
+\usepackage{cancel}
 
-\section{Engel expansions maximize the node $v_{n+1}$}
-A sequence $v_{n+1},v_n,\ldots,v_2,v_1$ describing a path in $H_{C,3}$ from $v_{n+1}$ down to $v_1$ allows at most one division by $2$ between two successive nodes. Dividing only once between two successive nodes, maximizes the $v_{n+1}$, but it is not obvious that this maximizes the product contained in condition~\ref{eq:condition_max}. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title[Engel Expansions in Collatz Sequences]{The Role of Engel Expansions in Collatz Sequences}
+
+\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
+\address{First Lastname\\
+Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Germany}
+\curraddr{}
+\email{first.last@university.de}
+
+\author[F.\ Last2]{First Last}
+\address{First Lastname\\
+Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Germany}
+\curraddr{}
+\email{first.last@university.de}
+
+\subjclass[2010]{37P99}
+\keywords{Engel Expansions, Collatz Sequences}
+
+\begin{document}
+	
+\begingroup
+\let\MakeUppercase\relax
+\maketitle
+\endgroup
+
+\begin{abstract}
+The Collatz conjecture is a number theoretical problem, which has puzzled countless researchers using myriad approaches. Presently, there are scarcely investigations to treat the problem from the angle of the question "which are the corner cases the Collatz Sequences?". We pursue this question and to this end examine ascending continued fractions -- the so called Engel expansions. We demonstrate that Engel expansions form worst case sequences $v_1,v_2,\ldots,v_n,v_{n+1}$ maximizing $v_{n+1}$ and maximizing the product $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})(1+\nicefrac{1}{3v_{n+1}})$
+\end{abstract}
+
+\section{Introduction}
+\label{introduction}
+
+The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications. An overview is provided by Lagarias \cite{Ref_Lagarias_2010}. Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
+\begin{equation}
+\label{eq:func_collatz}
+g(x)=
+\begin{cases}
+3x+1	&	2\nmid x\\
+x/2		&	\text{otherwise}
+\end{cases}
+\end{equation}
+
+In the following, we only consider compressed Collatz sequences that solely contain the odd members, such as described for example by Bruckman \cite{Ref_Bruckman_2008}, who used the more convenient function that opts out all even integers:
+\begin{equation}
+\label{eq:func_collatz_odd}
+f(x)=(3x+1)\cdot2^{-\alpha(x)},\text{where}\hspace{1em}2^{\alpha(x)}\mathrel\Vert(3x+1)
+\end{equation}
+
+Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ exactly divides $3x+1$. Especially for prime powers, one often says $p^\alpha$ \textit{divides} the integer $x$ \textit{exactly}, denoted as $p^\alpha\mathrel\Vert x$, if $p^\alpha$ is the greatest power of the prime $p$ that divides $x$.
+
+\par\medskip
+A (compressed) Collatz sequence $v_1,v_2,\ldots,v_n,v_{n+1}$ allowed at most one division by $2$ between two successive members. Dividing only once between two successive members, maximizes $v_{n+1}$. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
 
 \begin{equation}
 \label{eq:asc_continued_fraction}
@@ -20,12 +86,13 @@ The sum of the products of the powers of three and two, contained within the abo
 =2^n\left(\left(\frac{3}{2}\right)^n-1\right)
 \]
 
+\medskip
 \begin{example}
-	A concrete example for such a sequence is $v_1=31$, $v_2=47$, $v_3=71$, $v_4=107$, $v_5=161$. And, to follow that example, we can calculate the label of the vertex $v_5$ in a straightforward way:
-	\[
-	v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
-	\]
-	Besides, by choosing a vertex $v_1=2^{n+1}-1$, we are able to infinitely generate sequences each forming an ascending continued fraction. As per equation~\ref{eq:asc_continued_fraction} the last member in this sequence is the odd labeled vertex $v_{n+1}=3^n\cdot2-1$.
+A concrete example for such a sequence is $v_1=31$, $v_2=47$, $v_3=71$, $v_4=107$, $v_5=161$. And, to follow that example, we can calculate $v_5$ in a straightforward way:
+\[
+v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
+\]
+Besides, by choosing a starting number $v_1=2^{n+1}-1$, we are able to infinitely generate sequences each forming an ascending continued fraction. As per equation~\ref{eq:asc_continued_fraction} the last member in this sequence is the odd number $v_{n+1}=3^n\cdot2-1$.
 \end{example}
 
 \begin{remark}
@@ -91,11 +158,11 @@ Also here almost all summands of both Engel expansions, they cancel each other o
 While the first case minimizes the value of the node $v_{n+1}$, the second case maximizes it. The difference between the maximum and the minimum is given by the following equation:
 
 \begin{flalign*}
-	&\frac{3^{n-1}\left(\frac{3v_1+1}{2\cdot2^m}+1\right)-2^{n-1}}{2^{n-1}}-\frac{3^n\left(v_1+1\right)-2^n}{2^{n+m}}\\
-	=&\frac{3^{n-1}\cdot\left(3v_1+1+2^{m+1}\right)-2^{n-1}\cdot2^{m+1}-3^n\left(v_1+1\right)+2^n}{2^{m+1}\cdot2^{n-1}}\\
-	=&\frac{3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}-3^n+2^n}{2^{n+m}}=\frac{3^{n-1}-3\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}\\
-	=&\frac{-2\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}=\frac{\left(2\cdot3^{n-1}-2^n\right)\left(2^m-1\right)}{2^n\cdot2^m}\\
-	=&\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
+&\frac{3^{n-1}\left(\frac{3v_1+1}{2\cdot2^m}+1\right)-2^{n-1}}{2^{n-1}}-\frac{3^n\left(v_1+1\right)-2^n}{2^{n+m}}\\
+=&\frac{3^{n-1}\cdot\left(3v_1+1+2^{m+1}\right)-2^{n-1}\cdot2^{m+1}-3^n\left(v_1+1\right)+2^n}{2^{m+1}\cdot2^{n-1}}\\
+=&\frac{3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}-3^n+2^n}{2^{n+m}}=\frac{3^{n-1}-3\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}\\
+=&\frac{-2\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}=\frac{\left(2\cdot3^{n-1}-2^n\right)\left(2^m-1\right)}{2^n\cdot2^m}\\
+=&\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
 \end{flalign*}
 
 This has the consequence that for a given sequence consisting of $n+1$ members, between which a total of $n+m$ divisions have taken place, the permutation of these divisions has a very limited effect on the node $v_{n+1}$ as described by theorem~\ref{theo:permutation}.
@@ -114,7 +181,6 @@ Let us take a closer look at the product contained in condition~\ref{eq:conditio
 \begin{equation}
 \label{eq:product_simplification_k3}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
-=\prod_{i=1}^{n}\left(1+\frac{1}{3\frac{3^{i-1}(v_1+1)-2^{i-1}}{2^{i-1}}}\right)
 =\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
 =\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
 \end{equation}
@@ -135,14 +201,14 @@ Thus, for $k=3$ the condition~\ref{eq:condition_max} for alphas's upper limit is
 How does the product, contained in condition~\ref{eq:condition_max}, look like if we include the additional $m$ divisions into the Engel expansion as per section~\ref{sec:include_divisions_engel_expansion}? To answer this question, we consider the sequence $v_{n+1},v_n,v_{n-1},\ldots,v_2,v_1$ and we set $v_2=\frac{3v_1+1}{2\cdot2^{m}}$. Then reusing the continued fraction given by equation~\ref{eq:asc_continued_fraction}, we obtain:
 
 {\setlength{\jot}{1.2em}
-\begin{flalign}
-\label{eq:asc_continued_fraction_m}
-v_{n+1}&=\cfrac{3\cfrac{3\cfrac{3\cfrac{3v_1+1}{2\cdot2^m}+1}{2}+1}{2}+1}{2}\dotsb
-=\cfrac{3\cfrac{3\cfrac{3v_2+1}{2}+1}{2}+1}{2}\dotsb
-=\frac{3^{n-1}(v_2+1)-2^{n-1}}{2^{n-1}}\\
-\notag
-&=\frac{3^{n-1}(\frac{3v_1+1}{2\cdot2^{m}}+1)-2^{n-1}}{2^{n-1}}=\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1
-\end{flalign}}
+	\begin{flalign}
+	\label{eq:asc_continued_fraction_m}
+	v_{n+1}&=\cfrac{3\cfrac{3\cfrac{3\cfrac{3v_1+1}{2\cdot2^m}+1}{2}+1}{2}+1}{2}\dotsb
+	=\cfrac{3\cfrac{3\cfrac{3v_2+1}{2}+1}{2}+1}{2}\dotsb
+	=\frac{3^{n-1}(v_2+1)-2^{n-1}}{2^{n-1}}\\
+	\notag
+	&=\frac{3^{n-1}(\frac{3v_1+1}{2\cdot2^{m}}+1)-2^{n-1}}{2^{n-1}}=\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1
+	\end{flalign}}
 
 \par\noindent
 The product will be calculated by using equation~\ref{eq:product_simplification_k3}:
@@ -150,7 +216,9 @@ The product will be calculated by using equation~\ref{eq:product_simplification_
 \label{eq:product_k3_m}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=2}^{n}\left(1+\frac{1}{3v_{i}}\right)\\
 \notag
-&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=1}^{n-1}\left(1+\frac{1}{3v_{i+1}}\right)=\left(1+\frac{1}{3v_1}\right)\cdot\left(\frac{1}{v_2}-\frac{1}{v_2}\left(\frac{2}{3}\right)^{n-1}+1\right)
+&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=1}^{n-1}\left(1+\frac{1}{3v_{i+1}}\right)\\
+\notag
+&=\left(1+\frac{1}{3v_1}\right)\cdot\left(\frac{1}{v_2}-\frac{1}{v_2}\left(\frac{2}{3}\right)^{n-1}+1\right)
 \end{flalign}
 
 \par\noindent
@@ -160,8 +228,9 @@ Finally substituting $v_2=\frac{3v_1+1}{2\cdot2^{m}}$ into equation~\ref{eq:prod
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)=\left(1+\frac{1}{3v_1}\right)\cdot\frac{1-\left(\frac{2}{3}\right)^{n-1}+v_2}{v_2}=\frac{1+2^{m+1}}{3v_1}-\frac{2^m}{v_1}\left(\frac{2}{3}\right)^n+1
 \end{equation}
 
+\medskip
 \begin{example}
-	An example provides the sequence $v_1=661$, $v_2=31$, $v_3=47$, $v_4=71$, $v_5=107$. When we input $v_1=661$ with $m=5$ and $n=4$ into equation~\ref{eq:asc_continued_fraction_m} we retrieve the label of the vertex $v_5$:
+	An example provides the sequence $v_1=661$, $v_2=31$, $v_3=47$, $v_4=71$, $v_5=107$. When we input $v_1=661$ with $m=5$ and $n=4$ into equation~\ref{eq:asc_continued_fraction_m} we retrieve the value of $v_5$:
 	\[
 	v_5=v_{n+1}=\frac{3^4\cdot661+3^3+3^3\cdot2^6}{2^9}-1=107
 	\]
@@ -170,9 +239,10 @@ Finally substituting $v_2=\frac{3v_1+1}{2\cdot2^{m}}$ into equation~\ref{eq:prod
 	\frac{3\cdot661-1}{2\cdot2^5}=v_2=31
 	\]
 	Let us now verify the formula for the product by taking this particular example. To this end we input $v_1=661$ together with $m=5$ and $n=4$ into equation~\ref{eq:product_simplification_k3_m}:
-	\[
-	\left(1+\frac{1}{3\cdot661}\right)\left(1+\frac{1}{3\cdot31}\right)\left(1+\frac{1}{3\cdot47}\right)\left(1+\frac{1}{3\cdot71}\right)=\frac{1+2^{6}}{3\cdot661}-\frac{2^5}{661}\left(\frac{2}{3}\right)^4+1=1.023215853
-	\]
+	\begin{flalign*}
+	\left(1+\frac{1}{3\cdot661}\right)\left(1+\frac{1}{3\cdot31}\right)\left(1+\frac{1}{3\cdot47}\right)\left(1+\frac{1}{3\cdot71}\right)&=\frac{1+2^{6}}{3\cdot661}-\frac{2^5}{661}\left(\frac{2}{3}\right)^4+1\\
+	&=1.023215853
+	\end{flalign*}
 \end{example}
 
 \section{Condition for a limited growth of the Engel expansion}
@@ -187,7 +257,7 @@ By transforming this inequality, which is thoroughly described in the appendix~\
 
 \begin{equation}
 \label{eq:condition_limited_growth}
-	\frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
+\frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
 \end{equation}
 
 \section{Engel expansions maximize the product}
@@ -198,3 +268,8 @@ The question which sequence maximizes the target node $v_{n+1}$ ties into the qu
 \]
 
 In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which exactly the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product in the condition for cycle-alpha's upper limit.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ref_Lagarias_2010}
+J.~C. Lagarias.
+\newblock {\em The Ultimate Challenge: The 3x+1 Problem}.
+\newblock American Mathematical Society, Providence, RI, 2010.
+
+\bibitem{Ref_Bruckman_2008}
+P.~S. Bruckman.
+\newblock Retracted article: A proof of the collatz conjecture.
+\newblock {\em International Journal of Mathematical Education in Science and
+  Technology}, 39(3):403--407, 2008.
+
+\bibitem{Ref_Laarhoven}
+T.M.M. Laarhoven.
+\newblock The 3n + 1 conjecture, 7 2009.
+
+\bibitem{Ref_Moore}
+C.~G. Moore.
+\newblock {\em Introduction to Continued Fractions}.
+\newblock National Council of Teachers of Mathematics, 1964.
+
+\bibitem{Ref_Hensley}
+D.~Hensley.
+\newblock {\em Continued Fractions}.
+\newblock World Scientific Publishing, 2006.
+
+\bibitem{Ref_Borwe_etal}
+J.~Borwe, A.~van~der Poorten, J.~Shallit, and W.~Zudlin.
+\newblock {\em Neverending Fractions: An Introduction to Continued Fractions}.
+\newblock Cambridge University Press, 2014.
+
+\bibitem{Ref_Kraaikamp_Wu}
+C.~Kraaikamp and J.~Wu.
+\newblock On a new continued fraction expansion with non-decreasing partial
+  quotients.
+\newblock {\em Monatshefte für Mathematik}, 143:285--298, 2004.
+
+\end{thebibliography}

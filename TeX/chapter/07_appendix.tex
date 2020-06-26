@@ -1,23 +1,41 @@
 \appendix
 \chapter{Appendix}
 
-\section{Sum of reciprocal vertices}
+\section{Sum of reciprocal vertices depending only on $v_1$}
 \label{appx:sum_reciprocal_vertices}
 One condition deduced from theorem~\ref{theo:1} is the product condition~\ref{eq:condition_max}, which specifies the validity of the cycle-alpha's upper limit. This condition requires the sum $\frac{1}{kv_1}+\frac{1}{kv_2}+\frac{1}{kv_3}+\ldots$ to be limited. In order to formulate this sum independently from the successive vertices $v_2,v_3,\ldots$, we substitute these as follows:
-\begin{flalign*}
-v_1&=v_1\\
-v_2&=\frac{kv_1+1}{2^{\alpha_1}}\\
-v_3&=\frac{k^2v_1+k+2^{\alpha_1}}{2^{\alpha_1+\alpha_2}}\\
-v_4&=\frac{k^3v_1+k^2+k\cdot2^{\alpha_1}+2^{\alpha_1+\alpha_2}}{2^{\alpha_1+\alpha_2+\alpha_3}}\\
-\vdots\\
-v_{n+1}&=\frac{k^nv_1+\sum_{j=1}^{n}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}}{2^{\alpha_1+\ldots+\alpha_n}}
-\end{flalign*}
+\begin{flalign}
+v_1&=v_1\notag\\
+v_2&=\frac{kv_1+1}{2^{\alpha_1}}\notag\\
+v_3&=\frac{k^2v_1+k+2^{\alpha_1}}{2^{\alpha_1+\alpha_2}}\notag\\
+v_4&=\frac{k^3v_1+k^2+k\cdot2^{\alpha_1}+2^{\alpha_1+\alpha_2}}{2^{\alpha_1+\alpha_2+\alpha_3}}\label{eq:sum_v_4}\\
+\vdots\notag\\
+v_{n+1}&=\frac{k^nv_1+\sum_{j=1}^{n}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}}{2^{\alpha_1+\ldots+\alpha_n}}\label{eq:sum_v_n_plus_1}
+\end{flalign}
 
 \par\medskip
 The sum of the reciprocal vertices can be expressed as a term that depends from $v_1$ and from the number of contracted edges, id est the number of dvisions by two, between two successive vertices $\alpha_1,\alpha_2,\alpha_3,\ldots$: 
 \begin{equation*}
 \sum_{i=1}^{n+1}\frac{1}{kv_i}=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{1}{v_{i+1}}\right)=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{2^{\alpha_1+\ldots+\alpha_i}}{k^iv_1+\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}\right)
 \end{equation*}
+
+\section{The product formula depending only on $v_1$}
+\label{appx:product_formula_depending_v1}
+In a similar way to deduce the sum of reciprocal vertices depending only on $v_1$ as performed in \ref{appx:sum_reciprocal_vertices}, we evolve the product formula depending only on $v_1$:
+\begin{flalign}
+\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot2^{\alpha_1+\ldots+\alpha_{n-1}}+\ldots+k^{n-1}\cdot2^{\alpha_1}+k^n}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1}\\
+&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_inserted}\\
+&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot\left(v_{n+1}\cdot2^{\alpha_1+\ldots+\alpha_n}-k^nv_1\right)}{k^{n+1}v_1}\notag\\
+&=\frac{2^{\alpha_1+\ldots+\alpha_n}\left(1+kv_{n+1}\right)}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_simplified}
+\end{flalign}
+We inserted the sum used in equation~\ref{eq:sum_v_n_plus_1} into the above-given equation~\ref{eq:prod_sum_v_n_plus_1} and then obtained equation~\ref{eq:prod_sum_v_n_plus_1_inserted}. Let us divide this product by the last factor and consider the product in the condition for cycle-alpha's upper limit, which iterates to $n$ instead of $n+1$:
+
+\begin{equation}
+\label{eq:prod_sum_v_n_simplified}
+\prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)=\frac{\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)}{\frac{kv_{n+1}+1}{kv_{n+1}}}=\frac{2^{\alpha_1+\ldots+\alpha_n}\cancel{\left(1+kv_{n+1}\right)}kv_{n+1}}{k^{n+1}v_1\cancel{\left(kv_{n+1}+1\right)}}=\frac{2^{\alpha_1+\ldots+\alpha_n}v_{n+1}}{k^nv_1}
+\end{equation}
+
+The above-shown equation~\ref{eq:prod_sum_v_n_simplified} for the product in the condition for cycle-alpha's upper limit becomes simplified, when we replaced the numerator by equation~\ref{eq:prod_sum_v_n_plus_1_simplified}.
 
 \section{Simplying the product for $k=3$}
 \label{appx:product_simplification_k3}
