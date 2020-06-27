@@ -181,8 +181,50 @@ This has the consequence that for a given sequence consisting of $n+1$ members, 
 	\]
 \end{theorem}
 
+\section{Sum of reciprocated Collatz members}
+\label{sum_reciprocal_vertices}
+A product $\prod(1+a_n)$ with positive terms $a_n$ is convergent if the series $\sum a_n$ converges, see Knopp \cite[p.~220]{Ref_Knopp}. A similar statement provides Murphy \cite{Ref_Murphy}, who write the factors in the form $c_n=1+a_n$ and explains that if $\prod c_n$ is convergent then $c_n\rightarrow1$ and therefore if $\prod (1+a_n)$ is convergent then $a_n\rightarrow0$.
+
+\par\medskip
+We write the sum of reciprocated Collatz members as $\nicefrac{1}{kv_1}+\nicefrac{1}{kv_2}+\ldots+\nicefrac{1}{kv_n}+\nicefrac{1}{kv_{n+1}}$. In order to formulate this sum independently from the successive members $v_2,v_3,\ldots$, we substitute these as follows:
+
+\begin{flalign}
+v_1&=v_1\notag\\
+v_2&=\frac{kv_1+1}{2^{\alpha_1}}\notag\\
+v_3&=\frac{k^2v_1+k+2^{\alpha_1}}{2^{\alpha_1+\alpha_2}}\notag\\
+v_4&=\frac{k^3v_1+k^2+k\cdot2^{\alpha_1}+2^{\alpha_1+\alpha_2}}{2^{\alpha_1+\alpha_2+\alpha_3}}\label{eq:sum_v_4}\\
+\vdots\notag\\
+v_{n+1}&=\frac{k^nv_1+\sum_{j=1}^{n}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}}{2^{\alpha_1+\ldots+\alpha_n}}\label{eq:sum_v_n_plus_1}
+\end{flalign}
+
+\par\medskip
+The sum of the reciprocal Collatz sequence members can be expressed as a term that only depends from $v_1$ and from the number of dvisions by two $\alpha_1,\alpha_2,\alpha_3,\ldots$ between two successive members:
+\begin{equation*}
+\sum_{i=1}^{n+1}\frac{1}{kv_i}=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{1}{v_{i+1}}\right)=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{2^{\alpha_1+\ldots+\alpha_i}}{k^iv_1+\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}\right)
+\end{equation*}
+
+\vspace{1em}
 \section{The product of reciprocated Collatz members incremented by one}
-Let us take a closer look at the product $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})(1+\nicefrac{1}{3v_{n+1}})$ that we mentioned at the beginning and use the ascending continued fractions for examining it. The exciting question is: Does this product have a limit value even in the case where between successive Collatz sequence members $v_i$ and $v_{i+1}$ a division by two has been performed only once? Using the Engel expansion (that sequence maximizing $v_{n+1}$) for calculating this product, we obtain a product which is limited, or to be more specific, we obtain a product that cannot exceed the value $\nicefrac{4}{3}$:
+\label{appx:product_formula_depending_v1}
+In a similar way to deduce the sum of reciprocal vertices depending only on $v_1$ as performed in \ref{sum_reciprocal_vertices}, we evolve the formula for the product of reciprocated Collatz members (incremented by one):
+\begin{flalign}
+\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot2^{\alpha_1+\ldots+\alpha_{n-1}}+\ldots+k^{n-1}\cdot2^{\alpha_1}+k^n}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1}\\
+&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_inserted}\\
+&=\frac{2^{\alpha_1+\ldots+\alpha_n}\left(1+kv_{n+1}\right)}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_simplified}
+\end{flalign}
+
+We inserted the sum used in equation~\ref{eq:sum_v_n_plus_1} into the above-given equation~\ref{eq:prod_sum_v_n_plus_1} and then obtained equation~\ref{eq:prod_sum_v_n_plus_1_inserted}. Now let us divide this product by the last factor in order to retrieve the product which iterates to $n$ instead of $n+1$:
+
+\begin{equation}
+\label{eq:prod_sum_v_n_simplified}
+\prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)=\frac{\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)}{\frac{kv_{n+1}+1}{kv_{n+1}}}=\frac{2^{\alpha_1+\ldots+\alpha_n}v_{n+1}}{k^nv_1}
+\end{equation}
+
+\par\medskip
+The above-shown equation~\ref{eq:prod_sum_v_n_simplified} becomes simplified, when we replaced the numerator by equation~\ref{eq:prod_sum_v_n_plus_1_simplified}. The question which sequence maximizes the target node $v_{n+1}$ ties into the question: Which sequence maximizes the product? The product formula~\ref{eq:prod_sum_v_n_simplified} does not depend from all vertices $v_1,v_2,\ldots,v_n$, it depends only from $2^\alpha=2^{\alpha_1+\ldots+\alpha_n}$, from the starting node $v_1$ and the target node $v_{n+1}$. In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which exactly the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$.
+
+\par\medskip
+Let us take a closer look at this product for $k=3$ and use the ascending continued fractions (Engel expansions) for examining it. The exciting question is: Does this product have a limit value even in the case where between successive Collatz sequence members $v_i$ and $v_{i+1}$ a division by two has been performed only once? Using the Engel expansion (that sequence maximizing $v_{n+1}$) for calculating this product, we obtain a product which is limited, or to be more specific, we obtain a product that cannot exceed the value $\nicefrac{4}{3}$:
 \begin{equation}
 \label{eq:product_simplification_k3}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
@@ -190,7 +232,7 @@ Let us take a closer look at the product $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{
 =\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
 \end{equation}
 
-The largest possible value of this product can be received by setting $v_1=n=1$. In this case the product returns $1-\nicefrac{2}{3}+1$ and the value of $n$ cannot be larger than one, since we already reached the end of the Collatz sequence. Inserting any odd value greater than one into $v_1$ leads to a smaller product, no matter how large you choose $n$. When setting $v_1=3$ the product converges (for $n$ to infinity) from below towards $\nicefrac{4}{3}$. The larger you choose $v_1$, the smaller becomes the product.
+The largest possible value of this product can be received by setting $v_1=n=1$. In this case the product returns $1-\nicefrac{2}{3}+1$ and the value of $n$ cannot be larger than one, since with $v_1=1$ we already reached the end of the Collatz sequence. Inserting any odd value greater than one into $v_1$ leads to a smaller product, no matter how large you choose $n$. For instance, when setting $v_1=3$ the product converges (for $n$ to infinity) from below towards $\nicefrac{4}{3}$. The larger you choose $v_1$, the smaller becomes the product.
 
 \section{Include additional divisions into the product}
 How does this product looks like if we include the additional $m$ divisions into the Engel expansion as per section~\ref{sec:include_divisions_engel_expansion}? To answer this question, we consider the sequence $v_1,v_2,\ldots,v_n,v_{n+1}$ and we set $v_2=\nicefrac{3v_1+1}{2\cdot2^{m}}$. Then reusing the continued fraction given by equation~\ref{eq:asc_continued_fraction}, we obtain:
@@ -209,19 +251,21 @@ How does this product looks like if we include the additional $m$ divisions into
 The product will be calculated by using equation~\ref{eq:product_simplification_k3}:
 \begin{flalign}
 \label{eq:product_k3_m}
-\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=2}^{n}\left(1+\frac{1}{3v_{i}}\right)\\
-\notag
-&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=1}^{n-1}\left(1+\frac{1}{3v_{i+1}}\right)\\
+\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)&=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=2}^{n}\left(1+\frac{1}{3v_{i}}\right)
+=\left(1+\frac{1}{3v_1}\right)\cdot\prod_{i=1}^{n-1}\left(1+\frac{1}{3v_{i+1}}\right)\\
 \notag
 &=\left(1+\frac{1}{3v_1}\right)\cdot\left(\frac{1}{v_2}-\frac{1}{v_2}\left(\frac{2}{3}\right)^{n-1}+1\right)
 \end{flalign}
 
-\par\noindent
+\par\medskip\noindent
 Finally substituting $v_2=\nicefrac{3v_1+1}{2\cdot2^{m}}$ into equation~\ref{eq:product_k3_m} leads to the simplified formula of the product:
 \begin{equation}
 \label{eq:product_simplification_k3_m}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)=\left(1+\frac{1}{3v_1}\right)\cdot\frac{1-\left(\frac{2}{3}\right)^{n-1}+v_2}{v_2}=\frac{1+2^{m+1}}{3v_1}-\frac{2^m}{v_1}\left(\frac{2}{3}\right)^n+1
 \end{equation}
+
+\par\medskip
+Note that the total number of divisions by two is $n+m=\alpha=\alpha_1+\ldots+\alpha_n$ and the number of divisions in the first step is $m+1=\alpha_1$.
 
 \medskip
 \begin{example}
@@ -229,7 +273,8 @@ An example provides the sequence $v_1=661$, $v_2=31$, $v_3=47$, $v_4=71$, $v_5=1
 \[
 v_5=v_{n+1}=\frac{3^4\cdot661+3^3+3^3\cdot2^6}{2^9}-1=107
 \]
-In this sequence five $(m=5)$ additional divisions by two took place in the first step using $v_1=661$:
+\par\medskip
+In this sequence five $(m=5=\alpha_1-1)$ additional divisions by two took place in the first step using $v_1=661$:
 \[
 \frac{3\cdot661-1}{2\cdot2^5}=v_2=31
 \]
@@ -257,15 +302,6 @@ Reshaping this inequality leads to the following condition:
 \label{eq:condition_limited_growth}
 \frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
 \end{equation}
-
-\section{Engel expansions maximize the product}
-The question which sequence maximizes the target node $v_{n+1}$ ties into the question: Which sequence maximizes the product? The product formula that do not depend from all vertices $v_1,v_2,\ldots,v_n$ depends only from $2^\alpha$, from the starting node $v_1$ and the target node $v_{n+1}$:
-\[
-\prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)=\frac{2^{\alpha_1+\ldots+\alpha_n}v_{n+1}}{k^nv_1}
-\]
-
-\par\medskip
-In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which exactly the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product of reciprocated Collatz members incremented by one $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})(1+\nicefrac{1}{3v_{n+1}})$.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
