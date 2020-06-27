@@ -224,15 +224,23 @@ We inserted the sum used in equation~\ref{eq:sum_v_n_plus_1} into the above-give
 The above-shown equation~\ref{eq:prod_sum_v_n_simplified} becomes simplified, when we replaced the numerator by equation~\ref{eq:prod_sum_v_n_plus_1_simplified}. The question which sequence maximizes the target node $v_{n+1}$ ties into the question: Which sequence maximizes the product? The product formula~\ref{eq:prod_sum_v_n_simplified} does not depend from all vertices $v_1,v_2,\ldots,v_n$, it depends only from $2^\alpha=2^{\alpha_1+\ldots+\alpha_n}$, from the starting node $v_1$ and the target node $v_{n+1}$. In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which exactly the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$.
 
 \par\medskip
-Let us take a closer look at this product for $k=3$ and use the ascending continued fractions (Engel expansions) for examining it. The exciting question is: Does this product have a limit value even in the case where between successive Collatz sequence members $v_i$ and $v_{i+1}$ a division by two has been performed only once? Using the Engel expansion (that sequence maximizing $v_{n+1}$) for calculating this product, we obtain a product which is limited, or to be more specific, we obtain a product that cannot exceed the value $\nicefrac{4}{3}$:
+Let us take a closer look at this product and use the ascending continued fractions (Engel expansions) for examining it. The exciting question is: Does this product have a limit value even in the case where between successive Collatz sequence members $v_i$ and $v_{i+1}$ a division by two has been performed only once? We insert $n+1=i$ and $b=2$ into equation~\ref{eq:generalized_asc_continued_fraction} to get a formula for $v_i$, which we insert into the product and obtain:
+
+\begin{equation}
+\label{eq:product_simplification_k}
+\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)
+=\frac{1}{(k-2)v_1}-\frac{1}{(k-2)v_1}\left(\frac{2}{k}\right)^n+1
+\end{equation}
+
+The special case $k=3$ produces the following product of reciprocated Collatz members belonging to an Engel expansion (that sequence maximizing $v_{n+1}$):
+
 \begin{equation}
 \label{eq:product_simplification_k3}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
-=\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3\cdot2^{i-1}}
 =\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
 \end{equation}
 
-The largest possible value of this product can be received by setting $v_1=n=1$. In this case the product returns $1-\nicefrac{2}{3}+1$ and the value of $n$ cannot be larger than one, since with $v_1=1$ we already reached the end of the Collatz sequence. Inserting any odd value greater than one into $v_1$ leads to a smaller product, no matter how large you choose $n$. For instance, when setting $v_1=3$ the product converges (for $n$ to infinity) from below towards $\nicefrac{4}{3}$. The larger you choose $v_1$, the smaller becomes the product.
+This product is limited, or to be more specific, it cannot exceed the value $\nicefrac{4}{3}$. The largest possible value of this product can be received by setting $v_1=n=1$. In this case the product returns $1-\nicefrac{2}{3}+1$ and the value of $n$ cannot be larger than one, since with $v_1=1$ we already reached the end of the Collatz sequence. Inserting any odd value greater than one into $v_1$ leads to a smaller product, no matter how large you choose $n$. For instance, when setting $v_1=3$ the product converges (for $n$ to infinity) from below towards $\nicefrac{4}{3}$. The larger you choose $v_1$, the smaller becomes the product.
 
 \section{Include additional divisions into the product}
 How does this product looks like if we include the additional $m$ divisions into the Engel expansion as per section~\ref{sec:include_divisions_engel_expansion}? To answer this question, we consider the sequence $v_1,v_2,\ldots,v_n,v_{n+1}$ and we set $v_2=\nicefrac{3v_1+1}{2\cdot2^{m}}$. Then reusing the continued fraction given by equation~\ref{eq:asc_continued_fraction}, we obtain:
@@ -303,6 +311,7 @@ Reshaping this inequality leads to the following condition:
 \frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
 \end{equation}
 
+\vspace{1em}
 \bibliographystyle{unsrt}
 \bibliography{references}
 
