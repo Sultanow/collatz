@@ -411,6 +411,7 @@ To determine the number of divisions by two, which can lead to a cycle, we need 
 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\beta$}
+\label{sec:analysing_beta}
 \par\noindent
 The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The formula can be used to calculate the maximum possible divisions by two of a Collatz sequence:
 \[
@@ -464,7 +465,7 @@ A validation with the above mentioned empirical data set confirms the limits for
 	\label{fig:1}
 \end{figure}
 
-As we can see in the visualisation above, the maximum for $k=1$ equals $2$. For other $k$ the limit is lower. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this hypothesis will be provided in a future article. In the next section of this paper we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
+As we can see in the visualisation above, the maximum for $k=1$ equals $2$. For other $k$ the limit is lower. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\bar\alpha$}
@@ -593,10 +594,21 @@ Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. O
 
 As one can see in table~\ref{table:known_cycles}, we found several cycles for our generalised form of the Collatz problem. All of which comply with theorem~\ref{eq:cycle_alpha}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:cycle_finder}" for details.}
 
+Based on theorems ~\ref{eq:reachability_k} and ~\ref{eq:cycle_alpha} we can straightforwardly derive the parameter $\bar\beta$ that is required for a cycle of a specific length. To this end, we examine the situation in which theorem~\ref{eq:reachability_k} leads to a cycle. Consequently, we set $v_{n+1}=v_1$ and $\alpha=\bar\alpha$:
+\label{eq:cycle_beta}
+\def\arraystretch{1.2}\begin{array}{l}
+v_1=v_1 \cdot 3^n \cdot \beta \cdot 2^{-\bar\alpha}\\
+1=3^n \cdot \beta \cdot 2^{-\bar\alpha}\\
+\beta =3^n \cdot 2^{-\lfloor n\cdot\log_2k\rfloor-1}\\
+\end{array}
+\end{equation}
+
+By proving that the maximum of $\beta$ for $k=3$ in fact equals $\frac{4}{3}$, as proposed in section "\nameref{sec:analysing_beta}", one could disprove all cycles that require a $\bar\beta$ above this limit.
+
 \vspace{1em}\noindent
 \subsection{Binary Growth}
 \par\noindent
-As we have emphasised at several points in this paper, theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $len(v_1)$. Furthermore, it accounts for the maximum binary growth, henceforth denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ increases in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to reach the final result $v_{n+1}=len(v_{n+1})=1$, we have to substract $\hat\alpha$ from the sum of the binary length of $v_1$ and the binary growth:
+We have emphasised at several points in this paper that theorem~\ref{eq:max_alpha} builds on the binary length of the starting value $len(v_1)$. Furthermore, it accounts for the maximum binary growth, henceforth denoted with $\hat\Lambda$. We define binary growth as the total number of digits by which the binary length of $v_1$ increases in a sequence.\footnote{This means that $\hat\Lambda$ does not account for the divisions by two that reduce the binary length of $v_1$.} In order to reach the final result $v_{n+1}=len(v_{n+1})=1$, we have to substract $\hat\alpha$ from the sum of the binary length of $v_1$ and the binary growth:
 \begin{equation}
 \label{eq:binary_growth}
 \def\arraystretch{1.2}\begin{array}{l}
