@@ -82,16 +82,16 @@
 	$^{\rm c}$sean.cox@ratpacent.com}
 \end{center}
 
-\keywordsformat{{\textbf{Keywords:} Collatz Conjecture, Divisions by Two, Binary Representation, Data Science}}
+\keywordsformat{{\textbf{Keywords:}Collatz Conjecture, Divisions by Two, Binary Representation, Data Science}}
 
 \contentformat
 \abstractformat{Abstract.}
-The Collatz conjecture is an unsolved number theory problem \cite{Ref_Williams_2000}. We approach the question by examining the divisions by two that are performed within Collatz sequences. Aside from classical mathematical methods, we use techniques of data science. Based on the analysis of 10,000 sequences we show that the number of divisions by two lies within clear boundaries. Building on the results, we develop and prove an equation to calculate the maximum possible number of divisions by two for any given a Collatz sequence. Whenever this maximum is reached, a sequence leads to the result one, as conjectured by Lothar Collatz. Furthermore, we show how many divisions by two are required for a cycle of a specific length. The findings are valuable for further investigations and could form the basis for a comprehensive proof of the conjecture.
+The Collatz conjecture is an unsolved number theory problem. We approach the question by examining the divisions by two that are performed within Collatz sequences. Aside from classical mathematical methods, we use techniques of data science. Based on the analysis of 10,000 sequences we show that the number of divisions by two lies within clear boundaries. Building on the results, we develop and prove an equation to calculate the maximum possible number of divisions by two for any given a Collatz sequence. Whenever this maximum is reached, a sequence leads to the result one, as conjectured by Lothar Collatz. Furthermore, we show how many divisions by two are required for a cycle of a specific length. The findings are valuable for further investigations and could form the basis for a comprehensive proof of the conjecture.
 
 \section{Introduction}
 \subsection{The Problem}
 \par\noindent
-The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications. An overview is provided by Lagarias \cite{Ref_Lagarias_2010}. Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
+The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications.\footnote{An overview is provided by Lagarias \cite{Ref_Lagarias_2010}.} Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
 
 \begin{equation}
 \label{eq:func_collatz}
@@ -105,30 +105,9 @@ x/2		&	\text{if}\ x\equiv 0(\textrm{mod}\ 2)
 The conjecture, as treated in this paper, claims that the above function leads to the final result one for every natural starting number, when applied recursively. A series of numbers involved in this process is called a Collatz sequence. With an aim to contribute to a proof of the conjecture, this paper analyses a central aspect of the problem: the divisions by two.\footnote{Details on our scientific approach can be found in appendix "\nameref{appx:scientific_approach}".}
 
 \vspace{1em}\noindent
-\subsection{Related Research}
-\par\noindent
-So far it is known that for the integers up to 2,367,363,789,863,971,985,761 the conjecture holds valid. For instance, see the computation history given by Kahermanes \cite{Ref_Kahermanes_2011} that provides a timeline of the results which have already been achieved.
-
-\par\medskip\noindent
-Treating Collatz sequences in a binary system can be performed as well. For example, Ethan Akin \cite{Ref_Akin_2004} handles the Collatz sequence with natural numbers written in base 2 (using the Ring $\mathbb{Z}_2$ of two-adic integers), because divisions by 2 are easier to deal with in this method.
-
-\par\medskip\noindent
-In an attempt to prove the conjecture, Bruckman \cite{Ref_Bruckman_2008} considers the number of divisions by two. He repeatedly applies the Collatz function using a starting value $n_0$ and defines:
-\[
-\{e_k\}:n_1=(3n_0+1)\cdot2^{-e_1},n_2=(3n_1+1)\cdot2^{-e_2}=(3^2n_0+3+2^{e_1})\cdot2^{-(e_1+e_2)},\ldots
-\]
-Denoting the sum of exponents as $E_k=e_1+e_2+\ldots+e_k$ Bruckman obtains the following equation:
-\[
-2^{E_k}n_k=3^kn_0+\sum_{j=0}^{k-1}3^{k-1-j}2^{E_j}
-\]
-
-\par\medskip\noindent
-A simulation of the Collatz function by Turing machines has been presented by Michel \cite{Ref_Michel_2014}. He introduces Turing machines that simulate the iteration of the Collatz function, where he considers them having 3 states and 4 symbols. Michel examines both turing machines, those that never halt and those that halt on the final loop.
-
-\vspace{1em}\noindent
 \subsection{Determining Odd Numbers}
 \par\noindent
-Sultanow, Koch and Cox \cite[p.~10]{Ref_Sultanow_Koch_Cox_2020} showed that odd numbers of Collatz sequences can be calculated with the following recursive equation (a similar approach introduces Eric Roosendaal \cite{Ref_Roosendaal_2020}):
+Sultanow, Koch and Cox showed that odd numbers of Collatz sequences can be calculated with the following recursive equation:\footnote{See Sultanow, Koch, and Cox \cite[p.~10]{Ref_Sultanow_Koch_Cox_2020}.}
 \begin{equation}
 \label{eq:reachability_3}
 v_{n+1}=3^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)\cdot\prod_{i=1}^{n}2^{-\alpha_i}
@@ -165,7 +144,7 @@ Being compliant with the Collatz conjecture, the algorithms~\ref{eq:reachability
 \begin{array}{ll}
 \text{1.}&v_{n+1}=1\\[\medskipamount]
 \text{2.}&v_{n+1}\in\{v_1,v_2,v_3,\ldots,v_n\}
-\end{array}	
+\end{array}
 \end{equation}
 
 When the first condition applies, the Collatz conjecture is true for a specific sequence. If the second condition is fulfilled, the sequence has led to a cycle. For every starting value, except $v_1=1$, the Collatz conjecture is therefore falsified.\footnote{This statement refers to the Collatz conjecture in its original form $3v+1$.} Let us consider the example $k=3$, $v_1=13$, and $n=2$. Applying equation~\ref{eq:reachability_k} yields:
@@ -192,7 +171,7 @@ The maximum can be specified in a similarly easy way. According to the halting c
 \begin{array}{l}
 2^{\hat\alpha_i}=k\cdot v_i+1\\[\medskipamount]
 \hat\alpha_i=\log_2k+\log_2v_i+\log_2\beta_i
-\end{array}	
+\end{array}
 \end{equation}
 
 The theorem above builds on the fact that the expression $2^{\hat\alpha_i}$ must equal the next even number $k\cdot v_i+1$ in order to lead to $v_{n+1}=1$. Being greater, the result $v_{n+1}$ would be less than one. The second step inverses the exponentiation of $\hat\alpha_i$ by taking the binary logarithm. Appropriately, we replace the operation \textit{plus one} by $\beta_i$. For a better understanding of the above term, let us consider the example $k=3$ and $v_1=5$. In this case theorem~\ref{eq:alpha_max} results in:
@@ -232,7 +211,7 @@ Since we carry out at least one division by two in every iteration of theorem~\r
 \begin{array}{l}
 \hat\alpha=\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1\\[\medskipamount]
 \alpha\le\hat\alpha
-\end{array}	
+\end{array}
 \end{equation}
 
 The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above formulated maximum, it finishes with one, as conjectured by Lothar Collatz. Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorems~\ref{eq:max_alpha} and \ref{eq:reachability_k} leads to:
@@ -292,7 +271,7 @@ In order to prove theorem~\ref{eq:max_alpha}, we have to demonstrate that the nu
 \end{table}
 
 \par\noindent
-The sequence presented in table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation (see Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}):
+The sequence presented in table~\ref{table:k_1} starts with the decimal number $v_1=25$ at $n=1$. Subsequently it comprises the odd numbers $v_2=13$, $v_3=7$ and finally $v_4=1$. In the binary system the sequence starts accordingly with $v_1=11001_2$. The binary length of the starting number $len(v_1)$ equals five.\footnote{With binary length we mean the count of digits of a binary number.} This observation is crucial for our proof. For clarification, it is important to note that the length of a binary number can be calculated with the following equation:\footnote{See Sedgewick and Wayne \cite[p.~185]{Ref_Sedgewick_Wayne_2011}.}
 \begin{equation}
 \label{eq:binary_length}
 len(v_i)=\lfloor\log_2v_i\rfloor+1
@@ -325,7 +304,7 @@ Let us now reflect what this implies for the maximum $\hat\alpha$. We know that 
 	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor\log_2 v_1\rfloor+1
 \end{equation}
 
-The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/v1.0/notebooks/lambda.ipynb}}
+The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/v1.1/notebooks/lambda.ipynb}}
 
 \par\medskip
 The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next section we will explain why this argumentation is in principle valid for all $k$.
@@ -408,7 +387,7 @@ The single known cycle for $k=3$ is the trivial one starting with $v_1=1$:
 	v_1=1=v_{1+1}=3\cdot1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}
 \]
 
-The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on theorem~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence (see Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}):
+The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on theorem~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence:\footnote{See Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}.}
 \begin{equation}
 \label{eq:cycle}
     2^{\alpha}=k^n\cdot\prod_{i=1}^{n}\beta_i
@@ -477,6 +456,12 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
+A validation with the above mentioned empirical data set confirms the limits of $\beta$ formulated by theorem~\ref{eq:boundary_beta}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} The following diagram shows the maximum of $\beta$ for different values of $k$ in the data set. It as well depicts the corresponding starting number $v_1$ that led to this maximum.
+
+TODO: Add diagram beta_dashboard.emf here
+
+As we can see in the visualisation above, the maximum for $k=1$ equals $2$. For other $k$ the limit is even lower. The maximum for $k=3$, for example, equals $1.\overline{3}=\frac{4}{3}$. The diagram further reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this hypothesis will be provided in a future paper.
+
 In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
@@ -663,11 +648,11 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
-This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
+This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.1/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
-This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.0/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
+This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.1/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
@@ -731,33 +716,11 @@ The contents published in this paper have been achieved with an interdisciplinar
 \newpage
 \begin{thebibliography}{99}
 
-\bibitem{Ref_Williams_2000}
-S. W. Williams: Million Buck Problems.
-National Association of Mathematicians Newsletter, 31(2), 2000, pp. 1--3
-
 \bibitem{Ref_Lagarias_2010}
 J. C. Lagarias: The Ultimate Challenge: The 3x+1 Problem. American Mathematical Society, 2010, ISBN 978-0821849408
 
-\bibitem{Ref_Kahermanes_2011}
-S. Kahermanes: Collatz Conjecture. Math 301 Term Paper, San Francisco State University, 2011
-
-\bibitem{Ref_Akin_2004}
-E. Akin: Why is the 3x + 1 Problem Hard? In: I. Assani (Ed.), Chapel Hill Ergodic Theory Workshops: June 8-9, 2002 and February 14-16, 2003, University of North Carolina, Chapel Hill, NC, Vol. 356 of Contemporary Mathematics, American Mathematical Society, 2004, pp.1–20,
-DOI http://dx.doi.org/10.1090/conm/364
-
-\bibitem{Ref_Bruckman_2008}
-P. S. Bruckman: RETRACTED ARTICLE: A proof of the Collatz
-conjecture. International Journal of Mathematical Education in Science and Technology, 39:3, pp. 403--407, 2008,
-DOI: 10.1080/00207390701691574
-
-\bibitem{Ref_Michel_2014}
-P. Michel: Simulation of the Collatz 3x + 1 function by Turing machines. ArXiv Mathematics e-prints, 2014, arXiv:1409.7322v1
-
 \bibitem{Ref_Sultanow_Koch_Cox_2020}
 E. Sultanow, C. Koch and S. Cox: Collatz Sequences in the Light of Graph Theory (Fourth Version). University of Potsdam, 2020, DOI https://doi.org/10.25932/publishup-44325
-
-\bibitem{Ref_Roosendaal_2020}
-E. Roosendaal: On the 3x + 1 problem. Available: http://www.ericr.nl/wondrous/
 
 \bibitem{Ref_Sedgewick_Wayne_2011}
 R. Sedgewick and K. Wayne: Algorithms (Fourth Edition). Addison-Wesley Professional, 2011, ISBN 978-0321573513
