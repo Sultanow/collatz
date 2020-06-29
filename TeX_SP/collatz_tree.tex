@@ -457,7 +457,7 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
-A validation with the above mentioned empirical data set confirms the limits formulated by theorem~\ref{eq:boundary_beta}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} The following diagram shows the maximum of $\beta$ for different values of $k$ in the data set. It as well depicts the corresponding starting number $v_1$ which leads to this maximum.
+A validation with the above mentioned empirical data set confirms the limits formulated by theorem~\ref{eq:boundary_beta}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} The following diagram shows the maximum $\beta$ for different values of $k$ in the data set. It as well depicts the corresponding starting number $v_1$ which leads to this maximum.
 
 \begin{figure}[h]
 	\includegraphics[trim=40 45 60 40, clip, width=1.00\textwidth]{figures/beta_dashboard.pdf}
@@ -465,7 +465,7 @@ A validation with the above mentioned empirical data set confirms the limits for
 	\label{fig:1}
 \end{figure}
 
-As we can see from figure~\ref{fig:1}, the maximum for $k=1$ equals $2$. For other $k$ the limit is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
+As we can see from figure~\ref{fig:1}, the maximum for $k=1$ equals $2$. For other $k$ the limit is lower. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\bar\alpha$}
@@ -594,7 +594,7 @@ Before we continue, we will empirically validate theorem~\ref{eq:cycle_alpha}. O
 
 As one can see in table~\ref{table:known_cycles}, we found several cycles for our generalised form of the Collatz problem. All of which comply with theorem~\ref{eq:cycle_alpha}.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:cycle_finder}" for details.}
 
-Based on theorems ~\ref{eq:reachability_k} and ~\ref{eq:cycle_alpha} we derive the parameter $\bar\beta$ that is needed for a cycle of a certain length. For this purpose we investigate the scenario in which theorem~\ref{eq:reachability_k} leads to a cycle by setting $v_{n+1}=v_1$ and $\alpha=\bar\alpha$:
+Based on theorems ~\ref{eq:reachability_k} and ~\ref{eq:cycle_alpha} we can derive the parameter $\bar\beta$ that is needed for a cycle of a certain length. For this purpose we investigate the scenario in which theorem~\ref{eq:reachability_k} leads to a cycle by setting $v_{n+1}=v_1$ and $\alpha=\bar\alpha$:
 \begin{equation}
 \label{eq:cycle_beta}
 \def\arraystretch{1.2}\begin{array}{l}
@@ -605,7 +605,7 @@ v_1=3^n \cdot v_1\cdot \bar\beta \cdot 2^{-\bar\alpha}\\
 \end{array}
 \end{equation}
 
-Proving that the maximum of $\beta$ for $k=3$ in fact equals $\frac{4}{3}$, as proposed in section "\nameref{sec:analysing_beta}", one could rule out all cycles that require $\bar\beta$ to be above this limit.
+Proving that the maximum $\beta$ for $k=3$ in fact equals $\frac{4}{3}$, as proposed in section "\nameref{sec:analysing_beta}", would enable us to rule out all cycles that require $\bar\beta$ to be above this limit.
 
 \vspace{1em}\noindent
 \subsection{Binary Growth}
