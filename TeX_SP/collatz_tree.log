@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.6.28)  29 JUN 2020 21:32
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.6.28)  30 JUN 2020 20:11
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -899,7 +899,20 @@ Package makecell Warning: \multirowcell needs multirow package on input line 33
 Package makecell Warning: \multirowcell needs multirow package on input line 34
 3.
 
-[5] [6] [7]
+[5]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 377.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 377.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 377.
+
+[6] [7]
 File: figures/beta_dashboard.pdf Graphic file (type pdf)
 <use figures/beta_dashboard.pdf>
  [8] [9] [10]
@@ -915,7 +928,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 750.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 750.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 750.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
-(rerunfilecheck)             Checksum: BC73F0707E09A7B4C9CC1350795902D2;525.
+(rerunfilecheck)             Checksum: 1640B4F7D2CBD47E2E7048191B78A033;513.
 
 
 LaTeX Font Warning: Size substitutions with differences
