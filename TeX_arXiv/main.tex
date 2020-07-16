@@ -108,39 +108,75 @@ The Collatz conjecture is a number theoretical problem, which has puzzled countl
 	\centering
 	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
 		\hline
-		zero seq. & A zero sequence is a sequence, which converges towards $0$ \cite[p.~154]{Ref_Schmidt_2007}.
+		zero seq. & A zero sequence is a sequence, which converges towards $0$ \cite[p.~154]{Ref_Schmidt_2007}. Given the context of ideal theory, let $R$ be a ring and $I$ an ideal. In the ring $R^\mathbb{N}=\prod_{n\in\mathbb{N}}R$, which is the repeated direct product of $R$ with itself, a sequence $(x_n)_{n\in\mathbb{N}}$ is called a zero sequence if for every $s\in\mathbb{N}$ there exist a $N\in\mathbb{N}$ (depending on $s$) such that $x_n\in I^s$ for all $n>N$.
 		\\
-		Cauchy seq. & A sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{Q}$ or $\mathbb{R}$ is a Cauchy sequence if for any $\epsilon>0$ there exists a positive integer $N$ such that $|x_n-x_m|<\epsilon$ for all $n,m\ge N$, see \cite[p.~153]{Ref_Schmidt_2007}, \cite[p.~24]{Ref_Higham_2015}. In the concept of ideals, let $(x_n)$ be a sequence of elements in a local ring $R$ and $M$ is the maximal ideal of $R$. The sequence $(x_n)$ is a Cauchy sequence if, given any integer $s\ge 0$, we can always find an integer $N=N(s)$ such that $x_n-x_m\in M^s$ whenever $n>m>N$, see \cite[p.~63, 85]{Ref_Northcott_1953}. The sequence $(x_n)$ is a Cauchy sequence iff $x_n-x_{n-1}\rightarrow0$ as $n\rightarrow\infty$ \cite[p.~85]{Ref_Northcott_1953}.
+		Cauchy seq. in $\mathbb{Q}$, $\mathbb{R}$ & A sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{Q}$ or $\mathbb{R}$ is a Cauchy sequence if for any $\epsilon>0$ there exists a positive integer $N$ such that $|x_n-x_m|<\epsilon$ for all $n,m\ge N$, see \cite[p.~153]{Ref_Schmidt_2007}, \cite[p.~24]{Ref_Higham_2015}.
+		\\
+		Cauchy seq. in a ring & Let $(x_n)$ be a sequence of elements in $R^\mathbb{N}$, the repeated direct product of a ring with itself, and $I$ an ideal in $R$. The sequence $(x_n)$ is a Cauchy sequence if for every $s\in\mathbb{N}$ there exist a $N\in\mathbb{N}$ such that $x_n-x_m\in I^s$ for all $n,m>N$. Let $(x_n)$ be a sequence of elements in a local ring $R$ and $M$ is the maximal ideal of $R$. The sequence $(x_n)$ is a Cauchy sequence if, given any $s\in\mathbb{N}$, we can always find an integer $N$ such that $x_n-x_m\in M^s$ whenever $n>m>N$, see \cite[p.~63, 85]{Ref_Northcott_1953}. The sequence $(x_n)$ is a Cauchy sequence iff $x_n-x_{n-1}\rightarrow0$ as $n\rightarrow\infty$ \cite[p.~85]{Ref_Northcott_1953}.
+		\\
+		compl. of a ring & Let $R$ be a ring and $I$ an indeal.
 		\\
 		concor. ext. & Let $R,S$ be local rings. If a sequence of elements of $S$ is a Cauchy sequence in $S$ iff it is a Cauchy sequence in $R$, then we say that $R$ is a "concordant extension" of $S$ \cite[p.~87]{Ref_Northcott_1953}. When $R,S$ are semi-local rings $R\subseteq S$, $R$ is said to be a "concordant extension" of $S$ if a sequence $(s_n)$ of elements in $S$ is regular in $S$ iff $(s_n)$ is regular in $R$ \cite{Ref_Batho_1959}.
 		\\
-		compl. local ring & A local ring $R$ is called "complete" if every Cauchy sequence composed of elements of $R$ has a limit in $R$ \cite[p.~85]{Ref_Northcott_1953}, \cite[p.~184]{Ref_Kemper_2011}.
+		compl. of a local ring & Let $S$ be a local ring. A local ring $R$ will be called a completion of $S$ if $R$ is a concordant extension of $S$ and $R$ is complete and if every element of $R$ is the limit of a sequence of elements of $S$. Each local ring has a completion \cite[p.~92]{Ref_Northcott_1953}.	 
 		\\
-		compl. of a local ring & Let $S$ be a local ring. A local ring $R$ will be called a completion of $S$ if $R$ is a concordant extension of $S$ and $R$ is complete and if every element of $R$ is the limit of a sequence of elements of $S$. Each local ring has a completion \cite[p.~92]{Ref_Northcott_1953}. 
+		compl. local ring & A local ring $R$ is called "complete" if every Cauchy sequence composed of elements of $R$ has a limit in $R$ \cite[p.~85]{Ref_Northcott_1953}, \cite[p.~184]{Ref_Kemper_2011}.
 		\\
 		$p$-adic val. for $\mathbb{Z}$ & Fix a prime number $p$ in $\mathbb{Z}$. The $p$-adic valuation of a nonzero integer $n=r\cdot p^{v_p(n)}$ is the highest exponent $v_p(n)$ such that $p^{v_p(n)}$ divides $n$ (we say $p^{v_p(n)}$ divides $n$ "exactly"). Hence $p$ and $r$ are coprime. If $n$, $p$ are coprime then $v_p(n)=0$, and by convention $v_p(0)=\infty$, see \cite{Ref_Herwig_2011}.
 		%https://de.wikipedia.org/wiki/Bewertung_(Algebra):
 		%Tritt eine Primzahl p nicht in der Primfaktorzerlegung von n auf, dann ist v_p(n)=0
-		\\
-		$p$-adic val. for $\mathbb{Q}$ & The $p$-adic valuation can be extended to the field of rational numbers. Let $x=n\cdot s^{-1}$ be a rational number, then $v_p(x)=v_p(n)-v_p(s)$. Any nonzero rational number $x$ can be uniquely represented as $x=rp^{v_p(x)}s^{-1}$, where $r,s\in\mathbb{Z}$, $s>0$, and $\gcd(r,s)=\gcd(r,p)=\gcd(s,p)=1$, see \cite[p.~154]{Ref_Schmidt_2007}, \cite{Ref_Weisstein_1}.
-		\\
-		$p$-adic norm & Let $x$ be any number in $\mathbb{Q}$, for which we already know that it can be written as $x=rp^{v_p(x)}s^{-1}$, where $p$ is a prime number, $s>0$ and $r$ are integers not divisible by $p$. The $p$-adic norm of $x$ is defined by $|x|_p=p^{-v_p(x)}$ for $x\ne0$, and $|0|_p=0$, see \cite{Ref_Herwig_2011}, \cite[p.~154]{Ref_Schmidt_2007}, \cite{Ref_Weisstein_2}.
 		\\ \hline
 	\end{tabular}
 \end{table}}
 
 {\renewcommand{\arraystretch}{1.8}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{|P{1.4cm} p{13.4cm}|}
-			\hline
-			$\mathbb{Z}_p$ & The ring $\mathbb{Z}_p$ is the completion of $\mathbb{Z}$ with respect to the $p$-adic norm. That is, $\mathbb{Z}_p$ is the set of all equivalence classes of Cauchy sequences $(a_n)$ where $(a_n)$ and $(b_n)$ are equivalent if $\lim_{n\to\infty}|a_n-b_n|_p=0$, see \cite{Ref_Gupta_2018}.
-			\\ \hline
-		\end{tabular}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
+		\hline
+		$p$-adic val. for $\mathbb{Q}$ & The $p$-adic valuation can be extended to the field of rational numbers. Let $x=n\cdot s^{-1}$ be a rational number, then $v_p(x)=v_p(n)-v_p(s)$. Any nonzero rational number $x$ can be uniquely represented as $x=rp^{v_p(x)}s^{-1}$, where $r,s\in\mathbb{Z}$, $s>0$, and $\gcd(r,s)=\gcd(r,p)=\gcd(s,p)=1$, see \cite[p.~154]{Ref_Schmidt_2007}, \cite{Ref_Weisstein_1}.
+		\\
+		$p$-adic norm & Let $x$ be any number in $\mathbb{Q}$, for which we already know that it can be written as $x=rp^{v_p(x)}s^{-1}$, where $p$ is a prime number, $s>0$ and $r$ are integers not divisible by $p$. The $p$-adic norm of $x$ is defined by $|x|_p=p^{-v_p(x)}$ for $x\ne0$, and $|0|_p=0$, see \cite{Ref_Herwig_2011}, \cite[p.~154]{Ref_Schmidt_2007}, \cite{Ref_Weisstein_2}.
+		\\
+		$\mathbb{Z}_p$ & The ring $\mathbb{Z}_p$ is the completion of $\mathbb{Z}$ with respect to the $p$-adic norm. That is, $\mathbb{Z}_p$ is the set of all equivalence classes of Cauchy sequences $(a_n)$ where $(a_n)$ and $(b_n)$ are equivalent if $\lim_{n\to\infty}|a_n-b_n|_p=0$, see \cite{Ref_Gupta_2018}.
+		\\ \hline
+	\end{tabular}
 \end{table}}
 
 \section{Introduction}
 \label{introduction}
+
+The formula 3.8 (in question) is:
+$\hat\alpha=\lfloor n*log_23+log_2v_1\rfloor+1$
+\\
+
+and you are arguing that (theoretically) it may happen that: $\frac{3^nv_1*\beta}{2^\alpha}>2$
+\\
+Ok lets see, what happen if we use 3.8 for your assumption by inserting 3.8 into your condition:
+
+\[
+\frac{3^nv_1*\beta}{2^{\lfloor n*log_23+log_2v_1\rfloor+1}}>2
+\]
+
+it will lead to
+\[
+3^nv_1*\beta>2*2^{\lfloor n*log_23+log_2v_1\rfloor+1}
+\]
+\[
+3^nv_1*\beta>2*2*2^{\lfloor n*log_23+log_2v_1\rfloor}
+\]
+\[
+log_2\left(\frac{3^nv_1*\beta}{4}\right)>\lfloor n*log_23+log_2v_1\rfloor
+\]
+\[
+n*log_23+log_2v_1+log_2\beta-2>\lfloor n*log_23+log_2v_1\rfloor
+\]
+and finally to:
+\[
+n*log_23+log_2v_1-\lfloor n*log_23+log_2v_1\rfloor>2-log_2\beta
+\]
+
+Since the left part of the inequality above must be smaller than 1 (because it is a remaining mantissa), the $\beta$ is required even to be larger than two. That means that your assumption "beta may grow beyond two" just requires that the beta already is larger than two.
 
 The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications. An overview is provided by Lagarias \cite{Ref_Lagarias_2010}. Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
 \begin{equation}
