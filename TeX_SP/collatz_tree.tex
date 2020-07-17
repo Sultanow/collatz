@@ -214,7 +214,7 @@ Since we carry out at least one division by two in every iteration of formulas~\
 \end{array}
 \end{equation}
 
-The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above formulated maximum, it finishes with one, as conjectured by Lothar Collatz. Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k} leads to:
+The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above formulated maximum, it finishes with one, as conjectured by Lothar Collatz.\footnote{The parameter $n$, which represents the length of a sequence, cannot be predicted with the formula.} Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k} leads to:
 \[
 \begin{array}{l}
 \hat\alpha=\lfloor 2\cdot\log_23+\log_213\rfloor+1=7\\[\medskipamount]
@@ -304,7 +304,7 @@ Let us now reflect what this implies for the maximum $\hat\alpha$. We know that 
 	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor\log_2 v_1\rfloor+1
 \end{equation}
 
-The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/v1.2/notebooks/lambda.ipynb}}
+The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/v1.3/notebooks/lambda.md}}
 
 \par\medskip
 The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next section we will explain why this argumentation is in principle valid for all $k$.
@@ -650,11 +650,11 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
-This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.2/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
+This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.3/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
-This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.2/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
+This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.3/run_cycle_finder.py}} The program performs a linear search for the odd starting numbers $v_1\in\{1,3,5,\ldots,9999\}$ and $k\in\{1,3,5,\ldots,999\}$. To restrict the runtime of the script, we limited the length of the investigated cycles to $n=100$. Furthermore, the results are not persisted. In order to reproduce our findings, the program must be executed again.
 
 \section{Scientific Approach}
 \label{appx:scientific_approach}
