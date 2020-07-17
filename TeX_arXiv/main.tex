@@ -146,6 +146,40 @@ The Collatz conjecture is a number theoretical problem, which has puzzled countl
 \section{Introduction}
 \label{introduction}
 
+Ok let us take a case, where $n$ is at least $2$ and we have at minimum two sequence members. Then we might write
+
+\[
+\beta=\left(1+\frac{1}{3v_1}\right)*\ldots*\left(1+\frac{1}{3v_n}\right)=\left(1+\frac{1}{3v_1}\right)*\beta'
+\]
+
+and respectively:
+
+\[
+\beta-1=\left(1+\frac{1}{3v_1}\right)*\beta'-1
+\]
+\\
+Let us now do some research on your $\delta$. You wrote:
+\[
+\delta=3^nv_1\beta-3^nv_1=3^nv_1(\beta-1)
+\]
+\\
+which I may write as (due to substitution of the above term)
+\[
+\delta=3^nv_1\left(\left(1+\frac{1}{3v_1}\right)*\beta'-1\right)=3\beta'v_1+\beta'-3v_1
+\]
+\\
+Your key assumption is $\delta>3^nv_1$ which leads to an always false statement:
+\[
+3\beta'v_1+\beta'-3v_1>3^nv_1
+\]
+\\
+or transformed to
+\[
+\beta'>\frac{(3^n+3)v_1}{3v_1+1}
+\]
+We immediatly see that the worst case for this inequality is $v_1=1$ and at least $n=2$, which leads to the wrong inequality $\nicefrac{3^n+3}{4}$. Choosing any larger $v_1$ will make that inequality even more worse and wrong.
+\\
+
 The formula 3.8 (in question) is:
 $\hat\alpha=\lfloor n*log_23+log_2v_1\rfloor+1$
 \\
