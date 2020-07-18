@@ -384,7 +384,7 @@ v_{n+1}\in\{v_1,v_2,v_3,\ldots,v_n\}
 \par\noindent
 The single known cycle for $k=3$ is the trivial one starting with $v_1=1$:
 \[
-	v_1=1=v_{1+1}=3\cdot1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}
+v_1=1=v_{1+1}=3\cdot1\cdot\left(1+\frac{1}{3\cdot1}\right)\cdot2^{-2}
 \]
 
 The Collatz conjecture claims that the above example is the only possibility of a cycle for $k=3$. Based on equation~\ref{eq:reachability_k} we derive the following condition for the occurrence of a cycle within a Collatz sequence:\footnote{See Sultanow, Koch, and Cox \cite[p.~11]{Ref_Sultanow_Koch_Cox_2020}.}
@@ -401,12 +401,10 @@ A major difficulty in analysing cycles in Collatz sequences is that there seems 
 \[
 13=5^3\cdot13\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)\cdot2^{-7}
 \]
-
 Setting $k=5$ and $v_1=13$ in equation~\ref{eq:cycle}, we obtain the following result after three iterations:
 \[
 128=5^3\cdot\left(1+\frac{1}{5\cdot13}\right)\cdot\left(1+\frac{1}{5\cdot33}\right)\cdot\left(1+\frac{1}{5\cdot83}\right)
 \]
-
 To determine the number of divisions by two, which can lead to a cycle, we need to investigate the parameter $\beta$ more thoroughly.
 
 \vspace{1em}\noindent
@@ -416,12 +414,7 @@ The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The form
 \[
 \hat\alpha=\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1
 \]
-
-In section "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
-
-\newpage
-In order to learn more about the parameter $\beta$, we take a look at the relation between theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k}. We examine the situation in which formula~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
-
+In section "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$. In order to learn more about the parameter $\beta$, we take a look at the relation between theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k}. We examine the situation in which formula~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
 \begin{equation}
 \label{eq:beta}
 \def\arraystretch{1.2}\begin{array}{l}
@@ -433,30 +426,21 @@ In order to learn more about the parameter $\beta$, we take a look at the relati
 	\log_2\beta=-n\cdot\log_2k-\log_2v_1+\lfloor n\cdot\log_2k+\log_2v_1\rfloor+1
 \end{array}
 \end{equation}
-
-\par\bigskip
-For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, equation~\ref{eq:beta} leads to:\\
-
+For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, equation~\ref{eq:beta} leads to:
 \[
 \begin{array}{c}
 \log_2\beta=1=-n\cdot\log_21-\log_21+\lfloor n\cdot\log_21+\log_21\rfloor+1\\
 \beta=2
 \end{array}
 \]
-
-\par\bigskip
 Moreover, we study the example where $k=5$, $v_1=19$ and $n=2$. Equation~\ref{eq:beta} in this case results in:
-
 \[
 \begin{array}{c}
 \log_2\beta=0.1082=-2\cdot\log_25-\log_219+\lfloor 2\cdot\log_25+\log_219\rfloor+1\\
 \beta=1.0780
 \end{array}
 \]
-
-\par\bigskip
 Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater than one, we define the following boundaries of $\beta$:
-
 \begin{equation}
 \label{eq:boundary_beta}
 \begin{array}{c}
@@ -464,17 +448,13 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
-
-\par\bigskip
 The limits formulated by formula~\ref{eq:boundary_beta} are confirmed through a validation with our empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} Figure~\ref{fig:1} shows the maximum $\beta$ for different values of $k$ in the sample. The diagram as well depicts the corresponding starting number $v_1$, which leads to this maximum.
-
-\vfill
-
-\newpage
 \begin{figure}[H]
-	\includegraphics[trim=40 45 60 40, clip, width=1.00\textwidth]{figures/beta_dashboard.pdf}
-	\caption{Maximum $\beta$ for different $k$}
-	\label{fig:1}
+\begin{center}
+\includegraphics[trim=40 45 60 40, clip, width=0.72\textwidth]{figures/beta_dashboard.pdf}
+\caption{Maximum $\beta$ for different $k$}
+\label{fig:1}
+\end{center}
 \end{figure}
 
 As we can see from figure~\ref{fig:1}, the maximum for $k=1$ equals $2$. The limit for the other $k$ is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of condition~\ref{eq:boundary_beta} on the occurrence of cycles.
@@ -659,7 +639,7 @@ The binary growth of every Collatz sequence that leads to a cycle must lie withi
 \section{Summary}
 In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers and the underlying operations. Theorem~\ref{eq:cycle_alpha} determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:max_alpha} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.\\
 
-\newpage\noindent
+\par\bigskip\noindent
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
