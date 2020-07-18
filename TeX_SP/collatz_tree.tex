@@ -419,8 +419,9 @@ The starting point of our analysis of β is theorem~\ref{eq:max_alpha}. The form
 
 In section "\nameref{sec:analysing_alpha}" we showed that $\hat\alpha$ relates to the binary length of the starting value $v_1$. Furthermore, the equation accounts for the binary growth, caused by the n-fold multiplication with $k$ as well as the final overflow, triggered by the operation $+1$. If a sequence reaches $\hat\alpha$, it halts at the terminal value $v_{n+1}=1$.
 
-\par\medskip
+\newpage
 In order to learn more about the parameter $\beta$, we take a look at the relation between theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k}. We examine the situation in which formula~\ref{eq:reachability_k} leads to the final result one. Consequently, we set $v_{n+1}=1$ and $\alpha=\hat\alpha$:
+
 \begin{equation}
 \label{eq:beta}
 \def\arraystretch{1.2}\begin{array}{l}
@@ -433,22 +434,29 @@ In order to learn more about the parameter $\beta$, we take a look at the relati
 \end{array}
 \end{equation}
 
-\par\noindent
-For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, equation~\ref{eq:beta} leads to:
+\par\bigskip
+For a better understanding of the above term, let us examine two examples. We begin with the border case where $k=1$ and $v_1=1$. Here, equation~\ref{eq:beta} leads to:\\
+
 \[
 \begin{array}{c}
 \log_2\beta=1=-n\cdot\log_21-\log_21+\lfloor n\cdot\log_21+\log_21\rfloor+1\\
 \beta=2
 \end{array}
 \]
+
+\par\bigskip
 Moreover, we study the example where $k=5$, $v_1=19$ and $n=2$. Equation~\ref{eq:beta} in this case results in:
+
 \[
 \begin{array}{c}
 \log_2\beta=0.1082=-2\cdot\log_25-\log_219+\lfloor 2\cdot\log_25+\log_219\rfloor+1\\
 \beta=1.0780
 \end{array}
 \]
+
+\par\bigskip
 Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater than one, we define the following boundaries of $\beta$:
+
 \begin{equation}
 \label{eq:boundary_beta}
 \begin{array}{c}
@@ -456,8 +464,13 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
+
+\par\bigskip
 The limits formulated by formula~\ref{eq:boundary_beta} are confirmed through a validation with our empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} Figure~\ref{fig:1} shows the maximum $\beta$ for different values of $k$ in the sample. The diagram as well depicts the corresponding starting number $v_1$, which leads to this maximum.
 
+\vfill
+
+\newpage
 \begin{figure}[H]
 	\includegraphics[trim=40 45 60 40, clip, width=1.00\textwidth]{figures/beta_dashboard.pdf}
 	\caption{Maximum $\beta$ for different $k$}
@@ -644,9 +657,9 @@ n\cdot\log_2k<\bar\Lambda\le\lfloor n\cdot\log_2k\rfloor+1
 The binary growth of every Collatz sequence that leads to a cycle must lie within these boundaries. Due to the fact that $\bar\alpha$ is a whole number, it is obvious that it must equal the maximum on the right side of the expression. For all other cases a cycle is impossible.
 
 \section{Summary}
-In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers and the underlying operations. Theorem~\ref{eq:cycle_alpha} determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:max_alpha} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.\\[1.5em]
+In our paper we have shed light on a central aspect of the Collatz conjecture: the divisions by two. We analysed the problem in its original form $3v+1$ as well as in the generalised variant $kv+1$. Based on mathematical reasoning and empirical studies we derived and proved theorems on the occurrence of cycles and the termination of sequences. Our reasoning primarily builds on the binary representation of Collatz numbers and the underlying operations. Theorem~\ref{eq:cycle_alpha} determines the number of divisions by two that can lead to a cycle. The theorem is based on the simple truth that a cycle can only occur if the binary growth of a sequence is exactly neutralised by the divisions by two. Theorem~\ref{eq:max_alpha} determines the maximum number of divisions by two that can be performed in a sequence. If one could show that every starting number finally leads to this maximum, the Collatz problem would be solved. We are convinced that a profound study of the binary mechanics of Collatz sequences will lead to this proof.\\
 
-\par\noindent
+\newpage\noindent
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
@@ -659,6 +672,8 @@ This Python script was used to validate theorem~\ref{eq:cycle_alpha}.\footnote{\
 \section{Scientific Approach}
 \label{appx:scientific_approach}
 The contents published in this paper have been achieved with an interdisciplinary approach. Not surprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with traditional maths alone, we additionally used techniques of data science. We combined the two fields in different ways. On one hand, we analysed sequences and related features empirically, in order to derive new formulas and theorems. On the other hand, we used data science to validate our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode. This might be the topic of another paper.
+
+\vfill
 
 \section{Glossary of Notations}
 \label{appx:glossary_of_notations}
@@ -714,8 +729,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 \end{table}
 
 
-%\vspace{1em}
-\newpage
+\vspace{1em}
 \begin{thebibliography}{99}
 
 \bibitem{Ref_Lagarias_2010}
