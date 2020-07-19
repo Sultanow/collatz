@@ -32,7 +32,7 @@
 
 \setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
 
-\title[Engel Expansions in Collatz Sequences]{The Role of Engel Expansions in Collatz Sequences}
+\title[Binary p-adic integers in Collatz Sequences]{Binary p-adic integers in Collatz sequences}
 
 \author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
 \address{First Lastname\\
@@ -47,7 +47,7 @@ Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Ge
 \email{first.last@university.de}
 
 \subjclass[2010]{37P99}
-\keywords{Engel Expansions, Collatz Sequences}
+\keywords{2-adic numbers, binary residue system}
 
 \begin{document}
 	
@@ -60,24 +60,30 @@ Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Ge
 The Collatz conjecture is a number theoretical problem, which has puzzled countless researchers using myriad approaches. We describe an approach from the perspective of 2-adic (binary) algebra.
 \end{abstract}
 
+\newpage
+{\renewcommand{\arraystretch}{1.8}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
 		\hline
 		\multicolumn{2}{|l|}{\thead[l]{\textbf{Fundamentals short and sweet}}}
 		\\
-		$[a]_n$ & The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+kn|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~25]{Ref_Mueller-Stach_2011}.
-		\\
-		$\mathbb{Z}/n\mathbb{Z}$ & The set of all residue classes $[a]_n$ is called the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}. 
-		\\
 		unit & An element $a$ of a ring $R$ is called a "unit" (an invertible element) if there exist an element $b$ such that $ab=1$ \cite[p.~24]{Ref_Northcott_1953}. Units are elements with inverses with respect to multiplication in the ring. Let $F$ be a field, then an element $a$ of $F$ is a non-unit iff $a=0$. The sum of any two non-units in $F$ is again a non-unit in $F$.
 		\\
 		unitary ring & A unitary ring is a ring with a multiplicative identity $1$ (which differs from the additive identity $1\ne0$) such that $1a=a=a1$ for all elements $a$ of the ring.
 		\\
 		Ideal & Let $(R,+,\cdot)$ be a commutative unitary ring. Then the subset $I\subseteq R$ is called an ideal of $R$ if $(I,+)$ is a commutative group and if $xI\subseteq I$ for all $x\in R$, see \cite[p.~66-67]{Ref_Wolfart_2011}.
+		\\
+		quot. ring & Using an ideal of a ring $I\subseteq R$, we may define an equivalence relation $\sim$ on $R$ by $a\sim b$ iff $a-b$ is in $I$ \cite[p.~69]{Ref_Schulze-Pillot_2015}. The equivalence class of $a$ in $R$ is given by $[a]=a+I:=\{a+r|r\in I\}$ for $r\in R$ and referred to as "residue class of $a$ modulo $I$", see \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~70]{Ref_Schulze-Pillot_2015}. The set of all these equivalence classes becomes the quotient ring (residue class ring) modulo the ideal $I$, denoted by $R/I$.
+		\\
+		compl. residue system & Let $I\subseteq R$ be an ideal and $[a]$ the residue classes of $a$ modulo $I$, which means that $a+I=b+I$ when $a\equiv b\mod I$ or respectively $a-b\in I$ \cite[p.~70]{Ref_Schulze-Pillot_2015}. $R$ is the disjoint union of the different residue classes $a$ modulo $I$. A subset $M\subseteq R$, which contains exactly one element from each of these residue classes, is called a complete residue system of $R$ modulo $I$, see \cite[p.~70]{Ref_Schulze-Pillot_2015}.
+		\\
+		$[a]_n$ & The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+kn|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~25]{Ref_Mueller-Stach_2011}.
+		\\
+		$\mathbb{Z}/n\mathbb{Z}$ & The set of all residue classes $[a]_n$ is called the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}. 
 		\\ \hline
 	\end{tabular}
-\end{table}
+\end{table}}
 
 {\renewcommand{\arraystretch}{1.8}
 \begin{table}[H]
@@ -110,11 +116,11 @@ The Collatz conjecture is a number theoretical problem, which has puzzled countl
 		\hline
 		zero seq. & A zero sequence is a sequence, which converges towards $0$ \cite[p.~154]{Ref_Schmidt_2007}. Given the context of ideal theory, let $R$ be a ring and $I$ an ideal. In the ring $R^\mathbb{N}=\prod_{n\in\mathbb{N}}R$, which is the repeated direct product of $R$ with itself, a sequence $(x_n)_{n\in\mathbb{N}}$ is called a zero sequence if for every $s\in\mathbb{N}$ there exist a $N\in\mathbb{N}$ (depending on $s$) such that $x_n\in I^s$ for all $n>N$.
 		\\
-		Cauchy seq. in $\mathbb{Q}$, $\mathbb{R}$ & A sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{Q}$ or $\mathbb{R}$ is a Cauchy sequence if for any $\epsilon>0$ there exists a positive integer $N$ such that $|x_n-x_m|<\epsilon$ for all $n,m\ge N$, see \cite[p.~153]{Ref_Schmidt_2007}, \cite[p.~24]{Ref_Higham_2015}.
+		Cauchy seq. in $\mathbb{Q}$, $\mathbb{R}$ & A sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{Q}$ or $\mathbb{R}$ is a Cauchy sequence if for any $\epsilon>0$ there exists a positive integer $N$ such that $|x_n-x_m|<\epsilon$ for all $n,m\ge N$, see \cite[p.~153]{Ref_Schmidt_2007}, \cite[p.~24]{Ref_Higham_2015},\cite[p.~10]{Ref_Koblitz_1984}.
 		\\
 		Cauchy seq. in a ring & Let $(x_n)$ be a sequence of elements in $R^\mathbb{N}$, the repeated direct product of a ring with itself, and $I$ an ideal in $R$. The sequence $(x_n)$ is a Cauchy sequence if for every $s\in\mathbb{N}$ there exist a $N\in\mathbb{N}$ such that $x_n-x_m\in I^s$ for all $n,m>N$. Let $(x_n)$ be a sequence of elements in a local ring $R$ and $M$ is the maximal ideal of $R$. The sequence $(x_n)$ is a Cauchy sequence if, given any $s\in\mathbb{N}$, we can always find an integer $N$ such that $x_n-x_m\in M^s$ whenever $n>m>N$, see \cite[p.~63, 85]{Ref_Northcott_1953}. The sequence $(x_n)$ is a Cauchy sequence iff $x_n-x_{n-1}\rightarrow0$ as $n\rightarrow\infty$ \cite[p.~85]{Ref_Northcott_1953}.
 		\\
-		compl. of a ring & Let $R$ be a ring, $I$ an indeal, $I_{ZS}$ the ideal of all zero sequences in $R^\mathbb{N}$ and $S_{CS}$ the subring of $R^\mathbb{N}$ containing all Cauchy sequences. The ring $\hat R_I=S_{CS}/I_{ZS}$ is called the completion of $R$ with respect to $I$.
+		compl. of a ring & Let $R$ be a ring, $I$ an indeal, $I_{ZS}$ the ideal of all zero sequences in $R^\mathbb{N}$, and $S_{CS}$ the subring of $R^\mathbb{N}$ containing all Cauchy sequences. The quotient ring $\hat R_I:=S_{CS}/I_{ZS}$ is called the completion of $R$ with respect to $I$. $S_{CS}/I_{ZS}$ is the residue class ring of $S_{CS}$ modulo $I$.
 		\\
 		concor. ext. & Let $R,S$ be local rings. If a sequence of elements of $S$ is a Cauchy sequence in $S$ iff it is a Cauchy sequence in $R$, then we say that $R$ is a "concordant extension" of $S$ \cite[p.~87]{Ref_Northcott_1953}. When $R,S$ are semi-local rings $R\subseteq S$, $R$ is said to be a "concordant extension" of $S$ if a sequence $(s_n)$ of elements in $S$ is regular in $S$ iff $(s_n)$ is regular in $R$ \cite{Ref_Batho_1959}.
 		\\
@@ -138,284 +144,19 @@ The Collatz conjecture is a number theoretical problem, which has puzzled countl
 		\\
 		$p$-adic norm & Let $x$ be any number in $\mathbb{Q}$, for which we already know that it can be written as $x=rp^{v_p(x)}s^{-1}$, where $p$ is a prime number, $s>0$ and $r$ are integers not divisible by $p$. The $p$-adic norm of $x$ is defined by $|x|_p=p^{-v_p(x)}$ for $x\ne0$, and $|0|_p=0$, see \cite{Ref_Herwig_2011}, \cite[p.~154]{Ref_Schmidt_2007}, \cite{Ref_Weisstein_2}.
 		\\
-		$\mathbb{Q}_p$ & The p-adic field $\mathbb{Q}_p$
+		$p$-adic dist. &  Let $x,y\in\mathbb{Q}$. The $p$-adic distance between $x$ and $y$ is defined by $d_p(x,y)=|x-y|_p$, see \cite[p.~155]{Ref_Schmidt_2007}.
+		\\
+		$\mathbb{Q}_p$ & The field $\mathbb{Q}_p$ of $p$-adic numbers is the set of equivalence classes of Cauchy sequences \cite[p.~10]{Ref_Koblitz_1984}. The elements of $\mathbb{Q}_p$, the so-called $p$-adic numbers, are eqivalence classes of Cauchy sequences $(a_n)_{n\in\mathbb{N}}$ in $\mathbb{Q}$ with respect to the equivalence relation $(a_n)\sim(b_n)$ if $(a_n-b_n)$ is a $p$-adic zero sequence, see \cite[p.~159]{Ref_Schmidt_2007}. Furthermore $\mathbb{Q}_p$ is the completion of $\mathbb{Q}$ with respect to the $p$-adic distance $d_p$ \cite[p.~159]{Ref_Schmidt_2007}. 
 		\\
 		$\mathbb{Z}_p$ & The ring $\mathbb{Z}_p$ of $p$-adic integers is the completion of $\mathbb{Z}$ with respect to the $p$-adic norm. That is, $\mathbb{Z}_p$ is the set of all equivalence classes of Cauchy sequences $(a_n)$ where $(a_n)$ and $(b_n)$ are equivalent if $\lim_{n\to\infty}|a_n-b_n|_p=0$, see \cite{Ref_Gupta_2018}. $\mathbb{Z}_p$ is a local ring whose maximal ideal is the principal ideal $p\mathbb{Z}_p=\{x\in\mathbb{Q}_p:|x|_p<1\}$, see \cite[p.~74]{Ref_Gouvea_2020}.
 		\\ \hline
 	\end{tabular}
 \end{table}}
 
-\section{Introduction}
-\label{introduction}
+%\section{Introduction}
+%\label{introduction}
 
-The Collatz conjecture is a well-known number theory problem and is the subject of numerous publications. An overview is provided by Lagarias \cite{Ref_Lagarias_2010}. Therefore, our description of the topic will be brief. The mathematician Lothar Collatz introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
-\begin{equation}
-\label{eq:func_collatz}
-g(x)=
-\begin{cases}
-3x+1	&	2\nmid x\\
-x/2		&	\text{otherwise}
-\end{cases}
-\end{equation}
-
-In the following, we only consider compressed Collatz sequences that solely contain the odd members, such as described by Bruckman \cite{Ref_Bruckman_2008}, who used the more convenient function that opts out all even integers:
-\begin{equation}
-\label{eq:func_collatz_odd}
-f(x)=(3x+1)\cdot2^{-\alpha(x)},\text{where}\hspace{1em}2^{\alpha(x)}\mathrel\Vert(3x+1)
-\end{equation}
-
-Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ exactly divides $3x+1$. Especially for prime powers, one often says $p^\alpha$ \textit{divides} the integer $x$ \textit{exactly}, denoted as $p^\alpha\mathrel\Vert x$, if $p^\alpha$ is the greatest power of the prime $p$ that divides $x$.
-
-\par\medskip
-A (compressed) Collatz sequence $v_1,v_2,\ldots,v_n,v_{n+1}$ allowed at most one division by $2$ between two successive members. Dividing only once between two successive members, maximizes $v_{n+1}$. Such a sequence forms the following ascending continued fraction (cf. also \cite[p.~11]{Ref_Laarhoven}):
-
-\begin{equation}
-\label{eq:engel_k3}
-v_{n+1}=\cfrac{3\cfrac{3\cfrac{3\cfrac{3v_1+1}{2}+1}{2}+1}{2}+1}{2}\dotsb
-=\frac{3^nv_1+\sum_{i=0}^{n-1}3^i2^{n-1-i}}{2^n}
-=\frac{3^n(v_1+1)-2^n}{2^n}
-\end{equation}
-
-\medskip
-\begin{example}
-\label{ex:engel_31}
-A concrete example for such a sequence is $v_1=31$, $v_2=47$, $v_3=71$, $v_4=107$, $v_5=161$. And, to follow that example, we can calculate $v_5$ in a straightforward way:
-\[
-v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
-\]
-
-\par\medskip
-Besides, by choosing a starting number $v_1=2^{n+1}-1$, we are able to infinitely generate sequences each forming an ascending continued fraction. As per equation~\ref{eq:engel_k3} the last member in this sequence is the odd number $v_{n+1}=3^n\cdot2-1$.
-\end{example}
-
-\bigskip
-\begin{remark}
-Ascending variants of a continued fraction, such as used in equation~\ref{eq:engel_k3}, shall not be confused with continued fractions as treated in \cite{Ref_Moore}, \cite{Ref_Hensley}, \cite{Ref_Borwe_etal}. Ascending continued fractions used in our case correspond to the so-called "Engel Expansions" \cite{Ref_Kraaikamp_Wu}.
-\end{remark}
-
-\par\noindent
-As illustrated below, we can formulate the ascending continued fractions in a generalized fashion, whereas the analogy to \ref{eq:engel_k3} is given by $b_1=b_2=b_3=b_4=2$ and $a_1=3^0$, $a_2=3^1$, $a_3=3^2$ and $a_4=3^3+3^4v_1$:
-\[
-\cfrac{a_1+\cfrac{a_2+\cfrac{a_3+\cfrac{a_4}{b_4}}{b_3}}{b_2}}{b_1}\dotsb=\frac{a_1}{b_1}+\frac{a_2}{b_1b_2}+\frac{a_3}{b_1b_2b_3}+\frac{a_4}{b_1b_2b_3b_4}+\cdots
-\]
-
-\par\medskip
-The generalized form of equation~\ref{eq:engel_k3} may be used to compute any of the above-named ascending continued fraction that has $a_i=k^{i-1}$, $b_i=b$ for $i\in\mathbb{N}$ and $a_n=k^{n-1}+k^nv_1$:
-
-\begin{equation}
-\label{eq:generalized_asc_continued_fraction}
-v_{n+1}=\frac{k^n(kv_1-bv_1+1)-b^n}{b^n(k-b)}
-\end{equation}
-
-\newpage
-\section{Include more divisions by two into an Engel expansion}
-\label{sec:include_divisions_engel_expansion}
-For calculating the largest possible $v_{n+1}$, we considered so far Engel expansions which contain only $n$ division by two within a Collatz sequence of $n+1$ memebers. In the following we include $m$ additional divisions by two and thus a total of $m+n$ divisions.
-
-\par\bigskip
-Let us take a look at two corner cases:
-\begin{itemize}
-	\item the one where we do the additional $m$ divisions by $2$ at the end and
-	\item the one where we do these additional divisions at the very beginning.
-\end{itemize}
-
-\par\bigskip\noindent
-\textbf{The first case} is our starting point to examine how the swapping a division by two affects the node $v_{n+1}$. For this, let us compare the Engel expansion where we devide by $2^m$ afterwards with one where we divide by $2$ in the penultimate step and by $2^{m-1}$ in last step. One can immediately recognize the following inequality with a mere look:
-
-\[
-\cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2}}{2}}{2}}{2\cdot2^m}
-<
-\cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2}}{2}}{2\cdot\textcolor{red}{\mathbf{2}}}}{2\cdot2^{m-1}}
-\]
-
-\par\bigskip
-To put it simply, in the expansion on the right side of the above-shown inequality we perform one division by two a little bit earlier as we do it in the expansion on the left side of the expansion. Almost all summands of both expansions cancel out each other:
-
-\[
-\frac{1}{2\cdot2^m}+\cancel{\frac{3}{2^2\cdot2^m}+\frac{3^2}{2^3\cdot2^m}+\frac{3^3+3^4v_1}{2^4\cdot2^m}}
-<
-\frac{1}{2\cdot2^{m-1}}+\cancel{\frac{3}{2^2\cdot\textcolor{red}{\mathbf{2}}\cdot2^{m-1}}+\frac{3^2}{2^3\cdot\textcolor{red}{\mathbf{2}}\cdot2^{m-1}}\frac{3^3+3^4v_1}{2^4\cdot\textcolor{red}{\mathbf{2}}\cdot2^{m-1}}}
-\]
-
-\par\bigskip\noindent
-\textbf{The second case} deals with Engel expansions where we perform that additional $m$ divisions by two as early as possible. The resulting value decreases, when we make a division by two later:
-\[
-\cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2\cdot2^{m-1}}}{2\cdot\textcolor{red}{\mathbf{2}}}}{2}}{2}
-<
-\cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2\cdot2^m}}{2}}{2}}{2}
-\]
-
-\par\bigskip
-Also here almost all summands of both Engel expansions, they cancel each other out:
-
-\[
-\cancel{\frac{1}{2}+\frac{3}{2^2}}+\frac{3^2}{2^3\cdot\textcolor{red}{\mathbf{2}}}+\cancel{\frac{3^3+3^4v_1}{2^4\cdot\textcolor{red}{\mathbf{2}}\cdot2^{m-1}}}
-<
-\cancel{\frac{1}{2}+\frac{3}{2^2}}+\frac{3^2}{2^3}+\cancel{\frac{3^3+3^4v_1}{2^4\cdot2^m}}
-\]
-
-\par\medskip
-While the first case minimizes the value of $v_{n+1}$, the second case maximizes it. The difference between the maximum and the minimum is given by the following equation:
-\[
-\frac{3^{n-1}\left(\frac{3v_1+1}{2\cdot2^m}+1\right)-2^{n-1}}{2^{n-1}}-\frac{3^n\left(v_1+1\right)-2^n}{2^{n+m}}=\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
-\]
-%\begin{flalign*}
-%&\frac{3^{n-1}\left(\frac{3v_1+1}{2\cdot2^m}+1\right)-2^{n-1}}{2^{n-1}}-\frac{3^n\left(v_1+1\right)-2^n}{2^{n+m}}\\
-%=&\frac{3^{n-1}\cdot\left(3v_1+1+2^{m+1}\right)-2^{n-1}\cdot2^{m+1}-3^n\left(v_1+1\right)+2^n}{2^{m+1}\cdot2^{n-1}}\\
-%=&\frac{3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}-3^n+2^n}{2^{n+m}}=\frac{3^{n-1}-3\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}\\
-%=&\frac{-2\cdot3^{n-1}+3^{n-1}\cdot2^{m+1}-2^{n+m}+2^n}{2^{n+m}}=\frac{\left(2\cdot3^{n-1}-2^n\right)\left(2^m-1\right)}{2^n\cdot2^m}\\
-%=&\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
-%\end{flalign*}
-
-\par\medskip
-This has the consequence that for a given sequence consisting of $n+1$ members, between which a total of $n+m$ divisions have taken place, the permutation of these divisions has a very limited effect on the node $v_{n+1}$ as described by theorem~\ref{theo:permutation}.
-
-\par\medskip
-\begin{theorem}
-	\label{theo:permutation}
-	Let $v_1,v_2,\ldots,v_n,v_{n+1}$ be a sequence in which a total of $n+m$ divisions by two took place. No matter how these divisions are permuted, i.e. performed sooner or later, the last member $v_{n+1}$ can differ at most by the following product:
-	\[
-	\left(\frac{3^{n-1}}{2^{n-1}}-1\right)\left(1-\frac{1}{2^m}\right)
-	\]
-\end{theorem}
-
-The Engel expansion of the second case (that maximizes the value of $v_{n+1}$) provides the following formula for calculating the sequence member $v_{n+1}$:
-\begin{equation}
-\label{eq:engel_more_divisions}
-v_{n+1}=\left(\frac{k}{2}\right)^{n-1}\left(\frac{kv_1+1}{2^{\alpha_1}}+\frac{1}{k-2}\right)-\frac{1}{k-2}=\left(\frac{k}{2}\right)^{n-1}\left(v_2+\frac{1}{k-2}\right)-\frac{1}{k-2}
-\end{equation}
-
-Let us refer to example~\ref{ex:engel_31} using the sequence starting at $v_1=31$, $v_2=47$ and so forth. We calculate $v_5$ directly as follows:
-\[
-v_5=\left(\frac{3}{2}\right)^{4-1}\left(47+\frac{1}{3-2}\right)-\frac{1}{3-2}=161
-\]
-
-\begin{example}
-\label{ex:engel_67}
-As another example we choose the sequence for $k=5$ starting at $v_1=67$ continuing with $v_2=21$, $v_3=53$, $v_4=133$, $v_5=333$, $v_6=833$ and $v_7=2083$. The last sequence member can be calculated by equation~\ref{eq:engel_more_divisions} directly as follows:
-\[
-v_7=\left(\frac{5}{2}\right)^{6-1}\left(21+\frac{1}{5-2}\right)-\frac{1}{5-2}=2083
-\]
-\end{example}
-
-\section{Sum of reciprocated Collatz members}
-\label{sum_reciprocal_vertices}
-A product $\prod(1+a_n)$ with positive terms $a_n$ is convergent if the series $\sum a_n$ converges, see Knopp \cite[p.~220]{Ref_Knopp}. A similar statement provides Murphy \cite{Ref_Murphy}, who write the factors in the form $c_n=1+a_n$ and explains that if $\prod c_n$ is convergent then $c_n\rightarrow1$ and therefore if $\prod (1+a_n)$ is convergent then $a_n\rightarrow0$.
-
-\par\medskip
-We write the sum of reciprocated Collatz members as $\nicefrac{1}{kv_1}+\nicefrac{1}{kv_2}+\ldots+\nicefrac{1}{kv_n}+\nicefrac{1}{kv_{n+1}}$. In order to formulate this sum independently from the successive members $v_2,v_3,\ldots$, we substitute these as follows:
-
-\begin{flalign}
-v_1&=v_1\notag\\
-v_2&=\frac{kv_1+1}{2^{\alpha_1}}\notag\\
-v_3&=\frac{k^2v_1+k+2^{\alpha_1}}{2^{\alpha_1+\alpha_2}}\notag\\
-v_4&=\frac{k^3v_1+k^2+k\cdot2^{\alpha_1}+2^{\alpha_1+\alpha_2}}{2^{\alpha_1+\alpha_2+\alpha_3}}\label{eq:sum_v_4}\\
-\vdots\notag\\
-v_{n+1}&=\frac{k^nv_1+\sum_{j=1}^{n}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}}{2^{\alpha_1+\ldots+\alpha_n}}\label{eq:sum_v_n_plus_1}
-\end{flalign}
-
-\par\medskip
-The sum of the reciprocal Collatz sequence members can be expressed as a term that only depends from $v_1$ and from the number of dvisions by two $\alpha_1,\alpha_2,\alpha_3,\ldots$ between two successive members:
-\begin{equation*}
-\sum_{i=1}^{n+1}\frac{1}{kv_i}=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{1}{v_{i+1}}\right)=\frac{1}{k}\left(\frac{1}{v_1}+\sum_{i=1}^{n}\frac{2^{\alpha_1+\ldots+\alpha_i}}{k^iv_1+\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}\right)
-\end{equation*}
-
-%\vspace{1em}
-\section{The product of reciprocated Collatz members incremented by one}
-\label{appx:product_formula_depending_v1}
-In a similar way to deduce the sum of reciprocal vertices depending only on $v_1$ as performed in \ref{sum_reciprocal_vertices}, we evolve the formula for the product of reciprocated Collatz members (incremented by one):
-
-\begin{flalign}
-\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot2^{\alpha_1+\ldots+\alpha_{n-1}}+\ldots+k^{n-1}\cdot2^{\alpha_1}+k^n}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1}\\
-&=1+\frac{2^{\alpha_1+\ldots+\alpha_n}+k\cdot\sum_{j=1}^{i}k^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>i-j}\alpha_l}}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_inserted}\\
-&=\frac{2^{\alpha_1+\ldots+\alpha_n}\left(1+kv_{n+1}\right)}{k^{n+1}v_1}\label{eq:prod_sum_v_n_plus_1_simplified}
-\end{flalign}
-
-We inserted the sum used in equation~\ref{eq:sum_v_n_plus_1} into the above-given equation~\ref{eq:prod_sum_v_n_plus_1} and then obtained equation~\ref{eq:prod_sum_v_n_plus_1_inserted}. Now let us divide this product by the last factor in order to retrieve the product which iterates to $n$ instead of $n+1$:
-
-\begin{equation}
-\label{eq:prod_sum_v_n_simplified}
-\prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)=\frac{\prod_{i=1}^{n+1}\left(1+\frac{1}{kv_i}\right)}{\frac{kv_{n+1}+1}{kv_{n+1}}}=\frac{2^{\alpha_1+\ldots+\alpha_n}v_{n+1}}{k^nv_1}
-\end{equation}
-
-\par\medskip
-The above-shown equation~\ref{eq:prod_sum_v_n_simplified} becomes simplified, when we replaced the numerator by equation~\ref{eq:prod_sum_v_n_plus_1_simplified}. The question which sequence maximizes its last member $v_{n+1}$ ties into the question: Which sequence maximizes the product? The product formula~\ref{eq:prod_sum_v_n_simplified} does not depend from all vertices $v_1,v_2,\ldots,v_n$, it depends only from $2^\alpha=2^{\alpha_1+\ldots+\alpha_n}$, from the first sequence member $v_1$ and the final one $v_{n+1}$.
-
-Consider a Collatz sequence containing $n$ elements and starting at a given integer $v_1$. The corresponding product given by equation~\ref{eq:prod_sum_v_n_simplified} becomes as large as possible if we maximize the last member $v_{n+1}$. This maximum occurs when the sequence is an Engel expansion, id est when we run the most divisions by two at the beginning. Consequently, the exponent alpha (the total number of divisions by two) is the sum of a large $\alpha_1$ and the remaining alpha values which are all one:
-\[
-\alpha=n+m=\alpha_1+\alpha_2+\ldots+\alpha_n=\alpha_1+1+\ldots+1=\alpha_1+n-1
-\]
-
-\par\medskip
-The product of reciprocated Collatz members (incremented by one) for an Engel expansion is given by the following equation:
-\begin{flalign}
-\label{eq:prod_engel_more_divisions}
-\prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)&=1+\frac{1}{kv_1}+\frac{2^{\alpha_1}}{k(k-2)v_1}\left(1-\left(\frac{2}{k}\right)^{n-1}\right)\\
-\label{eq:prod_engel_more_divisions_v2}
-&=1+\frac{1}{kv_1}+\frac{kv_1+1}{k(k-2)v_1v_2}\left(1-\left(\frac{2}{k}\right)^{n-1}\right)
-\end{flalign}
-
-\medskip
-\begin{example}
-An example for $k=3$ provides the sequence $v_1=661$, $v_2=31$, $v_3=47$, and $v_4=71$. In this case $\alpha_1=6=m+1$ and $\alpha_2=\alpha_3=\alpha_4=1$. We now calcultae the product of reciprocated Collatz sequence members by inserting $v_1=661$ and $v_2=31$ together with $k=3$ and $n=4$ into equation~\ref{eq:prod_engel_more_divisions_v2}:
-\begin{flalign*}
-\prod_{i=1}^{4}\left(1+\frac{1}{3v_i}\right)&=
-\left(1+\frac{1}{3\cdot661}\right)\left(1+\frac{1}{3\cdot31}\right)\left(1+\frac{1}{3\cdot47}\right)\left(1+\frac{1}{3\cdot71}\right)\\
-&=1+\frac{1}{3\cdot 661}+\frac{3\cdot 661+1}{3\cdot(3-2)\cdot 661\cdot 31}\left(1-\left(\frac{2}{3}\right)^{4-1}\right)\\
-&=1.0232158532713247
-\end{flalign*}
-\end{example}
-
-Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$ requires us to maximize the equation~\ref{eq:prod_engel_more_divisions_v2}. 
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|L|L|L|L|}
-		\hline
-		\thead{\boldsymbol{k}} &
-		\thead{\textbf{product formula}} &
-		\thead{\textbf{maximum case}} &
-		\thead{\textbf{resulting product}}\\
-		\hline
-		3 & 1+\frac{1}{3v_1} + \frac{3v_1+1}{3v_1v_2}\left(1-\left(\frac{2}{3}\right)^{n-1}\right) & v_1=1,n=1
-		& \frac{4}{3}
-		\\ \hline
-		5 & 1+\frac{1}{5v_1} + \frac{5v_1+1}{15v_1v_2}\left(1-\left(\frac{2}{5}\right)^{n-1}\right) & v_1=1,v_2=3,n=2
-		& \frac{32}{25}
-		\\ \hline
-		7 & 1+\frac{1}{7v_1} + \frac{7v_1+1}{35v_1v_2}\left(1-\left(\frac{2}{7}\right)^{n-1}\right) & v_1=1,n=1
-		& \frac{8}{7}
-		\\ \hline
-	\end{tabular}
-	\caption{Formulas that calculate the Engel expansion's product for $k=3,5,7$}
-	\label{table:product_equations_k_3_5_7}
-\end{table}
-
-%{\setlength{\jot}{1.2em}
-%\begin{flalign}
-%\label{eq:engel_k3_m}
-%v_{n+1}&=\cfrac{3\cfrac{3\cfrac{3\cfrac{3v_1+1}{2\cdot2^m}+1}{2}+1}{2}+1}{2}\dotsb
-%=\cfrac{3\cfrac{3\cfrac{3v_2+1}{2}+1}{2}+1}{2}\dotsb
-%=\frac{3^{n-1}(v_2+1)-2^{n-1}}{2^{n-1}}\\
-%\notag
-%&=\frac{3^{n-1}(\frac{3v_1+1}{2\cdot2^{m}}+1)-2^{n-1}}{2^{n-1}}=\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1
-%\end{flalign}}
-
-\section{Condition for a limited growth of the Engel expansion}
-\label{sec:condition_limited_growth}
-Let us look now into the question of what condition must be met to prevent a greater growth than a decline in Collatz sequences. Specifically we consider an Engel expansion comprising $n+1$ sequence members that include $m$ additional divisions by two at the beginning. The last member $v_{n+1}$ in such a sequence can be calulated by formula~\ref{eq:engel_k3_m}. In order to restrict the growth of this sequence, we require that the last member has to be smaller than the first one. For this we define the condition $v_{n+1}<v_1$:
-
-\[
-\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1<v_1
-\]
-
-\par\medskip\noindent
-Reshaping this inequality leads to the following condition:
-
-\begin{equation}
-\label{eq:condition_limited_growth}
-\frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
-\end{equation}
+%tbd
 
 \vspace{1em}
 \bibliographystyle{unsrt}

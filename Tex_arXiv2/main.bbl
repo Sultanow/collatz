@@ -1,9 +1,20 @@
 \begin{thebibliography}{10}
 
+\bibitem{Ref_Northcott_1953}
+D.~G. Northcott.
+\newblock {\em Ideal Theory}, volume~42 of {\em Cambridge Tracts in Mathematics
+  and Mathematical Physics}.
+\newblock Cambridge University Press, Cambridge, United Kingdom, 1953.
+
 \bibitem{Ref_Wolfart_2011}
 J.~Wolfart.
 \newblock {\em Einführung in die Zahlentheorie und Algebra}.
 \newblock Vieweg+Teubner, Wiesbaden, Germany, 2 edition, 2011.
+
+\bibitem{Ref_Schulze-Pillot_2015}
+R.~Schulze-Pillot.
+\newblock {\em Einführung in Algebra und Zahlentheorie}.
+\newblock Springer, Berlin, Germany, 3 edition, 2015.
 
 \bibitem{Ref_Schubert_2009}
 M.~Schubert.
@@ -14,12 +25,6 @@ M.~Schubert.
 S.~Müller-Stach and J.~Piontkowski.
 \newblock {\em Elementare und algebraische Zahlentheorie}.
 \newblock Vieweg+Teubner, Wiesbaden, Germany, 2 edition, 2011.
-
-\bibitem{Ref_Northcott_1953}
-D.~G. Northcott.
-\newblock {\em Ideal Theory}, volume~42 of {\em Cambridge Tracts in Mathematics
-  and Mathematical Physics}.
-\newblock Cambridge University Press, Cambridge, United Kingdom, 1953.
 
 \bibitem{Ref_Fraleigh_2014}
 J.~B. Fraleigh.
@@ -65,6 +70,11 @@ E.~W. Weisstein.
 E.~W. Weisstein.
 \newblock "p-adic norm." from mathworld--a wolfram web resource.
 
+\bibitem{Ref_Koblitz_1984}
+N.~Koblitz.
+\newblock {\em p-adic Numbers, p-adic Analysis, and Zeta-Functions}.
+\newblock Springer, New York, NY, 2 edition, 1984.
+
 \bibitem{Ref_Gupta_2018}
 A.~Gupta.
 \newblock The p-adic integers, analytically and algebraically.
@@ -75,50 +85,5 @@ A.~Gupta.
 F.~Q. Gouvêa.
 \newblock {\em p-adic Numbers}.
 \newblock Springer, Cham, Switzerland, 3 edition, 2020.
-
-\bibitem{Ref_Lagarias_2010}
-J.~C. Lagarias.
-\newblock {\em The Ultimate Challenge: The 3x+1 Problem}.
-\newblock American Mathematical Society, Providence, RI, 2010.
-
-\bibitem{Ref_Bruckman_2008}
-P.~S. Bruckman.
-\newblock Retracted article: A proof of the collatz conjecture.
-\newblock {\em International Journal of Mathematical Education in Science and
-  Technology}, 39(3):403--407, 2008.
-
-\bibitem{Ref_Laarhoven}
-T.M.M. Laarhoven.
-\newblock The 3n + 1 conjecture, 7 2009.
-
-\bibitem{Ref_Moore}
-C.~G. Moore.
-\newblock {\em Introduction to Continued Fractions}.
-\newblock National Council of Teachers of Mathematics, 1964.
-
-\bibitem{Ref_Hensley}
-D.~Hensley.
-\newblock {\em Continued Fractions}.
-\newblock World Scientific Publishing, 2006.
-
-\bibitem{Ref_Borwe_etal}
-J.~Borwe, A.~van~der Poorten, J.~Shallit, and W.~Zudlin.
-\newblock {\em Neverending Fractions: An Introduction to Continued Fractions}.
-\newblock Cambridge University Press, 2014.
-
-\bibitem{Ref_Kraaikamp_Wu}
-C.~Kraaikamp and J.~Wu.
-\newblock On a new continued fraction expansion with non-decreasing partial
-  quotients.
-\newblock {\em Monatshefte für Mathematik}, 143:285--298, 2004.
-
-\bibitem{Ref_Knopp}
-K.~Knopp.
-\newblock {\em Theorie und Anwendung der Unendlichen Reihen}.
-\newblock Springer, 2 edition, 1924.
-
-\bibitem{Ref_Murphy}
-T.~Murphy.
-\newblock 2006 course 4281: Prime numbers, 2006.
 
 \end{thebibliography}
