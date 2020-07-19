@@ -214,7 +214,7 @@ Since we carry out at least one division by two in every iteration of formulas~\
 \end{array}
 \end{equation}
 
-The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above formulated maximum, it finishes with one, as conjectured by Lothar Collatz.\footnote{The parameter $n$, which represents the length of a sequence, cannot be predicted with the formula.} Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k} leads to:
+The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above stated maximum, it finishes with one, as conjectured by Lothar Collatz.\footnote{The parameter $n$, which represents the length of a sequence, cannot be predicted for a specific $k$ and $v_1$ with the formula.} Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k} leads to:
 \[
 \begin{array}{l}
 \hat\alpha=\lfloor 2\cdot\log_23+\log_213\rfloor+1=7\\[\medskipamount]
@@ -448,7 +448,7 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 1<\beta\le2
 \end{array}
 \end{equation}
-The limits formulated by formula~\ref{eq:boundary_beta} are confirmed through a validation with our empirical data set \footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.}. Figure~\ref{fig:1} shows the maximum $\beta$ for different values of $k$ in the sample. The diagram as well depicts the corresponding starting number $v_1$, which leads to this maximum.
+The limits formulated by theorem~\ref{eq:boundary_beta} are confirmed through a validation with our empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} Figure~\ref{fig:1} shows the maximum $\beta$ for different values of $k$ in the sample. The diagram as well depicts the corresponding starting number $v_1$, which leads to this maximum.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[trim=40 45 60 40, clip, width=1.0\textwidth]{figures/beta_dashboard.pdf}
@@ -457,12 +457,12 @@ The limits formulated by formula~\ref{eq:boundary_beta} are confirmed through a 
 \end{center}
 \end{figure}
 
-As we can see from figure~\ref{fig:1}, the maximum for $k=1$ equals $2$. The limit for the other $k$ is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of condition~\ref{eq:boundary_beta} on the occurrence of cycles.
+As we can see from figure~\ref{fig:1}, the maximum $\beta$ $for $k=1$ equals $2$. The limit for the other $k$ is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\bar\alpha$}
 \par\noindent
-How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of formulas~\ref{eq:reachability_k} and \ref{eq:boundary_beta}. Therefore, we examine the case in which equation~\ref{eq:reachability_k} leads to a cycle by setting $v_{n+1}=v_1$:
+How many divisions by two can lead to a cycle within a Collatz sequence? We can derive an equation for this number, subsequently called $\bar\alpha$, on the basis of formula~\ref{eq:reachability_k} and theorem \ref{eq:boundary_beta}. Therefore, we examine the case in which equation~\ref{eq:reachability_k} leads to a cycle by setting $v_{n+1}=v_1$:
 \begin{equation}
 \label{eq:cycle_alpha}
 \def\arraystretch{1.2}\begin{array}{l}
