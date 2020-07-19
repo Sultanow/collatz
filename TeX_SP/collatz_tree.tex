@@ -366,7 +366,6 @@ In order to prove our hypothesis, we have to adjust equation~\ref{eq:max_alpha_1
 \label{eq:max_alpha_k}
 	\alpha=\hat\alpha=\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
 \end{equation}
-
 The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. A closer look makes clear that it is not only valid for $k=3$, but for all $k$. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
 \begin{equation}
 n\le\alpha\le\hat\alpha
@@ -378,6 +377,7 @@ If one could establish that every sequence finally leads to $\hat\alpha$, that m
 \subsection{Definition}
 \par\noindent
 A promising possibility to falsify the Collatz conjecture in its original form is a cycle. We have found such a counterexample if the following halting condition from section "\nameref{sec:halting_conditions}" is fulfilled:
+
 \[
 v_{n+1}\in\{v_1,v_2,v_3,\ldots,v_n\}
 \]
@@ -451,7 +451,7 @@ Based on equation~\ref{eq:beta} and the fact that $\beta$ must always be greater
 The limits formulated by formula~\ref{eq:boundary_beta} are confirmed through a validation with our empirical data set \footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.}. Figure~\ref{fig:1} shows the maximum $\beta$ for different values of $k$ in the sample. The diagram as well depicts the corresponding starting number $v_1$, which leads to this maximum.
 \begin{figure}[H]
 \begin{center}
-\includegraphics[trim=40 45 60 40, clip, width=1\textwidth]{figures/beta_dashboard.pdf}
+\includegraphics[trim=40 45 60 40, clip, width=1.0\textwidth]{figures/beta_dashboard.pdf}
 \caption{Maximum $\beta$ for different $k$}
 \label{fig:1}
 \end{center}
