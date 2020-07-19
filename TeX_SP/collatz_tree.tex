@@ -304,7 +304,7 @@ Let us now reflect what this implies for the maximum $\hat\alpha$. We know that 
 	\alpha=\hat\alpha=len(v_1)+1-1=\lfloor\log_2 v_1\rfloor+1
 \end{equation}
 
-The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.\footnote{The following notebook can be used to validate the proof experimentally:\\ \hspace*{7mm}\url{https://github.com/c4ristian/collatz/blob/v1.3/notebooks/lambda.md}}
+The equation builds on the binary length of the starting value $len(v_1)$. We add one to respect the binary overflow in the final iteration. Furthermore, we subtract the binary length of the final result $v_{n+1}=len(v_{n+1})=1$. No value of $\alpha$ can possibly exceed this maximum, since $\hat\alpha$ directly leads to the terminal value $v_{n+1}=1$, halting the sequence.
 
 \par\medskip
 The above equation thus proves theorem~\ref{eq:max_alpha} for $k=1$. In the next section we will explain why this argumentation is in principle valid for all $k$.
@@ -699,7 +699,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 		$\bar\alpha$ &
 		Number of divisions by two that is required for a cycle\\
 		\hline
-		$\hat\Lambda$ &
+		$\hat\Lambda$ &.md
 		Maximum binary growth of a Collatz sequence\\
 		\hline
 		$\bar\Lambda$ &
