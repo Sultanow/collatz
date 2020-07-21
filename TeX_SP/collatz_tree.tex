@@ -132,7 +132,7 @@ v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)\cdot\pr
 v_{n+1}&=k^n\cdot v_1\cdot\prod_{i=1}^{n}\beta_i\cdot\prod_{i=1}^{n}2^{-\alpha_i}
 \end{flalign}
 
-In order to correctly calculate odd numbers with equation~\ref{eq:reachability_k}, we must first define the halting conditions of the algorithm in the next section.
+In order to correctly calculate odd numbers with formula~\ref{eq:reachability_k}, we must first define the halting conditions of the algorithm in the next section.
 
 \vspace{1em}\noindent
 \subsection{Halting Conditions}
@@ -179,7 +179,7 @@ The formula above builds on the fact that the expression $2^{\hat\alpha_i}$ must
 \alpha_1=\hat\alpha_1=4=\log_23+\log_25+\log_2\left(1+\frac{1}{3\cdot5}\right)
 \]
 
-If a sequence reaches the maximum $\hat\alpha_i$, it finishes with one, thus verifying the Collatz conjecture. If we could prove that every odd number finally leads to this maximum for $k=3$, the Collatz problem would be solved. Summarising, we can define the following boundaries for $\alpha_i$:
+Whenever a sequence reaches the maximum $\hat\alpha_i$, it finishes with one, thus verifying the Collatz conjecture. If we could prove that every odd number finally leads to this maximum for $k=3$, the Collatz problem would be solved. Summarising, we can define the following boundaries for $\alpha_i$:
 \begin{equation}
 \label{eq:boundary_alpha_i}
 1\le\alpha_i\le\log_2k+\log_2v_i+\log_2\beta_i
@@ -214,7 +214,7 @@ Since we carry out at least one division by two in every iteration of formulas~\
 \end{array}
 \end{equation}
 
-The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above stated maximum, it finishes with one, as conjectured by Lothar Collatz.\footnote{The parameter $n$, which represents the length of a sequence, cannot be predicted for a specific $k$ and $v_1$ with the formula.} Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and equation~\ref{eq:reachability_k} leads to:
+The hypothesis holds for all Collatz sequences in the empirical data set.\footnote{Source: Own empirical analysis, see appendix "\nameref{appx:data_set}" for details.} If a Collatz sequence reaches the above stated maximum, it finishes with one, as conjectured by Lothar Collatz.\footnote{The parameter $n$, representing the length of a sequence, cannot be predicted for a specific $k$ and $v_1$ with the formula.} Let us, for example, consider the case $v_1=13$, $n=2$ and $k=3$. Applying theorem~\ref{eq:max_alpha} and formula~\ref{eq:reachability_k} leads to:
 \[
 \begin{array}{l}
 \hat\alpha=\lfloor 2\cdot\log_23+\log_213\rfloor+1=7\\[\medskipamount]
@@ -457,7 +457,7 @@ The limits formulated by theorem~\ref{eq:boundary_beta} are confirmed through a 
 \end{center}
 \end{figure}
 
-As we can see from figure~\ref{fig:1}, the maximum $\beta$ for $k=1$ equals $2$. The limit for the other $k$ is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
+As we can see from figure~\ref{fig:1}, the maximum for $k=1$ equals $2$. The limit for the other $k$ is beneath. For example, the maximum for $k=3$ equals $1.\overline{3}=\frac{4}{3}$. The diagram reveals that the maximum $\beta$ for every $k$ is reached for the starting number $v_1=1$. A proof for this finding will be provided in a future article. In the next section we will discuss the implications of theorem~\ref{eq:boundary_beta} on the occurrence of cycles.
 
 \vspace{1em}\noindent
 \subsection{Analysing \boldmath$\bar\alpha$}
@@ -643,7 +643,7 @@ In our paper we have shed light on a central aspect of the Collatz conjecture: t
 {\titleformat{Appendix}}
 \section{Data Set}
 \label{appx:data_set}
-This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i} and \ref{eq:max_alpha}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.3/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
+This empirical data set was used to derive and validate theorems~\ref{eq:boundary_alpha_i}, \ref{eq:max_alpha} and \ref{eq:boundary_beta}. The sample was generated with a Python script and comprises information about sequences for the odd starting numbers $v_1\in\{1,3,5,\ldots,3999\}$ and $k\in\{1,3,5,7,9\}$.\footnote{\url{https://github.com/c4ristian/collatz/blob/v1.3/run_alpha_export.py}} Since we do not know that all generated sequences halt, we limited the number of iterations per sequence to $n=100$. In total, the sample contains 651,159 Collatz numbers, which are not necessarily distinct. This is due to the fact that different starting numbers can lead to the same subsequent values. For example, both starting values, $v_1=13$ and $v_1=53$, result in the number five.
 
 \section{Cycle Finder}
 \label{appx:cycle_finder}
