@@ -655,11 +655,11 @@ The contents published in this paper have been achieved with an interdisciplinar
 
 \section{Alternative Verification of \boldmath{$\hat\alpha$}}
 \label{appx:alternative_verification_max_alpha}
-We can alternatively verify theorem~\ref{eq:max_alpha} for $k=3$ with the following equation. Formula~ref{eq:engel} builds on the so-called Engel expansion and calculates the odd number $v_{n+1}$ for a Collatz sequence in which we divide by two only once per iteration:\footnote{TODO:Add reference}
+We can alternatively verify theorem~\ref{eq:max_alpha} for $k=3$ with the following equation. Formula~ref{eq:engel} builds on the so-called Engel expansion and calculates the odd number $v_{n+1}$ for a Collatz sequence in which we divide by two only once per iteration:\footnote{see Laarhoven, 2009 \cite[p.~11]{Ref_Laarhoven_2009}}
 
 \begin{equation}
 \label{eq:engel}
-$v_{n+1}=\frac{3^n*(v_1+1)-2^n}{2^n}$
+v_{n+1}=\frac{3^n*(v_1+1)-2^n}{2^n}
 \end{equation}
 
 The above term represents the (hypothetical) case in which a sequence rises to its maximum for a specific starting value $v_1$. For the Collatz conjecture this scenario can be considered as worst-case, as it never ends with one due to its steady increase.
@@ -733,6 +733,9 @@ E. Sultanow, C. Koch and S. Cox: Collatz Sequences in the Light of Graph Theory 
 
 \bibitem{Ref_Sedgewick_Wayne_2011}
 R. Sedgewick and K. Wayne: Algorithms (Fourth Edition). Addison-Wesley Professional, 2011, ISBN 978-0321573513
+
+\bibitem{Ref_Laarhoven_2009}
+T.M.M. Laarhoven: The 3n + 1 conjecture. Eindhoven University of Technology, July 2009.
 
 \end{thebibliography}
 
