@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.6.28)  21 JUL 2020 14:37
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.6.28)  23 JUL 2020 15:29
 entering extended mode
 **./collatz_tree.tex
 (collatz_tree.tex
@@ -907,15 +907,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 640--641
 
  []
 
-[10] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 727.
+[10]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 656.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 656.
+
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 731.
  [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 727.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 731.
  (collatz_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 727.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 727.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 731.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 731.
 Package rerunfilecheck Info: File `collatz_tree.out' has not changed.
-(rerunfilecheck)             Checksum: BC73F0707E09A7B4C9CC1350795902D2;525.
+(rerunfilecheck)             Checksum: 0E9295511D0AB28C287CF9635D598A80;600.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -923,10 +932,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 25253 strings out of 427242
- 471256 string characters out of 3147793
+ 25254 strings out of 427242
+ 471297 string characters out of 3147793
  554696 words of memory out of 3000000
- 29504 multiletter control sequences out of 15000+200000
+ 29505 multiletter control sequences out of 15000+200000
  550995 words of font info for 139 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  55i,27n,82p,1082b,2146s stack positions out of 5000i,500n,10000p,200000b,50000s

@@ -332,6 +332,39 @@ Reshaping this inequality leads to the following condition:
 \frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
 \end{equation}
 
+\newpage
+\section{Experimental}
+
+\begin{equation}
+v_{n+1}=\frac{3^n(v_1+1)-2^n}{2^n}
+\end{equation}
+
+\medskip
+\begin{example}
+Let us take $n=4$. A concrete example for such a sequence is $v_1=31$, $v_2=47$, $v_3=71$, $v_4=107$, $v_5=161$. And, to follow that example, we can calculate $v_5$ in a straightforward way:
+\[
+v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
+\]
+\end{example}
+
+\par\bigskip
+Now we divide additionally by $2^{\hat\alpha-n}=2^{\lfloor n\cdot\log_23+\log_2v_1\rfloor+1-n}$ and we get
+
+\[
+\frac{v_5}{2^{\hat\alpha-5}}=\frac{161}{2^{11+1-4}}=\frac{161}{256}
+\]
+
+\par\bigskip
+Generally we have to prove $\nicefrac{v_{n+1}}{2^{\hat\alpha-n}}<1$ and therefore:
+\begin{flalign*}
+\frac{3^n(v_1+1)-2^n}{2^{\hat\alpha}}&<1\\
+3^n(v_1+1)-2^n&<2^{\hat\alpha}\\
+3^n(v_1+1)-2^n&<2^{\lfloor n\cdot\log_23+\log_2v_1\rfloor+1}\\
+\log_2(3^n(v_1+1)-2^n)&<\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
+\end{flalign*}
+
+
+
 \vspace{1em}
 \bibliographystyle{unsrt}
 \bibliography{references}
