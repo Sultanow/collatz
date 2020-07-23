@@ -366,7 +366,7 @@ In order to prove our hypothesis, we have to adjust equation~\ref{eq:max_alpha_1
 \label{eq:max_alpha_k}
 	\alpha=\hat\alpha=\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
 \end{equation}
-The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. A closer look makes clear that it is not only valid for $k=3$, but for all $k$. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
+The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$.\footnote{An alternative verification of theorem~\ref{eq:max_alpha} can be found in the appendix.} A closer look makes clear that it is not only valid for $k=3$, but for all $k$. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
 \begin{equation}
 n\le\alpha\le\hat\alpha
 \end{equation}
@@ -655,7 +655,16 @@ The contents published in this paper have been achieved with an interdisciplinar
 
 \section{Alternative Verification of \boldmath{$\hat\alpha$}}
 \label{appx:alternative_verification_max_alpha}
-tbd
+We can alternatively verify theorem~\ref{eq:max_alpha} for $k=3$ with the following equation. Formula~ref{eq:engel} builds on the so-called Engel expansion and calculates the odd number $v_{n+1}$ for a Collatz sequence in which we divide by two only once per iteration:\footnote{TODO:Add reference}
+
+\begin{equation}
+\label{eq:engel}
+$v_{n+1}=\frac{3^n*(v_1+1)-2^n}{2^n}$
+\end{equation}
+
+The above term represents the (hypothetical) case in which a sequence rises to its maximum for a specific starting value $v_1$. For the Collatz conjecture this scenario can be considered as worst-case, as it never ends with one due to its steady increase.
+
+Let us consider the example $v_1=7$ and $n=1$. Applying equation~ref{eq:engel} yields:
 
 \vfill
 
