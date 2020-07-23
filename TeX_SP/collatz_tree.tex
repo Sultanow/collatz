@@ -366,7 +366,7 @@ In order to prove our hypothesis, we have to adjust equation~\ref{eq:max_alpha_1
 \label{eq:max_alpha_k}
 	\alpha=\hat\alpha=\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
 \end{equation}
-The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. An alternative verification of theorem~\ref{eq:max_alpha} can be found in the appendix. A closer look makes clear that it is not only valid for $k=3$, but for all $k$. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
+The above term proves theorem~\ref{eq:max_alpha} for the case $k=3$. A closer look makes clear that it is not only valid for $k=3$, but for all $k$. The appendix provides an alternative verification of theorem~\ref{eq:max_alpha}. In conclusion, we can define the following boundaries for the number of divisions by two in a Collatz sequence:
 \begin{equation}
 n\le\alpha\le\hat\alpha
 \end{equation}
@@ -655,7 +655,7 @@ The contents published in this paper have been achieved with an interdisciplinar
 
 \section{Alternative Verification of \boldmath{$\hat\alpha$}}
 \label{appx:alternative_verification_max_alpha}
-We can alternatively verify theorem~\ref{eq:max_alpha} for $k=3$ with the following equation. Formula~ref{eq:engel} builds on the so-called Engel expansion and calculates the odd number $v_{n+1}$ for a Collatz sequence in which we divide by two only once per iteration:\footnote{see Laarhoven, 2009 \cite[p.~11]{Ref_Laarhoven_2009}}
+We can alternatively verify theorem~\ref{eq:max_alpha} for $k=3$ with the following equation. Formula~\ref{eq:engel} builds on the so-called Engel expansion and calculates the odd number $v_{n+1}$ for a Collatz sequence in which we divide by two only once per iteration:\footnote{See Laarhoven, 2009 \cite[p.~11]{Ref_Laarhoven_2009}}
 
 \begin{equation}
 \label{eq:engel}
@@ -664,7 +664,28 @@ v_{n+1}=\frac{3^n*(v_1+1)-2^n}{2^n}
 
 The above term represents the (hypothetical) case in which a sequence rises to its maximum for a specific starting value $v_1$. For the Collatz conjecture this scenario can be considered as worst-case, as it never ends with one due to its steady increase.
 
-Let us consider the example $v_1=7$ and $n=1$. Applying equation~ref{eq:engel} yields:
+\par\medskip
+Let us consider the example $v_1=7$ and $n=1$. Applying equation~\ref{eq:engel} yields:
+\[
+v_{1+1}=\frac{3^1*(7+1)-2^1}{2^1}=11
+\]
+
+Setting $v_1=31$ and $n=3$ leads to:
+\[
+v_{3+1}=\frac{3^3*(7+1)-2^3}{2^3}=107
+\]
+
+We use formula~\ref{eq:engel} to verify theorem~\ref{eq:max_alpha} by proving that dividing $\hat\alpha$ times by two will lead to a result $v_{n+2}<2$ for every worst-case sequence. For this purpose, we extend formula~\ref{eq:engel} by an additional step and divide by $\hat\alpha-n$ in the final iteration:
+\[
+v_{n+2}=\left[ \left(\frac{3^n*(v_1+1)-2^n}{2^n}\right)*3+1\right]*2^{-(\hat\alpha-n)}
+\]
+
+We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theorem~\ref{eq:max_alpha}:\footnote{The case is hypothetical. Not every worst-case sequence actually ends with $v_{n+2}=1$. We consequently have to define the condition $v_{n+2}<2$ in order to cover all possible sequences.}
+\[
+\begin{array}{l}
+2>\left[ \left(\frac{3^n*(v_1+1)-2^n}{2^n}\right)*3+1\right]*2^{-(\hat\alpha-n)}
+\end{array}
+\]
 
 \vfill
 
