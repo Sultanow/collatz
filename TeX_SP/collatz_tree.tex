@@ -675,16 +675,16 @@ v_{3+1}=\frac{3^3*(7+1)-2^3}{2^3}=107
 \]
 
 \par\noindent
-We use formula~\ref{eq:engel} to verify theorem~\ref{eq:max_alpha} by proving that dividing $\hat\alpha$ times by two will lead to a result $v_{n+2}<2$ for every worst-case sequence. For this purpose, we extend formula~\ref{eq:engel} by an additional step and divide by $\hat\alpha-n$ in the final iteration:
+We use formula~\ref{eq:engel} to verify theorem~\ref{eq:max_alpha} by proving that dividing $\hat\alpha$ times by two will lead to a result $v_{n+2}<2$ for every worst-case sequence.\footnote{The case is hypothetical. Not every worst-case sequence actually ends with $v_{n+2}=1$. We consequently have to define the condition $v_{n+2}<2$ in order to cover all possible sequences.} For this purpose, we extend formula~\ref{eq:engel} by an additional step and divide by $\hat\alpha-n$ in the final iteration:
 \[
 v_{n+2}=\left[ \left(\frac{3^n*(v_1+1)-2^n}{2^n}\right)*3+1\right]*2^{-(\hat\alpha-n)}
 \]
 
 \par\noindent
-We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theorem~\ref{eq:max_alpha}:\footnote{The case is hypothetical. Not every worst-case sequence actually ends with $v_{n+2}=1$. We consequently have to define the condition $v_{n+2}<2$ in order to cover all possible sequences.}
+We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theorem~\ref{eq:max_alpha}:
 \begin{equation}
 \label{eq:engel_verification}
-\def\arraystretch{1.2}\begin{array}{l}
+\begin{array}{l}
 2>\left[ \left(\frac{3^n*(v_1+1)-2^n}{2^n}\right)*3+1\right]*2^{-(\hat\alpha-n)}\\
 2^{\hat\alpha-n+1}>\left[ \left(\frac{3^n*(v_1+1)-2^n}{2^n}\right)*3+1\right]\\
 2^{\hat\alpha-n+1}-1>\frac{3^{n+1}*(v_1+1)-3*2^n}{2^n}\\
@@ -696,7 +696,7 @@ We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theore
 \end{equation}
 
 \par\noindent
-When resolving $\hat\alpha$ in the last transformation above we have to use the factor $n+1$, since we have extended our worst-case sequence by an additional iteration. Even though it is not obvious at the first glance, the above condition is true for any given $n$ and $v_1$. Inequality~\ref{eq:engel_verification} verifies theorem~\ref{eq:max_alpha} for $k=3$, at least for all worst-case sequences. As the attentive reader will realise the verification is valid for all $k$. We will elaborate on this topic more deeply in a future article focusing on the role of the Engel expansion in Collatz sequences.
+When resolving $\hat\alpha$ in the last transformation above we have to use the factor $n+1$, since we have extended our worst-case sequence by an additional iteration. Even though it is not obvious at the first glance, the above condition is true for any given $n$ and $v_1$. Inequality~\ref{eq:engel_verification} therefore verifies theorem~\ref{eq:max_alpha} for $k=3$, at least for all worst-case sequences. As the attentive reader will realise the verification is valid for all $k$. We will elaborate on this topic more deeply in a future article focusing on the role of the Engel expansion in Collatz sequences.
 
 \vfill
 
