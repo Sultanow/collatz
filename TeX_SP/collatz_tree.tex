@@ -21,6 +21,7 @@
 \usepackage{fontspec}
 \usepackage{subfigure}
 \usepackage[usenames]{color}
+\usepackage[hang]{footmisc}
 
 \newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
 \newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
@@ -682,94 +683,96 @@ v_{n+2}=\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\cdot2
 
 \par\noindent
 We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theorem~\ref{eq:max_alpha}:
-\begin{equation}
-\label{eq:engel_verification}
-\begin{array}{l}
-2>\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\cdot2^{-(\hat\alpha-n)}\\
-2^{\hat\alpha-n+1}>\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\\
-2^{\hat\alpha-n+1}-1>\frac{3^{n+1}\cdot(v_1+1)-3\cdot2^n}{2^n}\\
-2^{\hat\alpha+1}-2^n>3^{n+1}\cdot(v_1+1)-3\cdot2^n\\
-2^{\hat\alpha+1}-2^n+3\cdot2^n>3^{n+1}\cdot(v_1+1)\\
-2^{\hat\alpha+1}+2^{n+1}>3^{n+1}\cdot(v_1+1)\\
-2^{\lfloor (n+1)\cdot\log_23+\log_2v_1\rfloor+2}+2^{n+1}>3^{n+1}\cdot(v_1+1)\\
-\end{array}
-\end{equation}
 
+{{\setlength{\jot}{0.5em}
+\begin{flalign}
+\label{eq:engel_verification}
+\notag
+2~>~&\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\cdot2^{-(\hat\alpha-n)}\\
+\notag
+2^{\hat\alpha-n+1}~>~&\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\\
+\notag
+2^{\hat\alpha-n+1}-1~>~&\frac{3^{n+1}\cdot(v_1+1)-3\cdot2^n}{2^n}\\
+\notag
+2^{\hat\alpha+1}-2^n~>~&3^{n+1}\cdot(v_1+1)-3\cdot2^n\\
+\notag
+2^{\hat\alpha+1}-2^n+3*2^n~>~&3^{n+1}\cdot(v_1+1)\\
+\notag
+2^{\hat\alpha+1}+2^{n+1}~>~&3^{n+1}\cdot(v_1+1)\\
+2^{\lfloor(n+1)\cdot\log_23+\log_2v_1\rfloor+2}+2^{n+1}~>~&3^{n+1}\cdot(v_1+1)
+\end{flalign}}
 \par\noindent
 When resolving $\hat\alpha$ in the last transformation above we have to use the factor $n+1$, since we have extended our worst-case sequence by an additional iteration. Even though it is not obvious at the first glance, the above condition is true for any given $n$ and $v_1$. Inequality~\ref{eq:engel_verification} therefore verifies theorem~\ref{eq:max_alpha} for $k=3$, at least for all worst-case sequences. As the attentive reader will realise the verification is valid for all $k$. We will elaborate on this topic more deeply in a future article focusing on the role of the Engel expansion in Collatz sequences.
-
+	
 \vfill
 
 \section{Glossary of Notations}
 \label{appx:glossary_of_notations}
 \vspace{-1em}
 \begin{table}[H]
-	\centering
-	\setlength{\tabcolsep}{1,2em}\setlength\extrarowheight{3pt}
-	\begin{tabular}{|l|p{13.5cm}|}
-		\hline
-		\thead{\textbf{Notation}} &
-		\thead{\textbf{Description}}\\
-		\hline
-		$v_1$ &
-		First odd number of a Collatz sequence, also referred to as starting value\\
-		\hline
-		$v_i$ &
-		Odd number that is the result of a particular iteration. In the first iteration this is the starting value $v_1$\\
-		\hline
-		$k$ &
-		Factor that is multiplied with odd numbers; equals three for the original Collatz conjecture\\
-		\hline
-		$n$ &
-		Count of odd numbers in a sequence, also referred to as the sequence's length\\
-		\hline
-		$\beta_i$ &
-		Symbolises the term $\left(1+\frac{1}{k\cdot v_i}\right)$\\
-		\hline
-		$\beta$ &
-		Product of all $\beta_i$\\
-		\hline
-		$\alpha_i$ &
-		Represents the number of divisions by two that are performed in a specific iteration\\
-		\hline
-		$\alpha$ &
-		Number of divisions by two that leads from the starting value $v_1$ to the result $v_{n+1}$\\
-		\hline
-		$\hat\alpha_i$ &
-		Maximum possible number of divisions by two in a specific iteration\\
-		\hline
-		$\hat\alpha$ &
-		Maximum possible number of divisions by two in a Collatz sequence\\
-		\hline
-		$\bar\alpha$ &
-		Number of divisions by two that is required for a cycle\\
-		\hline
-		$\hat\Lambda$ &.md
-		Maximum binary growth of a Collatz sequence\\
-		\hline
-		$\bar\Lambda$ &
-		Binary growth that is required for a cycle\\
-		\hline
-	\end{tabular}
+\centering
+\setlength{\tabcolsep}{1,2em}\setlength\extrarowheight{3pt}
+\begin{tabular}{|l|p{13.5cm}|}
+\hline
+\thead{\textbf{Notation}} &
+\thead{\textbf{Description}}\\
+\hline
+$v_1$ &
+First odd number of a Collatz sequence, also referred to as starting value\\
+\hline
+$v_i$ &
+Odd number that is the result of a particular iteration. In the first iteration this is the starting value $v_1$\\
+\hline
+$k$ &
+Factor that is multiplied with odd numbers; equals three for the original Collatz conjecture\\
+\hline
+$n$ &
+Count of odd numbers in a sequence, also referred to as the sequence's length\\
+\hline
+$\beta_i$ &
+Symbolises the term $\left(1+\frac{1}{k\cdot v_i}\right)$\\
+\hline
+$\beta$ &
+Product of all $\beta_i$\\
+\hline
+$\alpha_i$ &
+Represents the number of divisions by two that are performed in a specific iteration\\
+\hline
+$\alpha$ &
+Number of divisions by two that leads from the starting value $v_1$ to the result $v_{n+1}$\\
+\hline
+$\hat\alpha_i$ &
+Maximum possible number of divisions by two in a specific iteration\\
+\hline
+$\hat\alpha$ &
+Maximum possible number of divisions by two in a Collatz sequence\\
+\hline
+$\bar\alpha$ &
+Number of divisions by two that is required for a cycle\\
+\hline
+$\hat\Lambda$ &.md
+Maximum binary growth of a Collatz sequence\\
+\hline
+$\bar\Lambda$ &
+Binary growth that is required for a cycle\\
+\hline
+\end{tabular}
 \end{table}
-
-
+	
 \vspace{1em}
 \begin{thebibliography}{99}
-
+		
 \bibitem{Ref_Lagarias_2010}
 J. C. Lagarias: The Ultimate Challenge: The 3x+1 Problem. American Mathematical Society, 2010, ISBN 978-0821849408
-
+		
 \bibitem{Ref_Sultanow_Koch_Cox_2020}
 E. Sultanow, C. Koch and S. Cox: Collatz Sequences in the Light of Graph Theory (Fourth Version). University of Potsdam, 2020, DOI https://doi.org/10.25932/publishup-44325
-
+		
 \bibitem{Ref_Sedgewick_Wayne_2011}
 R. Sedgewick and K. Wayne: Algorithms (Fourth Edition). Addison-Wesley Professional, 2011, ISBN 978-0321573513
-
+	
 \bibitem{Ref_Laarhoven_2009}
 T.M.M. Laarhoven: The 3n + 1 conjecture. Eindhoven University of Technology, July 2009.
-
 \end{thebibliography}
-
 
 \end{document}
