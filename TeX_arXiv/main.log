@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  26 JUL 2020 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  26 JUL 2020 17:08
 entering extended mode
 **./main.tex
 (main.tex
@@ -541,15 +541,15 @@ e{table.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.154 \newpage
+l.163 \newpage
               ]
-Overfull \hbox (11.76393pt too wide) detected at line 182
+Overfull \hbox (11.76393pt too wide) detected at line 191
 [] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
  []
 
 [4] [5] [6] [7]
 
-LaTeX Warning: Reference `eq:engel_k3_m' on page 8 undefined on input line 351.
+LaTeX Warning: Reference `eq:engel_k3_m' on page 8 undefined on input line 360.
 
 
 (main.bbl [8pdfTeX warning (ext4): destination with the same identifier (name{t
@@ -559,35 +559,35 @@ able.2}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.1 \begin{thebibliography}{1}
                               ])
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 371--371
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 380--380
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
 
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 371--371
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 380--380
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
 [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 380.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 05CD29FCA8EC66AABE9F8C0F97511A78;451.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
  ) 
 Here is how much of TeX's memory you used:
  8497 strings out of 492452
  121284 string characters out of 3134439
- 233050 words of memory out of 3000000
+ 233053 words of memory out of 3000000
  12467 multiletter control sequences out of 15000+200000
  15431 words of font info for 58 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -615,9 +615,9 @@ nts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9
 /fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (9 pages, 353224 bytes).
+Output written on main.pdf (9 pages, 354693 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
+ 258 PDF objects out of 1000 (max. 8388607)
  46 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 
