@@ -159,44 +159,6 @@ The Collatz conjecture is a number theoretical problem, which has puzzled countl
 %\label{introduction}
 
 %tbd
-For $k=1$, let's say that $\frac{v_1 \beta}{2^{\alpha}}=\frac{v_1 + \delta}{2^{\alpha}}=1$ it is clear that an overflow is provoked by $\delta$ the accumulation of "+1", and it occurs before this $\delta$ reaches $v_1$ since $v_1$ is already larger than half of its next power of 2 (the one it will overflow to). So it is clear that $\delta<v_1$ and therefore $\beta<2$
-
-For $k=3$, however, the multiplication by 3 make it possible that $\delta$ grows larger than $v_1$
-
-Let's say $\frac{3^nv_1 \beta}{2^{\alpha}}=\frac{3^nv_1 + \delta}{2^{\alpha}}=1$
-
-Imagine we are at an intermediate step $v_i=17$ (10001) and we already have some "+1 accumulation" $\delta=13$ (1101). $\delta<v_i$, the sum (30 or 11110) still bellow overflow point (power of 2 just above $17$ which is $32$) and in the case of $k=1$, $\delta$ would grow up to overflow with the guarantee it will stay smaller tan $v_1$ since the overflow point don't move.
-
-With the $k=3$ case, the overflow point can move higher than the next power of 2 above 17 (due to multiplication by 3). If you multiply by 3, you get $v_{i+1}=51$ (110011) and $\delta=39$ (100111), but as you can see, the overflow point is not above the main term anymore (the sum is already larger than that power of 2), and does not prevent $\delta$ to grow larger than the $v_i$'s with accumulated "+1". In which case you can end up with $\beta>2$ and therefore 3.8 would not be true anymore.
-\\
-Ok, we proove our formula for alpha inductively.
-
-\[
-\hat{\alpha}(n)=\lfloor n\cdot\log_23+\log_2 v_1\rfloor+1
-\]
-
-For the base case $n=1$ we have an always true statement:
-
-\[
-\hat{\alpha}(1)=\lfloor \log_23+\log_2 v_1\rfloor+1
-\]
-
-Now we need to show that an arbitary $n$ induces an always a true statement for $n+1$:
-
-\[
-\hat{\alpha}(n+1)=\lfloor (n+1)\cdot\log_23+\log_2 v_1\rfloor+1
-\]
-
-In order to show that this statement is true, we set
-
-\[
-\frac{2^{\hat\alpha(n+1)}}{2^{\hat\alpha(n)}}=\frac{2^{\lfloor (n+1)\cdot\log_23+\log_2 v_1\rfloor}}{2^{\lfloor n\cdot\log_23+\log_2 v_1\rfloor}}=\begin{cases}
-2& \text{if } n~\text{even}\\
-4& \text{otherwise}
-\end{cases}
-\]
-
-This finally means that $\hat{\alpha}(n+1)=2*\hat{\alpha}(n)$ for all even $n$ and $\hat{\alpha}(n+1)=4*\hat{\alpha}(n)$ for all odd $n$.
 
 \vspace{1em}
 \bibliographystyle{unsrt}
