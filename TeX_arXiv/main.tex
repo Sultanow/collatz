@@ -30,6 +30,7 @@
 \theoremstyle{definition}
 \newtheorem{remark}[theorem]{Remark}
 
+\setlength{\headsep}{2em}
 \setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
 
 \title[Engel Expansions in Collatz Sequences]{The Role of Engel Expansions in Collatz Sequences}
@@ -121,6 +122,34 @@ The generalized form of equation~\ref{eq:engel_k3} may be used to compute any of
 \label{eq:generalized_asc_continued_fraction}
 v_{n+1}=\frac{k^n(kv_1-bv_1+1)-b^n}{b^n(k-b)}
 \end{equation}
+
+{\renewcommand{\arraystretch}{1.8}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|L|L|L|L|}
+		\hline
+		\thead{\boldsymbol{k}} &
+		\thead{\textbf{Engel expansion formula}} &
+		\thead{\textbf{example sequence}} &
+		\thead{\textbf{resulting}~\boldsymbol{v_{n+1}}}\\
+		\hline
+		1 & v_{n+1}=\frac{v_1-1+2^n}{2^n}
+		& 17, 9, 5, 3
+		& \frac{4}{3}
+		\\ \hline
+		3 & 1+\frac{1}{5v_1} + \frac{5v_1+1}{15v_1v_2}\left(1-\left(\frac{2}{5}\right)^{n-1}\right) & v_1=1,v_2=3,n=2
+		& \frac{32}{25}
+		\\ \hline
+		5 & 1+\frac{1}{7v_1} + \frac{7v_1+1}{35v_1v_2}\left(1-\left(\frac{2}{7}\right)^{n-1}\right) & v_1=1,n=1
+		& \frac{8}{7}
+		\\ \hline
+		7 & 1+\frac{1}{7v_1} + \frac{7v_1+1}{35v_1v_2}\left(1-\left(\frac{2}{7}\right)^{n-1}\right) & v_1=1,n=1
+		& \frac{8}{7}
+		\\ \hline
+	\end{tabular}
+	\caption{Exemplary Engel expansions for $b=2$ and $k=1,3,5,7$}
+	\label{table:engel_expansions_k_1_3_5_7}
+\end{table}}
 
 \newpage
 \section{Include more divisions by two into an Engel expansion}
@@ -283,6 +312,7 @@ An example for $k=3$ provides the sequence $v_1=661$, $v_2=31$, $v_3=47$, and $v
 
 Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$ requires us to maximize the equation~\ref{eq:prod_engel_more_divisions_v2}. 
 
+{\renewcommand{\arraystretch}{1.8}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|L|L|L|L|}
@@ -304,7 +334,7 @@ Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}
 	\end{tabular}
 	\caption{Formulas that calculate the Engel expansion's product for $k=3,5,7$}
 	\label{table:product_equations_k_3_5_7}
-\end{table}
+\end{table}}
 
 %{\setlength{\jot}{1.2em}
 %\begin{flalign}
@@ -331,37 +361,6 @@ Reshaping this inequality leads to the following condition:
 \label{eq:condition_limited_growth}
 \frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
 \end{equation}
-
-\newpage
-\section{Experimental}
-
-\begin{equation}
-v_{n+1}=\frac{3^n(v_1+1)-2^n}{2^n}
-\end{equation}
-
-\medskip
-\begin{example}
-Let us take $n=4$. A concrete example for such a sequence is $v_1=31$, $v_2=47$, $v_3=71$, $v_4=107$, $v_5=161$. And, to follow that example, we can calculate $v_5$ in a straightforward way:
-\[
-v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
-\]
-\end{example}
-
-\par\bigskip
-Now we divide additionally by $2^{\hat\alpha-n}=2^{\lfloor n\cdot\log_23+\log_2v_1\rfloor+1-n}$ and we get
-
-\[
-\frac{v_5}{2^{\hat\alpha-5}}=\frac{161}{2^{11+1-4}}=\frac{161}{256}
-\]
-
-\par\bigskip
-Generally we have to prove $\nicefrac{v_{n+1}}{2^{\hat\alpha-n}}<1$ and therefore:
-\begin{flalign*}
-\frac{3^n(v_1+1)-2^n}{2^{\hat\alpha}}&<1\\
-3^n(v_1+1)-2^n&<2^{\hat\alpha}\\
-3^n(v_1+1)-2^n&<2^{\lfloor n\cdot\log_23+\log_2v_1\rfloor+1}\\
-\log_2(3^n(v_1+1)-2^n)&<\lfloor n\cdot\log_23+\log_2v_1\rfloor+1
-\end{flalign*}
 
 
 

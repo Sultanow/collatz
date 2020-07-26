@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  22 JUL 2020 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  26 JUL 2020 13:06
 entering extended mode
 **./main.tex
 (main.tex
@@ -419,33 +419,33 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
 
  ("C:\TeX\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
 
 
 ("C:\TeX\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \AtBeginShipoutBox=\box35
-Package hyperref Info: Link coloring ON on input line 52.
+Package hyperref Info: Link coloring ON on input line 53.
 
 ("C:\TeX\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -458,9 +458,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count121
 )
-LaTeX Info: Redefining \ref on input line 52.
-LaTeX Info: Redefining \pageref on input line 52.
-LaTeX Info: Redefining \nameref on input line 52.
+LaTeX Info: Redefining \ref on input line 53.
+LaTeX Info: Redefining \pageref on input line 53.
+LaTeX Info: Redefining \nameref on input line 53.
  (main.out)
 (main.out)
 \@outlinefile=\write3
@@ -512,7 +512,7 @@ G,.JBIG2,.JB2,.eps]
 * \evensidemargin=13.08827pt
 * \topmargin=33.76741pt
 * \headheight=8.0pt
-* \headsep=14.0pt
+* \headsep=23.49976pt
 * \topskip=10.0pt
 * \footskip=12.0pt
 * \marginparwidth=90.0pt
@@ -529,87 +529,95 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 52.
-<orcid.png, id=32, 128.48pt x 128.48pt>
+LaTeX Info: Redefining \selectfont on input line 53.
+<orcid.png, id=28, 128.48pt x 128.48pt>
 File: orcid.png Graphic file (type png)
 <use orcid.png>
-Package pdftex.def Info: orcid.png  used on input line 57.
+Package pdftex.def Info: orcid.png  used on input line 58.
 (pdftex.def)             Requested size: 7.70847pt x 7.70847pt.
  [1{C:/Users/esultano/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./orc
-id.png>] [2]
-Overfull \hbox (11.76393pt too wide) detected at line 153
-[] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
- []
-
-[3] [4] [5] [6]
-
-LaTeX Warning: Reference `eq:engel_k3_m' on page 7 undefined on input line 321.
-
-
-[7pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
-as been already used, duplicate ignored
+id.png>] [2] [3pdfTeX warning (ext4): destination with the same identifier (nam
+e{table.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.335 \newpage
-              ] (main.bbl)
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 372--372
+l.154 \newpage
+              ]
+Overfull \hbox (11.76393pt too wide) detected at line 182
+[] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
+ []
+
+[4] [5] [6] [7]
+
+LaTeX Warning: Reference `eq:engel_k3_m' on page 8 undefined on input line 351.
+
+
+(main.bbl [8pdfTeX warning (ext4): destination with the same identifier (name{t
+able.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1 \begin{thebibliography}{1}
+                              ])
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 371--371
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
 
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 372--372
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 371--371
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 372.
-[8] [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 372.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 372.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 372.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A0186F7EF886E5A2E722D522560CE38E;501.
+(rerunfilecheck)             Checksum: 05CD29FCA8EC66AABE9F8C0F97511A78;451.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 372.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
  ) 
 Here is how much of TeX's memory you used:
- 8499 strings out of 492452
- 121287 string characters out of 3134439
- 232973 words of memory out of 3000000
+ 8497 strings out of 492452
+ 121284 string characters out of 3134439
+ 233050 words of memory out of 3000000
  12467 multiletter control sequences out of 15000+200000
  15431 words of font info for 58 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  47i,26n,34p,646b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/TeX/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmcsc10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mex10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/
-TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/TeX/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi5.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/TeX/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmib10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/TeX/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr6.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/TeX/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy6.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/TeX/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmti12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pf
-b><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (9 pages, 341186 bytes).
+lic/amsfonts/cm/cmbx7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmc
+sc10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/TeX/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/TeX/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/TeX/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib1
+0.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/TeX
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/TeX/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr5.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Te
+X/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/TeX/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr9.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/T
+eX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/TeX/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+<C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9
+/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (9 pages, 353224 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 
