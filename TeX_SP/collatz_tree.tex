@@ -664,7 +664,7 @@ v_{n+1}=\frac{3^n\cdot(v_1+1)-2^n}{2^n}
 \end{equation}
 
 \par\noindent
-The above term represents the (hypothetical) case in which a sequence rises to its maximum for a specific starting value $v_1$. For the Collatz conjecture, this is the worst-case scenario, because the equation never leads to the result one due to the exponential increase. Let us consider the example $v_1=7$ and $n=1$. Applying equation~\ref{eq:engel} yields:
+The above term represents the (hypothetical) case in which a sequence rises to its maximum for a specific starting value $v_1$. For the Collatz conjecture this is the worst-case scenario, because the equation never leads to the result one due to the exponential increase. Let us consider the example $v_1=7$ and $n=1$. Applying equation~\ref{eq:engel} yields:
 \[
 v_{1+1}=\frac{3^1\cdot(7+1)-2^1}{2^1}=11
 \]
@@ -676,7 +676,7 @@ v_{3+1}=\frac{3^3\cdot(31+1)-2^3}{2^3}=107
 \]
 
 \par\noindent
-We use formula~\ref{eq:engel} to verify theorem~\ref{eq:max_alpha} by proving that dividing $\hat\alpha$ times by two will lead to a number $v_{n+2}<2$ for every worst-case sequence.\footnote{The case is hypothetical. Not every worst-case sequence actually ends with $v_{n+2}=1$. Consequently we have to define the condition $v_{n+2}<2$ in order to cover all possible sequences.} For this purpose, we extend formula~\ref{eq:engel} by an additional step and divide by $2^{\hat\alpha-n}$ in the final iteration:
+We use formula~\ref{eq:engel} to verify theorem~\ref{eq:max_alpha} by proving that dividing $\hat\alpha$ times by two will lead to a number $v_{n+2}<2$ for every worst-case sequence.\footnote{The case is hypothetical. Not every worst-case sequence actually ends with $v_{n+2}=1$. Consequently, we have to define the condition $v_{n+2}<2$ in order to cover all possible sequences.} For this purpose, we extend formula~\ref{eq:engel} by an additional step and divide by $2^{\hat\alpha-n}$ in the final iteration:
 \[
 v_{n+2}=\left[ \left(\frac{3^n\cdot(v_1+1)-2^n}{2^n}\right)\cdot3+1\right]\cdot2^{-(\hat\alpha-n)}
 \]
@@ -698,7 +698,7 @@ We assume that the sequence leads to a result $v_{n+2}<2$ and thus verify theore
 \end{equation}
 
 \par\noindent
-When resolving $\hat\alpha$ in the last transformation above we have to use the factor $n+1$, since we have extended our worst-case sequence by an additional iteration. Even though it is not obvious at the first glance, the above condition is true for any given $n$ and $v_1$. Inequality~\ref{eq:engel_verification} therefore verifies theorem~\ref{eq:max_alpha} for $k=3$, at least for all worst-case sequences. We will elaborate on this topic more deeply in a future article focusing on the role of the Engel expansion in Collatz sequences.
+When resolving $\hat\alpha$ in the last transformation above we have to use the factor $n+1$, since we have extended our worst-case sequence by an additional iteration. Even though it is not obvious at the first glance, the above condition is true for any given $n$ and $v_1$. Inequality~\ref{eq:engel_verification} therefore verifies theorem~\ref{eq:max_alpha} for $k=3$, at least for all worst-case sequences.\footnote{Verifying the theorem for all $k$ requires a generalised version of equation~\ref{eq:engel}.} We will elaborate on this topic more deeply in a future article focusing on the role of the Engel expansion in Collatz sequences.
 	
 \vfill
 
