@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  26 JUL 2020 17:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  27 JUL 2020 19:35
 entering extended mode
 **./main.tex
 (main.tex
@@ -540,42 +540,43 @@ id.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (52.70505pt too high) has occurred while \output is active []
 
- [3]
+
+[3]
 Overfull \vbox (14.21005pt too high) has occurred while \output is active []
 
 
-[4] (main.bbl [5])
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 168--168
+[4] [5] (main.bbl)
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 174--174
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
 
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 168--168
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 174--174
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
 [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9F07EC05F143D1F0C6494F0F9D9DFD36;46.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
  ) 
 Here is how much of TeX's memory you used:
- 8431 strings out of 492452
- 120446 string characters out of 3134439
- 230855 words of memory out of 3000000
- 12433 multiletter control sequences out of 15000+200000
+ 8433 strings out of 492452
+ 120481 string characters out of 3134439
+ 231890 words of memory out of 3000000
+ 12434 multiletter control sequences out of 15000+200000
  12014 words of font info for 47 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 47i,18n,34p,606b,488s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,18n,34p,606b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/TeX/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmcsc10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
@@ -589,9 +590,9 @@ s/cm/cmsy10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:
 /TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 229390 bytes).
+Output written on main.pdf (6 pages, 232756 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)
 

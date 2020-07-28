@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Ref_Lagarias_2010}
 J.~C. Lagarias.
@@ -35,6 +35,11 @@ C.~Kraaikamp and J.~Wu.
 \newblock On a new continued fraction expansion with non-decreasing partial
   quotients.
 \newblock {\em Monatshefte für Mathematik}, 143:285--298, 2004.
+
+\bibitem{Ref_Brualdi_2010}
+R.~A. Brualdi.
+\newblock {\em Introductory Combinatorics}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 5 edition, 2010.
 
 \bibitem{Ref_Knopp}
 K.~Knopp.

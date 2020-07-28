@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  26 JUL 2020 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  28 JUL 2020 06:42
 entering extended mode
 **./main.tex
 (main.tex
@@ -419,33 +419,33 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
 
  ("C:\TeX\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 
 ("C:\TeX\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \AtBeginShipoutBox=\box35
-Package hyperref Info: Link coloring ON on input line 53.
+Package hyperref Info: Link coloring ON on input line 52.
 
 ("C:\TeX\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -458,9 +458,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count121
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
  (main.out)
 (main.out)
 \@outlinefile=\write3
@@ -529,11 +529,11 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 53.
-<orcid.png, id=28, 128.48pt x 128.48pt>
+LaTeX Info: Redefining \selectfont on input line 52.
+<orcid.png, id=32, 128.48pt x 128.48pt>
 File: orcid.png Graphic file (type png)
 <use orcid.png>
-Package pdftex.def Info: orcid.png  used on input line 58.
+Package pdftex.def Info: orcid.png  used on input line 57.
 (pdftex.def)             Requested size: 7.70847pt x 7.70847pt.
  [1{C:/Users/esultano/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./orc
 id.png>] [2] [3pdfTeX warning (ext4): destination with the same identifier (nam
@@ -541,57 +541,57 @@ e{table.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.163 \newpage
-              ]
-Overfull \hbox (11.76393pt too wide) detected at line 191
-[] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
- []
+l.183 \end{equation}
+                    ] [4] [5] [6]
 
-[4] [5] [6] [7]
-
-LaTeX Warning: Reference `eq:engel_k3_m' on page 8 undefined on input line 360.
+LaTeX Warning: Reference `eq:engel_k3_m' on page 7 undefined on input line 317.
 
 
-(main.bbl [8pdfTeX warning (ext4): destination with the same identifier (name{t
-able.2}) has been already used, duplicate ignored
+[7pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1 \begin{thebibliography}{1}
-                              ])
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 380--380
+l.331 \newpage
+              ]
+Overfull \hbox (11.76393pt too wide) detected at line 357
+[] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
+ []
+
+[8] (main.bbl)
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 397--397
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
 
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 380--380
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 397--397
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
 [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 380.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 05CD29FCA8EC66AABE9F8C0F97511A78;451.
+(rerunfilecheck)             Checksum: 4AB1C91A0F210EEB476B0E260D3E22B7;486.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
  ) 
 Here is how much of TeX's memory you used:
- 8497 strings out of 492452
- 121284 string characters out of 3134439
- 233053 words of memory out of 3000000
- 12467 multiletter control sequences out of 15000+200000
+ 8502 strings out of 492452
+ 121379 string characters out of 3134439
+ 233170 words of memory out of 3000000
+ 12470 multiletter control sequences out of 15000+200000
  15431 words of font info for 58 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 47i,26n,34p,646b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,26n,34p,646b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/TeX/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmbx7.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmc
@@ -615,9 +615,9 @@ nts/cm/cmti10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 <C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9
 /fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (9 pages, 354693 bytes).
+Output written on main.pdf (9 pages, 359382 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 

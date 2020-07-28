@@ -31,20 +31,32 @@ J.~B. Fraleigh.
 \newblock {\em A First Course in Abstract Algebra}.
 \newblock Pearson, Harlow, United Kingdom, 7 edition, 2014.
 
-\bibitem{Ref_Rotman_2005}
-J.~J. Rotman.
-\newblock {\em A First Course in Abstract Algebra}.
-\newblock Prentice Hall, Upper Saddle River, NJ, 3 edition, 2005.
-
 \bibitem{Ref_Schmidt_2007}
 A.~Schmidt.
 \newblock {\em Einführung in die algebraische Zahlentheorie}.
 \newblock Springer, Berlin, Germany, 2007.
 
+\bibitem{Ref_Lucas_2001}
+T.~G. Lucas.
+\newblock Integrality properties in rings with zero divisors.
+\newblock In {\em Ideal Theoretic Methods in Commutative Algebra}, volume 220
+  of {\em lecture notes in pure and applied mathematics}. CRC, Boca Raton, FL,
+  2001.
+
+\bibitem{Ref_Rotman_2005}
+J.~J. Rotman.
+\newblock {\em A First Course in Abstract Algebra}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 3 edition, 2005.
+
 \bibitem{Ref_Higham_2015}
 N.~J. Higham.
 \newblock {\em The Princeton Companion to Applied Mathematics}.
 \newblock Princeton University Press, Princeton, NJ, 2015.
+
+\bibitem{Ref_Koblitz_1984}
+N.~Koblitz.
+\newblock {\em p-adic Numbers, p-adic Analysis, and Zeta-Functions}.
+\newblock Springer, New York, NY, 2 edition, 1984.
 
 \bibitem{Ref_Batho_1959}
 E.~H. Batho.
@@ -69,11 +81,6 @@ E.~W. Weisstein.
 \bibitem{Ref_Weisstein_2}
 E.~W. Weisstein.
 \newblock "p-adic norm." from mathworld--a wolfram web resource.
-
-\bibitem{Ref_Koblitz_1984}
-N.~Koblitz.
-\newblock {\em p-adic Numbers, p-adic Analysis, and Zeta-Functions}.
-\newblock Springer, New York, NY, 2 edition, 1984.
 
 \bibitem{Ref_Gupta_2018}
 A.~Gupta.
