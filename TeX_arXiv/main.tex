@@ -185,9 +185,10 @@ For calculating the largest possible $v_{n+1}$, we considered so far Engel expan
 \par\medskip
 Our starting point again is a Collatz sequence $v_1,v_2,\ldots,v_{n+1}$ consisting of $n+1$ members. We have a total of $m+n$ divisions by two that are distributed over $n$ positions:
 
-\[
+\begin{equation}
+\label{eq:alpha_n_m}
 \alpha=n+m=\alpha_1+\alpha_2+\cdots+\alpha_n
-\]
+\end{equation}
 
 The number of positive integer solutions of the diophantine equation above is given by the following binomial coefficient, which is commonly used to calculate combinations with repetition, see \cite[p.~54]{Ref_Brualdi_2010}:
 
@@ -274,9 +275,8 @@ The above-shown equation~\ref{eq:prod_sum_v_n_simplified} becomes simplified, wh
 Consider a Collatz sequence containing $n$ elements and starting at a given integer $v_1$. The corresponding product given by equation~\ref{eq:prod_sum_v_n_simplified} becomes largest if we
 \begin{itemize}
 \item maximize the last member $v_{n+1}$,
-\item choose a smallest possible $v_1$,
-\item choose an $\alpha$ as large as possible and
-\item keep $n$ to a minimum (which is contrary to maximizing $\alpha$)
+\item choose a smallest possible $v_1$ and
+\item choose an $\alpha=n+m$ as large as possible, where $m$ is the crucial lever.
 \end{itemize}
 
 It is therefore a maximization problem over several variables. In the following we will reflect on how to approach a solution to the problem.
@@ -285,7 +285,7 @@ It is therefore a maximization problem over several variables. In the following 
 {\bfseries\boldmath Minimizing $v_1$:} This is obvious and tricially achievable by iterating $v_1$ through small integers, starting at $v_1=1$.
 
 \par\medskip\noindent
-{\bfseries\boldmath Maximizing $\alpha$ at lowest $n$:} Maximizing $\alpha$ while keeping $n$ as minimal as possible means that we must choose a preferably short Collatz sequence, but one in which as many divisions by two as possible occurred. The value $n$ depends directly on $\alpha$.
+{\bfseries\boldmath Maximizing $\alpha$:} We must choose a Collatz sequence, in which as many divisions by two as possible occurred. Since $n$ and $m$ depend directly on $\alpha$, maximizing $\alpha$ is equivalent to maximizing $n$ or $m$. In general, adding more factors $(1+\nicefrac{1}{kv_i})$ can only increase the product. So, the larger $n$, the larger the product. Note that despite everything, $m$ is the key maximizer of the product -- these additional divisions by two reduce the sequence members $v_i$.
 
 \par\medskip\noindent
 {\bfseries\boldmath Maximizing $v_{n+1}$:} If we fix $v_1,\alpha,n$ then this maximum occurs when the sequence is an Engel expansion, id est when we run the most divisions by two at the beginning. Consequently, the exponent alpha (the total number of divisions by two) is the sum of a large $\alpha_1$ and the remaining alpha values which are all one:
@@ -315,7 +315,10 @@ The product of reciprocated Collatz members (incremented by one) for such an Eng
 \end{example}
 
 \par\medskip
-Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$ requires us to maximize the equation~\ref{eq:prod_engel_more_divisions} or \ref{eq:prod_engel_more_divisions_v2}. This maximization is archieved by choosing $v_1$ as small as possible (which we already know). Additionally we need to select a largest possible $\alpha_1$ or a lowest possible $v_2$ (which is clear as well). Lastly, this maximization also requires the choice of a value $n$ as large as possible. Why $n$ large as possible? As mentioned before, $n$ is directly dependent on $\alpha$, and specifically $\alpha=\alpha_1+n-1$. In other words, maximizing $\alpha$ is equivalent to maximizing $n$ (turning one of both setting screws is enough). To find the largest possible product, we iterate the variables $v_1$ and $n$ independently through integers $1,2,\ldots$ and calculate the product for each combination of the variable assignment using equation~\ref{eq:prod_engel_more_divisions_v2}.
+Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$ requires us to maximize the equation~\ref{eq:prod_engel_more_divisions} or \ref{eq:prod_engel_more_divisions_v2}. This maximization is archieved by choosing $v_1$ as small as possible (which we already know). Additionally we need to select a largest possible $\alpha_1=m+1$ or a lowest possible $v_2$ (which is clear as well). Lastly, this maximization also requires the choice of a value $n$ as large as possible. To find the largest product, we iterate the variables $v_1$ and $n$ independently through integers $1,2,\ldots$ and calculate the product for each combination of the variable assignment using equation~\ref{eq:prod_engel_more_divisions_v2}. Alternatively, one can maximize equation~\ref{eq:prod_engel_more_divisions} or \ref{eq:prod_engel_more_divisions_v2} analytically for the different $k$.
+
+\par\medskip
+Table~\ref{table:product_equations_k_3_5_7} provides for $k=1,3,5,7$ the formula for calculating the Engel expansion's product. This table furthermore indicates the maximum cases along with the corresponding results for each product. Recall that we are not allowed to choose an arbitrarily large $n$ if we set $v_1=1$ because of the halting conditions given by definition~\ref{def:halting_conditions}. The case $v_1=3,v_2=5,n=\infty$ for $k=3$ disregards the halting condition, the value $n$ runs towards infinity and thus much further than allowed -- nevertheless, the product value converges towards $\nicefrac{4}{3}$. Note that for $n=1$ it does not matter what value $v_2$ takes -- it has no effect on the resulting product value.
 
 {\renewcommand{\arraystretch}{1.8}
 	\begin{table}[H]
@@ -344,37 +347,31 @@ Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}
 		\label{table:product_equations_k_3_5_7}
 \end{table}}
 
-Table~\ref{table:product_equations_k_3_5_7} provides for $k=1,3,5,7$ the formula for calculating the Engel expansion's product. This table furthermore indicates the maximum cases along with the corresponding results for each product. Recall that we are not allowed to choose an arbitrarily large $n$ if we set $v_1=1$ because of the halting conditions given by definition~\ref{def:halting_conditions}. The case $v_1=3,v_2=5,n=\infty$ for $k=3$ disregards the halting condition, the value $n$ runs towards infinity and thus much further than allowed -- nevertheless, the product value converges towards $\nicefrac{4}{3}$. Note that for $n=1$ it does not matter what value $v_2$ takes -- it has no effect on the resulting product value.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1.0\textwidth]{plot.png}
+		\caption{Chart that displays the Engel expansion's product value as a function of $v_1$ and $n$ for $k=3$}
+		\label{fig:1}
+	\end{center}
+\end{figure}
+
+\section{Pitfalls and limitations}
+One may say that there exist some Collatz sequences, which are not an Engel expansions but their product might be larger than the product resulting from the corresponding Engel expansion. Let us take for example the following five-element sequence for $k=3$ starting at $v_1=7$ and finishing with $v_{n}=5$:
+\[
+\begin{array}{l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{2em}}l}
+v_1=7&v_2=11&v_3=17&v_4=13&v_5=5&v_{n+1}=v_6=1\\
+\alpha_1=1&\alpha_2=1&\alpha_3=2&\alpha_4=3&\alpha_5=4&
+\end{array}
+\]
+
+The total number of divisions by two within this sequence is $\alpha=11=n+m=5+6$. The product $(1+\nicefrac{1}{3v_1})\cdots(1+\nicefrac{1}{3v_5})$ of this sequence is $1.20399764$. If we insert into the Engel expansion product formula~\ref{eq:prod_engel_more_divisions_v2} analogously $v_1=7$ and $n=5$, it yields a product value of only $1.12404468$. Do not forget that in this case the value $\alpha=4$ is much lower. Let us shift the $m=6$ divisions to the beginning:
+\[
+\alpha=11=7+1+1+1+1=\alpha_1+1+1+1+1
+\]
+In this case we would obtain a (hypothetical) product value of $5.93885949$, which is quite larger. One may verify this by inserting $k=3,v_1=7,\alpha_1=7,n=5$ into equation~\ref{eq:prod_engel_more_divisions}. In the end, it is not sufficient to maximize only $v_{n+1}$, we need to optimize all parameters -- choose smallest possible $v1,v_2$ and largest number of $n$.
 
 \par\medskip
-One may say that there exist some Collatz sequences, which are not an Engel expansions but their product might be larger than the product resulting from the corresponding Engel expansion, for example:
-
-{\renewcommand{\arraystretch}{1.8}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{|L|L|L|L|}
-			\hline
-			\thead{\boldsymbol{k}} &
-			\thead{\textbf{product formula}} &
-			\thead{\textbf{maximum case}} &
-			\thead{\textbf{resulting product}}\\
-			\hline
-			1 & 1+\frac{1}{v_1} + \frac{v_1+1}{-v_1v_2}\left(1-2^{n-1}\right) & v_1=1,n=1
-			& 2
-			\\ \hline
-			3 & 1+\frac{1}{3v_1} + \frac{3v_1+1}{3v_1v_2}\left(1-\left(\frac{2}{3}\right)^{n-1}\right) & \makecell[l]{v_1=1,n=1\\v_1=3,v_2=5,n=\infty}
-			& \frac{4}{3}
-			\\ \hline
-			5 & 1+\frac{1}{5v_1} + \frac{5v_1+1}{15v_1v_2}\left(1-\left(\frac{2}{5}\right)^{n-1}\right) & v_1=1,v_2=3,n=2
-			& \frac{32}{25}
-			\\ \hline
-			7 & 1+\frac{1}{7v_1} + \frac{7v_1+1}{35v_1v_2}\left(1-\left(\frac{2}{7}\right)^{n-1}\right) & v_1=1,n=1
-			& \frac{8}{7}
-			\\ \hline
-		\end{tabular}
-		\caption{Formulas that calculate the Engel expansion's product for $k=1,3,5,7$}
-		\label{table:comparison_products}
-\end{table}}
+One question that still is open is: Does there exist a sequence which is not an Engel expansion, but nevertheless has a greater product value by compensating a smaller $v_{n+1}$ through including more additional divisions by two (which means a larger $m$)?
 
 %{\setlength{\jot}{1.2em}
 %\begin{flalign}
