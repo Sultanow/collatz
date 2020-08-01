@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  1 AUG 2020 14:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  1 AUG 2020 22:32
 entering extended mode
 **./main.tex
 (main.tex
@@ -543,64 +543,75 @@ e{table.1}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.195 \[
         ] [4] [5] [6] [7]
-<plot.png, id=173, 678.535pt x 448.67625pt>
-File: plot.png Graphic file (type png)
-<use plot.png>
-Package pdftex.def Info: plot.png  used on input line 352.
-(pdftex.def)             Requested size: 443.57848pt x 293.31343pt.
+<prod_engel.png, id=173, 578.16pt x 414.54875pt>
+File: prod_engel.png Graphic file (type png)
+<use prod_engel.png>
+Package pdftex.def Info: prod_engel.png  used on input line 352.
+(pdftex.def)             Requested size: 310.50357pt x 222.63216pt.
+<prod.png, id=174, 578.16pt x 414.54875pt>
+File: prod.png Graphic file (type png)
+<use prod.png>
+Package pdftex.def Info: prod.png  used on input line 360.
+(pdftex.def)             Requested size: 310.50357pt x 222.63216pt.
  [8pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.372 
-      ]
-
-LaTeX Warning: Reference `eq:engel_k3_m' on page 9 undefined on input line 388.
-
-
-[9pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
-has been already used, duplicate ignored
+l.380 
+      ] [9pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.389 
-       <./plot.png>] [10]
-Overfull \hbox (11.76393pt too wide) detected at line 428
+l.380 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.380 
+       <./prod_engel.png (PNG copy)> <./prod.png (PNG copy)>]
+
+LaTeX Warning: Reference `eq:engel_k3_m' on page 10 undefined on input line 396
+.
+
+[10]
+Overfull \hbox (11.76393pt too wide) detected at line 436
 [] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
  []
 
 [11] (main.bbl)
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 469--469
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 477--477
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
 
-Overfull \hbox (15.13977pt too wide) in paragraph at lines 469--469
+Overfull \hbox (15.13977pt too wide) in paragraph at lines 477--477
 []\OT1/cmr/m/sc/10 First Last-name, Grad-u-ate School of Math-e-mat-ics, XYZ Un
 i-ver-sity, City, Adresszusatz,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
 [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 852B72EB51E99FE00B0FCF116B82378D;732.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 469.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 477.
  ) 
 Here is how much of TeX's memory you used:
- 8539 strings out of 492452
- 121779 string characters out of 3134439
- 233370 words of memory out of 3000000
- 12491 multiletter control sequences out of 15000+200000
+ 8547 strings out of 492452
+ 121911 string characters out of 3134439
+ 233407 words of memory out of 3000000
+ 12498 multiletter control sequences out of 15000+200000
  17973 words of font info for 66 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  47i,26n,34p,958b,382s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -629,9 +640,9 @@ pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/TeX/MiKTeX
 ublic/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/lat
 xfont/line10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on main.pdf (12 pages, 446667 bytes).
+Output written on main.pdf (12 pages, 525401 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 314 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
