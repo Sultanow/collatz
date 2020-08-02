@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  1 AUG 2020 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2020.6.25)  2 AUG 2020 09:52
 entering extended mode
 **./main.tex
 (main.tex
@@ -543,40 +543,41 @@ e{table.1}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.195 \[
         ] [4] [5] [6] [7]
-<prod_engel.png, id=173, 578.16pt x 414.54875pt>
+<prod_engel.png, id=173, 578.16pt x 433.62pt>
 File: prod_engel.png Graphic file (type png)
 <use prod_engel.png>
 Package pdftex.def Info: prod_engel.png  used on input line 352.
-(pdftex.def)             Requested size: 310.50357pt x 222.63216pt.
-<prod.png, id=174, 578.16pt x 414.54875pt>
+(pdftex.def)             Requested size: 310.50357pt x 232.87433pt.
+<prod.png, id=174, 578.16pt x 433.62pt>
 File: prod.png Graphic file (type png)
 <use prod.png>
 Package pdftex.def Info: prod.png  used on input line 360.
-(pdftex.def)             Requested size: 310.50357pt x 222.63216pt.
+(pdftex.def)             Requested size: 310.50357pt x 232.87433pt.
  [8pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.380 
-      ] [9pdfTeX warning (ext4): destination with the same identifier (name{fig
-ure.1}) has been already used, duplicate ignored
+      ]
+
+LaTeX Warning: Reference `eq:engel_k3_m' on page 9 undefined on input line 396.
+
+
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.380 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-2}) has been already used, duplicate ignored
+l.405 \begin{equation}
+                       <./prod_engel.png (PNG copy)>] [10pdfTeX warning (ext4):
+ destination with the same identifier (name{figure.2}) has been already used, d
+uplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.380 
-       <./prod_engel.png (PNG copy)> <./prod.png (PNG copy)>]
-
-LaTeX Warning: Reference `eq:engel_k3_m' on page 10 undefined on input line 396
-.
-
-[10]
+l.410 \newpage
+               <./prod.png (PNG copy)>]
 Overfull \hbox (11.76393pt too wide) detected at line 436
 [] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 < [] \OT1/cmr/m/n/12 + []
  []
@@ -640,7 +641,7 @@ pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/TeX/MiKTeX
 ublic/amsfonts/cm/cmtt10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/lat
 xfont/line10.pfb><C:/TeX/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on main.pdf (12 pages, 525401 bytes).
+Output written on main.pdf (12 pages, 527414 bytes).
 PDF statistics:
  314 PDF objects out of 1000 (max. 8388607)
  58 named destinations out of 1000 (max. 500000)
