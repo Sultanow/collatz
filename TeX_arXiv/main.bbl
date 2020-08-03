@@ -50,4 +50,10 @@ K.~Knopp.
 T.~Murphy.
 \newblock 2006 course 4281: Prime numbers, 2006.
 
+\bibitem{Ref_Koch_etal}
+C.~Koch, E.~Sultanow, and S.~Cox.
+\newblock Divisions by two in collatz sequences: A data science approach.
+\newblock {\em International Journal of Pure Mathematical Sciences}, 21:00--00,
+  2020.
+
 \end{thebibliography}

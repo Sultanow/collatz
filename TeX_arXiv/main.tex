@@ -34,11 +34,11 @@
 
 \title[Engel Expansions in Collatz Sequences]{The Role of Engel Expansions in Collatz Sequences}
 
-\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
-\address{First Lastname\\
-Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Germany}
+\author[F.\ Last1]{\href{https://orcid.org/0000-0001-5257-2236}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}Eldar Sultanow}
+\address{Eldar Sultanow\\
+Capgemini Deutschland GmbH\\ Bahnhofstraße 30\\ 90402 Nuremberg\\ Germany}
 \curraddr{}
-\email{first.last@university.de}
+\email{eldar.sultanow@capgemini.com}
 
 \author[F.\ Last2]{First Last}
 \address{First Lastname\\
@@ -46,7 +46,7 @@ Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Ge
 \curraddr{}
 \email{first.last@university.de}
 
-\subjclass[2010]{37P99}
+\subjclass[2010]{11B99}
 \keywords{Engel Expansions, Collatz Sequences}
 
 \begin{document}
@@ -57,7 +57,7 @@ Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Ge
 \endgroup
 
 \begin{abstract}
-The Collatz conjecture is a number theoretical problem, which has puzzled countless researchers using myriad approaches. Presently, there are scarcely investigations to treat the problem from the angle of the question "which are the corner cases the Collatz Sequences?". We pursue this question and to this end examine ascending continued fractions -- the so called Engel expansions. We demonstrate that Engel expansions form worst case sequences $v_1,v_2,\ldots,v_n,v_{n+1}$ maximizing $v_{n+1}$ and maximizing the product $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})(1+\nicefrac{1}{3v_{n+1}})$.
+The Collatz conjecture is a number theoretical problem, which has puzzled countless researchers using myriad approaches. Presently, there are scarcely investigations to treat the problem from the angle of the question "which are the corner cases the Collatz Sequences?". We pursue this question and to this end examine ascending continued fractions -- the so called Engel expansions. We demonstrate that Engel expansions form worst case sequences $v_1,v_2,\ldots,v_n,v_{n+1}$ that maximize $v_{n+1}$. We show that maximizing the product $(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})(1+\nicefrac{1}{3v_{n+1}})$ requires us to minimize $v_1$ and to maximize $v_{n+1}$ as well as the number of division by two within the sequence.
 \end{abstract}
 
 \section{Introduction}
@@ -318,7 +318,7 @@ The product of reciprocated Collatz members (incremented by one) for such an Eng
 Maximizing the product of reciprocated Collatz sequence members $\prod_{i=1}^{n}(1+\nicefrac{1}{kv_i})$ requires us to maximize the equation~\ref{eq:prod_engel_more_divisions} or \ref{eq:prod_engel_more_divisions_v2}. This maximization is archieved by choosing $v_1$ as small as possible (which we already know). Additionally we need to select a largest possible $\alpha_1=m+1$ or a lowest possible $v_2$ (which is clear as well). Lastly, this maximization also requires the choice of a value $n$ as large as possible. To find the largest product, we iterate the variables $v_1$ and $n$ independently through integers $1,2,\ldots$ and calculate the product for each combination of the variable assignment using equation~\ref{eq:prod_engel_more_divisions_v2}. Alternatively, one can maximize equation~\ref{eq:prod_engel_more_divisions} or \ref{eq:prod_engel_more_divisions_v2} analytically for the different $k$.
 
 \par\medskip
-Table~\ref{table:product_equations_k_3_5_7} provides for $k=1,3,5,7$ the formula for calculating the Engel expansion's product. This table furthermore indicates the maximum cases along with the corresponding results for each product. Recall that we are not allowed to choose an arbitrarily large $n$ if we set $v_1=1$ because of the halting conditions given by definition~\ref{def:halting_conditions}. The case $v_1=3,v_2=5,n=\infty$ for $k=3$ disregards the halting condition, the value $n$ runs towards infinity and thus much further than allowed -- nevertheless, the product value converges towards $\nicefrac{4}{3}$. Note that for $n=1$ it does not matter what value $v_2$ takes -- it has no effect on the resulting product value.
+Table~\ref{table:product_equations_k_3_5_7} provides for $k=1,3,5,7$ the formula for calculating the Engel expansion's product. This table furthermore indicates the maximum cases along with the corresponding results for each product. These resulting product values have been determined empirically in \cite{Ref_Koch_etal}. Recall that we are not allowed to choose an arbitrarily large $n$ if we set $v_1=1$ because of the halting conditions given by definition~\ref{def:halting_conditions}. The case $v_1=3,v_2=5,n=\infty$ for $k=3$ disregards the halting condition, the value $n$ runs towards infinity and thus much further than allowed -- nevertheless, the product value converges towards $\nicefrac{4}{3}$. Note that for $n=1$ it does not matter what value $v_2$ takes -- it has no effect on the resulting product value.
 
 {\renewcommand{\arraystretch}{1.8}
 	\begin{table}[H]
@@ -347,24 +347,8 @@ Table~\ref{table:product_equations_k_3_5_7} provides for $k=1,3,5,7$ the formula
 		\label{table:product_equations_k_3_5_7}
 \end{table}}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.7\textwidth]{prod_engel.png}
-		\caption{Engel expansion's product value ($k=3$) as a function of $v_1,n$}
-		\label{fig:1}
-	\end{center}
-\end{figure}
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.7\textwidth]{prod.png}
-		\caption{Product value ($k=3$) as a function of $v_1,n$}
-		\label{fig:2}
-	\end{center}
-\end{figure}
-
 \section{Pitfalls and limitations}
-One may say that there exist some Collatz sequences, which are not an Engel expansions but their product might be larger than the product resulting from the corresponding Engel expansion. Let us take for example the following five-element sequence for $k=3$ starting at $v_1=7$ and finishing with $v_{n}=5$:
+We have maximized $v_1$ and $n$, but not the most important variable - namely the number $m$ of additional divisions by two. To our misfortune, there exist sequences that are not Engel expansions and still produce a larger product. Let us take for example the following five-element sequence for $k=3$ starting at $v_1=7$ and finishing with $v_{n}=5$:
 \[
 \begin{array}{l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{1em}}l@{\hspace{2em}}l}
 v_1=7&v_2=11&v_3=17&v_4=13&v_5=5&v_{n+1}=v_6=1\\
@@ -376,10 +360,10 @@ The total number of divisions by two within this sequence is $\alpha=11=n+m=5+6$
 \[
 \alpha=11=7+1+1+1+1=\alpha_1+1+1+1+1
 \]
-In this case we would obtain a (hypothetical) product value of $5.93885949$, which is quite larger. One may verify this by inserting $k=3,v_1=7,\alpha_1=7,n=5$ into equation~\ref{eq:prod_engel_more_divisions}. In the end, it is not sufficient to maximize only $v_{n+1}$, we need to optimize all parameters -- choose smallest possible $v1,v_2$ and largest number of $n$.
+In this case we would obtain a (hypothetical) product value of $5.93885949$, which is quite larger. One may verify this by inserting $k=3,v_1=7,\alpha_1=7,n=5$ into equation~\ref{eq:prod_engel_more_divisions}. However, such a sequence does not exist. We have shown that Engel expansions produce large product values, when $v_1$ is small enough. These product values are exactly those upper limits that were empirically determined in \cite{Ref_Koch_etal}. But we did not answer the question: Does there exist a sequence which is not an Engel expansion, but nevertheless has a greater product value by compensating a smaller $v_{n+1}$ through including more additional divisions by two (which means by compensating a smaller $v_{n+1}$ through having a larger $m$)?
 
 \par\medskip
-One question that still is open is: Does there exist a sequence which is not an Engel expansion, but nevertheless has a greater product value by compensating a smaller $v_{n+1}$ through including more additional divisions by two (which means a larger $m$)?
+In the end, it is not sufficient to maximize only $v_{n+1}$, we need to optimize all parameters. Some sequences, such the one considered above $7,11,17,13,5$ produce a large product value $(1+\nicefrac{1}{3v_1})\cdots(1+\nicefrac{1}{3v_5})$ and there do not exist a corresponding Engel expansion (with analogous parameters) exceeding this product value.
 
 %{\setlength{\jot}{1.2em}
 %\begin{flalign}
@@ -391,25 +375,10 @@ One question that still is open is: Does there exist a sequence which is not an 
 %&=\frac{3^{n-1}(\frac{3v_1+1}{2\cdot2^{m}}+1)-2^{n-1}}{2^{n-1}}=\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1
 %\end{flalign}}
 
-\section{Condition for a limited growth of the Engel expansion}
-\label{sec:condition_limited_growth}
-Let us look now into the question of what condition must be met to prevent a greater growth than a decline in Collatz sequences. Specifically we consider an Engel expansion comprising $n+1$ sequence members that include $m$ additional divisions by two at the beginning. The last member $v_{n+1}$ in such a sequence can be calulated by formula~\ref{eq:engel_k3_m}. In order to restrict the growth of this sequence, we require that the last member has to be smaller than the first one. For this we define the condition $v_{n+1}<v_1$:
-
-\[
-\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1<v_1
-\]
-
-\par\medskip\noindent
-Reshaping this inequality leads to the following condition:
-
-\begin{equation}
-\label{eq:condition_limited_growth}
-\frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
-\end{equation}
-
 \newpage
 \section{Appendix}
 
+\vspace{1em}
 \subsection{Permuting divisions by two}
 \label{appx:permuting_divisions}
 In order to illustrate how permuting divisions by two affect the last sequence member $v_{n+1}$, we take a look at two corner cases:
@@ -468,6 +437,49 @@ While the first case minimizes the value of $v_{n+1}$, the second case maximizes
 
 \par\bigskip
 This has the consequence that for a given sequence consisting of $n+1$ members, between which a total of $n+m$ divisions have taken place, the permutations of these divisions have a limited effect on the last sequence member $v_{n+1}$ as described by theorem~\ref{theo:permutation}.
+
+\vspace{1em}
+\subsection{Condition for a limited growth of the Engel expansion}
+\label{appx:condition_limited_growth}
+Let us look now into the question of what condition must be met to prevent a greater growth than a decline in Collatz sequences. Specifically we consider an Engel expansion comprising $n+1$ sequence members that include $m$ additional divisions by two at the beginning. The last member $v_{n+1}$ in such a sequence can be calulated by formula~\ref{eq:engel_k3_m}. In order to restrict the growth of this sequence, we require that the last member has to be smaller than the first one. For this we define the condition $v_{n+1}<v_1$:
+
+\[
+\frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1<v_1
+\]
+
+\par\medskip\noindent
+Reshaping this inequality leads to the following condition:
+
+\begin{equation}
+\label{eq:condition_limited_growth}
+\frac{3^{n-1}\left(2^{m+1}-2\right)}{2^{m+n}-3^n}-1<v_1
+\end{equation}
+
+\vspace{1em}
+\subsection{Visualizing the product as a function of \boldmath{$v_1,n$}}
+\label{appx:permuting_divisions}
+
+When we display the product for $k=3$ as a discrete function of $v_1,n$ then it becomes visually clear that the maximum is $\nicefrac{4}{3}$ at $v_1=1,n=1$. Figure~\ref{fig:1} provides a chart illustrating the product values for Engel expansions depending on the variables $v_1$ and $n$.
+
+\par\medskip
+In Figure~\ref{fig:2} we see the product values for actual Collatz sequences as a function of both variables $v_1$ and $n$. There we observe that product values of several Collatz sequences are larger than ones of the corresponding Engel expansions displayed by figure~\ref{fig:1}.
+
+\newpage
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.68\textwidth]{prod_engel.png}
+		\caption{Engel expansion's product value ($k=3$) as a function of $v_1,n$}
+		\label{fig:1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.68\textwidth]{prod.png}
+		\caption{Product value ($k=3$) as a function of $v_1,n$}
+		\label{fig:2}
+	\end{center}
+\end{figure}
 
 %\newpage
 \vspace{1em}
