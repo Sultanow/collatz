@@ -11,6 +11,11 @@ P.~S. Bruckman.
 \newblock {\em International Journal of Mathematical Education in Science and
   Technology}, 39(3):403--407, 2008.
 
+\bibitem{Ref_Brualdi_2010}
+R.~A. Brualdi.
+\newblock {\em Introductory Combinatorics}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 5 edition, 2010.
+
 \bibitem{Ref_Laarhoven}
 T.M.M. Laarhoven.
 \newblock The 3n + 1 conjecture, 7 2009.
@@ -36,11 +41,6 @@ C.~Kraaikamp and J.~Wu.
   quotients.
 \newblock {\em Monatshefte für Mathematik}, 143:285--298, 2004.
 
-\bibitem{Ref_Brualdi_2010}
-R.~A. Brualdi.
-\newblock {\em Introductory Combinatorics}.
-\newblock Prentice Hall, Upper Saddle River, NJ, 5 edition, 2010.
-
 \bibitem{Ref_Knopp}
 K.~Knopp.
 \newblock {\em Theorie und Anwendung der Unendlichen Reihen}.
@@ -55,5 +55,21 @@ C.~Koch, E.~Sultanow, and S.~Cox.
 \newblock Divisions by two in collatz sequences: A data science approach.
 \newblock {\em International Journal of Pure Mathematical Sciences}, 21:00--00,
   2020.
+
+\bibitem{Ref_Zwillinger_Kokoska}
+D.~Zwillinger and S.~Kokoska.
+\newblock {\em Standard Probability and Statistics Tables and Formulae}.
+\newblock Chapman \& Hall/CRC, 2000.
+
+\bibitem{Ref_Brychkov}
+Y.~A. Brychkov.
+\newblock {\em Handbook of Special Functions: Derivatives, Integrals, Series
+  and Other Formulas}.
+\newblock Chapman \& Hall/CRC, 2008.
+
+\bibitem{Ref_Trott}
+M.~Trott.
+\newblock {\em The Mathematica GuideBook for Symbolics}.
+\newblock Springer Science+Business Media, Inc., 2006.
 
 \end{thebibliography}
