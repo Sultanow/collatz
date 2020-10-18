@@ -1,0 +1,108 @@
+\chapter{Introduction}
+
+\begin{summary}
+It is well known that the inverted Collatz sequence can be represented as a graph or a tree. Similarly, it is acknowledged that in order to prove the Collatz conjecture, one must demonstrate that this tree covers all odd natural numbers. A structured reachability analysis is hitherto not available. This paper investigates the problem from a graph theory perspective. We define a tree that consists of nodes labeled with Collatz sequence numbers. This tree will be transformed into a sub-tree that only contains odd labeled nodes. The analysis of the tree will provide new insights into the structure of Collatz sequences. We prove that cycles can only occur within a sequence under restricted conditions. Furthermore, we describe the constraints that must be met to reach the root node of the tree. These findings could form the basis for a future prove of the Collatz conjecture.
+\end{summary}
+
+\section{Motivation}
+The Collatz conjecture is a number theoretical problem, which has puzzled countless researchers using myriad approaches. Presently, there are scarcely any methodologies to describe and treat the problem from the perspective of the Algebraic Theory of Graphs. Such an approach is promising with respect to facilitating the comprehension of the Collatz sequence’s "mechanics".
+
+\par\medskip
+The current gap in research forms the motivation behind the present contribution. The authors are convinced that exploring the Collatz conjecture in an algebraic manner, relying on the ﬁndings and fundamentals of Graph Theory, will contribute to a simplification of the problem as a whole.
+
+\section{Related Research}
+The following literature study is largely based on one given by a similar earlier essay \cite{Ref_Sultanow_Volkov_Cox_2017} which deals with the Collatz conjecture from the vantage of automata theory.
+
+\par\medskip
+The Collatz conjecture is one of the unsolved "Million Buck Problems" \cite{Ref_Williams_2000}. When Lothar Collatz began his professorship in Hamburg in 1952, he mentioned this problem to his colleague Helmut Hasse. From 1976 to 1980, Collatz wrote several letters but missed referencing that he first proposed the problem in 1937. He introduced a function $g:\mathbb{N}\rightarrow\mathbb{N}$ as follows:
+\begin{equation}
+\label{eq:func_collatz}
+g(x)=
+\begin{cases}
+3x+1	&	2\nmid x\\
+x/2		&	\text{otherwise}
+\end{cases}
+\end{equation}
+
+This function is surjective, but it is not injective (for example $g(3)=g(20))$ and thus is not reversible. The Collatz conjecture states that for each start number $x_1>0$ the sequence $x_1,x_2=g(x_1),x_3=g(x_2),\ldots$ will at some point enter the so called trivial cycle $1,4,2$. One example is the sequence $17,52,26,13,40,20,10,5,16,8,4,2,1$ starting at $x_1=17$. The assumption has not yet been proven. If the conjecture were wrong, then for a starting number $x_1$ the sequence either would diverge indefinitely or enter a cycle different from the trivial one (a so called non-trivial cycle).
+
+In order to specify compressed Collatz sequences containing only the odd members, Bruckman \cite{Ref_Bruckman_2008} for instance used the more convenient function that opts out all even integers:
+\begin{equation}
+\label{eq:func_collatz_odd}
+f(x)=(3x+1)\cdot2^{-\alpha(x)},\text{where}\hspace{1em}2^{\alpha(x)}\mathrel\Vert(3x+1)
+\end{equation}
+Note that $\alpha(x)$ is the largest possible exponent for which $2^{\alpha(x)}$ exactly divides $3x+1$. Especially for prime powers, one often says $p^\alpha$ \textit{divides} the integer $x$ \textit{exactly}, denoted as $p^\alpha\mathrel\Vert x$, if $p^\alpha$ is the greatest power of the prime $p$ that divides $x$.
+
+\par\medskip
+In his book “The Ultimate Challenge: The 3x+1 Problem” \cite{Ref_Lagarias_2010}, along with his annotated bibliographies \cite{Ref_Lagarias_2011}, \cite{Ref_Lagarias_2012} and other manuscripts like an earlier paper from 1985 \cite{Ref_Lagarias_1985}, Lagarias reseached and put together different approaches from various authors intended to describe and solve the Collatz conjecture.
+
+\par\medskip
+For the integers up to 2,367,363,789,863,971,985,761 the conjecture holds valid. For instance, see the computation history given by Kahermanes \cite{Ref_Kahermanes_2011} that provides a timeline of the results which have already been achieved.
+
+\par\medskip
+\textit{\textbf{Inverting the Collatz sequence and constructing a Collatz tree}} is an approach that has been carried out by many researchers. It is well known that inverse sequences \cite{Ref_Klisse_2010} arise from all functions $h\in H$, which can be composed of the two mappings $q,r:\mathbb{N}\rightarrow\mathbb{N}$ with $q:m\mapsto2m$ and $r:m\mapsto(m-1)/3$:
+\begin{center}
+$H=\{h:\mathbb{N}\rightarrow
+\mathbb{N}\mid h=r^{(j)}\circ q^{(i)}\circ\ldots,i,j,h(1)\in\mathbb{N}\}$
+\end{center}
+
+\textit{\textbf{An argumentation that the Collatz Conjecture cannot be formally proved}} can be found in the work of Craig Alan Feinstein \cite{Ref_Feinstein_2012}, who presents the position that any proof of the Collatz conjecture must have an infinite number of lines and thus no formal proof is possible. However, this statement will not be acknowledged in depth within this study.
+
+\par\medskip
+\textit{\textbf{Treating Collatz sequences in a binary system}} can be performed as well. For example, Ethan Akin \cite{Ref_Akin_2004} handles the Collatz sequence with natural numbers written in base 2 (using the Ring $\mathbb{Z}_2$ of two-adic integers), because divisions by 2 are easier to deal with in this method. He uses a shift map $\sigma$ on $\mathbb{Z}_2$ and a map $\tau$:
+
+\begin{table}[H]
+	\centering
+	\parbox{.45\linewidth}{
+		$\sigma(x)=
+		\begin{cases}
+		(x-1)/2		&	2\nmid x\\
+		x/2			&	\text{otherwise}
+		\end{cases}$
+	}
+	\parbox[][][b]{.45\linewidth}{
+		$\tau(x)=
+		\begin{cases}
+		(3x+1)/2	&	2\nmid x\\
+		x/2			&	\text{otherwise}
+		\end{cases}$
+	}
+\end{table}
+
+The shift map's fundamental property is $\sigma(x)_i=x_{i+1}$, noting that $\sigma(x)_i$ is the i-th digit of $\sigma(x)$. This property can easily be comprehended by an example $x=5=1010000\ldots=x_0x_1x_2\ldots$, containing $\sigma(x)=2=0100000\ldots$
+
+\par\medskip
+Akin then defines a transformation $Q:\mathbb{Z}_2\rightarrow\mathbb{Z}_2$ by $Q(x)_i=\tau^i(x)_0$ for non-negative integers $i$ which means $Q(x)_i$ is zero if $\tau^i(x)$ is even and then it is one in any other instance. This transformation is a bijective map that defines a conjugacy between $\tau$ and $\sigma$: $Q\circ\tau=\sigma\circ Q$ and it is equivalent to the map denoted $Q_\infty$ by Lagarias \cite{Ref_Lagarias_1985} and it is the inverse of the map $\Phi$ introduced by Bernstein \cite{Ref_Bernstein_Lagarias_1996}. $Q$ can be described as follows: Let $x$ be a 2-adic integer. The transformation result $Q(x)$ is a 2-adic integer $y$, so that $y_n=\tau^{(n)}(x)_0$. This means, the first bit $y_0$ is the parity of $x=\tau^{(0)}(x)$, which is one, if $x$ is odd and otherwise zero. The next bit $y_1$ is the parity of $\tau^{(1)}(x)$, and the bit after next $y_2$ is parity of $\tau\circ\tau(x)$ and so on. The conjugancy $Q\circ\tau=\sigma\circ Q$ can be demonstrated by transforming the expression as follows: $(\sigma\circ Q(x))_i=Q(x)_{i+1}=\tau^{(i+1)}(x)_0=\tau^{(i)}(\tau(x))_0=Q(\tau(x))_i$
+
+\par\medskip
+\textit{\textbf{A simulation of the Collatz function by Turing machines}} has been presented by Michel \cite{Ref_Michel_2014}. He introduces Turing machines that simulate the iteration of the Collatz function, where he considers them having 3 states and 4 symbols. Michel examines both turing machines, those that never halt and those that halt on the final loop.
+
+\par\medskip
+\textit{\textbf{A function-theoretic approach}} to this problem has been provided by Berg and Meinardus \cite{Ref_Berg_Meinardus_1994}, \cite{Ref_Berg_Meinardus_1995} as well as Gerhard Opfer \cite{Ref_Opfer_2011}, who consistently relies on the Berg’s and Meinardus’ idea. Opfer tries to prove the Collatz conjecture by determining the kernel intersection of two linear operators U, V that act on complex-valued functions. First he determined the kernel of V, and then he attempted to prove that its image by U is empty. Benne de Weger \cite{Ref_de_Weger_2011} contradicted Opfer’s attempted proof.
+
+\par\medskip
+\textit{\textbf{At the number of divisions by two}} Paul S. Bruckman \cite{Ref_Bruckman_2008} has taken a deeper look, who has attempted to provide an elementary proof by contradiction. He repeatedly applies the Collatz function using a starting value $n_0$ and defines:
+\[
+\{e_k\}:n_1=(3n_0+1)\cdot2^{-e_1},n_2=(3n_1+1)\cdot2^{-e_2}=(3^2n_0+3+2^{e_1})\cdot2^{-(e_1+e_2)},\ldots
+\]
+Denoting the sum of exponents as $E_k=e_1+e_2+\ldots+e_k$ Bruckman obtains the following equation:
+\[
+2^{E_k}n_k=3^kn_0+\sum_{j=0}^{k-1}3^{k-1-j}2^{E_j}
+\]
+
+\par\medskip
+\textit{\textbf{Reachability Considerations}} based on a Collatz tree exist as well. It is well known that the inverted Collatz sequence can be represented as a graph; to be more specific, they can be depicted as a tree \cite{Ref_Andrei_Masalagiu}, \cite{Ref_Kak_2014}. It is acknowledged that in order to prove the Collatz conjecture, one needs to demonstrate that this tree covers all odd natural numbers.
+
+\par\medskip
+\textit{\textbf{The Stopping Time}} theory has been introduced by Terras \cite{Ref_Terras_1976}, it has been taken up and continued, inter alia, by Silva \cite{Ref_Silva_1999} and Idowu \cite{Ref_Idowu_2015}. Terras introduces another notation of the Collatz function $T(n)=(3^{X(n)}n+X(n))/2$, where $X(n)=1$ when $n$ is odd and $X(n)=0$ when $n$ is even, and defined the stopping time of $n$, denoted by $\chi(n)$, as the least positive $k$ for which $T^{(k)}(n)<n$, if it exists, or otherwise it reaches infinity. Let $L_i$ be a set of natural numbers, it is observable that the stopping time exhibits the regularity $\chi(n)=i$ for all $n$ fulfilling $n\equiv l(mod 2^i)$, $l\in L_i$, $L_1=\{4\}$, $L_2=\{5\}$, $L_4=\{3\}$, $L_5=\{11,23\}$, $L_7=\{7,15,59\}$ and so on. As $i$ increases, the sets $L_i$, including their elements, become significantly larger. Sets $L_i$ are empty when $i\equiv l(mod 19)$ for $l=3,6,9,11,14,17,19$. Additionally, the largest element of a non-empty set $L_i$ is always less than $2^i$.
+
+\par\medskip
+\textit{\textbf{Dynamical systems}} provide a wide basis for examining the Collatz sequence as well \cite{Ref_Wirsching_1998}. A dynamical system \cite[p.~464]{Ref_Walz_2017} is a triple $(M,G,\Phi)$ for a set $M$, a group $(G,+)$ and a map $\Phi:M\times G\to M$ for which $\Phi(\cdot,0)=id_M(\cdot)$ firstly applies and secondly $\Phi\left(\Phi(m,s),t\right)=\Phi(m,s+t)$ for all $m\in M$, $s,t\in G$. The set $M$ is called phase space. Terence Tao \cite{Ref_Tao_2019} considers orbits of the dynamical system generated by the Collatz map (an orbit is a subset of the phase space). He proved that almost all of these orbits attain almost bounded values. To achieve this, he advanced the results of Allouche \cite{Ref_Allouche_1978} and Korec \cite{Ref_Korec_1994}. Their main idea was to prove that the set of positive integers with finite stopping time has a density one, in this case the term density refers to the concept of \textit{natural density} (also known as \textit{asymptotic density}). It measures how large a subset of the set of natural numbers is. The natural density of a set $M\subseteq\mathbb{N}$ is defined as:
+\[
+\lim_{n\to\infty}\frac{\#\{m\in M:m<n\}}{n}
+\]
+
+In this context, the authors used the Collatz map as the map $\Phi$. They proved that the set $\{x\in\mathbb{N}:(\exists t\in\mathbb{N})(\Phi(x,t)<x)\}$ has a natural density one.
+
+\par\medskip
+\textit{\textbf{Many other approaches}} exist as well. From an algebraic perspective Trümper \cite{Ref_Truemper_2014} analyzes the Collatz problem in the light of an Infinite Free Semigroup. Kohl \cite{Ref_Kohl_2008} generalized the problem by introducing residue class-wise affine mappings, in short rcwa mappings. A polynomial analogue of the Collatz Conjecture has been provided by Hicks et al. \cite{Ref_Hicks_Mullen_Yucas_Zavislak_2008} \cite{Ref_Snapp_Tracy_2008} and there are also stochastical, statistical and Markov chain-based and permutation-based approaches to proving this elusive theory.
