@@ -4,8 +4,8 @@ The first turf cut and trigger for the whole project is a continuously evolving 
 
 # Publications
 * [SciPress](https://www.scipress.com/IJPMS.19.10): Introducing a Finite State Machine for Processing Collatz Sequences
-* [publish.UP] (https://doi.org/10.25932/publishup-44325): Collatz Sequences in the Light of Graph Theory (Fourth Version)
-* [opus4.kobv] (https://doi.org/10.34646/thn/ohmdok-620): Divisions by Two in Collatz Sequences: A Data Science Approach (2nd ed.)
+* [publish.UP](https://doi.org/10.25932/publishup-44325): Collatz Sequences in the Light of Graph Theory (Fourth Version)
+* [opus4.kobv](https://doi.org/10.34646/thn/ohmdok-620): Divisions by Two in Collatz Sequences: A Data Science Approach (2nd ed.)
 
 # Recent activities
 Added Python script for validating the sum:
