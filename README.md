@@ -1,4 +1,4 @@
-# Sources (TeX, Mathematica and Python) for the exploration of Collatz Sequences 
+# Sources for the exploration of Collatz Sequences: TeX, Mathematica and Python 
 Here you find all sources for our manuscripts (TeX) and programmatic investigations (Python scripts and Mathematica workbooks).
 The first turf cut and trigger for the whole project is a continuously evolving manuscript "Collatz Sequences in the Light of Graph Theory", originally published by the University of Potsdam. It is an Open Book, that can be downloaded here and everyone is invited to contribute.
 
