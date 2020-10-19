@@ -55,11 +55,40 @@ The set $S_{\ge1}=N(T_C)\setminus(S_{-1}\cup S_{0})=\bigcup_{j=1}^{\infty}S_j$ i
 
 The set $S_0$ consists of all nodes resulting as output of $R(n)$ within the binary tree $T_{\ge0}$, which means that $S_0$ is the codomain of the function $R(n)$ operating on nodes within $T_{\ge0}$.
 
-The binary tree $T_{\ge0}$ can be transformed to a (pruned) binary tree $T_{\ge1}$. For this, we first identify the pruning candidates -- they are all nodes $v\in S_0$ that lie in the Rightward function's codomain. Then let $v_0,v_1,V_2,v_3$ be nodes in $T_{\ge0}$, whereas $v_1=R(v_0)$ and $v_2=U(v_0)$ and $v_3=U(v_1)$. Then we delete $v_1$ including its incoming edge from $v_0$ and its outgoing edge to $v_3$. The node $v_3$ we first reconnect with an incoming edge from $v_2$ and then identify it as pruning candidate for a later transformation of the pruned tree $T_{\ge1}$ to a more pruned tree $T_{\ge2}$.
+The binary tree $T_{\ge0}$ can be transformed to a (pruned) binary tree $T_{\ge1}$. For this, we first identify the pruning candidates -- they are all nodes $v\in S_0$ that lie in the Rightward function's codomain. Then let $v_0,v_1,v_2,v_3$ be nodes in $T_{\ge0}$, whereas $v_1=R(v_0)$ and $v_2=U(v_0)$ and $v_3=U(v_1)$. Then we delete $v_1$ including its incoming edge from $v_0$ and its outgoing edge to $v_3$. The node $v_3$ we first reconnect with an incoming edge from $v_2$ and then identify it as pruning candidate for a later transformation of the pruned tree $T_{\ge1}$ to a more pruned tree $T_{\ge2}$.
 
 The set $S_1$ contains all nodes that are (as per description above) identified as pruning candidate for the next transformation of $T_{\ge1}$ to $T_{\ge2}$. After having transformed $T_{\ge1}$ to $T_{\ge2}$, the more pruned binary tree $T_{\ge2}$ contains nodes that are identified as pruning candidates for another upcoming transformation of $T_{\ge2}$ to $T_{\ge3}$ -- these nodes are elements of the set $S_2$. This pruning algorithm is repeatedly applied in the same pattern. And in this way we obtain the sets $S_1,S_2,S_3,\ldots$ and so forth. Finally for the sets apply $S_j=\{n\mid U^{-j}(n)\in S_0\}$
 
 The idea behind transforming the Collatz tree into a binary tree is that binary trees exhibit special properties, which make them easier to handle and due to iteratively pruning them one may show that all odd numbers are covered by the Collatz tree.
 
+I have an interesting additional challenge (I know you solved this arithmetically) - but let us take a viewpoint from group theory:
+
+The (cyclic) multiplicative group $(\mathbb{Z}/18\mathbb{Z})^\times=\mathbb{Z}^\ast_{18}=\{1,5,7,11,13,17\}=<5>$ has an order $ord(\mathbb{Z}^\ast_{18})=6$ and based on Euler's theorem we can derive the following congruences from $5^j5^{6n+6-j}\equiv1\pmod{18}$:
+
+\[
+\begin{array}{cc}
+j=0 & [1]_{18}\cdot5^{6n+6}\equiv1\pmod{18}\\
+j=1 & [5]_{18}\cdot5^{6n+5}\equiv1\pmod{18}\\
+j=2 & [7]_{18}\cdot5^{6n+4}\equiv1\pmod{18}\\
+j=3 & [17]_{18}\cdot5^{6n+3}\equiv1\pmod{18}\\
+j=4 & [13]_{18}\cdot5^{6n+2}\equiv1\pmod{18}\\
+j=5 & [11]_{18}\cdot5^{6n+1}\equiv1\pmod{18}
+\end{array}
+\]
+
+Now let us consider the following congruences:
+
+\[
+\begin{array}{cc}
+&[1]_{18}\cdot4\equiv1\pmod{3}\\
+&[5]_{18}\cdot8\equiv1\pmod{3}\\
+&[7]_{18}\cdot16\equiv1\pmod{3}\\
+&[17]_{18}\cdot2\equiv1\pmod{3}\\
+&[13]_{18}\cdot4\equiv1\pmod{3}\\
+&[11]_{18}\cdot2\equiv1\pmod{3}
+\end{array}
+\]
+
+Having in mind that, if $m\mid n$ (in our case $3\mid18$) the map $r\bmod n \rightarrow r\bmod m$ is a homomorphism $(\mathbb{Z}/n\mathbb{Z})^\times\rightarrow(\mathbb{Z}/m\mathbb{Z})^\times$, what is the morphism between both congruences shown above - the one $\bmod{18}$ and the other one $\bmod3$?
 
 
