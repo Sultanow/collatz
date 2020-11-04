@@ -57,19 +57,19 @@ The graph $H_U$ possess the following key properties:
 
 We define a tree $H_{C,3}$ by taking the tree $H_U$ as a basis and for every vertex $v\in V(H_U)$ satisfying $2\mid l_{V(H_U)}(v)$, we contract the incoming edge. We attach the label of the parent of $v$ to the new vertex, which results by replacing (merging) the two overlapping vertices that the contracted edge used to connect. Visually, we obtain $H_{C,3}$ by contracting all edges in $H_U$ that have an even-labeled target vertex, which (due to contraction) gets "merged into its parent." Edge contraction is occasionally referred to as \textit{collapsing an edge}. For more details and examples on edge contraction, one can see Voloshin \cite[p.~27]{Ref_Voloshin} and Loehr \cite{Ref_Loehr}.
 
-The tree $H_{C,3}$ is a \textit{minor of $H_U$}, since it can be obtained from $H_U$ "by a sequence of any vertex deletions, edge deletions and edge contractions" \cite[p.~32]{Ref_Voloshin}. The sequence of contracting the edges between adjacent (in our case even-labeled) vertices is called \textit{path contraction}.
+The tree $H_{C,3}$ is well known as the so-called \textit{Syracuse tree}, see for example \cite{Ref_Kleinnijenhuis_2020a}, \cite{Ref_Aberkane_2017}, and \cite{Ref_Aberkane_2020}. It is a \textit{minor of $H_U$}, since it can be obtained from $H_U$ "by a sequence of any vertex deletions, edge deletions and edge contractions" \cite[p.~32]{Ref_Voloshin}. The sequence of contracting the edges between adjacent (in our case even-labeled) vertices is called \textit{path contraction}.
 
-A small section of the tree $H_{C,3}$ is shown in figure~\ref{fig:2}. Other definitions of the same tree exist, see for example Conrow \cite{Ref_Conrow}, Bauer \cite[p.~379]{Ref_Bauer}, Batang \cite{Ref_Batang} or Jan Kleinnijenhuis and Alissa M. Kleinnijenhuis \cite{Ref_Kleinnijenhuis}.
+A small section of the tree $H_{C,3}$, the Syracuse tree, is shown in figure~\ref{fig:2}. Other definitions of the same tree exist, see for example Conrow \cite{Ref_Conrow}, Bauer \cite[p.~379]{Ref_Bauer}, Batang \cite{Ref_Batang} or Jan Kleinnijenhuis and Alissa M. Kleinnijenhuis \cite{Ref_Kleinnijenhuis_2020a}, \cite{Ref_Kleinnijenhuis_2020b}.
 
 \begin{figure}
 	\includegraphics[width=1.00\textwidth]{figures/h_c3.png}
-	\caption{Small section of $H_{C,3}$ (displaying the trivial cycle is waived)}
+	\caption{Section of the Syracuse tree $H_{C,3}$ (displaying the trivial cycle is waived)}
 	\label{fig:2}
 \end{figure}
 
 \section{\texorpdfstring{Relationship of successive nodes in $H_{C,3}$}{Relationship of successive nodes in HC3}}
 
-Let $v_1$ and $v_{n+1}$ be two vertices of $H_{C,3}$, where $v_1$ is reachable from $v_{n+1}$ with $depth(v_1)-depth(v_{n+1})=n$. Hence, a path $(v_{n+1},\ldots,v_1)$ exists between these two vertices. Theorem~\ref{theo:1} specifies the following relationship between $v_1$ and $v_{n+1}$.
+Let $v_1$ and $v_{n+1}$ be two vertices of $H_{C,3}$, where $v_1$ is reachable from $v_{n+1}$ with $depth(v_1)-depth(v_{n+1})=n$. Hence, a path $(v_{n+1},\ldots,v_1)$ exists between these two vertices. Theorem~\ref{theo:1} specifies the following relationship between $v_1$ and $v_{n+1}$, empirically identified by Koch \cite{Ref_Koch_Github}.
 
 \begin{theorem}
 	\label{theo:1}
@@ -212,7 +212,7 @@ The same principle applies to the siblings $13,53,213,853$. The first sibling of
 \section{\texorpdfstring{A vertex's left-child, $n$-fold right-sibling in $H_{C,3}$}{A vertex's left-child, n-fold right-sibling in HC3}}
 \label{sec:left_child_right_sibling_3}
 
-Let $w$ be a vertex in $H_{C,3}$ and $v_0$ the left-child of $w$. Empirically we have found out, that the $n$-fold right-sibling of $v_0$ can be calculated as follows:
+Let $w$ be a vertex in $H_{C,3}$ and $v_0$ the left-child of $w$. Using Koch's data science approach \cite{Ref_Koch_Github}, we empirically we have found out, that the $n$-fold right-sibling of $v_0$ can be calculated as follows:
 \begin{equation}
 \label{eq:nfold_right_sibling_3}
 	v_n=\textit{right-sibling}^n(v_0)=\frac{1}{3}\left(w\cdot2^{2n+\pi_3(w\bmod 3)}-1\right)
@@ -260,7 +260,7 @@ In modular arithmetic we are allowed to interpret integers as names, or to be mo
 
 This means, that in modular arithmetic both operations -- addition and multiplication -- are independent from the choice of representatives in the residue classes \cite[p.~16]{Ref_Wolfart_2011}.
 
-The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+kn|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~25]{Ref_Mueller-Stach_2011}. Let us put all possible remainders that arise from the division modulo $n$ together into a new set -- the set of all residue classes $[a]_n$. This set is known as the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}, \cite[p.~81]{Ref_Teschl_2013}.
+The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+k\cdot n|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~25]{Ref_Mueller-Stach_2011}. Let us put all possible remainders that arise from the division modulo $n$ together into a new set -- the set of all residue classes $[a]_n$. This set is known as the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}, \cite[p.~81]{Ref_Teschl_2013}.
 
 Now there is one more tool that we will make use of later, and that is the \textit{Congruence Power Rule (CPR)}. It states that we are allowed to raise both sides of an congruence to the $n$-th power \cite[p.~19]{Ref_Mueller-Stach_2011}, \cite[p.~117]{Ref_Benjamin_2009}:
 \begin{equation}
@@ -344,7 +344,7 @@ If addition is the group operation, as it is the case for example with the addit
 \section{\texorpdfstring{A vertex's left-child, $n$-fold right-sibling in $H_{C,5}$}{A vertex's left-child, n-fold right-sibling in HC5}}
 \label{sec:left_child_right_sibling_5}
 
-In the following we take a look at the tree $H_{C,5}$ -- the $5x+1$ variant of $H_C$. We must note that it is not a tree and moreover that not all of its vertices are reachable from the root. We define the permutation $\pi_5$ as follows:
+In the following we take a look at the tree $H_{C,5}$ -- the $5x+1$ variant of $H_C$, elaborated by Koch \cite{Ref_Koch_Github} using Data Science too. We must note that it is not a tree and moreover that not all of its vertices are reachable from the root. We define the permutation $\pi_5$ as follows:
 \begin{center}
 \label{eq:pi_5}
     $\pi_5=\left(\begin{array}{cccc}
@@ -492,10 +492,10 @@ The mapping \ref{eq:pi_7} is not a permutation as in the case of $\pi_3$ and $\p
 In section~\ref{sec:relationship_sibling_nodes_k3} we have taken a closer look at the relationship of sibling nodes in $H_{C,3}$. But what is the formula for calculating the $n$-fold right-sibling of a given node $v_0$ generalized to the $kx+1$ variant of $H_C$? We remember that the multiplicative order $d=\ord_k(2)$ is the smallest natural exponent $d$ such that $2^d\equiv 1\pmod k$. In the case $k=3$ we can calculate the next sibling $v_1$ of a given node $v_0$ as follows: $v_1=v_0\cdot4+1$, see \ref{eq:next_sibling_k3}. Within $H_{C,7}$, the next sibling of $v_0$ is given by $v_1=v_0\cdot8+1$. In the case of $k=5$, we calculate the next sibling $v_1=v_0\cdot16+3$ and for $k=9$ we obtain the next sibling $v_1$ of a given node $v_0$ by $v_1=v_0\cdot64+7$. The general formula for calculating a given node's $v_0$ immediate right sibling is:
 \begin{equation}
 \label{eq:right_sibling_k}
-v_1=v_0\cdot2^{\ord_k(2)}+\left\lfloor\frac{2^{\ord_k(2)}}{k}\right\rfloor=v_0\cdot2^{\ord_k(2)}+\frac{1}{k}\left(2^{\ord_k(2)}-2^{\ord_k(2)}\bmod k\right)
+v_1=v_0\cdot2^{\ord_k(2)}+\frac{1}{k}\left(2^{\ord_k(2)}-1\right)
 \end{equation}
 
-In order to calculate the $n$-fold right sibling of a given node $v_0$, we need to repeatedly nest $n$ times the (linear) function~\ref{eq:right_sibling_k}. For the sake of simplicity, let us substitute $a=2^{\ord_k(2)}$ and $b=\left\lfloor\nicefrac{2^{\ord_k(2)}}{k}\right\rfloor$. Then the $n$-fold right sibling of $v_0$ is obtained by the following structure:
+In order to calculate the $n$-fold right sibling of a given node $v_0$, we need to repeatedly nest $n$ times the (linear) function~\ref{eq:right_sibling_k}. For the sake of simplicity, let us substitute $a=2^{\ord_k(2)}$ and $b=\frac{1}{k}(2^{\ord_k(2)}-1)$. Then the $n$-fold right sibling of $v_0$ is obtained by the following structure:
 
 \begin{flalign*}
 v_n=\textit{right-sibling}^n(v_0)&=\left(\left(\left(v_0\cdot a+b\right)\cdot a+b\right)\cdot a+b\right)\cdots\\
@@ -505,15 +505,31 @@ v_n=\textit{right-sibling}^n(v_0)&=\left(\left(\left(v_0\cdot a+b\right)\cdot a+
 Note that the term $b(a^{n-1}+\ldots+a^2+a+1)$ can be simplified using the $n$-th partial sum of a geometric series (\cite[p.~192]{Ref_Teschl_2013}). The resubstitution of both coefficients $a$ and $b$ leads us to the final generalized formula that calculates the $n$-fold right sibling of a node $v_0$ in $H_{C,k}$:
 \begin{equation}
 \label{eq:n_fold_right_sibling_k}
-v_n=\textit{right-sibling}^n(v_0)=v_0\cdot2^{n\cdot\ord_k(2)}+\left\lfloor\frac{2^{\ord_k(2)}}{k}\right\rfloor\cdot\frac{2^{n\cdot\ord_k(2)}-1}{2^{\ord_k(2)}-1}
+v_n=\textit{right-sibling}^n(v_0)=v_0\cdot2^{n\cdot\ord_k(2)}+\frac{1}{k}\left(2^{\ord_k(2)}-1\right)\cdot\frac{2^{n\cdot\ord_k(2)}-1}{2^{\ord_k(2)}-1}
 \end{equation}
 
-Here we point out that the equation~\ref{eq:n_fold_right_sibling_k} of course only works for such $k$, where the order of two is not infinity $\ord_k(2)\ne\infty$. This means that, for instance, it does not work for $k=1$, id est for the $1x+1$ variant of $H_C$. However, this case is trivial and for the sake of completeness we have added a picture including some few words about $H_{C,1}$ in appendix~\ref{appx:x1_plus_1_variant}.
+This can be verified by inserting $n=0$ and $n=1$ into formula~\ref{eq:left_child_n_fold_right_sibling_k} that calculates the a vertex's left-child, $n$-fold right-sibling of $H_{C,k}$:
+
+\[\arraycolsep=1.6em
+\begin{array}{ll}
+v_0=\frac{1}{k}\left(w\cdot2^{\ord_k(2)-\dlog_{2,k}w}-1\right) & kv_0+1=w\cdot2^{\ord_k(2)-\dlog_{2,k}w}\\
+v_1=\frac{1}{k}\left(w\cdot2^{2\ord_k(2)-\dlog_{2,k}w}-1\right) & kv_1+1=w\cdot2^{2\ord_k(2)-\dlog_{2,k}w}
+\end{array}
+\]
+
+This brings us to the following quotient leading to the basic relationship between two sibling nodes that is given by equation~\ref{eq:right_sibling_k} in the form of $v_1=v_0\cdot a+b$:
+
+\[
+\frac{kv_1+1}{kv_0+1}=\frac{2^{2\ord_k(2)-\dlog_{2,k}w}}{2^{\ord_k(2)-\dlog_{2,k}w}}=2^{\ord_k(2)}
+\]
+
+Here we point out that the equation~\ref{eq:n_fold_right_sibling_k} of course only works for such $k$, where the order of two is not infinity $\ord_k(2)\ne\infty$. This means that, for instance, it does not work for $k=1$, id est for the $1x+1$ variant of $H_C$. However, this case is trivial and for the sake of completeness we have added a picture including some few words about $H_{C,1}$ in appendix~\ref{appx:x_plus_1_variant}.
 
 \section{\texorpdfstring{Generalizing a vertex's left-child, $n$-fold right-sibling for $H_{C,k}$}{Generalizing vertex's left-child, n-fold right-sibling for HCk}}
 In the following, we generalize the formulas, that has been developed in sections~\ref{sec:left_child_right_sibling_3}~-~\ref{sec:left_child_right_sibling_7} to calculate the left-child, $n$-fold right-sibling for a given node $w$ that is the direct parent node of $v_0$:
-\[
-v_n=\textit{right-sibling}^n(v_0)=\frac{1}{k}\left(w\cdot2^{\ord(2)\cdot n+\ord(2)-\dlog_{2,k}w}-1\right)
-\]
+\begin{equation}
+\label{eq:left_child_n_fold_right_sibling_k}
+v_n=\textit{right-sibling}^n(v_0)=\frac{1}{k}\left(w\cdot2^{\ord_k(2)\cdot n+\ord_k(2)-\dlog_{2,k}w}-1\right)
+\end{equation}
 
 The discrete logarithm $\dlog_{2,k}w=j$ finds the smallest exponent $j$ such that $2^j\equiv w\pmod k$ respectively it solves the equation $2^j\bmod k=w$.

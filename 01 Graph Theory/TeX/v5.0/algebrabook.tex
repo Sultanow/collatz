@@ -16,6 +16,13 @@
 \newcolumntype{C}{>{\begin{math}}c<{\end{math}}}
 \newcolumntype{R}{>{\begin{math}}r<{\end{math}}}
 
+% Listings
+\usepackage{listings}
+\usepackage{caption}
+\captionsetup[listing]{skip=4pt}
+\usepackage[newfloat,cache=false]{minted}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
 % empty all blank pages created by \cleardoublepage
 \usepackage{emptypage}
 
@@ -28,6 +35,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \addbibresource{bibliography.bib}
+
 
 \begin{document}
 

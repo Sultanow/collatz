@@ -1,14 +1,23 @@
-\chapter*{About Our Approach}
-\addcontentsline{toc}{chapter}{About Our Approach}
+\chapter*{About our approach}
+\label{ch:our_approach}
+\addcontentsline{toc}{chapter}{\nameref{ch:our_approach}}
 \vspace{0.8cm}
 
-The results published in this paper have been achieved with an interdisciplinary approach. Not suprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with classical maths alone, we furthermore used techniques and tools of modern data science. We combined the two fields in different ways. Firstly, we analyzed Collatz sequences and related features empirically, to derive new formulas and theorems. On the other hand, we used data science to challenge our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode. This might be the topic of another paper, however. The interested reader can find the source code of our Python scripts at
+The results published in this paper have been achieved with an interdisciplinary approach. Not suprising, we applied classic mathematical theory and reasoning. Since we are convinced that the Collatz problem cannot be solved with classical maths alone, we furthermore used techniques and tools of modern data science. We combined the two fields in different ways. Firstly, we analyzed Collatz sequences and related features empirically, to derive new formulas and theorems. On the other hand, we used data science to challenge our proofs. As suggested by Karl Popper, we tried to falsify them with counterexamples. In the course of our work, we have learned that the combination of the two fields leads to a very efficient working mode.
 
-\par\medskip
+Key findings have been explored empirically using techniques of data science. Our main tool was a Python-API, which implements the theorems of this article and is optimized for processing arbitrarily big integers within milliseconds \cite{Ref_Koch_Github}:
+
+\par\bigskip
 \textcolor{wisogreen}\faExternalLink~~\url{https://github.com/c4ristian/collatz}
 
-\par\medskip\noindent
-and
+\par\bigskip\noindent
+After the generated data has been exported into a comma-separated values (CSV) file, a Java tool reads that file and carries out the visualization of the corresponding Collatz trees \cite{Ref_Sultanow_Github_Java}:
 
-\par\medskip
-\textcolor{wisogreen}\faExternalLink~~\url{https://github.com/Sultanow/collatz/tree/master/Python}
+\par\bigskip
+\textcolor{wisogreen}\faExternalLink~~\url{https://github.com/Sultanow/collatz_java}
+
+\par\bigskip
+For quick experiments some notebooks may provide an efficient playground \cite{Ref_Sultanow_Github}, but it should be noted that these are not designed for large amounts of data and professional use like Christians API does:
+
+\par\bigskip
+\textcolor{wisogreen}\faExternalLink~~\url{https://github.com/Sultanow/collatz}

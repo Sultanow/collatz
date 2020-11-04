@@ -44,6 +44,7 @@ Typesetters.se]
 \definecolor{tsyellow}{RGB}{255,185,88}
 \definecolor{tsgrey}{RGB}{200,200,200}
 \definecolor{wisogreen}{HTML}{4e833c}
+\definecolor{black}{RGB}{0,0,0}
 
 % Graphics
 %-------------------------------------------------------------------------

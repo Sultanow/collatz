@@ -2,7 +2,8 @@
 \chapter{Appendix}
 
 \section{\texorpdfstring{A brief note on the tree $H_{C,1}$}{A brief note on the tree HC1}}
-\label{appx:x1_plus_1_variant}
+\label{appx:x_plus_1_variant}
+A special case of Collatz trees is the graph $H_{C,1}$ -- the $x+1$ variant of $H_C$. In this case, any sequence of successive nodes along the path from $v_n$ down to $v_1$ is strictly monotonically increasing. If we run reverse to the edge direction (towards the root), then of course the node sequence is strictly monotonically decreasing. Figure~\ref{fig:hc1} shows a portion of the graph $H_{C,1}$ starting in its root.
 
 \begin{figure}[H]
 	\includegraphics[width=1.00\textwidth]{figures/h_c1.png}
@@ -13,6 +14,7 @@
 \section{\texorpdfstring{The sum of reciprocated vertices depending only on $v_1$}{Sum of reciprocated vertices depending only on v1}}
 \label{appx:sum_reciprocal_vertices}
 One condition deduced from theorem~\ref{theo:1} is the product condition~\ref{eq:condition_max}, which specifies the validity of the cycle-alpha's upper limit. This condition requires the sum $\frac{1}{kv_1}+\frac{1}{kv_2}+\frac{1}{kv_3}+\ldots$ to be limited. In order to formulate this sum independently from the successive vertices $v_2,v_3,\ldots$, we substitute these as follows:
+
 \begin{flalign}
 v_1&=v_1\notag\\
 v_2&=\frac{kv_1+1}{2^{\alpha_1}}\notag\\
