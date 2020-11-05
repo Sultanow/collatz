@@ -162,39 +162,33 @@ citecolor=wisogreen
 %--------------------------------------------------------------------------
 \newenvironment{boxtheorem}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,breakable,pad at break*=1mm,
- colback=black!5,colframe=tsorange]}
+[enhanced jigsaw,colback=black!5,colframe=tsorange]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxdefinition}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,pad at break*=1mm,
- colback=yellow!10!white,boxrule=0pt,frame hidden,
+[enhanced jigsaw,colback=yellow!10!white,boxrule=0pt,frame hidden,
  borderline west={1.5mm}{-2mm}{tsforestgreen}]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxexercise}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,breakable,pad at break*=1mm,
- colback=tsyellow!20,boxrule=0pt,frame hidden]}
+[enhanced jigsaw,colback=tsyellow!20,boxrule=0pt,frame hidden]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxproblem}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,breakable,pad at break*=1mm,
- colback=tsorange!25,boxrule=0pt,frame hidden]}
+[enhanced jigsaw,colback=tsorange!25,boxrule=0pt,frame hidden]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxprogramming}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,breakable,pad at break*=1mm,
- colback=tsblue!10,boxrule=0pt,frame hidden]}
+[enhanced jigsaw,colback=tsblue!10,boxrule=0pt,frame hidden]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxexample}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,pad at break*=1mm,
- colback=tsgrey!20,boxrule=0pt,frame hidden]}
+[enhanced jigsaw,colback=tsgrey!20,boxrule=0pt,frame hidden]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 % Styling of theorems
@@ -233,36 +227,36 @@ citecolor=wisogreen
 % Environments for theorems
 %--------------------------------------------------------------------------
 \newenvironment{definition}
-               {\begin{boxdefinition}\begin{envdefinition}}
-               {\end{envdefinition}\end{boxdefinition}}
+{\begin{boxdefinition}\begin{envdefinition}}
+{\end{envdefinition}\end{boxdefinition}}
 
 \newenvironment{theorem}
-               {\begin{boxtheorem}\begin{envtheorem}}
-               {\end{envtheorem}\end{boxtheorem}}
+{\begin{boxtheorem}\begin{envtheorem}}
+{\end{envtheorem}\end{boxtheorem}}
 
 \newenvironment{corollary}
-               {\begin{boxtheorem}\begin{envtheorem}}
-               {\end{envtheorem}\end{boxtheorem}}
+{\begin{boxtheorem}\begin{envtheorem}}
+{\end{envtheorem}\end{boxtheorem}}
 
 \newenvironment{lemma}
-               {\begin{boxtheorem}\begin{envlemma}}
-               {\end{envlemma}\end{boxtheorem}}
+{\begin{boxtheorem}\begin{envlemma}}
+{\end{envlemma}\end{boxtheorem}}
 
 \newenvironment{exercise}
-               {\begin{boxexercise}\begin{envexercise}}
-               {\end{envexercise}\end{boxexercise}}
+{\begin{boxexercise}\begin{envexercise}}
+{\end{envexercise}\end{boxexercise}}
 
 \newenvironment{problem}
-               {\begin{boxproblem}\begin{envproblem}}
-               {\end{envproblem}\end{boxproblem}}
+{\begin{boxproblem}\begin{envproblem}}
+{\end{envproblem}\end{boxproblem}}
 
 \newenvironment{programming}
-               {\begin{boxprogramming}\begin{envprogramming}}
-               {\end{envprogramming}\end{boxprogramming}}
+{\begin{boxprogramming}\begin{envprogramming}}
+{\end{envprogramming}\end{boxprogramming}}
 
 \newenvironment{example}
-               {\begin{boxexample}\begin{envexample}}
-               {\end{envexample}\end{boxexample}}
+{\begin{boxexample}\begin{envexample}}
+{\end{envexample}\end{boxexample}}
 
 % Other environments
 %--------------------------------------------------------------------------

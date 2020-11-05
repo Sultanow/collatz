@@ -11,6 +11,39 @@ A special case of Collatz trees is the graph $H_{C,1}$ -- the $x+1$ variant of $
 	\label{fig:hc1}
 \end{figure}
 
+%\section{\texorpdfstring{Algorithm for pruning binary trees $T_{\ge j}$}{Algorithm for pruning binary trees Tj}}
+%\label{appx:pruning}
+%Binary trees as introduced in chapter~\ref{ch:binary_tree} inspired by Kleinnijenhuis~\cite{Ref_Kleinnijenhuis_2020a}, \cite{Ref_Kleinnijenhuis_2020b} can iteratively be pruned (the way Kleinnijenhuis originally invented it). Listing~\ref{lst:pruning} implements this pruning algorithm.
+
+%\begin{listing}[H]
+%	\begin{minted}[bgcolor=bg, linenos, framesep=2mm, mathescape, breaklines, tabsize=2]{python}
+%def shrinkRoot(self):
+%	self.root = self.root.successors[0]
+%	self.root.predecessor = None
+%
+%def prune(self):
+%	self.shrinkRoot()
+%	new_prunables = []
+%	for node in self.prunable_nodes:
+%		if node.predecessor is not None:
+%			if len(node.successors) > 1 and len(node.predecessor.successors) > 1:
+%				node.predecessor.successors[1].successors.append(node.successors[1])
+%				node.predecessor.successors[1].successors.reverse()
+%				node.successors[1].predecessor = node.predecessor.successors[1]
+%				node.successors[1].prunable = True
+%				new_prunables.append(node.successors[1])
+%			node.predecessor.successors.remove(node)
+%			node.predecessor = None
+%			self.labels.remove(node.label)
+%	self.prunable_nodes = new_prunables
+%	return self
+%	\end{minted}
+%	\caption{Python function for pruning a binary tree $T_{\ge j}$ \cite{Ref_Sultanow_Github}}
+%	\label{lst:pruning}
+%\end{listing}
+
+%Listing~\ref{lst:pruning} is only intended to illustrate the pruning algorithm in a simplifying manner. To run pruning on trees with arbitary large numbers, we refer to the professional Python API by Koch \cite{Ref_Koch_Github}.
+
 \section{\texorpdfstring{The sum of reciprocated vertices depending only on $v_1$}{Sum of reciprocated vertices depending only on v1}}
 \label{appx:sum_reciprocal_vertices}
 One condition deduced from theorem~\ref{theo:1} is the product condition~\ref{eq:condition_max}, which specifies the validity of the cycle-alpha's upper limit. This condition requires the sum $\frac{1}{kv_1}+\frac{1}{kv_2}+\frac{1}{kv_3}+\ldots$ to be limited. In order to formulate this sum independently from the successive vertices $v_2,v_3,\ldots$, we substitute these as follows:
@@ -46,3 +79,4 @@ We inserted the sum used in equation~\ref{eq:sum_v_n_plus_1} into the above-give
 \end{equation}
 
 The above-shown equation~\ref{eq:prod_sum_v_n_simplified} becomes simplified, when we replaced the numerator by equation~\ref{eq:prod_sum_v_n_plus_1_simplified}. The question which sequence maximizes its last member $v_{n+1}$ ties into the question: Which sequence maximizes the product? The product formula~\ref{eq:prod_sum_v_n_simplified} does not depend from all vertices $v_1,v_2,\ldots,v_n$, it depends only from $2^\alpha=2^{\alpha_1+\ldots+\alpha_n}$, from the first vertex $v_1$ and the final one $v_{n+1}$.
+

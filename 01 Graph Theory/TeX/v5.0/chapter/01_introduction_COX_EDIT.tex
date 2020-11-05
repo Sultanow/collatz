@@ -24,9 +24,7 @@ x/2		&	\text{otherwise}
 \end{cases}
 \end{equation}
 
-This function is surjective, but it is not injective (for example $g(3)=g(20))$ and thus is not reversible. The Collatz conjecture states that for each start number $x_1>0$ the sequence $x_1,x_2=g(x_1),x_3=g(x_2),\ldots$ will at some point enter the so called trivial cycle $1,4,2$. One example is the sequence $17,52,26,13,40,20,10,5,16,8,4,2,1$ starting at $x_1=17$. The assumption has not yet been proven. If the conjecture were wrong, then for a starting number $x_1$ the sequence either would diverge indefinitely or enter a cycle different from the trivial one (a so called non-trivial cycle).
-
-In order to specify compressed Collatz sequences containing only the odd members, Bruckman \cite{Ref_Bruckman_2008} for instance used the more convenient function that opts out all even integers:
+This function is surjective, but it is not injective (for example $g(3)=g(20))$ and thus is not reversible. The Collatz conjecture states that for each start number $x_1>0$ the sequence $x_1,x_2=g(x_1),x_3=g(x_2),\ldots$ will at some point enter the so called trivial cycle $1,4,2$. One example is the sequence $17,52,26,13,40,20,10,5,16,8,4,2,1$ starting at $x_1=17$. The assumption has not yet been proven. The conjecture would be falsified if the sequence either diverges indefinitely for a starting number $x_1$ or enters a cycle different from the trivial one (a so called non-trivial cycle). In order to specify compressed Collatz sequences containing only the odd members, Bruckman \cite{Ref_Bruckman_2008} for instance used the more convenient function that opts out all even integers:
 \begin{equation}
 \label{eq:func_collatz_odd}
 f(x)=(3x+1)\cdot2^{-\alpha(x)},\text{where}\hspace{1em}2^{\alpha(x)}\mathrel\Vert(3x+1)
@@ -79,7 +77,7 @@ Akin then defines a transformation $Q:\mathbb{Z}_2\rightarrow\mathbb{Z}_2$ by $Q
 \textit{\textbf{A function-theoretic approach}} to this problem has been provided by Berg and Meinardus \cite{Ref_Berg_Meinardus_1994}, \cite{Ref_Berg_Meinardus_1995} as well as Gerhard Opfer \cite{Ref_Opfer_2011}, who consistently relies on the Berg’s and Meinardus’ idea. Opfer tries to prove the Collatz conjecture by determining the kernel intersection of two linear operators U, V that act on complex-valued functions. First he determined the kernel of V, and then he attempted to prove that its image by U is empty. Benne de Weger \cite{Ref_de_Weger_2011} contradicted Opfer’s attempted proof.
 
 \par\medskip
-\textit{\textbf{At the number of divisions by two}} Paul S. Bruckman \cite{Ref_Bruckman_2008} has taken a deeper look, who has attempted to provide an elementary proof by contradiction. He repeatedly applies the Collatz function using a starting value $n_0$ and defines:
+\textit{\textbf{At the number of divisions by two}} Paul S. Bruckman \cite{Ref_Bruckman_2008} and Koch et al. \cite{Ref_Koch_2020} have taken a deeper look. Bruckmann has attempted to provide an elementary proof by contradiction. He repeatedly applies the Collatz function using a starting value $n_0$ and defines:
 \[
 \{e_k\}:n_1=(3n_0+1)\cdot2^{-e_1},n_2=(3n_1+1)\cdot2^{-e_2}=(3^2n_0+3+2^{e_1})\cdot2^{-(e_1+e_2)},\ldots
 \]

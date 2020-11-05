@@ -1,4 +1,5 @@
-\chapter{Cycles in the Collatz Tree}
+\chapter{Cycles in the Collatz Graph}
+\label{ch:cycles}
 
 \section{A remark about cycles}
 \label{sec:cycles}
@@ -33,13 +34,7 @@ Obviously, the authors note, it would be interesting to find out what circumstan
 
 \section{\texorpdfstring{Which variants of $H_C$ have non-trivial cycles?}{Which variants of HC have non-trivial cycles?}}
 \label{sec:non_trivial_cycles}
-Let us refer to $H_{C,k}$. By having introduced and proven theorem~\ref{theo:1} we already started an assertion about the reachability of successive nodes in $H_{C,3}$. This reachability relationship can be generalized for any graph $H_{C,k}$ as follows:
-\begin{equation}
-\label{eq:generalized_reachability}
-v_{n+1}=k^nv_1\prod_{i=1}^{n}\left(1+\frac{1}{kv_{i}}\right)2^{-\alpha_i}
-\end{equation}
-
-This generalization leads to the condition for an existence of an $n$-cycle in any $kx+1$ variant of $H_C$, which looks analogous to the condition given by equation~\ref{eq:func_cycle} that specifies $H_{C,3}$ has a cycle:
+The generalization of the relationship between successive nodes, given by equation~\ref{eq:generalized_reachability} leads to the condition for an existence of an $n$-cycle in any $kx+1$ variant of $H_C$, which looks analogous to the condition given by equation~\ref{eq:func_cycle} that specifies $H_{C,3}$ has a cycle:
 \begin{equation}
 \label{eq:generalized_cycle}
 2^\alpha=\prod_{i=1}^{n}\left(k+\frac{1}{v_i}\right)
@@ -51,7 +46,7 @@ The natural number $\alpha$ is the sum of edges that have been contracted betwee
 \alpha\ge n
 \end{equation}
 
-Using incremental search, Koch et al. \cite{Ref_Koch_2020} calculated cycles through trial and error. The authors list all empirically discovered cycles having a length up to $100$ which appear in $H_{C,k}$ for $k\in[1,1000]$. Within each of these variants, the cycles have been searched at potential starting nodes $v_1$ with a label between $1$ and $1000$. Based on their results they stated the following theorem~\ref{theo:2} that renders more precisely the prerequisite for cycles that may occur in variants of $H_C$.
+Using incremental search, we calculated cycles through trial and error, as described in more detail by Koch et al. \cite{Ref_Koch_2020}. Our tool is a linear search performed by a Python script \cite{Ref_Koch_Github}. Based on these results we state the following theorem~\ref{theo:2} that renders more precisely the prerequisite for cycles that may occur in any variants of $H_C$.
 
 \begin{theorem}
 	\label{theo:2}
