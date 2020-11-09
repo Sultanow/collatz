@@ -25,7 +25,7 @@ The sum of the products of the powers of three and two, contained within the abo
 	\[
 	v_5=v_{n+1}=\frac{3^4(31+1)-2^4}{2^4}=161
 	\]
-	Besides, by choosing a vertex $v_1=2^{n+1}-1$, we are able to infinitely generate sequences each forming an ascending continued fraction. As per equation~\ref{eq:asc_continued_fraction} the last member in this sequence is the odd labeled vertex $v_{n+1}=3^n\cdot2-1$.
+	By choosing a vertex $v_1=2^{n+1}-1$, we are able to infinitely generate sequences which each form an ascending continued fraction. As per equation~\ref{eq:asc_continued_fraction} the last member in this sequence is the odd labeled vertex $v_{n+1}=3^n\cdot2-1$.
 \end{example}
 
 \begin{remark}
@@ -49,14 +49,14 @@ v_{n+1}=\frac{k^n(kv_1-bv_1+1)-b^n}{b^n(k-b)}
 
 \section{Include more divisions by two into an Engel expansion}
 \label{sec:include_divisions_engel_expansion}
-For calculating the largest possible $v_{n+1}$, we considered so far Engel expansions which contain only $n$ division by two within a Collatz sequence of $n+1$ memebers. In the following we include $m$ additional divisions by two and thus a total of $m+n$ divisions. We look at two corner cases:
+In order to calculate the largest possible $v_{n+1}$, we have thus far considered Engel expansions which contain only $n$ division by two within a Collatz sequence of $n+1$ members. In the following, we include $m$ additional divisions by two and thus a total of $m+n$ divisions. Now we examine two corner cases:
 \begin{itemize}
 	\item the one where we do the additional $m$ divisions by $2$ at the end and
 	\item the one where we do these additional divisions at the very beginning.
 \end{itemize}
 
 \par\noindent
-\textbf{The first case} is our starting point to examine how the swapping a division by two affects the node $v_{n+1}$. For this, let us compare the Engel expansion where we devide by $2^m$ afterwards with one where we divide by $2$ in the penultimate step and by $2^{m-1}$ in last step. One can immediately recognize the following inequality with a mere look:
+\textbf{The first case} is our starting point to examine how swapping a division by two affects the node $v_{n+1}$. For this, let us compare the Engel expansion where we divide by $2^m$ afterwards with one where we divide by $2$ in the penultimate step and by $2^{m-1}$ in last step. One can immediately recognize the following inequality with a mere look:
 \[
 \cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2}}{2}}{2}}{2\cdot2^m}
 <
@@ -79,7 +79,7 @@ To put it simply, in the expansion on the right side of the above-shown inequali
 \cfrac{1+\cfrac{3+\cfrac{3^2+\cfrac{3^3+3^4v_1}{2\cdot2^m}}{2}}{2}}{2}
 \]
 
-Also here almost all summands of both Engel expansions, they cancel each other out:
+Also here almost all summands of both Engel expansions cancel each other out:
 
 \[
 \cancel{\frac{1}{2}+\frac{3}{2^2}}+\frac{3^2}{2^3\cdot\textcolor{red}{\mathbf{2}}}+\cancel{\frac{3^3+3^4v_1}{2^4\cdot\textcolor{red}{\mathbf{2}}\cdot2^{m-1}}}
@@ -110,7 +110,7 @@ This has the consequence that for a given sequence consisting of $n+1$ members, 
 \end{theorem}
 
 \section{The product in the condition for alpha's upper limit}
-Let us take a closer look at the product contained in condition~\ref{eq:condition_max} for the case $k=3$ and use the ascending continued fractions for examining this product. The exciting question is, does this product have a limit value even in the case where we only contract a single edge between successive nodes? Setting accordingly the sequence, which maximizes $v_{n+1}$, into the product expressed by condition~\ref{eq:condition_max}, we obtain a product that is limited, or to be more specific, which in the worst case $v_1=1$ converges (for $n$ to infinity) towards $2$:
+Let us take a closer look at the product contained in condition~\ref{eq:condition_max} for the case $k=3$ and use the ascending continued fractions for examining this product. The exciting question is, does this product have a limit value even in the case where we only contract a single edge between successive nodes? Setting the according sequence, which maximizes $v_{n+1}$, into the product expressed by condition~\ref{eq:condition_max}, we obtain a product that is limited, or to be more specific, which in the worst case $v_1=1$ converges (for $n$ to infinity) towards $2$:
 \begin{equation}
 \label{eq:product_simplification_k3}
 \prod_{i=1}^{n}\left(1+\frac{1}{3v_{i}}\right)
@@ -124,7 +124,7 @@ The above-illustrated last forming step, simplifies this product significantly i
 \frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^{n+1}+1<2
 \]
 
-Since, as shown above, the product cannot exceed the value $2$, the logarithmic product expression in the condition~\ref{eq:condition_max} cannot exceed the value one and this condition becomes a consistently true statement:
+As demonstrated above, since the product cannot exceed the value $2$, the logarithmic product expression in the condition~\ref{eq:condition_max} cannot exceed the value one and this condition becomes a consistently true statement:
 \[
 n\log_23-\lfloor n\log_23\rfloor<2-1
 \]
@@ -132,7 +132,7 @@ n\log_23-\lfloor n\log_23\rfloor<2-1
 Thus, for $k=3$ the condition~\ref{eq:condition_max} for alphas's upper limit is met for all sequences that maximize $v_{n+1}$.
 
 \section{Include additional divisions into the product}
-How does the product, contained in condition~\ref{eq:condition_max}, look like if we include the additional $m$ divisions into the Engel expansion as per section~\ref{sec:include_divisions_engel_expansion}? To answer this question, we consider the sequence $v_{n+1},v_n,v_{n-1},\ldots,v_2,v_1$ and we set $v_2=\frac{3v_1+1}{2\cdot2^{m}}$. Then reusing the continued fraction given by equation~\ref{eq:asc_continued_fraction}, we obtain:
+How does the product, contained in condition~\ref{eq:condition_max} look if we include the additional $m$ divisions into the Engel expansion as per section~\ref{sec:include_divisions_engel_expansion}? To answer this question, we consider the sequence $v_{n+1},v_n,v_{n-1},\ldots,v_2,v_1$ and we set $v_2=\frac{3v_1+1}{2\cdot2^{m}}$. Then reusing the continued fraction given by equation~\ref{eq:asc_continued_fraction}, we obtain:
 
 {\setlength{\jot}{1.2em}
 \begin{flalign}
@@ -169,7 +169,7 @@ Finally substituting $v_2=\frac{3v_1+1}{2\cdot2^{m}}$ into equation~\ref{eq:prod
 	\[
 	\frac{3\cdot661-1}{2\cdot2^5}=v_2=31
 	\]
-	Let us now verify the formula for the product by taking this particular example. To this end we input $v_1=661$ together with $m=5$ and $n=4$ into equation~\ref{eq:product_simplification_k3_m}:
+	Let us now verify the formula for the product by taking this particular example. To this end, we input $v_1=661$ together with $m=5$ and $n=4$ into equation~\ref{eq:product_simplification_k3_m}:
 	\[
 	\left(1+\frac{1}{3\cdot661}\right)\left(1+\frac{1}{3\cdot31}\right)\left(1+\frac{1}{3\cdot47}\right)\left(1+\frac{1}{3\cdot71}\right)=\frac{1+2^{6}}{3\cdot661}-\frac{2^5}{661}\left(\frac{2}{3}\right)^4+1=1.023215853
 	\]
@@ -177,7 +177,7 @@ Finally substituting $v_2=\frac{3v_1+1}{2\cdot2^{m}}$ into equation~\ref{eq:prod
 
 \section{Condition for a limited growth of the Engel expansion}
 \label{sec:condition_limited_growth}
-Let us look now into the question of what condition must be met to prevent a greater growth than a decline in Collatz sequences. Specifically we consider an Engel expansion comprising $n+1$ sequence members that include $m$ additional divisions by two at the beginning. The last member $v_{n+1}$ in such a sequence can be calulated by formula~\ref{eq:asc_continued_fraction_m}. In order to restrict the growth of this sequence, we require that the last member has to be smaller than the first one. For this we define the condition $v_{n+1}<v_1$:
+Let us look now into the question of what condition must be met to prevent a greater growth than a decline in Collatz sequences. Specifically, we consider an Engel expansion comprising $n+1$ sequence members that include $m$ additional divisions by two at the beginning. The last member $v_{n+1}$ in such a sequence can be calculated by formula~\ref{eq:asc_continued_fraction_m}. In order to restrict the growth of this sequence, we require that the last member has to be smaller than the first one. For this we define the condition $v_{n+1}<v_1$:
 
 \[
 \frac{3^nv_1+3^{n-1}+3^{n-1}2^{m+1}}{2^{m+n}}-1<v_1
@@ -191,10 +191,10 @@ By transforming this inequality, which is thoroughly described in the appendix~\
 \end{equation}
 
 \section{Engel expansions maximize the product}
-The question which sequence maximizes the target node $v_{n+1}$ ties into the question which sequence maximizes the product in the condition for cycle-alpha's upper limit given by equation~\ref{eq:condition_max}. The product formula that do not depend from all vertices $v_1,v_2,\ldots v_n$ has been evolved in appendix~\ref{appx:product_formula_depending_v1}. This formla depends only from $2^\alpha$, from the starting node $v_1$ and the target node $v_{n+1}$:
+The question which sequence maximizes the target node $v_{n+1}$ ties into the question which sequence maximizes the product in the condition for cycle-alpha's upper limit given by equation~\ref{eq:condition_max}. The product formula that do not depend from all vertices $v_1,v_2,\ldots v_n$ has been evolved in appendix~\ref{appx:product_formula_depending_v1}. This formula depends only from $2^\alpha$, from the starting node $v_1$ and the target node $v_{n+1}$:
 
 \[
 \prod_{i=1}^{n}\left(1+\frac{1}{kv_i}\right)=\frac{2^{\alpha_1+\ldots+\alpha_n}v_{n+1}}{k^nv_1}
 \]
 
-In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which exactly the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product in the condition for cycle-alpha's upper limit.
+In order to maximize this product, one needs to maximize the target node $v_{n+1}$, which is exactly what the Engel expansion does. Hence, for a given $v_1$, the Engel expansion is the worst case sequence maximizing the product in the condition for cycle-alpha's upper limit.

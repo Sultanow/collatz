@@ -21,17 +21,12 @@ Typesetters.se]
 
 % Language
 %--------------------------------------------------------------------------
-%\RequirePackage[swedish]{babel}
 \RequirePackage[utf8]{inputenc}
 
-% Geometry
+% Page Setup
 %--------------------------------------------------------------------------
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=3cm,right=3cm,
                 marginparwidth=1.1cm,marginparsep=2mm]{geometry}
-
-% Fonts
-%-------------------------------------------------------------------------
-\RequirePackage{kpfonts}
 
 % Colors
 %-------------------------------------------------------------------------
@@ -49,17 +44,11 @@ Typesetters.se]
 % Graphics
 %-------------------------------------------------------------------------
 \RequirePackage{graphicx}
-%\RequirePackage{svg}
 \RequirePackage{tikz}
 \RequirePackage[pages=some]{background}
 \graphicspath{{images/}}
 \backgroundsetup{scale=1,color=black,opacity=1.0,angle=0,
 contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
-
-% Captions
-%-------------------------------------------------------------------------
-\RequirePackage{caption}
-\captionsetup{justification=centering,singlelinecheck=true,labelfont={bf},aboveskip=1em,belowskip=2em}
 
 % URLs
 %-------------------------------------------------------------------------
@@ -84,7 +73,7 @@ citecolor=wisogreen
 % Section styling
 %--------------------------------------------------------------------------
 \RequirePackage{sectsty}
-\sectionfont{\sf\color{wisogreen}\sectionrule{4ex}{0pt}{-1ex}{1pt}}
+\sectionfont{\sf\color{wisogreen}\sectionrule{1em}{0pt}{-1ex}{1pt}}
 
 % Chapter styling
 %--------------------------------------------------------------------------
@@ -162,7 +151,7 @@ citecolor=wisogreen
 %--------------------------------------------------------------------------
 \newenvironment{boxtheorem}
 {\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,colback=black!5,colframe=tsorange]}
+[enhanced jigsaw,colback=black!5,boxrule=1pt,colframe=tsorange]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxdefinition}
@@ -179,11 +168,6 @@ citecolor=wisogreen
 \newenvironment{boxproblem}
 {\vspace{0.5cm}\begin{tcolorbox}
 [enhanced jigsaw,colback=tsorange!25,boxrule=0pt,frame hidden]}
-{\end{tcolorbox}\vspace{0.5cm}}
-
-\newenvironment{boxprogramming}
-{\vspace{0.5cm}\begin{tcolorbox}
-[enhanced jigsaw,colback=tsblue!10,boxrule=0pt,frame hidden]}
 {\end{tcolorbox}\vspace{0.5cm}}
 
 \newenvironment{boxexample}
@@ -250,10 +234,6 @@ citecolor=wisogreen
 {\begin{boxproblem}\begin{envproblem}}
 {\end{envproblem}\end{boxproblem}}
 
-\newenvironment{programming}
-{\begin{boxprogramming}\begin{envprogramming}}
-{\end{envprogramming}\end{boxprogramming}}
-
 \newenvironment{example}
 {\begin{boxexample}\begin{envexample}}
 {\end{envexample}\end{boxexample}}
@@ -271,26 +251,3 @@ citecolor=wisogreen
 \newenvironment{remark}
 {\vspace{0.5cm}\pagebreak[0]\noindent\small\it\marginpar{\vspace{-3mm}\includegraphics[width=1.0cm]{idea}}\ignorespaces}
 {\vspace{0.5cm}\ignorespacesafterend}
-
-% Index
-%--------------------------------------------------------------------------
-%\RequirePackage{makeidx}
-%\makeindex
-
-% Packages for mathematics and algorithms
-%--------------------------------------------------------------------------
-\RequirePackage{algorithm}
-\RequirePackage{algpseudocode}
-\RequirePackage{xfrac}
-\RequirePackage{mathtools}
-\RequirePackage{wasysym}
-\RequirePackage{siunitx}
-\newcommand\bmmax{2}
-\RequirePackage{bm}
-
-% Other useful packages
-%--------------------------------------------------------------------------
-\RequirePackage{blindtext}
-\RequirePackage[most]{tcolorbox}
-\RequirePackage{booktabs}
-\RequirePackage{url}

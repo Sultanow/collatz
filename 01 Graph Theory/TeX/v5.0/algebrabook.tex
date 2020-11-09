@@ -1,24 +1,33 @@
 \documentclass{algebrabook}
 
+\usepackage{kpfonts}
 \usepackage[misc]{ifsym}
 \usepackage{fontawesome}
 \usepackage{amssymb}
 \usepackage{nicefrac}
 \usepackage{cancel}
-\usepackage{colortbl}
+\usepackage{algorithm}
+\usepackage{url}
 
 % Tables
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{ragged2e}
+\usepackage{colortbl}
 \newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
 \newcolumntype{L}{>{\begin{math}}l<{\end{math}}}
 \newcolumntype{C}{>{\begin{math}}c<{\end{math}}}
 \newcolumntype{R}{>{\begin{math}}r<{\end{math}}}
 
+% Boxes
+\usepackage[most]{tcolorbox}
+
+% Captions
+\usepackage{caption}
+\captionsetup{justification=centering,singlelinecheck=true,labelfont={bf},aboveskip=1em,belowskip=1em}
+
 % Listings
 \usepackage{listings}
-\usepackage{caption}
 \captionsetup[listing]{skip=4pt}
 \usepackage[newfloat,cache=false]{minted}
 \definecolor{bg}{rgb}{0.95,0.95,0.95}

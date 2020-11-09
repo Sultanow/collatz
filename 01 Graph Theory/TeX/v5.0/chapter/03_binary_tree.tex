@@ -27,7 +27,6 @@ Jan Kleinnijenhuis and Alissa M. Kleinnijenhuis \cite{Ref_Kleinnijenhuis_2020a} 
 	\label{fig:bt3_rot}
 \end{figure}
 
-\vspace{-2em}
 \begin{remark}
 	To clarify the terminology, it should be mentioned that Jan and Alissa M. Kleinnijenhuis in their manuscripts \cite{Ref_Kleinnijenhuis_2020a}, \cite{Ref_Kleinnijenhuis_2020b} denote the original Collatz tree $T_C$ while we call it $H_U$. They denote the Syracuse Tree $T_T$ which in our nomenclature is referred to as $H_{C,3}$.
 \end{remark}
@@ -77,7 +76,7 @@ Let us describe these sets using multiplicative groups. The set $S_{\ge0}=\mathb
 The set $S_0$ consists of all nodes resulting as output of $R(n)$ within the binary tree $T_{\ge0}$. These are the orange highlighted nodes displayed by figures~\ref{fig:bt3},~\ref{fig:bt3_rot}. In other words, $S_0$ is the codomain of the function $R(n)$ operating on nodes within $T_{\ge0}$. The binary tree $T_{\ge0}$ can be transformed to a (pruned) binary tree $T_{\ge1}$. For this, the prunable nodes will be deleted and their neighbors reconnected. The upward neighbor of a pruned node will then be identified as pruning candidate for a later transformation of the resulting tree $T_{\ge1}$ to a more pruned tree $T_{\ge2}$.
 
 \par\medskip
-The set $S_1$ contains all nodes that are (as per the description above) identified as pruning candidate for the next transformation of $T_{\ge1}$ to $T_{\ge2}$. After having transformed $T_{\ge1}$ to $T_{\ge2}$, the more pruned binary tree $T_{\ge2}$ contains nodes that are identified as pruning candidates for another upcoming transformation of $T_{\ge2}$ to $T_{\ge3}$ -- these nodes are elements of the set $S_2$. This pruning algorithm is repeatedly applied in the same pattern. And in this way we obtain the sets $S_1,S_2,S_3,\ldots$ and so forth. Generally, we can write these sets in the form $S_j=\{n\in N(T_{j-1})\mid U^{-j}(n)\in S_0\}$. Kleinnijenhuis found out that the codomain $\mathbb{N}^U$ of the Upward function contains $5$ residue classes modulo $96$, namely $\{5, 29, 53, 77, 85\}=\mathbb{N}^U$ and the codomain $\mathbb{N}^R$ of the Rightward function comprises $27$ residue classes modulo $96$, namely $\{1, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 41, 43, 47, 49, 55, 59, 61, 65, 67, 71, 73, 79, 83, 89, 91, 95\}=\mathbb{N}^R$.
+The set $S_1$ contains all nodes that are (as per the description above) identified as pruning candidates for the next transformation of $T_{\ge1}$ to $T_{\ge2}$. After having transformed $T_{\ge1}$ to $T_{\ge2}$, the more pruned binary tree $T_{\ge2}$ contains nodes that are identified as pruning candidates for another upcoming transformation of $T_{\ge2}$ to $T_{\ge3}$ -- these nodes are elements of the set $S_2$. This pruning algorithm is repeatedly applied in the same pattern. And in this way we obtain the sets $S_1,S_2,S_3,\ldots$ and so forth. Generally, we can write these sets in the form $S_j=\{n\in N(T_{j-1})\mid U^{-j}(n)\in S_0\}$. Kleinnijenhuis found out that the codomain $\mathbb{N}^U$ of the Upward function contains $5$ residue classes modulo $96$, namely $\{5, 29, 53, 77, 85\}=\mathbb{N}^U$ and the codomain $\mathbb{N}^R$ of the Rightward function comprises $27$ residue classes modulo $96$, namely $\{1, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 41, 43, 47, 49, 55, 59, 61, 65, 67, 71, 73, 79, 83, 89, 91, 95\}=\mathbb{N}^R$.
 
 \par\medskip
 The union of both sets $\mathbb{N}^U\cup\mathbb{N}^R$ forms the cyclic multiplicative group $\mathbb{Z}^\ast_{96}=<\{5, 17, 31\}>$.
@@ -103,7 +102,7 @@ Figure~\ref{fig:tree_transformations} shows the complete chain of tree transform
 
 % trim=left bottom right top
 \begin{figure}[H]
-	\includegraphics[trim=1.1cm 11cm 2.6cm 0.2cm, 
+	\includegraphics[trim=1.1cm 10cm 2.6cm 0.2cm, 
 	width=1.00\textwidth,page=1]{figures/tree_transformations.pdf}
 	\caption{Transformation chain, beginning from the original Collatz tree up to pruned binary trees}
 	\label{fig:tree_transformations}
