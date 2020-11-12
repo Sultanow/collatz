@@ -13,6 +13,6 @@ Added Python script for validating the sum:
 <img src="img/sum.png" width="600" />
 
 # Connect with us
-We are on [Researchgate](https://www.researchgate.net/project/Collatz-Conjecture-4) and open for any question.
+We are on [Researchgate](https://www.researchgate.net/project/Collatz-Conjecture-4) and open for any question and collaboration.
 
 <img src="img/book.png" />
