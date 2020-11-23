@@ -1,0 +1,52 @@
+\chapter{Experimental}
+
+\section{Further development of the maximum proof}
+Starting point is:
+\[
+v_{n+2}=\frac{2}{\left(2-\prod_{i=1}^{n}\beta_i\right)\cdot2^{\alpha_{n+1}}}
+\]
+
+\par\medskip
+In order to show that $v_{n+2}<1$ we consider the worst case that maximizes $v_{n+2}$ by using the inserting the Engel expansion into the product:
+\[
+\prod_{i=1}^{n}\beta_i=\prod_{i=1}^{n}\left(1+\frac{1}{3v_i}\right)=\prod_{i=1}^{n}\left(1+\frac{1}{3v_i}\right)=\prod_{i=1}^{n}\left(1+\frac{1}{3\frac{3^{i-1}(v_1+1)-2^{i-1}}{2^{i-1}}}\right)
+=\prod_{i=1}^{n}\frac{3^i(v_1+1)-2^i}{3^i(v_1+1)-3*2^{i-1}}
+=\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1
+\]
+
+\par\medskip
+This leads to:
+\[
+v_{n+2}=\frac{2}{\left(2-\left(\frac{1}{v_1}-\frac{1}{v_1}\left(\frac{2}{3}\right)^n+1\right)\right)\cdot2^{\alpha_{n+1}}}
+\]
+
+\par\medskip
+Multiplying leads to
+\[
+2^{\alpha_{n+1}}v_1v_{n+2}-2^{\alpha_{n+1}}v_{n+2}+2^{\alpha_{n+1}}v_{n+2}\left(\frac{2}{3}\right)^n-2v_1=0
+\]
+
+\par\medskip
+Now we remove the variable $v_1$, because we know the relatonship between $v_1$ and $v_{n+2}$ in an Engel expansion (see \ref{eq:asc_continued_fraction}):
+\[
+v_1=\frac{(v_{n+2}+1)2^{n+1}}{3^{n+1}}-1
+\]
+
+\par\medskip
+Now we substitute the term above into our equation:
+\[
+2^{\alpha_{n+1}}\left(\frac{(v_{n+2}+1)2^{n+1}}{3^{n+1}}-1\right)v_{n+2}-2^{\alpha_{n+1}}v_{n+2}+2^{\alpha_{n+1}}v_{n+2}\left(\frac{2}{3}\right)^n-2\left(\frac{(v_{n+2}+1)2^{n+1}}{3^{n+1}}-1\right)=0
+\]
+
+\par\medskip
+We know that in an Engel expansion $\alpha_{n+1}=1$ (we make onla one division by two between vertices). Via substitution $v_{n+2}=y$ we obtain a simple equation, which has for $y\ge1$ only complex solutions having an imaginary part:
+\[
+\left(\frac{(y+1)2^{n+1}}{3^{n+1}}-1\right)y-y+y\left(\frac{2}{3}\right)^n-\left(\frac{(y+1)2^{n+1}}{3^{n+1}}-1\right)=0
+\]
+
+Let us now substitute $\left(\frac{2}{3}\right)^n$ with $z$:
+\[
+\left((y+1)\frac{2}{3}z-1\right)y-y+yz-\left((y+1)\frac{2}{3}z-1\right)=0
+\]
+
+Hence $y=v_{n+2}$ must be smaller than 1.

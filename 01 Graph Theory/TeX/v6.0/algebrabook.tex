@@ -1,0 +1,93 @@
+\documentclass{algebrabook}
+
+\usepackage{kpfonts}
+\usepackage[misc]{ifsym}
+\usepackage{fontawesome}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+\usepackage{cancel}
+\usepackage{algorithm}
+\usepackage{url}
+
+% Tables
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{colortbl}
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}
+
+% Boxes
+\usepackage[most]{tcolorbox}
+
+% Captions
+\usepackage{caption}
+\captionsetup{justification=centering,singlelinecheck=true,labelfont={bf},aboveskip=1em,belowskip=1em}
+
+% Listings
+\usepackage{listings}
+\captionsetup[listing]{skip=4pt}
+\usepackage[newfloat,cache=false]{minted}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+% empty all blank pages created by \cleardoublepage
+\usepackage{emptypage}
+
+% declarations
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\dlog}{dlog}
+
+% Bibliography
+\usepackage[backend=biber,sorting=none]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\addbibresource{bibliography.bib}
+
+
+\begin{document}
+
+%--------------------------------------------------------------------------
+% Table of contents
+%--------------------------------------------------------------------------
+\tableofcontents
+\pagestyle{fancy}
+
+%--------------------------------------------------------------------------
+% Chapters
+%--------------------------------------------------------------------------
+\input{./chapter/01_introduction_COX_EDIT.tex}
+\input{./chapter/02_collatz_tree_COX_EDIT.tex}
+\input{./chapter/03_binary_tree.tex}
+\input{./chapter/04_cycles.tex}
+%\input{./chapter/04_maximizing_target_node.tex}
+%\input{./chapter/05_reachability_root.tex}
+\input{./chapter/06_conclusion_update_COX_EDIT.tex}
+\input{./chapter/07_appendix.tex}
+%\input{./chapter/xx_experimental.tex}
+
+%--------------------------------------------------------------------------
+% Bibliography
+%--------------------------------------------------------------------------
+%\ifodd\thepage
+%	\addtocounter{page}{2}
+%\else
+%	\addtocounter{page}{1}
+%\fi
+
+% The bibliography starts on a new right-hand page.
+% To ensure that the entry in the toc comes out with the correct
+% page number, we issue the command "cleardoublepage" (manually)
+% before "addcontentsline", and then we call "printbibliography".
+% See https://tex.stackexchange.com/questions/154740/wrong-page-number-of-
+%     references-in-toc-scrreprt/154744
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\textcolor{wisogreen}{Literature}}
+\printbibliography[title={Literature}]
+
+\input{./chapter/08_about_our_approach.tex}
+\input{./chapter/09_acknowledgements.tex}
+\input{./chapter/10_about_us_COX_EDIT.tex}
+
+\end{document}
