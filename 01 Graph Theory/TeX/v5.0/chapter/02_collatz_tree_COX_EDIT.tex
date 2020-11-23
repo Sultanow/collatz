@@ -248,26 +248,26 @@ $v_3=213$:
 \end{equation*}
 \end{example}
 
-We will now explain the reasons that are underlying this behavior. Essentially, two integers $a$ and $b$ are congruent modulo $n$ if their difference $a-b$ is divisible by $n$ or, to put it differently, if $a$ and $b$ have the same remainder when divided by $n$ \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~44]{Ref_Forster_2015}, \cite[p.~19]{Ref_Mueller-Stach_2011}:
+We will now explain the reasons that are underlying this behavior. Essentially, two integers $a$ and $b$ are congruent modulo $n$ if their difference $a-b$ is divisible by $n$ or, to put it differently, if $a$ and $b$ have the same remainder when divided by $n$ \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~44]{Ref_Forster_2015}, \cite[p.~19]{Ref_Mueller-Stach_2011}, \cite[p.~142]{Ref_Iwanowski_Lang_2014}:
 \begin{equation}
 \label{eq:congruence}
-n|(a-b)\rightarrow a\equiv b\pmod n
+n|(a-b)\leftrightarrow a\equiv b\pmod n
 \end{equation}
 
 In modular arithmetic we are allowed to interpret integers as names, or to be more specific as \textit{representatives}, for their equivalence class and therefore reduce (or expand) a congruence as follows:
 \begin{equation}
 \label{eq:congruence_reduction}
-(a+n)\equiv b\pmod n\rightarrow a\equiv b\pmod n
+(a+n)\equiv b\pmod n\leftrightarrow a\equiv b\pmod n
 \end{equation}
 
 This means, that in modular arithmetic both operations -- addition and multiplication -- are independent from the choice of representatives in the residue classes \cite[p.~16]{Ref_Wolfart_2011}.
 
-The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+k\cdot n|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~120]{Ref_Schubert_2009}, \cite[p.~25]{Ref_Mueller-Stach_2011}. Let us put all possible remainders that arise from the division modulo $n$ together into a new set -- the set of all residue classes $[a]_n$. This set is known as the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}, \cite[p.~81]{Ref_Teschl_2013}.
+The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+k\cdot n|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~122]{Ref_Schubert_2012}, \cite[p.~25]{Ref_Mueller-Stach_2011}, \cite[p.~141]{Ref_Iwanowski_Lang_2014}. Let us put all possible remainders that arise from the division modulo $n$ together into a new set -- the set of all residue classes $[a]_n$. This set is known as the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}, \cite[p.~81]{Ref_Teschl_2013}.
 
-Now there is one more tool that we will make use of later, and that is the \textit{Congruence Power Rule (CPR)}. It states that we are allowed to raise both sides of a congruence to the $n$-th power \cite[p.~19]{Ref_Mueller-Stach_2011}, \cite[p.~117]{Ref_Benjamin_2009}:
+Now there is one more tool that we will make use of later, and that is the \textit{Congruence Power Rule (CPR)}. It states that we are allowed to raise both sides of a congruence to the $m$-th power \cite[p.~19]{Ref_Mueller-Stach_2011}, \cite[p.~117]{Ref_Benjamin_2009}:
 \begin{equation}
 \label{eq:congruence_power_rule}
-a\equiv b\pmod n\rightarrow a^n\equiv b^n\pmod n
+a\equiv b\pmod n\leftrightarrow a^m\equiv b^m\pmod n
 \end{equation}
 
 Let $G$ be a group and $a\in G$. If there exists an integer $d>0$ with $a^d=e$, then the smallest such $d$ is called the \textit{order} of $a$, written $d=\ord(a)$ \cite[p.~35]{Ref_Wolfart_2011}, \cite[p.~50]{Ref_Forster_2015}, \cite[p.~240]{Ref_Modler_Kreh_2012}. If no such $d$ exists, we formally write $\ord(a)=\infty$. The number of elements of $G$ is called the \textit{order} of $G$, written $\ord(G)$ \cite[p.~26]{Ref_Wolfart_2011}, \cite[p.~50]{Ref_Forster_2015}.
@@ -276,13 +276,13 @@ Let $G$ be a group and $a\in G$ an element of $G$. We consider the set of all el
 
 Let us consider the cyclic group $\left<a\right>=\{e,a,a^2,\ldots,a^{n-1}\}$ and an element $b\in\left<a\right>$. Now let us face the question, "How do we find the unique integer $0\le j\le n-1$, such that $a^j=b$?" This integer $j$ is denoted by $j=log_ab$ and it is called the \textit{discrete logarithm} of $b$ \cite[p.~255-256]{Ref_Stinson_Paterson_2019}. To make it more clear that we are talking about the discrete logarithm we write $j=\dlog_ab$ or more specifically $j=\dlog_{a,k}b$ if we solve the congruence $a^j\equiv b\pmod k$ which means we solve the equation $a^j\bmod k=b$, see \cite{Ref_Jain_2011}.
 
-The multiplicative group of integers modulo $n$, denoted as $(\mathbb{Z}/n\mathbb{Z})^\times$ or briefly as $\mathbb{Z}_n^\ast$ contains those elements from $\mathbb{Z}/n\mathbb{Z}$ whose representatives are coprime to $n$ \cite[p.~87]{Ref_Teschl_2013}:
+The multiplicative group of integers modulo $n$, denoted as $(\mathbb{Z}/n\mathbb{Z})^\times$ or briefly as $\mathbb{Z}_n^\ast$ contains non-negative elements from $\mathbb{Z}/n\mathbb{Z}$ whose representatives are coprime to $n$ \cite[p.~87]{Ref_Teschl_2013}:
 \begin{equation}
 \label{eq:multiplicative_group_mod_n}
 Z_n^\ast=\{a\in\mathbb{Z}/n\mathbb{Z}|\gcd(a,n)=1\}
 \end{equation}
 
-This group $\mathbb{Z}_n^\ast$ is a finite abelian group, which contains only the elements from the ring $\mathbb{Z}/n\mathbb{Z}$ that are invertible with respect to multiplication -- the units of $\mathbb{Z}/n\mathbb{Z}$. Within the ring $\mathbb{Z}/n\mathbb{Z}$ an element $a$ is invertible exactly if there exists an element $b$ such that $a*b\equiv1\pmod n$. An element inverse to $a$ exists exactly if $\gcd(a,n)=1$.
+This group $\mathbb{Z}_n^\ast$ is a finite abelian group, which contains only the elements from the ring $\mathbb{Z}/n\mathbb{Z}$ that are invertible with respect to multiplication -- the units of $\mathbb{Z}/n\mathbb{Z}$. That is why the group $\mathbb{Z}_n^\ast$ is often denoted by $U(n)$, where $U$ stands for units. Within the ring $\mathbb{Z}/n\mathbb{Z}$ an element $a$ is invertible exactly if there exists an element $b$ such that $a*b\equiv1\pmod n$. An element inverse to $a$ exists exactly if $\gcd(a,n)=1$.
 
 The \textit{multiplicative order} $\ord(a)$ of an element $a\in\mathbb{Z}_n^\ast$ is the smallest natural exponent $d$ which satisfies $a^d=1$. In other words, for a positive integer $n$ we say that an integer $a$ has multiplicative order $d$ modulo $n$ if $a^d\equiv1\pmod n$ where again $d$ is the smallest possible exponent \cite[p.~76]{Ref_Hutz_2018}, \cite[p.~32]{Ref_Shoup_2008}. To indicate that the order of $a$ refers to the modulus $n$, it is also often written $d=\ord_n(a)$. Recall that $\gcd(a,n)=1$, since $a\in\mathbb{Z}_n^\ast$
 
