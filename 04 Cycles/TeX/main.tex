@@ -1,0 +1,143 @@
+\documentclass[12pt]{amsart}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, anchorcolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{url}
+\usepackage{graphicx,color}
+\usepackage{cite}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage[top=45truemm, bottom=45truemm, left=30truemm, right=30truemm]{geometry}
+\usepackage{nicefrac}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{ragged2e}
+
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\setlength{\headsep}{2em}
+\setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
+
+\title[Cycles in kx+c functions]{Cycles in $kx+c$ functions}
+
+\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
+\address{First Lastname\\
+Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
+\curraddr{}
+\email{first.last@university.edu}
+
+\author[F.\ Last2]{First Last}
+\address{First Lastname\\
+Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
+\curraddr{}
+\email{first.last@university.edu}
+
+\author[F.\ Last3]{First Last}
+\address{First Lastname\\
+	Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
+\curraddr{}
+\email{first.last@university.edu}
+
+\author[F.\ Last4]{First Last}
+\address{First Lastname\\
+	Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
+\curraddr{}
+\email{first.last@university.edu}
+
+\author[F.\ Last5]{First Last}
+\address{First Lastname\\
+	Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
+\curraddr{}
+\email{first.last@university.edu}
+
+\subjclass[2010]{37P99}
+\keywords{2-adic numbers, binary residue system}
+
+\begin{document}
+	
+\begingroup
+\let\MakeUppercase\relax
+\maketitle
+\endgroup
+
+\begin{abstract}
+This paper treats cycles in $kx+c$ functions. 
+\end{abstract}
+
+\newpage
+{\renewcommand{\arraystretch}{1.8}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
+		\hline
+		\multicolumn{2}{|l|}{\thead[l]{\textbf{Fundamentals short and sweet}}}
+		\\
+		cycle & A cycle is.
+		\\
+		dead limb & A dead limb is.
+		\\
+		unitary ring & A unitary ring is a ring with a multiplicative identity $1$ (which differs from the additive identity $1\ne0$) such that $1a=a=a1$ for all elements $a$ of the ring.
+		\\
+		Ideal & Let $(R,+,\cdot)$ be a commutative unitary ring. Then the subset $I\subseteq R$ is called an ideal of $R$ if $(I,+)$ is a commutative group and if $xI\subseteq I$ for all $x\in R$, see \cite[p.~66-67]{Ref_Wolfart_2011}.
+		\\
+		quot. ring & Using an ideal of a ring $I\subseteq R$, we may define an equivalence relation $\sim$ on $R$ by $a\sim b$ iff $a-b$ is in $I$ \cite[p.~69]{Ref_Schulze-Pillot_2015}. The equivalence class of $a$ in $R$ is given by $[a]=a+I:=\{a+r|r\in I\}$ for $r\in R$ and referred to as "residue class of $a$ modulo $I$", see \cite[p.~122]{Ref_Schubert_2012}, \cite[p.~70]{Ref_Schulze-Pillot_2015}. The set of all these equivalence classes becomes the quotient ring (residue class ring) modulo the ideal $I$, denoted by $R/I$.
+		\\
+		compl. residue system & Let $I\subseteq R$ be an ideal and $[a]$ the residue classes of $a$ modulo $I$, which means that $a+I=b+I$ when $a\equiv b\mod I$ or respectively $a-b\in I$ \cite[p.~70]{Ref_Schulze-Pillot_2015}. $R$ is the disjoint union of the different residue classes $a$ modulo $I$. A subset $M\subseteq R$, which contains exactly one element from each of these residue classes, is called a complete residue system of $R$ modulo $I$, see \cite[p.~70]{Ref_Schulze-Pillot_2015}.
+		\\
+		$[a]_n$ & The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+kn|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~122]{Ref_Schubert_2012}, \cite[p.~25]{Ref_Mueller-Stach_2011}.
+		\\
+		$\mathbb{Z}/n\mathbb{Z}$ & The set of all residue classes $[a]_n$ is called the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}. 
+		\\ \hline
+	\end{tabular}
+\end{table}}
+
+{\renewcommand{\arraystretch}{1.8}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
+		\hline
+		direct prod. & If $R_1,R_2,\ldots,R_n$ are rings, the cartesian product $R_1\times R_2\times\ldots\times R_n$ forms the set of all ordered $n$-tuples $(r_1,r_2,\ldots,r_n)$, where $r_i\in R_i$. The addition and multiplication of these n-tuples is defined "coordinatewise" by components. The resulting ring is called a "direct product" of the original rings $R_i$ \cite[p.~51]{Ref_Wolfart_2011}, \cite[p.~169]{Ref_Fraleigh_2014}.
+		\\
+		prod. of ideals & Let $I,J$ be two ideals of a ring $R$. Their product $IJ$ is defined as the set of all finite sums $a_1b_1+\ldots+a_nb_n$ in which $n\ge0$ and $a_1,\ldots,a_n\in I$ and $b_1,\ldots,b_n\in J$, see \cite[p.~87]{Ref_Schmidt_2007}.
+		\\
+		power of an ideal & Let $I$ be an ideal in $R$. The $n$-th power of $I$, denoted by $I^n$, is the n-times product of the ideal $I$ with itself. $I^n$ contains sums of elements of the form $a_1a_2\cdots a_n$ where $a_1,a_2,\ldots,a_n\in I$ and the products refer to the multiplication defined in $R$. Consequently, $I^{n+1}\subseteq I^n$. Note that the product and power of ideals should not be confused with the direct product of rings.
+		\\
+		filtration & Let $R$ be a ring. A sequence of ideals $I_0,I_1,I_2,\ldots$ is said to be a "filtration" on $R$ if $I_0=R$ and for each integer $j\ge0$ applies that $I_j\supseteq I_{j+1}$ and if $I_jI_k\subseteq I_{j+k}$, see \cite[p.~269]{Ref_Lucas_2001}.
+		\\
+		princip. ideal & A "principle ideal" is an ideal in a ring $R$ which is generated by a single element $a$ of $R$ through multiplication by every element of $R$. There are some rings in which every ideal is a principle ideal, so-called "principle ideal rings" \cite[p.~68]{Ref_Wolfart_2011}.
+		\\
+		max. ideal & A proper Ideal $M$ of a ring $R$ is called "maximal ideal" of $R$  if there is no other proper ideal $N$ of $R$ properly containing $M$ \cite[p.~247]{Ref_Fraleigh_2014}, \cite[p.~37]{Ref_Northcott_1953}. A Note on "proper containment": If $R$ is any set, then $R$ is the improper subset of $R$. Any other subset $N\ne R$ is a proper subset of $R$ and denoted by $N\subset R$ or $N\varsubsetneq R$ \cite[p.~2]{Ref_Fraleigh_2014}.
+		\\
+		prime ideal & Let $a$ and $b$ are two elements of $R$ and $P$ a proper ideal such that their product $ab$ is an element of $P$. $P$ is called a prime ideal if at least one of $a$ and $b$ belongs to $P$, in other words from $ab\in P$ and $a\notin P$ always follows $b\in P$ \cite[p.~9]{Ref_Northcott_1953}.
+		\\
+		max. prime ideal & A proper prime ideal $P$ is said to be a "maximal prime ideal" of the ring $R$, if there is no other proper prime ideal containing $P$ \cite[p.~23]{Ref_Northcott_1953}.
+		\\
+		local ring & A commutative ring $R$ is called a local ring if it has a unique maximal ideal $M$ \cite[p.~522]{Ref_Rotman_2005}.
+		\\ \hline
+	\end{tabular}
+\end{table}}
+
+\section{Introduction}
+\label{introduction}
+Let us write introduction here
+
+\vspace{1em}
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
