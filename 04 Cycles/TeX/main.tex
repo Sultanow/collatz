@@ -87,53 +87,33 @@ This paper treats cycles in $kx+c$ functions.
 		\hline
 		\multicolumn{2}{|l|}{\thead[l]{\textbf{Fundamentals short and sweet}}}
 		\\
-		cycle & A cycle is.
+		$C_{k,c}$ cycle & We consider the function $f_{k,c}(x)$ given by equation~\ref{eq:collatz_function}. A cycle $C_{k,c}$ is the sequence $(v_1, v_2,\ldots, v_n)$ of distinct positive integer, where $f_{k,c}(v_1)=v_2$ and $f_{k,c}(v_2)=v_3$ and so forth and finally $f_{k,c}(v_n)=v_1$.
 		\\
-		dead limb & A dead limb is.
+		Primitive cycle & If all members of a cycle share a same common divisor greater than one, then this cycle is referred to as a \textit{non-primitve} cycle, otherwise it is a \textit{primitve} cycle.
 		\\
-		unitary ring & A unitary ring is a ring with a multiplicative identity $1$ (which differs from the additive identity $1\ne0$) such that $1a=a=a1$ for all elements $a$ of the ring.
+		Non-reduced word & Let $C_{k,c}$ be a cycle having $U$ odd and $D$ even members. The non-reduced word describing this cycle is a word of length $U+D$ over the alphabet $\{u,d\}$, which has a $u$ at those positions, where an odd member and a $d$ where an even member is located in the cycle.
 		\\
-		Ideal & Let $(R,+,\cdot)$ be a commutative unitary ring. Then the subset $I\subseteq R$ is called an ideal of $R$ if $(I,+)$ is a commutative group and if $xI\subseteq I$ for all $x\in R$, see \cite[p.~66-67]{Ref_Wolfart_2011}.
+		Parity vector & Analoguously to the non-reduced word, the (binary) parity vector of a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ has $n=U+D$ entries. It has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$.
 		\\
-		quot. ring & Using an ideal of a ring $I\subseteq R$, we may define an equivalence relation $\sim$ on $R$ by $a\sim b$ iff $a-b$ is in $I$ \cite[p.~69]{Ref_Schulze-Pillot_2015}. The equivalence class of $a$ in $R$ is given by $[a]=a+I:=\{a+r|r\in I\}$ for $r\in R$ and referred to as "residue class of $a$ modulo $I$", see \cite[p.~122]{Ref_Schubert_2012}, \cite[p.~70]{Ref_Schulze-Pillot_2015}. The set of all these equivalence classes becomes the quotient ring (residue class ring) modulo the ideal $I$, denoted by $R/I$.
+		Interrelated cycles & Two cycles are called \textit{interrelated} if they have the same length and if they both have an equal amount of odd members, which means their non-reduced words contain an equal number of $u$ and $v$. Analoguously their parity vectors have the same number of zeros and ones.
 		\\
-		compl. residue system & Let $I\subseteq R$ be an ideal and $[a]$ the residue classes of $a$ modulo $I$, which means that $a+I=b+I$ when $a\equiv b\mod I$ or respectively $a-b\in I$ \cite[p.~70]{Ref_Schulze-Pillot_2015}. $R$ is the disjoint union of the different residue classes $a$ modulo $I$. A subset $M\subseteq R$, which contains exactly one element from each of these residue classes, is called a complete residue system of $R$ modulo $I$, see \cite[p.~70]{Ref_Schulze-Pillot_2015}.
-		\\
-		$[a]_n$ & The residue class (also termed congruence class) of the integers for a modulus $n$ is the set $[a]_n=\{a+kn|k\in\mathbb{Z}\}$ and sometimes denoted by $\bar a_n$ or by $a+n\mathbb{Z}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~122]{Ref_Schubert_2012}, \cite[p.~25]{Ref_Mueller-Stach_2011}.
-		\\
-		$\mathbb{Z}/n\mathbb{Z}$ & The set of all residue classes $[a]_n$ is called the ring of integers modulo $n$ and denoted by $\mathbb{Z}/n\mathbb{Z}=\{[a]_n|a\in\mathbb{Z}\}$ and trivially $\mathbb{Z}/0\mathbb{Z}=\mathbb{Z}$ and for all $n\ne0$ we have $\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}$, see \cite[p.~15]{Ref_Wolfart_2011}, \cite[p.~25]{Ref_Mueller-Stach_2011}. 
-		\\ \hline
-	\end{tabular}
-\end{table}}
-
-{\renewcommand{\arraystretch}{1.8}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|P{1.4cm} p{13.4cm}|}
-		\hline
-		direct prod. & If $R_1,R_2,\ldots,R_n$ are rings, the cartesian product $R_1\times R_2\times\ldots\times R_n$ forms the set of all ordered $n$-tuples $(r_1,r_2,\ldots,r_n)$, where $r_i\in R_i$. The addition and multiplication of these n-tuples is defined "coordinatewise" by components. The resulting ring is called a "direct product" of the original rings $R_i$ \cite[p.~51]{Ref_Wolfart_2011}, \cite[p.~169]{Ref_Fraleigh_2014}.
-		\\
-		prod. of ideals & Let $I,J$ be two ideals of a ring $R$. Their product $IJ$ is defined as the set of all finite sums $a_1b_1+\ldots+a_nb_n$ in which $n\ge0$ and $a_1,\ldots,a_n\in I$ and $b_1,\ldots,b_n\in J$, see \cite[p.~87]{Ref_Schmidt_2007}.
-		\\
-		power of an ideal & Let $I$ be an ideal in $R$. The $n$-th power of $I$, denoted by $I^n$, is the n-times product of the ideal $I$ with itself. $I^n$ contains sums of elements of the form $a_1a_2\cdots a_n$ where $a_1,a_2,\ldots,a_n\in I$ and the products refer to the multiplication defined in $R$. Consequently, $I^{n+1}\subseteq I^n$. Note that the product and power of ideals should not be confused with the direct product of rings.
-		\\
-		filtration & Let $R$ be a ring. A sequence of ideals $I_0,I_1,I_2,\ldots$ is said to be a "filtration" on $R$ if $I_0=R$ and for each integer $j\ge0$ applies that $I_j\supseteq I_{j+1}$ and if $I_jI_k\subseteq I_{j+k}$, see \cite[p.~269]{Ref_Lucas_2001}.
-		\\
-		princip. ideal & A "principle ideal" is an ideal in a ring $R$ which is generated by a single element $a$ of $R$ through multiplication by every element of $R$. There are some rings in which every ideal is a principle ideal, so-called "principle ideal rings" \cite[p.~68]{Ref_Wolfart_2011}.
-		\\
-		max. ideal & A proper Ideal $M$ of a ring $R$ is called "maximal ideal" of $R$  if there is no other proper ideal $N$ of $R$ properly containing $M$ \cite[p.~247]{Ref_Fraleigh_2014}, \cite[p.~37]{Ref_Northcott_1953}. A Note on "proper containment": If $R$ is any set, then $R$ is the improper subset of $R$. Any other subset $N\ne R$ is a proper subset of $R$ and denoted by $N\subset R$ or $N\varsubsetneq R$ \cite[p.~2]{Ref_Fraleigh_2014}.
-		\\
-		prime ideal & Let $a$ and $b$ are two elements of $R$ and $P$ a proper ideal such that their product $ab$ is an element of $P$. $P$ is called a prime ideal if at least one of $a$ and $b$ belongs to $P$, in other words from $ab\in P$ and $a\notin P$ always follows $b\in P$ \cite[p.~9]{Ref_Northcott_1953}.
-		\\
-		max. prime ideal & A proper prime ideal $P$ is said to be a "maximal prime ideal" of the ring $R$, if there is no other proper prime ideal containing $P$ \cite[p.~23]{Ref_Northcott_1953}.
-		\\
-		local ring & A commutative ring $R$ is called a local ring if it has a unique maximal ideal $M$ \cite[p.~522]{Ref_Rotman_2005}.
+		dead limb & A dead limb is. 
 		\\ \hline
 	\end{tabular}
 \end{table}}
 
 \section{Introduction}
-\label{introduction}
+\label{sec:introduction}
+
+Starting point of our considerations is the function:
+\begin{equation}
+\label{eq:collatz_function}
+f_{k,c}(x)=
+\begin{cases}
+\nicefrac{kx+c}{2}	&	2\nmid x\\
+\nicefrac{x}{2}		&	\text{otherwise}
+\end{cases}
+\end{equation}
 
 Let $S$ be a set containing two elements $u$ and $d$, which are bijective functions over $\mathbb{Q}$:
 \begin{equation}
@@ -147,43 +127,56 @@ e,u^{e_1},d^{e_1},u^{e_1}d^{e_2},d^{e_1}u^{e_2},u^{e_1}d^{e_2}u^{e_3},d^{e_1}u^{
 \]
 
 %https://de.wikipedia.org/wiki/Freie_Gruppe
-These uniquely written products are called \textit{reduced words} over $S$. We construct strings $s_i=u^{u_i}d^{d_i}$ which we concatenate to a larger string:
+These uniquely written products are called \textit{reduced words} over $S$. Using exponents $u_i,d_i>0$, we construct strings $s_i=u^{u_i}d^{d_i}$ and concatenate these to a larger string:
 
 \[
 s_1s_2\cdots s_n=u^{u_1}d^{d_1}u^{u_2}d^{d_2}\cdots u^{u_n}d^{d_n}
 \]
 
-Let us evaluate this (large) string by inputting a natural number $v_0$. If the result is again $v_0$ then we obtain a cycle:
+Note that each string $s_i$ is a reduced word, since $u_i,d_i>0$. Let us evaluate this (large) string by inputting a natural number $v_1$. If the result is again $v_1$ then we obtain a cycle:
 
 \[
-u^{u_1}d^{d_1}u^{u_2}d^{d_2}\cdots u^{u_n}d^{d_n}(v_0)=d^{d_n}(u^{u_n}(\cdots d^{d_2}(u^{u_2}(d^{d_1}(u^{u_1}(v_0))))))=v_0
+u^{u_1}d^{d_1}u^{u_2}d^{d_2}\cdots u^{u_n}d^{d_n}(v_1)=d^{d_n}(u^{u_n}(\cdots d^{d_2}(u^{u_2}(d^{d_1}(u^{u_1}(v_1))))))=v_1
 \]
 
-We write the sums briefly as $U=u_1+\ldots+u_n$ and $D=d_1+\ldots+d_n$. The cycle contains $U+D$ elements. Moreover we define $A=a_1+\ldots+a_n$ with
+We write the sums briefly as $U=u_1+\ldots+u_n$ and $D=d_1+\ldots+d_n$. The cycle contains $U+D$ elements. We summarize this fact to the following definition~\ref{def:odd_even_elements}:
+
+\begin{definition}
+\label{def:odd_even_elements}
+A cycle consists of $U+D$ elements, where $U=u_1+\ldots+u_n$ is the number of its odd members and $D=d_1+\ldots+d_n$ the number of its even members.
+\end{definition}
+
+\par\noindent
+Moreover we define $A=a_1+\ldots+a_n$ with
 
 \[
 a_i=2^{\sum_{j=1}^{i-1}u_j+d_j}\cdot\left(k^{u_i}-2^{u_i}\right)\cdot k^{\sum_{j=i+1}^{n}u_j}
 \]
 
-The smallest number $v_0$ belonging to this cycle can be calculated by the following equation~\ref{eq:cycle_v0}:
+\par\medskip\noindent
+Theorem~\ref{theo:v0} calculates the smallest member of the cycle $C_{k,c}$, which in line with definition~\ref{def:odd_even_elements} consists of $U$ odd and $D$ even members \cite{Ref_Gupta_2020}:
 
-\begin{equation}
-\label{eq:cycle_v0}
-v_0=\frac{c\cdot A}{(k-2)(2^{U+D}-k^U)}
-\end{equation}
-
-\begin{example}
-For $k=3$, $c=11$ we choose $(u_1,u_2,u_3,u_4)=(3,1,3,1)$ and $(d_1,d_2,d_3,d_4)=(1,1,2,2)$. Therefore we consider a cycle for $3x+11$, which has $U+D=8+6=14$ elements. Its smalles element is $v_0=13$ and we obtain all elements by evaluating the strings: $v_1=u(v_0)$, $v_2=u(v_1)$, $v_3=u(v_2)$ and $v_4=d(v_3)$ and so forth. It applies:
+\begin{theorem}
+\label{theo:v0}
+The smallest number $v_1$ belonging to a cycle $C_{k,c}$ having $U$ odd and $D$ even members is:
 
 \[
-uuud\circ ud\circ uuudd\circ udd(v_0)=u^3d\circ ud\circ u^3d^2\circ ud^2(v_0)=s_1\circ s_2\circ s_3\circ s_4(v_0)=v_0
+v_1=\frac{c\cdot A}{(k-2)(2^{U+D}-k^U)}
+\]
+\end{theorem}
+
+\par\medskip
+\begin{example}
+We consider a cycle $C_{3,11}$ that has $U+D=8+6=14$ elements and choose $(u_1,u_2,u_3,u_4)=(3,1,3,1)$ and $(d_1,d_2,d_3,d_4)=(1,1,2,2)$. Its smalles element is $v_1=13$ and we obtain all elements by evaluating the strings: $v_2=u(v_1)$, $v_3=u(v_2)$, $v_4=u(v_3)$ and $v_5=d(v_4)$ and so forth. It applies:
+\[
+uuud\circ ud\circ uuudd\circ udd(v_1)=u^3d\circ ud\circ u^3d^2\circ ud^2(v_1)=s_1\circ s_2\circ s_3\circ s_4(v_1)=v_1
 \]
 
-\par\medskip\noindent
-This cycle is $(v_0,v_1,v_2,\ldots,v_{14})=(13,25,43,70,35,58,29,49,79,124,62,31,52,26)$. We calculate $v_0$ directly as follows:
+\par\noindent
+This cycle is $(v_1,v_2,v_3,\ldots,v_{14})=(13,25,43,70,35,58,29,49,79,124,62,31,52,26)$. We calculate $v_1$ directly as follows:
 
 \[
-v_0=\frac{11\cdot 11609}{(3-2)(2^{8+6}-3^8)}=\frac{11\cdot11609}{9823}=13
+v_1=\frac{11\cdot 11609}{(3-2)(2^{8+6}-3^8)}=\frac{11\cdot11609}{9823}=13
 \]
 
 \par\noindent
@@ -199,23 +192,58 @@ a_4=2^{3+1+1+1+3+2}&(3^1-2^1)&3^{0}&=2048
 \]
 \end{example}
 
-\section{Conditions under which a cycle can occur}
+\section{Conditions for cycles}
+A positive integer $k$ is called a \textit{Crandall number}, if there exists a cycle $C_{k,1}$ and the following very fundamental theorem~\ref{theo:crandall_wieferich} is well known, see \cite{Ref_Crandall_1978}, \cite{Ref_Franco_Pomerance_1995}:
 
-Anant and Darrel: Please let us collect all known restrictions under which a cycle can occur, by referencing all that is well-known and referencable and by deriving conditions from all we have.
+\begin{theorem}
+\label{theo:crandall_wieferich}
+Every Wieferich number is a Crandall number. In other words, if $k$ is a Wieferich number, then a cycle $C_{k,1}$ exists.
+\end{theorem}
 
-The following restrictions exists for cycles. A cycle for $kx+c$ only exists if the inequality~\ref{eq:cycle_restriction_1} holds:
+In conformity with definition~\ref{def:odd_even_elements}, let us consider a cycle $C_{k,c}$ consisting of $U$ odd integers and $D$ even integers. The theorem~\ref{theo:cycle_restriction_1} specifies the following cycle restriction:
 
-\begin{equation}
-\label{eq:cycle_restriction_1}
-2^{U+D}-k^U>0
-\end{equation}
+\begin{theorem}
+\label{theo:cycle_restriction_1}
+A cycle only exists if the inequality $2^{U+D}-k^U>0$ holds.
+\end{theorem}
 
-Another restriction given by theorem~\ref{theo:cycle_restriction_2}:
+The following theorem details the condition for the existence of a cycle \cite{Ref_Cox_2012}:
 
 \begin{theorem}
 \label{theo:cycle_restriction_2}
-The number of cycles for $kx+c$ is alsway less than or equal to the number of cycles for $kx+ac$ where $a$ is an odd number.
+A cycle $C_{k,c}$ only exists if $c\mid2^{U+D}-k^U$.
 \end{theorem}
+
+For a sequence $(v_1,v_2,\ldots,v_n)$ of numbers, let us define a (binary) parity vector consisting of $n$ elements, which has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. This vector corresponds to the non-reduced word consisting of the characters $u$ and $v$ as introduced in section~\ref{sec:introduction}. This word has a $u$ at each position which in the vector is occupied by a $1$, and it has a $v$ at a position at which in the vector is a $0$.
+
+Let $0\le x_1<x_2<\ldots<x_{U}<\le U-1$ be all positions (the indexing is zero-based) in the parity vector occupied by $1$ or equivalently all positions in the word at which there is a $u$. We can detail theorem~\ref{theo:cycle_restriction_2} as follows by theorem~\ref{theo:cycle_restriction_3}:
+
+\begin{theorem}
+\label{theo:cycle_restriction_3}
+A cycle $C_{k,c}$ only exists if the divisibility $2^{U+D}-k^U\mid c\cdot z$ holds, where $z=\sum_{i=1}^{U}=3^{U-i}2^{x_i}$.
+\end{theorem}
+
+\begin{example}
+We refer to $C_{3,11}=(13,25,43,70,35,58,29,49,79,124,62,31,52,26)$ again. The corresponding parity vector is $(1,1,1,0,1,0,1,1,1,0,0,1,0,0)$ and the non-reduced word is $uuududuuuddudd$. The indices are $(x_1,\ldots,x_8)=(0,1,2,4,6,7,8,11)$ and therefore $z=3^72^0+3^62^1+3^52^2+3^42^4+3^32^6+3^22^7+3^12^8+3^02^{11}=11609$.
+
+\par\medskip\noindent
+Correctly it applies that $2^{8+6}-3^8\mid11\cdot11609$, more specifically it is $9.823\mid127.699$ and $9.823\cdot13=127.699$. 
+\end{example}
+
+%You can find out the value of M(l,n) and N(l,n) by running the Python program.  When you reduce a cycle, you have to divide M(l,n) and N(l,n) by the same amount to make comparisons with the maximum and minimum odd elements.  In the example cycle, l and n are not relatively prime.  In this case, this results in some cycles for c=47 (9823=11*19*47) having half the length and half the number of odd elements.  An example is 119, 202, 101, 175, 286, 143, 238.
+
+\par\noindent
+Another restriction given by theorem~\ref{theo:cycle_restriction_4}:
+
+\begin{theorem}
+	\label{theo:cycle_restriction_4}
+	The number of cycles $C_{k,c}$ is alsway less than or equal to the number of cycles $C_{k,a\cdot c}$ where $a$ is an odd number.
+\end{theorem}
+
+\section{Constructing one cycle from another}
+
+
+
 
 \vspace{1em}
 \bibliographystyle{unsrt}
