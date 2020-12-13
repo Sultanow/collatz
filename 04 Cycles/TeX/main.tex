@@ -93,11 +93,9 @@ This paper treats cycles in $kx+c$ functions.
 		\\
 		Non-reduced word & Let $C_{k,c}$ be a cycle having $U$ odd and $D$ even members. The non-reduced word describing this cycle is a word of length $U+D$ over the alphabet $\{u,d\}$, which has a $u$ at those positions, where an odd member and a $d$ where an even member is located in the cycle.
 		\\
-		Parity vector & Analoguously to the non-reduced word, the (binary) parity vector of a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ has $n=U+D$ entries. It has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$.
+		Parity vector & Analoguously to the non-reduced word, the (binary) parity vector of a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ has $n=U+D$ entries. It has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. We will consider a non-reduced word, for example $uuududuuuddudd$ synonymous with the parity vector $(1,1,1,0,1,0,1,1,1,0,0,1,0,0)$ or even simpler with the binary sequence (binary word) $11101011100100$.
 		\\
-		Interrelated cycles & Two cycles are called \textit{interrelated} if they have the same length and if they both have an equal amount of odd members, which means their non-reduced words contain an equal number of $u$ and $v$. Analoguously their parity vectors have the same number of zeros and ones.
-		\\
-		dead limb & A dead limb is. 
+		Interrelated cycles & Two cycles are called \textit{interrelated} if they have the same length and if they both have an equal amount of odd members, which means their non-reduced words contain an equal number of $u$ and $v$. Analoguously their parity vectors have the same number of zeros and ones. 
 		\\ \hline
 	\end{tabular}
 \end{table}}
@@ -211,7 +209,7 @@ The following theorem details the condition for the existence of a cycle \cite{R
 
 \begin{theorem}
 \label{theo:cycle_restriction_2}
-A cycle $C_{k,c}$ only exists if $c\mid2^{U+D}-k^U$.
+A cycle $C_{k,c}$ only exists if the integer $c$ and the difference $2^{U+D}-k^U$ are not coprime: $\gcd(c,2^{U+D}-k^U)>1$.
 \end{theorem}
 
 For a sequence $(v_1,v_2,\ldots,v_n)$ of numbers, let us define a (binary) parity vector consisting of $n$ elements, which has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. This vector corresponds to the non-reduced word over the alphabet $\{u,d\}$ as introduced in section~\ref{sec:introduction}. This word has a $u$ at each position which in the vector is occupied by a $1$, and it has a $v$ at a position at which in the vector is a $0$.
@@ -245,6 +243,13 @@ Here the text will be insertet here: Characteristics M and N (based on Halbeisen
 
 \section{Constructing one cycle from another}
 text about interrelation of cycles comes here
+
+11609,22325,38399,62510,31255,51794,25897,43757,70547,110732,55366,27683,46436,23218
+
+And the reduced form (divided by 19*47):
+
+13,25,43,70,35,58,29,49,79,124,62,31,52,26
+
 
 \vspace{1em}
 \bibliographystyle{unsrt}
