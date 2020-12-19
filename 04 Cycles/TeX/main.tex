@@ -1,5 +1,6 @@
 \documentclass[12pt]{amsart}
 \usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, anchorcolor=blue, pdfborder={0 0 0}]{hyperref}
 \usepackage{url}
 \usepackage{graphicx,color}
@@ -36,7 +37,7 @@
 
 \title[Cycles in kx+c functions]{Cycles in $kx+c$ functions}
 
-\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
+\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}Darrell Cox}
 \address{First Lastname\\
 Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Country}
 \curraddr{}
@@ -94,7 +95,7 @@ This paper treats cycles in $kx+c$ functions.
 		\\
 		Non-reduced word & Let $C_{k,c}$ be a cycle having $U$ odd and $D$ even members. The non-reduced word describing this cycle is a word of length $U+D$ over the alphabet $\{u,d\}$, which has a $u$ at those positions, where an odd member and a $d$ where an even member is located in the cycle.
 		\\
-		Parity vector & Analoguously to the non-reduced word, the (binary) parity vector of a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ has $n=U+D$ entries. It has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. We will consider a non-reduced word, for example $uuududuuuddudd$ synonymous with the parity vector $(1,1,1,0,1,0,1,1,1,0,0,1,0,0)$ or even simpler with the binary sequence (binary word) $11101011100100$.
+		Parity vector & Analoguously to the non-reduced word, the binary parity vector of a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ has $n=U+D$ entries. It has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. For instance, we consider the non-reduced word $uuududuuuddudd$ synonymous to the parity vector $(1,1,1,0,1,0,1,1,1,0,0,1,0,0)$ or even simpler to the binary sequence (binary word) $11101011100100$.
 		\\
 		Interrelated cycles & Two cycles are called \textit{interrelated} if they have the same length and if they both have an equal amount of odd members, which means their non-reduced words contain an equal number of $u$ and $v$. Analoguously their parity vectors have the same number of zeros and ones. 
 		\\ \hline
@@ -153,10 +154,10 @@ a_i=2^{\sum_{j=1}^{i-1}u_j+d_j}\cdot\left(k^{u_i}-2^{u_i}\right)\cdot k^{\sum_{j
 \]
 
 \par\medskip\noindent
-Theorem~\ref{theo:v0} calculates the smallest member of the cycle $C_{k,c}$, which in line with definition~\ref{def:odd_even_elements} consists of $U$ odd and $D$ even members \cite{Ref_Gupta_2020}:
+Theorem~\ref{theo:v1} calculates the smallest member of the cycle $C_{k,c}$, which in line with definition~\ref{def:odd_even_elements} consists of $U$ odd and $D$ even members \cite{Ref_Gupta_2020}:
 
 \begin{theorem}
-\label{theo:v0}
+\label{theo:v1}
 The smallest number $v_1$ belonging to a cycle $C_{k,c}$ having $U$ odd and $D$ even members is:
 
 \[
@@ -166,6 +167,7 @@ v_1=\frac{c\cdot A}{(k-2)(2^{U+D}-k^U)}
 
 \par\medskip
 \begin{example}
+\label{ex:C_3_11}
 We consider a cycle $C_{3,11}$ that has $U+D=8+6=14$ elements and choose $(u_1,u_2,u_3,u_4)=(3,1,3,1)$ and $(d_1,d_2,d_3,d_4)=(1,1,2,2)$. Its smalles element is $v_1=13$ and we obtain all elements by evaluating the strings: $v_2=u(v_1)$, $v_3=u(v_2)$, $v_4=u(v_3)$ and $v_5=d(v_4)$ and so forth. It applies:
 \[
 uuud\circ ud\circ uuudd\circ udd(v_1)=u^3d\circ ud\circ u^3d^2\circ ud^2(v_1)=s_1\circ s_2\circ s_3\circ s_4(v_1)=v_1
@@ -191,6 +193,11 @@ a_4=2^{3+1+1+1+3+2}&(3^1-2^1)&3^{0}&=2048
 \]
 \end{example}
 
+\begin{theorem}
+	\label{theo:max}
+	The maximum odd element in cycle occurs immediately before the maximum even element.
+\end{theorem}
+
 \section{Conditions for cycles}
 A positive integer $k$ is called a \textit{Crandall number}, if there exists a cycle $C_{k,1}$ and the following very fundamental theorem~\ref{theo:crandall_wieferich} is well known, see \cite{Ref_Crandall_1978}, \cite{Ref_Franco_Pomerance_1995}:
 
@@ -199,27 +206,18 @@ A positive integer $k$ is called a \textit{Crandall number}, if there exists a c
 Every Wieferich number is a Crandall number. In other words, if $k$ is a Wieferich number, then a cycle $C_{k,1}$ exists.
 \end{theorem}
 
-In conformity with definition~\ref{def:odd_even_elements}, let us consider a cycle $C_{k,c}$ consisting of $U$ odd integers and $D$ even integers. The theorem~\ref{theo:cycle_restriction_1} specifies the following cycle restriction:
+In conformity with definition~\ref{def:odd_even_elements}, let us consider a cycle $C_{k,c}=(v_1,v_2,\ldots,v_n)$ consisting of $U$ odd integers and $D$ even integers. We define a binary parity vector (it is synonymous to a binary sequence or binary non-reduced word) consisting of $n=U+D$ elements, which has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. This vector corresponds to the non-reduced word over the alphabet $\{u,d\}$ as introduced in section~\ref{sec:introduction} having a $u$ at each position which in the vector is occupied by a $1$, and a $d$ at a position at which in the vector is a $0$. The theorem~\ref{theo:cycle_restriction_1} specifies several cycle restrictions:
 
 \begin{theorem}
 \label{theo:cycle_restriction_1}
-A cycle only exists if the inequality $2^{U+D}-k^U>0$ holds.
-\end{theorem}
-
-The following theorem details the condition for the existence of a cycle \cite{Ref_Cox_2012}:
-
-\begin{theorem}
-\label{theo:cycle_restriction_2}
-A cycle $C_{k,c}$ only exists if the integer $c$ and the difference $2^{U+D}-k^U$ are not coprime: $\gcd(c,2^{U+D}-k^U)>1$.
-\end{theorem}
-
-For a sequence $(v_1,v_2,\ldots,v_n)$ of numbers, let us define a (binary) parity vector consisting of $n$ elements, which has a $1$ at position $i$, if $v_i$ is odd, and otherwise $0$. This vector corresponds to the non-reduced word over the alphabet $\{u,d\}$ as introduced in section~\ref{sec:introduction}. This word has a $u$ at each position which in the vector is occupied by a $1$, and it has a $v$ at a position at which in the vector is a $0$.
-
-Let $0\le x_1<x_2<\ldots<x_{U}<\le U-1$ be all positions (the indexing is zero-based) in the parity vector occupied by $1$ or equivalently all positions in the word $s\in S^\ast$ at which there is a $u$. We can detail theorem~\ref{theo:cycle_restriction_2} as follows by theorem~\ref{theo:cycle_restriction_3}:
-
-\begin{theorem}
-\label{theo:cycle_restriction_3}
-A cycle $C_{k,c}$ only exists if the divisibility $2^{U+D}-k^U\mid c\cdot z(s)$ holds, where $z(s)=\sum_{i=1}^{U}=3^{U-i}2^{x_i}$.
+For a cycle $C_{k,c}$ with $U$ odd and $D$ even members applies:
+\par
+\begin{enumerate}[label=(\alph*)]
+\item A cycle only exists if the inequality $2^{U+D}-k^U>0$ holds.
+\item The condition for the existence of a cycle can be detailed as follows \cite{Ref_Cox_2012}: A cycle $C_{k,c}$ only exists if the integer $c$ and the difference $2^{U+D}-k^U$ are not coprime: $\gcd(c,2^{U+D}-k^U)>1$.
+\item Let $0\le x_1<x_2<\ldots<x_{U}<\le U-1$ be all positions (the indexing is zero-based) in the parity vector occupied by $1$ or equivalently all positions in the word $s\in S^\ast$ at which there is a letter $u$. A cycle $C_{k,c}$ only exists if the divisibility $2^{U+D}-k^U\mid c\cdot z(s)$ holds, where $z(s)=\sum_{i=1}^{U}=3^{U-i}2^{x_i}$.
+\item The number of cycles $C_{k,c}$ is alsway less than or equal to the number of cycles $C_{k,a\cdot c}$ where $a$ is an odd number.
+\end{enumerate}
 \end{theorem}
 
 \begin{example}
@@ -231,22 +229,14 @@ Correctly it applies that $2^{8+6}-3^8\mid11\cdot11609$, more specifically it is
 
 %You can find out the value of M(l,n) and N(l,n) by running the Python program.  When you reduce a cycle, you have to divide M(l,n) and N(l,n) by the same amount to make comparisons with the maximum and minimum odd elements.  In the example cycle, l and n are not relatively prime.  In this case, this results in some cycles for c=47 (9823=11*19*47) having half the length and half the number of odd elements.  An example is 119, 202, 101, 175, 286, 143, 238.
 
-\par\noindent
-Another restriction given by theorem~\ref{theo:cycle_restriction_4}:
-
-\begin{theorem}
-	\label{theo:cycle_restriction_4}
-	The number of cycles $C_{k,c}$ is alsway less than or equal to the number of cycles $C_{k,a\cdot c}$ where $a$ is an odd number.
-\end{theorem}
-
 \section{Boundary features of cycles}
 Halbeisen and Hungerbühler \cite{Ref_Halbeisen_Hungerbuehler_1997} introduced a boundary feature as function $M(n,U)$, where $n$ is the cycle length and $U$ the number of odd members in that cycle. We will take this function as a basis for further considerations.
 
-Let $n$ be the length of a cycle and $U$ the number of odd members in that cycle. Moreover, let $S_{n,U}$ denote the set of all binary words (sequences) of length $n$ containing exactly $U$ ones and otherwise only zeros. This set contains exactly $\binom{n}{U}$ words -- exactly the number of ways in which we may select $U$ elements out of $n$ total where the order is irrelevant. In the example given by table~\ref{table:calculation_M_5_3}, the elements of the set $S_{5,3}$ are all listed in the first column.
+Let $n$ be the length of a cycle and $U$ the number of odd members in that cycle. Moreover, let $S_{n,U}$ denote the set of all binary words (sequences) of length $n$ containing exactly $U$ ones and otherwise only zeros. This set contains exactly $\binom{n}{U}$ words -- exactly the number of ways in which we may select $U$ elements out of $n$ total where the order is irrelevant. In the example given by table~\ref{table:calculation_M_5_2}, the elements of the set $S_{5,2}$ are all listed in the first column.
 
-The left shift function $\lambda_n:S^\ast\rightarrow S^\ast$ rotates a binary word of length $n$ by one element to the left, for example $\lambda_5(uuudd)=uuddu$ or $\lambda_5(11100)=11001$, see \cite{Ref_Halbeisen_Hungerbuehler_1997}. The second column of table~\ref{table:calculation_M_5_3} contains all words that result from the binary word $s\in S^\ast$ (given by the first column) left shifted up to $n$ times: $\lambda_5^1(s),\ldots,\lambda_5^5(s)$. In generalized terms, this set is denoted as $\sigma(s)=\{\lambda_n^i(s):1\le i\le n\}$.
+The left shift function $\lambda:S^\ast\rightarrow S^\ast$ rotates a binary word of length $n$ by one element to the left, for example $\lambda(uuddd)=udddu$ or $\lambda(11000)=10001$, see \cite{Ref_Halbeisen_Hungerbuehler_1997}. The second column of table~\ref{table:calculation_M_5_2} contains all words that result from the binary word $s\in S^\ast$ (given by the first column) left shifted up to $n$ times: $\lambda^1(s),\ldots,\lambda^5(s)$. In generalized terms, this set is denoted as $\sigma(s)=\{\lambda^i(s):1\le i\le n\}$.
 
-The third column of table~\ref{table:calculation_M_5_3} contains the corresponding values $z(\lambda_5^1(s)),\ldots,z(\lambda_5^5(s))$ remembering that $z:S^\ast\rightarrow\mathbb{N}$ is the function, which we defined by theorem~\ref{theo:cycle_restriction_3}. The last column contains the minimum of these values. Finally, the largest of all these minima is $M(5,3)$ or generally, see \cite{Ref_Halbeisen_Hungerbuehler_1997}:
+The third column of table~\ref{table:calculation_M_5_2} contains the corresponding values $z(\lambda^1(s)),\ldots,z(\lambda^5(s))$ remembering that $z:S^\ast\rightarrow\mathbb{N}$ is the function, which we defined by theorem~\ref{theo:cycle_restriction_3}. The last column contains the minimum of these values. Finally, the largest of all these minima is $M(5,2)$ or generally, see \cite{Ref_Halbeisen_Hungerbuehler_1997}:
 
 \begin{equation}
 \label{eq:M_n_U}
@@ -260,95 +250,115 @@ Additionally to Halbeisens and Hungerbühlers boundary feature $M(n,U)$ we intro
 N(n,U)=2\cdot M(n,U)-\sum_{i=0}^{r-1}2^{i\cdot n/r}3^{U-1-i\cdot U/r}
 \end{equation}
 
+\begin{example}
+\label{ex:M_N}
+We choose a cycle $C_{k,c}=C_{3,23}$ of length $n=5$ having $U=2$ odd members, where $c=2^n-3^U=2^5-3^2=23$. Let us choose the binary words $11000$ and $10100$ and calculate the smallest member of the corresponding cycle in each case (using theorem~\ref{theo:v1}).
+
+In the first case, namely $11000$ synonymous with $uuddd=u^2d^3=u^{u_1}d^{d_1}$ we obtain $v_1=\nicefrac{c\cdot A}{(k-2)(2^{U+D}-k^U)}=\nicefrac{23\cdot 5}{(3-2)(2^{2+3}-3^2)}=5$. The resulting cycle is $(5,19,40,20,10)$ which is given by the first row and third column in table~\ref{table:calculation_M_5_2}.
+
+In the second case, $10100$ that is synonymous with $ududd=u^1d^1u^1d^2=u^{u_1}d^{d_1}u^{u_2}d^{d_2}$ we obtain $v_1=\nicefrac{23\cdot 7}{(3-2)(2^{2+3}-3^2)}=7$. The resulting cycle is $(7,22,11,28,14)$ which is given by the second row and third column in table~\ref{table:calculation_M_5_2}.
+
+Table~\ref{table:calculation_M_5_2} exhibits how $M(n,U)$ is calculated, which in our concrete case is $M(5,2)=7$. Additionally we calculate $N(5,2)=2\cdot M(5,2)-2^03^{2-1-0}=14-3=11$.
+\end{example}
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{L|LLLL}
 		\thead{} &
 		\thead{\textbf{word }\boldsymbol{s}} &
-		\thead{\textbf{set of left shifted words } \boldsymbol{\sigma(s)}} &
+		\thead{\textbf{set }\boldsymbol{\sigma(s)}\textbf{ of left shifted words}} &
 		\thead{\boldsymbol{\{z(t):t\in\sigma(s)\}}} &
 		\thead{\boldsymbol{\displaystyle \min_{t\in\sigma(s)}z(t)}}\\
 		\hline
 		\thead{\boldsymbol{1}} &
-		11100 &
-		11100,11001,10011,00111,01110 &
-		19,31,49,76,38 &
-		19
+		11000 &
+		11000,10001,00011,00110,01100 &
+		5,19,40,20,10 &
+		5
 		\\
 		\thead{\boldsymbol{2}} &		
-		11010 &
-		11010,10101,01011,10110,01101 &
-		23,37,58,29,46 &
-		23
+		10100 &
+		10100,01001,10010,00101,01010 &
+		7,22,11,28,14 &
+		7
 		\\
 		\thead{\boldsymbol{3}} &
-		11001 &
-		11001,10011,00111,01110,11100 &
-		31,49,76,38,19 &
-		19
+		10010 &
+		10010,00101,01010,10100,01001 &
+		11,28,14,7,22 &
+		7
 		\\
 		\thead{\boldsymbol{4}} &
-		10110 &
-		10110,01101,11010,10101,01011 &
-		29,46,23,37,58 &
-		23
+		10001 &
+		10001,00011,00110,01100,11000 &
+		19,40,20,10,5 &
+		5
 		\\
 		\thead{\boldsymbol{5}} &
-		10101 &
-		10101,01011,10110,01101,11010 &
-		37,58,29,46,23 &
-		23
+		01100 &
+		01100,11000,10001,00011,00110 &
+		10,5,19,40,20 &
+		5
 		\\
 		\thead{\boldsymbol{6}} &
-		10011 &
-		10011,00111,01110,11100,11001 &
-		49,76,38,19,31 &
-		19
+		01010 &
+		01010,10100,01001,10010,00101 &
+		14,7,22,11,28 &
+		7
 		\\
 		\thead{\boldsymbol{7}} &
-		01110 &
-		01110,11100,11001,10011,00111 &
-		38,19,31,49,76 &
-		19
+		01001 &
+		01001,10010,00101,01010,10100 &
+		22,11,28,14,7 &
+		7
 		\\
 		\thead{\boldsymbol{8}} &
-		01101 &
-		01101,11010,10101,01011,10110 &
-		46,23,37,58,29 &
-		23
+		00110 &
+		00110,01100,11000,10001,00011 &
+		20,10,5,19,40 &
+		5
 		\\
 		\thead{\boldsymbol{9}} &
-		01011 &
-		01011,10110,01101,11010,10101 &
-		58,29,46,23,37 &
-		23
+		00101 &
+		00101, 01010, 10100, 01001, 10010 &
+		28,14,7,22,11 &
+		7
 		\\
 		\thead{\boldsymbol{10}} &
-		00111 &
-		00111,01110,11100,11001,10011 &
-		76,38,19,31,49 &
-		19
+		00011 &
+		00011,00110,01100,11000,10001 &
+		40,20,10,5,19 &
+		5
 		\\
 		\hline
-		\multicolumn{4}{r}{The largest of all minimum z values is M(n,U)~=~M(5,3)~=} &
-		23
+		\multicolumn{4}{r}{The largest of all minimum $z$ values is $M(n,U)=M(5,2)=$} &
+		7
 		\\
 	\end{tabular}
-	\caption{Calculation of $M(5,3)$}
-	\label{table:calculation_M_5_3}
+	\caption{Calculation of $M(5,2)$}
+	\label{table:calculation_M_5_2}
 \end{table}
 
-
-
 \section{Constructing one cycle from another}
-text about interrelation of cycles comes here
+Cycles may interrelate, which means they have the same length and an equal amount of odd members. We refer to example~\ref{ex:M_N} and consider the cycle $C_{3,23}=(5,19,40,20,10)$. A cycle, which interrelates to $C_{3,23}$ is for example $C_{3,69}=(15,57,120,60,30)$.
 
-11609,22325,38399,62510,31255,51794,25897,43757,70547,110732,55366,27683,46436,23218
+If we go back to example~\ref{ex:C_3_11}, then we can provide two interrelated cycles as well. For $k=3$ and $n=U+D=8+6=14$ we obtain $c=2^n-k^U=2^{14}-3^8=9823$ and the cycle $C_{3,9823}=(11609,22325,38399,62510,31255,51794,25897,43757,70547,110732,55366,\\27683,46436,23218)$.
 
-And the reduced form (divided by 19*47):
+When we divide the parameter $c$ and all cycle members by $893$, then we obtain the reduced interrelated cycle $C_{3,11}=(13,25,43,70,35,58,29,49,79,124,62,31,52,26)$.
 
-13,25,43,70,35,58,29,49,79,124,62,31,52,26
+\begin{theorem}
+\label{theo:containment_M_N}
+Let $C_{k,c}$ be a cycle of length $n=U+D$ that has $U$ odd and $D$ even members, where $c=2^n-k^U$. It always applies that $M(n,U)$ is greater than the smallest member and $N(n,U)$ is less than the largest odd member of this cycle.
 
+If $c$ is divisable by an odd integer $a$, then for the (reduced) interrelated cycle $C_{k,\nicefrac{c}{a}}$ it applies that $\nicefrac{M(n,U)}{a}$ is greater than the smallest member and $\nicefrac{N(n,U)}{a}$ is less than the largest odd member of this reduced cycle.
+\end{theorem}
+
+\begin{example}
+\label{ex:interrelated_M_N}
+Starting point for us are again Cycles $C_{3,c}$. For $n=14$ and $U=8$ we have $c=2^{14}-3^8=9823$ and $M(14,8)=21109$ and $N(14,8)=36575$. The cycle's $C_{3,9823}$ smallest member is $11609$ and its largest odd member is $70547$. It applies that $11609\le M(14,8)$ and $N(14,8)\le70547$.
+
+Since $c=9823=893\cdot11$ we are able to reduce the cycle $C_{3,9823}$ via division of $c$ and all its cycle members by $893$, which leads to the cycle $C_{3,11}$ having the smallest member $13$ and largest odd member $79$. The inequalities hold: $13\le\nicefrac{M(14,8)}{893}$ and $\nicefrac{N(14,8)}{893}\le79$, since $13\le23.638$ and $40.957\le79$.
+\end{example}
 
 \vspace{1em}
 \bibliographystyle{unsrt}
