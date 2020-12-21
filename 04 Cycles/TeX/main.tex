@@ -227,6 +227,22 @@ We refer to $C_{3,11}=(13,25,43,70,35,58,29,49,79,124,62,31,52,26)$ again. The c
 Correctly it applies that $2^{8+6}-3^8\mid11\cdot11609$, more specifically it is $9.823\mid127.699$ and $9.823\cdot13=127.699$. 
 \end{example}
 
+\begin{theorem}
+\label{theo:cycle_uniqueness}
+Two different primitive cycles $C_{k,c_1}$ and $C_{k,c_2}$ can never share a common parity vector.
+\end{theorem}
+
+\begin{proof}
+We begin with the fact that a cycle $C_{k,c}$ with a given parity vector first appears at:
+
+\[
+c=\frac{(k-2)(2^{U+D}-k^{D})}{\gcd(A,(k-2)(2^{U+D}-k^{D}))}
+\]
+
+\par\medskip
+Let there exist cycles $C_{k,c_1}$ and $C_{k,c_2}$ with the same parity vector, this implies that the values of $A$ and $(k-2)(2^{U+D}-k^{U})$ as defined in Definition \ref{def:odd_even_elements} are same for both the cycles. Therefore using the formula, a cycle can exist iff $v_1$ is an integer, i.e $c \cdot A$ divides $(k-2)(2^{U+D}-k^{U})$. The cycle will originate for the minimum such value of $c$. Therefore there can only be one value of $c$ for which the parity vector produces a cycle that is not inherited.
+\end{proof}
+
 %You can find out the value of M(l,n) and N(l,n) by running the Python program.  When you reduce a cycle, you have to divide M(l,n) and N(l,n) by the same amount to make comparisons with the maximum and minimum odd elements.  In the example cycle, l and n are not relatively prime.  In this case, this results in some cycles for c=47 (9823=11*19*47) having half the length and half the number of odd elements.  An example is 119, 202, 101, 175, 286, 143, 238.
 
 \section{Boundary features of cycles}
@@ -359,6 +375,35 @@ Starting point for us are again Cycles $C_{3,c}$. For $n=14$ and $U=8$ we have $
 
 Since $c=9823=893\cdot11$ we are able to reduce the cycle $C_{3,9823}$ via division of $c$ and all its cycle members by $893$, which leads to the cycle $C_{3,11}$ having the smallest member $13$ and largest odd member $79$. The inequalities hold: $13\le\nicefrac{M(14,8)}{893}$ and $\nicefrac{N(14,8)}{893}\le79$, since $13\le23.638$ and $40.957\le79$.
 \end{example}
+
+\par
+We use $C_{3,12885}$, hence $3x+12885$. Here $M(17,7)=39733$ and $N(17,7)=78737$. The sequence starting with $M(17,7)=39733$ is:
+
+\[
+\begin{array}{l}
+39733,124042,62021,157474,78737,182548,91274,45637,132898,66449,164116,82058,\\
+41029,125986,62993,158932,79466
+\end{array}
+\]
+
+The parity vector for this sequence is $10101001010010100=86676$, which is the ceil vector (the biggest possible binary achievable by rotating the vector). When we rotate this vector by $r=17-12=5$ to the left or $r=12$ to the right, then we obtain the floor vector $00101001010010101=21141$ (the smallest possible binary achievable by rotsting the vector).
+
+Conversly, when we rotate the floor vector by $r=5$ to the right or $r=12$ to the left, then we obtain the ceil vector.
+
+Let $x$ be an integer, $l$ the length of the vector and $r$ the number of circular left shifts (left rotations). It gerally applies:
+
+\[
+\begin{array}{l}
+rotateLeft(x,r,l)=(x\cdot2^r)\bmod{(2^l-1)}\\
+rotateRight(x,r,l)=rotateLeft(x,l-r,l)
+\end{array}
+\]
+
+Therefore $rotateLeft(21141,12,17)\equiv(21141\cdot2^{12})\pmod{(2^{17}-1)}$.
+\par\noindent
+And $rotateLeft(21141,12,17)=21141\cdot2^{12}\bmod{(2^{17}-1)}=86676$. Respectively $86593536\bmod{131071}=86676$.
+
+We need to show that $l\mid n\cdot r+1$, which in our case is also true since $17\mid 7\cdot12+1$. The value $r=12$ can be considered as the rotation distance between the largest and smallest possible binary in that partity vector.
 
 \vspace{1em}
 \bibliographystyle{unsrt}
