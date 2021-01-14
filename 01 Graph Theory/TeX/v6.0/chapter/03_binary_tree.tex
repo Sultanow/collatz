@@ -95,7 +95,29 @@ If a natural number divides another, $m\mid n$, as in our case $3\mid18$, then f
 	a\equiv b\pmod n\rightarrow a\equiv b\pmod m
 \end{equation}
 
-This means in our case $w\cdot5^{6n+6}\equiv 1\pmod{18}\rightarrow w\cdot5^{6n+6}\equiv 1\pmod 3$. Based on equation~\ref{eq:congruence_reduction} we can state that $a\equiv b\pmod m$ implies $(a+m)\equiv b\pmod m$. Let us set $a=w\cdot2^{2n+2}$ and $b=1$ and $m=3$, then we obtain $(w\cdot2^{2n+2}+3)\equiv1\pmod3$ and using a factor $i\in\mathbb{N}$ we obtain the more general congruence $(w\cdot2^{2n+2}+3i)\equiv1\pmod3$. As a consequence the congruences in \ref{eq:homomorphism_congruences} are true, while $w\cdot5^{6n+6}=w\cdot2^{2n+2}+3\cdot i$ or rather while $3\mid(5^{6n+6}-2^{2n+2})$. These conditions continue $3\mid(5^{6n+5}-2^{2n+3})$ and $3\mid(5^{6n+4}-2^{2n+4})$ and so forth.
+This means in our case $w\cdot5^{6n+6}\equiv 1\pmod{18}\rightarrow w\cdot5^{6n+6}\equiv 1\pmod 3$.
+In fact, Euler's theorem (\ref{eq:eulers_theorem}) gives us two congruences $5^{\phi(18)}\equiv1\pmod{18}$ and $2^{\phi(3)}\equiv1\pmod{3}$. The latter is obvious, because $\mathbb{Z}_3^\ast=\left<2\right>$. Since $\phi(18)=6$ and $\phi(3)=2$, every power of five with an exponent divisible by $6$ and every power of two with an exponent divisible by 2 belong to the residue classes $[1]_{18}$ and $[1]_3$.
+
+Because of $[1]_{18}=[5^0]_{18},\ldots,[13]_{18}=[5^4]_{18}$ and finally $[11]_{18}=[5^5]_{18}$ we obtain the congruences on the left side in \ref{eq:homomorphism_congruences}. The exponents are indicated by the $j$. For example, it follows from $w\in[13]_{18}$ that $[w\cdot5^{6n+2}]_{18}=[w]_{18}\cdot[5^{6n+2}]_{18}=[13]_{18}\cdot[5^{6n+2}]_{18}=[5^4]_{18}\cdot[5^{6n+2}]_{18}=[5^{6n+6}]_{18}=[1]_{18}$, because $6n+6$ is divisible by $6$ (Euler's theorem).
+
+From the equality of the residue classes modulo $18$ and modulo $3$ (according to equation~\ref{eq:reduce_modulus}) it follows for $w\in[13]_{18}$ from $[w]_{18}\cdot[5^{6n+2}]_{18}=[13]_{18} \cdot[5^{6n+2}]_{18}=[1]_{18}$ the following equation:
+
+\begin{equation}
+\label{eq:mod_18_3}
+[1]_3=[w]_3\cdot[5^{6n+2}]_3=[13]_3\cdot[5^{6n+2}]_3
+\end{equation}
+
+Just replacing $18$ with $3$, that is the homomorphism given by the map $f:\mathbb{Z}^\ast_n\rightarrow \mathbb{Z}^\ast_m$ with $f(r\bmod n)=r\bmod m$ as long as $\gcd(r\bmod n,n)=1$ leads to $\gcd(r\bmod m,m)=1$. By Euclid, we know that in the case $r$ is coprime to $n$ then it is also coprime to every factor $m$ of $n$. That is why a homomorphism exist to the congruences shown in \ref{eq:homomorphism_congruences} (on the right).
+
+Using the fact that $[5^{6n}]_{18}=[5^0]_{18}=[1]_{18}$ and thus $[5^{6n+k}]_{18}=[5^k]_{18}=[5]_{18}^k=[5]_3^k$, we obtain from equation~\ref{eq:mod_18_3}:
+
+\[
+[1]_3=[13]_3\cdot[5]_3^2=[13]_3\cdot[2]_3^2
+\]
+
+Therefore $[13]_{18}\cdot4=[13]_3\cdot4\equiv1\pmod{3}$. The third and the last row in \ref{eq:homomorphism_congruences} are obtained in the same way. The powers of two that appear in the other rows result from the fact that we can always add or remove even powers of two because $[2^2]_3=[1]_3$.
+
+Based on equation~\ref{eq:congruence_reduction} we can state that $a\equiv b\pmod m$ implies $(a+m)\equiv b\pmod m$. Let us set $a=w\cdot2^{2n+2}$ and $b=1$ and $m=3$, then we obtain $(w\cdot2^{2n+2}+3)\equiv1\pmod3$ and using a factor $i\in\mathbb{N}$ we obtain the more general congruence $(w\cdot2^{2n+2}+3i)\equiv1\pmod3$. As a consequence the congruences in \ref{eq:homomorphism_congruences} are true, while $w\cdot5^{6n+6}=w\cdot2^{2n+2}+3\cdot i$ or rather while $3\mid(5^{6n+6}-2^{2n+2})$. These conditions continue $3\mid(5^{6n+5}-2^{2n+3})$ and $3\mid(5^{6n+4}-2^{2n+4})$ and so forth.
 
 \begin{equation}
 \label{eq:homomorphism_congruences}
@@ -108,8 +130,6 @@ This means in our case $w\cdot5^{6n+6}\equiv 1\pmod{18}\rightarrow w\cdot5^{6n+6
 	j=5, & w\in [11]_{18} & \hspace{1em} w\cdot5^{6n+1}&\equiv1\pmod{18}&\hspace{4em}w\cdot2^{2n+1} &\equiv1\pmod{3}
 \end{array}
 \end{equation}
-
-Moreover, the map $f:\mathbb{Z}^\ast_n\rightarrow \mathbb{Z}^\ast_m$ with $f(r\bmod n)=r\bmod m$ is a homomorphism as long as $\gcd(r\bmod n,n)=1$ leads to $\gcd(r\bmod m,m)=1$. By Euclid, we know that in the case $r$ is coprime to $n$ then it is also coprime to every factor $m$ of $n$. That is why a homomorphism exist to the congruences shown in \ref{eq:homomorphism_congruences} (on the right).
 
 Figure~\ref{fig:tree_transformations} shows the complete chain of tree transformations, beginning from the original Collatz tree, over the Syracuse tree to the binary tree and pruned ones.
 
