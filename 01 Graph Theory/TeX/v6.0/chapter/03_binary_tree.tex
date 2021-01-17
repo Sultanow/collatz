@@ -42,12 +42,10 @@ U(n)=\begin{cases}
         16n+5	&	n\equiv 5\pmod 6
     \end{cases} &
 R(n)=\begin{cases}
-    \nicefrac{(2^2n-1)}{3}	&	n\equiv 1\pmod{18}\\
-    \nicefrac{(2^3n-1)}{3}	&	n\equiv 5\pmod{18}\\
-    \nicefrac{(2^4n-1)}{3}	&	n\equiv 7\pmod{18}\\
-    \nicefrac{(2^1n-1)}{3}	&	n\equiv 11\pmod{18}\\
-    \nicefrac{(2^2n-1)}{3}	&	n\equiv 13\pmod{18}\\
-    \nicefrac{(2^1n-1)}{3}	&	n\equiv 17\pmod{18}
+    \nicefrac{(2^2n-1)}{3}	&	n\in[1]_{18}\cup[13]_{18}\\
+    \nicefrac{(2^3n-1)}{3}	&	n\in[5]_{18}\\
+    \nicefrac{(2^4n-1)}{3}	&	n\in[7]_{18}\\
+    \nicefrac{(2^1n-1)}{3}	&	n\in[11]_{18}\cup[17]_{18}
 \end{cases}
 \end{array}
 \end{equation}
@@ -131,6 +129,42 @@ Based on equation~\ref{eq:congruence_reduction} we can state that $a\equiv b\pmo
 \end{array}
 \end{equation}
 
+The inverse upward function, which can be understood as a downward function $U^{-1}(n)=D(n)$ is defined as follows:
+
+\[
+D(n)=U^{-1}(n)=\begin{cases}
+	\nicefrac{n-1}{4}	&	n\equiv 5\pmod{24}\\
+	\nicefrac{n-5}{16}	&	n\equiv 85\pmod{96}
+\end{cases}
+\]
+
+The modular conditions are deduced as follows: We have $D(n)=\nicefrac{n-1}{4}$ if $\nicefrac{n-1}{4}\equiv1\pmod6$ and $D(n)=\nicefrac{n-5}{16}$ if $\nicefrac{n-5}{16}\equiv5\pmod6$. For $a,b\in\mathbb{Z}$ and $n,m\in\mathbb{N}$ we can apply the following modular arithmetic rule \cite[p.~21]{Ref_Mueller-Stach_2011}:
+
+\begin{equation}
+a\equiv b\pmod n \leftrightarrow m\cdot a\equiv m\cdot b\pmod{m\cdot n}
+\end{equation}
+
+This leads to $D(n)=n-1$ if $n-1\equiv4\pmod{24}$ and $D(n)=n-5$ if $n-5\equiv80\pmod{96}$.
+
+Now we make the use of another modular arithmetic rule, which for two given congruences $a\equiv b\pmod n$ and $c\equiv d\pmod n$ states that \cite[p.~19]{Ref_Mueller-Stach_2011}:
+
+\begin{equation}
+	a+c\equiv b+d\pmod n\hspace{2em} \text{and}\hspace{2em}a\cdot c\equiv b\cdot d\pmod n
+\end{equation}
+
+This finally leads to $D(n)=n-1$ if $n\equiv5\pmod{24}$ and $D(n)=n-5$ if $n\equiv85\pmod{96}$.
+
+The rightward function that operates on the tree of pruning level $1$, thus the tree $T_{\ge1}$, is can be expressed as the right-to-left composition $R_{\ge1}(n)=U\circ R\circ U^{-1}(n)=U\circ R\circ D(n)$ and it is defined as follows:
+
+\[
+R_{\ge1}(n)=\begin{cases}
+	\nicefrac{(8D(n)-1)}{3}	&	2D(n)\equiv4\bmod{18}\wedge D(n)\in[11]_{18}\cup[17]_{18}\\
+	\nicefrac{(16D(n)-1)}{3}	&	4D(n)\equiv4\bmod{18}\wedge D(n)\in[11]_{18}\cup[13]_{18}\\
+	\nicefrac{(32D(n)-1)}{3}	&	2D(n)\equiv16\bmod{18}\wedge D(n)\in[11]_{18}\cup[17]_{18}\vee D(n)\in[5]_{18}\\
+	\nicefrac{(64D(n)-1)}{3}	&	4D(n)\equiv16\bmod{18}\wedge D(n)\in[1]_{18}\cup[13]_{18}\vee D(n)\in[7]_{18}\end{cases}
+\]
+
+\newpage
 Figure~\ref{fig:tree_transformations} shows the complete chain of tree transformations, beginning from the original Collatz tree, over the Syracuse tree to the binary tree and pruned ones.
 
 % trim=left bottom right top
