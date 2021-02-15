@@ -1,0 +1,206 @@
+\documentclass[12pt]{amsart}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, anchorcolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{url}
+\usepackage{graphicx,color}
+\usepackage{cite}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage[top=45truemm, bottom=45truemm, left=30truemm, right=30truemm]{geometry}
+\usepackage{nicefrac}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{ragged2e}
+
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+
+\setlength{\headsep}{2em}
+\setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
+
+\title[Supplement to the Paper Divisions by Two]{Supplement to the Paper "Divisions by Two in Collatz Sequences: A Data Science Approach"}
+
+\author[C.\ Koch]{Christian Koch}
+\address{Christian Koch\\
+Technische Hochschule Georg Simon Ohm\\Kessler square 12\\90489 Nuremberg\\Germany}
+\curraddr{}
+\email{christian.koch@th-nuernberg.de}
+
+\author[F.\ Last1]{\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.png}}\hspace{1mm}First Last}
+\address{First Lastname\\
+Graduate School of Mathematics\\ XYZ University\\ City\\ Adresszusatz\\ ZIP\\ Germany}
+\curraddr{}
+\email{first.last@university.de}
+
+\subjclass[2010]{37P99}
+\keywords{Collatz sequence, binary system}
+
+\begin{document}
+	
+\begingroup
+\let\MakeUppercase\relax
+\maketitle
+\endgroup
+
+\begin{abstract}
+Discourse in communities constantly contributes to the sharing of findings and knowledge, constructive criticism of scientific work, and improvement of results. In this supplementary short paper, we address a major potential area of improvement in our published article "Divisions by Two in Collatz Sequences: A Data Science Approach" \cite{Koch_2020} that was raised on StackExchange Mathematics \cite{Collag3n_2020}.
+\end{abstract}
+
+\newpage
+\section{Wrapping up the main results}
+\label{wrap_up}
+We stated that for a Collatz sequence $v_1,v_2,\ldots,v_{n+1}$ and the corresponding product $\beta=\beta_1\beta_2\cdots\beta_n=(1+\nicefrac{1}{3v_1})(1+\nicefrac{1}{3v_2})\cdots(1+\nicefrac{1}{3v_n})$ the following equation holds:
+
+\begin{equation}
+\label{eq:vn_plus_1}
+v_{n+1}=\frac{3^nv_1\beta}{2^{\alpha}}
+\end{equation}
+
+Note that $\alpha=\alpha_1+\alpha_2+\ldots+\alpha_n$ is the total number of divisions by two that have been performed within this sequence starting from $v_1$ and ending with $v_{n+1}$.
+
+Moreover we stated that the maximum possible number of division by two in such a sequence is given by equation~\ref{eq:alpha_max}.
+
+\begin{equation}
+\label{eq:alpha_max}
+\hat\alpha=\lfloor n\log_23+\log_2v_1\rfloor+1
+\end{equation}
+
+\section{Problem Statement}
+\label{problem_statement}
+
+Now the following argument was raised: Let $v_i$ be a member of a Collatz sequence, for example $v_i=17$. An \textit{overflow point} is the next (nearest) power of two above $v_i$, in this case the overflow point is $32$. Theoretically, the overflow point can move higher than the next power of two above $17$ (due to multiplication by $3$).
+
+When considering a Collatz sequence starting at $v_1$ and ending with $v_{n+1}=1$ and introducing a variable $\delta$ that represents the accumulation of "$+1$" we would obtain from equation~\ref{eq:vn_plus_1}:
+\[
+1=v_{n+1}=\frac{3^nv_1\beta}{2^{\alpha}}=\frac{3^nv_1+\delta}{2^{\alpha}}
+\]
+
+\par\medskip
+The raised concern is now that nothing may prevent $\delta$ to grow larger than $3^nv_1$ possibly leading to $\beta>2$, since ${3^nv_1 \beta}={3^nv_1+\delta}$. Having $\beta>2$, a beta larger than two  would imply for $2^{\alpha}=3^nv_1\beta$ and thus for $\alpha=n\log_23+\log_2v_1+\log_2\beta$ that $\log_2\beta>1$ violating the inequality given by equation~\ref{eq:alpha_max}.
+
+We can calculate $\delta$ directly using the following sum, see equation A.2 in appendinx of \cite[p.~36]{Sultanow_Koch_2020}:
+
+\begin{equation}
+\label{eq:delta}
+\delta=\sum_{j=1}^{n}3^{j-1}2^{\alpha_1+\ldots+\alpha_n-\sum_{l>n-j}\alpha_l}
+\end{equation}
+
+An example is the sequence $(v_1,v_2,v_3,v_4,v_5)=(37,7,11,17,13)$ where $v_1=37$, $n=4$ and $v_{n+1}=v_5=13$. The beta is $\beta=(1+\nicefrac{1}{111})(1+\nicefrac{1}{21})(1+\nicefrac{1}{33})(1+\nicefrac{1}{51})=\nicefrac{3328}{2997}$. The alpha is $\alpha=\alpha_1+\alpha_2+\alpha_3+\alpha_4=4+1+1+2=8$ and finally the delta is $\delta=3^0\cdot2^{\alpha_1+\alpha_2+\alpha_3}+3^1\cdot2^{\alpha_1+\alpha_2}+3^2\cdot2^{\alpha_1}+3^3\cdot2^0=3^0\cdot2^6+3^1\cdot2^5+3^2\cdot2^4+3^3\cdot2^0=331$.
+
+\par\medskip
+Indeed it appies
+
+\[
+v_{n+1}=v_5=\frac{3^4\cdot37\cdot\nicefrac{3328}{2997}}{2^8}=\frac{3328}{2^8}=\frac{3^4\cdot37+331}{2^8}=\frac{2997+331}{2^8}=13
+\]
+
+Halbeisen and Hungerbühler \cite{Halbeisen_Hungerbuehler_1997} introduced a function $\varphi$, which we can use to describe the $\delta$. This function $\varphi$ takes a binary number (binary string) $s$ of length $l(s)$ as input and produces an integer output as follows:
+
+\begin{equation}
+\label{eq:phi}
+\varphi(s)=\sum_{j=1}^{l(s)}s_j3^{s_{j+1}+\ldots+s_{l(s)}}2^{j-1}
+\end{equation}
+
+\noindent
+Let us take for example the binary string $s=s_1s_2s_3s_4s_5s_6s_7=1000111=71$ as input for the function $\varphi$, which will yield the delta from our example $\delta=\varphi(1000111)=331$:
+
+\[
+\begin{array}{ll}
+&s_1\cdot3^{s_2+s_3+s_4+s_5+s_6+s_7}2^0\\
++&s_2\cdot3^{s_3+s_4+s_5+s_6+s_7}2^1\\
++&s_3\cdot3^{s_4+s_5+s_6+s_7}2^2\\
++&s_4\cdot3^{s_5+s_6+s_7}2^3\\
++&s_5\cdot3^{s_6+s_7}2^4\\
++&s_6\cdot3^{s_7}2^5\\
++&s_7\cdot3^{0}2^6\\
+=&331
+\end{array}\qquad
+\begin{array}{ll}
+&1\cdot3^{0+0+0+1+1+1}2^0\\
++&0\cdot3^{0+0+1+1+1}2^1\\
++&0\cdot3^{0+1+1+1}2^2\\
++&0\cdot3^{1+1+1}2^3\\
++&1\cdot3^{1+1}2^4\\
++&1\cdot3^{1}2^5\\
++&1\cdot3^{0}2^6\\
+=&331
+\end{array}\qquad
+\begin{array}{ll}
+&1\cdot3^{3}2^0\\
++&0\cdot3^{3}2^1\\
++&0\cdot3^{3}2^2\\
++&0\cdot3^{3}2^3\\
++&1\cdot3^{2}2^4\\
++&1\cdot3^{1}2^5\\
++&1\cdot3^{0}2^6\\
+=&331
+\end{array}
+\]
+
+Note: $71=v_1+v_2+v_3+v_4-1$.
+
+\par\medskip\noindent
+We have to proove that $\delta$ cannot exceed $3^nv_1$.
+
+\par\medskip\noindent
+Halbeisen and Hungerbühler proved that for two distinct binary strings $s=s_1s_2\ldots s_l$ and $t=t_1t_2\ldots t_l$, which have the same Hamming weight, it applies \cite{Halbeisen_Hungerbuehler_1997}:
+
+\begin{theorem}
+\label{theo:HH_1}
+If $\sum_{i=1}^{k}s_i\le\sum_{i=1}^{k}t_i$ for all $k\in\{1,\ldots,l\}$ then $\varphi(s)>\varphi(t)$.
+\end{theorem}
+
+
+
+%\newpage
+%\section{Backup}
+%\label{backup}
+%
+%For $k=1$, let's say that $\frac{v_1 \beta}{2^{\alpha}}=\frac{v_1 + \delta}{2^{\alpha}}=1$ it is clear that an overflow is provoked by $\delta$ the accumulation of "+1", and it occurs before this $\delta$ reaches $v_1$ since $v_1$ is already larger than half of its next power of 2 (the one it will overflow to). So it is clear that $\delta<v_1$ and therefore $\beta<2$
+
+%For $k=3$, however, the multiplication by 3 make it possible that $\delta$ grows larger than $v_1$
+
+%Let's say $\frac{3^nv_1 \beta}{2^{\alpha}}=\frac{3^nv_1 + \delta}{2^{\alpha}}=1$
+
+%Imagine we are at an intermediate step $v_i=17$ (10001) and we already have some "+1 accumulation" $\delta=13$ (1101). $\delta<v_i$, the sum (30 or 11110) still bellow overflow point (power of 2 just above $17$ which is $32$) and in the case of $k=1$, $\delta$ would grow up to overflow with the guarantee it will stay smaller tan $v_1$ since the overflow point don't move.
+
+%With the $k=3$ case, the overflow point can move higher than the next power of 2 above 17 (due to multiplication by 3). If you multiply by 3, you get $v_{i+1}=51$ (110011) and $\delta=39$ (100111), but as you can see, the overflow point is not above the main term anymore (the sum is already larger than that power of 2), and does not prevent $\delta$ to grow larger than the $v_i$'s with accumulated "+1". In which case you can end up with $\beta>2$ and therefore equation 11 would not be true anymore.
+
+%My impression is that equation 11 is an adjusted equation 8 only on power of 3 regardless of the implications (overflow point moving because of the "multiply by 3" action, $\delta$ being able to get through,...)
+
+%Indeed, my point is that nothing prevent $\delta$ to grow larger than $3^nv_1$ (in theory) which could lead to $\beta>2$ (since ${3^nv_1 \beta}={3^nv_1 + \delta}$)
+
+%In other word, it would mean that it overflows on $3^nv_1\beta=2^{\alpha}>2^{\lfloor log_2{3^nv_1}\rfloor+1}$ or $\frac{3^nv_1\beta}{2^{\lfloor n\cdot log_23+log_2v_1\rfloor+1}}>1$ (not 2)
+
+%more specifically to show that once (after a multiplication by 3) $\delta$ as reach the same bit length as $3^nv_1$, we know for sure it will not overflow on the $2^j$ just above $3^nv_1$ but at least on some higher power of two, opening a breach (this is I think a loophole).
+
+%I choose these numbers mostly based on their binary representation (where we can clearly see that before the multiplication by 3, we are still in a classic overflow case where it occurs on the $2^j$ just above $3^nv_1$)
+
+%Another thing I agree with is that $\delta$ won't reach $3^nv_1$ anytime soon: It is multiplied by 3 like the main Term, and only comes closer and closer by this tiny "+1" addition, and eventually surpasses the main term (?).
+
+%I myself sometimes bypass some steps because of data evidence, but this reasoning came to me when I asked myself: "Why would $\delta$ not surpass the main term". First with $k=1$ where it was clear, then on $k=3$ where it was suddenly less clear (I couldn't apply the same reasoning when I saw the effect of mult by 3).
+
+%I think this missing step between equation 8 and 11 is important and that if you have any explanation, you should include it in your paper, I am probably not the only one asking "how to get from here to there".
+
+%....and in fact, once they have the same bitsize (like in my exemple after a multiplication by 3) they must reach a higher power of 2, and since "only delta grows" (comparatively to the sum), it must end up larger than the main term when it hits an overflow, unless another multiplication by 3 make them closer to another power of 2 and don't give him time to grow enough.....
+
+
+\vspace{1em}
+\bibliographystyle{unsrt}
+\bibliography{main}
+\end{document}
