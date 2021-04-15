@@ -135,7 +135,7 @@ class Tree:
 
     def getNodeCount(self) -> int:
         node_count = 0
-        for row in tree.rows:
+        for row in self.rows:
             for node in row:
                 if node.state != NodeState.BLACK:
                     node_count += 1
