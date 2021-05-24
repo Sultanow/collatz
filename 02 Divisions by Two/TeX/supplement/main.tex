@@ -30,6 +30,8 @@
 \theoremstyle{definition}
 \newtheorem{remark}{Remark}
 
+\DeclareMathOperator{\len}{len}
+
 \setlength{\headsep}{2em}
 \setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
 
@@ -80,6 +82,118 @@ Moreover we stated that the maximum possible number of division by two in such a
 \hat\alpha=\lfloor n\log_23+\log_2v_1\rfloor+1
 \end{equation}
 
+The binary growth $\Lambda$ of a Collatz sequence we stated to be upper bounded as follows:
+
+\begin{equation}
+\label{eq:binary_growth}
+\Lambda\le\lfloor n\log_23\rfloor+2
+\end{equation}
+
+In the following section we explain this limit more comprehensible.
+
+\section{Proving the binary growth's upper limit}
+\label{problem_statement}
+
+\begin{lemma}
+\label{le:growth_extremal_case}
+Let us apply $n$ times a multiplication by $3$ followed with an addition by $1$ to an odd integer $v_1$:
+\[
+\underbrace{3(3(3(3v_1+1)+1)+1)+1\cdots}_{n~\text{times}}
+\]
+
+\par\medskip
+The above given repetition leads to a binary growth of $v_1$ that we denote with $\Lambda$ and it is upper bounded as follows:
+
+\[
+\Lambda\le\lfloor n\log_23\rfloor+2
+\]
+\end{lemma}
+
+\bigskip
+\begin{proof}
+We start with an odd integer $v_1$ and apply $n$ times the growth operation $x\mapsto3x+1$, which yields $3^nv_1+3^{n-1}+3^{n-2}+\ldots+3^0$. This result is a geometric series and can be compressed as follows:
+
+\[
+3^nv_1+3^{n-1}+3^{n-2}+\ldots+3^0=\frac{2\cdot3^nv_1+3^n-1}{2}
+\]
+
+The binary length of this extremal case is:
+
+\[
+\len\left(\frac{2\cdot3^nv_1+3^n-1}{2}\right)=\lfloor \log_2(2\cdot3^nv_1+3^n-1)-1\rfloor+1
+\]
+
+When we substract from this length the binary length of $v_1$ given by $\len(v_1)=\lfloor \log_2v_1\rfloor+1$, then we obtain the binary growth of this extremal case of an Collatz sequence that is constantly growing:
+
+\begin{flalign*}
+\Lambda&=\lfloor\log_2(2\cdot3^nv_1+3^n-1)-1\rfloor+1-\lfloor \log_2v_1\rfloor-1\\
+&=\lfloor\log_2(2\cdot3^nv_1+3^n-1)-1\rfloor-\lfloor \log_2v_1\rfloor
+\end{flalign*}
+
+\par\medskip
+According to Lemma~\ref{le:growth_extremal_case} we claim that $\Lambda\le\lfloor n\log_23\rfloor+2$, which leads to:
+
+\[
+\begin{array}{lllll}
+\lfloor\log_2(2\cdot3^nv_1+3^n-1)-1\rfloor&-&\lfloor \log_2v_1\rfloor&\le&\lfloor n\log_23\rfloor+2\\
+\lfloor\log_2(2\cdot3^nv_1+3^n-1)-1\rfloor&\le&\lfloor\log_2v_1\rfloor&+&\lfloor n\log_23\rfloor+2
+\end{array}
+\]
+
+\par\medskip
+In the worst case the left side of this inequality is a whole number and for this reason there is nothing to round down (the floor operation has no effect):
+
+\[
+\begin{array}{lllll}
+\log_2(2\cdot3^nv_1+3^n-1)-1&\le&\lfloor\log_2v_1\rfloor&+&\lfloor n\log_23\rfloor+2\\
+\log_2(2\cdot3^nv_1+3^n-1)-\lfloor\log_2v_1\rfloor&\le&\lfloor n\log_23\rfloor&+&3
+\end{array}
+\] 
+
+\par\medskip
+The worstcase now is $v_1=1$ which maximizes the left side:
+
+\[
+\log_2(3\cdot3^n-1)\le\lfloor n\log_23\rfloor+3
+\]
+
+\par\medskip
+And even if I increase the left side by removing the \textit{minus one} operation inside the Logarithmization, then it still remains below the limit: 
+
+\begin{flalign*}
+\log_2(3\cdot3^n)&\le\lfloor n\log_23\rfloor+3\\
+n\log_23+\log_23&\le\lfloor n\log_23\rfloor+3\\
+n\log_23-1.415&\le\lfloor n\log_23\rfloor
+\end{flalign*}
+
+\end{proof}
+
+\newpage
+\begin{theorem}
+Let us consider the binary growth of an odd integer $v_1$ to which we apply the Collatz function $n$ times:
+
+\[
+\underbrace{\cfrac{3\cfrac{3\cfrac{3\cfrac{3v_1+1}{2^{\alpha_1}}+1}{2^{\alpha_2}}+1}{2^{\alpha_3}}+1}{2^{\alpha_4}}\dotsb}_{n~\text{times}}
+\]
+
+\par\medskip
+Note that $\alpha_1,\alpha_2,\ldots,\alpha_n$ are the largest possible exponents for which $2^{\alpha_i}$, $i=1,2,\ldots,n$ exactly divide the numerator. The binary growth $\Lambda$ of $v_1$ in this case is as well upper bounded as follows:
+
+\[
+\Lambda\le\lfloor n\log_23\rfloor+2
+\]
+\end{theorem}
+
+\begin{proof}
+We start again with an odd number $v_1$ and let it grow steadily due to applying the $x\mapsto3x+1$ operation $n$ times.
+
+When after these $n$ steps we arrive at an even number $v_n$, we divide by $2^{\alpha_n}$ which means that we delete $n$ zeros from the binary representation.
+
+In this case we arrive at a new odd number. According to Lemma~\ref{le:growth_extremal_case} we are again at a point, where we cannot exceed the binary growth.
+
+\end{proof}
+
+\newpage
 \section{Problem Statement}
 \label{problem_statement}
 
@@ -152,7 +266,22 @@ Let us take for example the binary string $s=s_1s_2s_3s_4s_5s_6s_7=1000111=71$ a
 \end{array}
 \]
 
-Note: $71=v_1+v_2+v_3+v_4-1$.
+\par\medskip\noindent
+We can calculate $71$ directly using the following procedure:
+
+\begin{itemize}
+\item Determining the length $l(s)$ of our binary number $s$, which is $\alpha-1=l(s)$. In our case the length is $l(s)=8-1=7$.
+\item Determining the Hamming weight of our binary number $s$, which simply is $n$. In our case the Hamming weight is $n=4$.
+\item Construct the binary number $s$ by expanding the sequence $(v_1,\ldots,v_n)$ using the function
+\[
+f(v)=
+\begin{cases}
+	\nicefrac{3v+1}{2}	&	2\nmid v\\
+	\nicefrac{v}{2}		&	\text{otherwise}
+\end{cases}
+\]
+In our case we get the expanded sequence $(37,56,28,14,7,11,17)$. By replaycing an odd member of this expanded sequence with $1$ and an even member with $0$ we obtain the binary number $s=1000111=71$. 
+\end{itemize}
 
 \par\medskip\noindent
 We have to proove that $\delta$ cannot exceed $3^nv_1$.
@@ -164,8 +293,6 @@ Halbeisen and Hungerbühler proved that for two distinct binary strings $s=s_1s_
 \label{theo:HH_1}
 If $\sum_{i=1}^{k}s_i\le\sum_{i=1}^{k}t_i$ for all $k\in\{1,\ldots,l\}$ then $\varphi(s)>\varphi(t)$.
 \end{theorem}
-
-
 
 %\newpage
 %\section{Backup}
@@ -199,7 +326,7 @@ If $\sum_{i=1}^{k}s_i\le\sum_{i=1}^{k}t_i$ for all $k\in\{1,\ldots,l\}$ then $\v
 
 %....and in fact, once they have the same bitsize (like in my exemple after a multiplication by 3) they must reach a higher power of 2, and since "only delta grows" (comparatively to the sum), it must end up larger than the main term when it hits an overflow, unless another multiplication by 3 make them closer to another power of 2 and don't give him time to grow enough.....
 
-
+\newpage
 \vspace{1em}
 \bibliographystyle{unsrt}
 \bibliography{main}
