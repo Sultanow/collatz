@@ -20,4 +20,4 @@ This page contains the Wolfram Mathematica code to show the iterations of the Ko
 
 ## Sources
 
-[Koch Curve - Wolfram Language Reference](https://wolfram.com/xid/0mlj65sra07i-pd44os)
+- [Koch Curve - Wolfram Language Reference](https://wolfram.com/xid/0mlj65sra07i-pd44os)

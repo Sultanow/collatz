@@ -24,4 +24,4 @@ This page contains the Wolfram Mathematica code to show the iterations of the Hi
 
 ## Sources
 
-[Hilbert Curve - Wolfram Language Reference](https://reference.wolfram.com/language/ref/HilbertCurve.html)
+- [Hilbert Curve - Wolfram Language Reference](https://reference.wolfram.com/language/ref/HilbertCurve.html)

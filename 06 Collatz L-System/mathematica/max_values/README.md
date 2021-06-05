@@ -10,5 +10,5 @@ This page contains the Wolfram Mathematica code to show the maximum value reache
 
 ## Sources
 
-[Collatz - Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/resources/Collatz)
-[Collatz Conjecture Graph Max Values](https://en.wikipedia.org/wiki/File:CollatzConjectureGraphMaxValues.jpg)
+- [Collatz - Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/resources/Collatz)
+- [Collatz Conjecture Graph Max Values](https://en.wikipedia.org/wiki/File:CollatzConjectureGraphMaxValues.jpg)

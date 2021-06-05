@@ -10,5 +10,5 @@ This page contains the Wolfram Mathematica code to show the amount of Collatz st
 
 ## Sources
 
-[Collatz - Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/resources/Collatz)
-[Collatz Problem - Wolfram Math World](https://mathworld.wolfram.com/CollatzProblem.html)
+- [Collatz - Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/resources/Collatz)
+- [Collatz Problem - Wolfram Math World](https://mathworld.wolfram.com/CollatzProblem.html)
