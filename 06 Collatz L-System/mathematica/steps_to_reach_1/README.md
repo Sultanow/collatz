@@ -1,6 +1,6 @@
 # Steps to reach 1
 
-This page contains the Wolfram Mathematica code to show the amount of Collatz steps for each number to reach 1 up to $10^6$.
+This page contains the Wolfram Mathematica code to show the amount of Collatz steps for each number to reach 1 up to 10^6.
 
 ---
 

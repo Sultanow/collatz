@@ -1,6 +1,6 @@
 # Max Values
 
-This page contains the Wolfram Mathematica code to show the maximum value reached in Collatz steps for each number up to $10^4$.
+This page contains the Wolfram Mathematica code to show the maximum value reached in Collatz steps for each number up to 10^4.
 
 ---
 
