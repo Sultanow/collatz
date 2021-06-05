@@ -1,0 +1,189 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8242,        181]
+NotebookOptionsPosition[      6892,        147]
+NotebookOutlinePosition[      7833,        174]
+CellTagsIndexPosition[      7752,        169]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"kochSnowflake", "[", "i_", "]"}], ":=", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{"GeometricTransformation", "[", 
+      RowBox[{
+       RowBox[{"KochCurve", "[", "i", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"RotationTransform", "[", 
+          RowBox[{"Pi", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "]"}], ",", 
+         RowBox[{"RotationTransform", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "Pi"}], "/", "3"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0"}], "}"}]}], "]"}], ",", 
+         RowBox[{"RotationTransform", "[", 
+          RowBox[{
+           RowBox[{"Pi", "/", "3"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "}"}]}], "]"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"kochSnowflake", "[", "0", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"kochSnowflake", "[", "1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"kochSnowflake", "[", "4", "]"}]}], "Input",
+ CellChangeTimes->{{3.8318810758005085`*^9, 3.8318813056535845`*^9}},
+ CellTags->"KochCurve_templates",
+ CellLabel->"In[40]:=",ExpressionUUID->"01a8e2fb-d090-43f5-b737-b55de7062a31"],
+
+Cell[BoxData[
+ GraphicsBox[
+  GeometricTransformationBox[LineBox[{{0., 0.}, {1., 0.}}], 
+   NCache[{{{{-1, 0}, {0, -1}}, {1, 
+      0}}, {{{Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}, {
+       Rational[-1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {
+      Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}}, {{{
+       Rational[1, 2], Rational[-1, 2] 3^Rational[1, 2]}, {
+       Rational[1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {0, 0}}}, {{{{-1, 
+      0}, {0, -1}}, {1, 0}}, {{{0.5, 
+      0.8660254037844386}, {-0.8660254037844386, 0.5}}, {0.5, 
+      0.8660254037844386}}, {{{0.5, -0.8660254037844386}, {0.8660254037844386,
+       0.5}}, {0, 0}}}]]]], "Output",
+ CellChangeTimes->{{3.8318810998687515`*^9, 3.8318811213758593`*^9}, {
+  3.831881153689825*^9, 3.8318811793961*^9}, {3.831881224046605*^9, 
+  3.831881248581883*^9}, {3.831881285618816*^9, 3.831881322169112*^9}},
+ CellTags->"KochCurve_templates",
+ CellLabel->"Out[41]=",ExpressionUUID->"ad1c1795-b8d2-468d-9f47-5d318c7af1f1"],
+
+Cell[BoxData[
+ GraphicsBox[
+  GeometricTransformationBox[
+   LineBox[{{0., 0.}, {0.3333333333333333, 0.}, {0.5, 0.2886751345948129}, {
+    0.6666666666666666, 0.}, {1., 0.}}], 
+   NCache[{{{{-1, 0}, {0, -1}}, {1, 
+      0}}, {{{Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}, {
+       Rational[-1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {
+      Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}}, {{{
+       Rational[1, 2], Rational[-1, 2] 3^Rational[1, 2]}, {
+       Rational[1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {0, 0}}}, {{{{-1, 
+      0}, {0, -1}}, {1, 0}}, {{{0.5, 
+      0.8660254037844386}, {-0.8660254037844386, 0.5}}, {0.5, 
+      0.8660254037844386}}, {{{0.5, -0.8660254037844386}, {0.8660254037844386,
+       0.5}}, {0, 0}}}]]]], "Output",
+ CellChangeTimes->{{3.8318810998687515`*^9, 3.8318811213758593`*^9}, {
+  3.831881153689825*^9, 3.8318811793961*^9}, {3.831881224046605*^9, 
+  3.831881248581883*^9}, {3.831881285618816*^9, 3.831881322174114*^9}},
+ CellTags->"KochCurve_templates",
+ CellLabel->"Out[42]=",ExpressionUUID->"ce2123a7-e334-4014-8d67-81d359f59042"],
+
+Cell[BoxData[
+ GraphicsBox[GeometricTransformationBox[LineBox[CompressedData["
+1:eJxdVg9I3VUUdgWOoDVZIKyJ1iLbqAhWA4O5a5YgLJBGusWG0UhYLbYZCzaE
+kdvEshht7FG5GCqZuGY513K1dM90s57m/J+brqnPpz7/vEkjLWjQ+91zvu/H
+7/148Pj47jn3nHO/e859bNe+rQX3xcXFLVsWF+f8x36j4cH/6rM/MsC7n61s
+OrZ40myeOjt6NFRihP8ihq8i/urBTbfKU77mevCCfWpfS5zUXhj9nTP7nvlg
+eu27FWa7dfCdMcqLfQPXB/x9df++ed5kePw3xOz/A3Fm0QPzT3zfGBP/j+ST
+7f4/E/+00Ty9Nb7ZpOv6JOWxv8R3RXmfse4/85u9nviv6PrqGPtqA/8PVQ4M
+TeR/Q17yr6c9MPznlfne6lt3QfNv0f3qNf9fiBsnS7MC/lauBy/7XzTxZ/b+
+vvLjNuJc+101T77s3/l81SUj9btGXurXTny3dW3BaPia2ab+wSNeqe9vxHb7
+VQGuP2wTDJCX/DuJo8GdKq7pMCs99elUPVTTPkMx/O/X+nt5H+2B4R/6SVbe
+e/5dxLb83V3Uj5zPdfJyPt3Ejxc4FejmevAvevTbQz29ZwPsof5XH3Qi6I3R
+f6/ZpLjFMT/RG6P/Xu4v599HnG8PqJ/xyPn3k8+z5z9AfK8+OxrCAPWfqzzq
+J/oYpP5fsQEMUv/goXfYpyuGf+gfPM4f9sDwDz2L/gapd9HfH8QzjvxWD3E9
+eOj3xIaFA3sODxG/cDyYdjw4RP2Dl/gu0x4Y/hfvzbzmW9NMXuL1Mz5gxI/1
+3vz8Mfn7WZ/gcFlqUaCFvNyfVtoDw39HWkXVU6Vt5EU/V2kPDP8XfBeTR15q
+Jy/5/0p7YPg//Veg/JO4APMDj/yBUR+sBy/3uSOmvh2s/5Gc0cT0pk7tHzfI
+y/2+Sfyho+66G6Zc/YNP1f3l/rs4NXr58jOHuV7u/zB5uf8jjL/NpjfC9UnK
+Y/89sgHxwze3RCt0i/GDl/Puoj0w/L9z7u+T84euk5fz76Y98Cr1X3usZHnO
+mh6dH3+Sl/bi4vPO8W68zfXgRU892r9uE+vUNynPfZpVc6jX9DvtZcMoeelf
+Lq7ZYRVA/+Cxv/Q/Fy/aBMa4XvrfGHnpfy627enUGOsDfknr16H2wEvq/6jW
+Hzz0Bntg+Ic+C5XH+T9i++84ccQpX/64+VLXS/91+betAF2cHr09ieuD9A8e
++yc48tsRJJ5IsxeA8V+y/dvl37AXaIJ6s+Z3g9QneOh5uU3QxVY+TRNc/61z
+vAsuv83e/xDjP2IPOGQatD/kKb9Z+wfs0U/gH/0HPPpTrtrnKS5W/+Oe/hbS
+/u2nPfoh/C9p/4zX/MAj//2KUZ9/dL23fpf1fRQ0CYqDWv912v/BZ+h8yFd7
+o7hM/W/X+ZLv2b+e8QEj/td1fZ3mBx75A6M+CZ75GDKZOj9RH7x/4B/vHy/v
+oz3mNfzj/YDz9c5/F3fbBEMmW9fLfJgkL/PBxY8mrr8/p3FS3zslBjzeOzI/
+Jvkesu0vacoUavynUxwHU5qvT+fHFO3t9S0GX0Ie+8v8mSZudqbDlmnGL/PH
+5WX+uHiFk15imO8l8Hh/yXwKMx47XorCfL95+Wra4/0K/yv0fMHj/QJ7YPjP
+Vf3I/AvHvK9niJ3il2bN8L0NHu8dW56DM9Rz7Vnnm+H7R8aPy9v2lzlL/KoV
++Cz1Dx76lfnq4go7nmep/wN2wM2Rl/nnYju+zBz1Dx76f1/tof9K9Q/9e3kf
+7aF/+Pe+/+d4/jKfXfy5XADqR+bzPHmZ/y6ess/veeofPPQi8ztC/dvjT4tQ
+/7usQCPUv8zvCO2t+ZkI9Q8e+8v8v0Ns5b/7DuOX+e/y8i0Q/w8RsM7w
+    "]], NCache[{{{{-1, 0}, {0, -1}}, {1, 
+      0}}, {{{Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}, {
+       Rational[-1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {
+      Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}}, {{{
+       Rational[1, 2], Rational[-1, 2] 3^Rational[1, 2]}, {
+       Rational[1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {0, 0}}}, {{{{-1, 
+      0}, {0, -1}}, {1, 0}}, {{{0.5, 
+      0.8660254037844386}, {-0.8660254037844386, 0.5}}, {0.5, 
+      0.8660254037844386}}, {{{0.5, -0.8660254037844386}, {0.8660254037844386,
+       0.5}}, {0, 0}}}]]]], "Output",
+ CellChangeTimes->{{3.8318810998687515`*^9, 3.8318811213758593`*^9}, {
+  3.831881153689825*^9, 3.8318811793961*^9}, {3.831881224046605*^9, 
+  3.831881248581883*^9}, {3.831881285618816*^9, 3.831881322210269*^9}},
+ CellTags->"KochCurve_templates",
+ CellLabel->"Out[43]=",ExpressionUUID->"92cdd11b-553e-45f2-b563-ebebefba9707"]
+}, Open  ]]
+},
+WindowSize->{2544, 1357},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "KochCurve_templates"->{
+  Cell[580, 22, 1335, 33, 105, "Input",ExpressionUUID->"01a8e2fb-d090-43f5-b737-b55de7062a31",
+   CellTags->"KochCurve_templates"],
+  Cell[1918, 57, 993, 17, 330, "Output",ExpressionUUID->"ad1c1795-b8d2-468d-9f47-5d318c7af1f1",
+   CellTags->"KochCurve_templates"],
+  Cell[2914, 76, 1081, 19, 430, "Output",ExpressionUUID->"ce2123a7-e334-4014-8d67-81d359f59042",
+   CellTags->"KochCurve_templates"],
+  Cell[3998, 97, 2878, 47, 430, "Output",ExpressionUUID->"92cdd11b-553e-45f2-b563-ebebefba9707",
+   CellTags->"KochCurve_templates"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"KochCurve_templates", 7195, 157}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1335, 33, 105, "Input",ExpressionUUID->"01a8e2fb-d090-43f5-b737-b55de7062a31",
+ CellTags->"KochCurve_templates"],
+Cell[1918, 57, 993, 17, 330, "Output",ExpressionUUID->"ad1c1795-b8d2-468d-9f47-5d318c7af1f1",
+ CellTags->"KochCurve_templates"],
+Cell[2914, 76, 1081, 19, 430, "Output",ExpressionUUID->"ce2123a7-e334-4014-8d67-81d359f59042",
+ CellTags->"KochCurve_templates"],
+Cell[3998, 97, 2878, 47, 430, "Output",ExpressionUUID->"92cdd11b-553e-45f2-b563-ebebefba9707",
+ CellTags->"KochCurve_templates"]
+}, Open  ]]
+}
+]
+*)
+
