@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <stdlib>
+#include <vector>
 #include "lib.h"
 
 int V(int num)
@@ -80,7 +81,7 @@ void includeNumber(int* numberArr, int number)
 /*
 unsigned char isIncluded(int* numberArr, number)
 {
-	if (int len = sizeof(numberArr)/sizeof(int) > 0)
+	if ((int len = sizeof(numberArr)/sizeof(int)) > 0)
 	{
 		int left = 0;
 		int right = len-1;
@@ -104,9 +105,34 @@ unsigned char isIncluded(int* numberArr, number)
 }
 */
 
-void removeNumber(int* numberArr, int number)
+void removeNumber(vector* numberArr, int number)
 {
-	
+	if ((int len = sizeof(numberArr)/sizeof(int)) > 0)
+	{
+		int left = 0;
+		int right = len-1;
+		int i = 0;
+
+		while (left<=right)
+		{
+			i = (left+right)>>1;
+			if (numberArr[i] == number)
+			{
+				numberArr.erase(numberArr.begin() + (i-1));
+				break;
+			}
+
+			else if (numberArr[i]<number)
+			{
+				left = i+1;
+			}
+			else
+			{
+				right = i-1;
+			}
+		}
+	}
+	return;
 }
 
 int getType(int label)
@@ -119,3 +145,5 @@ int getType(int label)
 		return 3;
 	return -1;
 }
+
+

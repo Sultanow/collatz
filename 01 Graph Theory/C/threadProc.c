@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "catalog.h"
+
 unsigned char checkTwo(unsigned long num)
 {
 	unsigned long result = num>>1;
@@ -37,35 +39,49 @@ unsigned long thirdRule(unsigned long num)
 {
 	if(num%3==0)
 	{
-		return ((2*num - 1)/3);
+		return((2*num - 1)/3);
 	}
 	return 0;
 }
 
-unsigned long thirdRuleBis(unsigned long num)
+unsigned long thirdRuleBis(unsigned long num, unsigned long resultTR)
 {
-	if (thirdRule(num))
+	if (resultTR)
 	{
 		if( ((num-1)/4) && 1)
 		{
-			return((thirdRule(num)-1)/2);
+			return((resultTR-1)/2);
 		}
 	}
 
 	return 0;
 }
 
-int main(unsigned long num, unsigned long num* result)
+void worker(unsigned long num, unsigned long *result)
 {
-	for (int i=0; i<4; i++)
+	/*for (int i=0; i<4; i++)
 	{
 		result[i] = 0;
-	}
+	}*/
 	
 	result[0] = V(num);
 	result[1] = S(num);
 	result[2] = thirdRule(num);
-	result[3] = thirdRuleBis(num);
+	result[3] = thirdRuleBis(num,result[2]);
 	
+	return;
+}
+
+int main(int argc, char* argv[])
+{
+	int max = 32;
+	unsigned long result[4];
+	Catalog c;
+
+	worker(1,result);
+	for(int i = 0; i < 4; i++)
+		c.addToProve(result[i]);
+	c.print();
+
 	return 0;
 }
