@@ -1,31 +1,47 @@
 #ifndef CATALOG_H
 #define CATALOG_H
 
+#define TYPE size_t
+
 #include <vector>
+#include <set>
 
 class Row
 {
 	public:
-		Row(unsigned long nb);
+		Row(TYPE nb);
+		~Row();
 
-		unsigned long size;
-		bool* proved;
+		bool get(TYPE);
+		void set(TYPE);
+
+		TYPE size;
+		TYPE nbProveds;
+		std::vector<bool> proved;
 };
 
 class Catalog
 {
 	public:
-		Catalog();
+		Catalog(TYPE);
 		~Catalog();
 
-		void addToProve(unsigned long num);
-		unsigned long getToProve();
+		void addNumProved(TYPE num);
+		void addTab4NumProved(TYPE tab[4]);
+		TYPE getToProsess();
+
+		void check();
 
 		void print();
+		void printSet();
+		void printExpense();
 
 	private:
-		Row* eltProveds[4];
-		int size;
+		Row** eltProveds;
+		TYPE max;
+		TYPE size;
+		TYPE lastline;
+		std::set<TYPE> numToProsess;
 };
 
 #endif
