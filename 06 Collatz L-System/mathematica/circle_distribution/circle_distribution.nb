@@ -1,0 +1,1729 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     71903,       1721]
+NotebookOptionsPosition[     71273,       1703]
+NotebookOutlinePosition[     71615,       1718]
+CellTagsIndexPosition[     71572,       1715]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"r", "[", 
+     RowBox[{"t_", ",", "radius_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"x", "=", 
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"radius", "*", 
+          RowBox[{"Sin", "[", "t", "]"}]}], ")"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"y", "=", 
+       RowBox[{"radius", "*", 
+        RowBox[{"Cos", "[", "t", "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], "\[IndentingNewLine]", ")"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fnfact", "[", "n_", "]"}], ":=", 
+    RowBox[{"n", "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "^", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Floor", "[", 
+           RowBox[{"Log", "[", 
+            RowBox[{"2", ",", "n"}], "]"}], "]"}], "+", "1"}], ")"}]}], "-", 
+       RowBox[{"2", "^", 
+        RowBox[{"Floor", "[", 
+         RowBox[{"Log", "[", 
+          RowBox[{"2", ",", "n"}], "]"}], "]"}]}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"row", "[", "n_", "]"}], ":=", 
+    RowBox[{"Floor", "[", 
+     RowBox[{"Log", "[", 
+      RowBox[{"2", ",", "n"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"color", "[", "n_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Switch", "[", 
+      RowBox[{
+       RowBox[{"Mod", "[", 
+        RowBox[{"n", ",", "3"}], "]"}], ",", "0", ",", 
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.9", ",", "0.75", ",", "0"}], "]"}], ",", "1", ",", 
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.5", ",", "0", ",", "0.5"}], "]"}], ",", "2", ",", 
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0", ",", "0.5", ",", "0.5"}], "]"}]}], "]"}], 
+     "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"thickness", "[", "n_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Thickness", "[", 
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"row", "[", "n", "]"}], "+", "1"}], ")"}], "*", "128"}], 
+        ")"}]}], "]"}], "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"plot", "[", "max_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"numbers", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"ToString", "[", "n", "]"}], ",", 
+             RowBox[{"color", "[", "n", "]"}], ",", " ", 
+             RowBox[{"FontSize", "\[Rule]", 
+              RowBox[{"60", "-", 
+               RowBox[{
+                RowBox[{"row", "[", "n", "]"}], "*", "8"}]}]}]}], "]"}], ",", 
+           RowBox[{"r", "[", 
+            RowBox[{
+             RowBox[{"2", "Pi", " ", 
+              RowBox[{"fnfact", "[", "n", "]"}]}], ",", "1.1"}], "]"}]}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "1", ",", "max", ",", "2"}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"lines", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"thickness", "[", "n", "]"}], ",", 
+             RowBox[{"RGBColor", "[", 
+              RowBox[{"0.25", ",", "0.25", ",", "0.25"}], "]"}]}], "]"}], ",", 
+           RowBox[{"2", "Pi", " ", 
+            RowBox[{"fnfact", "[", "n", "]"}]}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "1", ",", "max", ",", "2"}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Join", "[", 
+       RowBox[{"numbers", ",", "lines", ",", 
+        RowBox[{"{", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Circle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], ",", 
+           RowBox[{"Thickness", "[", "0.01", "]"}]}], "]"}], "}"}]}], "]"}]}],
+      "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Graphics", "[", 
+   RowBox[{
+    RowBox[{"plot", "[", "31", "]"}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Graphics", "[", 
+   RowBox[{
+    RowBox[{"plot", "[", "63", "]"}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{"plot", "[", "127", "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.832730409178179*^9, 3.8327304308493567`*^9}, {
+  3.8327305269565153`*^9, 3.8327305553392563`*^9}},
+ CellLabel->
+  "In[194]:=",ExpressionUUID->"e08625bb-fa00-473c-acd8-292cb1ce0b59"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    StyleBox["\<\"1\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->60,
+     FontColor->RGBColor[0.5, 0, 0.5]], {0., 1.1}], InsetBox[
+    StyleBox["\<\"3\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->52,
+     FontColor->RGBColor[0.9, 0.75, 0]], {0., -1.1}], InsetBox[
+    StyleBox["\<\"5\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0, 0.5, 0.5]], {-1.1, 0.}], InsetBox[
+    StyleBox["\<\"7\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0.5, 0, 0.5]], {1.1, 0.}], InsetBox[
+    StyleBox["\<\"9\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"11\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"13\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"15\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"17\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, 1.0162674857624154}], InsetBox[
+    StyleBox["\<\"19\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"21\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"23\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"25\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"27\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"29\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"31\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, 1.0162674857624154}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 128]], LineBox[{{0, 1}, {0, -1}}]}, {{{1, 0}, {0, 1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 256]], LineBox[{{0, 1}, {0, -1}}]}, {{{-1, 0}, {0, -1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, -1}, {1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, 1}, {-1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+     0.7071067811865475}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.7071067811865475, -0.7071067811865475}, {
+     0.7071067811865475, -0.7071067811865475}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, -0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, 0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9238795325112867, -0.3826834323650898}, {0.3826834323650898, 
+     0.9238795325112867}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.3826834323650898, -0.9238795325112867}, {0.9238795325112867, 
+     0.3826834323650898}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.3826834323650898, -0.9238795325112867}, {
+     0.9238795325112867, -0.3826834323650898}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9238795325112867, -0.3826834323650898}, {
+     0.3826834323650898, -0.9238795325112867}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, -0.9238795325112867}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, -0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, 0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, 0.9238795325112867}}, 
+     Center}], 
+   {Thickness[0.01], CircleBox[{0, 0}, 1]}},
+  ImageSize->1000]], "Output",
+ CellChangeTimes->{
+  3.832730432926901*^9, {3.8327305374201546`*^9, 3.8327305573673487`*^9}},
+ CellLabel->
+  "Out[201]=",ExpressionUUID->"894f6ec3-251c-4f2d-a893-aceff2b8741d"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    StyleBox["\<\"1\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->60,
+     FontColor->RGBColor[0.5, 0, 0.5]], {0., 1.1}], InsetBox[
+    StyleBox["\<\"3\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->52,
+     FontColor->RGBColor[0.9, 0.75, 0]], {0., -1.1}], InsetBox[
+    StyleBox["\<\"5\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0, 0.5, 0.5]], {-1.1, 0.}], InsetBox[
+    StyleBox["\<\"7\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0.5, 0, 0.5]], {1.1, 0.}], InsetBox[
+    StyleBox["\<\"9\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"11\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"13\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"15\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"17\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, 1.0162674857624154}], InsetBox[
+    StyleBox["\<\"19\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"21\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"23\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"25\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"27\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"29\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"31\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, 1.0162674857624154}], InsetBox[
+    StyleBox["\<\"33\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.2145993542177411, 1.0788638084435536}], InsetBox[
+    StyleBox["\<\"35\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.6111272563215624, 0.9146165735327998}], InsetBox[
+    StyleBox["\<\"37\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.9146165735327998, 0.6111272563215624}], InsetBox[
+    StyleBox["\<\"39\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0788638084435536, 0.2145993542177411}], InsetBox[
+    StyleBox["\<\"41\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-1.0788638084435536, -0.2145993542177411}], InsetBox[
+    StyleBox["\<\"43\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.9146165735327998, -0.6111272563215624}], InsetBox[
+    StyleBox["\<\"45\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.6111272563215624, -0.9146165735327998}], InsetBox[
+    StyleBox["\<\"47\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.2145993542177411, -1.0788638084435536}], InsetBox[
+    StyleBox["\<\"49\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.2145993542177411, -1.0788638084435536}], InsetBox[
+    StyleBox["\<\"51\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.6111272563215624, -0.9146165735327998}], InsetBox[
+    StyleBox["\<\"53\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.9146165735327998, -0.6111272563215624}], InsetBox[
+    StyleBox["\<\"55\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {1.0788638084435536, -0.2145993542177411}], InsetBox[
+    StyleBox["\<\"57\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0788638084435536, 0.2145993542177411}], InsetBox[
+    StyleBox["\<\"59\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.9146165735327998, 0.6111272563215624}], InsetBox[
+    StyleBox["\<\"61\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.6111272563215624, 0.9146165735327998}], InsetBox[
+    StyleBox["\<\"63\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.2145993542177411, 1.0788638084435536}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 128]], LineBox[{{0, 1}, {0, -1}}]}, {{{1, 0}, {0, 1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 256]], LineBox[{{0, 1}, {0, -1}}]}, {{{-1, 0}, {0, -1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, -1}, {1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, 1}, {-1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+     0.7071067811865475}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.7071067811865475, -0.7071067811865475}, {
+     0.7071067811865475, -0.7071067811865475}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, -0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, 0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9238795325112867, -0.3826834323650898}, {0.3826834323650898, 
+     0.9238795325112867}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.3826834323650898, -0.9238795325112867}, {0.9238795325112867, 
+     0.3826834323650898}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.3826834323650898, -0.9238795325112867}, {
+     0.9238795325112867, -0.3826834323650898}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9238795325112867, -0.3826834323650898}, {
+     0.3826834323650898, -0.9238795325112867}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, -0.9238795325112867}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, -0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, 0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, 0.9238795325112867}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9807852804032304, -0.19509032201612825`}, {0.19509032201612825`, 
+     0.9807852804032304}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.8314696123025452, -0.5555702330196022}, {0.5555702330196022, 
+     0.8314696123025452}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.5555702330196022, -0.8314696123025452}, {0.8314696123025452, 
+     0.5555702330196022}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.19509032201612825`, -0.9807852804032304}, {0.9807852804032304, 
+     0.19509032201612825`}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.19509032201612825`, -0.9807852804032304}, {
+     0.9807852804032304, -0.19509032201612825`}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.5555702330196022, -0.8314696123025452}, {
+     0.8314696123025452, -0.5555702330196022}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.8314696123025452, -0.5555702330196022}, {
+     0.5555702330196022, -0.8314696123025452}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9807852804032304, -0.19509032201612825`}, {
+     0.19509032201612825`, -0.9807852804032304}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9807852804032304, 
+     0.19509032201612825`}, {-0.19509032201612825`, -0.9807852804032304}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.8314696123025452, 
+     0.5555702330196022}, {-0.5555702330196022, -0.8314696123025452}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.5555702330196022, 
+     0.8314696123025452}, {-0.8314696123025452, -0.5555702330196022}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {0, -1}}]}, {{{-0.19509032201612825`, 
+     0.9807852804032304}, {-0.9807852804032304, -0.19509032201612825`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.19509032201612825`,
+      0.9807852804032304}, {-0.9807852804032304, 0.19509032201612825`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.5555702330196022, 
+     0.8314696123025452}, {-0.8314696123025452, 0.5555702330196022}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.8314696123025452, 
+     0.5555702330196022}, {-0.5555702330196022, 0.8314696123025452}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9807852804032304, 
+     0.19509032201612825`}, {-0.19509032201612825`, 0.9807852804032304}}, 
+     Center}], 
+   {Thickness[0.01], CircleBox[{0, 0}, 1]}},
+  ImageSize->1000]], "Output",
+ CellChangeTimes->{
+  3.832730432926901*^9, {3.8327305374201546`*^9, 3.8327305574073477`*^9}},
+ CellLabel->
+  "Out[202]=",ExpressionUUID->"4ebd2484-d4c3-42cb-b43b-48eab717b541"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    StyleBox["\<\"1\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->60,
+     FontColor->RGBColor[0.5, 0, 0.5]], {0., 1.1}], InsetBox[
+    StyleBox["\<\"3\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->52,
+     FontColor->RGBColor[0.9, 0.75, 0]], {0., -1.1}], InsetBox[
+    StyleBox["\<\"5\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0, 0.5, 0.5]], {-1.1, 0.}], InsetBox[
+    StyleBox["\<\"7\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->44,
+     FontColor->RGBColor[0.5, 0, 0.5]], {1.1, 0.}], InsetBox[
+    StyleBox["\<\"9\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"11\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"13\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.7778174593052023, -0.7778174593052023}], InsetBox[
+    StyleBox["\<\"15\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->36,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.7778174593052023, 0.7778174593052023}], InsetBox[
+    StyleBox["\<\"17\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, 1.0162674857624154}], InsetBox[
+    StyleBox["\<\"19\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"21\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"23\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"25\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, -1.0162674857624154}], InsetBox[
+    StyleBox["\<\"27\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0162674857624154, -0.4209517756015988}], InsetBox[
+    StyleBox["\<\"29\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {1.0162674857624154, 0.4209517756015988}], InsetBox[
+    StyleBox["\<\"31\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->28,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.4209517756015988, 1.0162674857624154}], InsetBox[
+    StyleBox["\<\"33\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.2145993542177411, 1.0788638084435536}], InsetBox[
+    StyleBox["\<\"35\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.6111272563215624, 0.9146165735327998}], InsetBox[
+    StyleBox["\<\"37\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.9146165735327998, 0.6111272563215624}], InsetBox[
+    StyleBox["\<\"39\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0788638084435536, 0.2145993542177411}], InsetBox[
+    StyleBox["\<\"41\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-1.0788638084435536, -0.2145993542177411}], InsetBox[
+    StyleBox["\<\"43\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.9146165735327998, -0.6111272563215624}], InsetBox[
+    StyleBox["\<\"45\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.6111272563215624, -0.9146165735327998}], InsetBox[
+    StyleBox["\<\"47\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.2145993542177411, -1.0788638084435536}], InsetBox[
+    StyleBox["\<\"49\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.2145993542177411, -1.0788638084435536}], InsetBox[
+    StyleBox["\<\"51\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.6111272563215624, -0.9146165735327998}], InsetBox[
+    StyleBox["\<\"53\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.9146165735327998, -0.6111272563215624}], InsetBox[
+    StyleBox["\<\"55\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {1.0788638084435536, -0.2145993542177411}], InsetBox[
+    StyleBox["\<\"57\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0788638084435536, 0.2145993542177411}], InsetBox[
+    StyleBox["\<\"59\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.9146165735327998, 0.6111272563215624}], InsetBox[
+    StyleBox["\<\"61\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.6111272563215624, 0.9146165735327998}], InsetBox[
+    StyleBox["\<\"63\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->20,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.2145993542177411, 1.0788638084435536}], InsetBox[
+    StyleBox["\<\"65\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.10781885436251668, 1.0947031993394167}], InsetBox[
+    StyleBox["\<\"67\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.3193131449799086, 1.0526343693054299}], InsetBox[
+    StyleBox["\<\"69\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.5185364105085974, 0.9701133907831906}], InsetBox[
+    StyleBox["\<\"71\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.6978326125800101, 0.8503114986990108}], InsetBox[
+    StyleBox["\<\"73\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.8503114986990108, 0.6978326125800101}], InsetBox[
+    StyleBox["\<\"75\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.9701133907831906, 0.5185364105085974}], InsetBox[
+    StyleBox["\<\"77\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-1.0526343693054299, 0.3193131449799086}], InsetBox[
+    StyleBox["\<\"79\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-1.0947031993394167, 0.10781885436251668}], InsetBox[
+    StyleBox["\<\"81\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-1.0947031993394167, -0.10781885436251668}], InsetBox[
+    StyleBox["\<\"83\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-1.0526343693054299, -0.3193131449799086}], InsetBox[
+    StyleBox["\<\"85\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.9701133907831906, -0.5185364105085974}], InsetBox[
+    StyleBox["\<\"87\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.8503114986990108, -0.6978326125800101}], InsetBox[
+    StyleBox["\<\"89\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.6978326125800101, -0.8503114986990108}], InsetBox[
+    StyleBox["\<\"91\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {-0.5185364105085974, -0.9701133907831906}], InsetBox[
+    StyleBox["\<\"93\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {-0.3193131449799086, -1.0526343693054299}], InsetBox[
+    StyleBox["\<\"95\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {-0.10781885436251668, -1.0947031993394167}], InsetBox[
+    StyleBox["\<\"97\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.10781885436251668, -1.0947031993394167}], InsetBox[
+    StyleBox["\<\"99\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.3193131449799086, -1.0526343693054299}], InsetBox[
+    StyleBox["\<\"101\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.5185364105085974, -0.9701133907831906}], InsetBox[
+    StyleBox["\<\"103\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.6978326125800101, -0.8503114986990108}], InsetBox[
+    StyleBox["\<\"105\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.8503114986990108, -0.6978326125800101}], InsetBox[
+    StyleBox["\<\"107\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.9701133907831906, -0.5185364105085974}], InsetBox[
+    StyleBox["\<\"109\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {1.0526343693054299, -0.3193131449799086}], InsetBox[
+    StyleBox["\<\"111\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {1.0947031993394167, -0.10781885436251668}], InsetBox[
+    StyleBox["\<\"113\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {1.0947031993394167, 0.10781885436251668}], InsetBox[
+    StyleBox["\<\"115\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {1.0526343693054299, 0.3193131449799086}], InsetBox[
+    StyleBox["\<\"117\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.9701133907831906, 0.5185364105085974}], InsetBox[
+    StyleBox["\<\"119\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.8503114986990108, 0.6978326125800101}], InsetBox[
+    StyleBox["\<\"121\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.6978326125800101, 0.8503114986990108}], InsetBox[
+    StyleBox["\<\"123\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.9, 0.75, 0],
+     FrontFaceColor->RGBColor[0.9, 0.75, 0],
+     BackFaceColor->RGBColor[0.9, 0.75, 0],
+     GraphicsColor->RGBColor[0.9, 0.75, 0],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.9, 0.75, 0]], {0.5185364105085974, 0.9701133907831906}], InsetBox[
+    StyleBox["\<\"125\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0, 0.5, 0.5],
+     FrontFaceColor->RGBColor[0, 0.5, 0.5],
+     BackFaceColor->RGBColor[0, 0.5, 0.5],
+     GraphicsColor->RGBColor[0, 0.5, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0, 0.5, 0.5]], {0.3193131449799086, 1.0526343693054299}], InsetBox[
+    StyleBox["\<\"127\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.5, 0, 0.5],
+     FrontFaceColor->RGBColor[0.5, 0, 0.5],
+     BackFaceColor->RGBColor[0.5, 0, 0.5],
+     GraphicsColor->RGBColor[0.5, 0, 0.5],
+     FontSize->12,
+     FontColor->RGBColor[
+      0.5, 0, 0.5]], {0.10781885436251668, 1.0947031993394167}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 128]], LineBox[{{0, 1}, {0, -1}}]}, {{{1, 0}, {0, 1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 256]], LineBox[{{0, 1}, {0, -1}}]}, {{{-1, 0}, {0, -1}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, -1}, {1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 384]], LineBox[{{0, 1}, {0, -1}}]}, {{{0, 1}, {-1, 0}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.7071067811865475, -0.7071067811865475}, {0.7071067811865475, 
+     0.7071067811865475}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.7071067811865475, -0.7071067811865475}, {
+     0.7071067811865475, -0.7071067811865475}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, -0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 512]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.7071067811865475, 
+     0.7071067811865475}, {-0.7071067811865475, 0.7071067811865475}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9238795325112867, -0.3826834323650898}, {0.3826834323650898, 
+     0.9238795325112867}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.3826834323650898, -0.9238795325112867}, {0.9238795325112867, 
+     0.3826834323650898}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.3826834323650898, -0.9238795325112867}, {
+     0.9238795325112867, -0.3826834323650898}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9238795325112867, -0.3826834323650898}, {
+     0.3826834323650898, -0.9238795325112867}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, -0.9238795325112867}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, -0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.3826834323650898, 
+     0.9238795325112867}, {-0.9238795325112867, 0.3826834323650898}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 640]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9238795325112867, 
+     0.3826834323650898}, {-0.3826834323650898, 0.9238795325112867}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9807852804032304, -0.19509032201612825`}, {0.19509032201612825`, 
+     0.9807852804032304}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.8314696123025452, -0.5555702330196022}, {0.5555702330196022, 
+     0.8314696123025452}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.5555702330196022, -0.8314696123025452}, {0.8314696123025452, 
+     0.5555702330196022}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.19509032201612825`, -0.9807852804032304}, {0.9807852804032304, 
+     0.19509032201612825`}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.19509032201612825`, -0.9807852804032304}, {
+     0.9807852804032304, -0.19509032201612825`}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.5555702330196022, -0.8314696123025452}, {
+     0.8314696123025452, -0.5555702330196022}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.8314696123025452, -0.5555702330196022}, {
+     0.5555702330196022, -0.8314696123025452}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9807852804032304, -0.19509032201612825`}, {
+     0.19509032201612825`, -0.9807852804032304}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9807852804032304, 
+     0.19509032201612825`}, {-0.19509032201612825`, -0.9807852804032304}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.8314696123025452, 
+     0.5555702330196022}, {-0.5555702330196022, -0.8314696123025452}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.5555702330196022, 
+     0.8314696123025452}, {-0.8314696123025452, -0.5555702330196022}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], 
+     LineBox[{{0, 1}, {0, -1}}]}, {{{-0.19509032201612825`, 
+     0.9807852804032304}, {-0.9807852804032304, -0.19509032201612825`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.19509032201612825`,
+      0.9807852804032304}, {-0.9807852804032304, 0.19509032201612825`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.5555702330196022, 
+     0.8314696123025452}, {-0.8314696123025452, 0.5555702330196022}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.8314696123025452, 
+     0.5555702330196022}, {-0.5555702330196022, 0.8314696123025452}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 768]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9807852804032304, 
+     0.19509032201612825`}, {-0.19509032201612825`, 0.9807852804032304}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9951847266721969, -0.0980171403295606}, {0.0980171403295606, 
+     0.9951847266721969}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.9569403357322088, -0.29028467725446233`}, {0.29028467725446233`, 
+     0.9569403357322088}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.881921264348355, -0.47139673682599764`}, {0.47139673682599764`, 
+     0.881921264348355}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.773010453362737, -0.6343932841636455}, {0.6343932841636455, 
+     0.773010453362737}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.6343932841636455, -0.773010453362737}, {0.773010453362737, 
+     0.6343932841636455}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.47139673682599764`, -0.881921264348355}, {0.881921264348355, 
+     0.47139673682599764`}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.29028467725446233`, -0.9569403357322088}, {0.9569403357322088, 
+     0.29028467725446233`}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{
+     0.0980171403295606, -0.9951847266721969}, {0.9951847266721969, 
+     0.0980171403295606}}, Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.0980171403295606, -0.9951847266721969}, {
+     0.9951847266721969, -0.0980171403295606}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.29028467725446233`, -0.9569403357322088}, {
+     0.9569403357322088, -0.29028467725446233`}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.47139673682599764`, -0.881921264348355}, {
+     0.881921264348355, -0.47139673682599764`}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.6343932841636455, -0.773010453362737}, {
+     0.773010453362737, -0.6343932841636455}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.773010453362737, -0.6343932841636455}, {
+     0.6343932841636455, -0.773010453362737}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.881921264348355, -0.47139673682599764`}, {
+     0.47139673682599764`, -0.881921264348355}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9569403357322088, -0.29028467725446233`}, {
+     0.29028467725446233`, -0.9569403357322088}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {
+      0, -1}}]}, {{{-0.9951847266721969, -0.0980171403295606}, {
+     0.0980171403295606, -0.9951847266721969}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9951847266721969, 
+     0.0980171403295606}, {-0.0980171403295606, -0.9951847266721969}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.9569403357322088, 
+     0.29028467725446233`}, {-0.29028467725446233`, -0.9569403357322088}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.881921264348355, 
+     0.47139673682599764`}, {-0.47139673682599764`, -0.881921264348355}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.773010453362737, 
+     0.6343932841636455}, {-0.6343932841636455, -0.773010453362737}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.6343932841636455, 
+     0.773010453362737}, {-0.773010453362737, -0.6343932841636455}}, Center}],
+    GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {0, -1}}]}, {{{-0.47139673682599764`, 
+     0.881921264348355}, {-0.881921264348355, -0.47139673682599764`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], 
+     LineBox[{{0, 1}, {0, -1}}]}, {{{-0.29028467725446233`, 
+     0.9569403357322088}, {-0.9569403357322088, -0.29028467725446233`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{-0.0980171403295606, 
+     0.9951847266721969}, {-0.9951847266721969, -0.0980171403295606}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.0980171403295606, 
+     0.9951847266721969}, {-0.9951847266721969, 0.0980171403295606}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.29028467725446233`,
+      0.9569403357322088}, {-0.9569403357322088, 0.29028467725446233`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.47139673682599764`,
+      0.881921264348355}, {-0.881921264348355, 0.47139673682599764`}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.6343932841636455, 
+     0.773010453362737}, {-0.773010453362737, 0.6343932841636455}}, Center}], 
+   GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.773010453362737, 
+     0.6343932841636455}, {-0.6343932841636455, 0.773010453362737}}, Center}],
+    GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.881921264348355, 
+     0.47139673682599764`}, {-0.47139673682599764`, 0.881921264348355}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9569403357322088, 
+     0.29028467725446233`}, {-0.29028467725446233`, 0.9569403357322088}}, 
+     Center}], GeometricTransformationBox[
+    {RGBColor[0.25, 0.25, 0.25], Thickness[
+      Rational[1, 896]], LineBox[{{0, 1}, {0, -1}}]}, {{{0.9951847266721969, 
+     0.0980171403295606}, {-0.0980171403295606, 0.9951847266721969}}, 
+     Center}], 
+   {Thickness[0.01], CircleBox[{0, 0}, 1]}},
+  ImageSize->1000]], "Output",
+ CellChangeTimes->{
+  3.832730432926901*^9, {3.8327305374201546`*^9, 3.8327305574183493`*^9}},
+ CellLabel->
+  "Out[203]=",ExpressionUUID->"5e359ada-4c8a-4d44-ae06-42b280ace49d"]
+}, Open  ]]
+},
+WindowSize->{2544, 1357},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5743, 162, 599, "Input",ExpressionUUID->"e08625bb-fa00-473c-acd8-292cb1ce0b59"],
+Cell[6326, 186, 9149, 214, 1041, "Output",ExpressionUUID->"894f6ec3-251c-4f2d-a893-aceff2b8741d"],
+Cell[15478, 402, 18525, 431, 1041, "Output",ExpressionUUID->"4ebd2484-d4c3-42cb-b43b-48eab717b541"],
+Cell[34006, 835, 37251, 865, 1041, "Output",ExpressionUUID->"5e359ada-4c8a-4d44-ae06-42b280ace49d"]
+}, Open  ]]
+}
+]
+*)
+
