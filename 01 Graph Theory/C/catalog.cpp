@@ -11,8 +11,8 @@ Row::Row(TYPE n)
 {
 	TYPE i = 1;
 	size = i << n;
-	nbProveds = 0;
-	proved.assign(size,false);
+	nbProven = 0;
+	Proven.assign(size,false);
 }
 
 Row::~Row()
@@ -20,13 +20,13 @@ Row::~Row()
 
 bool Row::get(TYPE i)
 {
-	return proved[i];
+	return Proven[i];
 }
 
 void Row::set(TYPE i)
 {
-	nbProveds++;
-	proved[i] = true;
+	nbProven++;
+	Proven[i] = true;
 }
 
 TYPE find2pow(TYPE num) {
@@ -45,26 +45,26 @@ Catalog::Catalog(TYPE m)
 	max = max << m;
 	size = m + 2 ;
 	lastline = 1;
-	eltProveds = (Row**) malloc(size * sizeof(Row*));
+	eltProven = (Row**) malloc(size * sizeof(Row*));
 	for (TYPE i = 0; i < size; i++)
 	{
-		eltProveds[i] = new Row(i);
+		eltProven[i] = new Row(i);
 	}
 
 	numToProcess.insert(3);
-	addNumProved(5);
+	addNumProven(5);
 }
 
 Catalog::~Catalog()
 {
 	for(TYPE i = 0; i < size; i++)
 	{
-		delete eltProveds[i];
+		delete eltProven[i];
 	}
-	free(eltProveds);
+	free(eltProven);
 }
 
-void Catalog::addNumProved(TYPE num)
+void Catalog::addNumProven(TYPE num)
 {
 	TYPE i = 1;
 	if (num < (i << (lastline + 1)))
@@ -82,7 +82,7 @@ void Catalog::addNumProved(TYPE num)
 		return;
 	}
 
-	Row* row = eltProveds[index];
+	Row* row = eltProven[index];
 
 	if (!row->get(index2))
 	{
@@ -92,12 +92,12 @@ void Catalog::addNumProved(TYPE num)
 	}
 }
 
-void Catalog::addTab4NumProved(TYPE tab[4])
+void Catalog::addTab4NumProven(TYPE tab[4])
 {
-	addNumProved(tab[0]);
-	addNumProved(tab[1]);
-	addNumProved(tab[2]);
-	addNumProved(tab[3]);
+	addNumProven(tab[0]);
+	addNumProven(tab[1]);
+	addNumProven(tab[2]);
+	addNumProven(tab[3]);
 }
 
 TYPE Catalog::getToProcess()
@@ -113,11 +113,11 @@ TYPE Catalog::getToProcess()
 
 void Catalog::check()
 {
-	Row* row = eltProveds[lastline];
-	if (row != NULL && row->nbProveds == row->size)
+	Row* row = eltProven[lastline];
+	if (row != NULL && row->nbProven == row->size)
 	{
 		delete row;
-		eltProveds[lastline] = NULL;
+		eltProven[lastline] = NULL;
 		lastline++;
 		printExpense();
 		check();
@@ -129,13 +129,13 @@ void Catalog::print()
 	std::cout << "Catalog:\n";
 	for(TYPE n = 0; n < size; n++)
 	{
-		Row* r = eltProveds[n];
+		Row* r = eltProven[n];
 
 		cout << n << " : ";
 
 		if (r != NULL)
 		{
-			cout << r->nbProveds << " -> ";
+			cout << r->nbProven << " -> ";
 			for (TYPE i=0; i < r->size; i++)
 			{
 				if(r->get(i))
@@ -162,7 +162,7 @@ void Catalog::printSet()
 void Catalog::printExpense()
 {
 	TYPE t = 0;
-	cout << lastline + 1 << "expense," << (1 << lastline) - eltProveds[lastline]->nbProveds << ",1";
+	cout << lastline + 1 << "expense," << (1 << lastline) - eltProven[lastline]->nbProven << ",1";
 	TYPE i = 0;
 	for(;i < lastline; i++)
 	{
@@ -170,8 +170,8 @@ void Catalog::printExpense()
 	}
 	for(; i < size; i++)
 	{
-		cout << "," << eltProveds[i]->nbProveds;
-		t += eltProveds[i]->nbProveds;
+		cout << "," << eltProven[i]->nbProven;
+		t += eltProven[i]->nbProven;
 	}
 	cout << "," << t << "\n";
 

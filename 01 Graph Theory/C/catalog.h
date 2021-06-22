@@ -16,8 +16,8 @@ class Row
 		void set(TYPE);
 
 		TYPE size;
-		TYPE nbProveds;
-		std::vector<bool> proved;
+		TYPE nbProven;
+		std::vector<bool> Proven;
 };
 
 class Catalog
@@ -26,8 +26,8 @@ class Catalog
 		Catalog(TYPE);
 		~Catalog();
 
-		void addNumProved(TYPE num);
-		void addTab4NumProved(TYPE tab[4]);
+		void addNumProven(TYPE num);
+		void addTab4NumProven(TYPE tab[4]);
 		TYPE getToProcess();
 
 		void check();
@@ -37,7 +37,7 @@ class Catalog
 		void printExpense();
 
 	private:
-		Row** eltProveds;
+		Row** eltProven;
 		TYPE max;
 		TYPE size;
 		TYPE lastline;
