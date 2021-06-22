@@ -28,7 +28,7 @@ class Catalog
 
 		void addNumProved(TYPE num);
 		void addTab4NumProved(TYPE tab[4]);
-		TYPE getToProsess();
+		TYPE getToProcess();
 
 		void check();
 
@@ -41,7 +41,7 @@ class Catalog
 		TYPE max;
 		TYPE size;
 		TYPE lastline;
-		std::set<TYPE> numToProsess;
+		std::set<TYPE> numToProcess;
 };
 
 #endif

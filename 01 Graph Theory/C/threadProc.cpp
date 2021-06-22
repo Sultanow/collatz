@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	TYPE num;
 	Catalog c(max);
 
-	std::cout << "Row,";
+	std::cout << "Row,Difference,";
 	for(TYPE i=1;i<=max+3;i++)
 	{
 		std::cout << i <<",";
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 	c.addNumProved(3);
 	c.addNumProved(5);
 
-	while((num = c.getToProsess()) != 0)
+	while((num = c.getToProcess()) != 0)
 	{
 		worker(num,result);
 		//std::cout << num << ": " << result[0] << ", " << result[1] << ", " << result[2] << ", " << result[3] << "\n" ;

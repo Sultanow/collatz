@@ -50,6 +50,9 @@ Catalog::Catalog(TYPE m)
 	{
 		eltProveds[i] = new Row(i);
 	}
+
+	numToProcess.insert(3);
+	addNumProved(5);
 }
 
 Catalog::~Catalog()
@@ -63,7 +66,8 @@ Catalog::~Catalog()
 
 void Catalog::addNumProved(TYPE num)
 {
-	if (num < 2)
+	TYPE i = 1;
+	if (num < (i << (lastline + 1)))
 		return;
 
 	TYPE pow2 = find2pow(num);
@@ -84,7 +88,7 @@ void Catalog::addNumProved(TYPE num)
 	{
 		row->set(index2);
 		if (num < max)
-			numToProsess.insert(num);
+			numToProcess.insert(num);
 	}
 }
 
@@ -96,14 +100,14 @@ void Catalog::addTab4NumProved(TYPE tab[4])
 	addNumProved(tab[3]);
 }
 
-TYPE Catalog::getToProsess()
+TYPE Catalog::getToProcess()
 {
-	if (numToProsess.size() == 0)
+	if (numToProcess.size() == 0)
 		return 0;
 
-	TYPE r = *numToProsess.begin();
-	//numToProsess.pop();
-	numToProsess.erase(numToProsess.begin());
+	TYPE r = *numToProcess.begin();
+	//numToProcess.pop();
+	numToProcess.erase(numToProcess.begin());
 	return r;
 }
 
@@ -112,6 +116,8 @@ void Catalog::check()
 	Row* row = eltProveds[lastline];
 	if (row != NULL && row->nbProveds == row->size)
 	{
+		delete row;
+		eltProveds[lastline] = NULL;
 		lastline++;
 		printExpense();
 		check();
@@ -144,8 +150,9 @@ void Catalog::print()
 
 void Catalog::printSet()
 {
-	cout << "set : ";
-	for (auto it = numToProsess.begin(); it != numToProsess.end(); it++)
+	cout << "set : " << numToProcess.size() << "\n";
+	return;
+	for (auto it = numToProcess.begin(); it != numToProcess.end(); it++)
 	{
 		cout << *it << ", ";
 	}
@@ -155,8 +162,13 @@ void Catalog::printSet()
 void Catalog::printExpense()
 {
 	TYPE t = 0;
-	cout << lastline + 1 << "expense,1";
-	for(TYPE i = 0; i < size; i++)
+	cout << lastline + 1 << "expense," << (1 << lastline) - eltProveds[lastline]->nbProveds << ",1";
+	TYPE i = 0;
+	for(;i < lastline; i++)
+	{
+		cout << "," << (1 << i);
+	}
+	for(; i < size; i++)
 	{
 		cout << "," << eltProveds[i]->nbProveds;
 		t += eltProveds[i]->nbProveds;
