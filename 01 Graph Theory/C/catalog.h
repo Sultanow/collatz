@@ -1,10 +1,11 @@
 #ifndef CATALOG_H
 #define CATALOG_H
 
-#define TYPE size_t
+#define TYPE unsigned long long
 
 #include <vector>
 #include <set>
+#include <ctime>
 
 class Row
 {
@@ -42,6 +43,7 @@ class Catalog
 		TYPE size;
 		TYPE lastline;
 		std::set<TYPE> numToProcess;
+		time_t beginning;
 };
 
 #endif

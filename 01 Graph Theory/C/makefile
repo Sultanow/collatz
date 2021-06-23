@@ -1,5 +1,5 @@
 CXX= g++
-CXXFLAGS= -Wall -Wextra
+CXXFLAGS= -Wall -Wextra -O3
 
 sources=$(wildcard *.cpp)
 objects=$(sources:%.cpp=%.o)

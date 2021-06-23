@@ -53,6 +53,7 @@ Catalog::Catalog(TYPE m)
 
 	numToProcess.insert(3);
 	addNumProven(5);
+	beginning = time(NULL);
 }
 
 Catalog::~Catalog()
@@ -66,13 +67,14 @@ Catalog::~Catalog()
 
 void Catalog::addNumProven(TYPE num)
 {
+	TYPE one = 1;
 	TYPE i = 1;
 	if (num < (i << (lastline + 1)))
 		return;
 
 	TYPE pow2 = find2pow(num);
 	TYPE index = pow2 - 1;
-	TYPE index2 = (num - (1 << pow2)) >> 1;
+	TYPE index2 = (num - (one << pow2)) >> 1;
 
 	//std::cout << num << " " << pow2 << " " << index2 << "\n";
 
@@ -162,7 +164,7 @@ void Catalog::printSet()
 void Catalog::printExpense()
 {
 	TYPE t = 0;
-	cout << lastline + 1 << "expense," << (1 << lastline) - eltProven[lastline]->nbProven << ",1";
+	cout << lastline + 1 << "expense," << (1 << lastline) - eltProven[lastline]->nbProven << "," << difftime(time(NULL),beginning) << ",1";
 	TYPE i = 0;
 	for(;i < lastline; i++)
 	{
@@ -173,7 +175,7 @@ void Catalog::printExpense()
 		cout << "," << eltProven[i]->nbProven;
 		t += eltProven[i]->nbProven;
 	}
-	cout << "," << t << "\n";
+	cout << "," << t << endl;
 
 	//print();
 

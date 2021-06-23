@@ -23,12 +23,12 @@ int main(int argc, char* argv[])
 	TYPE num;
 	Catalog c(max);
 
-	std::cout << "Row,Difference,";
+	std::cout << "Row,Difference,Time,";
 	for(TYPE i=1;i<=max+3;i++)
 	{
 		std::cout << i <<",";
 	}
-	std::cout << "Total Expense\n";
+	std::cout << "Total Expense" << std::endl;
 
 	c.addNumProven(3);
 	c.addNumProven(5);
