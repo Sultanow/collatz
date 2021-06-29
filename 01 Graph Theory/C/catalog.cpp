@@ -44,7 +44,7 @@ Catalog::Catalog(TYPE m)
 	max = 1;
 	max = max << m;
 	size = m + 2 ;
-	lastline = 1;
+	lastline = 0;
 	eltProven = (Row**) malloc(size * sizeof(Row*));
 	for (TYPE i = 0; i < size; i++)
 	{
