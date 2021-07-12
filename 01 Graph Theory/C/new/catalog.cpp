@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <stdlib.h>
+#include <omp.h>
 
 #include <bitset>
 
@@ -117,15 +118,20 @@ TYPE Catalog::getToProcess()
 	numToProcess.erase(numToProcess.begin());
 	return r;
 	*/
+
 	TYPE one = 1;
 	TYPE index = 0;
+
+	//#pragma omp parallel for reduction(+:index)
 	for(index = (one << lastline)/2; index < (max/2); index++)
 	{
 		if (toProcess[index])
 			break;
 	}
+
 	if (index >= (max/2))
 		index = 0;
+
 	toProcess[index] = false;
 	return (index * 2) + 1;
 }

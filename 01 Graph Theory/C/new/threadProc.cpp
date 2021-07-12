@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	}
 	std::cout << "Total Expense" << std::endl;
 
-	while((num = c.getToProcess()) != 0)
+	while((num = c.getToProcess()) != 1)
 	{
 		worker(num,result);
 		//std::cout << num << ": " << result[0] << ", " << result[1] << ", " << result[2] << ", " << result[3] << "\n" ;
