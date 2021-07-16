@@ -3,11 +3,8 @@
 #include <cstring>
 #include <stdlib.h>
 #include <omp.h>
-#include <stdio.h>
 
 #include <bitset>
-
-#define OPENMP_NUM_THREADS 8
 
 using namespace std;
 
@@ -123,44 +120,19 @@ TYPE Catalog::getToProcess()
 	*/
 
 	TYPE one = 1;
-	TYPE begin = (one<<(lastline))/2; //one<<lastline-1 <=> (one<<lastline) /2
-	TYPE end = max/2;
-	TYPE index = end;
-	//printf("Variables initialisées.\n");
-	//printf("Begin : %lld | End : %lld\n",begin,end);
-	//printf("Index : %lld\n",index);
+	TYPE index = 0;
 
-	#pragma omp parallel reduction(min:index) 
+	//#pragma omp parallel for reduction(+:index)
+	for(index = (one << lastline)/2; index < (max/2); index++)
 	{
-		TYPE n = (end-begin)/omp_get_num_threads();
-		int id = omp_get_thread_num();
-		TYPE start = begin + n*id;
-		TYPE stop = start + n;
-
-		//printf("Start : %lld | Stop : %lld | Index : %lld\n",start,stop,index);
-
-		for(index=start; index<stop; index++)
-		{
-			if (toProcess[index])
-				break;
-		}
-
-		//printf("Post-boucle.\n");
-
-		if (index >= stop)
-			index = end;
-
-		//printf("%d : %lld\n",id,index);
+		if (toProcess[index])
+			break;
 	}
-	
-	//printf("Valeur avant le if : %lld\n",index);
-	if (index==end)
+
+	if (index >= (max/2))
 		index = 0;
-	//printf("Valeur après le if : %lld\n",index);
 
 	toProcess[index] = false;
-
-	//printf("Pré-return.\n");
 	return (index * 2) + 1;
 }
 

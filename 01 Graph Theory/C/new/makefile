@@ -1,6 +1,5 @@
 CXX= g++
-CXXFLAGS= -fopenmp -Wall -Wextra -O3
-LDFLAGS= -lpthread
+CXXFLAGS= -Wall -Wextra -O3
 
 sources=$(wildcard *.cpp)
 objects=$(sources:%.cpp=%.o)
@@ -9,7 +8,7 @@ exec=threadproc
 all: $(exec)
 
 $(exec) : $(objects)
-	$(CXX) $^ -o $@ $(CXXFLAGS) $(LDFLAGS)
+	$(CXX) $^ -o $@ $(LDFLAGS)
 
 clean:
 	rm -rf $(objects) $(exec)
