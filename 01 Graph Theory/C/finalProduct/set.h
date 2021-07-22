@@ -38,6 +38,7 @@ class SetBool : public Set
 	private:
 		TYPE first;
 		TYPE last;
+		TYPE max;
 		std::vector<bool> v;
 
 };

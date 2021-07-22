@@ -33,10 +33,11 @@ TYPE SetStep::pop()
 	return r;
 }
 
-SetBool::SetBool(TYPE max)
+SetBool::SetBool(TYPE m)
 {
 	first = 0;
 	last = 0;
+	max = m;
 
 	v.assign(max,false);
 }
@@ -72,7 +73,7 @@ TYPE SetBool::pop()
 
 		for(index=start; index<stop; index++)
 		{
-			if (toProcess[index])
+			if (v[index])
 				break;
 		}
 
