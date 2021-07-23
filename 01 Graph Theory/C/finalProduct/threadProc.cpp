@@ -23,6 +23,9 @@ int main(int argc, char* argv[])
 	TYPE num;
 	Catalog c(max,argv[2][0] == 'o');
 
+	c.add(3);
+	c.add(5);
+
 	std::cout << "Row,Difference,Time,";
 	for(TYPE i=1;i<=max+3;i++)
 	{
@@ -30,21 +33,17 @@ int main(int argc, char* argv[])
 	}
 	std::cout << "Total Expense" << std::endl;
 
-	c.addNumProven(3);
-	c.addNumProven(5);
-
 	while((num = c.getToProcess()) != 0)
 	{
 		worker(num,result);
-		//std::cout << num << ": " << result[0] << ", " << result[1] << ", " << result[2] << ", " << result[3] << "\n" ;
 
-		c.addNumProven(result[0]);
+		c.add(result[0]);
 		c.check();
-		c.addNumProven(result[1]);
+		c.add(result[1]);
 		c.check();
-		c.addNumProven(result[2]);
+		c.add(result[2]);
 		c.check();
-		c.addNumProven(result[3]);
+		c.add(result[3]);
 		c.check();
 
 		//std::cout << "\n";

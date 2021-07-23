@@ -5,40 +5,26 @@
 #include "set.h"
 #include <ctime>
 
-class Row
-{
-	public:
-		Row(TYPE nb);
-		~Row();
-
-		bool get(TYPE);
-		void set(TYPE);
-
-		TYPE size;
-		TYPE nbProven;
-		std::vector<bool> Proven;
-};
-
 class Catalog
 {
 	public:
 		Catalog(TYPE, bool old);
 		~Catalog();
 
-		void addNumProven(TYPE num);
-		void addTab4NumProven(TYPE tab[4]);
+		void add(TYPE num);
 		TYPE getToProcess();
 
 		void check();
 
-		void print();
 		void printExpense();
 
 	private:
-		Row** eltProven;
+		std::vector<bool> eltProven;
+		std::vector<TYPE> nbProven;
 		TYPE max;
-		TYPE size;
-		TYPE lastline;
+		int size;
+		int lastLine;
+		TYPE nbLine;
 		Set* numToProcess;
 		time_t beginning;
 };
