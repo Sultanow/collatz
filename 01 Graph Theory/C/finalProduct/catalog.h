@@ -26,7 +26,7 @@ class Catalog
 		int lastLine;
 		TYPE nbLine;
 		Set* numToProcess;
-		time_t beginning;
+		struct timespec beginning;
 };
 
 #endif

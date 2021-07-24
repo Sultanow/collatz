@@ -35,7 +35,7 @@ Catalog::Catalog(TYPE m, bool old = false)
 	else
 		numToProcess = new SetBool(max >> 1);
 
-	beginning = time(NULL);
+	clock_gettime(CLOCK_REALTIME, &beginning);
 }
 
 Catalog::~Catalog()
@@ -83,7 +83,19 @@ void Catalog::printExpense()
 {
 	TYPE t = 0;
 	TYPE one = 1;
-	cout << lastLine + 1 << "expense," << (one << lastLine) - nbProven[lastLine] << "," << difftime(time(NULL),beginning) << ",1";
+	struct timespec curTime;
+	clock_gettime(CLOCK_REALTIME, &curTime);
+	curTime.tv_sec -= beginning.tv_sec;
+	if (curTime.tv_nsec < beginning.tv_nsec)
+	{
+		curTime.tv_sec -= 1;
+		curTime.tv_nsec = 1000000000+curTime.tv_nsec-beginning.tv_nsec;
+	}
+	else
+	{
+		curTime.tv_nsec -= beginning.tv_nsec;
+	}
+	cout << lastLine + 1 << "expense," << (one << lastLine) - nbProven[lastLine] << "," << (curTime.tv_sec*1000000)+(curTime.tv_nsec/1000) << ",1";
 	int i = 0;
 	for(;i < lastLine; i++)
 	{
