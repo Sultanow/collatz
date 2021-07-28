@@ -4,6 +4,6 @@ This page contains the code to create two overlapping cones starting from differ
 
 ---
 
-A tree with a height of 10 starting from node number 1 superimposed with a node starting from 161.
+A tree with a height of 10 starting from node number 1 superimposed with a tree starting from 161.
 
 ![](overlay_tree.png)
