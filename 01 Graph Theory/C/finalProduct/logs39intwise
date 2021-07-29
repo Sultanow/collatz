@@ -1,3 +1,0 @@
-g++ -Wall -Wextra -O3   -c -o catalog.o catalog.cpp
-g++ -Wall -Wextra -O3   -c -o set.o set.cpp
-<builtin>: recipe for target 'set.o' failed
