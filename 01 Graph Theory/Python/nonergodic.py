@@ -49,17 +49,23 @@ def get_angle(vec):
         angle+=360.0
     return angle
 
-def calculate_ratio(height):
+def calculate_ratio(number, height):
     top=0
     bottom=0
 
     i=3
-    while i<=3**height:
-        if get_number_angle(i*3)<180.0:
+    while i<=number**height:
+        angle=get_number_angle(i*number)
+        # if angle>135.0 and angle<=180.0 :
+        #     bottom+=1
+        # elif angle>180.0 and angle<225.0:
+        #     top+=1
+
+        if angle<90.0:
             bottom+=1
         else:
             top+=1
-        i*=3
+        i*=number
     
     return (top, bottom)
 
@@ -69,8 +75,8 @@ tops=[]
 bottoms=[]
 ratios=[]
 
-for i in range(500):
-    top, bottom=calculate_ratio(i)
+for i in range(200):
+    top, bottom=calculate_ratio(17, i)
     tops.append(top)
     bottoms.append(bottom)
     if bottom>0:
@@ -82,6 +88,8 @@ r = np.squeeze(ratios)
 
 ax[0][0].plot(t, label = "Top")
 ax[0][0].plot(b, label = "Bottom")
+# ax[0][0].plot(t, label = "A")
+# ax[0][0].plot(b, label = "B")
 ax[0][0].legend()
 
 ax[0][1].plot(r, label = "Ratio")
