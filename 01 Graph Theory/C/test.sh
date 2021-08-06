@@ -3,13 +3,20 @@ then
 
 start=$(date +%s)
 
+arg="$2"
 
-if [ ! -d results ]
+if [ "$arg" != "old" ]
 then
-	mkdir results
+	arg="new"
 fi
 
-./threadproc $1 > ./results/result.csv &
+dir=results/$arg
+
+mkdir -p $dir 2>&1
+
+echo $1 $arg
+
+./threadproc $1 $arg > $dir/result$1.csv &
 
 pid=$!
 

@@ -45,7 +45,7 @@ TYPE thirdRuleBis(TYPE num, TYPE resultTR)
 {
 	if (resultTR)
 	{
-		if( ((num-1)/4) && 1)
+		if( ((num-1)/4) & 1)
 		{
 			return((resultTR-1)/2);
 		}
