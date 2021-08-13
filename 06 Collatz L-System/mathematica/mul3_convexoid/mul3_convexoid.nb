@@ -1,0 +1,2490 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    101085,       2482]
+NotebookOptionsPosition[    100655,       2466]
+NotebookOutlinePosition[    100997,       2481]
+CellTagsIndexPosition[    100954,       2478]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"r", "[", "t_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"-", "t"}], "]"}], ")"}], ",", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"-", "t"}], "]"}]}], "}"}], "\[IndentingNewLine]", ")"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fnfact", "[", "n_", "]"}], ":=", 
+    RowBox[{"n", "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "^", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Floor", "[", 
+           RowBox[{"Log", "[", 
+            RowBox[{"2", ",", "n"}], "]"}], "]"}], "+", "1"}], ")"}]}], "-", 
+       RowBox[{"2", "^", 
+        RowBox[{"Floor", "[", 
+         RowBox[{"Log", "[", 
+          RowBox[{"2", ",", "n"}], "]"}], "]"}]}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"line", "[", 
+     RowBox[{"from_", ",", "to_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"Line", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"r", "[", 
+            RowBox[{
+             RowBox[{"Pi", "/", "2"}], "+", 
+             RowBox[{"2", "Pi", " ", "from"}]}], "]"}], ",", 
+           RowBox[{"r", "[", 
+            RowBox[{
+             RowBox[{"Pi", "/", "2"}], "+", 
+             RowBox[{"2", "Pi", " ", "to"}]}], "]"}]}], "}"}], ",", 
+         RowBox[{"VertexColors", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", "Yellow"}], "}"}]}]}], "]"}], ",", " ", 
+       RowBox[{"Thickness", "[", "0.002", "]"}]}], "]"}], 
+     "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Graphics", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"line", "[", 
+         RowBox[{
+          RowBox[{"fnfact", "[", "n", "]"}], ",", " ", 
+          RowBox[{"fnfact", "[", 
+           RowBox[{"n", "*", "3"}], "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "513", ",", "1023", ",", "2"}], "}"}]}], "]"}], 
+      ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"Circle", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], ",", 
+        RowBox[{"Thickness", "[", "0.002", "]"}]}], "]"}]}], "}"}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.834633077677539*^9, 3.8346330778772345`*^9}, {
+   3.8346332731653504`*^9, 3.834633328484192*^9}, {3.8346333593325624`*^9, 
+   3.834633395388604*^9}, {3.8346334581170545`*^9, 3.834633557965949*^9}, {
+   3.834633616102648*^9, 3.8346337693168087`*^9}, {3.8346340991228313`*^9, 
+   3.834634099547042*^9}, {3.8346342030188336`*^9, 3.8346342591219883`*^9}, {
+   3.8346343046025105`*^9, 3.834634329363161*^9}, {3.8346343675939217`*^9, 
+   3.8346346937854767`*^9}, {3.8346387335635853`*^9, 
+   3.8346388048643064`*^9}, {3.83463884285944*^9, 3.834638949826852*^9}, 
+   3.8346390925301094`*^9, {3.8346391732161093`*^9, 3.834639258894473*^9}, {
+   3.8346393892538886`*^9, 3.8346394537037334`*^9}, {3.834639520254495*^9, 
+   3.834639591620993*^9}, {3.834639626159171*^9, 3.8346396317177987`*^9}, {
+   3.8346396741138783`*^9, 3.8346396783656335`*^9}, {3.8346397095492964`*^9, 
+   3.8346398608361063`*^9}, {3.8346415934489007`*^9, 
+   3.8346416529679146`*^9}, {3.8346417273365993`*^9, 3.834641766965802*^9}, {
+   3.834641858887404*^9, 3.8346419151658473`*^9}, {3.834641948094309*^9, 
+   3.834641948309209*^9}, {3.8346419919360914`*^9, 3.834642035540666*^9}, {
+   3.8346420753023586`*^9, 3.834642228547539*^9}, 3.834642345188472*^9, {
+   3.8346442076546073`*^9, 3.834644209620327*^9}, {3.8378314908354774`*^9, 
+   3.8378314935203815`*^9}, {3.837831528155098*^9, 3.8378315285301905`*^9}, {
+   3.8378316010650115`*^9, 3.83783160168264*^9}, 3.8378316660659966`*^9, {
+   3.8378317281868625`*^9, 3.8378319431921787`*^9}, {3.8378320741214757`*^9, 
+   3.8378320744644566`*^9}, {3.8378324353037324`*^9, 3.837832501727416*^9}, {
+   3.837832539687598*^9, 3.8378325405331745`*^9}, {3.8378325758791456`*^9, 
+   3.8378326111295958`*^9}},
+ CellLabel->
+  "In[116]:=",ExpressionUUID->"3c982421-5221-4eed-a979-5fc525787c4a"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[1, 256] Pi], -Sin[Rational[1, 256] Pi]}, {
+        Cos[Rational[3, 512] Pi], Sin[
+         Rational[3, 512] 
+          Pi]}}, {{-0.9999247018391445, -0.012271538285719925`}, {
+       0.9998305817958234, 0.01840672990580482}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[3, 256] Pi], -Sin[Rational[3, 256] Pi]}, {
+        Cos[Rational[9, 512] Pi], Sin[
+         Rational[9, 512] 
+          Pi]}}, {{-0.9993223845883495, -0.03680722294135883}, {
+       0.9984755805732948, 0.055195244349689934`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[5, 256] Pi], -Sin[Rational[5, 256] Pi]}, {
+        Cos[Rational[15, 512] Pi], Sin[
+         Rational[15, 512] 
+          Pi]}}, {{-0.9981181129001492, -0.06132073630220858}, {
+       0.9957674144676598, 0.09190895649713272}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[7, 256] Pi], -Sin[Rational[7, 256] Pi]}, {
+        Cos[Rational[21, 512] Pi], Sin[
+         Rational[21, 512] 
+          Pi]}}, {{-0.996312612182778, -0.0857973123444399}, {
+       0.9917097536690995, 0.12849811079379317`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[9, 256] Pi], -Sin[Rational[9, 256] Pi]}, {
+        Cos[Rational[27, 512] Pi], Sin[
+         Rational[27, 512] 
+          Pi]}}, {{-0.9939069700023561, -0.11022220729388306`}, {
+       0.9863080972445987, 0.1649131204899699}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[11, 256] Pi], -
+         Sin[Rational[11, 256] Pi]}, {
+        Cos[Rational[33, 512] Pi], Sin[
+         Rational[33, 512] 
+          Pi]}}, {{-0.99090263542778, -0.13458070850712617`}, {
+       0.9795697656854405, 0.2011046348420919}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[13, 256] Pi], -
+         Sin[Rational[13, 256] Pi]}, {
+        Cos[Rational[39, 512] Pi], Sin[
+         Rational[39, 512] 
+          Pi]}}, {{-0.9873014181578584, -0.15885814333386145`}, {
+       0.9715038909862518, 0.2370236059943672}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[15, 256] Pi], -
+         Sin[Rational[15, 256] Pi]}, {
+        Cos[Rational[45, 512] Pi], Sin[
+         Rational[45, 512] 
+          Pi]}}, {{-0.9831054874312163, -0.18303988795514095`}, {
+       0.9621214042690416, 0.272621355449949}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[17, 256] Pi], -
+         Sin[Rational[17, 256] Pi]}, {
+        Cos[Rational[51, 512] Pi], Sin[
+         Rational[51, 512] 
+          Pi]}}, {{-0.9783173707196277, -0.20711137619221856`}, {
+       0.9514350209690083, 0.30784964004153487`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[19, 256] Pi], -
+         Sin[Rational[19, 256] Pi]}, {
+        Cos[Rational[57, 512] Pi], Sin[
+         Rational[57, 512] 
+          Pi]}}, {{-0.9729399522055602, -0.2310581082806711}, {
+       0.9394592236021899, 0.3426607173119944}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[21, 256] Pi], -
+         Sin[Rational[21, 256] Pi]}, {
+        Cos[Rational[63, 512] Pi], Sin[
+         Rational[63, 512] 
+          Pi]}}, {{-0.9669764710448521, -0.25486565960451457`}, {
+       0.9262102421383114, 0.37700741021641826`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[23, 256] Pi], -
+         Sin[Rational[23, 256] Pi]}, {
+        Cos[Rational[69, 512] Pi], Sin[
+         Rational[69, 512] 
+          Pi]}}, {{-0.9604305194155658, -0.27851968938505306`}, {
+       0.9117060320054299, 0.4108431710579039}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[25, 256] Pi], -
+         Sin[Rational[25, 256] Pi]}, {
+        Cos[Rational[75, 512] Pi], Sin[
+         Rational[75, 512] 
+          Pi]}}, {{-0.9533060403541939, -0.3020059493192281}, {
+       0.8959662497561852, 0.4441221445704292}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[27, 256] Pi], -
+         Sin[Rational[27, 256] Pi]}, {
+        Cos[Rational[81, 512] Pi], Sin[
+         Rational[81, 512] 
+          Pi]}}, {{-0.9456073253805213, -0.3253102921622629}, {
+       0.8790122264286335, 0.4767992300633221}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[29, 256] Pi], -
+         Sin[Rational[29, 256] Pi]}, {
+        Cos[Rational[87, 512] Pi], Sin[
+         Rational[87, 512] 
+          Pi]}}, {{-0.937339011912575, -0.34841868024943456`}, {
+       0.8608669386377673, 0.508830142543107}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[31, 256] Pi], -
+         Sin[Rational[31, 256] Pi]}, {
+        Cos[Rational[93, 512] Pi], Sin[
+         Rational[93, 512] 
+          Pi]}}, {{-0.9285060804732156, -0.37131719395183754`}, {
+       0.8415549774368984, 0.5401714727298929}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[33, 256] Pi], -
+         Sin[Rational[33, 256] Pi]}, {
+        Cos[Rational[99, 512] Pi], Sin[
+         Rational[99, 512] 
+          Pi]}}, {{-0.9191138516900578, -0.3939920400610481}, {
+       0.8211025149911046, 0.5707807458869673}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[35, 256] Pi], -
+         Sin[Rational[35, 256] Pi]}, {
+        Cos[Rational[105, 512] Pi], Sin[
+         Rational[105, 512] 
+          Pi]}}, {{-0.9091679830905224, -0.41642956009763715`}, {
+       0.799537269107905, 0.600616479383869}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[37, 256] Pi], -
+         Sin[Rational[37, 256] Pi]}, {
+        Cos[Rational[111, 512] Pi], Sin[
+         Rational[111, 512] 
+          Pi]}}, {{-0.8986744656939538, -0.43861623853852766`}, {
+       0.7768884656732324, 0.629638238914927}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[39, 256] Pi], -
+         Sin[Rational[39, 256] Pi]}, {
+        Cos[Rational[117, 512] Pi], Sin[
+         Rational[117, 512] 
+          Pi]}}, {{-0.8876396204028539, -0.46053871095824}, {
+       0.7531867990436125, 0.6578066932970786}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[41, 256] Pi], -
+         Sin[Rational[41, 256] Pi]}, {
+        Cos[Rational[123, 512] Pi], Sin[
+         Rational[123, 512] 
+          Pi]}}, {{-0.8760700941954066, -0.4821837720791227}, {
+       0.7284643904482252, 0.6850836677727004}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[43, 256] Pi], -
+         Sin[Rational[43, 256] Pi]}, {
+        Sin[Rational[127, 512] Pi], Cos[
+         Rational[127, 512] 
+          Pi]}}, {{-0.8639728561215867, -0.5035383837257176}, {
+       0.7027547444572253, 0.7114321957452164}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[45, 256] Pi], -
+         Sin[Rational[45, 256] Pi]}, {
+        Sin[Rational[121, 512] Pi], Cos[
+         Rational[121, 512] 
+          Pi]}}, {{-0.8513551931052652, -0.524589682678469}, {
+       0.6760927035753159, 0.7368165688773698}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[47, 256] Pi], -
+         Sin[Rational[47, 256] Pi]}, {
+        Sin[Rational[115, 512] Pi], Cos[
+         Rational[115, 512] 
+          Pi]}}, {{-0.8382247055548381, -0.5453249884220465}, {
+       0.6485144010221124, 0.7612023854842618}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[49, 256] Pi], -
+         Sin[Rational[49, 256] Pi]}, {
+        Sin[Rational[109, 512] Pi], Cos[
+         Rational[109, 512] 
+          Pi]}}, {{-0.8245893027850253, -0.5657318107836131}, {
+       0.6200572117632891, 0.7845565971555752}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[51, 256] Pi], -
+         Sin[Rational[51, 256] Pi]}, {
+        Sin[Rational[103, 512] Pi], Cos[
+         Rational[103, 512] 
+          Pi]}}, {{-0.8104571982525948, -0.5857978574564389}, {
+       0.5907597018588742, 0.8068475535437993}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[53, 256] Pi], -
+         Sin[Rational[53, 256] Pi]}, {
+        Sin[Rational[97, 512] Pi], Cos[
+         Rational[97, 512] 
+          Pi]}}, {{-0.7958369046088836, -0.6055110414043255}, {
+       0.560661576197336, 0.8280450452577558}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[55, 256] Pi], -
+         Sin[Rational[55, 256] Pi]}, {
+        Sin[Rational[91, 512] Pi], Cos[
+         Rational[91, 512] 
+          Pi]}}, {{-0.7807372285720945, -0.6248594881423863}, {
+       0.5298036246862946, 0.8481203448032972}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[57, 256] Pi], -
+         Sin[Rational[57, 256] Pi]}, {
+        Sin[Rational[85, 512] Pi], Cos[
+         Rational[85, 512] 
+          Pi]}}, {{-0.765167265622459, -0.6438315428897914}, {
+       0.4982276669727818, 0.8670462455156926}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[59, 256] Pi], -
+         Sin[Rational[59, 256] Pi]}, {
+        Sin[Rational[79, 512] Pi], Cos[
+         Rational[79, 512] 
+          Pi]}}, {{-0.7491363945234594, -0.6624157775901718}, {
+       0.4659764957679662, 0.8847970984309378}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[61, 256] Pi], -
+         Sin[Rational[61, 256] Pi]}, {
+        Sin[Rational[73, 512] Pi], Cos[
+         Rational[73, 512] 
+          Pi]}}, {{-0.7326542716724128, -0.680600997795453}, {
+       0.43309381885315196`, 0.901348847046022}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[63, 256] Pi], -
+         Sin[Rational[63, 256] Pi]}, {
+        Sin[Rational[67, 512] Pi], Cos[
+         Rational[67, 512] 
+          Pi]}}, {{-0.7157308252838187, -0.6983762494089728}, {
+       0.3996241998456468, 0.9166790599210427}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[63, 256] Pi], -
+         Cos[Rational[63, 256] Pi]}, {
+        Sin[Rational[61, 512] Pi], Cos[
+         Rational[61, 512] 
+          Pi]}}, {{-0.6983762494089728, -0.7157308252838187}, {
+       0.36561299780477385`, 0.9307669610789837}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[61, 256] Pi], -
+         Cos[Rational[61, 256] Pi]}, {
+        Sin[Rational[55, 512] Pi], Cos[
+         Rational[55, 512] 
+          Pi]}}, {{-0.680600997795453, -0.7326542716724128}, {
+       0.33110630575987643`, 0.9435934581619604}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[59, 256] Pi], -
+         Cos[Rational[59, 256] Pi]}, {
+        Sin[Rational[49, 512] Pi], Cos[
+         Rational[49, 512] 
+          Pi]}}, {{-0.6624157775901718, -0.7491363945234594}, {
+       0.2961508882436238, 0.9551411683057708}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[57, 256] Pi], -
+         Cos[Rational[57, 256] Pi]}, {
+        Sin[Rational[43, 512] Pi], Cos[
+         Rational[43, 512] 
+          Pi]}}, {{-0.6438315428897914, -0.765167265622459}, {
+       0.2607941179152755, 0.9653944416976894}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[55, 256] Pi], -
+         Cos[Rational[55, 256] Pi]}, {
+        Sin[Rational[37, 512] Pi], Cos[
+         Rational[37, 512] 
+          Pi]}}, {{-0.6248594881423863, -0.7807372285720945}, {
+       0.22508391135979283`, 0.9743393827855759}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[53, 256] Pi], -
+         Cos[Rational[53, 256] Pi]}, {
+        Sin[Rational[31, 512] Pi], Cos[
+         Rational[31, 512] 
+          Pi]}}, {{-0.6055110414043255, -0.7958369046088836}, {
+       0.1890686641498062, 0.9819638691095552}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[51, 256] Pi], -
+         Cos[Rational[51, 256] Pi]}, {
+        Sin[Rational[25, 512] Pi], Cos[
+         Rational[25, 512] 
+          Pi]}}, {{-0.5857978574564389, -0.8104571982525948}, {
+       0.15279718525844344`, 0.9882575677307495}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[49, 256] Pi], -
+         Cos[Rational[49, 256] Pi]}, {
+        Sin[Rational[19, 512] Pi], Cos[
+         Rational[19, 512] 
+          Pi]}}, {{-0.5657318107836131, -0.8245893027850253}, {
+       0.11631863091190475`, 0.9932119492347945}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[47, 256] Pi], -
+         Cos[Rational[47, 256] Pi]}, {
+        Sin[Rational[13, 512] Pi], Cos[
+         Rational[13, 512] 
+          Pi]}}, {{-0.5453249884220465, -0.8382247055548381}, {
+       0.07968243797143013, 0.9968202992911657}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[45, 256] Pi], -
+         Cos[Rational[45, 256] Pi]}, {
+        Sin[Rational[7, 512] Pi], Cos[
+         Rational[7, 512] Pi]}}, {{-0.524589682678469, -0.8513551931052652}, {
+       0.04293825693494082, 0.9990777277526454}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[43, 256] Pi], -
+         Cos[Rational[43, 256] Pi]}, {
+        Sin[Rational[1, 512] Pi], Cos[
+         Rational[1, 512] 
+          Pi]}}, {{-0.5035383837257176, -0.8639728561215867}, {
+       0.006135884649154475, 0.9999811752826011}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[41, 256] Pi], -
+         Cos[Rational[41, 256] Pi]}, {-Sin[Rational[5, 512] Pi], Cos[
+         Rational[5, 512] 
+          Pi]}}, {{-0.4821837720791227, -0.8760700941954066}, \
+{-0.030674803176636626`, 0.9995294175010931}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[39, 256] Pi], -
+         Cos[Rational[39, 256] Pi]}, {-Sin[Rational[11, 512] Pi], Cos[
+         Rational[11, 512] 
+          Pi]}}, {{-0.46053871095824, -0.8876396204028539}, \
+{-0.06744391956366405, 0.9977230666441916}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[37, 256] Pi], -
+         Cos[Rational[37, 256] Pi]}, {-Sin[Rational[17, 512] Pi], Cos[
+         Rational[17, 512] 
+          Pi]}}, {{-0.43861623853852766`, -0.8986744656939538}, \
+{-0.10412163387205459`, 0.9945645707342554}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[35, 256] Pi], -
+         Cos[Rational[35, 256] Pi]}, {-Sin[Rational[23, 512] Pi], Cos[
+         Rational[23, 512] 
+          Pi]}}, {{-0.41642956009763715`, -0.9091679830905224}, \
+{-0.1406582393328492, 0.9900582102622971}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[33, 256] Pi], -
+         Cos[Rational[33, 256] Pi]}, {-Sin[Rational[29, 512] Pi], Cos[
+         Rational[29, 512] 
+          Pi]}}, {{-0.3939920400610481, -0.9191138516900578}, \
+{-0.17700422041214875`, 0.984210092386929}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[31, 256] Pi], -
+         Cos[Rational[31, 256] Pi]}, {-Sin[Rational[35, 512] Pi], Cos[
+         Rational[35, 512] 
+          Pi]}}, {{-0.37131719395183754`, -0.9285060804732156}, \
+{-0.21311031991609136`, 0.9770281426577544}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[29, 256] Pi], -
+         Cos[Rational[29, 256] Pi]}, {-Sin[Rational[41, 512] Pi], Cos[
+         Rational[41, 512] 
+          Pi]}}, {{-0.34841868024943456`, -0.937339011912575}, \
+{-0.24892760574572015`, 0.9685220942744174}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[27, 256] Pi], -
+         Cos[Rational[27, 256] Pi]}, {-Sin[Rational[47, 512] Pi], Cos[
+         Rational[47, 512] 
+          Pi]}}, {{-0.3253102921622629, -0.9456073253805213}, \
+{-0.2844075372112719, 0.9587034748958716}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[25, 256] Pi], -
+         Cos[Rational[25, 256] Pi]}, {-Sin[Rational[53, 512] Pi], Cos[
+         Rational[53, 512] 
+          Pi]}}, {{-0.3020059493192281, -0.9533060403541939}, \
+{-0.3195020308160157, 0.9475855910177411}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[23, 256] Pi], -
+         Cos[Rational[23, 256] Pi]}, {-Sin[Rational[59, 512] Pi], Cos[
+         Rational[59, 512] 
+          Pi]}}, {{-0.27851968938505306`, -0.9604305194155658}, \
+{-0.35416352542049034`, 0.9351835099389476}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[21, 256] Pi], -
+         Cos[Rational[21, 256] Pi]}, {-Sin[Rational[65, 512] Pi], Cos[
+         Rational[65, 512] 
+          Pi]}}, {{-0.25486565960451457`, -0.9669764710448521}, \
+{-0.38834504669882625`, 0.9215140393420419}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[19, 256] Pi], -
+         Cos[Rational[19, 256] Pi]}, {-Sin[Rational[71, 512] Pi], Cos[
+         Rational[71, 512] 
+          Pi]}}, {{-0.2310581082806711, -0.9729399522055602}, \
+{-0.4220002707997997, 0.9065957045149153}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[17, 256] Pi], -
+         Cos[Rational[17, 256] Pi]}, {-Sin[Rational[77, 512] Pi], Cos[
+         Rational[77, 512] 
+          Pi]}}, {{-0.20711137619221856`, -0.9783173707196277}, \
+{-0.45508358712634384`, 0.8904487232447579}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[15, 256] Pi], -
+         Cos[Rational[15, 256] Pi]}, {-Sin[Rational[83, 512] Pi], Cos[
+         Rational[83, 512] 
+          Pi]}}, {{-0.18303988795514095`, -0.9831054874312163}, \
+{-0.487550160148436, 0.8730949784182901}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[13, 256] Pi], -
+         Cos[Rational[13, 256] Pi]}, {-Sin[Rational[89, 512] Pi], Cos[
+         Rational[89, 512] 
+          Pi]}}, {{-0.15885814333386145`, -0.9873014181578584}, \
+{-0.5193559901655896, 0.8545579883654005}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[11, 256] Pi], -
+         Cos[Rational[11, 256] Pi]}, {-Sin[Rational[95, 512] Pi], Cos[
+         Rational[95, 512] 
+          Pi]}}, {{-0.13458070850712617`, -0.99090263542778}, \
+{-0.5504579729366048, 0.83486287498638}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[9, 256] Pi], -
+         Cos[Rational[9, 256] Pi]}, {-Sin[Rational[101, 512] Pi], Cos[
+         Rational[101, 512] 
+          Pi]}}, {{-0.11022220729388306`, -0.9939069700023561}, \
+{-0.5808139580957645, 0.8140363297059484}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[7, 256] Pi], -
+         Cos[Rational[7, 256] Pi]}, {-Sin[Rational[107, 512] Pi], Cos[
+         Rational[107, 512] 
+          Pi]}}, {{-0.0857973123444399, -0.996312612182778}, \
+{-0.6103828062763095, 0.7921065773002124}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[5, 256] Pi], -
+         Cos[Rational[5, 256] Pi]}, {-Sin[Rational[113, 512] Pi], Cos[
+         Rational[113, 512] 
+          Pi]}}, {{-0.06132073630220858, -0.9981181129001492}, \
+{-0.6391244448637757, 0.7691033376455797}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[3, 256] Pi], -
+         Cos[Rational[3, 256] Pi]}, {-Sin[Rational[119, 512] Pi], Cos[
+         Rational[119, 512] 
+          Pi]}}, {{-0.03680722294135883, -0.9993223845883495}, \
+{-0.6669999223036375, 0.745057785441466}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[1, 256] Pi], -
+         Cos[Rational[1, 256] Pi]}, {-Sin[Rational[125, 512] Pi], Cos[
+         Rational[125, 512] 
+          Pi]}}, {{-0.012271538285719925`, -0.9999247018391445}, \
+{-0.6939714608896539, 0.7200025079613817}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[1, 256] Pi], -Cos[Rational[1, 256] Pi]}, {-
+         Cos[Rational[125, 512] Pi], Sin[Rational[125, 512] Pi]}}, {{
+       0.012271538285719925`, -0.9999247018391445}, {-0.7200025079613817, 
+       0.6939714608896539}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[3, 256] Pi], -Cos[Rational[3, 256] Pi]}, {-
+         Cos[Rational[119, 512] Pi], Sin[Rational[119, 512] Pi]}}, {{
+       0.03680722294135883, -0.9993223845883495}, {-0.745057785441466, 
+       0.6669999223036375}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[5, 256] Pi], -Cos[Rational[5, 256] Pi]}, {-
+         Cos[Rational[113, 512] Pi], Sin[Rational[113, 512] Pi]}}, {{
+       0.06132073630220858, -0.9981181129001492}, {-0.7691033376455797, 
+       0.6391244448637757}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[7, 256] Pi], -Cos[Rational[7, 256] Pi]}, {-
+         Cos[Rational[107, 512] Pi], Sin[Rational[107, 512] Pi]}}, {{
+       0.0857973123444399, -0.996312612182778}, {-0.7921065773002124, 
+       0.6103828062763095}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[9, 256] Pi], -Cos[Rational[9, 256] Pi]}, {-
+         Cos[Rational[101, 512] Pi], Sin[Rational[101, 512] Pi]}}, {{
+       0.11022220729388306`, -0.9939069700023561}, {-0.8140363297059484, 
+       0.5808139580957645}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[11, 256] Pi], -Cos[Rational[11, 256] Pi]}, {-
+         Cos[Rational[95, 512] Pi], Sin[Rational[95, 512] Pi]}}, {{
+       0.13458070850712617`, -0.99090263542778}, {-0.83486287498638, 
+       0.5504579729366048}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[13, 256] Pi], -Cos[Rational[13, 256] Pi]}, {-
+         Cos[Rational[89, 512] Pi], Sin[Rational[89, 512] Pi]}}, {{
+       0.15885814333386145`, -0.9873014181578584}, {-0.8545579883654005, 
+       0.5193559901655896}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[15, 256] Pi], -Cos[Rational[15, 256] Pi]}, {-
+         Cos[Rational[83, 512] Pi], Sin[Rational[83, 512] Pi]}}, {{
+       0.18303988795514095`, -0.9831054874312163}, {-0.8730949784182901, 
+       0.487550160148436}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[17, 256] Pi], -Cos[Rational[17, 256] Pi]}, {-
+         Cos[Rational[77, 512] Pi], Sin[Rational[77, 512] Pi]}}, {{
+       0.20711137619221856`, -0.9783173707196277}, {-0.8904487232447579, 
+       0.45508358712634384`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[19, 256] Pi], -Cos[Rational[19, 256] Pi]}, {-
+         Cos[Rational[71, 512] Pi], Sin[Rational[71, 512] Pi]}}, {{
+       0.2310581082806711, -0.9729399522055602}, {-0.9065957045149153, 
+       0.4220002707997997}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[21, 256] Pi], -Cos[Rational[21, 256] Pi]}, {-
+         Cos[Rational[65, 512] Pi], Sin[Rational[65, 512] Pi]}}, {{
+       0.25486565960451457`, -0.9669764710448521}, {-0.9215140393420419, 
+       0.38834504669882625`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[23, 256] Pi], -Cos[Rational[23, 256] Pi]}, {-
+         Cos[Rational[59, 512] Pi], Sin[Rational[59, 512] Pi]}}, {{
+       0.27851968938505306`, -0.9604305194155658}, {-0.9351835099389476, 
+       0.35416352542049034`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[25, 256] Pi], -Cos[Rational[25, 256] Pi]}, {-
+         Cos[Rational[53, 512] Pi], Sin[Rational[53, 512] Pi]}}, {{
+       0.3020059493192281, -0.9533060403541939}, {-0.9475855910177411, 
+       0.3195020308160157}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[27, 256] Pi], -Cos[Rational[27, 256] Pi]}, {-
+         Cos[Rational[47, 512] Pi], Sin[Rational[47, 512] Pi]}}, {{
+       0.3253102921622629, -0.9456073253805213}, {-0.9587034748958716, 
+       0.2844075372112719}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[29, 256] Pi], -Cos[Rational[29, 256] Pi]}, {-
+         Cos[Rational[41, 512] Pi], Sin[Rational[41, 512] Pi]}}, {{
+       0.34841868024943456`, -0.937339011912575}, {-0.9685220942744174, 
+       0.24892760574572015`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[31, 256] Pi], -Cos[Rational[31, 256] Pi]}, {-
+         Cos[Rational[35, 512] Pi], Sin[Rational[35, 512] Pi]}}, {{
+       0.37131719395183754`, -0.9285060804732156}, {-0.9770281426577544, 
+       0.21311031991609136`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[33, 256] Pi], -Cos[Rational[33, 256] Pi]}, {-
+         Cos[Rational[29, 512] Pi], Sin[Rational[29, 512] Pi]}}, {{
+       0.3939920400610481, -0.9191138516900578}, {-0.984210092386929, 
+       0.17700422041214875`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[35, 256] Pi], -Cos[Rational[35, 256] Pi]}, {-
+         Cos[Rational[23, 512] Pi], Sin[Rational[23, 512] Pi]}}, {{
+       0.41642956009763715`, -0.9091679830905224}, {-0.9900582102622971, 
+       0.1406582393328492}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[37, 256] Pi], -Cos[Rational[37, 256] Pi]}, {-
+         Cos[Rational[17, 512] Pi], Sin[Rational[17, 512] Pi]}}, {{
+       0.43861623853852766`, -0.8986744656939538}, {-0.9945645707342554, 
+       0.10412163387205459`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[39, 256] Pi], -Cos[Rational[39, 256] Pi]}, {-
+         Cos[Rational[11, 512] Pi], Sin[Rational[11, 512] Pi]}}, {{
+       0.46053871095824, -0.8876396204028539}, {-0.9977230666441916, 
+       0.06744391956366405}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[41, 256] Pi], -Cos[Rational[41, 256] Pi]}, {-
+         Cos[Rational[5, 512] Pi], Sin[Rational[5, 512] Pi]}}, {{
+       0.4821837720791227, -0.8760700941954066}, {-0.9995294175010931, 
+       0.030674803176636626`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[43, 256] Pi], -Cos[Rational[43, 256] Pi]}, {-
+         Cos[Rational[1, 1024] Pi], -Sin[Rational[1, 1024] Pi]}}, {{
+       0.5035383837257176, -0.8639728561215867}, {-0.9999952938095762, \
+-0.003067956762965976}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[45, 256] Pi], -Cos[Rational[45, 256] Pi]}, {-
+         Cos[Rational[7, 1024] Pi], -Sin[Rational[7, 1024] Pi]}}, {{
+       0.524589682678469, -0.8513551931052652}, {-0.9997694053512153, \
+-0.021474080275469508`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[47, 256] Pi], -Cos[Rational[47, 256] Pi]}, {-
+         Cos[Rational[13, 1024] Pi], -Sin[Rational[13, 1024] Pi]}}, {{
+       0.5453249884220465, -0.8382247055548381}, {-0.9992047586183639, \
+-0.03987292758773981}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[49, 256] Pi], -Cos[Rational[49, 256] Pi]}, {-
+         Cos[Rational[19, 1024] Pi], -Sin[Rational[19, 1024] Pi]}}, {{
+       0.5657318107836131, -0.8245893027850253}, {-0.9983015449338929, \
+-0.05825826450043575}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[51, 256] Pi], -Cos[Rational[51, 256] Pi]}, {-
+         Cos[Rational[25, 1024] Pi], -Sin[Rational[25, 1024] Pi]}}, {{
+       0.5857978574564389, -0.8104571982525948}, {-0.997060070339483, \
+-0.07662386139203149}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[53, 256] Pi], -Cos[Rational[53, 256] Pi]}, {-
+         Cos[Rational[31, 1024] Pi], -Sin[Rational[31, 1024] Pi]}}, {{
+       0.6055110414043255, -0.7958369046088836}, {-0.9954807554919269, \
+-0.09496349532963899}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[55, 256] Pi], -Cos[Rational[55, 256] Pi]}, {-
+         Cos[Rational[37, 1024] Pi], -Sin[Rational[37, 1024] Pi]}}, {{
+       0.6248594881423863, -0.7807372285720945}, {-0.9935641355205953, \
+-0.11327095217756435`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[57, 256] Pi], -Cos[Rational[57, 256] Pi]}, {-
+         Cos[Rational[43, 1024] Pi], -Sin[Rational[43, 1024] Pi]}}, {{
+       0.6438315428897914, -0.765167265622459}, {-0.9913108598461154, \
+-0.13154002870288312`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[59, 256] Pi], -Cos[Rational[59, 256] Pi]}, {-
+         Cos[Rational[49, 1024] Pi], -Sin[Rational[49, 1024] Pi]}}, {{
+       0.6624157775901718, -0.7491363945234594}, {-0.9887216919603238, \
+-0.1497645346773215}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[61, 256] Pi], -Cos[Rational[61, 256] Pi]}, {-
+         Cos[Rational[55, 1024] Pi], -Sin[Rational[55, 1024] Pi]}}, {{
+       0.680600997795453, -0.7326542716724128}, {-0.9857975091675675, \
+-0.16793829497473117`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[63, 256] Pi], -Cos[Rational[63, 256] Pi]}, {-
+         Cos[Rational[61, 1024] Pi], -Sin[Rational[61, 1024] Pi]}}, {{
+       0.6983762494089728, -0.7157308252838187}, {-0.9825393022874412, \
+-0.18605515166344663`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[63, 256] Pi], -Sin[Rational[63, 256] Pi]}, {-
+         Cos[Rational[67, 1024] Pi], -Sin[Rational[67, 1024] Pi]}}, {{
+       0.7157308252838187, -0.6983762494089728}, {-0.9789481753190622, \
+-0.20410896609281687`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[61, 256] Pi], -Sin[Rational[61, 256] Pi]}, {-
+         Cos[Rational[73, 1024] Pi], -Sin[Rational[73, 1024] Pi]}}, {{
+       0.7326542716724128, -0.680600997795453}, {-0.9750253450669941, \
+-0.2220936209732035}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[59, 256] Pi], -Sin[Rational[59, 256] Pi]}, {-
+         Cos[Rational[79, 1024] Pi], -Sin[Rational[79, 1024] Pi]}}, {{
+       0.7491363945234594, -0.6624157775901718}, {-0.9707721407289504, \
+-0.2400030224487415}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[57, 256] Pi], -Sin[Rational[57, 256] Pi]}, {-
+         Cos[Rational[85, 1024] Pi], -Sin[Rational[85, 1024] Pi]}}, {{
+       0.765167265622459, -0.6438315428897914}, {-0.9661900034454125, \
+-0.257831102162159}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[55, 256] Pi], -Sin[Rational[55, 256] Pi]}, {-
+         Cos[Rational[91, 1024] Pi], -Sin[Rational[91, 1024] Pi]}}, {{
+       0.7807372285720945, -0.6248594881423863}, {-0.9612804858113206, \
+-0.27557181931095814`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[53, 256] Pi], -Sin[Rational[53, 256] Pi]}, {-
+         Cos[Rational[97, 1024] Pi], -Sin[Rational[97, 1024] Pi]}}, {{
+       0.7958369046088836, -0.6055110414043255}, {-0.9560452513499964, \
+-0.29321916269425863`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[51, 256] Pi], -Sin[Rational[51, 256] Pi]}, {-
+         Cos[Rational[103, 1024] Pi], -Sin[Rational[103, 1024] Pi]}}, {{
+       0.8104571982525948, -0.5857978574564389}, {-0.9504860739494817, \
+-0.3107671527496115}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[49, 256] Pi], -Sin[Rational[49, 256] Pi]}, {-
+         Cos[Rational[109, 1024] Pi], -Sin[Rational[109, 1024] Pi]}}, {{
+       0.8245893027850253, -0.5657318107836131}, {-0.9446048372614803, \
+-0.3282098435790925}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[47, 256] Pi], -Sin[Rational[47, 256] Pi]}, {-
+         Cos[Rational[115, 1024] Pi], -Sin[Rational[115, 1024] Pi]}}, {{
+       0.8382247055548381, -0.5453249884220465}, {-0.9384035340631081, \
+-0.3455413249639891}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[45, 256] Pi], -Sin[Rational[45, 256] Pi]}, {-
+         Cos[Rational[121, 1024] Pi], -Sin[Rational[121, 1024] Pi]}}, {{
+       0.8513551931052652, -0.524589682678469}, {-0.9318842655816681, \
+-0.3627557243673972}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[43, 256] Pi], -Sin[Rational[43, 256] Pi]}, {-
+         Cos[Rational[127, 1024] Pi], -Sin[Rational[127, 1024] Pi]}}, {{
+       0.8639728561215867, -0.5035383837257176}, {-0.9250492407826776, \
+-0.37984720892405116`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[41, 256] Pi], -Sin[Rational[41, 256] Pi]}, {-
+         Cos[Rational[133, 1024] Pi], -Sin[Rational[133, 1024] Pi]}}, {{
+       0.8760700941954066, -0.4821837720791227}, {-0.9179007756213905, \
+-0.3968099874167103}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[39, 256] Pi], -Sin[Rational[39, 256] Pi]}, {-
+         Cos[Rational[139, 1024] Pi], -Sin[Rational[139, 1024] Pi]}}, {{
+       0.8876396204028539, -0.46053871095824}, {-0.9104412922580672, \
+-0.4136383122384345}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[37, 256] Pi], -Sin[Rational[37, 256] Pi]}, {-
+         Cos[Rational[145, 1024] Pi], -Sin[Rational[145, 1024] Pi]}}, {{
+       0.8986744656939538, -0.43861623853852766`}, {-0.9026733182372588, \
+-0.4303264813400826}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[35, 256] Pi], -Sin[Rational[35, 256] Pi]}, {-
+         Cos[Rational[151, 1024] Pi], -Sin[Rational[151, 1024] Pi]}}, {{
+       0.9091679830905224, -0.41642956009763715`}, {-0.8945994856313827, \
+-0.44686884016237416`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[33, 256] Pi], -Sin[Rational[33, 256] Pi]}, {-
+         Cos[Rational[157, 1024] Pi], -Sin[Rational[157, 1024] Pi]}}, {{
+       0.9191138516900578, -0.3939920400610481}, {-0.8862225301488806, \
+-0.46325978355186015`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[31, 256] Pi], -Sin[Rational[31, 256] Pi]}, {-
+         Cos[Rational[163, 1024] Pi], -Sin[Rational[163, 1024] Pi]}}, {{
+       0.9285060804732156, -0.37131719395183754`}, {-0.8775452902072614, \
+-0.47949375766015295`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[29, 256] Pi], -Sin[Rational[29, 256] Pi]}, {-
+         Cos[Rational[169, 1024] Pi], -Sin[Rational[169, 1024] Pi]}}, {{
+       0.937339011912575, -0.34841868024943456`}, {-0.8685707059713409, \
+-0.49556526182577254`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[27, 256] Pi], -Sin[Rational[27, 256] Pi]}, {-
+         Cos[Rational[175, 1024] Pi], -Sin[Rational[175, 1024] Pi]}}, {{
+       0.9456073253805213, -0.3253102921622629}, {-0.8593018183570085, \
+-0.5114688504379703}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[25, 256] Pi], -Sin[Rational[25, 256] Pi]}, {-
+         Cos[Rational[181, 1024] Pi], -Sin[Rational[181, 1024] Pi]}}, {{
+       0.9533060403541939, -0.3020059493192281}, {-0.8497417680008525, \
+-0.5271991347819013}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[23, 256] Pi], -Sin[Rational[23, 256] Pi]}, {-
+         Cos[Rational[187, 1024] Pi], -Sin[Rational[187, 1024] Pi]}}, {{
+       0.9604305194155658, -0.27851968938505306`}, {-0.8398937941959995, \
+-0.5427507848645159}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[21, 256] Pi], -Sin[Rational[21, 256] Pi]}, {-
+         Cos[Rational[193, 1024] Pi], -Sin[Rational[193, 1024] Pi]}}, {{
+       0.9669764710448521, -0.25486565960451457`}, {-0.829761233794523, \
+-0.5581185312205561}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[19, 256] Pi], -Sin[Rational[19, 256] Pi]}, {-
+         Cos[Rational[199, 1024] Pi], -Sin[Rational[199, 1024] Pi]}}, {{
+       0.9729399522055602, -0.2310581082806711}, {-0.819347520076797, \
+-0.5732971666980422}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[17, 256] Pi], -Sin[Rational[17, 256] Pi]}, {-
+         Cos[Rational[205, 1024] Pi], -Sin[Rational[205, 1024] Pi]}}, {{
+       0.9783173707196277, -0.20711137619221856`}, {-0.808656181588175, \
+-0.5882815482226452}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[15, 256] Pi], -Sin[Rational[15, 256] Pi]}, {-
+         Cos[Rational[211, 1024] Pi], -Sin[Rational[211, 1024] Pi]}}, {{
+       0.9831054874312163, -0.18303988795514095`}, {-0.7976908409433912, \
+-0.6030665985403482}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[13, 256] Pi], -Sin[Rational[13, 256] Pi]}, {-
+         Cos[Rational[217, 1024] Pi], -Sin[Rational[217, 1024] Pi]}}, {{
+       0.9873014181578584, -0.15885814333386145`}, {-0.7864552135990858, \
+-0.6176473079378039}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[11, 256] Pi], -Sin[Rational[11, 256] Pi]}, {-
+         Cos[Rational[223, 1024] Pi], -Sin[Rational[223, 1024] Pi]}}, {{
+       0.99090263542778, -0.13458070850712617`}, {-0.7749531065948739, \
+-0.6320187359398091}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[9, 256] Pi], -Sin[Rational[9, 256] Pi]}, {-
+         Cos[Rational[229, 1024] Pi], -Sin[Rational[229, 1024] Pi]}}, {{
+       0.9939069700023561, -0.11022220729388306`}, {-0.7631884172633814, \
+-0.6461760129833163}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[7, 256] Pi], -Sin[Rational[7, 256] Pi]}, {-
+         Cos[Rational[235, 1024] Pi], -Sin[Rational[235, 1024] Pi]}}, {{
+       0.996312612182778, -0.0857973123444399}, {-0.7511651319096864, \
+-0.6601143420674205}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[5, 256] Pi], -Sin[Rational[5, 256] Pi]}, {-
+         Cos[Rational[241, 1024] Pi], -Sin[Rational[241, 1024] Pi]}}, {{
+       0.9981181129001492, -0.06132073630220858}, {-0.7388873244606151, \
+-0.673829000378756}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[3, 256] Pi], -Sin[Rational[3, 256] Pi]}, {-
+         Cos[Rational[247, 1024] Pi], -Sin[Rational[247, 1024] Pi]}}, {{
+       0.9993223845883495, -0.03680722294135883}, {-0.726359155084346, \
+-0.687315340891759}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[1, 256] Pi], -Sin[Rational[1, 256] Pi]}, {-
+         Cos[Rational[253, 1024] Pi], -Sin[Rational[253, 1024] Pi]}}, {{
+       0.9999247018391445, -0.012271538285719925`}, {-0.7135848687807935, \
+-0.7005687939432483}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[1, 256] Pi], Sin[Rational[1, 256] Pi]}, {-
+         Sin[Rational[253, 1024] Pi], -Cos[Rational[253, 1024] Pi]}}, {{
+       0.9999247018391445, 
+       0.012271538285719925`}, {-0.7005687939432483, -0.7135848687807935}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[3, 256] Pi], Sin[Rational[3, 256] Pi]}, {-
+         Sin[Rational[247, 1024] Pi], -Cos[Rational[247, 1024] Pi]}}, {{
+       0.9993223845883495, 
+       0.03680722294135883}, {-0.687315340891759, -0.726359155084346}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[5, 256] Pi], Sin[Rational[5, 256] Pi]}, {-
+         Sin[Rational[241, 1024] Pi], -Cos[Rational[241, 1024] Pi]}}, {{
+       0.9981181129001492, 
+       0.06132073630220858}, {-0.673829000378756, -0.7388873244606151}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[7, 256] Pi], Sin[Rational[7, 256] Pi]}, {-
+         Sin[Rational[235, 1024] Pi], -Cos[Rational[235, 1024] Pi]}}, {{
+       0.996312612182778, 
+       0.0857973123444399}, {-0.6601143420674205, -0.7511651319096864}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[9, 256] Pi], Sin[Rational[9, 256] Pi]}, {-
+         Sin[Rational[229, 1024] Pi], -Cos[Rational[229, 1024] Pi]}}, {{
+       0.9939069700023561, 
+       0.11022220729388306`}, {-0.6461760129833163, -0.7631884172633814}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[11, 256] Pi], Sin[Rational[11, 256] Pi]}, {-
+         Sin[Rational[223, 1024] Pi], -Cos[Rational[223, 1024] Pi]}}, {{
+       0.99090263542778, 
+       0.13458070850712617`}, {-0.6320187359398091, -0.7749531065948739}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[13, 256] Pi], Sin[Rational[13, 256] Pi]}, {-
+         Sin[Rational[217, 1024] Pi], -Cos[Rational[217, 1024] Pi]}}, {{
+       0.9873014181578584, 
+       0.15885814333386145`}, {-0.6176473079378039, -0.7864552135990858}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[15, 256] Pi], Sin[Rational[15, 256] Pi]}, {-
+         Sin[Rational[211, 1024] Pi], -Cos[Rational[211, 1024] Pi]}}, {{
+       0.9831054874312163, 
+       0.18303988795514095`}, {-0.6030665985403482, -0.7976908409433912}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[17, 256] Pi], Sin[Rational[17, 256] Pi]}, {-
+         Sin[Rational[205, 1024] Pi], -Cos[Rational[205, 1024] Pi]}}, {{
+       0.9783173707196277, 
+       0.20711137619221856`}, {-0.5882815482226452, -0.808656181588175}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[19, 256] Pi], Sin[Rational[19, 256] Pi]}, {-
+         Sin[Rational[199, 1024] Pi], -Cos[Rational[199, 1024] Pi]}}, {{
+       0.9729399522055602, 
+       0.2310581082806711}, {-0.5732971666980422, -0.819347520076797}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[21, 256] Pi], Sin[Rational[21, 256] Pi]}, {-
+         Sin[Rational[193, 1024] Pi], -Cos[Rational[193, 1024] Pi]}}, {{
+       0.9669764710448521, 
+       0.25486565960451457`}, {-0.5581185312205561, -0.829761233794523}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[23, 256] Pi], Sin[Rational[23, 256] Pi]}, {-
+         Sin[Rational[187, 1024] Pi], -Cos[Rational[187, 1024] Pi]}}, {{
+       0.9604305194155658, 
+       0.27851968938505306`}, {-0.5427507848645159, -0.8398937941959995}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[25, 256] Pi], Sin[Rational[25, 256] Pi]}, {-
+         Sin[Rational[181, 1024] Pi], -Cos[Rational[181, 1024] Pi]}}, {{
+       0.9533060403541939, 
+       0.3020059493192281}, {-0.5271991347819013, -0.8497417680008525}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[27, 256] Pi], Sin[Rational[27, 256] Pi]}, {-
+         Sin[Rational[175, 1024] Pi], -Cos[Rational[175, 1024] Pi]}}, {{
+       0.9456073253805213, 
+       0.3253102921622629}, {-0.5114688504379703, -0.8593018183570085}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[29, 256] Pi], Sin[Rational[29, 256] Pi]}, {-
+         Sin[Rational[169, 1024] Pi], -Cos[Rational[169, 1024] Pi]}}, {{
+       0.937339011912575, 
+       0.34841868024943456`}, {-0.49556526182577254`, -0.8685707059713409}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[31, 256] Pi], Sin[Rational[31, 256] Pi]}, {-
+         Sin[Rational[163, 1024] Pi], -Cos[Rational[163, 1024] Pi]}}, {{
+       0.9285060804732156, 
+       0.37131719395183754`}, {-0.47949375766015295`, -0.8775452902072614}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[33, 256] Pi], Sin[Rational[33, 256] Pi]}, {-
+         Sin[Rational[157, 1024] Pi], -Cos[Rational[157, 1024] Pi]}}, {{
+       0.9191138516900578, 
+       0.3939920400610481}, {-0.46325978355186015`, -0.8862225301488806}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[35, 256] Pi], Sin[Rational[35, 256] Pi]}, {-
+         Sin[Rational[151, 1024] Pi], -Cos[Rational[151, 1024] Pi]}}, {{
+       0.9091679830905224, 
+       0.41642956009763715`}, {-0.44686884016237416`, -0.8945994856313827}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[37, 256] Pi], Sin[Rational[37, 256] Pi]}, {-
+         Sin[Rational[145, 1024] Pi], -Cos[Rational[145, 1024] Pi]}}, {{
+       0.8986744656939538, 
+       0.43861623853852766`}, {-0.4303264813400826, -0.9026733182372588}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[39, 256] Pi], Sin[Rational[39, 256] Pi]}, {-
+         Sin[Rational[139, 1024] Pi], -Cos[Rational[139, 1024] Pi]}}, {{
+       0.8876396204028539, 
+       0.46053871095824}, {-0.4136383122384345, -0.9104412922580672}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[41, 256] Pi], Sin[Rational[41, 256] Pi]}, {-
+         Sin[Rational[133, 1024] Pi], -Cos[Rational[133, 1024] Pi]}}, {{
+       0.8760700941954066, 
+       0.4821837720791227}, {-0.3968099874167103, -0.9179007756213905}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[43, 256] Pi], Sin[Rational[43, 256] Pi]}, {-
+         Sin[Rational[127, 1024] Pi], -Cos[Rational[127, 1024] Pi]}}, {{
+       0.8639728561215867, 
+       0.5035383837257176}, {-0.37984720892405116`, -0.9250492407826776}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[45, 256] Pi], Sin[Rational[45, 256] Pi]}, {-
+         Sin[Rational[121, 1024] Pi], -Cos[Rational[121, 1024] Pi]}}, {{
+       0.8513551931052652, 
+       0.524589682678469}, {-0.3627557243673972, -0.9318842655816681}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[47, 256] Pi], Sin[Rational[47, 256] Pi]}, {-
+         Sin[Rational[115, 1024] Pi], -Cos[Rational[115, 1024] Pi]}}, {{
+       0.8382247055548381, 
+       0.5453249884220465}, {-0.3455413249639891, -0.9384035340631081}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[49, 256] Pi], Sin[Rational[49, 256] Pi]}, {-
+         Sin[Rational[109, 1024] Pi], -Cos[Rational[109, 1024] Pi]}}, {{
+       0.8245893027850253, 
+       0.5657318107836131}, {-0.3282098435790925, -0.9446048372614803}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[51, 256] Pi], Sin[Rational[51, 256] Pi]}, {-
+         Sin[Rational[103, 1024] Pi], -Cos[Rational[103, 1024] Pi]}}, {{
+       0.8104571982525948, 
+       0.5857978574564389}, {-0.3107671527496115, -0.9504860739494817}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[53, 256] Pi], Sin[Rational[53, 256] Pi]}, {-
+         Sin[Rational[97, 1024] Pi], -Cos[Rational[97, 1024] Pi]}}, {{
+       0.7958369046088836, 
+       0.6055110414043255}, {-0.29321916269425863`, -0.9560452513499964}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[55, 256] Pi], Sin[Rational[55, 256] Pi]}, {-
+         Sin[Rational[91, 1024] Pi], -Cos[Rational[91, 1024] Pi]}}, {{
+       0.7807372285720945, 
+       0.6248594881423863}, {-0.27557181931095814`, -0.9612804858113206}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[57, 256] Pi], Sin[Rational[57, 256] Pi]}, {-
+         Sin[Rational[85, 1024] Pi], -Cos[Rational[85, 1024] Pi]}}, {{
+       0.765167265622459, 
+       0.6438315428897914}, {-0.257831102162159, -0.9661900034454125}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[59, 256] Pi], Sin[Rational[59, 256] Pi]}, {-
+         Sin[Rational[79, 1024] Pi], -Cos[Rational[79, 1024] Pi]}}, {{
+       0.7491363945234594, 
+       0.6624157775901718}, {-0.2400030224487415, -0.9707721407289504}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[
+      NCache[{{Cos[Rational[61, 256] Pi], Sin[Rational[61, 256] Pi]}, {-
+         Sin[Rational[73, 1024] Pi], -Cos[Rational[73, 1024] Pi]}}, {{
+       0.7326542716724128, 
+       0.680600997795453}, {-0.2220936209732035, -0.9750253450669941}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Cos[Rational[63, 256] Pi], Sin[Rational[63, 256] Pi]}, {-
+         Sin[Rational[67, 1024] Pi], -Cos[Rational[67, 1024] Pi]}}, {{
+       0.7157308252838187, 
+       0.6983762494089728}, {-0.20410896609281687`, -0.9789481753190622}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[63, 256] Pi], Cos[Rational[63, 256] Pi]}, {-
+         Sin[Rational[61, 1024] Pi], -Cos[Rational[61, 1024] Pi]}}, {{
+       0.6983762494089728, 
+       0.7157308252838187}, {-0.18605515166344663`, -0.9825393022874412}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[61, 256] Pi], Cos[Rational[61, 256] Pi]}, {-
+         Sin[Rational[55, 1024] Pi], -Cos[Rational[55, 1024] Pi]}}, {{
+       0.680600997795453, 
+       0.7326542716724128}, {-0.16793829497473117`, -0.9857975091675675}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[59, 256] Pi], Cos[Rational[59, 256] Pi]}, {-
+         Sin[Rational[49, 1024] Pi], -Cos[Rational[49, 1024] Pi]}}, {{
+       0.6624157775901718, 
+       0.7491363945234594}, {-0.1497645346773215, -0.9887216919603238}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[57, 256] Pi], Cos[Rational[57, 256] Pi]}, {-
+         Sin[Rational[43, 1024] Pi], -Cos[Rational[43, 1024] Pi]}}, {{
+       0.6438315428897914, 
+       0.765167265622459}, {-0.13154002870288312`, -0.9913108598461154}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[55, 256] Pi], Cos[Rational[55, 256] Pi]}, {-
+         Sin[Rational[37, 1024] Pi], -Cos[Rational[37, 1024] Pi]}}, {{
+       0.6248594881423863, 
+       0.7807372285720945}, {-0.11327095217756435`, -0.9935641355205953}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[53, 256] Pi], Cos[Rational[53, 256] Pi]}, {-
+         Sin[Rational[31, 1024] Pi], -Cos[Rational[31, 1024] Pi]}}, {{
+       0.6055110414043255, 
+       0.7958369046088836}, {-0.09496349532963899, -0.9954807554919269}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[51, 256] Pi], Cos[Rational[51, 256] Pi]}, {-
+         Sin[Rational[25, 1024] Pi], -Cos[Rational[25, 1024] Pi]}}, {{
+       0.5857978574564389, 
+       0.8104571982525948}, {-0.07662386139203149, -0.997060070339483}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[49, 256] Pi], Cos[Rational[49, 256] Pi]}, {-
+         Sin[Rational[19, 1024] Pi], -Cos[Rational[19, 1024] Pi]}}, {{
+       0.5657318107836131, 
+       0.8245893027850253}, {-0.05825826450043575, -0.9983015449338929}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[47, 256] Pi], Cos[Rational[47, 256] Pi]}, {-
+         Sin[Rational[13, 1024] Pi], -Cos[Rational[13, 1024] Pi]}}, {{
+       0.5453249884220465, 
+       0.8382247055548381}, {-0.03987292758773981, -0.9992047586183639}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[45, 256] Pi], Cos[Rational[45, 256] Pi]}, {-
+         Sin[Rational[7, 1024] Pi], -Cos[Rational[7, 1024] Pi]}}, {{
+       0.524589682678469, 
+       0.8513551931052652}, {-0.021474080275469508`, -0.9997694053512153}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{
+        Sin[Rational[43, 256] Pi], Cos[Rational[43, 256] Pi]}, {-
+         Sin[Rational[1, 1024] Pi], -Cos[Rational[1, 1024] Pi]}}, {{
+       0.5035383837257176, 
+       0.8639728561215867}, {-0.003067956762965976, -0.9999952938095762}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[41, 256] Pi], Cos[Rational[41, 256] Pi]}, {
+        Sin[Rational[5, 1024] Pi], -Cos[Rational[5, 1024] Pi]}}, {{
+       0.4821837720791227, 0.8760700941954066}, {
+       0.0153392062849881, -0.9998823474542126}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[39, 256] Pi], Cos[Rational[39, 256] Pi]}, {
+        Sin[Rational[11, 1024] Pi], -Cos[Rational[11, 1024] Pi]}}, {{
+       0.46053871095824, 0.8876396204028539}, {
+       0.03374117185137758, -0.9994306045554617}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[37, 256] Pi], Cos[Rational[37, 256] Pi]}, {
+        Sin[Rational[17, 1024] Pi], -Cos[Rational[17, 1024] Pi]}}, {{
+       0.43861623853852766`, 0.8986744656939538}, {
+       0.052131704680283324`, -0.9986402181802653}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[35, 256] Pi], Cos[Rational[35, 256] Pi]}, {
+        Sin[Rational[23, 1024] Pi], -Cos[Rational[23, 1024] Pi]}}, {{
+       0.41642956009763715`, 0.9091679830905224}, {
+       0.07050457338961386, -0.9975114561403035}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[33, 256] Pi], Cos[Rational[33, 256] Pi]}, {
+        Sin[Rational[29, 1024] Pi], -Cos[Rational[29, 1024] Pi]}}, {{
+       0.3939920400610481, 0.9191138516900578}, {
+       0.0888535525825246, -0.996044700901252}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[31, 256] Pi], Cos[Rational[31, 256] Pi]}, {
+        Sin[Rational[35, 1024] Pi], -Cos[Rational[35, 1024] Pi]}}, {{
+       0.37131719395183754`, 0.9285060804732156}, {
+       0.10717242495680884`, -0.9942404494531879}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[29, 256] Pi], Cos[Rational[29, 256] Pi]}, {
+        Sin[Rational[41, 1024] Pi], -Cos[Rational[41, 1024] Pi]}}, {{
+       0.34841868024943456`, 0.937339011912575}, {
+       0.12545498341154623`, -0.9920993131421918}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[27, 256] Pi], Cos[Rational[27, 256] Pi]}, {
+        Sin[Rational[47, 1024] Pi], -Cos[Rational[47, 1024] Pi]}}, {{
+       0.3253102921622629, 0.9456073253805213}, {
+       0.14369503315029447`, -0.9896220174632009}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[25, 256] Pi], Cos[Rational[25, 256] Pi]}, {
+        Sin[Rational[53, 1024] Pi], -Cos[Rational[53, 1024] Pi]}}, {{
+       0.3020059493192281, 0.9533060403541939}, {
+       0.16188639378011183`, -0.9868094018141855}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[23, 256] Pi], Cos[Rational[23, 256] Pi]}, {
+        Sin[Rational[59, 1024] Pi], -Cos[Rational[59, 1024] Pi]}}, {{
+       0.27851968938505306`, 0.9604305194155658}, {
+       0.18002290140569951`, -0.9836624192117303}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[21, 256] Pi], Cos[Rational[21, 256] Pi]}, {
+        Sin[Rational[65, 1024] Pi], -Cos[Rational[65, 1024] Pi]}}, {{
+       0.25486565960451457`, 0.9669764710448521}, {
+       0.19809841071795356`, -0.9801821359681174}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[19, 256] Pi], Cos[Rational[19, 256] Pi]}, {
+        Sin[Rational[71, 1024] Pi], -Cos[Rational[71, 1024] Pi]}}, {{
+       0.2310581082806711, 0.9729399522055602}, {
+       0.21610679707621952`, -0.9763697313300211}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[17, 256] Pi], Cos[Rational[17, 256] Pi]}, {
+        Sin[Rational[77, 1024] Pi], -Cos[Rational[77, 1024] Pi]}}, {{
+       0.20711137619221856`, 0.9783173707196277}, {
+       0.23404195858354343`, -0.9722264970789363}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[15, 256] Pi], Cos[Rational[15, 256] Pi]}, {
+        Sin[Rational[83, 1024] Pi], -Cos[Rational[83, 1024] Pi]}}, {{
+       0.18303988795514095`, 0.9831054874312163}, {
+       0.25189781815421697`, -0.9677538370934755}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[13, 256] Pi], Cos[Rational[13, 256] Pi]}, {
+        Sin[Rational[89, 1024] Pi], -Cos[Rational[89, 1024] Pi]}}, {{
+       0.15885814333386145`, 0.9873014181578584}, {
+       0.2696683255729151, -0.9629532668736839}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[11, 256] Pi], Cos[Rational[11, 256] Pi]}, {
+        Sin[Rational[95, 1024] Pi], -Cos[Rational[95, 1024] Pi]}}, {{
+       0.13458070850712617`, 0.99090263542778}, {
+       0.2873474595447295, -0.9578264130275329}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[9, 256] Pi], Cos[Rational[9, 256] Pi]}, {
+        Sin[Rational[101, 1024] Pi], -Cos[Rational[101, 1024] Pi]}}, {{
+       0.11022220729388306`, 0.9939069700023561}, {
+       0.3049292297354024, -0.9523750127197659}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[7, 256] Pi], Cos[Rational[7, 256] Pi]}, {
+        Sin[Rational[107, 1024] Pi], -Cos[Rational[107, 1024] Pi]}}, {{
+       0.0857973123444399, 0.996312612182778}, {
+       0.32240767880106985`, -0.9466009130832835}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[5, 256] Pi], Cos[Rational[5, 256] Pi]}, {
+        Sin[Rational[113, 1024] Pi], -Cos[Rational[113, 1024] Pi]}}, {{
+       0.06132073630220858, 0.9981181129001492}, {
+       0.33977688440682685`, -0.9405060705932683}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[3, 256] Pi], Cos[Rational[3, 256] Pi]}, {
+        Sin[Rational[119, 1024] Pi], -Cos[Rational[119, 1024] Pi]}}, {{
+       0.03680722294135883, 0.9993223845883495}, {
+       0.35703096123343, -0.9340925504042589}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{Sin[Rational[1, 256] Pi], Cos[Rational[1, 256] Pi]}, {
+        Sin[Rational[125, 1024] Pi], -Cos[Rational[125, 1024] Pi]}}, {{
+       0.012271538285719925`, 0.9999247018391445}, {
+       0.37416406297145793`, -0.9273625256504011}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[1, 256] Pi], Cos[Rational[1, 256] Pi]}, {
+        Sin[Rational[131, 1024] Pi], -
+         Cos[Rational[131, 1024] Pi]}}, {{-0.012271538285719925`, 
+       0.9999247018391445}, {0.39117038430225387`, -0.9203182767091106}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[3, 256] Pi], Cos[Rational[3, 256] Pi]}, {
+        Sin[Rational[137, 1024] Pi], -
+         Cos[Rational[137, 1024] Pi]}}, {{-0.03680722294135883, 
+       0.9993223845883495}, {0.4080441628649787, -0.9129621904283982}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[5, 256] Pi], Cos[Rational[5, 256] Pi]}, {
+        Sin[Rational[143, 1024] Pi], -
+         Cos[Rational[143, 1024] Pi]}}, {{-0.06132073630220858, 
+       0.9981181129001492}, {0.4247796812091088, -0.9052967593181188}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[7, 256] Pi], Cos[Rational[7, 256] Pi]}, {
+        Sin[Rational[149, 1024] Pi], -
+         Cos[Rational[149, 1024] Pi]}}, {{-0.0857973123444399, 
+       0.996312612182778}, {0.44137126873171667`, -0.8973245807054183}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[9, 256] Pi], Cos[Rational[9, 256] Pi]}, {
+        Sin[Rational[155, 1024] Pi], -
+         Cos[Rational[155, 1024] Pi]}}, {{-0.11022220729388306`, 
+       0.9939069700023561}, {0.4578133035988772, -0.8890483558546646}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[11, 256] Pi], Cos[
+         Rational[11, 256] Pi]}, {
+        Sin[Rational[161, 1024] Pi], -
+         Cos[Rational[161, 1024] Pi]}}, {{-0.13458070850712617`, 
+       0.99090263542778}, {0.47410021465054997`, -0.8804708890521608}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[13, 256] Pi], Cos[
+         Rational[13, 256] Pi]}, {
+        Sin[Rational[167, 1024] Pi], -
+         Cos[Rational[167, 1024] Pi]}}, {{-0.15885814333386145`, 
+       0.9873014181578584}, {0.49022648328829116`, -0.871595086655951}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[15, 256] Pi], Cos[
+         Rational[15, 256] Pi]}, {
+        Sin[Rational[173, 1024] Pi], -
+         Cos[Rational[173, 1024] Pi]}}, {{-0.18303988795514095`, 
+       0.9831054874312163}, {0.5061866453451552, -0.8624239561110405}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[17, 256] Pi], Cos[
+         Rational[17, 256] Pi]}, {
+        Sin[Rational[179, 1024] Pi], -
+         Cos[Rational[179, 1024] Pi]}}, {{-0.20711137619221856`, 
+       0.9783173707196277}, {0.5219752929371544, -0.8529606049303636}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[19, 256] Pi], Cos[
+         Rational[19, 256] Pi]}, {
+        Sin[Rational[185, 1024] Pi], -
+         Cos[Rational[185, 1024] Pi]}}, {{-0.2310581082806711, 
+       0.9729399522055602}, {0.5375870762956454, -0.8432082396418454}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[21, 256] Pi], Cos[
+         Rational[21, 256] Pi]}, {
+        Sin[Rational[191, 1024] Pi], -
+         Cos[Rational[191, 1024] Pi]}}, {{-0.25486565960451457`, 
+       0.9669764710448521}, {0.5530167055800275, -0.8331701647019132}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[23, 256] Pi], Cos[
+         Rational[23, 256] Pi]}, {
+        Sin[Rational[197, 1024] Pi], -
+         Cos[Rational[197, 1024] Pi]}}, {{-0.27851968938505306`, 
+       0.9604305194155658}, {0.5682589526701315, -0.8228497813758264}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[25, 256] Pi], Cos[
+         Rational[25, 256] Pi]}, {
+        Sin[Rational[203, 1024] Pi], -
+         Cos[Rational[203, 1024] Pi]}}, {{-0.3020059493192281, 
+       0.9533060403541939}, {0.5833086529376983, -0.812250586585204}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[27, 256] Pi], Cos[
+         Rational[27, 256] Pi]}, {
+        Sin[Rational[209, 1024] Pi], -
+         Cos[Rational[209, 1024] Pi]}}, {{-0.3253102921622629, 
+       0.9456073253805213}, {0.5981607069963424, -0.8013761717231402}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[29, 256] Pi], Cos[
+         Rational[29, 256] Pi]}, {
+        Sin[Rational[215, 1024] Pi], -
+         Cos[Rational[215, 1024] Pi]}}, {{-0.34841868024943456`, 
+       0.937339011912575}, {0.6128100824294097, -0.79023022143731}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[31, 256] Pi], Cos[
+         Rational[31, 256] Pi]}, {
+        Sin[Rational[221, 1024] Pi], -
+         Cos[Rational[221, 1024] Pi]}}, {{-0.37131719395183754`, 
+       0.9285060804732156}, {0.6272518154951441, -0.778816512381476}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[33, 256] Pi], Cos[
+         Rational[33, 256] Pi]}, {
+        Sin[Rational[227, 1024] Pi], -
+         Cos[Rational[227, 1024] Pi]}}, {{-0.3939920400610481, 
+       0.9191138516900578}, {0.641481012808583, -0.7671389119358204}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[35, 256] Pi], Cos[
+         Rational[35, 256] Pi]}, {
+        Sin[Rational[233, 1024] Pi], -
+         Cos[Rational[233, 1024] Pi]}}, {{-0.41642956009763715`, 
+       0.9091679830905224}, {0.6554928529996153, -0.7552013768965365}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[37, 256] Pi], Cos[
+         Rational[37, 256] Pi]}, {
+        Sin[Rational[239, 1024] Pi], -
+         Cos[Rational[239, 1024] Pi]}}, {{-0.43861623853852766`, 
+       0.8986744656939538}, {0.669282588346636, -0.7430079521351217}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[39, 256] Pi], Cos[
+         Rational[39, 256] Pi]}, {
+        Sin[Rational[245, 1024] Pi], -
+         Cos[Rational[245, 1024] Pi]}}, {{-0.46053871095824, 
+       0.8876396204028539}, {0.6828455463852481, -0.7305627692278276}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[41, 256] Pi], Cos[
+         Rational[41, 256] Pi]}, {
+        Sin[Rational[251, 1024] Pi], -
+         Cos[Rational[251, 1024] Pi]}}, {{-0.4821837720791227, 
+       0.8760700941954066}, {0.696177131491463, -0.7178700450557317}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[43, 256] Pi], Cos[
+         Rational[43, 256] Pi]}, {
+        Cos[Rational[255, 1024] Pi], -
+         Sin[Rational[255, 1024] Pi]}}, {{-0.5035383837257176, 
+       0.8639728561215867}, {0.7092728264388657, -0.7049340803759049}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[45, 256] Pi], Cos[
+         Rational[45, 256] Pi]}, {
+        Cos[Rational[249, 1024] Pi], -
+         Sin[Rational[249, 1024] Pi]}}, {{-0.524589682678469, 
+       0.8513551931052652}, {0.7221281939292153, -0.6917592583641577}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[47, 256] Pi], Cos[
+         Rational[47, 256] Pi]}, {
+        Cos[Rational[243, 1024] Pi], -
+         Sin[Rational[243, 1024] Pi]}}, {{-0.5453249884220465, 
+       0.8382247055548381}, {0.7347388780959635, -0.6783500431298615}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[49, 256] Pi], Cos[
+         Rational[49, 256] Pi]}, {
+        Cos[Rational[237, 1024] Pi], -
+         Sin[Rational[237, 1024] Pi]}}, {{-0.5657318107836131, 
+       0.8245893027850253}, {0.7471006059801801, -0.6647109782033448}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[51, 256] Pi], Cos[
+         Rational[51, 256] Pi]}, {
+        Cos[Rational[231, 1024] Pi], -
+         Sin[Rational[231, 1024] Pi]}}, {{-0.5857978574564389, 
+       0.8104571982525948}, {0.759209188978388, -0.6508466849963809}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[53, 256] Pi], Cos[
+         Rational[53, 256] Pi]}, {
+        Cos[Rational[225, 1024] Pi], -
+         Sin[Rational[225, 1024] Pi]}}, {{-0.6055110414043255, 
+       0.7958369046088836}, {0.7710605242618138, -0.6367618612362842}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[55, 256] Pi], Cos[
+         Rational[55, 256] Pi]}, {
+        Cos[Rational[219, 1024] Pi], -
+         Sin[Rational[219, 1024] Pi]}}, {{-0.6248594881423863, 
+       0.7807372285720945}, {0.7826505961665757, -0.62246127937415}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[57, 256] Pi], Cos[
+         Rational[57, 256] Pi]}, {
+        Cos[Rational[213, 1024] Pi], -
+         Sin[Rational[213, 1024] Pi]}}, {{-0.6438315428897914, 
+       0.765167265622459}, {0.7939754775543372, -0.6079497849677736}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[59, 256] Pi], Cos[
+         Rational[59, 256] Pi]}, {
+        Cos[Rational[207, 1024] Pi], -
+         Sin[Rational[207, 1024] Pi]}}, {{-0.6624157775901718, 
+       0.7491363945234594}, {0.8050313311429637, -0.5932322950397998}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[61, 256] Pi], Cos[
+         Rational[61, 256] Pi]}, {
+        Cos[Rational[201, 1024] Pi], -
+         Sin[Rational[201, 1024] Pi]}}, {{-0.680600997795453, 
+       0.7326542716724128}, {0.8158144108067338, -0.5783137964116556}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Sin[Rational[63, 256] Pi], Cos[
+         Rational[63, 256] Pi]}, {
+        Cos[Rational[195, 1024] Pi], -
+         Sin[Rational[195, 1024] Pi]}}, {{-0.6983762494089728, 
+       0.7157308252838187}, {0.8263210628456635, -0.5631993440138341}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[63, 256] Pi], Sin[
+         Rational[63, 256] Pi]}, {
+        Cos[Rational[189, 1024] Pi], -
+         Sin[Rational[189, 1024] Pi]}}, {{-0.7157308252838187, 
+       0.6983762494089728}, {0.836547727223512, -0.5478940591731002}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[61, 256] Pi], Sin[
+         Rational[61, 256] Pi]}, {
+        Cos[Rational[183, 1024] Pi], -
+         Sin[Rational[183, 1024] Pi]}}, {{-0.7326542716724128, 
+       0.680600997795453}, {0.8464909387740521, -0.5324031278771979}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[59, 256] Pi], Sin[
+         Rational[59, 256] Pi]}, {
+        Cos[Rational[177, 1024] Pi], -
+         Sin[Rational[177, 1024] Pi]}}, {{-0.7491363945234594, 
+       0.6624157775901718}, {0.8561473283751945, -0.5167317990176499}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[57, 256] Pi], Sin[
+         Rational[57, 256] Pi]}, {
+        Cos[Rational[171, 1024] Pi], -
+         Sin[Rational[171, 1024] Pi]}}, {{-0.765167265622459, 
+       0.6438315428897914}, {0.8655136240905691, -0.5008853826112407}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[55, 256] Pi], Sin[
+         Rational[55, 256] Pi]}, {
+        Cos[Rational[165, 1024] Pi], -
+         Sin[Rational[165, 1024] Pi]}}, {{-0.7807372285720945, 
+       0.6248594881423863}, {0.8745866522781761, -0.48486924800079106`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[53, 256] Pi], Sin[
+         Rational[53, 256] Pi]}, {
+        Cos[Rational[159, 1024] Pi], -
+         Sin[Rational[159, 1024] Pi]}}, {{-0.7958369046088836, 
+       0.6055110414043255}, {0.8833633386657316, -0.4686888220358279}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[51, 256] Pi], Sin[
+         Rational[51, 256] Pi]}, {
+        Cos[Rational[153, 1024] Pi], -
+         Sin[Rational[153, 1024] Pi]}}, {{-0.8104571982525948, 
+       0.5857978574564389}, {0.8918407093923427, -0.4523495872337709}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[49, 256] Pi], Sin[
+         Rational[49, 256] Pi]}, {
+        Cos[Rational[147, 1024] Pi], -
+         Sin[Rational[147, 1024] Pi]}}, {{-0.8245893027850253, 
+       0.5657318107836131}, {0.9000158920161602, -0.4358570799222555}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[47, 256] Pi], Sin[
+         Rational[47, 256] Pi]}, {
+        Cos[Rational[141, 1024] Pi], -
+         Sin[Rational[141, 1024] Pi]}}, {{-0.8382247055548381, 
+       0.5453249884220465}, {0.9078861164876663, -0.4192168883632239}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[45, 256] Pi], Sin[
+         Rational[45, 256] Pi]}, {
+        Cos[Rational[135, 1024] Pi], -
+         Sin[Rational[135, 1024] Pi]}}, {{-0.8513551931052652, 
+       0.524589682678469}, {0.9154487160882678, -0.40243465085941843`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[43, 256] Pi], Sin[
+         Rational[43, 256] Pi]}, {
+        Cos[Rational[129, 1024] Pi], -
+         Sin[Rational[129, 1024] Pi]}}, {{-0.8639728561215867, 
+       0.5035383837257176}, {0.9227011283338786, -0.38551605384391885`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[41, 256] Pi], Sin[
+         Rational[41, 256] Pi]}, {
+        Cos[Rational[123, 1024] Pi], -
+         Sin[Rational[123, 1024] Pi]}}, {{-0.8760700941954066, 
+       0.4821837720791227}, {0.9296408958431812, -0.3684668299533723}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[39, 256] Pi], Sin[
+         Rational[39, 256] Pi]}, {
+        Cos[Rational[117, 1024] Pi], -
+         Sin[Rational[117, 1024] Pi]}}, {{-0.8876396204028539, 
+       0.46053871095824}, {0.9362656671702783, -0.3512927560855671}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[37, 256] Pi], Sin[
+         Rational[37, 256] Pi]}, {
+        Cos[Rational[111, 1024] Pi], -
+         Sin[Rational[111, 1024] Pi]}}, {{-0.8986744656939538, 
+       0.43861623853852766`}, {0.9425731976014469, -0.3339996514420094}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[35, 256] Pi], Sin[
+         Rational[35, 256] Pi]}, {
+        Cos[Rational[105, 1024] Pi], -
+         Sin[Rational[105, 1024] Pi]}}, {{-0.9091679830905224, 
+       0.41642956009763715`}, {0.9485613499157303, -0.31659337555616585`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[33, 256] Pi], Sin[
+         Rational[33, 256] Pi]}, {
+        Cos[Rational[99, 1024] Pi], -
+         Sin[Rational[99, 1024] Pi]}}, {{-0.9191138516900578, 
+       0.3939920400610481}, {0.9542280951091057, -0.2990798263080405}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[31, 256] Pi], Sin[
+         Rational[31, 256] Pi]}, {
+        Cos[Rational[93, 1024] Pi], -
+         Sin[Rational[93, 1024] Pi]}}, {{-0.9285060804732156, 
+       0.37131719395183754`}, {0.9595715130819845, -0.28146493792575794`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[29, 256] Pi], Sin[
+         Rational[29, 256] Pi]}, {
+        Cos[Rational[87, 1024] Pi], -
+         Sin[Rational[87, 1024] Pi]}}, {{-0.937339011912575, 
+       0.34841868024943456`}, {0.9645897932898128, -0.26375467897483135`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[27, 256] Pi], Sin[
+         Rational[27, 256] Pi]}, {
+        Cos[Rational[81, 1024] Pi], -
+         Sin[Rational[81, 1024] Pi]}}, {{-0.9456073253805213, 
+       0.3253102921622629}, {0.9692812353565485, -0.2459550503357946}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[25, 256] Pi], Sin[
+         Rational[25, 256] Pi]}, {
+        Cos[Rational[75, 1024] Pi], -
+         Sin[Rational[75, 1024] Pi]}}, {{-0.9533060403541939, 
+       0.3020059493192281}, {0.973644249650812, -0.22807208317088573`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[23, 256] Pi], Sin[
+         Rational[23, 256] Pi]}, {
+        Cos[Rational[69, 1024] Pi], -
+         Sin[Rational[69, 1024] Pi]}}, {{-0.9604305194155658, 
+       0.27851968938505306`}, {0.9776773578245099, -0.2101118368804696}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[21, 256] Pi], Sin[
+         Rational[21, 256] Pi]}, {
+        Cos[Rational[63, 1024] Pi], -
+         Sin[Rational[63, 1024] Pi]}}, {{-0.9669764710448521, 
+       0.25486565960451457`}, {0.9813791933137546, -0.19208039704989244`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[19, 256] Pi], Sin[
+         Rational[19, 256] Pi]}, {
+        Cos[Rational[57, 1024] Pi], -
+         Sin[Rational[57, 1024] Pi]}}, {{-0.9729399522055602, 
+       0.2310581082806711}, {0.9847485018019042, -0.17398387338746382`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[17, 256] Pi], Sin[
+         Rational[17, 256] Pi]}, {
+        Cos[Rational[51, 1024] Pi], -
+         Sin[Rational[51, 1024] Pi]}}, {{-0.9783173707196277, 
+       0.20711137619221856`}, {0.9877841416445722, -0.15582839765426523`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[15, 256] Pi], Sin[
+         Rational[15, 256] Pi]}, {
+        Cos[Rational[45, 1024] Pi], -
+         Sin[Rational[45, 1024] Pi]}}, {{-0.9831054874312163, 
+       0.18303988795514095`}, {0.9904850842564571, -0.13762012158648604`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[13, 256] Pi], Sin[
+         Rational[13, 256] Pi]}, {
+        Cos[Rational[39, 1024] Pi], -
+         Sin[Rational[39, 1024] Pi]}}, {{-0.9873014181578584, 
+       0.15885814333386145`}, {0.9928504144598651, -0.11936521481099135`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[11, 256] Pi], Sin[
+         Rational[11, 256] Pi]}, {
+        Cos[Rational[33, 1024] Pi], -
+         Sin[Rational[33, 1024] Pi]}}, {{-0.99090263542778, 
+       0.13458070850712617`}, {0.9948793307948056, -0.10106986275482782`}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[9, 256] Pi], Sin[Rational[9, 256] Pi]}, {
+        Cos[Rational[27, 1024] Pi], -
+         Sin[Rational[27, 1024] Pi]}}, {{-0.9939069700023561, 
+       0.11022220729388306`}, {0.9965711457905548, -0.08274026454937569}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[7, 256] Pi], Sin[Rational[7, 256] Pi]}, {
+        Cos[Rational[21, 1024] Pi], -
+         Sin[Rational[21, 1024] Pi]}}, {{-0.996312612182778, 
+       0.0857973123444399}, {0.997925286198596, -0.06438263092985747}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[5, 256] Pi], Sin[Rational[5, 256] Pi]}, {
+        Cos[Rational[15, 1024] Pi], -
+         Sin[Rational[15, 1024] Pi]}}, {{-0.9981181129001492, 
+       0.06132073630220858}, {0.9989412931868569, -0.04600318213091462}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[3, 256] Pi], Sin[Rational[3, 256] Pi]}, {
+        Cos[Rational[9, 1024] Pi], -
+         Sin[Rational[9, 1024] Pi]}}, {{-0.9993223845883495, 
+       0.03680722294135883}, {0.9996188224951786, -0.02760814577896574}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}, 
+    {Thickness[0.002], 
+     LineBox[NCache[{{-Cos[Rational[1, 256] Pi], Sin[Rational[1, 256] Pi]}, {
+        Cos[Rational[3, 1024] Pi], -
+         Sin[Rational[3, 1024] Pi]}}, {{-0.9999247018391445, 
+       0.012271538285719925`}, {0.9999576445519639, -0.00920375478205982}}],
+      VertexColors->{
+        RGBColor[1, 0, 0], 
+        RGBColor[1, 1, 0]}]}}, 
+   {Thickness[0.002], CircleBox[{0, 0}, 1]}},
+  ImageSize->1000]], "Output",
+ CellChangeTimes->{
+  3.83463945565186*^9, 3.834639535571065*^9, {3.834639567865074*^9, 
+   3.834639593514121*^9}, 3.8346396338370447`*^9, 3.834639680469628*^9, {
+   3.834639725923023*^9, 3.8346398627823324`*^9}, 3.8346415968062077`*^9, {
+   3.834641628064191*^9, 3.8346416548774366`*^9}, 3.834641731340515*^9, {
+   3.834641881519668*^9, 3.834641916729024*^9}, 3.8346419505549383`*^9, {
+   3.8346420293004723`*^9, 3.8346420375895452`*^9}, 3.834642105790799*^9, 
+   3.83464215013818*^9, 3.8346422315211186`*^9, 3.8346423542488084`*^9, 
+   3.834644211342057*^9, 3.8378315198167667`*^9, 3.837831731292556*^9, {
+   3.8378317837291946`*^9, 3.83783185630237*^9}, {3.8378318974114094`*^9, 
+   3.8378319047863874`*^9}, {3.83783207097585*^9, 3.8378320766357374`*^9}, {
+   3.8378324465043435`*^9, 3.837832455188305*^9}, 3.837832511500767*^9, 
+   3.8378325517490387`*^9, {3.837832581896508*^9, 3.8378326131112857`*^9}},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"232cdf86-7a8a-4992-930e-4e2cd79f5628"]
+}, Open  ]]
+},
+WindowSize->{2544, 1357},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4644, 111, 295, "Input",ExpressionUUID->"3c982421-5221-4eed-a979-5fc525787c4a"],
+Cell[5227, 135, 95412, 2328, 1015, "Output",ExpressionUUID->"232cdf86-7a8a-4992-930e-4e2cd79f5628"]
+}, Open  ]]
+}
+]
+*)
+
