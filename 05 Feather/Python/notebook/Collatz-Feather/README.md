@@ -2,4 +2,4 @@
 ***
 This page contains the essential components of the Collatz-Feather.
 
-![](Collatz-Preview.png)
+![](Collatz-Feder in schwarz.png)
