@@ -7,6 +7,8 @@
 #include <cstring>
 #include <stdexcept>
 #include <unordered_set>
+#include <map>
+#include <tuple>
 #include <set>
 #include <algorithm>
 
@@ -39,10 +41,10 @@ std::vector<int64_t> generate_collatz_set(
     return collatz_set;
 }
 
-void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim) {
+void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim, bool show_all) {
     std::unordered_set<int64_t> present;
     std::vector<int64_t> seq;
-    std::set<std::string> ans_all, ans_odd, ans_rot;
+    std::map<std::string, std::vector<std::tuple<int64_t, int64_t>>> ans_all, ans_odd, ans_rot;
 
     auto FindCycle = [&](std::vector<int64_t> const & v) {
         std::vector<int64_t> r;
@@ -70,20 +72,24 @@ void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim) {
                     seq.push_back(x);
                     if (!capture)
                         return F(true, q, x0, n_lim);
-                    std::cout
-                        << "q " << q << " x0 " << x0
-                        << " len " << icycle << std::endl;
-                    for (auto x: seq)
-                        std::cout << x << ", ";
-                    std::cout << std::endl;
-                    auto const res = FindCycle(seq);
-                    for (auto x: res)
-                        std::cout << x << ", ";
-                    std::cout << "(";
-                    for (auto x: res)
-                        if (x & 1)
+                    if (show_all) {
+                        std::cout
+                            << "q " << q << " x0 " << x0
+                            << " len " << icycle << std::endl;
+                        for (auto x: seq)
                             std::cout << x << ", ";
-                    std::cout << ")" << std::endl;
+                        std::cout << std::endl;
+                    }
+                    auto const res = FindCycle(seq);
+                    if (show_all) {
+                        for (auto x: res)
+                            std::cout << x << ", ";
+                        std::cout << "(";
+                        for (auto x: res)
+                            if (x & 1)
+                                std::cout << x << ", ";
+                        std::cout << ")" << std::endl;
+                    }
                     std::stringstream ss, ss2, ss3;
                     for (auto x: res)
                         ss << x << ", ";
@@ -94,13 +100,13 @@ void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim) {
                             ss2 << x << ", ";
                         }
                     ss << ")";
-                    ans_all.insert(ss.str());
-                    ans_odd.insert(ss2.str());
+                    ans_all[ss.str()].push_back(std::make_tuple(q, x0));
+                    ans_odd[ss2.str()].push_back(std::make_tuple(q, x0));
                     auto const cycle_rot = CycleRot(res);
                     for (auto x: cycle_rot)
                         if (x & 1)
                             ss3 << x << ", ";
-                    ans_rot.insert(ss3.str());
+                    ans_rot[ss3.str()].push_back(std::make_tuple(q, x0));
                     return true;
                 }
                 present.insert(x);
@@ -112,23 +118,37 @@ void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim) {
             }
             return false;
         };
+    if (show_all)
+        std::cout << "All found sequences:" << std::endl;
     for (int64_t q = 3; q < q_lim; q += 2)
         for (int64_t x0 = 1; x0 < x0_lim; ++x0)
             F(false, q, x0, n_lim);
     std::cout << std::endl << "All found cycles:" << std::endl;
-    for (auto const & x: ans_all)
-        std::cout << x << std::endl;
+    for (auto const & [k, v]: ans_all) {
+        std::cout << k << " (";
+        for (auto [q_, x0_]: v)
+            std::cout << "q = " << q_ << ", x0 = " << x0_ << "; ";
+        std::cout << ")" << std::endl;
+    }
     std::cout << std::endl << "All found odd cycles:" << std::endl;
-    for (auto const & x: ans_odd)
-        std::cout << x << std::endl;
+    for (auto const & [k, v]: ans_odd) {
+        std::cout << k << " (";
+        for (auto [q_, x0_]: v)
+            std::cout << "q = " << q_ << ", x0 = " << x0_ << "; ";
+        std::cout << ")" << std::endl;
+    }
     std::cout << std::endl << "All found odd rotated cycles:" << std::endl;
-    for (auto const & x: ans_rot)
-        std::cout << x << std::endl;
+    for (auto const & [k, v]: ans_rot) {
+        std::cout << k << " (";
+        for (auto [q_, x0_]: v)
+            std::cout << "q = " << q_ << ", x0 = " << x0_ << "; ";
+        std::cout << ")" << std::endl;
+    }
 }
 
 int main() {
     try {
-        find_collatz(4100, 1000, 1000);
+        find_collatz(4100, 1000, 1000, true);
         return 0;
     } catch (std::exception const & ex) {
         std::cout << "Exception: " << ex.what() << std::endl;
