@@ -11,7 +11,7 @@ clang-13 collatz_cycles.cpp -o ./collatz_cycles -O3 -m64 -lstdc++
 Run the program as follows:
 
 ```console
-./collatz_cycles
+./collatz_cycles > cycles.txt
 ```
 
 #### parameters
