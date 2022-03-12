@@ -4,7 +4,7 @@
 Compile the program as follows:
 
 ```console
-clang-13 collatz_cycles.cpp -o ./collatz_cycles -O3 -m64 -lstdc++
+clang-13 collatz_cycles.cpp -o ./collatz_cycles -O3 -m64 -std=c++20 -lstdc++
 ```
 
 #### run
