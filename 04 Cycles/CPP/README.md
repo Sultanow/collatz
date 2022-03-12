@@ -16,7 +16,7 @@ Run the program as follows:
 
 #### parameters
 
-Call the function `find_collatz(max_q, max_x0, max_n)`, for example `find_collatz(4100, 1000, 1000)`, where:
+Call the function `find_collatz(max_q, max_x0, max_n, verbose)`, for example `find_collatz(4100, 1000, 1000, false)`, where:
 
 * max_x0 means up to which number to scan starting number x0
 * max_q means up to which Q to scan
