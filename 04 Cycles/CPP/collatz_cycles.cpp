@@ -41,7 +41,21 @@ std::vector<int64_t> generate_collatz_set(
     return collatz_set;
 }
 
-void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim, bool show_all) {
+static std::map<std::string, std::string> po;
+
+std::string const & PO(std::string const & key, std::string const & def_val = "<THROW>") {
+    if (def_val == "<THROW>") {
+        ASSERT_MSG(po.count(key), "Program option '--" + key + "' not found!");
+        return po.at(key);
+    } else {
+        return po.count(key) ? po.at(key) : def_val;
+    }
+}
+
+void find_collatz(
+        int64_t q_begin, int64_t q_end,
+        int64_t x0_begin, int64_t x0_end,
+        int64_t n_lim, bool show_all) {
     std::unordered_set<int64_t> present;
     std::vector<int64_t> seq;
     std::map<std::string, std::map<int64_t, std::vector<int64_t>>> ans_all, ans_odd, ans_rot;
@@ -122,8 +136,8 @@ void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim, bool show_all) {
         };
     if (show_all)
         std::cout << "All found sequences:" << std::endl;
-    for (int64_t q = 3; q < q_lim; q += 2)
-        for (int64_t x0 = 1; x0 < x0_lim; ++x0)
+    for (int64_t q = q_begin | 1; q < q_end; q += 2)
+        for (int64_t x0 = std::max<int64_t>(1, x0_begin); x0 < x0_end; ++x0)
             F(false, q, x0, n_lim);
     auto OutSeq = [&](auto const & ans){
         for (auto const & [k, v]: ans) {
@@ -156,9 +170,40 @@ void find_collatz(int64_t q_lim, int64_t x0_lim, int64_t n_lim, bool show_all) {
     OutSeq(ans_rot);
 }
 
-int main() {
+auto ParseProgOpts(int argc, char ** argv) {
+    std::vector<std::string> args;
+    for (size_t i = 1; i < argc; ++i)
+        args.emplace_back(argv[i]);
+    std::map<std::string, std::string> m;
+    size_t ipos = 0;
+    for (auto e: args) {
+        if (e.empty() || e.at(0) != '-') {
+            m["pos" + std::to_string(ipos++)] = e;
+            continue;
+        }
+        ASSERT(e.at(0) == '-');
+        e.erase(0, 1);
+        if (!e.empty() && e.at(0) == '-')
+            e.erase(0, 1);
+        auto const eq_pos = e.find('=');
+        if (eq_pos == std::string::npos) {
+            m[e] = "";
+            continue;
+        }
+        std::string const key = e.substr(0, eq_pos),
+            val = e.substr(eq_pos + 1);
+        m[key] = val;
+    }
+    return m;
+}
+
+int main(int argc, char ** argv) {
     try {
-        find_collatz(4100, 1000, 1000, false);
+        po = ParseProgOpts(argc, argv);
+        find_collatz(
+            std::stoll(PO("q-begin", "0")), std::stoll(PO("q-end", "4100")),
+            std::stoll(PO("x0-begin", "0")), std::stoll(PO("x0-end", "1050")),
+            std::stoll(PO("n", "1050")), false);
         return 0;
     } catch (std::exception const & ex) {
         std::cout << "Exception: " << ex.what() << std::endl;
