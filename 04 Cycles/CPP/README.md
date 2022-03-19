@@ -26,5 +26,5 @@ Call the function `find_collatz(max_q, max_x0, max_n, verbose)`, for example `fi
 #### run the python parallelizer
 
 ```console
-python parallelize.py --q-begin=262143 --q-end=1000000000 --x0-begin=1 --x0-end=5000000 --n=10000
+python parallelize.py --q-begin=262143 --q-end=400000 --x0-begin=1 --x0-end=5000000 --n=10000
 ```
