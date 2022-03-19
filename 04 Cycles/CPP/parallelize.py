@@ -2,7 +2,7 @@ import argparse, sys, subprocess, threading, multiprocessing.pool, json
 
 def Run(nargs):
     q_begin, q_end, x0_begin, x0_end, n = [nargs[k] for k in 'q_begin q_end x0_begin x0_end n'.split()]
-    p = subprocess.run(['a.exe', f'--q-begin={q_begin}', f'--q-end={q_end}', f'--x0-begin={x0_begin}', f'--x0-end={x0_end}', f'--n={n}'], check = True, capture_output = True)
+    p = subprocess.run(['./collatz_cycles', f'--q-begin={q_begin}', f'--q-end={q_end}', f'--x0-begin={x0_begin}', f'--x0-end={x0_end}', f'--n={n}'], check = True, capture_output = True)
     with open(f'cycles.{str(q_begin).zfill(6)}_{str(q_end).zfill(6)}.{str(x0_begin).zfill(6)}_{str(x0_end).zfill(6)}.{str(n).zfill(6)}', 'wb') as f:
         f.write(p.stdout)
 
