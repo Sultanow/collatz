@@ -11,13 +11,25 @@ Two programs make the global side computable:
 * `census` finds **all** positive integer cycles whose parity word has a given length, by exhaustive enumeration of parity words.
 * `basin` measures how the positive integers split into the **basins of attraction** of these cycles.
 
-The code accompanies a manuscript in preparation. The rotating-binaries background is in [04 Cycles](../04%20Cycles) (notebooks `eldar_parityvector_k1.ipynb` and `eldar_rotate.ipynb`); a brute-force search over many $q$ is Arty's program in [04 Cycles/CPP](../04%20Cycles/CPP).
+The code accompanies the working paper in [docs](docs). The rotating-binaries background is in [04 Cycles](../04%20Cycles) (notebooks `eldar_parityvector_k1.ipynb` and `eldar_rotate.ipynb`); a brute-force search over many $q$ is Arty's program in [04 Cycles/CPP](../04%20Cycles/CPP).
+
+## Paper
+
+**Same Shadows, Different Forests: Local Tree Structure versus Global Cycles in $qx+c$ Maps** (working draft, October 2026)
+
+[PDF](docs/main.pdf) · [LaTeX sources](docs)
+
+Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
 
 ## Structure
 
 ```
 07 Basins of Attraction/
 ├── README.md
+├── docs/                   working paper (LaTeX sources and PDF)
+│   ├── main.tex
+│   ├── main.bib
+│   └── main.pdf
 ├── C/
 │   ├── census.c            exhaustive cycle census via parity words
 │   ├── basin.c             basin counts for given cycles

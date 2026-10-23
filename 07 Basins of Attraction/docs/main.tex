@@ -1,0 +1,538 @@
+\documentclass[12pt]{amsart}
+
+\usepackage[T1]{fontenc}            
+\usepackage[utf8]{inputenc}
+
+% English as main language; previously ngerman was the main language ("Zusammenfassung", "Tabelle")
+\usepackage[english]{babel}
+
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, anchorcolor=blue, pdfborder={0 0 0}]{hyperref}
+\usepackage{url}
+\usepackage{graphicx,color,colortbl}
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage{cite}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage[top=45truemm, bottom=45truemm, left=30truemm, right=30truemm]{geometry}
+\usepackage{nicefrac}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage[symbol]{footmisc}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{orcidlink}
+\captionsetup[subfigure]{labelformat=empty}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+\newcommand{\code}[1]{\colorbox{bg}{\texttt{#1}}}
+
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{problem}{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% declarations
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\dlog}{dlog}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\gde}{gde}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zt}{\mathbb{Z}_{(2)}}
+
+
+\setlength{\headsep}{2em}
+\setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
+
+% Previous title: Cycles in qx+1 Sequences
+\title[Same Shadows, Different Forests]{Same Shadows, Different Forests:\\ Local Tree Structure versus Global Cycles in $\boldsymbol{qx+c}$ Maps}
+
+\author[E.\ Sultanow]{Eldar Sultanow\,\orcidlink{0000-0001-5257-2236}}
+\address{Eldar Sultanow\\Business Informatics, Processes and Systems\\University of Potsdam\\Karl-Marx-Straße 67, 14482 Potsdam, Germany}
+\email{eldar.sultanow@wi.uni-potsdam.de}
+\address{Capgemini Deutschland GmbH\\Bahnhofstraße 30, 90402 Nuremberg, Germany}
+\email{eldar.sultanow@capgemini.com}
+
+\date{Working draft, October 2026}
+
+\keywords{Collatz problem, $qx+1$ problem, cycles, parity vectors, rotating binaries, Diophantine approximation, basins of attraction, Cayley trees}
+% TODO: verify MSC codes
+\subjclass[2020]{Primary 11B83; Secondary 11J86, 11Y55}
+
+\begin{document}
+
+\begin{abstract}
+The $3x+1$ map and its relatives $x\mapsto qx+c$ admit two complementary descriptions. Locally, every map of this family generates the same kind of Cayley tree of predecessors, with the same congruence-class statistics. This local picture cannot distinguish $3x+1$ from $3x-1$, which is the $3x+1$ map on the negative integers and has three cycles. Globally, every cycle is encoded by a parity word $B$ of length $l$ with $k$ odd steps, and it exists if and only if $D=2^l-q^k$ divides $c\,z_q(B)$, where $z_q$ is the rotating-binary function. We combine both views. An exhaustive census of all parity words up to length $30$ yields the complete list of short cycles of $3x\pm1$, $3x+5$ and $3x+13$, and similar lists for $5x+1$ and $181x+1$. In every case, cycles occur exactly where $2^l$ and $q^k$ nearly coincide, for instance $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are precisely the seven candidates for a $3x+1$ cycle of that type; they fail only because none of their members is divisible by $13$. Finally, we measure how the integers split into basins of attraction. For $3x-1$, the three basins have densities of about $0.327$, $0.325$ and $0.348$, stable up to $10^9$, although its local tree structure is identical to that of $3x+1$.
+\end{abstract}
+
+\begingroup
+\let\MakeUppercase\relax
+\clearpage\maketitle
+\thispagestyle{empty}
+\endgroup
+
+%=====================================================================
+\section{Introduction}
+\label{sec:introduction}
+%=====================================================================
+Crandall \cite{Crandall_1978} generalized the $3x+1$ sequence by introducing the function $f:\mathbb{N}\rightarrow\mathbb{N}$,
+\begin{equation}
+\label{eq:func_qxplus1}
+f(x)=
+\begin{cases}
+qx+1	&	2\nmid x,\\
+x/2		&	\text{otherwise,}
+\end{cases}
+\end{equation}
+for odd $q\geq 3$. More generally, for odd $q\ge1$ and odd $c$ we consider $x\mapsto qx+c$. Since every odd step is followed by at least one halving, we work with the accelerated map
+\begin{equation}
+\label{eq:T}
+T_{q,c}(x)=
+\begin{cases}
+(qx+c)/2	&	2\nmid x,\\
+x/2		&	\text{otherwise,}
+\end{cases}
+\end{equation}
+which has the same cycles as~\eqref{eq:func_qxplus1} (for $c=1$), up to the omitted even members. We call a ``$qx+c$ cycle'' a sequence of distinct positive integers $(x_1,x_2,\ldots,x_n)$ with $T_{q,c}(x_i)=x_{i+1}$ and $T_{q,c}(x_n)=x_1$.
+
+Leslie Davison observed that \emph{circuits}, i.e.\ cycles consisting of one run of odd steps followed by one run of halvings, correspond one-to-one to the solutions $(h,k,l)$ of the Diophantine equation
+\begin{equation}
+(2^{k+l}-3^k)h=2^l-1,
+\label{eq:diophantine_davison}
+\end{equation}
+see \cite[p.~67]{Lagarias_2010}. Steiner \cite{Steiner_1977} proved that $(h,k,l)=(1,1,1)$ is the only solution, so the trivial cycle is the only circuit of $3x+1$. Simons and de Weger \cite{Simons_deWeger_2005} and Hercher \cite{Hercher_2023} extended this to $m$-cycles (cycles with $m$ runs of odd steps) for $m\le 68$ and $m\le 91$, respectively. The general cycle problem remains open; convergence has been verified for all $n<2^{71}$ \cite{Barina_2025}.
+
+For $q>3$ cycles are rare. Table~\ref{table:known_cycles} lists the non-trivial cycles of~\eqref{eq:func_qxplus1} for odd $q\le1000$.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|L|R|}
+		\hline
+		\thead{\boldsymbol{q}} &
+		\thead{\textbf{odd members of the cycle}} \\
+		\hline
+		5 &
+		13,33,83 \\
+		5 &
+		17,27,43 \\
+		181 &
+		27,611 \\
+		181 &
+		35,99 \\
+		\hline
+	\end{tabular}
+	\caption{Non-trivial $qx+1$ cycles for odd $q\leq1000$, found empirically by Koch et al.\ \cite{Koch_2020}; see also Franco and Pomerance \cite{Franco_Pomerance_1995}. A search over all odd $q\le1000$ and all odd starting values below $3000$ finds exactly these, besides the cycles through $1$ that exist for $q=5$ and for $q=2^m-1$.}
+	\label{table:known_cycles}
+\end{table}
+
+Let $(a_1,a_2,\ldots,a_n)$ be the odd members of a cycle of~\eqref{eq:func_qxplus1} in cyclic order. Then the product
+\begin{equation}
+\label{eq:condition_cycle_existance}
+2^\alpha=\prod_{i=1}^{n}\left(q+\frac{1}{a_i}\right)
+\end{equation}
+is a power of two, see for example \cite[p.~327]{Lagarias_2010}. Here $\alpha$ is the number of divisions by $2$ in one period, and $n$ is the number of odd members.
+
+\subsection*{Two views of the same maps}
+These maps admit two descriptions. The \emph{local} view starts from the trivial cycle and grows the tree of all predecessors, organised by congruence classes. It describes how numbers branch, and it is the same for every map in the family: by $x\mapsto -x$, the $3x-1$ map on the positive integers is the $3x+1$ map on the negative integers, which has the three cycles through $-1$, $-5$ and $-17$. Both maps produce the same branching statistics. In the language of Plato's cave, they cast identical shadows. Density arguments built on this view reach ``almost all'' statements \cite{Terras_1976,Tao_2022}, but they cannot decide individual orbits.
+
+The \emph{global} view encodes a cycle by its parity word and asks whether the corresponding rational number is a positive integer. This is decided by the arithmetic of $2^l-q^k$, and it is exactly what separates $3x+1$ from $3x-1$.
+
+\subsection*{Contributions}
+\begin{enumerate}[label=(\roman*)]
+	\item Section~\ref{sec:local} describes the local view. The cotree densities of Cayley trees measure the whole forest of branching numbers (Corollary~\ref{cor:forest_density}), and residue classes do not decide which tree a number belongs to (Table~\ref{table:classes}).
+	\item Section~\ref{sec:words} states the correspondence between parity words and cycles (Theorem~\ref{thm:words}) in the notation of rotating binaries \cite{Cox_2021,Gupta_etal_2022}. It explains the families of cycles obtained from binary rotations, the mirror symmetry between $3x+1$ and $3x-1$, and the product identity~\eqref{eq:diophantine_equation}.
+	\item Section~\ref{sec:zoo} gives an exhaustive census of all parity words up to a fixed length for $3x\pm1$, $3x+5$, $3x+13$, $5x+1$ and $181x+1$. It decodes every cycle by its type $(l,k)$ and shows that cycles sit where $2^l$ and $q^k$ nearly coincide.
+	\item Section~\ref{sec:basins} measures basin densities: how the positive integers split into the trees of the forest.
+\end{enumerate}
+
+%=====================================================================
+\section{Local structure: one forest, several trees}
+\label{sec:local}
+%=====================================================================
+The local view grows the tree of all predecessors of a cycle. For the Collatz map this tree is usually restricted to the \emph{branching numbers}, the even numbers with an odd predecessor, and drawn as a Cayley tree with \emph{Leftward} edges through an odd predecessor and \emph{Upward} edges by doubling \cite{Sultanow_graph_2020}. The congruence-class bookkeeping of these trees for general $an+b$ maps, including their \emph{cotree densities}, is developed in detail by Kleinnijenhuis et al.\ \cite{Kleinnijenhuis_2026}. In this section we record two facts that hold for every map of the family alike.
+
+Let $c$ be coprime to $6$. A \emph{branching number} is an even $n\in\N$ such that $(n-c)/3$ is an odd integer not divisible by $3$; let $S_c$ be the set of branching numbers. For $m\in S_c$ define the \emph{Leftward child} $L(m)=2^p\,(m-c)/3$ and the \emph{Upward child} $U(m)=2^r m$, where $p,r\ge1$ are minimal with $L(m),U(m)\in S_c$. Both exist because $2$ is a primitive root modulo $9$.
+
+\begin{proposition}[Unique parent]
+\label{prop:unique_parent}
+The maps $L,U:S_c\to S_c$ are injective, and $S_c$ is the disjoint union of $L(S_c)$ and $U(S_c)$. In other words, every branching number has exactly one parent, either as a Leftward or as an Upward child.
+\end{proposition}
+
+\begin{proof}
+Let $n\in S_c$ and consider $n/2,n/4,\ldots$ up to the first term that is odd or lies in $S_c$. If this term is $n/2^r\in S_c$, then $m=n/2^r$ satisfies $U(m)=n$: the exponent $r$ is minimal, because an earlier term in $S_c$ would contradict the choice of $r$. If the first such term is an odd number $o=n/2^p$, then $3\nmid o$, since $n\equiv c\pmod 3$ and $3\nmid c$. Hence $m=3o+c$ is even, $(m-c)/3=o$ is odd and not divisible by $3$, so $m\in S_c$, and $L(m)=n$ by the same minimality argument. The two cases exclude each other, and in each case the parent is determined by $n$. This proves surjectivity onto the disjoint union and injectivity.
+\end{proof}
+
+\begin{corollary}[Forest density]
+\label{cor:forest_density}
+For $c=\pm1$, the halving sequence in the proof stops after at most four steps. Hence it depends only on $n \bmod 2^4\cdot18=288$ whether $n$ is a Leftward or an Upward child. $L(S_c)$ is a union of $27$ and $U(S_c)$ a union of $5$ residue classes modulo $288$, so
+\[
+d\bigl(L(S_c)\bigr)+d\bigl(U(S_c)\bigr)=\frac{27}{288}+\frac{5}{288}=\frac{2}{18}=d(S_c).
+\]
+\end{corollary}
+
+This identity is the same for $3x+1$ and $3x-1$ (Table~\ref{table:mirror}). It is the density of the whole forest $S_c$, not of the tree of the trivial cycle: for $3x-1$ that tree contains only about a third of all integers (Section~\ref{sec:basins}).
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+ & $3x+1$ ($c=1$) & $3x-1$ ($c=-1$) \\
+\midrule
+branching classes mod $18$ & $\{4,16\}$ & $\{2,14\}$ \\
+Leftward classes mod $288$ & $27$ & $27$ \\
+Upward classes mod $288$ & $\{16,88,160,232,256\}$ & $\{32,56,128,200,272\}$ \\
+forest density $d(S_c)$ & $27/288+5/288=2/18$ & $27/288+5/288=2/18$ \\
+cycles with word length $\le 30$ & $1$ & $3$ \\
+basins (trees of the forest) & $1$ (all $n<2^{71}$) & $3$: $32.7\,\%$, $32.5\,\%$, $34.8\,\%$ \\
+\bottomrule
+\end{tabular}
+\caption{The mirror pair $3x\pm1$: identical local structure (upper rows; the Upward classes are negatives of each other modulo $288$), different global structure (lower rows; Sections~\ref{sec:zoo} and~\ref{sec:basins}).}
+\label{table:mirror}
+\end{table}
+
+\subsection*{Residue classes do not decide membership}
+Which tree of the forest a branching number belongs to is not a property of its residue class, for none of the moduli $18$, $288$ and $4608$ used in this kind of bookkeeping. Table~\ref{table:classes} shows this for $3x-1$, where all trees are known: members of the same class lie in different trees, in both directions. A check of the representatives $\ell=0$ can therefore refute a conjecture (the number $14$ refutes it for $3x-1$), but it cannot confirm one. For $3x+1$, the representatives $4$ and $16$ lie in the tree of the root; whether all members of $18\ell+4$ and $18\ell+16$ do is the Collatz conjecture itself.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+class & members in the tree of $2$ & first member outside & its cycle \\
+\midrule
+$18\ell+14$ & $32$ ($\ell=1$) & $14$ ($\ell=0$) & through $5$ \\
+$18\ell+2$ & $2$ ($\ell=0$, the root) & $20$ ($\ell=1$) & through $5$ \\
+$288\ell+2$ & $2,290,578,866$ ($\ell\le3$) & $1154$ ($\ell=4$) & through $17$ \\
+$4608\ell+2$ & $2$ ($\ell=0$) & $4610$ ($\ell=1$) & through $17$ \\
+\bottomrule
+\end{tabular}
+\caption{Members of the same residue class in different trees of the forest of $3x-1$. For example, $32\to16\to8\to4\to2$, whereas $14\to7\to20\to10\to5\to14$.}
+\label{table:classes}
+\end{table}
+
+%=====================================================================
+\section{Parity words and cycles}
+\label{sec:words}
+%=====================================================================
+Fix odd $q\ge1$ and odd $c$, and write $T=T_{q,c}$. A \emph{word} $B=b_0b_1\cdots b_{l-1}\in\{0,1\}^l$ prescribes the parities of $l$ consecutive iterates. Its \emph{type} is $(l,k)$ with $k=b_0+\cdots+b_{l-1}$, the number of odd steps; we write
+\begin{equation}
+\label{eq:D}
+D=D(l,k)=2^l-q^k .
+\end{equation}
+Let $0\le p_1<p_2<\cdots<p_k\le l-1$ be the positions of the ones in $B$; the position $0$ refers to the first step. The rotating-binary function of Cox et al.\ \cite{Cox_2021}, adapted from Halbeisen and Hungerbühler \cite{Halbeisen_Hungerbuehler_1997}, is
+\begin{equation}
+z_q(B) = \sum_{j=1}^{k}q^{\,k-j}\,2^{p_j}.
+\label{eq:z}
+\end{equation}
+Let $\sigma B=b_1\cdots b_{l-1}b_0$ denote the left rotation of $B$, and let $\Zt$ be the ring of rationals with odd denominator.
+
+\begin{theorem}[Cycles from words; cf.\ \cite{Boehm_Sontacchi_1978,Lagarias_1990}]
+\label{thm:words}
+Let $B$ be a word of type $(l,k)$ with $D\neq0$, and put
+\[
+x_B=\frac{c\,z_q(B)}{D}\in\Zt .
+\]
+Then $x_B$ is a periodic point of $T$ (extended to $\Zt$) whose parity sequence is $BBB\cdots$, and it is the only such point in $\Zt$. The orbit of $x_B$ is $x_B, x_{\sigma B}, x_{\sigma^2B},\ldots$. Consequently:
+\begin{enumerate}[label=(\alph*)]
+	\item $T$ has an integer cycle with parity word $B$ if and only if $D\mid c\,z_q(B)$;
+	\item for $k\ge1$ this cycle consists of positive integers if and only if $c\,D>0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $T_0(x)=x/2$ and $T_1(x)=(qx+c)/2$, and let $T_B=T_{b_{l-1}}\circ\cdots\circ T_{b_0}$. Each odd step at position $p_j$ contributes $c$. This contribution is multiplied by $q$ at each of the $k-j$ later odd steps and divided by $2$ at each of the $l-p_j$ remaining steps, including its own. By induction on $l$,
+\[
+T_B(x)=\frac{q^k x + c\,z_q(B)}{2^l},
+\]
+whose unique fixed point is $x_B$. Since $D$ is odd, $x_B\in\Zt$. Conjugating with $T_{b_0}$ gives $T_{\sigma B}\circ T_{b_0}=T_{b_0}\circ T_B$, hence $T_{b_0}(x_B)=x_{\sigma B}\in\Zt$, and so $2x_{\sigma B}=q^{b_0}x_B+b_0c$. If $b_0=1$, then $qx_B+c$ is even, so $x_B$ is odd. If $b_0=0$, then $x_B$ is even. In both cases $T(x_B)=T_{b_0}(x_B)=x_{\sigma B}$. Iterating, the orbit of $x_B$ follows $B$ periodically.
+
+For uniqueness, let $y\in\Zt$ have parity sequence $BBB\cdots$. Then $T^{jl}(y)-T^{jl}(x_B)=(q^k/2^l)^j(y-x_B)$ lies in $\Zt$ for every $j$. Since $q^k$ is odd, $2^{jl}$ divides $y-x_B$ for all $j$, so $y=x_B$. Statements (a) and (b) follow because $z_q(B)>0$ for $k\ge1$.
+\end{proof}
+
+Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}.
+
+\begin{example}
+\label{ex:971}
+Take $q=5$ and the word $B=111110000000$ of type $(12,5)$. Then $D=2^{12}-5^5=971$. With $c=971$ we get $x_B=z_5(B)=5^4+5^3\cdot2+5^2\cdot2^2+5\cdot2^3+2^4=1031$, and the twelve rotations of $B$ produce the cycle
+\[
+(1031,3063,8143,20843,52593,131968,65984,32992,16496,8248,4124,2062)
+\]
+of $5x+971$. Its odd members are $1031,3063,8143,20843,52593$. The binary representation of $B$ reflects the course of the cycle: the ones mark the odd members.
+\end{example}
+
+\begin{corollary}[Words with $D=c$]
+\label{cor:D_equals_c}
+If $c=2^l-q^k>0$, then every word of type $(l,k)$ yields a positive integer cycle of $T_{q,c}$, with members $z_q(\sigma^iB)$. Each necklace (rotation class) of type $(l,k)$ gives one cycle.
+\end{corollary}
+
+Corollary~\ref{cor:D_equals_c} explains the cycles of Table~\ref{table:non_q1_cycles}: $7=2^5-5^2$, $103=2^7-5^2$, $3=2^7-5^3$ and $131=2^8-5^3$. It also explains the cycle families of $3x+5$ ($5=2^5-3^3$) and $3x+13$ ($13=2^8-3^5$) in Section~\ref{sec:zoo}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|L|L|L|L|L|R|}
+		\hline
+		\thead{\textbf{map}} &
+		\thead{\boldsymbol{B_{min}}} & 
+        \thead{\boldsymbol{B_{max}}} & 
+        \thead{\boldsymbol{r}} & 
+        \thead{\boldsymbol{c}} & 
+        \thead{\textbf{cycle}} \\
+		\hline
+		5x + 7 & 00101 & 10100 & 2 & 2^5-5^2 & 9,26,13,36,18 \\
+        5x + 103 & 0001001 & 1001000 & 3 & 2^7-5^2 & 13,84,42,21,104,52,26 \\
+        5x + 3 & 0010101 & 1010100 & 2 & 2^7-5^3 & 61,154,77,194,97,244,122 \\
+        5x + 131 & 00100101 & 10100100 & 5 & 2^8-5^3 & 77,258,129,388,194,97,308,154 \\
+		\hline
+	\end{tabular}
+	\caption{Cycles determined via binary rotation \cite{Gupta_etal_2022}; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$ (Corollary~\ref{cor:D_equals_c}). The notebook is available on GitHub \cite{sultanow2024}.}
+	\label{table:non_q1_cycles}
+\end{table}
+
+\begin{corollary}[Mirror]
+\label{cor:mirror}
+$T_{q,-c}(x)=-T_{q,c}(-x)$. In particular, the cycles of $3x-1$ are the negatives of the cycles of $3x+1$ on the negative integers. By Theorem~\ref{thm:words}(b), they come from words with $D<0$. The three cycles of $3x-1$ through $1$, $5$ and $17$ have the words $1$, $110$ and $11110111000$, with $D=-1$, $-1$ and $-139$ (since $2^3<3^2$ and $2^{11}<3^7$).
+\end{corollary}
+
+\begin{corollary}[$D=1$]
+\label{cor:D_equals_one}
+If $q=2^m-1$, the word $10^{m-1}$ has $D=2^m-q=1$ and $z_q=1$. Hence $x=c$, and for $c=1$ the number $1$ lies on a cycle. This is the power-of-two root $c=q+1=2^m$ of the family $a=2^m-1$ studied in \cite{Kleinnijenhuis_2026}.
+\end{corollary}
+
+\begin{remark}[The case $q=1$]
+For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, least significant first, are $b_0,\ldots,b_{l-1}$. For $c=2^l-1$, the map $T_{1,c}$ acts on $\{0,\ldots,2^l-1\}$ as the cyclic right rotation of $l$-bit numbers. For example, the cycles of $x+7$ are $\{1,4,2\}$, $\{3,5,6\}$ and $\{7\}$, the rotation classes of $001$, $011$ and $111$. For $c=1$, by contrast, $0<z_1(B)<2^l-1$ unless $B=1^l$, so $T_{1,1}$ has only the cycle $\{1\}$. This also follows from the descent $(x+1)/2<x$ for odd $x>1$, a global, Archimedean argument. This is the trivial base case $1n+1$ of the family $an+b$.
+\end{remark}
+
+\subsection*{The product identity}
+The previous version of this paper started from the product equality
+\begin{equation}
+\label{eq:diophantine_equation}
+(A_1+1)\cdots(A_m+1)\cdot B_1\cdots B_n=A_1\cdots A_m\cdot(B_1+1)\cdots(B_n+1)
+\end{equation}
+for odd positive integers $A_i,B_i$. It has a transparent meaning in terms of types.
+
+\begin{proposition}
+\label{prop:product}
+Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} in cyclic order, $A_i=qa_i$, and let $l$ be the number of halvings in one period, i.e.\ the cycle has type $(l,k)$. Then
+\[
+\prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k}.
+\]
+Hence the members of two cycles satisfy~\eqref{eq:diophantine_equation} if and only if the cycles have the same type.
+\end{proposition}
+
+\begin{proof}
+$A_i+1=qa_i+1=2^{\alpha_i}a_{i+1}$ (indices modulo $k$), so the product telescopes to $2^{\sum\alpha_i}/q^k=2^l/q^k$. Since $q>1$ is odd, $2^l/q^k=2^{l'}/q^{k'}$ forces $(l,k)=(l',k')$.
+\end{proof}
+
+\begin{example}
+The two non-trivial cycles of $5x+1$ both have type $(7,3)$. With $A=(65,165,415)$ and $B=(135,85,215)$, i.e.\ $5\cdot(13,33,83)$ and $5\cdot(27,17,43)$,
+\[
+(65+1)(165+1)(415+1)\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot(135+1)(85+1)(215+1),
+\]
+and both products equal $2^7/5^3$. Likewise, both cycles of $181x+1$ have type $(15,2)$ (Table~\ref{table:zoo}).
+\end{example}
+
+%=====================================================================
+\section{The decoded zoo: cycles live where \texorpdfstring{$2^l\approx q^k$}{2\^{}l ≈ q\^{}k}}
+\label{sec:zoo}
+%=====================================================================
+By Theorem~\ref{thm:words}, the positive integer cycles of $T_{q,c}$ with word length $l\le L$ can be found exhaustively. One enumerates all words $B$ of length $l\le L$ with $c\,D>0$ and tests whether $D\mid c\,z_q(B)$. For $3x+c$ with $c>0$ and $L=30$ these are $1.96\cdot10^9$ words, which takes a few minutes on a single core. The program and its outputs are available in \cite{Sultanow_collatz_07}.
+
+\begin{proposition}[Census]
+\label{prop:census}
+The cycles listed in Table~\ref{table:zoo} are all positive integer cycles of $T_{q,c}$ whose parity word has length at most $L$, with $L=30$ for $3x+1$, $3x-1$, $3x+5$, $3x+13$, $L=28$ for $5x+1$ and $L=40$ for $181x+1$.
+\end{proposition}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llcrrr}
+\toprule
+map & cycle minima & $(l,k)$ & $D=2^l-q^k$ & $N_{l,k}$ & $E$ \\
+\midrule
+$3x+1$ & $1$ & $(2,1)$ & $1$ & $1$ & $1.00$ \\
+\midrule
+$3x-1$ & $1$ & $(1,1)$ & $-1$ & $1$ & $1.00$ \\
+ & $5$ & $(3,2)$ & $-1$ & $1$ & $1.00$ \\
+ & $17$ & $(11,7)$ & $-139$ & $30$ & $0.22$ \\
+\midrule
+$3x+5$ & $5$ & $(2,1)$ & $1$ & $1$ & $1.00$ \\
+ & $1$ & $(3,1)$ & $5$ & $1$ & $1.00$ \\
+ & $19,\ 23$ & $(5,3)$ & $5$ & $2$ & $2.00$ \\
+ & $187,\ 347$ & $(27,17)$ & $5\,077\,565$ & $312\,455$ & $0.31$ \\
+\midrule
+$3x+13$ & $13$ & $(2,1)$ & $1$ & $1$ & $1.00$ \\
+ & $1$ & $(4,1)$ & $13$ & $1$ & $1.00$ \\
+ & $211,227,251,259,283,287,319$ & $(8,5)$ & $13$ & $7$ & $7.00$ \\
+ & $131$ & $(24,15)$ & $2\,428\,309$ & $54\,484$ & $0.29$ \\
+\midrule
+$5x+1$ & $1$ & $(5,2)$ & $7$ & $2$ & $0.29$ \\
+ & $13,\ 17$ & $(7,3)$ & $3$ & $5$ & $1.67$ \\
+\midrule
+$181x+1$ & $27,\ 35$ & $(15,2)$ & $7$ & $7$ & $1.00$ \\
+\bottomrule
+\end{tabular}
+\caption{All positive integer cycles of $T_{q,c}$ with word length $l\le L$ (Proposition~\ref{prop:census}), given by their minima and decoded by their type $(l,k)$. $N_{l,k}$ is the number of binary necklaces of type $(l,k)$, and $E=N_{l,k}\gcd(c,D)/|D|$ is the heuristic expected number of cycles of that type if $c\,z_q(B)$ were equidistributed modulo $D$.}
+\label{table:zoo}
+\end{table}
+
+
+\subsection*{Near-coincidences}
+In every row of Table~\ref{table:zoo} with a non-trivial cycle, $|D|$ is small compared with $2^l$. For example, $2^{15}-181^2=32768-32761=7$, $2^7-5^3=128-125=3$ and $|D|/2^l=0.038$ for the type $(27,17)$ of $3x+5$. Equivalently, $l/k$ is a good rational approximation of $\log_2 q$:
+\[
+\begin{array}{rcll}
+15/2 &=& 7.5 & \approx \log_2 181 = 7.49985,\\
+7/3 &=& 2.333 & \approx \log_2 5 = 2.32193,\\
+27/17,\ 8/5,\ 11/7 &=& 1.588,\ 1.600,\ 1.571 & \approx \log_2 3 = 1.58496 .
+\end{array}
+\]
+For $3x-1$ the approximations come from below ($2^l<3^k$), in accordance with Corollary~\ref{cor:mirror}. The heuristic count $E$ explains the pattern. A small $|D|$ makes the divisibility $D\mid c\,z_q(B)$ likely, while a large $|D|$ needs an astronomical number of words.
+
+\subsection*{The near miss of \texorpdfstring{$3x+1$}{3x+1}}
+The type $(8,5)$ illustrates where the $3x+1$ problem is decided.
+
+\begin{corollary}
+\label{cor:near_miss}
+The $3x+1$ map has no cycle of type $(8,5)$, and the seven cycles of $3x+13$ of this type are exactly the seven candidates.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:words}, a $3x+1$ cycle of type $(8,5)$ requires $13=2^8-3^5$ to divide $z_3(B)$ for a word $B$ of that type. For $c=13$ we have $D=c$, so by Corollary~\ref{cor:D_equals_c} the values $z_3(B)$ are exactly the members of the seven cycles of $3x+13$ of type $(8,5)$. Their minima $211,227,251,259,283,287,319$ are congruent to $3,6,4,12,10,1,7$ modulo $13$. Since $T_{3,13}$ maps non-multiples of $13$ to non-multiples of $13$, no member of these cycles is divisible by $13$.
+\end{proof}
+
+The heuristic expectation for this type is $E=7/13\approx0.54$; the actual count is $0$. For longer types, the methods of Steiner, Simons--de Weger and Hercher \cite{Steiner_1977,Simons_deWeger_2005,Hercher_2023} combine lower bounds for $|l\log2-k\log3|$ from Baker's theory with the verification limit. These bounds show that $D$ is too large for the divisibility to occur in cycles with few runs. Whatever proves the absence of cycles must see this arithmetic. The local structure of Section~\ref{sec:local} does not see it, because it is identical for $3x+1$ and $3x+13$ up to scaling.
+
+%=====================================================================
+\section{Measuring forests: basin densities}
+\label{sec:basins}
+%=====================================================================
+For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+map & cycle (minimum) & $d_{10^6}$ & $d_{10^8}$ & $d_{10^9}$ \\
+\midrule
+$3x-1$ & $1$ & $0.3277$ & $0.3270$ & $0.3269$ \\
+ & $5$ & $0.3234$ & $0.3247$ & $0.3250$ \\
+ & $17$ & $0.3490$ & $0.3483$ & $0.3482$ \\
+\midrule
+$3x+5$ & $1$ & $0.1410$ & $0.1404$ & $0.1404$ \\
+ & $5$ & $0.2000$ & $0.2000$ & $0.2000$ \\
+ & $19$ & $0.4964$ & $0.4979$ & $0.4979$ \\
+ & $23$ & $0.0930$ & $0.0922$ & $0.0922$ \\
+ & $187$ & $0.0325$ & $0.0326$ & $0.0325$ \\
+ & $347$ & $0.0371$ & $0.0369$ & $0.0369$ \\
+\midrule
+$3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4776$ \\
+ & $13$ & $0.0769$ & $0.0769$ & $0.0769$ \\
+ & $131$ & $0.2522$ & $0.2517$ & $0.2517$ \\
+ & $211$ & $0.0334$ & $0.0334$ & $0.0334$ \\
+ & $227$ & $0.0191$ & $0.0189$ & $0.0189$ \\
+ & $251$ & $0.0197$ & $0.0199$ & $0.0198$ \\
+ & $259$ & $0.0388$ & $0.0386$ & $0.0386$ \\
+ & $283$ & $0.0254$ & $0.0253$ & $0.0253$ \\
+ & $287$ & $0.0430$ & $0.0432$ & $0.0433$ \\
+ & $319$ & $0.0146$ & $0.0145$ & $0.0145$ \\
+\bottomrule
+\end{tabular}
+\caption{Basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (preliminary; every $n\le10^9$ lies in one of the listed basins).}
+\label{table:basins}
+\end{table}
+
+Two entries are explained by conjugacy. Since $T_{3,d}(dx)=d\,T_{3,1}(x)$ for odd $d$, the multiples of $d$ form the basin of the scaled trivial cycle through $d$, as far as $3x+1$ converges on them. This basin therefore has density exactly $1/d$: $0.2000$ for $d=5$ and $0.0769\approx1/13$ for $d=13$. The other densities are stable to three digits from $N=10^6$ to $10^9$, yet they show no obvious relation to the cycle data. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth.
+
+\begin{problem}
+\label{prob:basins}
+Do the basin densities of Table~\ref{table:basins} converge, and can their limits be predicted from the cycle data (types, $D$, minima)? Any such prediction must use global information, since the local structure of Section~\ref{sec:local} is identical for these maps up to scaling. For $3x+1$, the conjecture asserts a single basin of density $1$.
+\end{problem}
+
+
+%=====================================================================
+\section{Outlook}
+\label{sec:outlook}
+%=====================================================================
+The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see four directions:
+\begin{enumerate}[label=(\arabic*)]
+	\item \emph{Basin densities}: a census up to $N=10^{12}$, including Ba\v{r}ina's $7x\pm1$ \cite{Barina_2022} and the fraction of apparently divergent orbits of $5x+1$, and a prediction of the limits (Problem~\ref{prob:basins}).
+	\item \emph{Longer words}: extending the census of Proposition~\ref{prop:census} to $L\approx40$--$45$, which the sharded program makes feasible on a cluster.
+	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
+	\item \emph{Certification}: a Lean~4 formalisation of Theorem~\ref{thm:words} and Proposition~\ref{prop:unique_parent} that refers to the map itself.
+\end{enumerate}
+
+\subsection*{Code and data availability}
+The programs \texttt{census.c} and \texttt{basin.c}, the SLURM templates and the reference outputs of the census are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}.
+
+\subsection*{Acknowledgments}
+% TODO: keep if the cluster is used for the final runs
+We thank Dr.\ Kai Himstedt, Stephanie von Riegen and the whole EDIH Hamburg team for access to the Research Computing Infrastructure of the EDIH Hamburg.
+
+\newpage
+\appendix
+\section{Notation}
+\label{appx:glossary}
+\vspace{-1em}
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{1.2em}\setlength\extrarowheight{3pt}
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\thead{\textbf{Term}} &
+\thead{\textbf{Definition}}\\
+\hline
+$T_{q,c}$ & accelerated map: $(qx+c)/2$ for odd $x$, $x/2$ for even $x$ \\
+\hline
+Orbit & the sequence $x,T(x),T^2(x),\ldots$ \\
+\hline
+Cycle & a periodic orbit of distinct positive integers \\
+\hline
+Parity word $B$ & parities of $l$ consecutive iterates, $1$ for odd \\
+\hline
+Type $(l,k)$ & word length $l$ (number of halvings) and number $k$ of odd steps \\
+\hline
+$D$ & $2^l-q^k$ \\
+\hline
+$z_q(B)$ & rotating-binary function~\eqref{eq:z}; $x_B=c\,z_q(B)/D$ \\
+\hline
+Necklace & rotation class of words; one necklace corresponds to one cycle \\
+\hline
+Branching number & even $n$ with $(n-c)/3$ odd and not divisible by $3$ (for $q=3$) \\
+\hline
+Forest, tree, basin & all branching numbers; the predecessors of one cycle; the integers attracted by one cycle \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\newpage
+\bibliographystyle{unsrt}
+% main.bib: existing references; additions.bib: new references for this version
+\bibliography{main}
+
+\end{document}
