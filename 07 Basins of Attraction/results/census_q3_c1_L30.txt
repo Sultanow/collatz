@@ -1,0 +1,2 @@
+q=3 c=1 L=30 words checked=1957549818 cycles=1
+  min=1  l=2 k=1 D=1

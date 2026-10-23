@@ -1,0 +1,11 @@
+q=3 c=13 L=30 words checked=1957549818 cycles=10
+  min=13  l=2 k=1 D=1
+  min=1  l=4 k=1 D=13
+  min=211  l=8 k=5 D=13
+  min=227  l=8 k=5 D=13
+  min=251  l=8 k=5 D=13
+  min=287  l=8 k=5 D=13
+  min=259  l=8 k=5 D=13
+  min=283  l=8 k=5 D=13
+  min=319  l=8 k=5 D=13
+  min=131  l=24 k=15 D=2428309

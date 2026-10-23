@@ -1,0 +1,4 @@
+q=5 c=1 L=28 words checked=140806602 cycles=3
+  min=1  l=5 k=2 D=7
+  min=13  l=7 k=3 D=3
+  min=17  l=7 k=3 D=3
