@@ -116,7 +116,7 @@ For $3x+c$ with $c>0$, all words up to $L=30$ are about $2\cdot10^9$ words and t
 
 #### how it works
 
-For a word $B$ the periodic point of $T_{q,c}$ is $c\,z_q(B)/D$. Let $d_0$ be the denominator of $z_q(B)/D$ in lowest terms. Then $B$ gives a positive integer cycle exactly for $c=\operatorname{sign}(D)\,m\,d_0$ with $m$ odd, and these cycles are $m$ times the *primitive* cycle of $c_0=\operatorname{sign}(D)\,d_0$. The denominator is found by a continued-fraction expansion that stops as soon as it exceeds `DMAX`. Each primitive cycle is printed exactly once, by the rotation of its word that starts at the smallest member.
+For a word $B$ the periodic point of $T_{q,c}$ is $c\,z_q(B)/D$. Let $d_0$ be the denominator of $z_q(B)/D$ in lowest terms. Then $B$ gives a positive integer cycle exactly for $c=\mathrm{sign}(D)\,m\,d_0$ with $m$ odd, and these cycles are $m$ times the *primitive* cycle of $c_0=\mathrm{sign}(D)\,d_0$. The denominator is found by a continued-fraction expansion that stops as soon as it exceeds `DMAX`. Each primitive cycle is printed exactly once, by the rotation of its word that starts at the smallest member.
 
 #### output
 
