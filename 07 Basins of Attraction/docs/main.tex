@@ -77,11 +77,10 @@
 \address{Capgemini Deutschland GmbH\\Bahnhofstraße 30, 90402 Nuremberg, Germany}
 \email{eldar.sultanow@capgemini.com}
 
-\date{Working draft, October 2026}
+\date{October 2026}
 
 \keywords{Collatz problem, $qx+1$ problem, cycles, parity vectors, rotating binaries, Diophantine approximation, basins of attraction, Cayley trees}
-% TODO: verify MSC codes
-\subjclass[2020]{Primary 11B83; Secondary 11J86, 11Y55}
+\subjclass[2020]{Primary 11B83; Secondary 11Y55, 37P99}
 
 \begin{document}
 
@@ -477,20 +476,31 @@ where $L(l,k)$ is the number of aperiodic binary necklaces of type $(l,k)$. If a
 Why does the equidistribution heuristic predict the number of primitive cycles so well, and why are the counts underdispersed? Can the distribution of $z_3(B)$ modulo $|D|$ over the words of a type be controlled?
 \end{problem}
 
+\paragraph{Longer words.} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{fig1_cycles_vs_heuristic.pdf}
+\includegraphics[width=\linewidth]{figures/fig1_cycles_vs_heuristic.pdf}
 \caption{Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l$: census (bars) and heuristic $\sum_k E_{1000}(l,k)$ (line). The peaks at $l=19$ and $l=22$ come from $D(19,12)=-7153=-23\cdot311$ and $D(22,14)=-5\cdot7\cdot11^2\cdot139$.}
 \label{fig:cycles}
 \end{figure}
-
-\paragraph{Longer words.} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
 
 %=====================================================================
 \section{Measuring forests: basin densities}
 \label{sec:basins}
 %=====================================================================
 For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees. We report empirical shares $d_N$. Except for the basins covered by Proposition~\ref{prop:filtration}, it is not known whether $\lim_{N\to\infty}d_N$ exists.
+
+Two entries of Table~\ref{table:basins} are exactly rational, $0.2000=1/5$ and $0.0769\approx1/13$. Proposition~\ref{prop:filtration} explains them, together with all other rational densities.
+
+\begin{proposition}[Divisibility filtration]
+\label{prop:filtration}
+Let $\gcd(c,6)=1$ and, for a divisor $e$ of $|c|$, let $B_e=\{n\ge1:\gcd(n,c)=e\}$. Then $T_{3,c}(B_e)\subseteq B_e$, the map $n\mapsto n/e$ conjugates $T_{3,c}$ on $B_e$ to $T_{3,c/e}$ on the integers coprime to $c/e$, and $B_e$ has natural density $\varphi(|c|/e)/|c|$.
+\end{proposition}
+
+\begin{proof}
+Every prime divisor $p$ of $c$ satisfies $p\ge5$. Since $p\mid(3n+c)/2$ if and only if $p\mid n$, and $p\mid n/2$ if and only if $p\mid n$, the map preserves $\gcd(n,c)$. For odd $e$, the numbers $em$ and $m$ have the same parity, and $T_{3,c}(em)=e\,T_{3,c/e}(m)$. Finally, $n=em$ lies in $B_e$ if and only if $\gcd(m,c/e)=1$, a condition of density $\varphi(|c|/e)/(|c|/e)$ for $m$, hence of density $\varphi(|c|/e)/|c|$ for $n$.
+\end{proof}
 
 \begin{table}[H]
 \centering
@@ -526,17 +536,6 @@ $3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4775$ \\
 \label{table:basins}
 \end{table}
 
-Two entries of Table~\ref{table:basins} are exactly rational, $0.2000=1/5$ and $0.0769\approx1/13$. Proposition~\ref{prop:filtration} explains them, together with all other rational densities.
-
-\begin{proposition}[Divisibility filtration]
-\label{prop:filtration}
-Let $\gcd(c,6)=1$ and, for a divisor $e$ of $|c|$, let $B_e=\{n\ge1:\gcd(n,c)=e\}$. Then $T_{3,c}(B_e)\subseteq B_e$, the map $n\mapsto n/e$ conjugates $T_{3,c}$ on $B_e$ to $T_{3,c/e}$ on the integers coprime to $c/e$, and $B_e$ has natural density $\varphi(|c|/e)/|c|$.
-\end{proposition}
-
-\begin{proof}
-Every prime divisor $p$ of $c$ satisfies $p\ge5$. Since $p\mid(3n+c)/2$ if and only if $p\mid n$, and $p\mid n/2$ if and only if $p\mid n$, the map preserves $\gcd(n,c)$. For odd $e$, the numbers $em$ and $m$ have the same parity, and $T_{3,c}(em)=e\,T_{3,c/e}(m)$. Finally, $n=em$ lies in $B_e$ if and only if $\gcd(m,c/e)=1$, a condition of density $\varphi(|c|/e)/(|c|/e)$ for $m$, hence of density $\varphi(|c|/e)/|c|$ for $n$.
-\end{proof}
-
 Consequently, for every cycle $\mathcal C$ of $3x+c/e$ coprime to $c/e$, the basin of $e\,\mathcal C$ in $3x+c$ has exactly $1/e$ times the density of the basin of $\mathcal C$ in $3x+c/e$. Only the cycles coprime to $c$ are new in each map. If $B_1$ contains a single cycle, its basin has density $\varphi(|c|)/|c|$, provided all orbits reach known cycles.
 
 \begin{proposition}[Verification]
@@ -544,14 +543,9 @@ Consequently, for every cycle $\mathcal C$ of $3x+c/e$ coprime to $c/e$, the bas
 For $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$, every orbit of $1\le n\le10^{10}$ reaches one of the cycles of Proposition~\ref{prop:rational} or one of the three cycles with longer words found above.
 \end{proposition}
 
-Figure~\ref{fig:basins} shows the resulting split of the forest. For $c=7$, $19$, $31$, $41$ and $43$ the integers coprime to $c$ form a single basin of density $(c-1)/c$. The grey parts of $3x+25$, $3x+35$ and $3x+49$ reproduce the densities of $3x+5$ and $3x+7$, scaled by $1/5$ and $1/7$, to all printed digits. The densities are stable: in the window $[2^{32},2^{33})$ they differ from the densities up to $10^{10}$ by at most $2.4\cdot10^{-4}$ for every basin. Within the cycles coprime to $c$, however, no pattern is visible. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth. The type of a cycle, its length and number of odd steps, therefore does not determine its attractiveness.
+Figure~\ref{fig:basins} shows the resulting split of the forest for $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$. In the left panel, coloured segments are the basins of cycles coprime to $c$, labelled by their minima where space permits; grey segments are the basins of cycles of multiples of a divisor $e>1$ of $c$, whose densities follow from Proposition~\ref{prop:filtration}. For $c=7$, $19$, $31$, $41$ and $43$ the integers coprime to $c$ form a single basin of density $(c-1)/c$. The grey parts of $3x+25$, $3x+35$ and $3x+49$ reproduce the densities of $3x+5$ and $3x+7$, scaled by $1/5$ and $1/7$, to all printed digits. The densities are stable. The right panel follows the three basins of $3x-1$ through the dyadic windows $[2^j,2^{j+1})$, and in the window $[2^{32},2^{33})$ the densities of all basins differ from those up to $10^{10}$ by at most $2.4\cdot10^{-4}$. Within the cycles coprime to $c$, however, no pattern is visible. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth. The type of a cycle, its length and number of odd steps, therefore does not determine its attractiveness.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{fig2_basins.pdf}
-\caption{How the forest splits. Left: empirical basin densities of $1\le n\le10^{10}$ for $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$, $\gcd(c,6)=1$. Coloured: cycles coprime to $c$ (labels: minima of the larger basins); grey: cycles of multiples of a divisor $e>1$ of $c$, whose densities follow from Proposition~\ref{prop:filtration}. Right: densities of the three basins of $3x-1$ in the dyadic windows $[2^j,2^{j+1})$.}
-\label{fig:basins}
-\end{figure}
+A first milestone would be to prove, for $3x-1$, that one of the three limits exists, or to derive nontrivial bounds for it. The stability up to $10^{10}$ is strong numerical evidence but no proof.
 
 \begin{problem}
 \label{prob:basins}
@@ -564,8 +558,13 @@ By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determin
 By Corollary~\ref{cor:local}, any answer must use global information. For $3x+1$, the conjecture asserts a single basin of density $1$.
 \end{problem}
 
-A first milestone would be to prove, for $3x-1$, that one of the three limits exists, or to derive nontrivial bounds for it. The stability up to $10^{10}$ is strong numerical evidence but no proof.
-
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_basins.pdf}
+\caption{How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).}
+\label{fig:basins}
+\end{figure}
 
 %=====================================================================
 \section{Outlook}
@@ -584,10 +583,8 @@ The local and the global view answer different questions. Cayley trees and their
 The programs \texttt{census.c}, \texttt{census\_all.c} and \texttt{basin.c}, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}.
 
 \subsection*{Acknowledgments}
-% TODO: keep if the cluster is used for the final runs
 We thank Dr.\ Kai Himstedt, Stephanie von Riegen and the whole EDIH Hamburg team for access to the Research Computing Infrastructure of the EDIH Hamburg.
 
-\newpage
 \appendix
 \section{Notation}
 \label{appx:glossary}
