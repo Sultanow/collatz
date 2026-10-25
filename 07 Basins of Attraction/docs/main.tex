@@ -65,10 +65,11 @@
 
 
 \setlength{\headsep}{2em}
+\setlength{\emergencystretch}{2em}
 \setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
 
 % Previous title: Cycles in qx+1 Sequences
-\title[Same Shadows, Different Forests]{Same Shadows, Different Forests:\\ Local Tree Structure versus Global Cycles in $\boldsymbol{qx+c}$ Maps}
+\title[Same Shadows, Different Forests]{Same Shadows, Different Forests:\\ Local Predecessor Structure and Global Dynamics of Collatz-Type Maps}
 
 \author[E.\ Sultanow]{Eldar Sultanow\,\orcidlink{0000-0001-5257-2236}}
 \address{Eldar Sultanow\\Business Informatics, Processes and Systems\\University of Potsdam\\Karl-Marx-Straße 67, 14482 Potsdam, Germany}
@@ -85,7 +86,7 @@
 \begin{document}
 
 \begin{abstract}
-The $3x+1$ map and its relatives $x\mapsto qx+c$ admit two complementary descriptions. Locally, every map of this family generates the same kind of Cayley tree of predecessors, with the same congruence-class statistics. This local picture cannot distinguish $3x+1$ from $3x-1$, which is the $3x+1$ map on the negative integers and has three cycles. Globally, every cycle is encoded by a parity word $B$ of length $l$ with $k$ odd steps, and it exists if and only if $D=2^l-q^k$ divides $c\,z_q(B)$, where $z_q$ is the rotating-binary function. We combine both views. An exhaustive census of all parity words up to length $30$ yields the complete list of short cycles of $3x\pm1$, $3x+5$ and $3x+13$, and similar lists for $5x+1$ and $181x+1$. In every case, cycles occur exactly where $2^l$ and $q^k$ nearly coincide, for instance $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are precisely the seven candidates for a $3x+1$ cycle of that type; they fail only because none of their members is divisible by $13$. Finally, we measure how the integers split into basins of attraction. For $3x-1$, the three basins have densities of about $0.327$, $0.325$ and $0.348$, stable up to $10^9$, although its local tree structure is identical to that of $3x+1$.
+What determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map? We study this question for the maps $x\mapsto(qx+c)/2$ and give three complementary answers. First, every local statistic of the predecessor trees of $3x+1$ (branching classes, Leftward and Upward children, cotree densities, densities of finite parity patterns) coincides with that of $3x-1$, which is $3x+1$ on the negative integers and has three cycles. Local branching statistics therefore determine neither the cycle structure nor basin membership. Second, cycles are characterised by an exact global condition: a parity word $B$ of length $l$ with $k$ odd steps yields an integer cycle if and only if $D=2^l-q^k$ divides $c\,z_q(B)$. Reversing the perspective, we ask for which maps a given word yields a cycle. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ then gives the complete list of $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$. For $0<c<1000$ this list agrees exactly with the conjecturally complete tables of Belaga, Mignotte and Morley (OEIS A226607) for all cycles with at most $40$ elements. An equidistribution heuristic predicts $1149$ cycles, and the observed counts scatter less than a Poisson model allows. Third, the sizes of the basins of attraction differ strongly and remain largely unexplained. A divisibility filtration determines all rational basin densities exactly. The empirical shares of the remaining cycles, measured up to $10^{10}$ for $18$ maps, are stable to three digits, but their limits are not known to exist. In $3x+5$, two cycles of the same type attract about $50\,\%$ and $9\,\%$ of all integers.
 \end{abstract}
 
 \begingroup
@@ -144,7 +145,7 @@ For $q>3$ cycles are rare. Table~\ref{table:known_cycles} lists the non-trivial 
 		35,99 \\
 		\hline
 	\end{tabular}
-	\caption{Non-trivial $qx+1$ cycles for odd $q\leq1000$, found empirically by Koch et al.\ \cite{Koch_2020}; see also Franco and Pomerance \cite{Franco_Pomerance_1995}. A search over all odd $q\le1000$ and all odd starting values below $3000$ finds exactly these, besides the cycles through $1$ that exist for $q=5$ and for $q=2^m-1$.}
+	\caption{Non-trivial $qx+1$ cycles for odd $q\leq1000$. Their role for Crandall's conjecture was studied by Franco and Pomerance \cite{Franco_Pomerance_1995}; Koch et al.\ \cite{Koch_2020} confirmed them in a data-science search. A search over all odd $q\le1000$ and all odd starting values below $3000$ finds exactly these, besides the cycles through $1$ that exist for $q=5$ and for $q=2^m-1$.}
 	\label{table:known_cycles}
 \end{table}
 
@@ -155,17 +156,24 @@ Let $(a_1,a_2,\ldots,a_n)$ be the odd members of a cycle of~\eqref{eq:func_qxplu
 \end{equation}
 is a power of two, see for example \cite[p.~327]{Lagarias_2010}. Here $\alpha$ is the number of divisions by $2$ in one period, and $n$ is the number of odd members.
 
+\subsection*{Related work}
+Cycles of the maps $3x+d$ have been tabulated before. Lagarias \cite{Lagarias_1990} introduced primitive cycles, whose members are coprime to $d$, and conjectured that every map $3x+d$ has at least one and only finitely many of them. Belaga and Mignotte \cite{Belaga_Mignotte_2000,Belaga_Mignotte_2006} listed the primitive cycles for all $d<20000$, completely as they argue, and Morley \cite{OEIS_A226607} confirmed these lists by following every trajectory with starting value below $10^8$. Cox \cite{Cox_2012} modelled the number of cycles per $d$ by a Poisson distribution. These lists are conjectural: a cycle whose basin contains no small starting value would be missed. The census of Section~\ref{sec:zoo} is complete by construction for bounded word length, and it confirms the published lists in that range.
+
+On the local side, Kleinnijenhuis, Kleinnijenhuis and Aydogan \cite{Kleinnijenhuis_2026} develop a graph-theoretic approach to the $an+b$ conjectures. They represent these maps by Cayley trees with Leftward and Upward edges and three-colour pictures, with a detailed congruence-class bookkeeping that includes cotree densities. Section~\ref{sec:local} adopts this tree perspective.
+
 \subsection*{Two views of the same maps}
-These maps admit two descriptions. The \emph{local} view starts from the trivial cycle and grows the tree of all predecessors, organised by congruence classes. It describes how numbers branch, and it is the same for every map in the family: by $x\mapsto -x$, the $3x-1$ map on the positive integers is the $3x+1$ map on the negative integers, which has the three cycles through $-1$, $-5$ and $-17$. Both maps produce the same branching statistics. In the language of Plato's cave, they cast identical shadows. Density arguments built on this view reach ``almost all'' statements \cite{Terras_1976,Tao_2022}, but they cannot decide individual orbits.
+These maps admit two descriptions. The \emph{local} view starts from the trivial cycle and grows the tree of all predecessors, organised by congruence classes. It describes how numbers branch, and it is the same for every map in the family: by $x\mapsto -x$, the $3x-1$ map on the positive integers is the $3x+1$ map on the negative integers, which has the three cycles through $-1$, $-5$ and $-17$. Both maps produce the same branching statistics (Proposition~\ref{prop:local}). In the language of Plato's cave, they cast identical shadows. Density arguments built on this view reach ``almost all'' statements \cite{Terras_1976,Tao_2022}, but they cannot decide individual orbits.
 
 The \emph{global} view encodes a cycle by its parity word and asks whether the corresponding rational number is a positive integer. This is decided by the arithmetic of $2^l-q^k$, and it is exactly what separates $3x+1$ from $3x-1$.
 
+The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local structure of $3x+1$ and $3x-1$ is statistically identical. Cycles are characterised by an exact global divisibility condition. The sizes of the basins of attraction differ strongly and are so far largely unexplained.
+
 \subsection*{Contributions}
 \begin{enumerate}[label=(\roman*)]
-	\item Section~\ref{sec:local} describes the local view. The cotree densities of Cayley trees measure the whole forest of branching numbers (Corollary~\ref{cor:forest_density}), and residue classes do not decide which tree a number belongs to (Table~\ref{table:classes}).
-	\item Section~\ref{sec:words} states the correspondence between parity words and cycles (Theorem~\ref{thm:words}) in the notation of rotating binaries \cite{Cox_2021,Gupta_etal_2022}. It explains the families of cycles obtained from binary rotations, the mirror symmetry between $3x+1$ and $3x-1$, and the product identity~\eqref{eq:diophantine_equation}.
-	\item Section~\ref{sec:zoo} gives an exhaustive census of all parity words up to a fixed length for $3x\pm1$, $3x+5$, $3x+13$, $5x+1$ and $181x+1$. It decodes every cycle by its type $(l,k)$ and shows that cycles sit where $2^l$ and $q^k$ nearly coincide.
-	\item Section~\ref{sec:basins} measures basin densities: how the positive integers split into the trees of the forest.
+	\item Section~\ref{sec:local} makes the limits of local methods precise. All densities of locally defined sets coincide for $3x+1$ and $3x-1$ (Proposition~\ref{prop:local}), so local branching statistics, including the cotree densities of Cayley trees, determine neither the number of cycles nor basin membership (Corollary~\ref{cor:local}). This limits proof strategies that rely only on such statistics, not proofs that combine predecessor trees with global information.
+	\item Section~\ref{sec:words} recalls the classical correspondence between parity words and cycles (Theorem~\ref{thm:words}, due to B\"ohm--Sontacchi and Lagarias) in the notation of rotating binaries, and derives the families of cycles obtained from binary rotations, the mirror symmetry and the product identity~\eqref{eq:diophantine_equation}.
+	\item Section~\ref{sec:zoo} reverses the perspective: instead of asking which cycles a given map has, it asks for which maps a given parity word yields a cycle. This turns the correspondence into a classification of whole families. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ lists all $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$ (Proposition~\ref{prop:rational}). For $0<c<1000$ it proves the published tables complete for all cycles with at most $40$ elements. An equidistribution heuristic predicts the counts, with less scatter than a Poisson model (Figure~\ref{fig:cycles}, Problem~\ref{prob:heuristic}).
+	\item Section~\ref{sec:basins} measures the basin densities of $18$ maps up to $10^{10}$ (Figure~\ref{fig:basins}). A divisibility filtration (Proposition~\ref{prop:filtration}) determines all rational densities exactly. The empirical shares of the cycles coprime to $c$ are stable but unexplained, and we formulate the existence and prediction of their limits as open problems (Problem~\ref{prob:basins}).
 \end{enumerate}
 
 %=====================================================================
@@ -206,13 +214,34 @@ branching classes mod $18$ & $\{4,16\}$ & $\{2,14\}$ \\
 Leftward classes mod $288$ & $27$ & $27$ \\
 Upward classes mod $288$ & $\{16,88,160,232,256\}$ & $\{32,56,128,200,272\}$ \\
 forest density $d(S_c)$ & $27/288+5/288=2/18$ & $27/288+5/288=2/18$ \\
-cycles with word length $\le 30$ & $1$ & $3$ \\
-basins (trees of the forest) & $1$ (all $n<2^{71}$) & $3$: $32.7\,\%$, $32.5\,\%$, $34.8\,\%$ \\
+cycles with word length $\le 40$ & $1$ & $3$ \\
+basins (trees of the forest) & $1$ (verified for $n<2^{71}$) & $3$, empirical: $32.7$, $32.5$, $34.8\,\%$ \\
 \bottomrule
 \end{tabular}
 \caption{The mirror pair $3x\pm1$: identical local structure (upper rows; the Upward classes are negatives of each other modulo $288$), different global structure (lower rows; Sections~\ref{sec:zoo} and~\ref{sec:basins}).}
 \label{table:mirror}
 \end{table}
+
+\subsection*{Local indistinguishability}
+Let $\iota(n)=-n$. Then $T_{3,-1}=\iota\circ T_{3,1}\circ\iota$ on $\Z$. We call a set $A\subseteq\N$ \emph{locally defined} for a map $T$ if, for some fixed $m$ and modulus $M$, membership of $n$ in $A$ depends only on the residues of $n,T(n),\ldots,T^m(n)$ modulo $M$. The branching numbers, the Leftward and Upward children and the cotree classes are locally defined, and so is, for every word $B$ of length $m$, the set of $n$ whose first $m$ parities form $B$.
+
+\begin{proposition}[Local indistinguishability]
+\label{prop:local}
+Let $A\subseteq\N$ be locally defined for $T_{3,1}$ by residue conditions $R$, and let $A^-\subseteq\N$ be the set defined for $T_{3,-1}$ by the negated conditions $-R$. Then $A$ and $A^-$ are periodic sets with the same natural density.
+\end{proposition}
+
+\begin{proof}
+For $T=T_{3,\pm1}$, the residue of $T(n)$ modulo $M$ depends only on $n$ modulo $2M$, hence the residue of $T^i(n)$ modulo $M$ depends only on $n$ modulo $2^iM$. Thus $A=\{n\in\N: n\bmod 2^mM\in Q\}$ for a set $Q$ of residues, and the same condition defines a periodic set $\tilde A\subseteq\Z$ for $T_{3,1}$ on all of $\Z$. Since $T_{3,-1}(n)=-T_{3,1}(-n)$, we have $n\in A^-$ if and only if $-n\in\tilde A$, that is, $A^-=\{n\in\N:-n\bmod 2^mM\in Q\}$. Both sets have density $|Q|/(2^mM)$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:local}
+A statement about $T_{3,1}$ that is formulated only in terms of the densities of locally defined sets holds if and only if the corresponding statement holds for $T_{3,-1}$. In particular, local branching statistics determine neither the number of cycles nor basin membership: $3x+1$ has one known cycle and $3x-1$ has three (Section~\ref{sec:zoo}), and Table~\ref{table:classes} shows that membership in a basin is not a function of any residue class.
+\end{corollary}
+
+\begin{remark}[Scope]
+Corollary~\ref{cor:local} limits proof strategies that use only local branching statistics, such as cotree densities. It does not exclude proofs that combine the predecessor tree with global information that differs between $3x+1$ and $3x-1$: the size of the numbers involved, as in the descent $(x+1)/2<x$ for the map $x+1$, or the arithmetic of $2^l-3^k$ (Section~\ref{sec:words}).
+\end{remark}
 
 \subsection*{Residue classes do not decide membership}
 Which tree of the forest a branching number belongs to is not a property of its residue class, for none of the moduli $18$, $288$ and $4608$ used in this kind of bookkeeping. Table~\ref{table:classes} shows this for $3x-1$, where all trees are known: members of the same class lie in different trees, in both directions. A check of the representatives $\ell=0$ can therefore refute a conjecture (the number $14$ refutes it for $3x-1$), but it cannot confirm one. For $3x+1$, the representatives $4$ and $16$ lie in the tree of the root; whether all members of $18\ell+4$ and $18\ell+16$ do is the Collatz conjecture itself.
@@ -273,7 +302,7 @@ whose unique fixed point is $x_B$. Since $D$ is odd, $x_B\in\Zt$. Conjugating wi
 For uniqueness, let $y\in\Zt$ have parity sequence $BBB\cdots$. Then $T^{jl}(y)-T^{jl}(x_B)=(q^k/2^l)^j(y-x_B)$ lies in $\Zt$ for every $j$. Since $q^k$ is odd, $2^{jl}$ divides $y-x_B$ for all $j$, so $y=x_B$. Statements (a) and (b) follow because $z_q(B)>0$ for $k\ge1$.
 \end{proof}
 
-Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}.
+Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}. Theorem~\ref{thm:words} itself is classical \cite{Boehm_Sontacchi_1978,Lagarias_1990}; what is new in Section~\ref{sec:zoo} is its use in the reverse direction, to classify whole families of maps.
 
 \begin{example}
 \label{ex:971}
@@ -327,7 +356,7 @@ For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, leas
 \end{remark}
 
 \subsection*{The product identity}
-The previous version of this paper started from the product equality
+Consider the product equality
 \begin{equation}
 \label{eq:diophantine_equation}
 (A_1+1)\cdots(A_m+1)\cdot B_1\cdots B_n=A_1\cdots A_m\cdot(B_1+1)\cdots(B_n+1)
@@ -363,7 +392,7 @@ By Theorem~\ref{thm:words}, the positive integer cycles of $T_{q,c}$ with word l
 
 \begin{proposition}[Census]
 \label{prop:census}
-The cycles listed in Table~\ref{table:zoo} are all positive integer cycles of $T_{q,c}$ whose parity word has length at most $L$, with $L=30$ for $3x+1$, $3x-1$, $3x+5$, $3x+13$, $L=28$ for $5x+1$ and $L=40$ for $181x+1$.
+The cycles listed in Table~\ref{table:zoo} are all positive integer cycles of $T_{q,c}$ whose parity word has length at most $L$, with $L=40$ for $3x+1$, $3x-1$, $3x+5$, $3x+13$ (by Proposition~\ref{prop:rational}), $L=28$ for $5x+1$ and $L=40$ for $181x+1$.
 \end{proposition}
 
 \begin{table}[H]
@@ -425,31 +454,63 @@ By Theorem~\ref{thm:words}, a $3x+1$ cycle of type $(8,5)$ requires $13=2^8-3^5$
 
 The heuristic expectation for this type is $E=7/13\approx0.54$; the actual count is $0$. For longer types, the methods of Steiner, Simons--de Weger and Hercher \cite{Steiner_1977,Simons_deWeger_2005,Hercher_2023} combine lower bounds for $|l\log2-k\log3|$ from Baker's theory with the verification limit. These bounds show that $D$ is too large for the divisibility to occur in cycles with few runs. Whatever proves the absence of cycles must see this arithmetic. The local structure of Section~\ref{sec:local} does not see it, because it is identical for $3x+1$ and $3x+13$ up to scaling.
 
+\subsection*{All maps at once: rational cycles}
+We now reverse the usual perspective: instead of asking which cycles a given map has, we ask for which maps a given parity word yields a cycle. Theorem~\ref{thm:words} answers this for every word. Let $d_0$ be the denominator of $z_3(B)/D$ in lowest terms. Then $x_B=c\,z_3(B)/D$ is a positive integer if and only if $c=\operatorname{sign}(D)\,m\,d_0$ with $m$ odd, and the cycle is $m$ times the \emph{primitive} cycle of $3x+c_0$, $c_0=\operatorname{sign}(D)\,d_0$. These are Lagarias' rational cycles of $3x+1$ with denominator $d_0$ \cite{Lagarias_1990}. A single pass over all words therefore lists the primitive cycles of all maps with $|c_0|\le C$. The denominator comes from the continued-fraction expansion of $z_3(B)/|D|$, which can be stopped as soon as a convergent has a denominator larger than $C$.
+
+\begin{proposition}[Rational cycles]
+\label{prop:rational}
+For word length $l\le40$ there are exactly $1097$ primitive cycles of the maps $3x+c_0$ with $|c_0|\le1000$: $763$ with $c_0>0$ and $334$ with $c_0<0$, for $199$ distinct values of $|c_0|$. Every cycle of a map $3x+c$ with $|c|\le1000$ and word length at most $40$ is an odd multiple of one of them.
+\end{proposition}
+
+The computation checked all $2\,199\,023\,255\,510$ words in $512$ shards of about six minutes each on the HPC cluster of the EDIH Hamburg, with a parity check of every reported cycle. The program was validated against an independent implementation in exact rational arithmetic (for $l\le16$ and $|c_0|\le50$) and against the single-map census for $3x\pm1$, $3x+5$ and $3x+13$.
+
+\paragraph{Comparison with the published tables.} For each of the $333$ values $0<k<1000$ with $\gcd(k,6)=1$, the primitive cycles of $3x+k$ listed by Belaga, Mignotte and Morley \cite{Belaga_Mignotte_2006,OEIS_A226607} that have at most $40$ elements coincide exactly with those of Proposition~\ref{prop:rational}; there are $763$ of them. The other $462$ listed cycles have between $41$ and $426$ elements, and for $153$ of these maps every known primitive cycle is longer than $40$. Proposition~\ref{prop:rational} therefore turns the conjecturally complete tables into a theorem for all cycles with at most $40$ elements and $k<1000$.
+
+\paragraph{Heuristic.} If $z_3(B)$ were equidistributed modulo $|D|$, the reduced denominator of $z_3(B)/|D|$ would equal a divisor $e$ of $|D|$ with probability $\varphi(e)/|D|$. A primitive cycle corresponds to one aperiodic necklace of words, so the expected number of primitive cycles of type $(l,k)$ with $|c_0|\le C$ is
+\[
+E_C(l,k)=L(l,k)\,\frac{S_C(D)}{|D|},\qquad S_C(D)=\sum_{e\,\mid\,|D|,\ e\le C}\varphi(e),
+\]
+where $L(l,k)$ is the number of aperiodic binary necklaces of type $(l,k)$. If all divisors of $|D|$ are at most $C$, then $S_C(D)=|D|$, every necklace yields a cycle, and $E_C$ is exact; for example, $D(10,5)=781=11\cdot71$ gives all $25$ necklaces. Summed over $l\le40$, the heuristic predicts $1148.7$ primitive cycles against $1097$ observed, and it reproduces the counts per word length including the peaks (Figure~\ref{fig:cycles}). The agreement has a deterministic and a statistical part. For the $44$ types with $|D|\le1000$, all divisors of $|D|$ are admissible, every necklace yields a cycle, and the $227$ cycles of these types are predicted exactly. For the other $116$ types with $E_{1000}\ge1$, the heuristic predicts $879.8$ cycles and we observe $839$; the remaining types with $E_{1000}<1$ contribute $41.9$ expected and $31$ observed cycles. For the $116$ types, $\sum(O-E)^2/E=71.4$, a dispersion index of $0.62$, nearly constant across the ranges $1\le E<3$, $3\le E<10$ and $E\ge10$. The counts thus scatter less than a Poisson model allows. This suggests that the residues $z_3(B)\bmod|D|$ of the words of a type are distributed more evenly than independent random residues would be.
+
+\begin{problem}
+\label{prob:heuristic}
+Why does the equidistribution heuristic predict the number of primitive cycles so well, and why are the counts underdispersed? Can the distribution of $z_3(B)$ modulo $|D|$ over the words of a type be controlled?
+\end{problem}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig1_cycles_vs_heuristic.pdf}
+\caption{Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l$: census (bars) and heuristic $\sum_k E_{1000}(l,k)$ (line). The peaks at $l=19$ and $l=22$ come from $D(19,12)=-7153=-23\cdot311$ and $D(22,14)=-5\cdot7\cdot11^2\cdot139$.}
+\label{fig:cycles}
+\end{figure}
+
+\paragraph{Longer words.} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
+
 %=====================================================================
 \section{Measuring forests: basin densities}
 \label{sec:basins}
 %=====================================================================
-For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees.
+For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees. We report empirical shares $d_N$. Except for the basins covered by Proposition~\ref{prop:filtration}, it is not known whether $\lim_{N\to\infty}d_N$ exists.
 
 \begin{table}[H]
 \centering
 \small
 \begin{tabular}{llrrr}
 \toprule
-map & cycle (minimum) & $d_{10^6}$ & $d_{10^8}$ & $d_{10^9}$ \\
+map & cycle (minimum) & $d_{10^6}$ & $d_{10^8}$ & $d_{10^{10}}$ \\
 \midrule
-$3x-1$ & $1$ & $0.3277$ & $0.3270$ & $0.3269$ \\
+$3x-1$ & $1$ & $0.3277$ & $0.3270$ & $0.3270$ \\
  & $5$ & $0.3234$ & $0.3247$ & $0.3250$ \\
- & $17$ & $0.3490$ & $0.3483$ & $0.3482$ \\
+ & $17$ & $0.3490$ & $0.3483$ & $0.3480$ \\
 \midrule
-$3x+5$ & $1$ & $0.1410$ & $0.1404$ & $0.1404$ \\
+$3x+5$ & $1$ & $0.1410$ & $0.1404$ & $0.1403$ \\
  & $5$ & $0.2000$ & $0.2000$ & $0.2000$ \\
  & $19$ & $0.4964$ & $0.4979$ & $0.4979$ \\
  & $23$ & $0.0930$ & $0.0922$ & $0.0922$ \\
  & $187$ & $0.0325$ & $0.0326$ & $0.0325$ \\
- & $347$ & $0.0371$ & $0.0369$ & $0.0369$ \\
+ & $347$ & $0.0371$ & $0.0369$ & $0.0370$ \\
 \midrule
-$3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4776$ \\
+$3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4775$ \\
  & $13$ & $0.0769$ & $0.0769$ & $0.0769$ \\
  & $131$ & $0.2522$ & $0.2517$ & $0.2517$ \\
  & $211$ & $0.0334$ & $0.0334$ & $0.0334$ \\
@@ -461,32 +522,66 @@ $3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4776$ \\
  & $319$ & $0.0146$ & $0.0145$ & $0.0145$ \\
 \bottomrule
 \end{tabular}
-\caption{Basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (preliminary; every $n\le10^9$ lies in one of the listed basins).}
+\caption{Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins).}
 \label{table:basins}
 \end{table}
 
-Two entries are explained by conjugacy. Since $T_{3,d}(dx)=d\,T_{3,1}(x)$ for odd $d$, the multiples of $d$ form the basin of the scaled trivial cycle through $d$, as far as $3x+1$ converges on them. This basin therefore has density exactly $1/d$: $0.2000$ for $d=5$ and $0.0769\approx1/13$ for $d=13$. The other densities are stable to three digits from $N=10^6$ to $10^9$, yet they show no obvious relation to the cycle data. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth.
+Two entries of Table~\ref{table:basins} are exactly rational, $0.2000=1/5$ and $0.0769\approx1/13$. Proposition~\ref{prop:filtration} explains them, together with all other rational densities.
+
+\begin{proposition}[Divisibility filtration]
+\label{prop:filtration}
+Let $\gcd(c,6)=1$ and, for a divisor $e$ of $|c|$, let $B_e=\{n\ge1:\gcd(n,c)=e\}$. Then $T_{3,c}(B_e)\subseteq B_e$, the map $n\mapsto n/e$ conjugates $T_{3,c}$ on $B_e$ to $T_{3,c/e}$ on the integers coprime to $c/e$, and $B_e$ has natural density $\varphi(|c|/e)/|c|$.
+\end{proposition}
+
+\begin{proof}
+Every prime divisor $p$ of $c$ satisfies $p\ge5$. Since $p\mid(3n+c)/2$ if and only if $p\mid n$, and $p\mid n/2$ if and only if $p\mid n$, the map preserves $\gcd(n,c)$. For odd $e$, the numbers $em$ and $m$ have the same parity, and $T_{3,c}(em)=e\,T_{3,c/e}(m)$. Finally, $n=em$ lies in $B_e$ if and only if $\gcd(m,c/e)=1$, a condition of density $\varphi(|c|/e)/(|c|/e)$ for $m$, hence of density $\varphi(|c|/e)/|c|$ for $n$.
+\end{proof}
+
+Consequently, for every cycle $\mathcal C$ of $3x+c/e$ coprime to $c/e$, the basin of $e\,\mathcal C$ in $3x+c$ has exactly $1/e$ times the density of the basin of $\mathcal C$ in $3x+c/e$. Only the cycles coprime to $c$ are new in each map. If $B_1$ contains a single cycle, its basin has density $\varphi(|c|)/|c|$, provided all orbits reach known cycles.
+
+\begin{proposition}[Verification]
+\label{prop:verification}
+For $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$, every orbit of $1\le n\le10^{10}$ reaches one of the cycles of Proposition~\ref{prop:rational} or one of the three cycles with longer words found above.
+\end{proposition}
+
+Figure~\ref{fig:basins} shows the resulting split of the forest. For $c=7$, $19$, $31$, $41$ and $43$ the integers coprime to $c$ form a single basin of density $(c-1)/c$. The grey parts of $3x+25$, $3x+35$ and $3x+49$ reproduce the densities of $3x+5$ and $3x+7$, scaled by $1/5$ and $1/7$, to all printed digits. The densities are stable: in the window $[2^{32},2^{33})$ they differ from the densities up to $10^{10}$ by at most $2.4\cdot10^{-4}$ for every basin. Within the cycles coprime to $c$, however, no pattern is visible. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth. The type of a cycle, its length and number of odd steps, therefore does not determine its attractiveness.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig2_basins.pdf}
+\caption{How the forest splits. Left: empirical basin densities of $1\le n\le10^{10}$ for $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$, $\gcd(c,6)=1$. Coloured: cycles coprime to $c$ (labels: minima of the larger basins); grey: cycles of multiples of a divisor $e>1$ of $c$, whose densities follow from Proposition~\ref{prop:filtration}. Right: densities of the three basins of $3x-1$ in the dyadic windows $[2^j,2^{j+1})$.}
+\label{fig:basins}
+\end{figure}
 
 \begin{problem}
 \label{prob:basins}
-Do the basin densities of Table~\ref{table:basins} converge, and can their limits be predicted from the cycle data (types, $D$, minima)? Any such prediction must use global information, since the local structure of Section~\ref{sec:local} is identical for these maps up to scaling. For $3x+1$, the conjecture asserts a single basin of density $1$.
+By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determined by those of the cycles coprime to $c'$ in the maps $3x+c'$, $c'\mid c$. For these cycles:
+\begin{enumerate}[label=(\alph*)]
+	\item \emph{Existence.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist?
+	\item \emph{Explanation.} Which features of a cycle determine them: its parity word, the arithmetic position of its members, the distribution of its backward iterates?
+	\item \emph{Prediction.} Is there an analytic or probabilistic model that predicts the observed values rather than fitting them?
+\end{enumerate}
+By Corollary~\ref{cor:local}, any answer must use global information. For $3x+1$, the conjecture asserts a single basin of density $1$.
 \end{problem}
+
+A first milestone would be to prove, for $3x-1$, that one of the three limits exists, or to derive nontrivial bounds for it. The stability up to $10^{10}$ is strong numerical evidence but no proof.
 
 
 %=====================================================================
 \section{Outlook}
 \label{sec:outlook}
 %=====================================================================
-The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see four directions:
+The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see five directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
-	\item \emph{Basin densities}: a census up to $N=10^{12}$, including Ba\v{r}ina's $7x\pm1$ \cite{Barina_2022} and the fraction of apparently divergent orbits of $5x+1$, and a prediction of the limits (Problem~\ref{prob:basins}).
-	\item \emph{Longer words}: extending the census of Proposition~\ref{prop:census} to $L\approx40$--$45$, which the sharded program makes feasible on a cluster.
-	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: a Lean~4 formalisation of Theorem~\ref{thm:words} and Proposition~\ref{prop:unique_parent} that refers to the map itself.
+	\item \emph{A theory of basin densities} (Problem~\ref{prob:basins}): existence of the limits, the features of a cycle that determine them, and a predictive model. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
+	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
+	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
+	\item \emph{Certification}: a Lean~4 formalisation of Theorem~\ref{thm:words} and Propositions~\ref{prop:unique_parent}, \ref{prop:local} and~\ref{prop:filtration} that refers to the maps themselves.
 \end{enumerate}
 
 \subsection*{Code and data availability}
-The programs \texttt{census.c} and \texttt{basin.c}, the SLURM templates and the reference outputs of the census are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}.
+The programs \texttt{census.c}, \texttt{census\_all.c} and \texttt{basin.c}, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}.
 
 \subsection*{Acknowledgments}
 % TODO: keep if the cluster is used for the final runs

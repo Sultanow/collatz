@@ -16,7 +16,7 @@ The code accompanies the working paper in [docs](docs). The rotating-binaries ba
 
 ## Paper
 
-**Same Shadows, Different Forests: Local Tree Structure versus Global Cycles in $qx+c$ Maps** (working draft, October 2026)
+**Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps** (working draft v4, October 2026)
 
 [PDF](docs/main.pdf) · [LaTeX sources](docs)
 
@@ -28,6 +28,7 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 07 Basins of Attraction/
 ├── README.md
 ├── docs/                      working paper (LaTeX sources and PDF)
+├── figures/                   scripts for the two figures of the paper
 ├── C/
 │   ├── census_all.c           all maps 3x+c, |c| <= DMAX, in one pass (Run A)
 │   ├── census.c               cycle census for a single map
@@ -216,30 +217,30 @@ python3 merge_basin.py out/basin_q3_c5_N100000000000_*.txt --csv ../results/basi
 
 ## Reference results
 
-**Complete cycle lists** (all positive integer cycles with word length $l \le L$; raw outputs in `results/`, produced with the first version of `census.c`, same enumeration, without the `word=` field):
+**Complete cycle lists** (all positive integer cycles with word length $l \le L$; for the maps $3x+c$ from Run A, for $5x+1$ and $181x+1$ from `census.c`):
 
 | map | $L$ | cycle minima | type $(l,k)$ | $D=2^l-q^k$ |
 |---|---|---|---|---|
-| $3x+1$ | 30 | 1 | (2,1) | 1 |
-| $3x-1$ | 30 | 1 / 5 / 17 | (1,1) / (3,2) / (11,7) | −1 / −1 / −139 |
-| $3x+5$ | 30 | 5 / 1 / 19, 23 / 187, 347 | (2,1) / (3,1) / (5,3) / (27,17) | 1 / 5 / 5 / 5 077 565 |
-| $3x+13$ | 30 | 13 / 1 / 211, 227, 251, 259, 283, 287, 319 / 131 | (2,1) / (4,1) / (8,5) / (24,15) | 1 / 13 / 13 / 2 428 309 |
+| $3x+1$ | 40 | 1 | (2,1) | 1 |
+| $3x-1$ | 40 | 1 / 5 / 17 | (1,1) / (3,2) / (11,7) | −1 / −1 / −139 |
+| $3x+5$ | 40 | 5 / 1 / 19, 23 / 187, 347 | (2,1) / (3,1) / (5,3) / (27,17) | 1 / 5 / 5 / 5 077 565 |
+| $3x+13$ | 40 | 13 / 1 / 211, 227, 251, 259, 283, 287, 319 / 131 | (2,1) / (4,1) / (8,5) / (24,15) | 1 / 13 / 13 / 2 428 309 |
 | $5x+1$ | 28 | 1 / 13, 17 | (5,2) / (7,3) | 7 / 3 |
 | $181x+1$ | 40 | 27, 35 | (15,2) | 7 |
 
 Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are exactly the seven candidates for a $3x+1$ cycle of that type; they fail because none of their members is divisible by $13 = 2^8-3^5$.
 
-**Rational cycles** (`results/rational_cycles_q3_d1000_L28.csv`): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 28$. There are 900 of them, 600 with $c_0>0$ and 300 with $c_0<0$, for 150 different values of $|c_0|$.
+**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$).
 
-**Basin shares** for $n \le 10^9$:
+**Basin shares** for $n \le 10^{10}$ (Run B; all 18 maps in Figure 2 of the paper, every $n \le 10^{10}$ reaches a known cycle):
 
 | map | basins (cycle minimum: share) |
 |---|---|
-| $3x-1$ | 1: 0.3269, 5: 0.3250, 17: 0.3482 |
-| $3x+5$ | 1: 0.1404, 5: 0.2000, 19: 0.4979, 23: 0.0922, 187: 0.0325, 347: 0.0369 |
-| $3x+13$ | 1: 0.4776, 13: 0.0769, 131: 0.2517, 211: 0.0334, 227: 0.0189, 251: 0.0198, 259: 0.0386, 283: 0.0253, 287: 0.0433, 319: 0.0145 |
+| $3x-1$ | 1: 0.3270, 5: 0.3250, 17: 0.3480 |
+| $3x+5$ | 1: 0.1403, 5: 0.2000, 19: 0.4979, 23: 0.0922, 187: 0.0325, 347: 0.0370 |
+| $3x+13$ | 1: 0.4775, 13: 0.0769, 131: 0.2517, 211: 0.0334, 227: 0.0189, 251: 0.0198, 259: 0.0386, 283: 0.0253, 287: 0.0433, 319: 0.0145 |
 
-The basins of the scaled trivial cycles have share exactly $1/d$ (the multiples of $d$). Predicting the other shares from the cycle data is an open question.
+Basins of multiples of a divisor $e>1$ of $c$ have exactly predictable shares (divisibility filtration, see the paper). Predicting the shares of the cycles coprime to $c$ is an open question.
 
 ## References
 
