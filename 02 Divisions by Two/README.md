@@ -2,7 +2,7 @@
 
 [![OPUS](https://img.shields.io/badge/OPUS-TH%20N%C3%BCrnberg%202nd%20ed.-orange)](https://opus4.kobv.de/opus4-ohm/frontdoor/index/index/docId/620) [![DOI](https://img.shields.io/badge/DOI-10.34646%2Fthn%2Fohmdok--620-blue)](https://doi.org/10.34646/thn/ohmdok-620) [![Journal](https://img.shields.io/badge/IJPMS-Vol.%2021%2C%202020-yellowgreen)](IJPMS_21_1.pdf) [![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
-> **Paper:** C. Koch, E. Sultanow, S. Cox, *Divisions by Two in Collatz Sequences: A Data Science Approach*. Working Paper (2nd ed.), Technische Hochschule Nürnberg (2020), [doi:10.34646/thn/ohmdok-620](https://doi.org/10.34646/thn/ohmdok-620). **Read it on [OPUS](https://opus4.kobv.de/opus4-ohm/frontdoor/index/index/docId/620).** The journal version appeared in the International Journal of Pure Mathematical Sciences 21 (2020), 1–13. The publisher's website is no longer available, so the published article is stored in this folder: **[PDF](IJPMS_21_1.pdf)**.
+> **Paper:** C. Koch, E. Sultanow, S. Cox, *Divisions by Two in Collatz Sequences: A Data Science Approach*. Working Paper (2nd ed.), Technische Hochschule Nürnberg (2020), [doi:10.34646/thn/ohmdok-620](https://doi.org/10.34646/thn/ohmdok-620). **Read it on [OPUS](https://opus4.kobv.de/opus4-ohm/frontdoor/index/index/docId/620).** The journal version appeared in the International Journal of Pure Mathematical Sciences 21 (2020), 1–13. The publisher's website is no longer available, so the published article is stored in this folder: **[PDF](IJPMS.21.1.pdf)**.
 
 How often can a Collatz sequence divide by two? The paper writes the odd members of a sequence of the map $kx+1$ as
 
