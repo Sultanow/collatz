@@ -23,7 +23,7 @@ Christian Koch, Eldar Sultanow, Sean Cox
 
 | version                | published                                                                               | links                                                                                                                                                   |
 |------------------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| journal article        | International Journal of Pure Mathematical Sciences 21 (2020), 1–13, SciPress; online 13 November 2020 | doi:10.18052/www.scipress.com/IJPMS.21.1 · [PDF in this folder](IJPMS_21_1.pdf)                                                                         |
+| journal article        | International Journal of Pure Mathematical Sciences 21 (2020), 1–13, SciPress; online 13 November 2020 | doi:10.18052/www.scipress.com/IJPMS.21.1 · [PDF in this folder](IJPMS.21.1.pdf)                                                                         |
 | working paper, 2nd ed. | Technische Hochschule Nürnberg, 5 May 2020                                              | [OPUS](https://opus4.kobv.de/opus4-ohm/frontdoor/index/index/docId/620) · [DOI 10.34646/thn/ohmdok-620](https://doi.org/10.34646/thn/ohmdok-620)        |
 | working paper, 1st ed. | Technische Hochschule Nürnberg, 17 April 2020 (title without subtitle)                  | [DOI 10.34646/thn/ohmdok-617](https://doi.org/10.34646/thn/ohmdok-617)                                                                                  |
 
