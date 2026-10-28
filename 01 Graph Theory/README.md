@@ -52,7 +52,9 @@ Build (needs `biber` and, for `minted`, Pygments): `cd TeX/v5.0 && pdflatex -she
 
 The manuscript grew out of an earlier study of the Collatz problem from the viewpoint of automata theory:
 
-- E. Sultanow, D. Volkov, S. Cox: Introducing a Finite State Machine for Processing Collatz Sequences. International Journal of Pure Mathematical Sciences 19 (2017), [SciPress](https://www.scipress.com/IJPMS.19.10).
+- E. Sultanow, D. Volkov, S. Cox: Introducing a Finite State Machine for Processing Collatz Sequences. International Journal of Pure Mathematical Sciences 19 (2017), 10–19, doi:10.18052/www.scipress.com/IJPMS.19.10. The publisher's website is no longer available, so the article (CC BY 4.0) is stored in this folder: **[PDF](IJPMS_19_10.pdf)**. Preprints on publish.UP: [first version](https://nbn-resolving.org/urn:nbn:de:kobv:517-opus4-399223) and [second version](https://nbn-resolving.org/urn:nbn:de:kobv:517-opus4-404738) (2017).
+
+  The paper builds a finite state machine with four states and double-coloured edges. While a token reads the reversed binary word of an odd Collatz number, the bits it emits form the word of the next odd member, so successive tokens reproduce the whole sequence (725, 17, 13, 5, 1 in the paper's example).
 
 The golden automaton in `C` and the rule-based tree in `Python/aberkane_tree.py` are related to:
 
@@ -63,6 +65,7 @@ The golden automaton in `C` and the rule-based tree in `Python/aberkane_tree.py`
 ```
 01 Graph Theory/
 ├── README.md
+├── IJPMS_19_10.pdf                       predecessor article on the finite state machine (IJPMS 19, 2017)
 ├── img/
 │   └── book.png                          pages of the fourth version
 ├── TeX/
