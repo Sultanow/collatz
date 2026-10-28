@@ -1,5 +1,12 @@
 # 07 Basins of Attraction
 
+[![Preprint](https://img.shields.io/badge/Preprints.org-202610.2552-orange)](https://www.preprints.org/manuscript/202610.2552)
+[![DOI](https://img.shields.io/badge/DOI-10.20944%2Fpreprints202610.2552.v1-blue)](https://doi.org/10.20944/preprints202610.2552.v1)
+[![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
+
+> **Paper:** E. Sultanow, *Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps*. Preprints (2026), [doi:10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1).
+> **Read it on [Preprints.org](https://www.preprints.org/manuscript/202610.2552).** The code in this folder reproduces all computations of the paper.
+
 Same local trees, different forests. This section studies maps of the form
 
 $$T_{q,c}(x)=\begin{cases}(qx+c)/2 & x \text{ odd},\\ x/2 & x \text{ even},\end{cases}\qquad q,c \text{ odd},$$
@@ -12,15 +19,33 @@ Three programs make the global side computable:
 * `census` does the same for a single map $T_{q,c}$.
 * `basin` measures how the positive integers split into the **basins of attraction** of these cycles.
 
-The code accompanies the working paper in [docs](docs). The rotating-binaries background is in [04 Cycles](../04%20Cycles) (notebooks `eldar_parityvector_k1.ipynb` and `eldar_rotate.ipynb`); a brute-force search over many $q$ is Arty's program in [04 Cycles/CPP](../04%20Cycles/CPP).
+The code accompanies the paper [*Same Shadows, Different Forests*](https://www.preprints.org/manuscript/202610.2552) (LaTeX sources in [docs](docs)). The rotating-binaries background is in [04 Cycles](../04%20Cycles) (notebooks `eldar_parityvector_k1.ipynb` and `eldar_rotate.ipynb`); a brute-force search over many $q$ is Arty's program in [04 Cycles/CPP](../04%20Cycles/CPP).
 
 ## Paper
 
-**Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps** (working draft v4, October 2026)
+**Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps**
+Eldar Sultanow · Preprints.org, version 1, posted 26 October 2026 (not peer-reviewed)
 
-[PDF](docs/main.pdf) · [LaTeX sources](docs)
+**[Preprints.org](https://www.preprints.org/manuscript/202610.2552)** · [DOI 10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1)
+
+Local working draft v4: [PDF](docs/main.pdf) · [LaTeX sources](docs)
 
 Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
+
+#### Citation
+
+```bibtex
+@article{sultanow2026shadows,
+  title   = {Same Shadows, Different Forests: Local Predecessor Structure
+             and Global Dynamics of Collatz-Type Maps},
+  author  = {Sultanow, Eldar},
+  journal = {Preprints},
+  year    = {2026},
+  month   = oct,
+  doi     = {10.20944/preprints202610.2552.v1},
+  url     = {https://www.preprints.org/manuscript/202610.2552}
+}
+```
 
 ## Structure
 
