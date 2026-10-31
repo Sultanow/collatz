@@ -85,7 +85,7 @@
 \begin{document}
 
 \begin{abstract}
-What determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map? We study this question for the maps $x\mapsto(qx+c)/2$ and give three complementary answers. First, every local statistic of the predecessor trees of $3x+1$ (branching classes, Leftward and Upward children, cotree densities, densities of finite parity patterns) coincides with that of $3x-1$, which is $3x+1$ on the negative integers and has three cycles. Local branching statistics therefore determine neither the cycle structure nor basin membership. Second, cycles are characterised by an exact global condition: a parity word $B$ of length $l$ with $k$ odd steps yields an integer cycle if and only if $D=2^l-q^k$ divides $c\,z_q(B)$. Reversing the perspective, we ask for which maps a given word yields a cycle. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ then gives the complete list of $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$. For $0<c<1000$ this list agrees exactly with the conjecturally complete tables of Belaga, Mignotte and Morley (OEIS A226607) for all cycles with at most $40$ elements. An equidistribution heuristic predicts $1149$ cycles, and the observed counts scatter less than a Poisson model allows. Third, the sizes of the basins of attraction differ strongly and remain largely unexplained. A divisibility filtration determines all rational basin densities exactly. The empirical shares of the remaining cycles, measured up to $10^{10}$ for $18$ maps, are stable to three digits, but their limits are not known to exist. In $3x+5$, two cycles of the same type attract about $50\,\%$ and $9\,\%$ of all integers.
+What determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map? We study this question for the maps $x\mapsto(qx+c)/2$ and give three complementary answers. First, every local statistic of the predecessor trees of $3x+1$ (branching classes, Leftward and Upward children, cotree densities, densities of finite parity patterns) coincides with that of $3x-1$, which is $3x+1$ on the negative integers and has three cycles. Local branching statistics therefore determine neither the cycle structure nor basin membership. Second, cycles are characterised by an exact global condition: a parity word $B$ of length $l$ with $k$ odd steps yields an integer cycle if and only if $D=2^l-q^k$ divides $c\,z_q(B)$. Taking the reverse perspective of rational cycles, we ask for which maps a given word yields a cycle. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ then gives the complete list of $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$. For $0<c<1000$ this list agrees exactly with the conjecturally complete tables of Belaga, Mignotte and Morley (OEIS A226607) for all cycles with at most $40$ elements. An equidistribution heuristic predicts $1149$ cycles, and the observed counts scatter less than a Poisson model allows. Third, every basin of attraction of a map $3x+c$ with odd $c\ge-1$ has a logarithmic density. This follows from the stabilisation of first passages due to Tao and to Gon\c{c}alves, Greenfeld and Madrid, because a basin is not changed by first passage. A divisibility filtration explains certain exact rational basin densities. The remaining densities, measured up to $10^{10}$ for $18$ maps, are stable to three digits but unexplained: in $3x+5$, two cycles of the same type attract about $50\,\%$ and $9\,\%$ of all integers.
 \end{abstract}
 
 \begingroup
@@ -156,7 +156,9 @@ Let $(a_1,a_2,\ldots,a_n)$ be the odd members of a cycle of~\eqref{eq:func_qxplu
 is a power of two, see for example \cite[p.~327]{Lagarias_2010}. Here $\alpha$ is the number of divisions by $2$ in one period, and $n$ is the number of odd members.
 
 \subsection*{Related work}
-Cycles of the maps $3x+d$ have been tabulated before. Lagarias \cite{Lagarias_1990} introduced primitive cycles, whose members are coprime to $d$, and conjectured that every map $3x+d$ has at least one and only finitely many of them. Belaga and Mignotte \cite{Belaga_Mignotte_2000,Belaga_Mignotte_2006} listed the primitive cycles for all $d<20000$, completely as they argue, and Morley \cite{OEIS_A226607} confirmed these lists by following every trajectory with starting value below $10^8$. Cox \cite{Cox_2012} modelled the number of cycles per $d$ by a Poisson distribution. These lists are conjectural: a cycle whose basin contains no small starting value would be missed. The census of Section~\ref{sec:zoo} is complete by construction for bounded word length, and it confirms the published lists in that range.
+Cycles of the maps $3x+d$ have been tabulated before. Lagarias \cite{Lagarias_1990} introduced primitive cycles, whose members are coprime to $d$, and conjectured that every map $3x+d$ has at least one and only finitely many of them. Belaga and Mignotte \cite{Belaga_Mignotte_2000,Belaga_Mignotte_2006} listed the primitive cycles for all $d<20000$, completely as they argue, and Morley \cite{OEIS_A226607} confirmed these lists by following every trajectory with starting value below $10^8$. Belaga and Mignotte also embedded the $3x+1$ conjecture in the $3x+d$ context \cite{Belaga_Mignotte_1998} and described the cycles of all maps $3x+d$ at once, through a duality between the shift $d$ and the members of a cycle \cite{Belaga_Mignotte_DMTCS_2006}. Cox \cite{Cox_2012} modelled the number of cycles per $d$ by a Poisson distribution. These lists are conjectural: a cycle whose basin contains no small starting value would be missed. The census of Section~\ref{sec:zoo} is complete by construction for bounded word length, and it confirms the published lists in that range.
+
+Densities enter through predecessor sets. Wirsching \cite{Wirsching_1998} studied the density of the set of integers that iterate to a fixed integer under $3x+1$ with $3$-adic methods. Tao \cite{Tao_2022} proved that almost all orbits attain almost bounded values, in the sense of logarithmic density, and Gon\c{c}alves, Greenfeld and Madrid \cite{GGM_2025} extended this to a class of maps that contains $3x+c$ for odd $c\ge-1$. They also observed numerically that the three cycles of $3x-1$ attract about a third of all integers each, and asked whether such densities exist \cite[Remark~1.7]{GGM_2025}; their question concerns natural densities. Mazur \cite{Mazur_2026} recently upgraded Tao's theorem to natural density, with an explicit logarithmic time bound, by comparing the first-passage laws of natural and logarithmic counting.
 
 On the local side, Kleinnijenhuis, Kleinnijenhuis and Aydogan \cite{Kleinnijenhuis_2026} develop a graph-theoretic approach to the $an+b$ conjectures. They represent these maps by Cayley trees with Leftward and Upward edges and three-colour pictures, with a detailed congruence-class bookkeeping that includes cotree densities. Section~\ref{sec:local} adopts this tree perspective.
 
@@ -165,14 +167,14 @@ These maps admit two descriptions. The \emph{local} view starts from the trivial
 
 The \emph{global} view encodes a cycle by its parity word and asks whether the corresponding rational number is a positive integer. This is decided by the arithmetic of $2^l-q^k$, and it is exactly what separates $3x+1$ from $3x-1$.
 
-The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local structure of $3x+1$ and $3x-1$ is statistically identical. Cycles are characterised by an exact global divisibility condition. The sizes of the basins of attraction differ strongly and are so far largely unexplained.
+The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local structure of $3x+1$ and $3x-1$ is statistically identical. Cycles are characterised by an exact global divisibility condition. The basins of attraction have logarithmic densities, but their sizes differ strongly and are so far unexplained.
 
 \subsection*{Contributions}
 \begin{enumerate}[label=(\roman*)]
 	\item Section~\ref{sec:local} makes the limits of local methods precise. All densities of locally defined sets coincide for $3x+1$ and $3x-1$ (Proposition~\ref{prop:local}), so local branching statistics, including the cotree densities of Cayley trees, determine neither the number of cycles nor basin membership (Corollary~\ref{cor:local}). This limits proof strategies that rely only on such statistics, not proofs that combine predecessor trees with global information.
-	\item Section~\ref{sec:words} recalls the classical correspondence between parity words and cycles (Theorem~\ref{thm:words}, due to B\"ohm--Sontacchi and Lagarias) in the notation of rotating binaries, and derives the families of cycles obtained from binary rotations, the mirror symmetry and the product identity~\eqref{eq:diophantine_equation}.
-	\item Section~\ref{sec:zoo} reverses the perspective: instead of asking which cycles a given map has, it asks for which maps a given parity word yields a cycle. This turns the correspondence into a classification of whole families. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ lists all $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$ (Proposition~\ref{prop:rational}). For $0<c<1000$ it proves the published tables complete for all cycles with at most $40$ elements. An equidistribution heuristic predicts the counts, with less scatter than a Poisson model (Figure~\ref{fig:cycles}, Problem~\ref{prob:heuristic}).
-	\item Section~\ref{sec:basins} measures the basin densities of $18$ maps up to $10^{10}$ (Figure~\ref{fig:basins}). A divisibility filtration (Proposition~\ref{prop:filtration}) determines all rational densities exactly. The empirical shares of the cycles coprime to $c$ are stable but unexplained, and we formulate the existence and prediction of their limits as open problems (Problem~\ref{prob:basins}).
+	\item Section~\ref{sec:words} recalls the classical correspondence between parity words and cycles (Lemma~\ref{lem:words}, due to B\"ohm--Sontacchi and Lagarias) in the notation of rotating binaries, and records the families of cycles obtained from binary rotations, the mirror symmetry and the product identity~\eqref{eq:diophantine_equation}.
+	\item Section~\ref{sec:zoo} takes the reverse perspective of Lagarias' rational cycles and of the shift--member duality of Belaga and Mignotte: instead of asking which cycles a given map has, it asks for which maps a given parity word yields a cycle. What is new is the exhaustive evaluation of this correspondence. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ lists all $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$ (Proposition~\ref{prop:rational}). For $0<c<1000$ it proves the published tables complete for all cycles with at most $40$ elements. An equidistribution heuristic predicts the counts, with less scatter than a Poisson model (Figure~\ref{fig:cycles}, Problem~\ref{prob:heuristic}).
+	\item Section~\ref{sec:basins} proves that every basin has a logarithmic density (Theorem~\ref{thm:logdens}). The proof combines the invariance of basins under first passage with the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid, and excludes oscillations in $\log\log y$ by comparing two windows of incommensurable ratio. Conditionally on the natural-counting transport estimate of Mazur, this becomes a natural density for $3x+1$ (Corollary~\ref{cor:natural}). The section measures the basin densities of $18$ maps up to $10^{10}$ (Figure~\ref{fig:basins}). An elementary divisibility filtration (Proposition~\ref{prop:filtration}) gives the densities of the gcd classes and explains the rational entries of Table~\ref{table:basins}. The values for the cycles coprime to $c$ are stable but unexplained, and we formulate their explanation and prediction, together with the existence of natural densities, as open problems (Problem~\ref{prob:basins}).
 \end{enumerate}
 
 %=====================================================================
@@ -181,7 +183,7 @@ The guiding question of this paper is therefore: \emph{what determines the globa
 %=====================================================================
 The local view grows the tree of all predecessors of a cycle. For the Collatz map this tree is usually restricted to the \emph{branching numbers}, the even numbers with an odd predecessor, and drawn as a Cayley tree with \emph{Leftward} edges through an odd predecessor and \emph{Upward} edges by doubling \cite{Sultanow_graph_2020}. The congruence-class bookkeeping of these trees for general $an+b$ maps, including their \emph{cotree densities}, is developed in detail by Kleinnijenhuis et al.\ \cite{Kleinnijenhuis_2026}. In this section we record two facts that hold for every map of the family alike.
 
-Let $c$ be coprime to $6$. A \emph{branching number} is an even $n\in\N$ such that $(n-c)/3$ is an odd integer not divisible by $3$; let $S_c$ be the set of branching numbers. For $m\in S_c$ define the \emph{Leftward child} $L(m)=2^p\,(m-c)/3$ and the \emph{Upward child} $U(m)=2^r m$, where $p,r\ge1$ are minimal with $L(m),U(m)\in S_c$. Both exist because $2$ is a primitive root modulo $9$.
+Let $c$ be coprime to $6$. A \emph{branching number} is an even $n\in\N$ such that $(n-c)/3$ is an odd integer not divisible by $3$; let $S_c$ be the set of branching numbers. For $m\in S_c$ define the \emph{Leftward child} $L(m)=2^p\,(m-c)/3$ and the \emph{Upward child} $U(m)=2^r m$, where $p,r\ge1$ are minimal with $L(m),U(m)\in S_c$. Both exist because $2$ is a primitive root modulo $9$. The following tree property of the predecessor graph is standard; we include its short proof in the present notation.
 
 \begin{proposition}[Unique parent]
 \label{prop:unique_parent}
@@ -192,15 +194,12 @@ The maps $L,U:S_c\to S_c$ are injective, and $S_c$ is the disjoint union of $L(S
 Let $n\in S_c$ and consider $n/2,n/4,\ldots$ up to the first term that is odd or lies in $S_c$. If this term is $n/2^r\in S_c$, then $m=n/2^r$ satisfies $U(m)=n$: the exponent $r$ is minimal, because an earlier term in $S_c$ would contradict the choice of $r$. If the first such term is an odd number $o=n/2^p$, then $3\nmid o$, since $n\equiv c\pmod 3$ and $3\nmid c$. Hence $m=3o+c$ is even, $(m-c)/3=o$ is odd and not divisible by $3$, so $m\in S_c$, and $L(m)=n$ by the same minimality argument. The two cases exclude each other, and in each case the parent is determined by $n$. This proves surjectivity onto the disjoint union and injectivity.
 \end{proof}
 
-\begin{corollary}[Forest density]
-\label{cor:forest_density}
-For $c=\pm1$, the halving sequence in the proof stops after at most four steps. Hence it depends only on $n \bmod 2^4\cdot18=288$ whether $n$ is a Leftward or an Upward child. $L(S_c)$ is a union of $27$ and $U(S_c)$ a union of $5$ residue classes modulo $288$, so
-\[
+For $c=\pm1$, the halving sequence in this proof stops after at most four steps, so whether $n$ is a Leftward or an Upward child depends only on $n\bmod 2^4\cdot18=288$. For $3x+1$, Kleinnijenhuis et al.\ count $27$ Leftward and $5$ Upward classes modulo $288$ \cite[(3.73), (3.79)]{Kleinnijenhuis_2026}, which gives the cotree density
+\begin{equation}
+\label{eq:forest_density}
 d\bigl(L(S_c)\bigr)+d\bigl(U(S_c)\bigr)=\frac{27}{288}+\frac{5}{288}=\frac{2}{18}=d(S_c).
-\]
-\end{corollary}
-
-This identity is the same for $3x+1$ and $3x-1$ (Table~\ref{table:mirror}). It is the density of the whole forest $S_c$, not of the tree of the trivial cycle: for $3x-1$ that tree contains only about a third of all integers (Section~\ref{sec:basins}).
+\end{equation}
+The same counts hold for $3x-1$, whose Upward classes are the negatives of those of $3x+1$ modulo $288$ (Table~\ref{table:mirror}). The identity~\eqref{eq:forest_density} gives the density of the whole forest $S_c$, not of the tree of the trivial cycle: for $3x-1$ that tree contains only about a third of all integers (Section~\ref{sec:basins}).
 
 \begin{table}[H]
 \centering
@@ -276,10 +275,10 @@ Let $0\le p_1<p_2<\cdots<p_k\le l-1$ be the positions of the ones in $B$; the po
 z_q(B) = \sum_{j=1}^{k}q^{\,k-j}\,2^{p_j}.
 \label{eq:z}
 \end{equation}
-Let $\sigma B=b_1\cdots b_{l-1}b_0$ denote the left rotation of $B$, and let $\Zt$ be the ring of rationals with odd denominator.
+Let $\sigma B=b_1\cdots b_{l-1}b_0$ denote the left rotation of $B$, and let $\Zt$ be the ring of rationals with odd denominator. The following correspondence is classical \cite{Boehm_Sontacchi_1978,Lagarias_1990}; we state it in the notation of rotating binaries and sketch the proof.
 
-\begin{theorem}[Cycles from words; cf.\ \cite{Boehm_Sontacchi_1978,Lagarias_1990}]
-\label{thm:words}
+\begin{lemma}[Cycles from words; B\"ohm--Sontacchi, Lagarias]
+\label{lem:words}
 Let $B$ be a word of type $(l,k)$ with $D\neq0$, and put
 \[
 x_B=\frac{c\,z_q(B)}{D}\in\Zt .
@@ -289,19 +288,13 @@ Then $x_B$ is a periodic point of $T$ (extended to $\Zt$) whose parity sequence 
 	\item $T$ has an integer cycle with parity word $B$ if and only if $D\mid c\,z_q(B)$;
 	\item for $k\ge1$ this cycle consists of positive integers if and only if $c\,D>0$.
 \end{enumerate}
-\end{theorem}
+\end{lemma}
 
-\begin{proof}
-Let $T_0(x)=x/2$ and $T_1(x)=(qx+c)/2$, and let $T_B=T_{b_{l-1}}\circ\cdots\circ T_{b_0}$. Each odd step at position $p_j$ contributes $c$. This contribution is multiplied by $q$ at each of the $k-j$ later odd steps and divided by $2$ at each of the $l-p_j$ remaining steps, including its own. By induction on $l$,
-\[
-T_B(x)=\frac{q^k x + c\,z_q(B)}{2^l},
-\]
-whose unique fixed point is $x_B$. Since $D$ is odd, $x_B\in\Zt$. Conjugating with $T_{b_0}$ gives $T_{\sigma B}\circ T_{b_0}=T_{b_0}\circ T_B$, hence $T_{b_0}(x_B)=x_{\sigma B}\in\Zt$, and so $2x_{\sigma B}=q^{b_0}x_B+b_0c$. If $b_0=1$, then $qx_B+c$ is even, so $x_B$ is odd. If $b_0=0$, then $x_B$ is even. In both cases $T(x_B)=T_{b_0}(x_B)=x_{\sigma B}$. Iterating, the orbit of $x_B$ follows $B$ periodically.
-
-For uniqueness, let $y\in\Zt$ have parity sequence $BBB\cdots$. Then $T^{jl}(y)-T^{jl}(x_B)=(q^k/2^l)^j(y-x_B)$ lies in $\Zt$ for every $j$. Since $q^k$ is odd, $2^{jl}$ divides $y-x_B$ for all $j$, so $y=x_B$. Statements (a) and (b) follow because $z_q(B)>0$ for $k\ge1$.
+\begin{proof}[Sketch of proof]
+Let $T_0(x)=x/2$, $T_1(x)=(qx+c)/2$ and $T_B=T_{b_{l-1}}\circ\cdots\circ T_{b_0}$. By induction on $l$, $T_B(x)=(q^kx+c\,z_q(B))/2^l$, whose unique fixed point is $x_B$; it lies in $\Zt$ because $D$ is odd. From $T_{\sigma B}\circ T_{b_0}=T_{b_0}\circ T_B$ we get $T_{b_0}(x_B)=x_{\sigma B}$, and $2x_{\sigma B}=q^{b_0}x_B+b_0c$ shows that $x_B$ has parity $b_0$. Hence the orbit of $x_B$ follows $B$ periodically. If $y\in\Zt$ also has parity sequence $BBB\cdots$, then $T^{jl}(y)-T^{jl}(x_B)=(q^k/2^l)^j(y-x_B)$ lies in $\Zt$ for all $j$, so $y=x_B$. Statements (a) and (b) follow because $z_q(B)>0$ for $k\ge1$.
 \end{proof}
 
-Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}. Theorem~\ref{thm:words} itself is classical \cite{Boehm_Sontacchi_1978,Lagarias_1990}; what is new in Section~\ref{sec:zoo} is its use in the reverse direction, to classify whole families of maps.
+Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}. The reverse direction, asking for which maps a given word yields a cycle, is also classical: it is Lagarias' theory of rational cycles \cite{Lagarias_1990} and the shift--member duality of Belaga and Mignotte \cite[Theorem~4]{Belaga_Mignotte_DMTCS_2006}.
 
 \begin{example}
 \label{ex:971}
@@ -312,12 +305,12 @@ Take $q=5$ and the word $B=111110000000$ of type $(12,5)$. Then $D=2^{12}-5^5=97
 of $5x+971$. Its odd members are $1031,3063,8143,20843,52593$. The binary representation of $B$ reflects the course of the cycle: the ones mark the odd members.
 \end{example}
 
-\begin{corollary}[Words with $D=c$]
-\label{cor:D_equals_c}
-If $c=2^l-q^k>0$, then every word of type $(l,k)$ yields a positive integer cycle of $T_{q,c}$, with members $z_q(\sigma^iB)$. Each necklace (rotation class) of type $(l,k)$ gives one cycle.
-\end{corollary}
-
-Corollary~\ref{cor:D_equals_c} explains the cycles of Table~\ref{table:non_q1_cycles}: $7=2^5-5^2$, $103=2^7-5^2$, $3=2^7-5^3$ and $131=2^8-5^3$. It also explains the cycle families of $3x+5$ ($5=2^5-3^3$) and $3x+13$ ($13=2^8-3^5$) in Section~\ref{sec:zoo}.
+\paragraph{Words with $D=c$.} If $c=2^l-q^k>0$, then $D=c$, and Lemma~\ref{lem:words} gives
+\begin{equation}
+\label{eq:D_equals_c}
+x_B=z_q(B)\qquad\text{for every word $B$ of type $(l,k)$.}
+\end{equation}
+Every such word therefore yields a positive integer cycle of $T_{q,c}$, with members $z_q(\sigma^iB)$, and each necklace (rotation class) of type $(l,k)$ gives one cycle. This explains the cycles of Table~\ref{table:non_q1_cycles}, where $7=2^5-5^2$, $103=2^7-5^2$, $3=2^7-5^3$ and $131=2^8-5^3$, and the cycle families of $3x+5$ ($5=2^5-3^3$) and $3x+13$ ($13=2^8-3^5$) in Section~\ref{sec:zoo}.
 
 \begin{table}[H]
 	\centering
@@ -336,58 +329,38 @@ Corollary~\ref{cor:D_equals_c} explains the cycles of Table~\ref{table:non_q1_cy
         5x + 131 & 00100101 & 10100100 & 5 & 2^8-5^3 & 77,258,129,388,194,97,308,154 \\
 		\hline
 	\end{tabular}
-	\caption{Cycles determined via binary rotation \cite{Gupta_etal_2022}; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$ (Corollary~\ref{cor:D_equals_c}). The notebook is available on GitHub \cite{sultanow2024}.}
+	\caption{Cycles determined via binary rotation \cite{Gupta_etal_2022}; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$, see~\eqref{eq:D_equals_c}. The notebook is available on GitHub \cite{sultanow2024}.}
 	\label{table:non_q1_cycles}
 \end{table}
 
-\begin{corollary}[Mirror]
-\label{cor:mirror}
-$T_{q,-c}(x)=-T_{q,c}(-x)$. In particular, the cycles of $3x-1$ are the negatives of the cycles of $3x+1$ on the negative integers. By Theorem~\ref{thm:words}(b), they come from words with $D<0$. The three cycles of $3x-1$ through $1$, $5$ and $17$ have the words $1$, $110$ and $11110111000$, with $D=-1$, $-1$ and $-139$ (since $2^3<3^2$ and $2^{11}<3^7$).
-\end{corollary}
-
-\begin{corollary}[$D=1$]
-\label{cor:D_equals_one}
-If $q=2^m-1$, the word $10^{m-1}$ has $D=2^m-q=1$ and $z_q=1$. Hence $x=c$, and for $c=1$ the number $1$ lies on a cycle. This is the power-of-two root $c=q+1=2^m$ of the family $a=2^m-1$ studied in \cite{Kleinnijenhuis_2026}.
-\end{corollary}
+\paragraph{Mirror and $D=1$.} The conjugation $x\mapsto-x$ gives
+\begin{equation}
+\label{eq:mirror}
+T_{q,-c}(x)=-T_{q,c}(-x),
+\end{equation}
+so the cycles of $3x-1$ are the negatives of the cycles of $3x+1$ on the negative integers. By Lemma~\ref{lem:words}(b) they come from words with $D<0$: the three cycles of $3x-1$ through $1$, $5$ and $17$ have the words $1$, $110$ and $11110111000$, with $D=-1$, $-1$ and $-139$ (since $2^3<3^2$ and $2^{11}<3^7$). If $q=2^m-1$, the word $10^{m-1}$ has $D=2^m-q=1$ and $z_q=1$, so $x_B=c$; for $c=1$ the number $1$ lies on a cycle. This is the power-of-two root $c=q+1=2^m$ of the family $a=2^m-1$ studied in \cite{Kleinnijenhuis_2026}.
 
 \begin{remark}[The case $q=1$]
 For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, least significant first, are $b_0,\ldots,b_{l-1}$. For $c=2^l-1$, the map $T_{1,c}$ acts on $\{0,\ldots,2^l-1\}$ as the cyclic right rotation of $l$-bit numbers. For example, the cycles of $x+7$ are $\{1,4,2\}$, $\{3,5,6\}$ and $\{7\}$, the rotation classes of $001$, $011$ and $111$. For $c=1$, by contrast, $0<z_1(B)<2^l-1$ unless $B=1^l$, so $T_{1,1}$ has only the cycle $\{1\}$. This also follows from the descent $(x+1)/2<x$ for odd $x>1$, a global, Archimedean argument. This is the trivial base case $1n+1$ of the family $an+b$.
 \end{remark}
 
 \subsection*{The product identity}
-Consider the product equality
+Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} of type $(l,k)$, in cyclic order, and put $A_i=qa_i$. Dividing~\eqref{eq:condition_cycle_existance} by $q^k$ gives
+\[
+\prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k},
+\]
+and for odd $q>1$ the right-hand side determines $(l,k)$. Hence the members of two cycles satisfy the product equality
 \begin{equation}
 \label{eq:diophantine_equation}
 (A_1+1)\cdots(A_m+1)\cdot B_1\cdots B_n=A_1\cdots A_m\cdot(B_1+1)\cdots(B_n+1)
 \end{equation}
-for odd positive integers $A_i,B_i$. It has a transparent meaning in terms of types.
-
-\begin{proposition}
-\label{prop:product}
-Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} in cyclic order, $A_i=qa_i$, and let $l$ be the number of halvings in one period, i.e.\ the cycle has type $(l,k)$. Then
-\[
-\prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k}.
-\]
-Hence the members of two cycles satisfy~\eqref{eq:diophantine_equation} if and only if the cycles have the same type.
-\end{proposition}
-
-\begin{proof}
-$A_i+1=qa_i+1=2^{\alpha_i}a_{i+1}$ (indices modulo $k$), so the product telescopes to $2^{\sum\alpha_i}/q^k=2^l/q^k$. Since $q>1$ is odd, $2^l/q^k=2^{l'}/q^{k'}$ forces $(l,k)=(l',k')$.
-\end{proof}
-
-\begin{example}
-The two non-trivial cycles of $5x+1$ both have type $(7,3)$. With $A=(65,165,415)$ and $B=(135,85,215)$, i.e.\ $5\cdot(13,33,83)$ and $5\cdot(27,17,43)$,
-\[
-(65+1)(165+1)(415+1)\cdot135\cdot85\cdot215=65\cdot165\cdot415\cdot(135+1)(85+1)(215+1),
-\]
-and both products equal $2^7/5^3$. Likewise, both cycles of $181x+1$ have type $(15,2)$ (Table~\ref{table:zoo}).
-\end{example}
+if and only if the cycles have the same type. For example, the two non-trivial cycles of $5x+1$ both have type $(7,3)$, so~\eqref{eq:diophantine_equation} holds for $A=5\cdot(13,33,83)$ and $B=5\cdot(27,17,43)$; both products equal $2^7/5^3$. Likewise, both cycles of $181x+1$ have type $(15,2)$ (Table~\ref{table:zoo}).
 
 %=====================================================================
 \section{The decoded zoo: cycles live where \texorpdfstring{$2^l\approx q^k$}{2\^{}l ≈ q\^{}k}}
 \label{sec:zoo}
 %=====================================================================
-By Theorem~\ref{thm:words}, the positive integer cycles of $T_{q,c}$ with word length $l\le L$ can be found exhaustively. One enumerates all words $B$ of length $l\le L$ with $c\,D>0$ and tests whether $D\mid c\,z_q(B)$. For $3x+c$ with $c>0$ and $L=30$ these are $1.96\cdot10^9$ words, which takes a few minutes on a single core. The program and its outputs are available in \cite{Sultanow_collatz_07}.
+By Lemma~\ref{lem:words}, the positive integer cycles of $T_{q,c}$ with word length $l\le L$ can be found exhaustively. One enumerates all words $B$ of length $l\le L$ with $c\,D>0$ and tests whether $D\mid c\,z_q(B)$. For $3x+c$ with $c>0$ and $L=30$ these are $1.96\cdot10^9$ words, which takes a few minutes on a single core. The program and its outputs are available in \cite{Sultanow_collatz_07}.
 
 \begin{proposition}[Census]
 \label{prop:census}
@@ -437,7 +410,7 @@ In every row of Table~\ref{table:zoo} with a non-trivial cycle, $|D|$ is small c
 27/17,\ 8/5,\ 11/7 &=& 1.588,\ 1.600,\ 1.571 & \approx \log_2 3 = 1.58496 .
 \end{array}
 \]
-For $3x-1$ the approximations come from below ($2^l<3^k$), in accordance with Corollary~\ref{cor:mirror}. The heuristic count $E$ explains the pattern. A small $|D|$ makes the divisibility $D\mid c\,z_q(B)$ likely, while a large $|D|$ needs an astronomical number of words.
+For $3x-1$ the approximations come from below ($2^l<3^k$), in accordance with~\eqref{eq:mirror}. The heuristic count $E$ explains the pattern. A small $|D|$ makes the divisibility $D\mid c\,z_q(B)$ likely, while a large $|D|$ needs an astronomical number of words.
 
 \subsection*{The near miss of \texorpdfstring{$3x+1$}{3x+1}}
 The type $(8,5)$ illustrates where the $3x+1$ problem is decided.
@@ -448,13 +421,13 @@ The $3x+1$ map has no cycle of type $(8,5)$, and the seven cycles of $3x+13$ of 
 \end{corollary}
 
 \begin{proof}
-By Theorem~\ref{thm:words}, a $3x+1$ cycle of type $(8,5)$ requires $13=2^8-3^5$ to divide $z_3(B)$ for a word $B$ of that type. For $c=13$ we have $D=c$, so by Corollary~\ref{cor:D_equals_c} the values $z_3(B)$ are exactly the members of the seven cycles of $3x+13$ of type $(8,5)$. Their minima $211,227,251,259,283,287,319$ are congruent to $3,6,4,12,10,1,7$ modulo $13$. Since $T_{3,13}$ maps non-multiples of $13$ to non-multiples of $13$, no member of these cycles is divisible by $13$.
+By Lemma~\ref{lem:words}, a $3x+1$ cycle of type $(8,5)$ requires $13=2^8-3^5$ to divide $z_3(B)$ for a word $B$ of that type. For $c=13$ we have $D=c$, so by~\eqref{eq:D_equals_c} the values $z_3(B)$ are exactly the members of the seven cycles of $3x+13$ of type $(8,5)$. Their minima $211,227,251,259,283,287,319$ are congruent to $3,6,4,12,10,1,7$ modulo $13$. Since $T_{3,13}$ maps non-multiples of $13$ to non-multiples of $13$, no member of these cycles is divisible by $13$.
 \end{proof}
 
-The heuristic expectation for this type is $E=7/13\approx0.54$; the actual count is $0$. For longer types, the methods of Steiner, Simons--de Weger and Hercher \cite{Steiner_1977,Simons_deWeger_2005,Hercher_2023} combine lower bounds for $|l\log2-k\log3|$ from Baker's theory with the verification limit. These bounds show that $D$ is too large for the divisibility to occur in cycles with few runs. Whatever proves the absence of cycles must see this arithmetic. The local structure of Section~\ref{sec:local} does not see it, because it is identical for $3x+1$ and $3x+13$ up to scaling.
+The heuristic expectation for this type is $E=7/13\approx0.54$; the actual count is $0$. Belaga and Mignotte call $2^l-3^k$ a Collatz number and the values $z_3(B)$ of the words of type $(l,k)$ that begin with an odd step its corona. In their language, Corollary~\ref{cor:near_miss} states that the Collatz number $2^8-3^5=13$ divides no member of its corona; they showed that the absence of non-trivial positive $3x+1$ cycles is equivalent to this property for every non-trivial type \cite[Theorem~5]{Belaga_Mignotte_DMTCS_2006}. For longer types, the methods of Steiner, Simons--de Weger and Hercher \cite{Steiner_1977,Simons_deWeger_2005,Hercher_2023} combine lower bounds for $|l\log2-k\log3|$ from Baker's theory with the verification limit. These bounds show that $D$ is too large for the divisibility to occur in cycles with few runs. Whatever proves the absence of cycles must see this arithmetic. The local structure of Section~\ref{sec:local} does not see it, because it is identical for $3x+1$ and $3x+13$ up to scaling.
 
 \subsection*{All maps at once: rational cycles}
-We now reverse the usual perspective: instead of asking which cycles a given map has, we ask for which maps a given parity word yields a cycle. Theorem~\ref{thm:words} answers this for every word. Let $d_0$ be the denominator of $z_3(B)/D$ in lowest terms. Then $x_B=c\,z_3(B)/D$ is a positive integer if and only if $c=\operatorname{sign}(D)\,m\,d_0$ with $m$ odd, and the cycle is $m$ times the \emph{primitive} cycle of $3x+c_0$, $c_0=\operatorname{sign}(D)\,d_0$. These are Lagarias' rational cycles of $3x+1$ with denominator $d_0$ \cite{Lagarias_1990}. A single pass over all words therefore lists the primitive cycles of all maps with $|c_0|\le C$. The denominator comes from the continued-fraction expansion of $z_3(B)/|D|$, which can be stopped as soon as a convergent has a denominator larger than $C$.
+We now take the reverse perspective: instead of asking which cycles a given map has, we ask for which maps a given parity word yields a cycle. This is the point of view of Lagarias' rational cycles \cite{Lagarias_1990} and of the shift--member duality of Belaga and Mignotte \cite[Section~7]{Belaga_Mignotte_DMTCS_2006}. Lemma~\ref{lem:words} answers the question for every word. Let $d_0$ be the denominator of $z_3(B)/D$ in lowest terms. Then $x_B=c\,z_3(B)/D$ is a positive integer if and only if $c=\operatorname{sign}(D)\,m\,d_0$ with $m$ odd, and the cycle is $m$ times the \emph{primitive} cycle of $3x+c_0$, $c_0=\operatorname{sign}(D)\,d_0$. These are Lagarias' rational cycles of $3x+1$ with denominator $d_0$ \cite{Lagarias_1990}. A single pass over all words therefore lists the primitive cycles of all maps with $|c_0|\le C$. The denominator comes from the continued-fraction expansion of $z_3(B)/|D|$, which can be stopped as soon as a convergent has a denominator larger than $C$.
 
 \begin{proposition}[Rational cycles]
 \label{prop:rational}
@@ -489,9 +462,9 @@ Why does the equidistribution heuristic predict the number of primitive cycles s
 \section{Measuring forests: basin densities}
 \label{sec:basins}
 %=====================================================================
-For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees. We report empirical shares $d_N$. Except for the basins covered by Proposition~\ref{prop:filtration}, it is not known whether $\lim_{N\to\infty}d_N$ exists.
+For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees. We report empirical shares $d_N$. Except for the basins covered by Proposition~\ref{prop:filtration}, it is not known whether the natural density $\lim_{N\to\infty}d_N$ exists; Theorem~\ref{thm:logdens} below shows that the logarithmic density always does.
 
-Two entries of Table~\ref{table:basins} are exactly rational, $0.2000=1/5$ and $0.0769\approx1/13$. Proposition~\ref{prop:filtration} explains them, together with all other rational densities.
+Two entries of Table~\ref{table:basins} are rational, $0.2000=1/5$ and $0.0769\approx1/13$. They are explained by the following elementary gcd invariance, which is implicit in Lagarias' primitive cycles \cite{Lagarias_1990} and explicit in \cite[(19)]{Belaga_Mignotte_DMTCS_2006}.
 
 \begin{proposition}[Divisibility filtration]
 \label{prop:filtration}
@@ -536,26 +509,130 @@ $3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4775$ \\
 \label{table:basins}
 \end{table}
 
-Consequently, for every cycle $\mathcal C$ of $3x+c/e$ coprime to $c/e$, the basin of $e\,\mathcal C$ in $3x+c$ has exactly $1/e$ times the density of the basin of $\mathcal C$ in $3x+c/e$. Only the cycles coprime to $c$ are new in each map. If $B_1$ contains a single cycle, its basin has density $\varphi(|c|)/|c|$, provided all orbits reach known cycles.
+Consequently, for every cycle $\mathcal C$ of $3x+c/e$ coprime to $c/e$, the basin of $e\,\mathcal C$ in $3x+c$ has exactly $1/e$ times the density of the basin of $\mathcal C$ in $3x+c/e$, whenever the latter exists. Only the cycles coprime to $c$ are new in each map. Proposition~\ref{prop:filtration} thus determines the densities of the gcd classes $B_e$; the density of an individual basin follows only in special cases. If $B_1$ contains a single cycle, its basin has density $\varphi(|c|)/|c|$, provided all orbits reach known cycles. The basins of the cycles through $5$ in $3x+5$ and through $13$ in $3x+13$ are $5$ and $13$ times the basin of $1$ in $3x+1$, so their densities are $1/5$ and $1/13$ provided that almost all integers reach $1$ under $3x+1$.
 
 \begin{proposition}[Verification]
 \label{prop:verification}
 For $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$, every orbit of $1\le n\le10^{10}$ reaches one of the cycles of Proposition~\ref{prop:rational} or one of the three cycles with longer words found above.
 \end{proposition}
 
-Figure~\ref{fig:basins} shows the resulting split of the forest for $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$. In the left panel, coloured segments are the basins of cycles coprime to $c$, labelled by their minima where space permits; grey segments are the basins of cycles of multiples of a divisor $e>1$ of $c$, whose densities follow from Proposition~\ref{prop:filtration}. For $c=7$, $19$, $31$, $41$ and $43$ the integers coprime to $c$ form a single basin of density $(c-1)/c$. The grey parts of $3x+25$, $3x+35$ and $3x+49$ reproduce the densities of $3x+5$ and $3x+7$, scaled by $1/5$ and $1/7$, to all printed digits. The densities are stable. The right panel follows the three basins of $3x-1$ through the dyadic windows $[2^j,2^{j+1})$, and in the window $[2^{32},2^{33})$ the densities of all basins differ from those up to $10^{10}$ by at most $2.4\cdot10^{-4}$. Within the cycles coprime to $c$, however, no pattern is visible. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth. The type of a cycle, its length and number of odd steps, therefore does not determine its attractiveness.
+Figure~\ref{fig:basins} shows the resulting split of the forest for $3x-1$ and the $17$ maps $3x+c$ with $0<c<50$ and $\gcd(c,6)=1$. In the left panel, coloured segments are the basins of cycles coprime to $c$, labelled by their minima where space permits; grey segments are the basins of cycles of multiples of a divisor $e>1$ of $c$, whose densities are $1/e$ times basin densities of $3x+c/e$ by Proposition~\ref{prop:filtration}. For $c=7$, $19$, $31$, $41$ and $43$ the integers coprime to $c$ form a single basin of density $(c-1)/c$. The grey parts of $3x+25$, $3x+35$ and $3x+49$ reproduce the densities of $3x+5$ and $3x+7$, scaled by $1/5$ and $1/7$, to all printed digits. The densities are stable. The right panel follows the three basins of $3x-1$ through the dyadic windows $[2^j,2^{j+1})$, and in the window $[2^{32},2^{33})$ the densities of all basins differ from those up to $10^{10}$ by at most $2.4\cdot10^{-4}$. Within the cycles coprime to $c$, however, no pattern is visible. In $3x+5$, the cycle through $19$ attracts almost half of all integers, while the cycle through $23$ of the same type $(5,3)$ attracts less than a tenth. In $3x-1$, by contrast, the three basins are nearly equal, as already observed in \cite[Remark~1.7]{GGM_2025}. The type of a cycle, its length and number of odd steps, therefore does not determine its attractiveness.
 
-A first milestone would be to prove, for $3x-1$, that one of the three limits exists, or to derive nontrivial bounds for it. The stability up to $10^{10}$ is strong numerical evidence but no proof.
+\subsection*{Existence of the densities}
+For $A\subseteq\N$, the \emph{logarithmic density} is
+\begin{equation}
+\label{eq:logdens}
+\delta(A)=\lim_{N\to\infty}\frac{1}{\log N}\sum_{\substack{n<N\\ n\in A}}\frac1n,
+\end{equation}
+if the limit exists. If the natural density of $A$ exists, then $\delta(A)$ exists and has the same value; the converse fails in general. Tao proved his theorem on almost bounded orbits in logarithmic density \cite{Tao_2022}, and Gon\c{c}alves, Greenfeld and Madrid extended his method to a class of maps that contains $T_{3,c}$ \cite{GGM_2025}. They observed numerically that the predecessor set of an integer $a$ appears to have a natural density $\kappa(a)$, and that each of the three cycles of $3x-1$ attracts about a third of all integers; they also proposed a formulation with logarithmically distributed starting values \cite[Remark~1.7]{GGM_2025}. In this logarithmic form, existence follows from their stabilisation of first passages, because a basin is not changed by first passage. For natural densities see Corollary~\ref{cor:natural} and Remark~\ref{rem:mazur}.
+
+We call $A\subseteq\N$ \emph{completely invariant} under $T$ if $n\in A\iff T(n)\in A$. Every basin is completely invariant, and so is the set of starting values with unbounded orbits.
+
+\begin{theorem}[Logarithmic basin densities]
+\label{thm:logdens}
+Let $c\ge-1$ be odd, and let $A\subseteq\N$ be completely invariant under $T_{3,c}$. Then $\delta(A)$ exists. In particular, the basin of every cycle $\mathcal C$ of $T_{3,c}$ has a logarithmic density $\delta(\mathcal C)$, and if $\lim_{N\to\infty}d_N(\mathcal C)$ exists, it equals $\delta(\mathcal C)$.
+\end{theorem}
+
+For the proof we use the Syracuse form of $T_{3,c}$ on the odd integers, $\operatorname{Syr}(m)=(3m+c)/2^{\nu_2(3m+c)}$, where $\nu_2$ is the $2$-adic valuation. For $x\ge1$ and odd $m$, the \emph{first passage time} below $x$ is $\tau_x(m)=\inf\{j\ge0:\operatorname{Syr}^j(m)\le x\}$, and the \emph{first passage} is $\operatorname{Pass}_x(m)=\operatorname{Syr}^{\tau_x(m)}(m)$, with $\operatorname{Pass}_x(m)=1$ if $\tau_x(m)=\infty$. Let $\mu(I)=\sum_{m\in I,\ m\text{ odd}}1/m$, so that $\mu([u,v))=\tfrac12\log(v/u)+O(1/u)$. For $1\le u<v$ let $\mathbf{Log}_{u,v}$ be a random odd integer in $[u,v)$ with $\mathbb P(\mathbf{Log}_{u,v}=m)=1/(m\,\mu([u,v)))$, and write $d_{\mathrm{TV}}$ for the total variation distance. The map $n\mapsto n/2$ ($n$ even), $n\mapsto 3n+c$ ($n$ odd) belongs to the class of \cite[Definition~1.2]{GGM_2025} with $p=2$, $q=3$ and $r(1)=c$, and its Syracuse map is $\operatorname{Syr}$; the condition $c\ge-1$ makes it map $\N$ into itself. It satisfies the hypotheses (a)--(c) of \cite[Theorem~1.3]{GGM_2025}: $\gcd(2,3)=1$, $3<2^{2}$, and $3+c$ is even. These hypotheses impose no condition on $\gcd(3,c)$. The proof of \cite[Proposition~3.5]{GGM_2025}, however, is carried out after the normalisation $\gcd(q,r(1))=1$ of \cite[Section~2.2]{GGM_2025}, that is, for $3\nmid c$; Step~0 below reduces Theorem~\ref{thm:logdens} to this case.
+
+\begin{proof}[Proof of Theorem~\ref{thm:logdens}]
+\emph{Step 0 (factors $3$ in $c$).} Suppose $3\mid c$, and write $c=3c'$ with $c'\ge1$ odd. Then $T_{3,c}(3m)=3\,T_{3,c'}(m)$ for all $m$, and $T_{3,c}(n)=3(n+c')/2$ for odd $n$. Hence $A'=\{m:3m\in A\}$ is completely invariant under $T_{3,c'}$, and an odd $n$ lies in $A$ if and only if $(n+c')/2\in A'$. Since
+\[
+\sum_{\substack{n<Y,\ n\text{ odd}\\ (n+c')/2\in A'}}\frac1n=\frac12\sum_{\substack{u<Y/2\\ u\in A'}}\frac1u+O(1),
+\]
+Step~1 below shows that $\delta(A)$ exists and equals $\delta(A')$ whenever $\delta(A')$ exists. Repeating this step, we may assume $3\nmid c$.
+
+\emph{Input.} For odd $c\ge-1$ with $3\nmid c$, the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid \cite[Proposition~3.5]{GGM_2025}, the analogue of \cite[Proposition~1.11]{Tao_2022}, provides $\varepsilon_0\in(0,1)$ such that for all $\alpha,\lambda\in(1,1+\varepsilon_0)$ and all $x\ge2$
+\begin{align}
+\mathbb P\bigl(\tau_x(\mathbf{Log}_{x^\lambda,x^{\alpha\lambda}})=\infty\bigr)&\ll x^{-\varepsilon_0},\label{eq:ggm_hit}\\
+d_{\mathrm{TV}}\bigl(\operatorname{Pass}_x(\mathbf{Log}_{x^\lambda,x^{\alpha\lambda}}),\operatorname{Pass}_x(\mathbf{Log}_{x^{\alpha\lambda},x^{\alpha^2\lambda}})\bigr)&\ll(\log x)^{-\varepsilon_0},\label{eq:ggm_tv}
+\end{align}
+with implied constants that do not depend on $x$. Choose $\varepsilon_1>0$ with $(1+\varepsilon_1)^2<1+\varepsilon_0$ and fix $\lambda_0\in(1,1+\varepsilon_1)$.
+
+\emph{Step 1 (odd numbers).} Write $n=2^km$ with $m$ odd. Since $T_{3,c}^k(n)=m$, we have $n\in A$ if and only if $m\in A$. The odd part $A_1=A\cap(2\N+1)$ satisfies $m\in A_1\iff\operatorname{Syr}(m)\in A_1$. Let $\kappa(Y)=\mu(A_1\cap[1,Y))/\mu([1,Y))$. If $\kappa(Y)\to\delta$, then
+\[
+\sum_{\substack{n<N\\ n\in A}}\frac1n=\sum_{k\ge0}2^{-k}\mu\bigl(A_1\cap[1,N/2^k)\bigr)=\delta\log N+o(\log N),
+\]
+so $\delta(A)=\delta$. It remains to show that $\kappa(Y)$ converges.
+
+\emph{Step 2 (invariance under first passage).} If $m>x$ and $\tau_x(m)<\infty$, then $m\in A_1\iff\operatorname{Pass}_x(m)\in A_1$. Hence, for every random odd integer $\mathbf m>x$,
+\begin{equation}
+\label{eq:passage}
+\bigl|\mathbb P(\mathbf m\in A_1)-\mathbb P\bigl(\operatorname{Pass}_x(\mathbf m)\in A_1\bigr)\bigr|\le\mathbb P\bigl(\tau_x(\mathbf m)=\infty\bigr).
+\end{equation}
+
+\emph{Step 3 (adjacent windows).} Let $\alpha\in(1,1+\varepsilon_1)$ and $F_\alpha(y)=\mathbb P(\mathbf{Log}_{y,y^\alpha}\in A_1)=\mu(A_1\cap[y,y^\alpha))/\mu([y,y^\alpha))$. For $y\ge4$ put $x=y^{1/\lambda_0}$. The windows $[y,y^\alpha)=[x^{\lambda_0},x^{\alpha\lambda_0})$ and $[y^\alpha,y^{\alpha^2})=[x^{\alpha\lambda_0},x^{\alpha^2\lambda_0})$ lie above $x$, and $\alpha\lambda_0<1+\varepsilon_0$. By~\eqref{eq:passage} for both windows, \eqref{eq:ggm_hit} with $\lambda=\lambda_0$ and $\lambda=\alpha\lambda_0$, and~\eqref{eq:ggm_tv} with $\lambda=\lambda_0$,
+\[
+|F_\alpha(y)-F_\alpha(y^\alpha)|\ll x^{-\varepsilon_0}+(\log x)^{-\varepsilon_0}\ll(\log y)^{-\varepsilon_0}.
+\]
+
+\emph{Step 4 (a limit that is periodic in $\log\log y$).} Put $t=\log\log y$, $a=\log\alpha$ and $f_\alpha(t)=F_\alpha(\exp e^t)$. Then $f_\alpha(t+a)=F_\alpha(y^\alpha)$, so $|f_\alpha(t)-f_\alpha(t+a)|\ll e^{-\varepsilon_0t}$. These differences are summable along $t,t+a,t+2a,\ldots$, so $\psi_\alpha(t)=\lim_{k\to\infty}f_\alpha(t+ka)$ exists, $\psi_\alpha(t+a)=\psi_\alpha(t)$, and $|f_\alpha(t)-\psi_\alpha(t)|\ll e^{-\varepsilon_0t}$. For $W=[y,y^\alpha)$, $W'=[y^{1+\eta},y^{\alpha(1+\eta)})$ and $0<\eta\le1$,
+\[
+|F_\alpha(y)-F_\alpha(y^{1+\eta})|\le\frac{2\mu(W\triangle W')}{\mu(W)}\le\frac{2(1+\alpha)\eta}{\alpha-1}+O\Bigl(\frac{1}{\log y}\Bigr).
+\]
+Since the shift in $t$ is $\log(1+\eta)$, this gives $|f_\alpha(t)-f_\alpha(t')|\ll_\alpha|t-t'|+e^{-t}$ for $t\le t'\le t+\log2$, so $\psi_\alpha$ is Lipschitz continuous.
+
+\emph{Step 5 (from windows to $\kappa$).} Let $\tilde\kappa(t)=\kappa(\exp e^t)$ and $h(t)=\mu([1,\exp e^t))=\tfrac12e^t+O(1)$. The identity $\mu(A_1\cap[y,y^\alpha))=F_\alpha(y)\,\mu([y,y^\alpha))$ reads $\tilde\kappa(t+a)h(t+a)=\tilde\kappa(t)h(t)+f_\alpha(t)\bigl(h(t+a)-h(t)\bigr)$, hence
+\[
+\tilde\kappa(t+a)=e^{-a}\tilde\kappa(t)+(1-e^{-a})f_\alpha(t)+O(e^{-t}).
+\]
+For fixed $t$, the numbers $D_k=\tilde\kappa(t+ka)-\psi_\alpha(t)$ satisfy $|D_{k+1}|\le e^{-a}|D_k|+O(e^{-\varepsilon_0(t+ka)})$, because $\psi_\alpha(t+ka)=\psi_\alpha(t)$ and $\varepsilon_0<1$. Thus $D_k\to0$ uniformly for $t$ in compact intervals, and $\tilde\kappa(t)-\psi_\alpha(t)\to0$ as $t\to\infty$.
+
+\emph{Step 6 (two incommensurable windows).} Let $\alpha'=\alpha^{1/\sqrt2}$ and $a'=\log\alpha'$. Steps 3--5 for $\alpha'$ give a continuous $a'$-periodic function $\psi_{\alpha'}$ with $\tilde\kappa(t)-\psi_{\alpha'}(t)\to0$, so $\psi_\alpha(t)-\psi_{\alpha'}(t)\to0$. Fix $t$. As $\psi_\alpha(t+ka)=\psi_\alpha(t)$, we get $\psi_{\alpha'}(t+ka)\to\psi_\alpha(t)$ for $k\to\infty$. Since $a/a'=\sqrt2$ is irrational, the points $t+ka$ with $k\ge k_0$ are dense modulo $a'$ for every $k_0$, and $\psi_{\alpha'}$ is continuous; hence $\psi_{\alpha'}$ is constant, equal to $\psi_\alpha(t)$. As $t$ was arbitrary, $\psi_\alpha$ and $\psi_{\alpha'}$ are the same constant $\delta$, and $\kappa(Y)\to\delta$ by Step~5.
+
+Finally, if the natural density of $A$ exists, partial summation shows that the logarithmic density exists with the same value.
+\end{proof}
+
+\begin{remark}[Consequences and limits]
+\label{rem:consequences}
+For $c=1$, Theorem~\ref{thm:logdens} shows that the integers whose orbit reaches $1$ form a set with a logarithmic density; the Collatz conjecture asserts that this set is $\N$. We have not found this consequence stated in the literature; Corollary~\ref{cor:natural} upgrades it to natural density, conditionally on Mazur's transport estimate. The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The method does not reach natural densities, because the stabilisation of first passages controls logarithmic averages only. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
+\end{remark}
+
+\begin{remark}[Predecessor sets]
+\label{rem:predecessors}
+Step~2 uses only that membership is preserved by the first passage below $x$ for all large $x$. This also holds for the set of $n$ whose orbit contains a fixed odd integer $a$, once $x\ge a$: an orbit that starts above $x$ stays above $x$ until its first passage, so it cannot meet $a$ before. Step~1 applies as well, because an orbit can meet the odd number $a$ only after its initial halvings. Hence these sets have logarithmic densities, which answers the existence question of \cite[Remark~1.7]{GGM_2025} in logarithmic form for every odd $a$. Its natural-density form remains open, except for $c=1$ under the hypothesis of Corollary~\ref{cor:natural}, whose proof applies to these sets as well. For $a$ on a cycle, the set is the basin of that cycle.
+\end{remark}
+
+\begin{remark}[A first-passage formula]
+\label{rem:passage}
+For $3\nmid c$, Steps~2, 4 and~6 and~\eqref{eq:ggm_hit} give, for all $\alpha,\lambda\in(1,1+\varepsilon_1)$,
+\[
+\delta(\mathcal C)=\lim_{x\to\infty}\mathbb P\bigl(\operatorname{Pass}_x(\mathbf{Log}_{x^{\lambda},x^{\alpha\lambda}})\in\beta(\mathcal C)\bigr).
+\]
+The density of a basin is the probability that a logarithmically random starting value far above $x$ first enters $[1,x]$ inside that basin. In the proofs of \cite{Tao_2022,GGM_2025}, the law of $\operatorname{Pass}_x$ is controlled through the distribution of the Syracuse offsets modulo powers of $3$. Problem~\ref{prob:basins}(c) thus becomes a question about this $3$-adic law on the small members of each basin.
+\end{remark}
+
+Theorem~\ref{thm:logdens} does not reach natural counting. For $3x+1$, Mazur \cite{Mazur_2026} has compared the first passage of the uniform law with that of the logarithmic law on the same block. His preprint is not yet refereed, but its proof chain is formalised in Lean~4; we therefore state the consequence as an implication.
+
+\begin{corollary}[Natural densities for $3x+1$]
+\label{cor:natural}
+Assume the transport estimate \cite[Theorem~3.1]{Mazur_2026}. Then every set $A\subseteq\N$ that is completely invariant under $T_{3,1}$ has a natural density, and it equals $\delta(A)$. In particular, the positive integers whose $3x+1$ orbit reaches $1$ form a set with a natural density.
+\end{corollary}
+
+\begin{proof}
+Let $\alpha=1001/1000$ as in \cite{Mazur_2026}. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$; the odd integers in $[y,y^\alpha]=[N^{1/\alpha},N]$ form a block of \cite[Theorem~3.1]{Mazur_2026}. Let $\mathbf U_y$ be uniform and $\mathbf L_y$ logarithmic on this block. By~\eqref{eq:passage}, by the scheduled no-hit bound and the $\ell^1$ transport bound of \cite[Theorem~3.1]{Mazur_2026}, and by the no-hit bound \cite[(1.18)]{Tao_2022} for $\mathbf L_y$, which \cite{Mazur_2026} uses with this $\alpha$,
+\[
+\mathbb P(\mathbf U_y\in A_1)=\mathbb P(\mathbf L_y\in A_1)+o(1)\qquad(N\to\infty).
+\]
+Steps~4 and~6 give $\mathbb P(\mathbf L_y\in A_1)\to\delta(A)$: the window $[y,y^\alpha)$ splits into $K$ consecutive windows of ratio $\alpha^{1/K}<1+\varepsilon_1$, and $\mathbb P(\mathbf L_y\in A_1)$ is their $\mu$-weighted average; the endpoint conventions differ by at most one integer. The odd integers below $N^{1/\alpha}$ form a proportion $O(N^{1/\alpha-1})$ of the odd integers below $N$. Hence $A_1$ has natural density $\delta(A)$ relative to the odd integers. Since $2^km\in A$ if and only if $m\in A$, each set $\{2^km:m\text{ odd}\}$ meets $A$ in the same relative density, and $A$ has natural density $\delta(A)$.
+\end{proof}
+
+\begin{remark}[Natural densities for general $c$]
+\label{rem:mazur}
+Mazur's argument combines Tao's first-passage architecture with a discrepancy bound for the rotation by $\log_2 3$, which he derives from Rhin's irrationality measure \cite{Mazur_2026}. For $T_{3,c}$ the rotation is the same, and the Syracuse offsets are $c$ times those of $3x+1$: in the notation of \cite{Tao_2022}, $\operatorname{Syr}^n(m)=3^n2^{-|\vec a|}m+c\,F_n(\vec a)$. An analogue of \cite[Theorem~3.1]{Mazur_2026} for $T_{3,c}$ would give natural densities for all basins of all maps $3x+c$ with $c\ge-1$, by the proof of Corollary~\ref{cor:natural}, and would settle Problem~\ref{prob:basins}(a). We have not verified that his argument carries over.
+\end{remark}
+
+Theorem~\ref{thm:logdens} settles existence in the logarithmic sense. Whether the natural densities exist for $c\ne1$, and nontrivial bounds for their values, remain open; the stability up to $10^{10}$ is strong numerical evidence but no proof.
 
 \begin{problem}
 \label{prob:basins}
 By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determined by those of the cycles coprime to $c'$ in the maps $3x+c'$, $c'\mid c$. For these cycles:
 \begin{enumerate}[label=(\alph*)]
-	\item \emph{Existence.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist?
+	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. For $c=1$ they exist under the hypothesis of Corollary~\ref{cor:natural}; Remark~\ref{rem:mazur} outlines a route for general $c$.
 	\item \emph{Explanation.} Which features of a cycle determine them: its parity word, the arithmetic position of its members, the distribution of its backward iterates?
 	\item \emph{Prediction.} Is there an analytic or probabilistic model that predicts the observed values rather than fitting them?
 \end{enumerate}
-By Corollary~\ref{cor:local}, any answer must use global information. For $3x+1$, the conjecture asserts a single basin of density $1$.
+By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global information. For $3x+1$, the conjecture asserts a single basin of density $1$.
 \end{problem}
 
 \newpage
@@ -572,11 +649,11 @@ By Corollary~\ref{cor:local}, any answer must use global information. For $3x+1$
 %=====================================================================
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see five directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
-	\item \emph{A theory of basin densities} (Problem~\ref{prob:basins}): existence of the limits, the features of a cycle that determine them, and a predictive model. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+	\item \emph{A theory of basin densities} (Problem~\ref{prob:basins}): natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}); the features of a cycle that determine the values; and a predictive model, for instance through the law of first passage (Remark~\ref{rem:passage}). This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: a Lean~4 formalisation of Theorem~\ref{thm:words} and Propositions~\ref{prop:unique_parent}, \ref{prop:local} and~\ref{prop:filtration} that refers to the maps themselves.
+	\item \emph{Certification}: a Lean~4 formalisation of Lemma~\ref{lem:words} and Propositions~\ref{prop:unique_parent}, \ref{prop:local} and~\ref{prop:filtration} that refers to the maps themselves.
 \end{enumerate}
 
 \subsection*{Code and data availability}
@@ -616,6 +693,10 @@ Necklace & rotation class of words; one necklace corresponds to one cycle \\
 Branching number & even $n$ with $(n-c)/3$ odd and not divisible by $3$ (for $q=3$) \\
 \hline
 Forest, tree, basin & all branching numbers; the predecessors of one cycle; the integers attracted by one cycle \\
+\hline
+Logarithmic density & $\delta(A)=\lim_{N\to\infty}\frac{1}{\log N}\sum_{n<N,\,n\in A}\frac1n$ \\
+\hline
+First passage & $\operatorname{Pass}_x(m)$: the first Syracuse iterate of $m$ that is at most $x$ \\
 \hline
 \end{tabular}
 \end{table}
