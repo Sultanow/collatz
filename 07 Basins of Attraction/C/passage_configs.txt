@@ -1,0 +1,33 @@
+# Configurations for slurm/passage_array.sbatch, one per line: c log10y alpha mode n
+# (n = samples per array task; REPS tasks per line). Maps of Table 6, windows
+# [10^log10y, 10^(alpha*log10y)], logarithmic and uniform counting.
+-1  10   1.1  log   10000000
+-1  10   1.1  unif  10000000
+-1  20   1.1  log   10000000
+-1  20   1.1  unif  10000000
+-1  50   1.1  log   10000000
+-1  50   1.1  unif  10000000
+-1  100  1.1  log   10000000
+-1  100  1.1  unif  10000000
+-1  200  1.1  log   10000000
+-1  200  1.1  unif  10000000
+5   10   1.1  log   10000000
+5   10   1.1  unif  10000000
+5   20   1.1  log   10000000
+5   20   1.1  unif  10000000
+5   50   1.1  log   10000000
+5   50   1.1  unif  10000000
+5   100  1.1  log   10000000
+5   100  1.1  unif  10000000
+5   200  1.1  log   10000000
+5   200  1.1  unif  10000000
+13  10   1.1  log   10000000
+13  10   1.1  unif  10000000
+13  20   1.1  log   10000000
+13  20   1.1  unif  10000000
+13  50   1.1  log   10000000
+13  50   1.1  unif  10000000
+13  100  1.1  log   10000000
+13  100  1.1  unif  10000000
+13  200  1.1  log   10000000
+13  200  1.1  unif  10000000
