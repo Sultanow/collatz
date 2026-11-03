@@ -323,8 +323,8 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | All primitive cycles of $3x+c$, $\lvert c_0\rvert \le 1000$, $l \le 40$ (Run A); census vs. heuristic (Figure 1) | `census_all.c`, `slurm/census_all_array.sbatch`, `merge_census_all.py`; `figures/fig1_cycles_vs_heuristic.py` | `results/rational_cycles_q3_d1000_L40.csv` |
 | Agreement with Belaga, Mignotte and Morley (OEIS A226607) | `oeis/compare_oeis.py` | `oeis/a226607_first1740.txt` |
 | Cycles with longer words ($3x+23$ through 41; $3x+29$ through 3811 and 7055) | `cycles_for_map.py --search 100000` | printed |
-| Basin shares up to $10^6$, $10^8$, $10^{10}$ (Table 6); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv` |
-| Basin shares far beyond enumeration, natural vs. logarithmic counting (Table 7) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt` |
+| Basin shares up to $10^6$, $10^8$, $10^{10}$ (Table 6); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv`, `results/runB_N1e10.tar.gz` (raw) |
+| Basin shares far beyond enumeration, natural vs. logarithmic counting (Table 7) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt`, `results/passage/runC_raw.tar.gz` (raw) |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
 
 ## Reference results

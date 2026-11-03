@@ -25,6 +25,7 @@
 \usepackage{ragged2e}
 \usepackage{graphicx}
 \graphicspath{{figures/}{./}}
+\raggedbottom
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{listings}
@@ -714,7 +715,30 @@ The local and the global view answer different questions. Cayley trees and their
 \end{enumerate}
 
 \subsection*{Code and data availability}
-The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c} and \texttt{passage.c} (basin shares far beyond brute force, via first passage), the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Appendix~\ref{appx:reproduction} lists which program and which data file belong to each result.
+The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c} and \texttt{passage.c} (basin shares far beyond brute force, via first passage), the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Table~\ref{table:reproduction} lists which program and which data file belong to each result. All paths refer to the folder \emph{07 Basins of Attraction}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
+
+\begin{table}[tbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.1cm}}
+\toprule
+Result & Programs and scripts & Data \\
+\midrule
+Tables~\ref{table:mirror} (upper rows) and~\ref{table:classes}, Corollary~\ref{cor:near_miss} & \path{local_structure.py} & -- \\
+Table~\ref{table:non_q1_cycles} & notebook \cite{sultanow2024} in \texttt{04 Cycles} & -- \\
+Proposition~\ref{prop:census}, Table~\ref{table:zoo} & \texttt{census.c}, \path{census_array.sbatch}, \path{merge_census.py} & \path{census_q*_L*.txt} \\
+Proposition~\ref{prop:rational}, Figure~\ref{fig:cycles} & \path{census_all.c}, \path{census_all_array.sbatch}, \path{merge_census_all.py}; \path{figures/fig1_cycles_vs_heuristic.py} & \path{rational_cycles_q3_d1000_L40.csv} \\
+Comparison with the published tables & \path{oeis/compare_oeis.py} & \path{oeis/a226607_first1740.txt} \\
+Cycles with longer words & \path{cycles_for_map.py} with \texttt{-{}-search} & -- \\
+Table~\ref{table:basins}, Proposition~\ref{prop:verification}, Figure~\ref{fig:basins} & \texttt{basin.c}, \path{submit_basins.sh}, \path{basin_array.sbatch}, \path{merge_basin.py}; \path{figures/fig2_basins.py} & \path{basin_q3_c*_N1e*.txt}, \path{basin_q3_c*_windows_N1e10.csv}, \path{runB_N1e10.tar.gz} (raw) \\
+Table~\ref{table:passage} & \texttt{passage.c}, \path{passage_array.sbatch}, \path{passage_configs.txt}, \path{merge_passage.py} (\texttt{-{}-pool 20}, \texttt{-{}-replicates}) & \path{passage/passage_shares.csv}, \texttt{passage/report.txt}, \path{passage/runC_raw.tar.gz} (raw) \\
+Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh} & -- \\
+\bottomrule
+\end{tabularx}
+\caption{Programs, scripts and data behind the results of the paper.}
+\label{table:reproduction}
+\end{table}
 
 \subsection*{Acknowledgments}
 We thank Dr.\ Kai Himstedt, Stephanie von Riegen and the whole EDIH Hamburg team for access to the Research Computing Infrastructure of the EDIH Hamburg.
@@ -758,32 +782,6 @@ First passage & $\operatorname{Pass}_x(m)$: the first Syracuse iterate of $m$ th
 \end{tabular}
 \end{table}
 
-\section{Reproduction}
-\label{appx:reproduction}
-All paths refer to the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.1cm}}
-\toprule
-Result & Programs and scripts & Data \\
-\midrule
-Tables~\ref{table:mirror} (upper rows) and~\ref{table:classes}, Corollary~\ref{cor:near_miss} & \path{local_structure.py} & -- \\
-Table~\ref{table:non_q1_cycles} & notebook \cite{sultanow2024} in \texttt{04 Cycles} & -- \\
-Proposition~\ref{prop:census}, Table~\ref{table:zoo} & \texttt{census.c}, \path{census_array.sbatch}, \path{merge_census.py} & \path{census_q*_L*.txt} \\
-Proposition~\ref{prop:rational}, Figure~\ref{fig:cycles} & \path{census_all.c}, \path{census_all_array.sbatch}, \path{merge_census_all.py}; \path{figures/fig1_cycles_vs_heuristic.py} & \path{rational_cycles_q3_d1000_L40.csv} \\
-Comparison with the published tables & \path{oeis/compare_oeis.py} & \path{oeis/a226607_first1740.txt} \\
-Cycles with longer words & \path{cycles_for_map.py} with \texttt{-{}-search} & -- \\
-Table~\ref{table:basins}, Proposition~\ref{prop:verification}, Figure~\ref{fig:basins} & \texttt{basin.c}, \path{submit_basins.sh}, \path{basin_array.sbatch}, \path{merge_basin.py}; \path{figures/fig2_basins.py} & \path{basin_q3_c*_N1e*.txt}, \path{basin_q3_c*_windows_N1e10.csv} \\
-Table~\ref{table:passage} & \texttt{passage.c}, \path{passage_array.sbatch}, \path{passage_configs.txt}, \path{merge_passage.py} (\texttt{-{}-pool 20}, \texttt{-{}-replicates}) & \path{passage/passage_shares.csv}, \texttt{passage/report.txt} \\
-Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh} & -- \\
-\bottomrule
-\end{tabularx}
-\caption{Programs, scripts and data behind the results of the paper.}
-\label{table:reproduction}
-\end{table}
 
 
 
