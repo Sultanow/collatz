@@ -24,6 +24,7 @@
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{graphicx}
+\graphicspath{{figures/}{./}}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{listings}
@@ -69,7 +70,8 @@
 \setlength{\skip\footins}{1.4pc plus 5pt minus 2pt}
 
 % Previous title: Cycles in qx+1 Sequences
-\title[Same Shadows, Different Forests]{Same Shadows, Different Forests:\\ Local Predecessor Structure and Global Dynamics of Collatz-Type Maps}
+% v1 title: Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps
+\title[Same Shadows, Different Forests]{Same Shadows, Different Forests:\\ Cycles and Basin Densities of Collatz-Type Maps}
 
 \author[E.\ Sultanow]{Eldar Sultanow\,\orcidlink{0000-0001-5257-2236}}
 \address{Eldar Sultanow\\Business Informatics, Processes and Systems\\University of Potsdam\\Karl-Marx-Straße 67, 14482 Potsdam, Germany}
@@ -79,13 +81,13 @@
 
 \date{October 2026}
 
-\keywords{Collatz problem, $qx+1$ problem, cycles, parity vectors, rotating binaries, Diophantine approximation, basins of attraction, Cayley trees}
+\keywords{Collatz problem, $qx+1$ problem, cycles, parity vectors, rotating binaries, Diophantine approximation, basins of attraction, logarithmic density, first passage, Cayley trees}
 \subjclass[2020]{Primary 11B83; Secondary 11Y55, 37P99}
 
 \begin{document}
 
 \begin{abstract}
-What determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map? We study this question for the maps $x\mapsto(qx+c)/2$ and give three complementary answers. First, every local statistic of the predecessor trees of $3x+1$ (branching classes, Leftward and Upward children, cotree densities, densities of finite parity patterns) coincides with that of $3x-1$, which is $3x+1$ on the negative integers and has three cycles. Local branching statistics therefore determine neither the cycle structure nor basin membership. Second, cycles are characterised by an exact global condition: a parity word $B$ of length $l$ with $k$ odd steps yields an integer cycle if and only if $D=2^l-q^k$ divides $c\,z_q(B)$. Taking the reverse perspective of rational cycles, we ask for which maps a given word yields a cycle. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ then gives the complete list of $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$. For $0<c<1000$ this list agrees exactly with the conjecturally complete tables of Belaga, Mignotte and Morley (OEIS A226607) for all cycles with at most $40$ elements. An equidistribution heuristic predicts $1149$ cycles, and the observed counts scatter less than a Poisson model allows. Third, every basin of attraction of a map $3x+c$ with odd $c\ge-1$ has a logarithmic density. This follows from the stabilisation of first passages due to Tao and to Gon\c{c}alves, Greenfeld and Madrid, because a basin is not changed by first passage. A divisibility filtration explains certain exact rational basin densities. The remaining densities, measured up to $10^{10}$ for $18$ maps, are stable to three digits but unexplained: in $3x+5$, two cycles of the same type attract about $50\,\%$ and $9\,\%$ of all integers.
+What determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map? We study the maps $x\mapsto(qx+c)/2$ and give three answers. First, every local statistic of the predecessor trees of $3x+1$, including cotree densities, coincides with that of $3x-1$, which has three cycles. Local statistics therefore determine neither the cycles nor the basins. Second, a parity word $B$ of length $l$ with $k$ odd steps yields an integer cycle if and only if $2^l-q^k$ divides $c\,z_q(B)$. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ lists all $1097$ primitive cycles of the maps $3x+c$ with $|c|\le1000$ and confirms the published tables of Belaga, Mignotte and Morley (OEIS A226607) for all cycles with at most $40$ elements. Third, we separate the existence of basin densities from their values. Every basin of every map $3x+c$ with odd $c\ge-1$ has a logarithmic density; in particular, the positive integers whose $3x+1$ orbit reaches $1$ form a set with a logarithmic density. Conditionally on a recent transport estimate of Mazur, this set even has a natural density. The values remain unexplained, but sampling first passages at scales up to $10^{220}$ fixes them to five decimal places, with natural and logarithmic counting in agreement. In $3x+5$, two cycles of the same type attract about $50\,\%$ and $9\,\%$ of all integers.
 \end{abstract}
 
 \begingroup
@@ -167,14 +169,19 @@ These maps admit two descriptions. The \emph{local} view starts from the trivial
 
 The \emph{global} view encodes a cycle by its parity word and asks whether the corresponding rational number is a positive integer. This is decided by the arithmetic of $2^l-q^k$, and it is exactly what separates $3x+1$ from $3x-1$.
 
-The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local structure of $3x+1$ and $3x-1$ is statistically identical. Cycles are characterised by an exact global divisibility condition. The basins of attraction have logarithmic densities, but their sizes differ strongly and are so far unexplained.
+The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor structure is indistinguishable from that of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local structure of $3x+1$ and $3x-1$ is statistically identical. Cycles are characterised by an exact global divisibility condition. The existence of basin densities is common to all maps of the family, but their values differ strongly and are so far unexplained.
+
+\subsection*{Main results}
+For $A\subseteq\N$ let $\delta(A)=\lim_{N\to\infty}(\log N)^{-1}\sum_{n<N,\,n\in A}1/n$ be its logarithmic density, if the limit exists. Our main theoretical result separates the existence of basin densities from their values. Theorem~\ref{thm:logdens} states that every set of positive integers that is completely invariant under $T_{3,c}$, with odd $c\ge-1$, has a logarithmic density; in particular, every basin of attraction has one. Existence is therefore common to all maps of the family, whereas the values separate them: numerically, the three basins of $3x-1$ have nearly equal densities, while two cycles of the same type in $3x+5$ attract about $50\,\%$ and $9\,\%$ of all integers. For the Collatz map itself, Corollary~\ref{cor:collatz} shows that the positive integers whose orbit reaches $1$ form a set with a logarithmic density. This does not decide the Collatz conjecture, which asserts that the set is $\N$, but it shows unconditionally that the logarithmic proportion of these integers converges. Conditionally on a recent natural-counting transport estimate of Mazur \cite{Mazur_2026}, the density is even a natural density (Corollary~\ref{cor:natural}).
+
+The proof is short. A basin is not changed by the first passage of an orbit below a threshold, so the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid \cite{GGM_2025}, after Tao \cite{Tao_2022}, makes the basin shares of consecutive logarithmic windows converge; two windows of incommensurable ratio then exclude oscillations in $\log\log N$. To our knowledge, these existence statements have not been made before. How to compute the values from the global dynamics remains the central open problem (Problem~\ref{prob:basins}); as a first step, Remark~\ref{rem:passage} expresses each density as a first-passage probability.
 
 \subsection*{Contributions}
 \begin{enumerate}[label=(\roman*)]
 	\item Section~\ref{sec:local} makes the limits of local methods precise. All densities of locally defined sets coincide for $3x+1$ and $3x-1$ (Proposition~\ref{prop:local}), so local branching statistics, including the cotree densities of Cayley trees, determine neither the number of cycles nor basin membership (Corollary~\ref{cor:local}). This limits proof strategies that rely only on such statistics, not proofs that combine predecessor trees with global information.
 	\item Section~\ref{sec:words} recalls the classical correspondence between parity words and cycles (Lemma~\ref{lem:words}, due to B\"ohm--Sontacchi and Lagarias) in the notation of rotating binaries, and records the families of cycles obtained from binary rotations, the mirror symmetry and the product identity~\eqref{eq:diophantine_equation}.
 	\item Section~\ref{sec:zoo} takes the reverse perspective of Lagarias' rational cycles and of the shift--member duality of Belaga and Mignotte: instead of asking which cycles a given map has, it asks for which maps a given parity word yields a cycle. What is new is the exhaustive evaluation of this correspondence. One pass over all $2.2\cdot10^{12}$ words of length at most $40$ lists all $1097$ primitive cycles of all maps $3x+c$ with $|c|\le1000$ (Proposition~\ref{prop:rational}). For $0<c<1000$ it proves the published tables complete for all cycles with at most $40$ elements. An equidistribution heuristic predicts the counts, with less scatter than a Poisson model (Figure~\ref{fig:cycles}, Problem~\ref{prob:heuristic}).
-	\item Section~\ref{sec:basins} proves that every basin has a logarithmic density (Theorem~\ref{thm:logdens}). The proof combines the invariance of basins under first passage with the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid, and excludes oscillations in $\log\log y$ by comparing two windows of incommensurable ratio. Conditionally on the natural-counting transport estimate of Mazur, this becomes a natural density for $3x+1$ (Corollary~\ref{cor:natural}). The section measures the basin densities of $18$ maps up to $10^{10}$ (Figure~\ref{fig:basins}). An elementary divisibility filtration (Proposition~\ref{prop:filtration}) gives the densities of the gcd classes and explains the rational entries of Table~\ref{table:basins}. The values for the cycles coprime to $c$ are stable but unexplained, and we formulate their explanation and prediction, together with the existence of natural densities, as open problems (Problem~\ref{prob:basins}).
+	\item Section~\ref{sec:basins} proves that every basin has a logarithmic density (Theorem~\ref{thm:logdens}); in particular, the integers whose $3x+1$ orbit reaches $1$ form a set with a logarithmic density (Corollary~\ref{cor:collatz}). The proof combines the invariance of basins under first passage with the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid, and excludes oscillations in $\log\log y$ by comparing two windows of incommensurable ratio. Conditionally on the natural-counting transport estimate of Mazur, this becomes a natural density for $3x+1$ (Corollary~\ref{cor:natural}). The section measures the basin densities of $18$ maps up to $10^{10}$ (Figure~\ref{fig:basins}) and, by sampling first passages, those of three maps at scales up to $10^{220}$ (Table~\ref{table:passage}). An elementary divisibility filtration (Proposition~\ref{prop:filtration}) gives the densities of the gcd classes and explains the rational entries of Table~\ref{table:basins}. The values for the cycles coprime to $c$ are stable but unexplained, and we formulate their explanation and prediction, together with the existence of natural densities, as open problems (Problem~\ref{prob:basins}).
 \end{enumerate}
 
 %=====================================================================
@@ -453,7 +460,7 @@ Why does the equidistribution heuristic predict the number of primitive cycles s
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{figures/fig1_cycles_vs_heuristic.pdf}
+\includegraphics[width=\linewidth]{fig1_cycles_vs_heuristic.pdf}
 \caption{Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l$: census (bars) and heuristic $\sum_k E_{1000}(l,k)$ (line). The peaks at $l=19$ and $l=22$ come from $D(19,12)=-7153=-23\cdot311$ and $D(22,14)=-5\cdot7\cdot11^2\cdot139$.}
 \label{fig:cycles}
 \end{figure}
@@ -464,7 +471,7 @@ Why does the equidistribution heuristic predict the number of primitive cycles s
 %=====================================================================
 For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{n\in\N: T^j(n)\in\mathcal C \text{ for some } j\}$, and we write $d_N(\mathcal C)=|\beta(\mathcal C)\cap[1,N]|/N$. The basins are the trees of the forest of Section~\ref{sec:local}; the local structure fixes only the total density of all trees. We report empirical shares $d_N$. Except for the basins covered by Proposition~\ref{prop:filtration}, it is not known whether the natural density $\lim_{N\to\infty}d_N$ exists; Theorem~\ref{thm:logdens} below shows that the logarithmic density always does.
 
-Two entries of Table~\ref{table:basins} are rational, $0.2000=1/5$ and $0.0769\approx1/13$. They are explained by the following elementary gcd invariance, which is implicit in Lagarias' primitive cycles \cite{Lagarias_1990} and explicit in \cite[(19)]{Belaga_Mignotte_DMTCS_2006}.
+Two entries of Table~\ref{table:basins} are rational, $0.20000=1/5$ and $0.07692\approx1/13$. They are explained by the following elementary gcd invariance, which is implicit in Lagarias' primitive cycles \cite{Lagarias_1990} and explicit in \cite[(19)]{Belaga_Mignotte_DMTCS_2006}.
 
 \begin{proposition}[Divisibility filtration]
 \label{prop:filtration}
@@ -482,27 +489,27 @@ Every prime divisor $p$ of $c$ satisfies $p\ge5$. Since $p\mid(3n+c)/2$ if and o
 \toprule
 map & cycle (minimum) & $d_{10^6}$ & $d_{10^8}$ & $d_{10^{10}}$ \\
 \midrule
-$3x-1$ & $1$ & $0.3277$ & $0.3270$ & $0.3270$ \\
- & $5$ & $0.3234$ & $0.3247$ & $0.3250$ \\
- & $17$ & $0.3490$ & $0.3483$ & $0.3480$ \\
+$3x-1$ & $1$ & $0.32768$ & $0.32697$ & $0.32701$ \\
+ & $5$ & $0.32335$ & $0.32471$ & $0.32498$ \\
+ & $17$ & $0.34897$ & $0.34832$ & $0.34801$ \\
 \midrule
-$3x+5$ & $1$ & $0.1410$ & $0.1404$ & $0.1403$ \\
- & $5$ & $0.2000$ & $0.2000$ & $0.2000$ \\
- & $19$ & $0.4964$ & $0.4979$ & $0.4979$ \\
- & $23$ & $0.0930$ & $0.0922$ & $0.0922$ \\
- & $187$ & $0.0325$ & $0.0326$ & $0.0325$ \\
- & $347$ & $0.0371$ & $0.0369$ & $0.0370$ \\
+$3x+5$ & $1$ & $0.14099$ & $0.14040$ & $0.14035$ \\
+ & $5$ & $0.20000$ & $0.20000$ & $0.20000$ \\
+ & $19$ & $0.49642$ & $0.49787$ & $0.49792$ \\
+ & $23$ & $0.09297$ & $0.09225$ & $0.09223$ \\
+ & $187$ & $0.03253$ & $0.03256$ & $0.03253$ \\
+ & $347$ & $0.03709$ & $0.03693$ & $0.03697$ \\
 \midrule
-$3x+13$ & $1$ & $0.4769$ & $0.4775$ & $0.4775$ \\
- & $13$ & $0.0769$ & $0.0769$ & $0.0769$ \\
- & $131$ & $0.2522$ & $0.2517$ & $0.2517$ \\
- & $211$ & $0.0334$ & $0.0334$ & $0.0334$ \\
- & $227$ & $0.0191$ & $0.0189$ & $0.0189$ \\
- & $251$ & $0.0197$ & $0.0199$ & $0.0198$ \\
- & $259$ & $0.0388$ & $0.0386$ & $0.0386$ \\
- & $283$ & $0.0254$ & $0.0253$ & $0.0253$ \\
- & $287$ & $0.0430$ & $0.0432$ & $0.0433$ \\
- & $319$ & $0.0146$ & $0.0145$ & $0.0145$ \\
+$3x+13$ & $1$ & $0.47686$ & $0.47753$ & $0.47753$ \\
+ & $13$ & $0.07692$ & $0.07692$ & $0.07692$ \\
+ & $131$ & $0.25215$ & $0.25169$ & $0.25167$ \\
+ & $211$ & $0.03340$ & $0.03344$ & $0.03345$ \\
+ & $227$ & $0.01911$ & $0.01890$ & $0.01892$ \\
+ & $251$ & $0.01971$ & $0.01989$ & $0.01984$ \\
+ & $259$ & $0.03885$ & $0.03862$ & $0.03861$ \\
+ & $283$ & $0.02541$ & $0.02528$ & $0.02528$ \\
+ & $287$ & $0.04301$ & $0.04324$ & $0.04329$ \\
+ & $319$ & $0.01459$ & $0.01448$ & $0.01449$ \\
 \bottomrule
 \end{tabular}
 \caption{Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins).}
@@ -532,6 +539,17 @@ We call $A\subseteq\N$ \emph{completely invariant} under $T$ if $n\in A\iff T(n)
 \label{thm:logdens}
 Let $c\ge-1$ be odd, and let $A\subseteq\N$ be completely invariant under $T_{3,c}$. Then $\delta(A)$ exists. In particular, the basin of every cycle $\mathcal C$ of $T_{3,c}$ has a logarithmic density $\delta(\mathcal C)$, and if $\lim_{N\to\infty}d_N(\mathcal C)$ exists, it equals $\delta(\mathcal C)$.
 \end{theorem}
+
+\begin{corollary}[The basin of $1$ for $3x+1$]
+\label{cor:collatz}
+The positive integers whose $3x+1$ orbit reaches $1$ form a set with a logarithmic density.
+\end{corollary}
+
+\begin{proof}
+For $c=1$ this set is the basin of the cycle $(1,2)$ of $T_{3,1}$, which is completely invariant.
+\end{proof}
+
+The Collatz conjecture asserts that this set is $\N$, so that its density is $1$. Corollary~\ref{cor:collatz} does not decide this, but it shows unconditionally that the logarithmic proportion of these integers up to $N$ converges. We have not found this consequence stated in the literature. Corollary~\ref{cor:natural} below upgrades it to natural density, conditionally on Mazur's transport estimate. For maps with several basins, such as $3x-1$ and $3x+5$, Theorem~\ref{thm:logdens} gives the existence of the densities of all basins, whose values no conjecture predicts.
 
 For the proof we use the Syracuse form of $T_{3,c}$ on the odd integers, $\operatorname{Syr}(m)=(3m+c)/2^{\nu_2(3m+c)}$, where $\nu_2$ is the $2$-adic valuation. For $x\ge1$ and odd $m$, the \emph{first passage time} below $x$ is $\tau_x(m)=\inf\{j\ge0:\operatorname{Syr}^j(m)\le x\}$, and the \emph{first passage} is $\operatorname{Pass}_x(m)=\operatorname{Syr}^{\tau_x(m)}(m)$, with $\operatorname{Pass}_x(m)=1$ if $\tau_x(m)=\infty$. Let $\mu(I)=\sum_{m\in I,\ m\text{ odd}}1/m$, so that $\mu([u,v))=\tfrac12\log(v/u)+O(1/u)$. For $1\le u<v$ let $\mathbf{Log}_{u,v}$ be a random odd integer in $[u,v)$ with $\mathbb P(\mathbf{Log}_{u,v}=m)=1/(m\,\mu([u,v)))$, and write $d_{\mathrm{TV}}$ for the total variation distance. The map $n\mapsto n/2$ ($n$ even), $n\mapsto 3n+c$ ($n$ odd) belongs to the class of \cite[Definition~1.2]{GGM_2025} with $p=2$, $q=3$ and $r(1)=c$, and its Syracuse map is $\operatorname{Syr}$; the condition $c\ge-1$ makes it map $\N$ into itself. It satisfies the hypotheses (a)--(c) of \cite[Theorem~1.3]{GGM_2025}: $\gcd(2,3)=1$, $3<2^{2}$, and $3+c$ is even. These hypotheses impose no condition on $\gcd(3,c)$. The proof of \cite[Proposition~3.5]{GGM_2025}, however, is carried out after the normalisation $\gcd(q,r(1))=1$ of \cite[Section~2.2]{GGM_2025}, that is, for $3\nmid c$; Step~0 below reduces Theorem~\ref{thm:logdens} to this case.
 
@@ -585,7 +603,7 @@ Finally, if the natural density of $A$ exists, partial summation shows that the 
 
 \begin{remark}[Consequences and limits]
 \label{rem:consequences}
-For $c=1$, Theorem~\ref{thm:logdens} shows that the integers whose orbit reaches $1$ form a set with a logarithmic density; the Collatz conjecture asserts that this set is $\N$. We have not found this consequence stated in the literature; Corollary~\ref{cor:natural} upgrades it to natural density, conditionally on Mazur's transport estimate. The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The method does not reach natural densities, because the stabilisation of first passages controls logarithmic averages only. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
+The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The method does not reach natural densities, because the stabilisation of first passages controls logarithmic averages only. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
 \end{remark}
 
 \begin{remark}[Predecessor sets]
@@ -622,13 +640,52 @@ Steps~4 and~6 give $\mathbb P(\mathbf L_y\in A_1)\to\delta(A)$: the window $[y,y
 Mazur's argument combines Tao's first-passage architecture with a discrepancy bound for the rotation by $\log_2 3$, which he derives from Rhin's irrationality measure \cite{Mazur_2026}. For $T_{3,c}$ the rotation is the same, and the Syracuse offsets are $c$ times those of $3x+1$: in the notation of \cite{Tao_2022}, $\operatorname{Syr}^n(m)=3^n2^{-|\vec a|}m+c\,F_n(\vec a)$. An analogue of \cite[Theorem~3.1]{Mazur_2026} for $T_{3,c}$ would give natural densities for all basins of all maps $3x+c$ with $c\ge-1$, by the proof of Corollary~\ref{cor:natural}, and would settle Problem~\ref{prob:basins}(a). We have not verified that his argument carries over.
 \end{remark}
 
-Theorem~\ref{thm:logdens} settles existence in the logarithmic sense. Whether the natural densities exist for $c\ne1$, and nontrivial bounds for their values, remain open; the stability up to $10^{10}$ is strong numerical evidence but no proof.
+Theorem~\ref{thm:logdens} settles existence in the logarithmic sense. Whether the natural densities exist for $c\ne1$, and nontrivial bounds for their values, remain open.
+
+\subsection*{Basin shares far beyond brute force}
+Step~2 and Remark~\ref{rem:passage} also give a way to measure basin shares at scales far beyond the reach of enumeration. Draw an odd starting value $N$ at random from a window $[y,y^\alpha]$, follow its Syracuse orbit to its first passage below $B=10^7$, and read the basin of the passage point from a table of all odd integers below $B$; by Step~2, this is the basin of $N$. For the three maps of Table~\ref{table:basins}, $\alpha=1.1$ and $y=10^{10},10^{20},10^{50},10^{100},10^{200}$, we drew $10^8$ starting values per window, once logarithmically, as in Remark~\ref{rem:passage}, and once uniformly, as in natural counting. Table~\ref{table:passage} lists the shares pooled over the windows from $y=10^{20}$ on (\texttt{merge\_passage.py} with option \texttt{-{}-pool 20}).
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+map & cycle (minimum) & $d_{10^{10}}$ & logarithmic & uniform \\
+\midrule
+$3x-1$ & $1$ & $0.32701$ & $0.32690$ & $0.32691$ \\
+ & $5$ & $0.32498$ & $0.32500$ & $0.32506$ \\
+ & $17$ & $0.34801$ & $0.34810$ & $0.34803$ \\
+\midrule
+$3x+5$ & $1$ & $0.14035$ & $0.14041$ & $0.14043$ \\
+ & $5$ & $0.20000$ & $0.20002$ & $0.19998$ \\
+ & $19$ & $0.49792$ & $0.49789$ & $0.49791$ \\
+ & $23$ & $0.09223$ & $0.09218$ & $0.09218$ \\
+ & $187$ & $0.03253$ & $0.03254$ & $0.03255$ \\
+ & $347$ & $0.03697$ & $0.03696$ & $0.03696$ \\
+\midrule
+$3x+13$ & $1$ & $0.47753$ & $0.47749$ & $0.47752$ \\
+ & $13$ & $0.07692$ & $0.07692$ & $0.07694$ \\
+ & $131$ & $0.25167$ & $0.25168$ & $0.25166$ \\
+ & $211$ & $0.03345$ & $0.03344$ & $0.03344$ \\
+ & $227$ & $0.01892$ & $0.01892$ & $0.01891$ \\
+ & $251$ & $0.01984$ & $0.01986$ & $0.01984$ \\
+ & $259$ & $0.03861$ & $0.03863$ & $0.03862$ \\
+ & $283$ & $0.02528$ & $0.02526$ & $0.02527$ \\
+ & $287$ & $0.04329$ & $0.04333$ & $0.04332$ \\
+ & $319$ & $0.01449$ & $0.01447$ & $0.01448$ \\
+\bottomrule
+\end{tabular}
+\caption{Basin shares from $4\cdot10^8$ odd starting values per counting mode in the windows $[y,y^{1.1}]$ with $y=10^{20}$, $10^{50}$, $10^{100}$ and $10^{200}$, drawn logarithmically (Remark~\ref{rem:passage}) or uniformly (natural counting). The standard errors are at most $2.5\cdot10^{-5}$; the column $d_{10^{10}}$ repeats Table~\ref{table:basins}.}
+\label{table:passage}
+\end{table}
+
+The pooled shares differ from the brute-force shares $d_{10^{10}}$ by at most $1.0\cdot10^{-4}$. These differences exceed the sampling error, but they have the size of the change of $d_N$ between $10^8$ and $10^{10}$ in Table~\ref{table:basins}: the cumulative shares up to $10^{10}$ have not yet settled at this level, whereas the windows from $10^{20}$ on agree with each other. The pooled shares reproduce the values $1/5$ and $1/13$ within the sampling error. Natural and logarithmic counting differ by at most $7\cdot10^{-5}$, about two standard errors. No single window from $y=10^{20}$ on deviates from the pooled shares by more than $1.5\cdot10^{-4}$, three standard errors of a window, and chi-square tests find no dependence on the scale at the level $0.01$; two of the six tests give $p=0.035$ and $p=0.018$. In the window $[10^{10},10^{11}]$ the two counting modes still differ slightly for $3x-1$ ($p=0.015$), a finite-scale effect of the size of the drift in Table~\ref{table:basins}. The ten independent replicates of each of the $30$ configurations scatter as binomial samples (all $p\ge0.10$, option \texttt{-{}-replicates}). The shares are thus stable over two hundred orders of magnitude, and natural and logarithmic counting agree. For these maps this is numerical evidence for a positive answer to Problem~\ref{prob:basins}(a).
 
 \begin{problem}
 \label{prob:basins}
 By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determined by those of the cycles coprime to $c'$ in the maps $3x+c'$, $c'\mid c$. For these cycles:
 \begin{enumerate}[label=(\alph*)]
-	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. For $c=1$ they exist under the hypothesis of Corollary~\ref{cor:natural}; Remark~\ref{rem:mazur} outlines a route for general $c$.
+	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. For $c=1$ they exist under the hypothesis of Corollary~\ref{cor:natural}; Remark~\ref{rem:mazur} outlines a route for general $c$. Table~\ref{table:passage} shows no difference between natural and logarithmic counting up to $10^{220}$.
 	\item \emph{Explanation.} Which features of a cycle determine them: its parity word, the arithmetic position of its members, the distribution of its backward iterates?
 	\item \emph{Prediction.} Is there an analytic or probabilistic model that predicts the observed values rather than fitting them?
 \end{enumerate}
@@ -638,7 +695,7 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 \newpage
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{figures/fig2_basins.pdf}
+\includegraphics[width=\linewidth]{fig2_basins.pdf}
 \caption{How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).}
 \label{fig:basins}
 \end{figure}
@@ -649,7 +706,7 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 %=====================================================================
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see five directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
-	\item \emph{A theory of basin densities} (Problem~\ref{prob:basins}): natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}); the features of a cycle that determine the values; and a predictive model, for instance through the law of first passage (Remark~\ref{rem:passage}). This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense; the central open question is how to compute the values from the global dynamics. Remark~\ref{rem:passage} expresses each density as a first-passage probability, which also allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
@@ -657,7 +714,7 @@ The local and the global view answer different questions. Cayley trees and their
 \end{enumerate}
 
 \subsection*{Code and data availability}
-The programs \texttt{census.c}, \texttt{census\_all.c} and \texttt{basin.c}, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}.
+The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c} and \texttt{passage.c} (basin shares far beyond brute force, via first passage), the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares, and the scripts for both figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Appendix~\ref{appx:reproduction} lists which program and which data file belong to each result.
 
 \subsection*{Acknowledgments}
 We thank Dr.\ Kai Himstedt, Stephanie von Riegen and the whole EDIH Hamburg team for access to the Research Computing Infrastructure of the EDIH Hamburg.
@@ -699,6 +756,33 @@ Logarithmic density & $\delta(A)=\lim_{N\to\infty}\frac{1}{\log N}\sum_{n<N,\,n\
 First passage & $\operatorname{Pass}_x(m)$: the first Syracuse iterate of $m$ that is at most $x$ \\
 \hline
 \end{tabular}
+\end{table}
+
+\section{Reproduction}
+\label{appx:reproduction}
+All paths refer to the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.1cm}}
+\toprule
+Result & Programs and scripts & Data \\
+\midrule
+Tables~\ref{table:mirror} (upper rows) and~\ref{table:classes}, Corollary~\ref{cor:near_miss} & \path{local_structure.py} & -- \\
+Table~\ref{table:non_q1_cycles} & notebook \cite{sultanow2024} in \texttt{04 Cycles} & -- \\
+Proposition~\ref{prop:census}, Table~\ref{table:zoo} & \texttt{census.c}, \path{census_array.sbatch}, \path{merge_census.py} & \path{census_q*_L*.txt} \\
+Proposition~\ref{prop:rational}, Figure~\ref{fig:cycles} & \path{census_all.c}, \path{census_all_array.sbatch}, \path{merge_census_all.py}; \path{figures/fig1_cycles_vs_heuristic.py} & \path{rational_cycles_q3_d1000_L40.csv} \\
+Comparison with the published tables & \path{oeis/compare_oeis.py} & \path{oeis/a226607_first1740.txt} \\
+Cycles with longer words & \path{cycles_for_map.py} with \texttt{-{}-search} & -- \\
+Table~\ref{table:basins}, Proposition~\ref{prop:verification}, Figure~\ref{fig:basins} & \texttt{basin.c}, \path{submit_basins.sh}, \path{basin_array.sbatch}, \path{merge_basin.py}; \path{figures/fig2_basins.py} & \path{basin_q3_c*_N1e*.txt}, \path{basin_q3_c*_windows_N1e10.csv} \\
+Table~\ref{table:passage} & \texttt{passage.c}, \path{passage_array.sbatch}, \path{passage_configs.txt}, \path{merge_passage.py} (\texttt{-{}-pool 20}, \texttt{-{}-replicates}) & \path{passage/passage_shares.csv}, \texttt{passage/report.txt} \\
+Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh} & -- \\
+\bottomrule
+\end{tabularx}
+\caption{Programs, scripts and data behind the results of the paper.}
+\label{table:reproduction}
 \end{table}
 
 

@@ -29,7 +29,7 @@ Eldar Sultanow · Preprints.org, version 1, posted 26 October 2026 (not peer-rev
 
 **[Preprints.org](https://www.preprints.org/manuscript/202610.2552)** · [DOI 10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1)
 
-Local working draft v4: [PDF](docs/main.pdf) · [LaTeX sources](docs)
+Working draft of version 2, *Same Shadows, Different Forests: Cycles and Basin Densities of Collatz-Type Maps*: [PDF](docs/main.pdf) · [LaTeX sources](docs)
 
 Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
 
@@ -255,7 +255,7 @@ $ ./passage 5 100 1.1 log 100000 1
 5,100,1.1,log,1,100000,-1,0,0.0000000000
 ```
 
-`merge_passage.py` adds the counts of all replicates and prints shares, standard errors, $z$-scores against Table 6, homogeneity tests across the scales, and the comparison of both counting modes. `--pool 20` prints the shares pooled over the windows from $10^{20}$ on (Table 7 of the paper), `--replicates` checks that the replicates of each configuration scatter like independent binomial samples. It also reads its own summary CSV, so Table 7 can be reproduced from `results/passage/passage_shares.csv`:
+`merge_passage.py` adds the counts of all replicates and prints shares, standard errors, $z$-scores against Table 6, homogeneity tests across the scales, and the comparison of both counting modes. `--pool 20` prints the shares pooled over the windows from $10^{20}$ on (Table 7 of the paper) together with the statistics quoted with it in the paper (deviations from $d_{10^{10}}$, between the counting modes and of single windows, homogeneity across the windows); `--replicates` checks that the replicates of each configuration scatter like independent binomial samples. It also reads its own summary CSV, so Table 7 can be reproduced from `results/passage/passage_shares.csv`:
 
 ```console
 python3 merge_passage.py ../results/passage/passage_shares.csv --pool 20
@@ -308,6 +308,7 @@ python3 merge_basin.py out/basin_q3_c5_N100000000000_*.txt --csv ../results/basi
 make passage && make test-passage && mkdir -p logs out
 sbatch --array=0-299 --export=ALL slurm/passage_array.sbatch
 python3 merge_passage.py out/passage_*.csv --csv ../results/passage/passage_shares.csv --pool 20 --replicates > ../results/passage/report.txt
+tar czf ../results/passage/runC_raw.tar.gz out/passage_*.csv     # raw outputs, needed for --replicates
 ```
 
 ## Reproduction map
@@ -316,7 +317,6 @@ Which artifact produces which result of the paper (tables and figures as numbere
 
 | Result | Artifacts (in `C/` unless noted) | Data |
 |---|---|---|
-| Non-trivial $qx+1$ cycles for odd $q \le 1000$ (Table 1) | brute-force search over $q$: `04 Cycles/CPP` | – |
 | Residue classes mod 18 and 288 of $3x\pm1$, forest density (Table 2, upper rows); members of one class in different trees of $3x-1$ (Table 3); residues mod 13 of the near miss $(8,5)$ | `local_structure.py` | printed |
 | Cycles by binary rotation (Table 4) | `04 Cycles`: `eldar_parityvector_k1.ipynb`, `eldar_rotate.ipynb` | – |
 | Complete cycle lists of single maps (Table 5) | `census.c`, `slurm/census_array.sbatch`, `merge_census.py` | `results/census_q*_L*.txt` |

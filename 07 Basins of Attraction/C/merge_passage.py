@@ -5,15 +5,17 @@ Usage:  python3 merge_passage.py FILES... [--csv shares.csv] [--pool Y] [--repli
 
 FILES are raw outputs (out/passage_*.csv) or the summary CSV written by --csv
 (e.g. ../results/passage/passage_shares.csv). For every map 3x+c the script
-prints, per cycle, the brute-force share d_{10^10} (Table 6 of the paper, four
-digits) and, per window [10^y, 10^(alpha*y)], the logarithmic and uniform shares
+prints, per cycle, the brute-force share d_{10^10} (exact counts of Run B,
+Table 6 of the paper) and, per window [10^y, 10^(alpha*y)], the logarithmic and uniform shares
 with standard errors. Two z-scores are reported per cell: log share vs. d_{10^10},
 and uniform vs. log share (natural against logarithmic counting, Problem 2(a)).
 Chi-square tests check that the shares do not depend on the scale, and that both
 counting modes agree.
 
   --pool Y       also print the shares pooled over all windows with log10y >= Y,
-                 per counting mode (Table 7 of the paper: --pool 20)
+                 per counting mode (Table 7 of the paper: --pool 20), and the
+                 statistics quoted with it: deviations from d_{10^10}, between the
+                 counting modes and of single windows, and homogeneity tests
   --replicates   chi-square test per configuration that the replicates (seeds)
                  scatter like independent binomial samples (raw outputs only)
 """
@@ -24,17 +26,19 @@ import os
 import sys
 from collections import defaultdict
 
-# Table 6 of the paper: d_{10^10} per cycle minimum, rounded to four digits.
-# The shares 1/5 (cycle through 5 of 3x+5) and 1/13 (cycle through 13 of
-# 3x+13) are exact (Proposition 6) and serve as controls of the sampler.
+# d_{10^10} per cycle minimum: exact counts of Run B (results/basin_q3_c*_N1e10.txt,
+# Table 6 of the paper). The shares 1/5 (cycle through 5 of 3x+5) and 1/13 (cycle
+# through 13 of 3x+13) are exact limits (Proposition 5) and serve as sampler controls.
 REF = {
-    -1: {1: 0.3270, 5: 0.3250, 17: 0.3480},
-    5: {1: 0.1403, 5: 0.2, 19: 0.4979, 23: 0.0922, 187: 0.0325, 347: 0.0370},
-    13: {1: 0.4775, 13: 1 / 13, 131: 0.2517, 211: 0.0334, 227: 0.0189,
-         251: 0.0198, 259: 0.0386, 283: 0.0253, 287: 0.0433, 319: 0.0145},
+    -1: {1: 0.3270085557, 5: 0.3249847832, 17: 0.3480066611},
+    5: {1: 0.1403463398, 5: 0.2, 19: 0.4979221818, 23: 0.0922283095,
+        187: 0.0325308457, 347: 0.0369723232},
+    13: {1: 0.4775285479, 13: 1 / 13, 131: 0.2516744774, 211: 0.0334450433,
+         227: 0.0189201976, 251: 0.0198418950, 259: 0.0386075482,
+         283: 0.0252766378, 287: 0.0432935184, 319: 0.0144890575},
 }
 EXACT = {(5, 5), (13, 13)}
-ROUND_SD = 0.00005 / math.sqrt(3)   # rounding of the four-digit references
+ROUND_SD = 0.0   # the references are exact counts, not rounded values
 
 
 def gammq(a, x):
@@ -162,7 +166,7 @@ def main():
                 rsd = 0.0 if (c, cyc) in EXACT else ROUND_SD
                 zr = (pl - ref) / math.hypot(sl, rsd) if (ref is not None and nl and sl > 0) else float("nan")
                 zu = (pu - pl) / math.hypot(sl, su) if (nl and nu and math.hypot(sl, su) > 0) else float("nan")
-                refs = f"{ref:.4f}" if ref is not None else "   -   "
+                refs = f"{ref:.5f}" if ref is not None else "   -   "
                 print(f"{cyc:>6} {refs:>8} | {pl:>10.5f} {sl:>8.5f} {zr:>7.2f} | "
                       f"{pu:>10.5f} {su:>8.5f} {zu:>7.2f}")
                 rows_out.append([c, sc, al, cyc, ref if ref is not None else "",
@@ -205,6 +209,29 @@ def main():
                     se = math.sqrt(p * (1 - p) / n) if n else float("nan")
                     cells.append(f"{p:>10.5f} {se:>8.6f}")
                 print(f"{cyc:>6} | {cells[0]} | {cells[1]}")
+            dref = dmode = dwin = 0.0
+            for cyc in sorted(cycles[c]):
+                nl = sum(totals[k] for k in keys if k[3] == "log")
+                nu = sum(totals[k] for k in keys if k[3] == "unif")
+                kl = sum(counts[k + (cyc,)] for k in keys if k[3] == "log")
+                ku = sum(counts[k + (cyc,)] for k in keys if k[3] == "unif")
+                if not (nl and nu):
+                    continue
+                both = (kl + ku) / (nl + nu)
+                dmode = max(dmode, abs(kl / nl - ku / nu))
+                if cyc in REF.get(c, {}):
+                    dref = max(dref, abs(both - REF[c][cyc]))
+                for k in keys:
+                    if totals[k]:
+                        dwin = max(dwin, abs(counts[k + (cyc,)] / totals[k] - both))
+            print(f"  max |pooled - d_1e10| = {dref:.2e}, max |log - unif| = {dmode:.2e}, "
+                  f"max |single window - pooled| = {dwin:.2e}")
+            cyc_list = sorted(cycles[c]) + [-1]
+            for mode in ("log", "unif"):
+                sel = sorted({(k[1], k[2]) for k in keys if k[3] == mode}, key=lambda t: float(t[0]))
+                chi, dof, pv = homogeneity([[counts[(c, sc, al, mode, cy)] for cy in cyc_list] for sc, al in sel])
+                if dof:
+                    print(f"  homogeneity across the windows >= 10^{pool_min:g} ({mode}): chi2={chi:.1f}, dof={dof}, p={pv:.3f}")
 
     if replicates:
         print("\n=== replicate check: do the seeds of each configuration scatter binomially? ===")
