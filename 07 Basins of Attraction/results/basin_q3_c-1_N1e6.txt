@@ -1,0 +1,4 @@
+files=1 numbers=1000000 unlabeled=0 escaped=0
+m=1 count=327679 share=0.327679
+m=5 count=323351 share=0.323351
+m=17 count=348970 share=0.348970

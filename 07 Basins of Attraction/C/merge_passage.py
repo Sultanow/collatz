@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 """Merge passage.c outputs: add the counts and print the basin shares.
 
-Usage:  python3 merge_passage.py out/passage_*.csv [--csv shares.csv]
+Usage:  python3 merge_passage.py FILES... [--csv shares.csv] [--pool Y] [--replicates]
 
-For every map 3x+c it prints, per cycle, the brute-force share d_{10^10}
-(Table 6 of the paper, where available) and, per window [10^y, 10^(alpha*y)],
-the logarithmic and uniform shares with standard errors. Two z-scores are
-reported per cell: log share vs. d_{10^10}, and uniform vs. log share (natural
-against logarithmic counting, Problem 2(a)). Chi-square tests check that the
-shares do not depend on the scale, and that both counting modes agree.
+FILES are raw outputs (out/passage_*.csv) or the summary CSV written by --csv
+(e.g. ../results/passage/passage_shares.csv). For every map 3x+c the script
+prints, per cycle, the brute-force share d_{10^10} (Table 6 of the paper, four
+digits) and, per window [10^y, 10^(alpha*y)], the logarithmic and uniform shares
+with standard errors. Two z-scores are reported per cell: log share vs. d_{10^10},
+and uniform vs. log share (natural against logarithmic counting, Problem 2(a)).
+Chi-square tests check that the shares do not depend on the scale, and that both
+counting modes agree.
+
+  --pool Y       also print the shares pooled over all windows with log10y >= Y,
+                 per counting mode (Table 7 of the paper: --pool 20)
+  --replicates   chi-square test per configuration that the replicates (seeds)
+                 scatter like independent binomial samples (raw outputs only)
 """
 import csv
 import glob
@@ -87,17 +94,29 @@ def read_rows(paths):
             files += sorted(glob.glob(p))
     for f in files:
         with open(f) as fh:
+            summary = False
             for r in csv.reader(fh):
-                if len(r) == 9 and r[0].lstrip("-").isdigit():
+                if r and r[0] == "c" and "cycle_min" in r:
+                    summary = True           # summary CSV written by --csv
+                    continue
+                if summary and len(r) == 11:
+                    c, sc, al, cyc = r[0], r[1], r[2], r[3]
+                    for mode, n, share in (("log", r[5], r[6]), ("unif", r[8], r[9])):
+                        cnt = round(float(share) * int(n))
+                        yield [c, sc, al, mode, "summary", n, cyc, str(cnt), share]
+                elif len(r) == 9 and r[0].lstrip("-").isdigit():
                     yield r
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    out_csv = None
-    if "--csv" in sys.argv:
-        out_csv = sys.argv[sys.argv.index("--csv") + 1]
-        args = [a for a in args if a != out_csv]
+    argv = sys.argv[1:]
+    out_csv = pool_min = None
+    if "--csv" in argv:
+        i = argv.index("--csv"); out_csv = argv[i + 1]; del argv[i:i + 2]
+    if "--pool" in argv:
+        i = argv.index("--pool"); pool_min = float(argv[i + 1]); del argv[i:i + 2]
+    replicates = "--replicates" in argv
+    args = [a for a in argv if not a.startswith("--")]
     if not args:
         print(__doc__)
         return
@@ -107,6 +126,7 @@ def main():
     seen = set()                              # (c, scale, alpha, mode, seed)
     exact = {}                                # (c, scale, alpha, mode, cyc) -> share
     cycles = defaultdict(set)
+    per_seed = defaultdict(lambda: defaultdict(dict))   # (c, scale, alpha, mode) -> seed -> cyc -> count
     for c, sc, al, mode, seed, n, cyc, cnt, share in read_rows(args):
         c, cyc = int(c), int(cyc)
         key = (c, sc, al, mode)
@@ -118,6 +138,7 @@ def main():
             seen.add(key + (seed,))
             totals[key] += int(n)
         counts[key + (cyc,)] += int(cnt)
+        per_seed[key][seed][cyc] = per_seed[key][seed].get(cyc, 0) + int(cnt)
         if cyc != -1:
             cycles[c].add(cyc)
 
@@ -168,6 +189,39 @@ def main():
                 el = exact.get((c, sc, al, "exact_log", cyc), float("nan"))
                 eu = exact.get((c, sc, al, "exact_unif", cyc), float("nan"))
                 print(f"{cyc:>6}  log {el:.6f}  unif {eu:.6f}")
+
+    if pool_min is not None:
+        print(f"\n=== shares pooled over the windows with log10y >= {pool_min:g} ===")
+        for c in sorted(cycles):
+            keys = [k for k in totals if k[0] == c and float(k[1]) >= pool_min]
+            print(f"\nmap 3x{c:+d}")
+            print(f"{'cycle':>6} | {'log share':>10} {'SE':>8} | {'unif share':>10} {'SE':>8}")
+            for cyc in sorted(cycles[c]):
+                cells = []
+                for mode in ("log", "unif"):
+                    n = sum(totals[k] for k in keys if k[3] == mode)
+                    k_ = sum(counts[k + (cyc,)] for k in keys if k[3] == mode)
+                    p = k_ / n if n else float("nan")
+                    se = math.sqrt(p * (1 - p) / n) if n else float("nan")
+                    cells.append(f"{p:>10.5f} {se:>8.6f}")
+                print(f"{cyc:>6} | {cells[0]} | {cells[1]}")
+
+    if replicates:
+        print("\n=== replicate check: do the seeds of each configuration scatter binomially? ===")
+        pv = []
+        for key in sorted(per_seed, key=lambda k: (k[0], float(k[1]), k[3])):
+            reps = {sd: v for sd, v in per_seed[key].items() if sd != "summary"}
+            if len(reps) < 2:
+                continue
+            cyc = sorted({cy for d in reps.values() for cy in d})
+            chi, dof, p = homogeneity([[reps[sd].get(cy, 0) for cy in cyc] for sd in sorted(reps)])
+            pv.append(p)
+            print(f"3x{key[0]:+d} 10^{key[1]:>3} {key[3]:4s}: {len(reps)} replicates, chi2={chi:6.1f}, dof={dof:3d}, p={p:.3f}")
+        if pv:
+            print(f"{len(pv)} configurations: {sum(p < 0.05 for p in pv)} with p<0.05, "
+                  f"{sum(p < 0.01 for p in pv)} with p<0.01 (expected about {0.05 * len(pv):.1f} and {0.01 * len(pv):.1f})")
+        else:
+            print("no raw outputs with several seeds found")
 
     if out_csv:
         with open(out_csv, "w", newline="") as fh:
