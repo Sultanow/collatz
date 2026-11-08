@@ -1,0 +1,7 @@
+maps: 133, cycles: 956 (445 primitive, 126 with word length > 40), samples per map: 50,000,000 to 50,000,000
+unresolved orbits: 0
+max |sum of shares - 1| per map: 0.00e+00
+gcd classes: share against density phi(c/m)/c, max |z| = 3.51
+cycles with l <= 40 that are not in the census: none
+census cycles of these maps that were not observed: none
+landscape written to ../results/landscape/landscape_shares.csv

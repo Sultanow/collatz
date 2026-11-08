@@ -1,13 +1,20 @@
 #!/bin/bash
 # Basin shares far beyond brute force (Theorem 1 and Remark 5 of the paper). Every line
-# "c log10y alpha mode n" of CONFIGS is run by REPS array tasks; each task draws n odd
+# "c log10y alpha mode n [m K]" of CONFIGS is run by REPS array tasks; each task draws n odd
 # starting values in [10^log10y, 10^(alpha*log10y)], logarithmically (log) or uniformly
-# (unif), and records the basin of the first passage below the table bound B.
+# (unif), and records the basin of the first passage below the table bound B. With the
+# optional fields m K, the starting values are drawn from K residue classes r mod m (n each).
 # Submit from the C/ folder, e.g.:
 #   make passage && mkdir -p logs out
-#   sbatch --array=0-299 --export=ALL slurm/passage_array.sbatch   # 30 config lines x REPS=10
+#   sbatch --array=0-299 --export=ALL slurm/passage_array.sbatch                 # Run C: 30 lines x REPS=10
+#   CONFIGS=slurm/landscape_configs.txt REPS=5 OUTDIR=out_landscape \
+#     sbatch --array=0-664 --export=ALL slurm/passage_array.sbatch               # Run D: 133 lines x 5
+#   CONFIGS=slurm/residue_configs.txt REPS=1 OUTDIR=out_residue \
+#     sbatch --array=0-37 --export=ALL slurm/passage_array.sbatch                # Run E: 38 lines
 # The array size must be (number of config lines) x REPS. Merge afterwards:
-#   python3 merge_passage.py out/passage_*.csv --csv ../results/passage_shares.csv
+#   python3 merge_passage.py out/passage_*.csv --csv ../results/passage/passage_shares.csv
+#   python3 landscape.py out_landscape/passage_*.csv --csv ../results/landscape/landscape_shares.csv
+#   python3 residue_flatness.py out_residue/passage_*.csv > ../results/residue/report.txt
 #SBATCH --job-name=passage
 #SBATCH --partition=std              # adjust to your cluster
 #SBATCH --array=0-299                # (config lines) x REPS - 1 (can be overridden with sbatch --array)
@@ -16,11 +23,17 @@
 #SBATCH --time=04:00:00
 #SBATCH --output=logs/passage_%A_%a.log
 
-CONFIGS=${CONFIGS:-slurm/passage_configs.txt}; REPS=${REPS:-10}; B=${B:-10000000}
+CONFIGS=${CONFIGS:-slurm/passage_configs.txt}; REPS=${REPS:-10}; B=${B:-10000000}; OUTDIR=${OUTDIR:-out}
+mkdir -p "$OUTDIR"
 LINE=$(( SLURM_ARRAY_TASK_ID / REPS + 1 ))
 REP=$(( SLURM_ARRAY_TASK_ID % REPS ))
-read -r C S A M N < <(grep -v '^#' "$CONFIGS" | grep -v '^[[:space:]]*$' | sed -n "${LINE}p")
+read -r C S A M N SM SK < <(grep -v '^#' "$CONFIGS" | grep -v '^[[:space:]]*$' | sed -n "${LINE}p")
 if [ -z "$C" ]; then exit 0; fi
 SEED=$(( 1000003 * LINE + REP + 1 ))
-./passage "$C" "$S" "$A" "$M" "$N" "$SEED" "$B" \
-  > "out/passage_c${C}_y${S}_a${A}_${M}_${REP}.csv"
+if [ -n "$SM" ]; then
+  ./passage "$C" "$S" "$A" "$M" "$N" "$SEED" "$B" "$SM" "${SK:-0}" \
+    > "$OUTDIR/passage_c${C}_y${S}_a${A}_${M}_m${SM}_${REP}.csv"
+else
+  ./passage "$C" "$S" "$A" "$M" "$N" "$SEED" "$B" \
+    > "$OUTDIR/passage_c${C}_y${S}_a${A}_${M}_${REP}.csv"
+fi

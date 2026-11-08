@@ -19,18 +19,24 @@
  *
  * Build:  make passage          (needs GMP and MPFR, see the Makefile)
  *         gcc -O2 -o passage passage.c -lmpfr -lgmp
- * Usage:  ./passage c log10y alpha mode nsamples seed [B]
+ * Usage:  ./passage c log10y alpha mode nsamples seed [B [m K]]
  *   c        odd integer >= -1 (map 3x+c)
  *   log10y   window start y = 10^log10y (decimal, e.g. 50)
  *   alpha    window [y, y^alpha] (decimal, e.g. 1.1)
  *   mode     log | unif | exact
- *   nsamples number of samples (ignored in mode exact)
+ *   nsamples number of samples (ignored in mode exact); per residue class if m is given
  *   seed     RNG seed
  *   B        table bound, default 10000000
+ *   m K      residue sweep: draw the starting values from K residue classes r mod m
+ *            (all admissible classes if K = 0 or K is at least their number; for even m
+ *            only odd r are admissible), nsamples per class
  * Output: CSV on stdout, one line per cycle (cycle_min = -1: unresolved):
  *   c,log10y,alpha,mode,seed,n,cycle_min,count,share
+ * In a residue sweep two fields m,r are appended to every line.
  * In mode exact, two blocks are printed (mode exact_log and exact_unif);
  * count is the number of odd integers in the basin, share the exact share.
+ * Cycles whose members all exceed B are detected on the fly (Brent's algorithm),
+ * reported on stderr and counted like the others.
  * Cluster runs: slurm/passage_array.sbatch; merge with merge_passage.py.
  * Self-tests: make test-passage.
  */
@@ -78,6 +84,18 @@ static int cycle_label(uint64_t mn)
     return ncyc;
 }
 
+/* label of the cycle through v (v lies on a cycle); new cycles above B are reported */
+static int label_of_cycle_through(u128 v)
+{
+    u128 mn = v, w = syr128(v);
+    while (w != v) { if (w < mn) mn = w; w = syr128(w); }
+    if (mn >> 64) return UNRES;
+    int before = ncyc, L = cycle_label((uint64_t)mn);
+    if (ncyc > before && mn >= B)
+        fprintf(stderr, "new cycle above the table bound: minimum %llu\n", (unsigned long long)mn);
+    return L;
+}
+
 /* Label every odd m < B with the cycle its orbit reaches. */
 static void build_table(void)
 {
@@ -88,17 +106,15 @@ static void build_table(void)
     if (!lab || !stk) { fprintf(stderr, "out of memory\n"); exit(1); }
     for (uint64_t m = 1; m < B; m += 2) {
         if (lab[m >> 1]) continue;
-        u128 v = m;
-        uint64_t steps = 0;
+        u128 v = m, tort = m;
+        uint64_t steps = 0, power = 1, lam = 0;
         int res;
         sp = 0;
         for (;;) {
             if (v < B) {
                 uint8_t L = lab[(uint64_t)v >> 1];
                 if (L == INPATH) {          /* the path closed a cycle */
-                    u128 mn = v, w = syr128(v);
-                    while (w != v) { if (w < mn) mn = w; w = syr128(w); }
-                    res = cycle_label((uint64_t)mn);
+                    res = label_of_cycle_through(v);
                     break;
                 }
                 if (L) { res = L; break; }
@@ -109,9 +125,15 @@ static void build_table(void)
                     if (!stk) { fprintf(stderr, "out of memory\n"); exit(1); }
                 }
                 stk[sp++] = (uint64_t)v;
+                tort = v; power = 1; lam = 0;   /* restart cycle detection */
+            } else if (lam && v == tort) {      /* a cycle entirely above B */
+                res = label_of_cycle_through(v);
+                break;
             }
+            if (lam == power) { tort = v; power <<= 1; lam = 0; }
             if (v > LIM || ++steps > TABLE_STEPCAP) { res = UNRES; break; }
             v = syr128(v);
+            lam++;
         }
         for (size_t i = 0; i < sp; i++) lab[stk[i] >> 1] = (uint8_t)res;
     }
@@ -134,8 +156,13 @@ static int label_of_big(mpz_t N, uint64_t *steps_out)
         }
         u128 v = (u128)mpz_getlimbn(N, 0);
         if (mpz_size(N) > 1) v |= ((u128)mpz_getlimbn(N, 1)) << 64;
+        u128 tort = v;
+        uint64_t power = 1, lam = 0;
         while (v >= B && v < LIM) {
             v = syr128(v);
+            lam++;
+            if (v == tort) { *steps_out = steps; return label_of_cycle_through(v); }
+            if (lam == power) { tort = v; power <<= 1; lam = 0; }
             if (++steps > SAMPLE_STEPCAP) { *steps_out = steps; return UNRES; }
         }
         if (v < B) { *steps_out = steps; return lab[(uint64_t)v >> 1]; }
@@ -149,10 +176,13 @@ static int label_of_big(mpz_t N, uint64_t *steps_out)
 static int label_of_small(uint64_t n)
 {
     if (n < B) return lab[n >> 1];
-    u128 v = n;
-    uint64_t steps = 0;
+    u128 v = n, tort = n;
+    uint64_t steps = 0, power = 1, lam = 0;
     while (v >= B) {
         v = syr128(v);
+        lam++;
+        if (v == tort) return label_of_cycle_through(v);
+        if (lam == power) { tort = v; power <<= 1; lam = 0; }
         if (++steps > SAMPLE_STEPCAP) return UNRES;
     }
     return lab[(uint64_t)v >> 1];
@@ -161,7 +191,7 @@ static int label_of_small(uint64_t n)
 int main(int argc, char **argv)
 {
     if (argc < 7) {
-        fprintf(stderr, "usage: %s c log10y alpha mode nsamples seed [B]\n", argv[0]);
+        fprintf(stderr, "usage: %s c log10y alpha mode nsamples seed [B [m K]]\n", argv[0]);
         return 1;
     }
     C = strtol(argv[1], NULL, 10);
@@ -169,6 +199,9 @@ int main(int argc, char **argv)
     uint64_t nsamples = strtoull(argv[5], NULL, 10);
     unsigned long seed = strtoul(argv[6], NULL, 10);
     B = (argc > 7) ? strtoull(argv[7], NULL, 10) : 10000000ULL;
+    uint64_t sweep_m = (argc > 8) ? strtoull(argv[8], NULL, 10) : 0;
+    uint64_t sweep_K = (argc > 9) ? strtoull(argv[9], NULL, 10) : 0;
+    if (sweep_m == 1 || sweep_m > (1ULL << 62)) { fprintf(stderr, "m must be at least 2 and below 2^62\n"); return 1; }
     if (C < -1 || (C % 2) == 0) { fprintf(stderr, "c must be odd and >= -1\n"); return 1; }
     if (B < 3) B = 3;
 
@@ -231,38 +264,78 @@ int main(int argc, char **argv)
     mpz_sub(span, hi, lo);
     mpz_add_ui(span, span, 1);
 
+    /* residue classes: none (plain sampling) or a sweep over K classes r mod m */
+    uint64_t nres = 1, *res = NULL;
+    if (sweep_m) {
+        uint64_t adm = (sweep_m % 2 == 0) ? sweep_m / 2 : sweep_m;
+        if (sweep_K == 0 || sweep_K >= adm) {
+            nres = adm;
+            res = malloc(nres * sizeof *res);
+            for (uint64_t i = 0; i < nres; i++) res[i] = (sweep_m % 2 == 0) ? 2 * i + 1 : i;
+        } else {
+            nres = sweep_K;
+            res = malloc(nres * sizeof *res);
+            uint64_t x = 0x9E3779B97F4A7C15ULL ^ (uint64_t)seed;
+            for (uint64_t i = 0; i < nres; ) {            /* K distinct classes */
+                x ^= x << 13; x ^= x >> 7; x ^= x << 17;   /* xorshift64 */
+                uint64_t r = x % sweep_m, j;
+                if (sweep_m % 2 == 0) r |= 1;
+                for (j = 0; j < i && res[j] != r; j++) ;
+                if (j == i) res[i++] = r;
+            }
+        }
+        if (!res) { fprintf(stderr, "out of memory\n"); return 1; }
+    }
+
     uint64_t steps, stepsum = 0;
     t0 = clock();
-    for (uint64_t i = 0; i < nsamples; i++) {
-        if (logmode) {
-            mpfr_urandomb(U, rs);                      /* uniform in [0,1), prec bits */
-            mpfr_mul(t, U, a1, MPFR_RNDN);
-            mpfr_add_ui(t, t, 1, MPFR_RNDN);
-            mpfr_mul(t, t, lny, MPFR_RNDN);            /* u in [ln y, alpha ln y) */
-            mpfr_exp(t, t, MPFR_RNDN);
-            mpfr_get_z(N, t, MPFR_RNDD);
-            mpz_setbit(N, 0);
-        } else {
-            mpz_urandomm(N, rs, span);
-            mpz_add(N, N, lo);
-            mpz_setbit(N, 0);
-            if (mpz_cmp(N, hi) > 0) mpz_sub_ui(N, N, 2);
+    for (uint64_t ri = 0; ri < nres; ri++) {
+        uint64_t M2 = 0, r2 = 0;
+        if (sweep_m) {                     /* odd representatives of the class r mod m */
+            M2 = (sweep_m % 2 == 0) ? sweep_m : 2 * sweep_m;
+            r2 = (sweep_m % 2 == 0) ? res[ri] : ((res[ri] % 2) ? res[ri] : res[ri] + sweep_m);
         }
-        int L = label_of_big(N, &steps);
-        cnt[L]++;
-        stepsum += steps;
+        memset(cnt, 0, sizeof cnt);
+        for (uint64_t i = 0; i < nsamples; i++) {
+            if (logmode) {
+                mpfr_urandomb(U, rs);                      /* uniform in [0,1), prec bits */
+                mpfr_mul(t, U, a1, MPFR_RNDN);
+                mpfr_add_ui(t, t, 1, MPFR_RNDN);
+                mpfr_mul(t, t, lny, MPFR_RNDN);            /* u in [ln y, alpha ln y) */
+                mpfr_exp(t, t, MPFR_RNDN);
+                mpfr_get_z(N, t, MPFR_RNDD);
+            } else {
+                mpz_urandomm(N, rs, span);
+                mpz_add(N, N, lo);
+            }
+            if (sweep_m) {                                 /* move N into the class r2 mod M2 */
+                uint64_t nm = mpz_fdiv_ui(N, M2);
+                uint64_t adj = (nm + M2 - r2) % M2;
+                mpz_sub_ui(N, N, adj);
+                if (mpz_cmp(N, lo) < 0) mpz_add_ui(N, N, M2);
+            } else {
+                mpz_setbit(N, 0);
+                if (!logmode && mpz_cmp(N, hi) > 0) mpz_sub_ui(N, N, 2);
+            }
+            int L = label_of_big(N, &steps);
+            cnt[L]++;
+            stepsum += steps;
+        }
+        for (int k = 1; k <= ncyc + 1; k++) {
+            int L = (k <= ncyc) ? k : UNRES;
+            long long mn = (L == UNRES) ? -1 : (long long)cycmin[L];
+            printf("%ld,%s,%s,%s,%lu,%llu,%lld,%llu,%.10f", C, s_log10y, s_alpha, mode, seed,
+                   (unsigned long long)nsamples, mn, (unsigned long long)cnt[L],
+                   (double)cnt[L] / (double)(nsamples ? nsamples : 1));
+            if (sweep_m) printf(",%llu,%llu", (unsigned long long)sweep_m, (unsigned long long)res[ri]);
+            printf("\n");
+        }
     }
     double secs = (double)(clock() - t0) / CLOCKS_PER_SEC;
-    fprintf(stderr, "c=%ld log10y=%s alpha=%s mode=%s n=%llu: %.1fs, %.2f us/sample, mean steps %.1f\n",
-            C, s_log10y, s_alpha, mode, (unsigned long long)nsamples, secs,
-            1e6 * secs / (double)(nsamples ? nsamples : 1),
-            (double)stepsum / (double)(nsamples ? nsamples : 1));
-    for (int k = 1; k <= ncyc + 1; k++) {
-        int L = (k <= ncyc) ? k : UNRES;
-        long long mn = (L == UNRES) ? -1 : (long long)cycmin[L];
-        printf("%ld,%s,%s,%s,%lu,%llu,%lld,%llu,%.10f\n", C, s_log10y, s_alpha, mode, seed,
-               (unsigned long long)nsamples, mn, (unsigned long long)cnt[L],
-               (double)cnt[L] / (double)(nsamples ? nsamples : 1));
-    }
+    uint64_t total = nsamples * nres;
+    fprintf(stderr, "c=%ld log10y=%s alpha=%s mode=%s n=%llu (%llu classes): %.1fs, %.2f us/sample, mean steps %.1f\n",
+            C, s_log10y, s_alpha, mode, (unsigned long long)nsamples, (unsigned long long)nres, secs,
+            1e6 * secs / (double)(total ? total : 1), (double)stepsum / (double)(total ? total : 1));
+    free(res);
     return 0;
 }

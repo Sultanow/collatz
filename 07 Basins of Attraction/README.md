@@ -67,6 +67,8 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── merge_basin.py         merge basin outputs, window shares
 │   ├── merge_passage.py       merge passage outputs, pooled shares, replicate check
 │   ├── local_structure.py     residue classes of 3x+1 and 3x-1 (Tables 2 and 3)
+│   ├── landscape.py           basin landscape of all maps 3x+c, c <= 400 (Run D)
+│   ├── residue_flatness.py    basin shares conditional on residue classes (Run E)
 │   ├── Makefile               make, make test, make passage, make test-passage
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
@@ -75,7 +77,9 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       ├── basin_array.sbatch
 │       ├── submit_basins.sh
 │       ├── passage_array.sbatch
-│       └── passage_configs.txt
+│       ├── passage_configs.txt
+│       ├── landscape_configs.txt
+│       └── residue_configs.txt
 └── results/                   census outputs, rational cycle list, basin counts
     └── passage/               sampled basin shares (Run C)
 ```
@@ -235,10 +239,11 @@ About 23 seconds for $n < 10^8$ with a cache of $10^6$ on one core. A run up to 
 * `mode`: `log` draws odd starting values with probability proportional to $1/N$, `unif` draws them uniformly (natural counting), `exact` enumerates a small window completely (for validation).
 * `nsamples`, `seed`: number of starting values and seed of the random generator.
 * `B`: table bound (default $10^7$). All odd $m<B$ are labelled with their cycle first.
+* `m K` (optional): residue sweep. The starting values are drawn from $K$ residue classes $r \bmod m$, `nsamples` in each (all admissible classes if $K=0$ or $K$ is at least their number; for even $m$ only odd $r$). Two fields `m,r` are appended to every output line.
 
 #### how it works
 
-Each orbit is followed with GMP integers until it first drops below `B`; the basin of that point is read from the table. By basin invariance under first passage (Step 2 of the proof of Theorem 1 of the paper), this is the basin of the starting value. The logarithmic shares estimate the window probabilities of Remark 5, which converge to the logarithmic basin densities; the uniform shares estimate natural counting on the same window.
+Each orbit is followed with GMP integers until it first drops below `B`; the basin of that point is read from the table. By basin invariance under first passage (Step 2 of the proof of Theorem 1 of the paper), this is the basin of the starting value. Cycles whose members all exceed `B` are detected on the fly with Brent's algorithm, reported on stderr and counted like the others. The logarithmic shares estimate the window probabilities of Remark 5, which converge to the logarithmic basin densities; the uniform shares estimate natural counting on the same window.
 
 #### output
 
@@ -309,6 +314,25 @@ make passage && make test-passage && mkdir -p logs out
 sbatch --array=0-299 --export=ALL slurm/passage_array.sbatch
 python3 merge_passage.py out/passage_*.csv --csv ../results/passage/passage_shares.csv --pool 20 --replicates > ../results/passage/report.txt
 tar czf ../results/passage/runC_raw.tar.gz out/passage_*.csv     # raw outputs, needed for --replicates
+```
+
+**Run D** – basin landscape: all 133 maps $3x+c$ with $1 \le c \le 400$ and $\gcd(c,6)=1$, window $[10^{30}, 10^{33}]$, $5\cdot 10^7$ logarithmic starting values per map. `landscape.py` describes every cycle by its parity word, checks the gcd classes against Proposition 5 and cross-checks the cycles with $l \le 40$ against the census; `fig3_landscape.py` draws the landscape and prints rank correlations between the shares and simple features of the cycles:
+
+```console
+CONFIGS=slurm/landscape_configs.txt REPS=5 OUTDIR=out_landscape sbatch --array=0-664 --export=ALL slurm/passage_array.sbatch
+mkdir -p ../results/landscape
+python3 landscape.py out_landscape/passage_*.csv --csv ../results/landscape/landscape_shares.csv > ../results/landscape/report.txt
+python3 ../figures/fig3_landscape.py ../results/landscape/landscape_shares.csv ../docs/fig3_landscape.pdf
+tar czf ../results/landscape/runD_raw.tar.gz out_landscape/passage_*.csv
+```
+
+**Run E** – basin shares conditional on residue classes $r \bmod 2^k$ ($k = 4, \dots, 30$) and $r \bmod 3^j$ ($j = 1, \dots, 12$) for $3x-1$, $3x+5$ and $3x+13$, $10^6$ starting values in each of up to 64 classes; the classes mod 5 for $3x+5$ and mod 13 for $3x+13$ are positive controls (the multiples of 5 and 13 form a basin of their own). `residue_flatness.py` tests per map and modulus whether the class shares agree:
+
+```console
+CONFIGS=slurm/residue_configs.txt REPS=1 OUTDIR=out_residue sbatch --array=0-37 --export=ALL slurm/passage_array.sbatch
+mkdir -p ../results/residue
+python3 residue_flatness.py out_residue/passage_*.csv --csv ../results/residue/residue_classes.csv > ../results/residue/report.txt
+tar czf ../results/residue/runE_raw.tar.gz out_residue/passage_*.csv
 ```
 
 ## Reproduction map

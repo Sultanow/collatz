@@ -1,0 +1,11 @@
+445 primitive cycles of 133 maps; Spearman correlation with the relative share, pooled:
+          log(min/c): -0.575
+       word length l: +0.413
+                 k/l: -0.418
+   cycles of the map: -0.732
+within-map Spearman correlation with the relative share (maps with at least two primitive cycles):
+       cycle minimum: mean -0.067; positive in 42, negative in 55 of 98 maps; sign test p = 0.2229
+       word length l: mean +0.272; positive in 52, negative in 24 of 83 maps; sign test p = 0.0018
+                 k/l: mean -0.078; positive in 25, negative in 34 of 63 maps; sign test p = 0.2976
+  the cycle with the smallest minimum has the largest basin in 36 of 98 maps
+figure written to fig3_landscape.pdf
