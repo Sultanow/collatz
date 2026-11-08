@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Figure 3: the basin landscape of the maps 3x+c, 1 <= c <= 400, gcd(c,6) = 1 (Run D).
-Left: for every map, the relative shares of its primitive cycles (cycles coprime to c),
-largest first. Right: relative share of every primitive cycle against the size of its
-minimum relative to c, coloured by the word length l. The script also prints Spearman
+"""Figure 3: the basin landscape of the maps 3x+c, 1 <= c <= 400, gcd(c,6) = 1 (Run D):
+for every map, the relative shares of its primitive cycles (cycles coprime to c), largest
+first (darkest at the bottom). The script also prints Spearman
 rank correlations between the relative share and simple features of the cycles,
 pooled and within maps (the within-map version removes the effect of the number of cycles).
 
@@ -15,7 +14,6 @@ import sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
 
 src = sys.argv[1] if len(sys.argv) > 1 else "../results/landscape/landscape_shares.csv"
 dst = sys.argv[2] if len(sys.argv) > 2 else "../docs/fig3_landscape.pdf"
@@ -83,30 +81,20 @@ top = sum(max(g, key=lambda r: float(r["rel_share"]))["cycle_min"] == min(g, key
           for g in multi)
 print(f"  the cycle with the smallest minimum has the largest basin in {top} of {len(multi)} maps")
 
-fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.4, 3.6), gridspec_kw={"width_ratios": [2.2, 1]})
+fig, ax = plt.subplots(figsize=(7.4, 3.2))
 cmap = plt.get_cmap("viridis")
 for i, c in enumerate(maps):
     bottom = 0.0
-    for j, s in enumerate(by_map[c]):
-        ax.bar(i, s, bottom=bottom, width=1.0, color=cmap(min(j, 7) / 7), linewidth=0)
-        bottom += s
-step = max(1, len(maps) // 12)
+    for j, s_ in enumerate(by_map[c]):
+        ax.bar(i, s_, bottom=bottom, width=1.0, color=cmap(min(j, 7) / 7), linewidth=0)
+        bottom += s_
+step = max(1, len(maps) // 14)
 ax.set_xticks(range(0, len(maps), step))
 ax.set_xticklabels([str(maps[i]) for i in range(0, len(maps), step)], fontsize=7)
 ax.set_xlim(-0.5, len(maps) - 0.5)
 ax.set_ylim(0, 1)
-ax.set_xlabel("c (maps 3x+c, gcd(c,6) = 1)")
-ax.set_ylabel("share among integers coprime to c")
-ax.set_title("primitive basins, largest first", fontsize=9)
-
-sc = bx.scatter([math.exp(v) for v in feats["log(min/c)"]], rel, c=feats["word length l"], s=6,
-                cmap="plasma", norm=LogNorm(vmin=max(1, min(feats["word length l"])),
-                                            vmax=max(feats["word length l"])))
-bx.set_xscale("log")
-bx.set_yscale("log")
-bx.set_xlabel("cycle minimum / c")
-bx.set_ylabel("relative share")
-fig.colorbar(sc, ax=bx, label="word length l")
+ax.set_xlabel("c (maps 3x+c with gcd(c,6) = 1)")
+ax.set_ylabel("share among integers prime to c")
 fig.tight_layout()
 fig.savefig(dst)
 print(f"figure written to {dst}")

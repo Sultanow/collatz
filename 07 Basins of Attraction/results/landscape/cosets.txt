@@ -1,0 +1,76 @@
+3x+23: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49996, 0.50003
+3x+47: index 2, 7 primitive cycles in 2 cosets; coset shares 0.49999, 0.50001
+3x+71: index 2, 7 primitive cycles in 2 cosets; coset shares 0.49992, 0.50011
+3x+73: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49995, 0.50002
+3x+95: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49973, 0.50018
+3x+97: index 2, 2 primitive cycles in 2 cosets; coset shares 0.49990, 0.50009
+3x+115: index 2, 2 primitive cycles in 2 cosets; coset shares 0.49991, 0.50018
+3x+119: index 2, 5 primitive cycles in 2 cosets; coset shares 0.50003, 0.50005
+3x+143: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49990, 0.50013
+3x+145: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49996, 0.50008
+3x+161: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49992, 0.50013
+3x+167: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49998, 0.50001
+3x+191: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49997, 0.50004
+3x+193: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49997, 0.50002
+3x+215: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49986, 0.50012
+3x+217: index 2, 2 primitive cycles in 2 cosets; coset shares 0.50001, 0.50001
+3x+235: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49995, 0.50003
+3x+239: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49994, 0.50007
+3x+241: index 2, 2 primitive cycles in 2 cosets; coset shares 0.49999, 0.50001
+3x+247: index 3, 6 primitive cycles in 3 cosets; coset shares 0.33312, 0.33338, 0.33348
+3x+253: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49994, 0.50009
+3x+259: index 3, 7 primitive cycles in 3 cosets; coset shares 0.33334, 0.33335, 0.33337
+3x+263: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49998, 0.50003
+3x+265: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49989, 0.50007
+3x+287: index 2, 6 primitive cycles in 2 cosets; coset shares 0.49995, 0.50004
+3x+299: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49987, 0.50018
+3x+307: index 3, 7 primitive cycles in 3 cosets; coset shares 0.33325, 0.33329, 0.33346
+3x+311: index 2, 2 primitive cycles in 2 cosets; coset shares 0.49996, 0.50004
+3x+313: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49986, 0.50014
+3x+329: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49994, 0.50007
+3x+335: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49991, 0.50000
+3x+337: index 2, 8 primitive cycles in 2 cosets; coset shares 0.49996, 0.50004
+3x+355: index 2, 20 primitive cycles in 2 cosets; coset shares 0.49996, 0.50013
+3x+359: index 2, 11 primitive cycles in 2 cosets; coset shares 0.49993, 0.50007
+3x+365: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49985, 0.49998
+3x+383: index 2, 2 primitive cycles in 2 cosets; coset shares 0.49997, 0.50002
+3x+385: index 2, 3 primitive cycles in 2 cosets; coset shares 0.49998, 0.50006
+3x+391: index 2, 4 primitive cycles in 2 cosets; coset shares 0.49989, 0.50009
+
+38 maps with index > 1; cosets without a cycle: none; largest deviation of a coset share from 1/index: 2.7e-04
+31 cycles alone in their coset (share exactly 1/index):
+  3x+23, cycle 41: measured 0.50003, exact 0.50000
+  3x+73, cycle 19: measured 0.49995, exact 0.50000
+  3x+95, cycle 1: measured 0.50018, exact 0.50000
+  3x+97, cycle 1: measured 0.50009, exact 0.50000
+  3x+97, cycle 13: measured 0.49990, exact 0.50000
+  3x+115, cycle 13: measured 0.49991, exact 0.50000
+  3x+115, cycle 17: measured 0.50018, exact 0.50000
+  3x+143, cycle 7: measured 0.49990, exact 0.50000
+  3x+145, cycle 23: measured 0.49996, exact 0.50000
+  3x+161, cycle 25: measured 0.50013, exact 0.50000
+  3x+167, cycle 127: measured 0.50001, exact 0.50000
+  3x+191, cycle 961: measured 0.49997, exact 0.50000
+  3x+215, cycle 47: measured 0.50012, exact 0.50000
+  3x+217, cycle 17: measured 0.50001, exact 0.50000
+  3x+217, cycle 59: measured 0.50001, exact 0.50000
+  3x+235, cycle 17: measured 0.50003, exact 0.50000
+  3x+241, cycle 7: measured 0.50001, exact 0.50000
+  3x+241, cycle 59: measured 0.49999, exact 0.50000
+  3x+247, cycle 1: measured 0.33348, exact 0.33333
+  3x+253, cycle 17: measured 0.49994, exact 0.50000
+  3x+263, cycle 7: measured 0.50003, exact 0.50000
+  3x+265, cycle 47: measured 0.50007, exact 0.50000
+  3x+299, cycle 197: measured 0.49987, exact 0.50000
+  3x+311, cycle 13: measured 0.49996, exact 0.50000
+  3x+311, cycle 29: measured 0.50004, exact 0.50000
+  3x+329, cycle 1: measured 0.49994, exact 0.50000
+  3x+335, cycle 1: measured 0.50000, exact 0.50000
+  3x+383, cycle 41: measured 0.49997, exact 0.50000
+  3x+383, cycle 67: measured 0.50002, exact 0.50000
+  3x+385, cycle 107: measured 0.49998, exact 0.50000
+  3x+391, cycle 37: measured 0.50009, exact 0.50000
+
+backward-mass predictor:
+  as computed           : median |log ratio| 0.049, 90% 0.220, mean |share error| 0.0165, largest basin right 87/98
+  normalised in cosets  : median |log ratio| 0.033, 90% 0.235, mean |share error| 0.0116, largest basin right 91/98

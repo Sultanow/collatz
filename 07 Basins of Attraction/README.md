@@ -71,6 +71,7 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── residue_flatness.py    basin shares conditional on residue classes (Run E)
 │   ├── backward_mass.c        harmonic mass of the backward tree of a cycle (Run F)
 │   ├── predictor_eval.py      backward-mass predictor vs. measured basin shares (Run F)
+│   ├── cosets.py              cosets of <2,3> mod c against the measured shares (Prop. 6)
 │   ├── Makefile               make (incl. backward_mass), make test, make passage, make test-passage
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
@@ -357,7 +358,10 @@ cat out_mass/bm_*.csv > ../results/landscape/backward_mass_D70.csv
 python3 predictor_eval.py ../results/landscape/landscape_shares.csv ../results/landscape/backward_mass_D70.csv --sweep 10 --csv ../results/landscape/predictions_D70.csv > ../results/landscape/predictor_D70.txt
 python3 ../figures/fig4_backward_mass.py ../results/landscape/predictions_D70.csv ../results/landscape/fig4_backward_mass.pdf
 tar czf ../results/landscape/runF_raw.tar.gz out_mass/bm_*.csv
+python3 cosets.py ../results/landscape/landscape_shares.csv --predictions ../results/landscape/predictions_D70.csv > ../results/landscape/cosets.txt
 ```
+
+`cosets.py` checks the multiplicative filtration (Proposition 6 of the paper): for $c$ coprime to 6, $T(n)$ is congruent to $n/2$ or $3n/2$ modulo $c$, so the coset of $n$ modulo the subgroup $\langle 2,3\rangle$ of $(\mathbb Z/c\mathbb Z)^\times$ is constant along every orbit. The script prints the measured share of every coset (it must be $1/[G:H]$), the cycles that are alone in their coset (their share is then exact), and the predictor before and after normalising it within the cosets.
 
 ## Reproduction map
 
@@ -373,6 +377,9 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Cycles with longer words ($3x+23$ through 41; $3x+29$ through 3811 and 7055) | `cycles_for_map.py --search 100000` | printed |
 | Basin shares up to $10^6$, $10^8$, $10^{10}$ (Table 6); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv`, `results/runB_N1e10.tar.gz` (raw) |
 | Basin shares far beyond enumeration, natural vs. logarithmic counting (Table 7) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt`, `results/passage/runC_raw.tar.gz` (raw) |
+| Multiplicative filtration (Proposition 6); survey of all maps $3x+c$ with $c \le 400$ (Figure 3) | `passage.c`, `slurm/landscape_configs.txt`, `landscape.py`, `cosets.py`; `figures/fig3_landscape.py` | `results/landscape/landscape_shares.csv`, `cosets.txt`, `correlations.txt`, `runD_raw.tar.gz` (raw) |
+| Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
+| Backward-mass predictor (Table 8, Figure 4) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
 
 ## Reference results
