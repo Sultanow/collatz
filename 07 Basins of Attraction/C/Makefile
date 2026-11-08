@@ -8,7 +8,7 @@ ifneq ($(GMP_PREFIX),)
 GMP_FLAGS = -I$(GMP_PREFIX)/include -L$(GMP_PREFIX)/lib -Wl,-rpath,$(GMP_PREFIX)/lib
 endif
 
-all: census census_all basin
+all: census census_all basin backward_mass
 
 census: census.c
 	$(CC) $(CFLAGS) -o $@ $< -lm
@@ -17,6 +17,9 @@ census_all: census_all.c
 	$(CC) $(CFLAGS) -o $@ $< -lm
 
 basin: basin.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+backward_mass: backward_mass.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 passage: passage.c
@@ -29,6 +32,6 @@ test-passage: passage
 	bash tests/run_passage_tests.sh
 
 clean:
-	rm -f census census_all basin passage
+	rm -f census census_all basin passage backward_mass
 
 .PHONY: all test test-passage clean

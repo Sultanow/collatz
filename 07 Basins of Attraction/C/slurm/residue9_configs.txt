@@ -1,0 +1,7 @@
+# Run E2: targeted test of the residue classes mod 9 (and mod 27 for 3x+13) with 10^7 starting
+# values per class, as 10 replicates of 10^6 each. Fields: c log10y alpha mode n m K.
+# Submit with REPS=10: --array=0-39, OUTDIR=out_residue9.
+13 30 1.1 log 1000000 9 0
+13 30 1.1 log 1000000 27 0
+5 30 1.1 log 1000000 9 0
+-1 30 1.1 log 1000000 9 0

@@ -69,7 +69,9 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── local_structure.py     residue classes of 3x+1 and 3x-1 (Tables 2 and 3)
 │   ├── landscape.py           basin landscape of all maps 3x+c, c <= 400 (Run D)
 │   ├── residue_flatness.py    basin shares conditional on residue classes (Run E)
-│   ├── Makefile               make, make test, make passage, make test-passage
+│   ├── backward_mass.c        harmonic mass of the backward tree of a cycle (Run F)
+│   ├── predictor_eval.py      backward-mass predictor vs. measured basin shares (Run F)
+│   ├── Makefile               make (incl. backward_mass), make test, make passage, make test-passage
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
 │       ├── census_all_array.sbatch
@@ -79,7 +81,9 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       ├── passage_array.sbatch
 │       ├── passage_configs.txt
 │       ├── landscape_configs.txt
-│       └── residue_configs.txt
+│       ├── residue_configs.txt
+│       ├── residue9_configs.txt
+│       └── backward_mass_array.sbatch
 └── results/                   census outputs, rational cycle list, basin counts
     └── passage/               sampled basin shares (Run C)
 ```
@@ -333,6 +337,26 @@ CONFIGS=slurm/residue_configs.txt REPS=1 OUTDIR=out_residue sbatch --array=0-37 
 mkdir -p ../results/residue
 python3 residue_flatness.py out_residue/passage_*.csv --csv ../results/residue/residue_classes.csv > ../results/residue/report.txt
 tar czf ../results/residue/runE_raw.tar.gz out_residue/passage_*.csv
+```
+
+**Run E2** – targeted repetition of the classes mod 9 (and mod 27 for $3x+13$) with $10^7$ starting values per class, as 10 replicates:
+
+```console
+CONFIGS=slurm/residue9_configs.txt REPS=10 OUTDIR=out_residue9 sbatch --array=0-39 --export=ALL slurm/passage_array.sbatch
+python3 residue_flatness.py out_residue9/passage_*.csv --csv ../results/residue/residue9_classes.csv > ../results/residue/report_mod9.txt
+tar czf ../results/residue/runE2_raw.tar.gz out_residue9/passage_*.csv
+```
+
+**Run F** – a predictor of the basin shares from the cycle alone. `backward_mass` walks the backward tree of a cycle depth first (predecessors $2y$ and $(2y-c)/3$; multiples of 3 are not expanded) and records the harmonic mass $\sum 1/x$ of every level, counting only nodes $x \ge c/2$ (below $c/2$ a node has no odd predecessor). `predictor_eval.py` normalises the mean mass of the deepest levels within every map, compares it with the measured shares of Run D and with simple baselines, and with `--sweep` shows the convergence in depth; `fig4_backward_mass.py` plots predicted against measured shares:
+
+```console
+make backward_mass && mkdir -p logs
+python3 predictor_eval.py --list ../results/landscape/landscape_shares.csv > ../results/landscape/primitive_cycles.txt
+sbatch --array=0-409 --export=ALL slurm/backward_mass_array.sbatch
+cat out_mass/bm_*.csv > ../results/landscape/backward_mass_D70.csv
+python3 predictor_eval.py ../results/landscape/landscape_shares.csv ../results/landscape/backward_mass_D70.csv --sweep 10 --csv ../results/landscape/predictions_D70.csv > ../results/landscape/predictor_D70.txt
+python3 ../figures/fig4_backward_mass.py ../results/landscape/predictions_D70.csv ../results/landscape/fig4_backward_mass.pdf
+tar czf ../results/landscape/runF_raw.tar.gz out_mass/bm_*.csv
 ```
 
 ## Reproduction map
