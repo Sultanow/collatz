@@ -1,0 +1,32 @@
+per-level masses for 410 cycles, depth 70; predictor: mean of the levels 64..69, compared with 58..69
+445 primitive cycles, masses for 410; 98 maps with at least two primitive cycles
+
+                  equal shares | log-log r 0.660 | median |log ratio| 0.694 | 90% 2.602 | mean |share error| 0.1442 | largest basin right 36/98 | within-map Spearman +nan
+             proportional to l | log-log r 0.617 | median |log ratio| 0.718 | 90% 2.312 | mean |share error| 0.1475 | largest basin right 38/98 | within-map Spearman +0.272
+                  level-0 mass | log-log r 0.879 | median |log ratio| 0.578 | 90% 1.663 | mean |share error| 0.1130 | largest basin right 51/98 | within-map Spearman +0.412
+      backward mass, window d1 | log-log r 0.996 | median |log ratio| 0.048 | 90% 0.225 | mean |share error| 0.0183 | largest basin right 87/98 | within-map Spearman +0.927
+      backward mass, window d3 | log-log r 0.996 | median |log ratio| 0.049 | 90% 0.220 | mean |share error| 0.0165 | largest basin right 87/98 | within-map Spearman +0.937
+
+windows of 10 levels at increasing depth:
+                   levels 0..9 | log-log r 0.925 | median |log ratio| 0.445 | 90% 1.379 | mean |share error| 0.0898 | largest basin right 58/98 | within-map Spearman +0.532
+                 levels 10..19 | log-log r 0.963 | median |log ratio| 0.334 | 90% 0.908 | mean |share error| 0.0670 | largest basin right 61/98 | within-map Spearman +0.608
+                 levels 20..29 | log-log r 0.977 | median |log ratio| 0.222 | 90% 0.718 | mean |share error| 0.0503 | largest basin right 74/98 | within-map Spearman +0.766
+                 levels 30..39 | log-log r 0.985 | median |log ratio| 0.170 | 90% 0.521 | mean |share error| 0.0423 | largest basin right 80/98 | within-map Spearman +0.856
+                 levels 40..49 | log-log r 0.991 | median |log ratio| 0.106 | 90% 0.372 | mean |share error| 0.0309 | largest basin right 80/98 | within-map Spearman +0.848
+                 levels 50..59 | log-log r 0.994 | median |log ratio| 0.072 | 90% 0.291 | mean |share error| 0.0239 | largest basin right 85/98 | within-map Spearman +0.919
+                 levels 60..69 | log-log r 0.996 | median |log ratio| 0.046 | 90% 0.220 | mean |share error| 0.0177 | largest basin right 87/98 | within-map Spearman +0.929
+
+predictor stability between the windows: median |log ratio| 0.013, 90% 0.044
+errors by measured relative share (window d3):
+  [0.20, 1.01): 185 cycles, median |log ratio| 0.035, 90% 0.190
+  [0.05, 0.20):  91 cycles, median |log ratio| 0.057, 90% 0.231
+  [0.01, 0.05):  85 cycles, median |log ratio| 0.062, 90% 0.246
+  [0.00, 0.01):  49 cycles, median |log ratio| 0.076, 90% 0.169
+largest deviations (window d3):
+  3x+359, cycle 169 (l=15): measured 0.2767, predicted 0.0755
+  3x+341, cycle 647 (l=50): measured 0.0387, predicted 0.0889
+  3x+199, cycle 13 (l=15): measured 0.1129, predicted 0.2534
+  3x+257, cycle 635 (l=27): measured 0.0181, predicted 0.0341
+  3x+257, cycle 367 (l=27): measured 0.0209, predicted 0.0389
+  3x+241, cycle 59 (l=54): measured 0.5000, predicted 0.2849
+predictions written to ../results/landscape/predictions_D70.csv
