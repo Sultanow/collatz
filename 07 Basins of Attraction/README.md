@@ -72,7 +72,10 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── backward_mass.c        harmonic mass of the backward tree of a cycle (Run F)
 │   ├── predictor_eval.py      backward-mass predictor vs. measured basin shares (Run F)
 │   ├── cosets.py              cosets of <2,3> mod c against the measured shares (Prop. 6)
-│   ├── Makefile               make (incl. backward_mass), make test, make passage, make test-passage
+│   ├── potential.c            predecessor counts for all targets a <= A at once (Run G)
+│   ├── potential_report.py    identities of the predecessor potential, mean value, Syracuse profile
+│   ├── Makefile               make (incl. backward_mass, potential), make test, make passage,
+│   │                          make test-passage, make test-potential
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
 │       ├── census_all_array.sbatch
@@ -84,7 +87,9 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       ├── landscape_configs.txt
 │       ├── residue_configs.txt
 │       ├── residue9_configs.txt
-│       └── backward_mass_array.sbatch
+│       ├── backward_mass_array.sbatch
+│       ├── potential_array.sbatch
+│       └── potential_configs.txt
 └── results/                   census outputs, rational cycle list, basin counts
     └── passage/               sampled basin shares (Run C)
 ```
@@ -279,6 +284,38 @@ About 3 µs per starting value at $10^{10}$, 25–35 µs at $10^{100}$ and 75 µ
 
 `make test-passage` compares the sampled shares with an exact enumeration of the window $[10^6, 10^{6.6}]$ for both counting modes, repeats the test with a small table bound (so that every orbit has to pass), and compares the GMP path with an independent Python implementation at $[10^{40}, 10^{44}]$. The cycles through 5 of $3x+5$ and through 13 of $3x+13$ consist of the multiples of 5 and 13 and serve as controls of the sampler (shares $1/5$ and $1/13$).
 
+## potential
+
+Predecessor counts $\pi_a(N)=\#\{n\le N:\ a \text{ lies on the orbit of } n\}$ for **all** targets $a\le A$ at once (Run G). They estimate the predecessor potential $h(a)$ of Proposition 8 of the paper, the density of the starting values whose orbit reaches $a$.
+
+#### run
+
+```console
+make potential
+OMP_NUM_THREADS=32 ./potential 5 10000000000 1000000 potential_c5.csv
+python3 potential_report.py potential_c5.csv
+```
+
+#### parameters
+
+`potential C N A OUT.csv`: map $3x+c$ ($c$ odd, $c\ge-1$), starting values $1\le n\le N$, targets $1\le a\le A$.
+
+#### how it works
+
+For $n$ let $f(n)$ be the first iterate below $n$. The orbit of a starting value is the concatenation of the orbit segments between the successive stopping points $n>f(n)>f(f(n))>\dots$, and a segment that starts at $n$ only contains values $\ge n$. One descending pass computes $W(n)=1+\sum_{f(n')=n}W(n')$, the number of starting values whose chain of stopping points passes through $n$; then $\pi_a(N)$ is the sum of $W(n)$ over the $n\le a$ whose segment contains $a$. Periodic targets are counted once, at the end of the chain. No orbit is followed twice.
+
+#### output
+
+One line `a,count,cycle_min` per target; `cycle_min` is the minimum of the cycle if `a` is periodic, else 0. `potential_report.py` verifies, as exact integer identities, the flow identity $\pi_a=[a\le N]+\pi_{2a}+\pi_{(2a-c)/3}$ for all non-periodic $a\le A/2$, the doubling chains of the multiples of 3, and the level identity (basin = cycle + predecessor sets of its entry points). It prints the basin shares, the mean value of $a\,h(a)$ against $2/\log(4/3)$, and the means over the residue classes modulo 3, 9, 27 and 81 against the law of Tao's Syracuse random variable, $\frac{2}{\log(4/3)}\,3^n\,\mathbb P(c\cdot\mathrm{Syrac}(\mathbb Z/3^n\mathbb Z)=r)$.
+
+#### cost
+
+8 bytes per starting value (80 GB for $N=10^{10}$); about 2 s per $10^8$ starting values on one core.
+
+#### verification
+
+`make test-potential` compares the counts of all targets with a brute-force reference (`tests/ref_potential.py`) for $3x-1$, $3x+1$, $3x+5$, $3x+7$ and $3x+13$, and checks the identities for $3x+5$ up to $2\cdot10^6$. The basin shares of the report reproduce those of `basin` (Table 6) by an independent method.
+
 ## Pipeline example: 3x+5
 
 ```console
@@ -363,6 +400,15 @@ python3 cosets.py ../results/landscape/landscape_shares.csv --predictions ../res
 
 `cosets.py` checks the multiplicative filtration (Proposition 6 of the paper): for $c$ coprime to 6, $T(n)$ is congruent to $n/2$ or $3n/2$ modulo $c$, so the coset of $n$ modulo the subgroup $\langle 2,3\rangle$ of $(\mathbb Z/c\mathbb Z)^\times$ is constant along every orbit. The script prints the measured share of every coset (it must be $1/[G:H]$), the cycles that are alone in their coset (their share is then exact), and the predictor before and after normalising it within the cosets.
 
+Run G (predecessor potential, Proposition 8): four maps, $N=10^{10}$, targets up to $10^6$; 100 GB and a few minutes per task.
+
+```console
+make potential && mkdir -p logs ../results/potential
+sbatch --array=0-3 --export=ALL slurm/potential_array.sbatch
+python3 potential_report.py out_potential/potential_c*.csv > ../results/potential/report.txt
+tar czf ../results/potential/runG_raw.tar.gz out_potential/potential_c*.csv
+```
+
 ## Reproduction map
 
 Which artifact produces which result of the paper (tables and figures as numbered in version 2):
@@ -380,7 +426,8 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Multiplicative filtration (Proposition 6); survey of all maps $3x+c$ with $c \le 400$ (Figure 3) | `passage.c`, `slurm/landscape_configs.txt`, `landscape.py`, `cosets.py`; `figures/fig3_landscape.py` | `results/landscape/landscape_shares.csv`, `cosets.txt`, `correlations.txt`, `runD_raw.tar.gz` (raw) |
 | Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
 | Backward-mass predictor (Table 8, Figure 4) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
-| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
+| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py` | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz` |
+| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
 
 ## Reference results
 
