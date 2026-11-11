@@ -689,7 +689,17 @@ Let $c\ge-1$ be odd with $3\nmid c$.
 \label{eq:ggm_low}
 \mathbb P\bigl(\tau_x(\mathbf L)<\infty,\ \operatorname{Pass}_x(\mathbf L)\le\sqrt x\bigr)\ll(\log x)^{-\varepsilon_0},\qquad\mathbf L=\mathbf{Log}_{x^\lambda,x^{\alpha\lambda}}.
 \end{equation}
-Indeed, by \cite[(4.7)--(4.9)]{GGM_2025}, outside an event of probability $\ll(\log x)^{-c}$ the first passage occurs within the first $n_0$ Syracuse steps, and consecutive Syracuse iterates up to this time decrease at most by the factor $\tfrac34\exp(-\log^{0.7}x)$; as the iterate before the first passage exceeds $x$, the first passage exceeds $\tfrac34x\exp(-\log^{0.7}x)$.
+To justify this additional estimate, we extract a consequence of the \emph{proof} of \cite[Proposition~3.5, especially (4.7)--(4.9)]{GGM_2025}; it is not stated there as a separate result. For the logarithmically distributed $\mathbf L$ in the indicated windows, (4.7) bounds the complement of the regular event by $O((\log x)^{-\gamma})$ for some $\gamma>0$. On that event, the proof of Proposition~3.5 shows that $1\le\tau_x(\mathbf L)\le n_0$, and (4.9) yields, for $0\le m,n\le n_0$,
+\[
+ S^n(\mathbf L)\ge \exp\!\bigl(- (\log x)^{0.7}\bigr)
+ \left(\frac{3}{4}\right)^{n-m}S^m(\mathbf L),
+\]
+where $S$ is the Syracuse map. Taking $n=\tau_x(\mathbf L)$ and $m=n-1$ (which are within this range) and using $S^{n-1}(\mathbf L)>x$ gives
+\[
+ \operatorname{Pass}_x(\mathbf L)>
+ \frac34 x\exp\!\bigl(-(\log x)^{0.7}\bigr)>\sqrt{x}
+\]
+for all sufficiently large $x$. Thus the event in~\eqref{eq:ggm_low} is contained in the exceptional event of (4.7) for sufficiently large $x$. Decreasing $\varepsilon_0$ so that $\varepsilon_0\le\gamma$ proves~\eqref{eq:ggm_low}; bounded $x$ are absorbed into the implied constant.
 
 \emph{Step 1.} Let $n=2^km$ with $m$ odd. If $n$ is not of the form $2^ia$, then $a$ is not among $n,n/2,\dots,2m$, so $n\in P(a)$ if and only if $m\in P(a)$. The numbers $2^ia$ have a finite sum of reciprocals. Hence it suffices to show that $\kappa(Y)$ converges for $A_1=P(a)\cap(2\N+1)$.
 
@@ -712,7 +722,16 @@ Let $c\in\{1,-1\}$. Then $h(a)>0$ if and only if $3\nmid a$, and every nonempty 
 \end{corollary}
 
 \begin{proof}
-Let $3\nmid a$. By \cite[Theorem~A]{ElJaouhari_2026}, which for positive targets rests on \cite{Mazur_Pred_2026}, the integers whose orbit under $T_{3,1}$ on $\mathbb Z$ contains a given $b\in\mathbb Z$ with $3\nmid b$ have positive lower natural density. For $b=a$ this is the set $P(a)$ of $T_{3,1}$, and for $b=-a$ it is the negative of the set $P(a)$ of $T_{3,-1}$, by~\eqref{eq:mirror}. A lower natural density is a lower bound for the lower logarithmic density, so $h(a)>0$; for $3\mid a$ see Proposition~\ref{prop:potential}(b). Let $A$ be completely invariant and $n\in A$. The orbit of $n$ contains a number $b=T_{3,c}(m)$ with $m$ odd, and $3\nmid b$ because $2b=3m+c$. As $b\in A$ and $P(b)\subseteq A$, we get $\delta(A)\ge h(b)>0$. The last statement follows for the complement of the three basins, which is completely invariant and has the density $1-\delta_1-\delta_5-\delta_{17}$, where $\delta_1$, $\delta_5$ and $\delta_{17}$ are the densities of the three basins.
+Let $3\nmid a$. We make the sign restriction in the application of \cite[Theorem~A]{ElJaouhari_2026} explicit. For $b\in\mathbb Z$ let
+\[
+ \pi_b(X)=\#\{z\in\mathbb Z:|z|\le X,\ T_{3,1}^j(z)=b\text{ for some }j\ge0\}.
+\]
+El Jaouhari proves that, when $3\nmid b$, there is $\kappa_b>0$ such that $\pi_b(X)\ge\kappa_b X$ for all sufficiently large $X$; the positive-target input comes from \cite{Mazur_Pred_2026}, while the negative-target case uses a separate $3x-1$ predecessor result. The map $T_{3,1}$ on $\mathbb Z$ preserves the sign of every nonzero integer, and by~\eqref{eq:mirror} we have $T_{3,1}(-m)=-T_{3,-1}(m)$ for every $m\ge1$. Consequently, for $X\ge a$,
+\[
+ \pi_a(X)=\#\bigl(P_{3,1}(a)\cap[1,X]\bigr),\qquad
+ \pi_{-a}(X)=\#\bigl(P_{3,-1}(a)\cap[1,X]\bigr),
+\]
+where $P_{3,c}(a)$ denotes the predecessor set for the indicated map. Thus the predecessor set of $a$ has positive lower natural density for both $c=1$ and $c=-1$. Positive lower natural density implies positive lower logarithmic density; since $h(a)$ exists by Proposition~\ref{prop:potential}(a), we obtain $h(a)>0$. For $3\mid a$, use Proposition~\ref{prop:potential}(b). Let $A$ be completely invariant and $n\in A$. The orbit of $n$ contains a number $b=T_{3,c}(m)$ with $m$ odd, and $3\nmid b$ because $2b=3m+c$. As $b\in A$ and $P(b)\subseteq A$, we get $\delta(A)\ge h(b)>0$. The last statement follows for the complement of the three basins, which is completely invariant and has the density $1-\delta_1-\delta_5-\delta_{17}$, where $\delta_1$, $\delta_5$ and $\delta_{17}$ are the densities of the three basins.
 \end{proof}
 
 For $3x+1$, the corollary contains the criterion of \cite{Mazur_Pred_2026}: the Collatz conjecture holds if and only if the basin of $1$ has density $1$. For $3x-1$, it turns the conjecture that the three known cycles attract all integers into a statement about three numbers. Every $n\le10^{10}$ enters one of the three cycles (Proposition~\ref{prop:verification}), and the measured densities add up to $1$ within the sampling error (Table~\ref{table:passage}). For the other maps of the family, the positivity of $h$ outside the multiples of $3$ is open.
