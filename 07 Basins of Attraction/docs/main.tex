@@ -689,12 +689,12 @@ Let $c\ge-1$ be odd with $3\nmid c$.
 \label{eq:ggm_low}
 \mathbb P\bigl(\tau_x(\mathbf L)<\infty,\ \operatorname{Pass}_x(\mathbf L)\le\sqrt x\bigr)\ll(\log x)^{-\varepsilon_0},\qquad\mathbf L=\mathbf{Log}_{x^\lambda,x^{\alpha\lambda}}.
 \end{equation}
-To justify this additional estimate, we extract a consequence of the \emph{proof} of \cite[Proposition~3.5, especially (4.7)--(4.9)]{GGM_2025}; it is not stated there as a separate result. For the logarithmically distributed $\mathbf L$ in the indicated windows, (4.7) bounds the complement of the regular event by $O((\log x)^{-\gamma})$ for some $\gamma>0$. On that event, the proof of Proposition~3.5 shows that $1\le\tau_x(\mathbf L)\le n_0$, and (4.9) yields, for $0\le m,n\le n_0$,
+To justify this additional estimate, we extract a consequence of the \emph{proof} of \cite[Proposition~3.5, especially (4.7)--(4.9)]{GGM_2025}; it is not stated there as a separate result. For the logarithmically distributed $\mathbf L$ in the indicated windows, (4.7) bounds the complement of the regular event $a^{(n_0)}(\mathbf L)\in\mathcal A^{n_0}$ of \cite{GGM_2025}, on which the partial sums of the first $n_0$ valuations are typical, by $O((\log x)^{-\gamma})$ for some $\gamma>0$. On that event, the proof of Proposition~3.5 shows that $1\le\tau_x(\mathbf L)\le n_0$, and (4.9) yields, for $0\le m,n\le n_0$,
 \[
- S^n(\mathbf L)\ge \exp\!\bigl(- (\log x)^{0.7}\bigr)
- \left(\frac{3}{4}\right)^{n-m}S^m(\mathbf L),
+ \operatorname{Syr}^n(\mathbf L)\ge \exp\!\bigl(- (\log x)^{0.7}\bigr)
+ \left(\frac{3}{4}\right)^{n-m}\operatorname{Syr}^m(\mathbf L).
 \]
-where $S$ is the Syracuse map. Taking $n=\tau_x(\mathbf L)$ and $m=n-1$ (which are within this range) and using $S^{n-1}(\mathbf L)>x$ gives
+Taking $n=\tau_x(\mathbf L)$ and $m=n-1$ (which are within this range) and using $\operatorname{Syr}^{n-1}(\mathbf L)>x$ gives
 \[
  \operatorname{Pass}_x(\mathbf L)>
  \frac34 x\exp\!\bigl(-(\log x)^{0.7}\bigr)>\sqrt{x}
