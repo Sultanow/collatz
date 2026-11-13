@@ -16,6 +16,17 @@ windows of 10 levels at increasing depth:
                  levels 50..59 | log-log r 0.994 | median |log ratio| 0.072 | 90% 0.291 | mean |share error| 0.0239 | largest basin right 85/98 | within-map Spearman +0.919
                  levels 60..69 | log-log r 0.996 | median |log ratio| 0.046 | 90% 0.220 | mean |share error| 0.0177 | largest basin right 87/98 | within-map Spearman +0.929
 
+absolute prediction, density = kappa * mean level mass, kappa = 3/log(4/3) = 10.4282, 410 primitive cycles, no normalization:
+                   levels 0..9 | share/mass: median 10.682, quartiles 6.738..21.012 | median |log ratio| 0.518 | 90% 1.261
+                 levels 10..19 | share/mass: median 11.088, quartiles 9.224..17.217 | median |log ratio| 0.254 | 90% 1.061
+                 levels 20..29 | share/mass: median 10.841, quartiles 9.480..13.639 | median |log ratio| 0.137 | 90% 0.780
+                 levels 30..39 | share/mass: median 10.600, quartiles 9.707..12.354 | median |log ratio| 0.095 | 90% 0.582
+                 levels 40..49 | share/mass: median 10.418, quartiles 9.907..11.563 | median |log ratio| 0.067 | 90% 0.369
+                 levels 50..59 | share/mass: median 10.387, quartiles 10.053..11.125 | median |log ratio| 0.044 | 90% 0.282
+                 levels 60..69 | share/mass: median 10.406, quartiles 10.152..10.860 | median |log ratio| 0.030 | 90% 0.196
+                 levels 64..69 | share/mass: median 10.429, quartiles 10.169..10.869 | median |log ratio| 0.028 | 90% 0.178
+  per map, sum of the predicted densities / sum of the measured shares: median 0.965, quartiles 0.858..1.005 (98 maps)
+
 predictor stability between the windows: median |log ratio| 0.013, 90% 0.044
 errors by measured relative share (window d3):
   [0.20, 1.01): 185 cycles, median |log ratio| 0.035, 90% 0.190
@@ -29,4 +40,4 @@ largest deviations (window d3):
   3x+257, cycle 635 (l=27): measured 0.0181, predicted 0.0341
   3x+257, cycle 367 (l=27): measured 0.0209, predicted 0.0389
   3x+241, cycle 59 (l=54): measured 0.5000, predicted 0.2849
-predictions written to ../results/landscape/predictions_D70.csv
+predictions written to /tmp/pred_check2.csv

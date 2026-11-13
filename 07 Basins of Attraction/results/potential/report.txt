@@ -1,0 +1,68 @@
+== out_potential/potential_c1_N10000000000.csv: c=1, N=1e+10, targets a <= 1000000, roots=1, unresolved=0
+  flow identity: 499998 targets, 0 violations
+  targets divisible by 3 (doubling chains only): 333333 targets, 0 violations
+  cycle 1 (length 2): basin 10000000000 = 1.000000 N, level identity ok
+  sum of the basins: 10000000000 of 10000000000  (all starting values)
+  mean of a*h(a) over the 999998 non-periodic targets a <= 1000000: 6.8495   (2/log(4/3) = 6.9521)
+    by range of a: [1e+02,1e+03): 9.9975, [1e+03,1e+04): 7.2772, [1e+04,1e+05): 6.8036, [1e+05,1e+06): 6.8468
+  classes mod 3: mean of a*h(a) against (2/log(4/3))*3*P(c*Syrac = r): median |log ratio| 0.0137, max 0.0173
+  classes mod 9: mean of a*h(a) against (2/log(4/3))*9*P(c*Syrac = r): median |log ratio| 0.0100, max 0.0242
+    r: measured / predicted  1: 7.891/7.945  2: 15.735/15.891  4: 10.772/10.925  5: 3.933/3.973  7: 1.985/1.986  8: 21.328/21.850
+  classes mod 27: mean of a*h(a) against (2/log(4/3))*27*P(c*Syrac = r): median |log ratio| 0.0089, max 0.0341
+  classes mod 81: mean of a*h(a) against (2/log(4/3))*81*P(c*Syrac = r): median |log ratio| 0.0073, max 0.0455
+
+== out_potential/potential_c-1_N10000000000.csv: c=-1, N=1e+10, targets a <= 1000000, roots=3, unresolved=0
+  flow identity: 499985 targets, 0 violations
+  targets divisible by 3 (doubling chains only): 333333 targets, 0 violations
+  cycle 1 (length 1): basin 3270085557 = 0.327009 N, level identity ok
+  cycle 5 (length 3): basin 3249847832 = 0.324985 N, level identity ok
+  cycle 17 (length 11): basin 3480066611 = 0.348007 N, level identity ok
+  sum of the basins: 10000000000 of 10000000000  (all starting values)
+  mean of a*h(a) over the 999985 non-periodic targets a <= 1000000: 6.8761   (2/log(4/3) = 6.9521)
+    by range of a: [1e+02,1e+03): 5.6783, [1e+03,1e+04): 6.8957, [1e+04,1e+05): 6.7862, [1e+05,1e+06): 6.8865
+  classes mod 3: mean of a*h(a) against (2/log(4/3))*3*P(c*Syrac = r): median |log ratio| 0.0099, max 0.0133
+  classes mod 9: mean of a*h(a) against (2/log(4/3))*9*P(c*Syrac = r): median |log ratio| 0.0075, max 0.0175
+    r: measured / predicted  1: 21.471/21.850  2: 1.991/1.986  4: 3.956/3.973  5: 10.847/10.925  7: 15.735/15.891  8: 7.883/7.945
+  classes mod 27: mean of a*h(a) against (2/log(4/3))*27*P(c*Syrac = r): median |log ratio| 0.0068, max 0.0260
+  classes mod 81: mean of a*h(a) against (2/log(4/3))*81*P(c*Syrac = r): median |log ratio| 0.0089, max 0.0317
+
+== out_potential/potential_c13_N10000000000.csv: c=13, N=1e+10, targets a <= 1000000, roots=26, unresolved=0
+  flow identity: 499914 targets, 0 violations
+  targets divisible by 3 (doubling chains only): 333333 targets, 0 violations
+  cycle 1 (length 4): basin 4775285479 = 0.477529 N, level identity ok
+  cycle 13 (length 2): basin 769230769 = 0.076923 N, level identity ok
+  cycle 131 (length 24): basin 2516744774 = 0.251674 N, level identity ok
+  cycle 211 (length 8): basin 334450433 = 0.033445 N, level identity ok
+  cycle 227 (length 8): basin 189201976 = 0.018920 N, level identity ok
+  cycle 251 (length 8): basin 198418950 = 0.019842 N, level identity ok
+  cycle 259 (length 8): basin 386075482 = 0.038608 N, level identity ok
+  cycle 283 (length 8): basin 252766378 = 0.025277 N, level identity ok
+  cycle 287 (length 8): basin 432935184 = 0.043294 N, level identity ok
+  cycle 319 (length 8): basin 144890575 = 0.014489 N, level identity ok
+  sum of the basins: 10000000000 of 10000000000  (all starting values)
+  mean of a*h(a) over the 999914 non-periodic targets a <= 1000000: 6.9667   (2/log(4/3) = 6.9521)
+    by range of a: [1e+02,1e+03): 3.8402, [1e+03,1e+04): 6.5823, [1e+04,1e+05): 6.8751, [1e+05,1e+06): 6.9830
+  classes mod 3: mean of a*h(a) against (2/log(4/3))*3*P(c*Syrac = r): median |log ratio| 0.0020, max 0.0024
+  classes mod 9: mean of a*h(a) against (2/log(4/3))*9*P(c*Syrac = r): median |log ratio| 0.0031, max 0.0074
+    r: measured / predicted  1: 1.989/1.986  2: 3.989/3.973  4: 8.004/7.945  5: 21.929/21.850  7: 10.896/10.925  8: 15.897/15.891
+  classes mod 27: mean of a*h(a) against (2/log(4/3))*27*P(c*Syrac = r): median |log ratio| 0.0035, max 0.0195
+  classes mod 81: mean of a*h(a) against (2/log(4/3))*81*P(c*Syrac = r): median |log ratio| 0.0080, max 0.0362
+
+== out_potential/potential_c5_N10000000000.csv: c=5, N=1e+10, targets a <= 1000000, roots=12, unresolved=0
+  flow identity: 499931 targets, 0 violations
+  targets divisible by 3 (doubling chains only): 333333 targets, 0 violations
+  cycle 1 (length 3): basin 1403463398 = 0.140346 N, level identity ok
+  cycle 5 (length 2): basin 2000000000 = 0.200000 N, level identity ok
+  cycle 19 (length 5): basin 4979221818 = 0.497922 N, level identity ok
+  cycle 23 (length 5): basin 922283095 = 0.092228 N, level identity ok
+  cycle 187 (length 27): basin 325308457 = 0.032531 N, level identity ok
+  cycle 347 (length 27): basin 369723232 = 0.036972 N, level identity ok
+  sum of the basins: 10000000000 of 10000000000  (all starting values)
+  mean of a*h(a) over the 999931 non-periodic targets a <= 1000000: 6.8798   (2/log(4/3) = 6.9521)
+    by range of a: [1e+02,1e+03): 5.6848, [1e+03,1e+04): 6.8810, [1e+04,1e+05): 6.7434, [1e+05,1e+06): 6.8950
+  classes mod 3: mean of a*h(a) against (2/log(4/3))*3*P(c*Syrac = r): median |log ratio| 0.0104, max 0.0104
+  classes mod 9: mean of a*h(a) against (2/log(4/3))*9*P(c*Syrac = r): median |log ratio| 0.0083, max 0.0144
+    r: measured / predicted  1: 15.746/15.891  2: 10.768/10.925  4: 21.559/21.850  5: 7.886/7.945  7: 3.976/3.973  8: 1.986/1.986
+  classes mod 27: mean of a*h(a) against (2/log(4/3))*27*P(c*Syrac = r): median |log ratio| 0.0108, max 0.0295
+  classes mod 81: mean of a*h(a) against (2/log(4/3))*81*P(c*Syrac = r): median |log ratio| 0.0092, max 0.0555
+

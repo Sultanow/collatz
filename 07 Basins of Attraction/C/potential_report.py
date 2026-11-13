@@ -86,6 +86,12 @@ def report(path):
     if allv:
         print(f"  mean of a*h(a) over the {len(allv)} non-periodic targets a <= {amax}: {mean(allv):.4f}"
               f"   (2/log(4/3) = {K:.4f})")
+        parts, lo = [], 100
+        while lo < amax:                                       # the same mean by decades of a
+            v = [a * cnt[a] / N for a in range(lo, min(10 * lo, amax + 1)) if not cyc[a]]
+            if v: parts.append(f"[{lo:.0e},{min(10 * lo, amax):.0e}): {mean(v):.4f}")
+            lo *= 10
+        print("    by range of a: " + ", ".join(parts))
     if c % 3 and allv:
         for n in (1, 2, 3, 4):
             mod = 3 ** n

@@ -425,8 +425,8 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Basin shares far beyond enumeration, natural vs. logarithmic counting (Table 7) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt`, `results/passage/runC_raw.tar.gz` (raw) |
 | Multiplicative filtration (Proposition 6); survey of all maps $3x+c$ with $c \le 400$ (Figure 3) | `passage.c`, `slurm/landscape_configs.txt`, `landscape.py`, `cosets.py`; `figures/fig3_landscape.py` | `results/landscape/landscape_shares.csv`, `cosets.txt`, `correlations.txt`, `runD_raw.tar.gz` (raw) |
 | Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
-| Backward-mass predictor (Table 8, Figure 4) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
-| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py` | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz` |
+| Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Table 9, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
+| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py` | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz` |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
 
 ## Reference results
@@ -453,6 +453,10 @@ Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7
 | $3x-1$ | 1: 0.32701, 5: 0.32498, 17: 0.34801 |
 | $3x+5$ | 1: 0.14035, 5: 0.20000, 19: 0.49792, 23: 0.09223, 187: 0.03253, 347: 0.03697 |
 | $3x+13$ | 1: 0.47753, 13: 0.07692, 131: 0.25167, 211: 0.03345, 227: 0.01892, 251: 0.01984, 259: 0.03861, 283: 0.02528, 287: 0.04329, 319: 0.01449 |
+
+**Predecessor potential** (Run G, `results/potential/`, Table 8 of the paper): for $3x+1$, $3x-1$, $3x+5$ and $3x+13$, all starting values $n\le10^{10}$ and all targets $a\le10^6$. The flow identity (about $5\cdot10^5$ targets per map), the doubling chains of the multiples of 3 and the level identity of every cycle hold as exact integer identities, and the basin counts reproduce Table 6. The mean of $a\,h(a)$ is 6.85, 6.88, 6.88 and 6.97 against $2/\log(4/3)=6.95$; the class means modulo 9 follow the law of Tao's Syracuse random variable within 2.4 %, with the same six values for all four maps after relabelling the classes by $a/c$, and modulo 81 the median deviation is below 1 % (Conjecture 1).
+
+**Absolute backward-mass predictor** (Run F data, `results/landscape/predictor_D70.txt`, Table 9): over the 410 primitive cycles, measured density / mean level mass has the median 10.41 for the levels 60 to 69 (quartiles 10.15 and 10.86) against the constant $3/\log(4/3)=10.43$ of Conjecture 2; the absolute prediction deviates by 3.0 % in the median, without any normalisation within the maps.
 
 **Basin shares at large scales** (Run C, `results/passage/`, Table 7 of the paper): pooled over the windows $[10^y, 10^{1.1y}]$ with $y = 20, 50, 100, 200$ and both counting modes, $8\cdot 10^8$ starting values per map (standard errors at most $2\cdot 10^{-5}$):
 

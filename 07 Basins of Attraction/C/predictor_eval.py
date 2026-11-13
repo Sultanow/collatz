@@ -18,6 +18,12 @@ Pearson correlation, median and 90% quantile of |log(predicted/measured)|, mean 
 share error, the number of maps whose largest basin is predicted correctly, the mean
 within-map Spearman correlation, the stability of the predictor between two level windows,
 and the errors by basin size.
+
+With per-level masses the script also evaluates the absolute prediction
+    density of the basin = KAPPA * (mean mass of a level window),  KAPPA = 3/log(4/3),
+for all primitive cycles, without any normalization within the maps: the median and the
+quartiles of (measured share)/(mean mass), which should equal KAPPA, and the median and the
+90% quantile of |log(KAPPA * mass / share)|, for the same level windows.
 """
 import csv
 import math
@@ -56,11 +62,12 @@ def main():
     if not argv:
         print(__doc__)
         return
-    meas = {}
+    meas, absolute = {}, {}
     src = argv[1] if argv[0] == "--list" else argv[0]
     for r in csv.DictReader(open(src)):
         if r["m"] == "1":
             meas[(int(r["c"]), int(r["cycle_min"]))] = (float(r["rel_share"]), int(r["l"]))
+            absolute[(int(r["c"]), int(r["cycle_min"]))] = float(r["share"])
     if argv[0] == "--list":
         count = defaultdict(int)
         for c, mn in meas:
@@ -136,6 +143,31 @@ def main():
         for a in range(0, depth - sweep + 1, sweep):
             evaluate(f"levels {a}..{a + sweep - 1}",
                      lambda k, a=a: sum(per_level[k][d] for d in range(a, a + sweep)) / sweep)
+
+    if per_level:
+        kappa = 3 / math.log(4 / 3)
+        keys = [k for k in per_level if absolute.get(k, 0) > 0]
+        print(f"\nabsolute prediction, density = kappa * mean level mass, kappa = 3/log(4/3) = {kappa:.4f}, "
+              f"{len(keys)} primitive cycles, no normalization:")
+        def absolute_eval(a, b):
+            ratio, dev = [], []
+            for k in keys:
+                m = sum(per_level[k][d] for d in range(a, b)) / (b - a)
+                if m > 0:
+                    ratio.append(absolute[k] / m); dev.append(abs(math.log(kappa * m / absolute[k])))
+            print(f"{'levels %d..%d' % (a, b - 1):>30} | share/mass: median {quant(ratio, 0.5):.3f}, quartiles "
+                  f"{quant(ratio, 0.25):.3f}..{quant(ratio, 0.75):.3f} | median |log ratio| {quant(dev, 0.5):.3f} "
+                  f"| 90% {quant(dev, 0.9):.3f}")
+        if sweep:
+            for a in range(0, depth - sweep + 1, sweep):
+                absolute_eval(a, a + sweep)
+        absolute_eval(A, B)
+        tot = defaultdict(lambda: [0.0, 0.0])
+        for k in keys:
+            tot[k[0]][0] += kappa * sum(per_level[k][d] for d in range(A, B)) / (B - A); tot[k[0]][1] += absolute[k]
+        r = [p / q for p, q in tot.values()]
+        print(f"  per map, sum of the predicted densities / sum of the measured shares: median {quant(r, 0.5):.3f}, "
+              f"quartiles {quant(r, 0.25):.3f}..{quant(r, 0.75):.3f} ({len(r)} maps)")
 
     d = []
     for ks in multi.values():
