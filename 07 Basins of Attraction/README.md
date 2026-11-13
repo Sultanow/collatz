@@ -74,6 +74,8 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── cosets.py              cosets of <2,3> mod c against the measured shares (Prop. 6)
 │   ├── potential.c            predecessor counts for all targets a <= A at once (Run G)
 │   ├── potential_report.py    identities of the predecessor potential, mean value, Syracuse profile
+│   ├── orbit_profile.c        the same means at large scales from random orbits (Run H)
+│   ├── orbit_profile_report.py  decade means and Syracuse profile of Run H
 │   ├── Makefile               make (incl. backward_mass, potential), make test, make passage,
 │   │                          make test-passage, make test-potential
 │   ├── tests/                 independent reference and self-tests
@@ -316,6 +318,18 @@ One line `a,count,cycle_min` per target; `cycle_min` is the minimum of the cycle
 
 `make test-potential` compares the counts of all targets with a brute-force reference (`tests/ref_potential.py`) for $3x-1$, $3x+1$, $3x+5$, $3x+7$ and $3x+13$, and checks the identities for $3x+5$ up to $2\cdot10^6$. The basin shares of the report reproduce those of `basin` (Table 6) by an independent method.
 
+## orbit_profile
+
+The mean value and the Syracuse profile of the potential for large targets (Run H). The sum of $a\,h(a)$ over a set of targets equals the mean, over the starting values, of the sum of the orbit points in that set. `orbit_profile` therefore follows the orbits of random starting values and collects their points by decade and by the residue class of $a/c$ modulo 81; no counts are stored.
+
+```console
+make orbit_profile
+./orbit_profile 1 10000000 28 1 > orbit_profile_c1.txt     # C S E SEED [KMIN [KPOOL]]
+python3 orbit_profile_report.py orbit_profile_c*.txt
+```
+
+`S` starting values are drawn uniformly from $[10^E, 2\cdot10^E)$ ($E\le30$, 128-bit arithmetic, deterministic generator), the targets lie in the decades $10^{\text{KMIN}}$ to $10^{E-3}$ (default from $10^6$), and the residue classes are pooled over the decades from $10^{\text{KPOOL}}$ (default $10^9$). About one minute per $10^7$ starting values on one core. The report compares the decade means with $2/\log(4/3)$ and the class means modulo 3, 9, 27 and 81 with the law of Tao's Syracuse random variable (Conjecture 1 of the paper). The results in `results/potential/` use $S=10^7$, $E=28$ and the seeds 1, 2, 3, 4 for $c=1,-1,5,13$.
+
 ## Pipeline example: 3x+5
 
 ```console
@@ -426,7 +440,7 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Multiplicative filtration (Proposition 6); survey of all maps $3x+c$ with $c \le 400$ (Figure 3) | `passage.c`, `slurm/landscape_configs.txt`, `landscape.py`, `cosets.py`; `figures/fig3_landscape.py` | `results/landscape/landscape_shares.csv`, `cosets.txt`, `correlations.txt`, `runD_raw.tar.gz` (raw) |
 | Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
 | Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Table 9, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
-| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py` | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz` |
+| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
 
 ## Reference results
@@ -454,7 +468,7 @@ Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7
 | $3x+5$ | 1: 0.14035, 5: 0.20000, 19: 0.49792, 23: 0.09223, 187: 0.03253, 347: 0.03697 |
 | $3x+13$ | 1: 0.47753, 13: 0.07692, 131: 0.25167, 211: 0.03345, 227: 0.01892, 251: 0.01984, 259: 0.03861, 283: 0.02528, 287: 0.04329, 319: 0.01449 |
 
-**Predecessor potential** (Run G, `results/potential/`, Table 8 of the paper): for $3x+1$, $3x-1$, $3x+5$ and $3x+13$, all starting values $n\le10^{10}$ and all targets $a\le10^6$. The flow identity (about $5\cdot10^5$ targets per map), the doubling chains of the multiples of 3 and the level identity of every cycle hold as exact integer identities, and the basin counts reproduce Table 6. The mean of $a\,h(a)$ is 6.85, 6.88, 6.88 and 6.97 against $2/\log(4/3)=6.95$; the class means modulo 9 follow the law of Tao's Syracuse random variable within 2.4 %, with the same six values for all four maps after relabelling the classes by $a/c$, and modulo 81 the median deviation is below 1 % (Conjecture 1).
+**Predecessor potential** (Run G, `results/potential/`, Table 8 of the paper): for $3x+1$, $3x-1$, $3x+5$ and $3x+13$, all starting values $n\le10^{10}$ and all targets $a\le10^6$. The flow identity (about $5\cdot10^5$ targets per map), the doubling chains of the multiples of 3 and the level identity of every cycle hold as exact integer identities, and the basin counts reproduce Table 6. The mean of $a\,h(a)$ is 6.85, 6.88, 6.88 and 6.97 against $2/\log(4/3)=6.95$; the class means modulo 9 follow the law of Tao's Syracuse random variable within 2.4 %, with the same six values for all four maps after relabelling the classes by $a/c$, and modulo 81 the median deviation is below 1 % (Conjecture 1). The deviations are an effect of the small targets: for the targets of the decades $10^9$ to $10^{25}$ (Run H, orbits of $10^7$ random starting values near $10^{28}$ per map) the mean is 6.9515, 6.9518, 6.9524 and 6.9518 against 6.9521, the class means modulo 9 agree to four digits, and modulo 81 the largest deviation is 0.12 %.
 
 **Absolute backward-mass predictor** (Run F data, `results/landscape/predictor_D70.txt`, Table 9): over the 410 primitive cycles, measured density / mean level mass has the median 10.41 for the levels 60 to 69 (quartiles 10.15 and 10.86) against the constant $3/\log(4/3)=10.43$ of Conjecture 2; the absolute prediction deviates by 3.0 % in the median, without any normalisation within the maps.
 

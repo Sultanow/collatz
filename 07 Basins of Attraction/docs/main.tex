@@ -810,7 +810,9 @@ In particular, $a\,h(a)$ has the mean value $2/\log(4/3)$.
 
 The conjecture asserts that a single law governs the potentials of all maps of the family, and that the map enters only through the multiplication by $c$. For $n=1$ it gives the means $2/\log(4/3)$ and $4/\log(4/3)$ for the classes $a\equiv c$ and $a\equiv2c$ modulo $3$, and $0$ for the multiples of $3$, in accordance with Proposition~\ref{prop:potential}(b). For $n=2$, the Syracuse variable takes the values $s=1,2,4,5,7,8$ with the probabilities $8/63$, $16/63$, $11/63$, $4/63$, $2/63$ and $22/63$.
 
-We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+13$, the program \path{potential.c} counts, for all targets $a\le10^6$ at once, the starting values $n\le10^{10}$ whose orbit contains $a$. For these counts, the identities of Proposition~\ref{prop:potential}(b) and~(c) hold as exact integer identities, which tests the program, and the basin counts agree with Table~\ref{table:basins}. Table~\ref{table:syracuse} compares the means of $a\,h(a)$, with $h(a)$ estimated by the proportion of the starting values up to $10^{10}$, with Conjecture~\ref{conj:profile}. The overall means lie between $6.85$ and $6.97$. The class means modulo $9$ show the same six numbers for all four maps, once the classes are labelled by $a/c$, and deviate from the prediction by at most $2.4\,\%$. Modulo $81$, the median deviation over the $54$ classes is below $1\,\%$ for every map, and the largest deviation is below $6\,\%$. The deviations of about $1\,\%$ in the overall means exceed the statistical error; whether they come from the finite range of the starting values is not settled by these data. Note the contrast with the residue classes of the starting values, which carry no information about the basin: the residue class of a target modulo $9$ changes the frequency with which it is reached by a factor of up to $11$.
+We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+13$, the program \path{potential.c} counts, for all targets $a\le10^6$ at once, the starting values $n\le10^{10}$ whose orbit contains $a$. For these counts, the identities of Proposition~\ref{prop:potential}(b) and~(c) hold as exact integer identities, which tests the program, and the basin counts agree with Table~\ref{table:basins}. Table~\ref{table:syracuse} compares the means of $a\,h(a)$, with $h(a)$ estimated by the proportion of the starting values up to $10^{10}$, with Conjecture~\ref{conj:profile}. The overall means lie between $6.85$ and $6.97$. The class means modulo $9$ show the same six numbers for all four maps, once the classes are labelled by $a/c$, and deviate from the prediction by at most $2.4\,\%$. Modulo $81$, the median deviation over the $54$ classes is below $1\,\%$ for every map, and the largest deviation is below $6\,\%$. The deviations of about $1\,\%$ exceed the statistical error. They are an effect of the small targets and disappear at larger scales (Run~H). For each of the four maps we followed the orbits of $10^7$ random starting values between $10^{28}$ and $2\cdot10^{28}$ and collected their points; this estimates the means of $a\,h(a)$ over the targets of every decade $[10^k,10^{k+1})$ without storing any counts (\path{orbit_profile.c}). For $3x+1$ the decade means are $6.911$, $6.934$ and $6.949$ for $k=6,7,8$. Over the decades $9\le k\le25$ the four maps give $6.9515$, $6.9518$, $6.9524$ and $6.9518$, with a standard error of $0.0004$, against $2/\log(4/3)=6.9521$. There the class means modulo $9$ agree with Conjecture~\ref{conj:profile} to four digits, and among the $54$ classes modulo $81$ the largest deviation is $0.12\,\%$ (Table~\ref{table:syracuse}). Run~H is close to the picture of \cite{Tao_2022,GGM_2025}: for a random starting value, the valuations of the first Syracuse steps are nearly independent and geometric, and the Syracuse offsets mix modulo powers of $3$. Conjecture~\ref{conj:profile} asserts that this picture persists along the whole orbit, uniformly enough to be summed over all times.
+
+Note the contrast with the residue classes of the starting values, which carry no information about the basin: the residue class of a target modulo $9$ changes the frequency with which it is reached by a factor of up to $11$.
 
 \begin{table}[htbp]
 \centering
@@ -821,15 +823,22 @@ We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+1
 \cmidrule(lr){2-7}
  & $s=1$ & $2$ & $4$ & $5$ & $7$ & $8$ & all $a$ & mod $81$ \\
 \midrule
-Conjecture~\ref{conj:profile} & $7.945$ & $15.891$ & $10.925$ & $3.973$ & $1.986$ & $21.850$ & $6.952$ & \\
+Conjecture~\ref{conj:profile} & $7.945$ & $15.891$ & $10.925$ & $3.973$ & $1.986$ & $21.850$ & $6.9521$ & \\
 \midrule
+\multicolumn{9}{l}{\emph{targets $a\le10^6$ (Run~G)}} \\
 $3x+1$ & $7.891$ & $15.735$ & $10.772$ & $3.933$ & $1.985$ & $21.328$ & $6.850$ & $0.7\,\%$ \\
 $3x-1$ & $7.883$ & $15.735$ & $10.847$ & $3.956$ & $1.991$ & $21.471$ & $6.876$ & $0.9\,\%$ \\
 $3x+5$ & $7.886$ & $15.746$ & $10.768$ & $3.976$ & $1.986$ & $21.559$ & $6.880$ & $0.9\,\%$ \\
 $3x+13$ & $8.004$ & $15.897$ & $10.896$ & $3.989$ & $1.989$ & $21.929$ & $6.967$ & $0.8\,\%$ \\
+\midrule
+\multicolumn{9}{l}{\emph{targets $10^9\le a<10^{26}$ (Run~H)}} \\
+$3x+1$ & $7.945$ & $15.889$ & $10.923$ & $3.973$ & $1.986$ & $21.847$ & $6.9515$ & $0.01\,\%$ \\
+$3x-1$ & $7.945$ & $15.890$ & $10.924$ & $3.972$ & $1.986$ & $21.848$ & $6.9518$ & $0.01\,\%$ \\
+$3x+5$ & $7.945$ & $15.892$ & $10.926$ & $3.972$ & $1.986$ & $21.850$ & $6.9524$ & $0.01\,\%$ \\
+$3x+13$ & $7.945$ & $15.889$ & $10.924$ & $3.973$ & $1.986$ & $21.848$ & $6.9518$ & $0.01\,\%$ \\
 \bottomrule
 \end{tabular}
-\caption{The potential against the Syracuse law (Run~G): means of $a\,h(a)$ over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\le10^{10}$. First row: $\tfrac{2}{\log(4/3)}\cdot9\cdot\mathbb P(\mathbf{Syrac}(\mathbb Z/9\mathbb Z)=s)$ and $\tfrac{2}{\log(4/3)}$. Last column: median deviation of the class means modulo $81$ from the prediction.}
+\caption{The potential against the Syracuse law: means of $a\,h(a)$. Run~G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\le10^{10}$. Run~H: over the targets of the decades $10^9$ to $10^{25}$, estimated from the orbits of $10^7$ random starting values near $10^{28}$ per map. First row: $\tfrac{2}{\log(4/3)}\cdot9\cdot\mathbb P(\mathbf{Syrac}(\mathbb Z/9\mathbb Z)=s)$ and $\tfrac{2}{\log(4/3)}$. Last column: median deviation of the class means modulo $81$ from the prediction.}
 \label{table:syracuse}
 \end{table}
 
@@ -883,7 +892,7 @@ By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determin
 \begin{enumerate}[label=(\alph*)]
 	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. For $c=1$ they exist by Corollary~\ref{cor:natural}; Remark~\ref{rem:mazur} outlines a route for general $c$. Table~\ref{table:passage} shows no difference between natural and logarithmic counting up to $10^{220}$.
 	\item \emph{Explanation.} Proposition~\ref{prop:cosets} fixes the densities of the cycles that are alone in their coset. What decides between the cycles of one coset: their parity words, the arithmetic position of their members, the distribution of their backward iterates?
-	\item \emph{Prediction.} Prove Conjectures~\ref{conj:profile} and~\ref{conj:formula}: the potential has the Syracuse profile on average, and the level averages of the backward mass $M_d(\mathcal C)$ converge to $\delta(\mathcal C)\log(4/3)/3$. Numerically, the class means of $a\,h(a)$ agree with the Syracuse law to about $1\,\%$ (Table~\ref{table:syracuse}), and the absolute prediction reproduces the measured densities to about $3\,\%$ (Table~\ref{table:convergence}).
+	\item \emph{Prediction.} Prove Conjectures~\ref{conj:profile} and~\ref{conj:formula}: the potential has the Syracuse profile on average, and the level averages of the backward mass $M_d(\mathcal C)$ converge to $\delta(\mathcal C)\log(4/3)/3$. Numerically, the class means of $a\,h(a)$ agree with the Syracuse law to four digits for large targets (Table~\ref{table:syracuse}), and the absolute prediction reproduces the measured densities to about $3\,\%$ (Table~\ref{table:convergence}).
 \end{enumerate}
 By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global information. For $3x+1$, the conjecture asserts a single basin of density $1$.
 \end{problem}
@@ -925,7 +934,7 @@ Table~\ref{table:passage} & \texttt{passage.c}, \path{passage_array.sbatch}, \pa
 Figure~\ref{fig:landscape}, survey for Proposition~\ref{prop:cosets} & \texttt{passage.c}, \path{landscape_configs.txt}, \path{landscape.py}, \path{cosets.py}; \path{figures/fig3_landscape.py} & \path{landscape/landscape_shares.csv}, \path{landscape/runD_raw.tar.gz} (raw) \\
 Residue classes & \texttt{passage.c}, \path{residue_configs.txt}, \path{residue9_configs.txt}, \path{residue_flatness.py} & \path{residue/*.csv}, \path{residue/report*.txt}, \path{residue/runE*_raw.tar.gz} (raw) \\
 Table~\ref{table:convergence}, Figure~\ref{fig:predictor} & \path{backward_mass.c}, \path{backward_mass_array.sbatch}, \path{predictor_eval.py}, \path{cosets.py}; \path{figures/fig4_backward_mass.py} & \path{landscape/backward_mass_D70.csv}, \path{landscape/predictions_D70.csv}, \path{landscape/runF_raw.tar.gz} (raw) \\
-Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} & \path{potential.c}, \path{potential_array.sbatch}, \path{potential_configs.txt}, \path{potential_report.py} & \path{potential/report.txt}, \path{potential/runG_raw.tar.gz} (raw) \\
+Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} & \path{potential.c}, \path{potential_array.sbatch}, \path{potential_configs.txt}, \path{potential_report.py}; \path{orbit_profile.c}, \path{orbit_profile_report.py} & \path{potential/report.txt}, \path{potential/runG_raw.tar.gz} (raw); \path{potential/orbit_profile_c*.txt}, \path{potential/report_H.txt} \\
 Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py} & -- \\
 \bottomrule
 \end{tabularx}

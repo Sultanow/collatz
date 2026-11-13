@@ -1,0 +1,44 @@
+== orbit_profile_c1.txt: c=1, 1e+07 starting values in [1e28, 2e28); 2/log(4/3) = 6.9521
+  mean of a*h(a) by decade 10^k of the targets:
+    k=6: 6.9107  k=7: 6.9336  k=8: 6.9491
+    9: 6.9482  10: 6.9476  11: 6.9498  12: 6.9534  13: 6.9513  14: 6.9508  15: 6.9521  16: 6.9523  17: 6.9526  18: 6.9531  19: 6.9521  20: 6.9524  21: 6.9491  22: 6.9522  23: 6.9522  24: 6.9533  25: 6.9526
+  decades k >= 9: mean 6.9515, standard deviation between decades 0.0018, relative deviation of the mean from 2/log(4/3): -9.37e-05
+  classes of a/c mod 3: median |log ratio| 0.0001, max 0.0001
+  classes of a/c mod 9: median |log ratio| 0.0001, max 0.0002
+    s: measured / predicted  1: 7.945/7.945  2: 15.889/15.891  4: 10.923/10.925  5: 3.973/3.973  7: 1.986/1.986  8: 21.847/21.850
+  classes of a/c mod 27: median |log ratio| 0.0001, max 0.0004
+  classes of a/c mod 81: median |log ratio| 0.0001, max 0.0008
+
+== orbit_profile_c-1.txt: c=-1, 1e+07 starting values in [1e28, 2e28); 2/log(4/3) = 6.9521
+  mean of a*h(a) by decade 10^k of the targets:
+    k=6: 6.9432  k=7: 6.9685  k=8: 6.9545
+    9: 6.9510  10: 6.9535  11: 6.9557  12: 6.9525  13: 6.9506  14: 6.9510  15: 6.9502  16: 6.9478  17: 6.9512  18: 6.9495  19: 6.9512  20: 6.9523  21: 6.9524  22: 6.9535  23: 6.9525  24: 6.9531  25: 6.9520
+  decades k >= 9: mean 6.9518, standard deviation between decades 0.0018, relative deviation of the mean from 2/log(4/3): -5.15e-05
+  classes of a/c mod 3: median |log ratio| 0.0001, max 0.0001
+  classes of a/c mod 9: median |log ratio| 0.0001, max 0.0002
+    s: measured / predicted  1: 7.945/7.945  2: 15.890/15.891  4: 10.924/10.925  5: 3.972/3.973  7: 1.986/1.986  8: 21.848/21.850
+  classes of a/c mod 27: median |log ratio| 0.0001, max 0.0004
+  classes of a/c mod 81: median |log ratio| 0.0001, max 0.0012
+
+== orbit_profile_c5.txt: c=5, 1e+07 starting values in [1e28, 2e28); 2/log(4/3) = 6.9521
+  mean of a*h(a) by decade 10^k of the targets:
+    k=6: 6.9672  k=7: 6.9564  k=8: 6.9468
+    9: 6.9511  10: 6.9516  11: 6.9539  12: 6.9510  13: 6.9517  14: 6.9517  15: 6.9551  16: 6.9514  17: 6.9523  18: 6.9537  19: 6.9528  20: 6.9534  21: 6.9538  22: 6.9540  23: 6.9532  24: 6.9498  25: 6.9506
+  decades k >= 9: mean 6.9524, standard deviation between decades 0.0014, relative deviation of the mean from 2/log(4/3): +4.42e-05
+  classes of a/c mod 3: median |log ratio| 0.0000, max 0.0000
+  classes of a/c mod 9: median |log ratio| 0.0001, max 0.0002
+    s: measured / predicted  1: 7.945/7.945  2: 15.892/15.891  4: 10.926/10.925  5: 3.972/3.973  7: 1.986/1.986  8: 21.850/21.850
+  classes of a/c mod 27: median |log ratio| 0.0001, max 0.0004
+  classes of a/c mod 81: median |log ratio| 0.0001, max 0.0011
+
+== orbit_profile_c13.txt: c=13, 1e+07 starting values in [1e28, 2e28); 2/log(4/3) = 6.9521
+  mean of a*h(a) by decade 10^k of the targets:
+    k=6: 6.9582  k=7: 6.9603  k=8: 6.9531
+    9: 6.9529  10: 6.9496  11: 6.9488  12: 6.9517  13: 6.9514  14: 6.9505  15: 6.9510  16: 6.9532  17: 6.9533  18: 6.9486  19: 6.9523  20: 6.9511  21: 6.9516  22: 6.9570  23: 6.9547  24: 6.9512  25: 6.9510
+  decades k >= 9: mean 6.9518, standard deviation between decades 0.0021, relative deviation of the mean from 2/log(4/3): -5.24e-05
+  classes of a/c mod 3: median |log ratio| 0.0001, max 0.0001
+  classes of a/c mod 9: median |log ratio| 0.0001, max 0.0001
+    s: measured / predicted  1: 7.945/7.945  2: 15.889/15.891  4: 10.924/10.925  5: 3.973/3.973  7: 1.986/1.986  8: 21.848/21.850
+  classes of a/c mod 27: median |log ratio| 0.0001, max 0.0004
+  classes of a/c mod 81: median |log ratio| 0.0001, max 0.0008
+
