@@ -1,0 +1,172 @@
+% Research proposition; to be read conditional on Lemmas \ref{lem:reduction},
+% \ref{lem:valuations}, \ref{lem:model} and the proof of Theorem \ref{thm:lower}.
+\subsection*{Calibration of clipped first-passage mass}
+\label{subsec:clipped-calibration}
+Throughout this subsection let $c\ge-1$ be odd with $3\nmid c$, fix
+$\beta=1/200$, and set $\gamma_0=2/\log(4/3)$.
+For $X>1$ put
+\[
+ W_X=(X^{1-\beta},X]\cap\N,\qquad X_1=X^{1-2\beta},\qquad
+ H_X=(\log X)^{\varepsilon_0/2}X.
+\]
+For an odd positive integer $m$, let $\Phi_X(m)$ be the sum, counted
+with multiplicity, of the elements of $W_X$ in Syracuse blocks
+$1,\ldots,\tau_{X_1}(m)$, and put $\Phi_X(m)=0$ if
+$\tau_{X_1}(m)=\infty$. For $w\in\N$, let $w^\flat$ be its odd part.
+\begin{proposition}[Sharp calibration after clipping]
+\label{prop:clipped-calibration}
+Assume Lemmas~\ref{lem:reduction}, \ref{lem:valuations}, and
+\ref{lem:model} with the uniformities used in the proof of
+Theorem~\ref{thm:lower}. Then the logarithmic mean
+\[
+ C_X:=\lim_{N\to\infty}\frac1{\log N}
+ \sum_{1\le w<N}\frac{\min\{\Phi_X(w^\flat),H_X\}}{w}
+\]
+exists for every sufficiently large $X$, and
+\begin{equation}\label{eq:clipped-calibration}
+ \boxed{C_X=\gamma_0 X+o(X)\qquad(X\to\infty).}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For fixed $X$, the first-passage invariance checked in Step~2 of
+the proof of Theorem~\ref{thm:lower} holds for
+$\varphi_X(m)=\min\{\Phi_X(m),H_X\}/H_X$.
+Lemma~\ref{lem:reduction} therefore gives the existence of $C_X$
+and, with $x_0=X^{1+\beta}$, $u=x_0^{\lambda_0}$,
+$v=u^\alpha$, and $\mathbf N\sim\mathbf{Log}_{u,v}$,
+\begin{equation}\label{eq:calib-window}
+ C_X=\mathbb E\min\{\Phi_X(\mathbf N),H_X\}
+  +O\bigl(H_X(\log u)^{-\varepsilon_0}\bigr)
+ =\mathbb E\min\{\Phi_X(\mathbf N),H_X\}+o(X).
+\end{equation}
+The proof of Theorem~\ref{thm:lower}, Step~3, with the residue
+condition removed, shows
+\begin{equation}\label{eq:calib-lower}
+ \mathbb E\min\{\Phi_X(\mathbf N),H_X\}\ge\gamma_0X-o(X).
+\end{equation}
+Here one must apply the argument to the \emph{total} block sum;
+summing separately clipped residue contributions would not suffice.
+
+We prove the reverse inequality. Couple $\mathbf N$ to
+$U\sim\mathrm{Unif}[s,s+L]$ and independent geometric variables
+$g_j$ as in Step~3, with $s=\log u$, $L=\log(v/u)$, and
+$\varepsilon=X^{-1/2}$. Let $G$ be the good coupling event there;
+for some $\eta>0$ it satisfies $\mathbb P(G^c)=O(X^{-\eta})$.
+For $j\ge1$ and $0\le i<g_j$, write
+$z_{j,i}=U-D_j+i\log2$ as in Lemma~\ref{lem:model}.
+The comparison in Step~3 gives uniformly for
+$j\le\tau_{X_1}(\mathbf N)$ on $G$,
+\[
+ \left|\log(2^i\operatorname{Syr}^j(\mathbf N))-z_{j,i}\right|
+ \le C\varepsilon,
+\]
+for all $0\le i<g_j$; in particular the valuations agree up to
+this stopping time. (The relative-error formula
+\eqref{eq:ideal} uses only preceding ideal iterates, which stay
+above $X_1/3$ even for the final block.) Consequently, with
+$\ell_-=(1-\beta)\log X-C\varepsilon$,
+$\ell_+=\log X+C\varepsilon$, and
+\[
+ Z^+=\sum_{j\ge1}\sum_{i=0}^{g_j-1}e^{z_{j,i}}
+       \mathbf 1[\ell_-<z_{j,i}\le\ell_+],
+\]
+we have the pointwise upper comparison
+\begin{equation}\label{eq:calib-upper-coupling}
+ \Phi_X(\mathbf N)\le (1+C\varepsilon)Z^+\quad\text{on }G.
+\end{equation}
+
+Let $V(t)$ be the expected number of unmarked model points
+$y_{j,i}=D_j-i\log2$ below $t$, over all $j\ge1$ and
+$0\le i<g_j$. Summing the three residue classes in the proof of
+Lemma~\ref{lem:model}, equation~\eqref{eq:V} for $n=1$, gives
+$V(t)=\gamma_0t+O(1)$ for $t\ge0$. Thus the same exact
+integration identity as in the proof of Lemma~\ref{lem:model}(a)
+gives
+\[
+ \begin{aligned}
+ \mathbb EZ^+
+ &=\frac1L\int_{\ell_-}^{\ell_+}e^z
+             \bigl(V(s+L-z)-V(s-z)\bigr)\,dz\\
+ &=\gamma_0\bigl(e^{\ell_+}-e^{\ell_-}\bigr)
+       +O\left(\frac{e^{\ell_+}}L\right)
+  =\gamma_0 X+o(X),
+ \end{aligned}
+\]
+because $s-\ell_+>0$, $L\asymp\log X$,
+$e^{\ell_+}=X(1+O(\varepsilon))$, and
+$e^{\ell_-}=O(X^{1-\beta})$.
+Since $\min\{\Phi_X,H_X\}\le H_X$ always,
+\[
+ \mathbb E\min\{\Phi_X(\mathbf N),H_X\}
+ \le(1+C\varepsilon)\mathbb EZ^+
+     +H_X\mathbb P(G^c)
+ =\gamma_0X+o(X).
+\]
+Together with \eqref{eq:calib-lower} and
+\eqref{eq:calib-window}, this proves the claim.
+\end{proof}
+
+\begin{corollary}[Two nonnegative obstructions to the mean upper bound]
+\label{cor:two-tails}
+Write $S_X=\sum_{a\le X}a h(a)$, and define
+\[
+\begin{aligned}
+ F_X&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{\Phi_X(w^\flat)}w,\\
+ R_X&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac1w
+   \left(\sum_{\substack{a\le X\\a\in\operatorname{orb}(w)}}a
+   -\Phi_X(w^\flat)\right),
+\end{aligned}
+\]
+where the limits exist by Lemma~\ref{lem:reduction},
+Proposition~\ref{prop:potential}(a), and finite linearity.
+Put
+\[
+ T_X=F_X-C_X
+ =\lim_{N\to\infty}\frac1{\log N}
+     \sum_{1\le w<N}\frac{(\Phi_X(w^\flat)-H_X)_+}{w}\ge0.
+\]
+Then
+\[
+ \boxed{S_X=C_X+T_X+R_X,\qquad T_X\ge0,\quad R_X\ge0.}
+\]
+In particular, conditional on the stated lemmas,
+\[
+ \limsup_{X\to\infty}\frac{S_X}{X}\le\gamma_0
+ \quad\Longleftrightarrow\quad T_X=o(X)\ \text{and}\ R_X=o(X).
+\]
+\end{corollary}
+\begin{proof}
+For fixed $X$, the first-passage blocks do not repeat points,
+by Step~1 of Theorem~\ref{thm:lower}. Thus for every $w$,
+$0\le\Phi_X(w^\flat)\le
+\sum_{a\le X,\ a\in\operatorname{orb}(w)}a$.
+Lemma~\ref{lem:reduction} applies to the bounded function
+$\Phi_X/B_X$, where $B_X=\sum_{a\in W_X}a$, since the first-passage
+invariance of Step~2 holds for all sufficiently large passage
+thresholds. Hence $F_X$ exists. Proposition~\ref{prop:potential}(a)
+and finite linearity show that the logarithmic mean of the full
+orbit-point sum is $S_X$. Subtracting proves that $R_X$ exists,
+$R_X\ge0$, and $S_X=F_X+R_X$.
+Finally $F_X-C_X$ is the mean of $(\Phi_X-H_X)_+$, so $T_X\ge0$. The claimed equivalence follows
+from Proposition~\ref{prop:clipped-calibration} and the fact that
+both tails are nonnegative.
+\end{proof}
+
+\paragraph{A concrete next target: uniform integrability.}
+A sufficient (currently unproved) condition for the clipping tail to
+vanish is the existence of $\theta>0$ and $K<\infty$ such that,
+uniformly in $X$,
+\[
+ \limsup_{N\to\infty}\frac1{\log N}
+ \sum_{1\le w<N}\frac1w
+ \left(\frac{\Phi_X(w^\flat)}X\right)^{1+\theta}
+ \le K.
+\]
+Indeed, $(t-H_X)_+\le t^{1+\theta}/H_X^\theta$
+for $t\ge0$, whence
+\[
+ 0\le T_X\le K X (\log X)^{-\varepsilon_0\theta/2}=o(X).
+\]
+This condition says nothing about the distinct residual term $R_X$.
