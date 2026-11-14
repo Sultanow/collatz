@@ -1,0 +1,12 @@
+n=1 modulus=3 support=2 denominator_bits=2
+  denominator: 3
+  numerator by residue: [0, 1, 2]
+n=2 modulus=9 support=6 denominator_bits=6
+  denominator: 63
+  numerator by residue: [0, 8, 16, 0, 11, 4, 0, 2, 22]
+n=3 modulus=27 support=18 denominator_bits=18
+  denominator: 262143
+  numerator by residue: [0, 9632, 19264, 0, 5240, 8632, 0, 2408, 10480, 0, 17264, 12784, 0, 23285, 4816, 0, 4316, 34492, 0, 6392, 34528, 0, 17246, 3196, 0, 1598, 46570]
+n=4 modulus=81 support=54 denominator_bits=54
+n=5 modulus=243 support=162 denominator_bits=162
+Exact checks passed (including Tao n=1,2 reference distributions).

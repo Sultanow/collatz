@@ -1,0 +1,8 @@
+n=1 modulus=3 support=2 denominator_bits=2
+n=2 modulus=9 support=6 denominator_bits=6
+n=3 modulus=27 support=18 denominator_bits=18
+n=4 modulus=81 support=54 denominator_bits=54
+n=5 modulus=243 support=162 denominator_bits=162
+n=6 modulus=729 support=486 denominator_bits=486
+n=7 modulus=2187 support=1458 denominator_bits=1458
+Exact checks passed (including Tao n=1,2 reference distributions).
