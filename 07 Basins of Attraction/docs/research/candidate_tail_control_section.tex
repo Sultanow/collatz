@@ -1,0 +1,143 @@
+% WORKING RESEARCH NOTE. DO NOT \input INTO main.tex BEFORE A FULL PROOF AUDIT.
+% Conditional on the quantitative hypotheses of Lemmas 2--4 and the
+% high-probability coupling used for the clipped calibration proposition.
+\subsection*{Control of the intermediate first-passage tail}
+\label{subsec:intermediate-tail}
+We retain the notation of Proposition~\ref{prop:clipped-calibration},
+with $\beta=1/200$, $\varepsilon_0>0$, $W_X=(X^{1-\beta},X]$,
+$\Phi_X$ and $H_X=X(\log X)^{\varepsilon_0/2}$. Denote logarithmic
+averages over $w$ by $\mathbb E_{\log}$, and, for $A>0$, set
+\[
+ C_X(A)=\mathbb E_{\log}\min\{\Phi_X(w^\flat),A\}.
+\]
+For each fixed $X$ this average exists by Lemma~\ref{lem:reduction},
+since the normalized truncated observable has the first-passage
+invariance of Step~2 in the proof of Theorem~\ref{thm:lower}.
+
+\begin{lemma}[Second moment of the full ideal window count]
+\label{lem:full-ideal-second-moment}
+For the log-window coupling in the proof of
+Proposition~\ref{prop:clipped-calibration}, put
+\[
+ Z_X^+=\sum_{j\ge1}\sum_{i=0}^{g_j-1}
+ e^{z_{j,i}}\mathbf 1\{\ell_-<z_{j,i}\le\ell_+\}.
+\]
+Then $\mathbb E[(Z_X^+)^2]\ll X^2$, with the implied constant
+independent of $X$.
+\end{lemma}
+\begin{proof}
+The visit-count estimate in the proof of
+Lemma~\ref{lem:model}(b) already applies to \emph{all} the
+ideal points $z_{j,i}$, without a stopping rule or residue mark.
+For $q\le s=\inf\operatorname{supp}(U)$ let
+$N_q=\#\{(j,i):z_{j,i}\in(q-1,q]\}$.
+That argument proves $\sup_{q\le s}\|N_q\|_2<\infty$.
+Since $\ell_+\le s$ for large $X$,
+\[
+ 0\le Z_X^+\le\sum_{k\ge0}e^{\ell_+-k}N_{\ell_+-k}.
+\]
+Minkowski's inequality yields
+$\|Z_X^+\|_2\ll e^{\ell_+}\ll X$.
+\end{proof}
+
+\begin{proposition}[Intermediate tails are negligible, conditionally]
+\label{prop:intermediate-tail}
+Assume the uniform constants in Lemma~\ref{lem:reduction} and the
+coupling estimate of Step~3 of Theorem~\ref{thm:lower}:
+$\mathbb P(G_X^c)\ll X^{-\eta}$ for a fixed $\eta>0$, and on
+$G_X$, $\Phi_X(\mathbf N)\le(1+O(X^{-1/2}))Z_X^+$.
+For any $X$ sufficiently large and any thresholds $X\le H\le K$,
+\begin{equation}\label{eq:intermediate-tail-general}
+ 0\le C_X(K)-C_X(H)
+ \ll \frac{X^2}{H}+KX^{-\eta}
+      +K(\log X)^{-\varepsilon_0}.
+\end{equation}
+In particular, with
+\[
+ H_X=X(\log X)^{\varepsilon_0/2},\qquad
+ K_X=\frac{X(\log X)^{\varepsilon_0}}{\log\log X},
+\]
+one has
+\begin{equation}\label{eq:intermediate-tail-small}
+ C_X(K_X)-C_X(H_X)=o(X).
+\end{equation}
+Equivalently, for the nonnegative clipping tail of
+Corollary~\ref{cor:two-tails},
+\[
+ T_X=o(X)+\mathbb E_{\log}(\Phi_X(w^\flat)-K_X)_+.
+\]
+Here $o(X)$ denotes the explicitly nonnegative intermediate
+contribution in \eqref{eq:intermediate-tail-small}.
+\end{proposition}
+\begin{proof}
+Put
+$D_{H,K}(m)=\min\{\Phi_X(m),K\}-\min\{\Phi_X(m),H\}$.
+Then $0\le D_{H,K}\le K$, and $D_{H,K}/K$ has the
+first-passage invariance required by Lemma~\ref{lem:reduction}.
+Consequently, for the log-window sample $\mathbf N$ used in
+Proposition~\ref{prop:clipped-calibration},
+\[
+ \left|C_X(K)-C_X(H)-\mathbb E D_{H,K}(\mathbf N)\right|
+ \ll K(\log X)^{-\varepsilon_0}.
+\]
+On the successful coupling event,
+\[
+ D_{H,K}(\mathbf N)\le(\Phi_X(\mathbf N)-H)_+
+ \le\frac{\Phi_X(\mathbf N)^2}{H}
+ \ll\frac{(Z_X^+)^2}{H}.
+\]
+On its complement, $D_{H,K}\le K$.
+The preceding lemma therefore yields
+$\mathbb E D_{H,K}(\mathbf N)\ll X^2/H+KX^{-\eta}$,
+proving \eqref{eq:intermediate-tail-general}.
+For $H=H_X$, $K=K_X$, the right side is at most a constant times
+\[
+ X(\log X)^{-\varepsilon_0/2}
+ +X^{1-\eta}\frac{(\log X)^{\varepsilon_0}}{\log\log X}
+ +\frac{X}{\log\log X}=o(X).
+\]
+Finally,
+$(t-H)_+=[\min\{t,K\}-\min\{t,H\}]+(t-K)_+$
+for $t\ge0$ and $K\ge H$. Taking logarithmic means gives the
+claimed decomposition; all limits exist for fixed $X$ by
+Lemma~\ref{lem:reduction} applied to the bounded observables.
+\end{proof}
+
+\begin{remark}[The remaining obstruction]
+The original $T_X=o(X)$ does \emph{not} follow from this result.
+For fixed $X$, distinctness of the first-passage points gives the
+only immediate deterministic bound
+$\Phi_X(m)\le B_X:=\sum_{a\in W_X}a\ll X^2$.
+The logarithmic transport error in Lemma~\ref{lem:reduction}
+is $O(K(\log X)^{-\varepsilon_0})$, which is too large
+when one attempts to set $K=B_X$. Likewise the model second moment
+only controls the successful coupling event; the complement may
+have a small probability but still carry a large amount of
+\emph{actual} orbit mass.
+Proving $\mathbb E_{\log}(\Phi_X-K_X)_+=o(X)$ requires an
+additional tail estimate for actual trajectories, not merely
+another moment estimate for the ideal model.
+\end{remark}
+
+
+\paragraph{A quantitative diagnostic for exceptional trajectories.}
+For fixed $X$ and $t\ge X$, let
+$p_X(t)=\mathbb E_{\log}\mathbf 1\{\Phi_X(w^\flat)>t\}$.
+Lemma~\ref{lem:reduction} applies to the first-passage-invariant
+indicator $\mathbf 1\{\Phi_X>t\}$. On $G_X$,
+$\Phi_X(\mathbf N)\ll Z_X^+$, so Chebyshev's inequality and
+Lemma~\ref{lem:full-ideal-second-moment} imply
+\begin{equation}\label{eq:tail-dist-obstruction}
+ p_X(t)\ll\frac{X^2}{t^2}
+     +X^{-\eta}+(\log X)^{-\varepsilon_0}.
+\end{equation}
+The layer-cake formula gives, for any $H\ge X$,
+\[
+ \mathbb E_{\log}(\Phi_X-H)_+
+ =\int_H^{B_X}p_X(t)\,dt,
+ \qquad B_X=\sum_{a\in W_X}a\ll X^2.
+\]
+The bound~\eqref{eq:tail-dist-obstruction} yields only
+$O(X^2/H+B_XX^{-\eta}+B_X(\log X)^{-\varepsilon_0})$,
+which need not be $o(X)$. In particular, the present estimates
+leave the extreme actual-orbit tail uncontrolled.
