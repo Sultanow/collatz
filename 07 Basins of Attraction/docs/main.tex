@@ -1199,7 +1199,26 @@ Then
 The steps $\xi_t=g_t\log2-\log3$ have the mean $\mu_0$ and exponential moments, and $\mathbb E\,e^{-\xi_t}=3\sum_{i\ge1}4^{-i}=1$. We use three standard facts about the random walk $(D_j)$.
 \begin{enumerate}[label=(\roman*)]
 	\item For $t\ge0$ let $T_t=\inf\{j\ge0:D_j\ge t\}$. Then $\mu_0\,\mathbb E\,T_t=\mathbb E\,D_{T_t}$ by Wald's identity, and $t\le\mathbb E\,D_{T_t}\le t+C$ by Lorden's inequality \cite{Lorden_1970}.
-	\item By Chernoff's bound, $\mathbb P(D_j<w)\le e^{w/2}\varrho^j$ with $\varrho=\mathbb E\,e^{-\xi_t/2}<1$. With the strong Markov property at the first entrance it follows that, for all real $q$ and all $\ell\ge0$, the expected number of $j\ge0$ with $q\le D_j<q+\ell$ is at most $C(1+\ell)$. The same holds for the walk after a stopping time.
+	\item By Chernoff's bound,
+$\mathbb P(D_j<w)\le e^{w/2}\varrho^j$ with
+$\varrho=\mathbb E\,e^{-\xi_t/2}<1$.
+Here is a uniform visit bound that will also control second moments.
+For any unit interval $I=[q,q+1)$, let $J$ be its first visit
+($J=\infty$ if there is none). On $\{J<\infty\}$, conditional on
+$\mathcal F_J$, the number of later visits to $I$ is bounded by
+$\sum_{i\ge1}\mathbf 1[D'_i<1]$, where $(D'_i)$ is an independent
+copy of the walk. In particular,
+\[
+\mathbb E\#\{j\ge0:D_j\in I\}
+\le1+e^{1/2}\sum_{i\ge1}\varrho^i\le C.
+\]
+By Minkowski's inequality, the same unit-interval visit count
+has a uniformly bounded second moment, since
+$\sum_{i\ge1}\mathbb P(D'_i<1)^{1/2}<\infty$.
+Covering $[q,q+\ell)$ by at most $\lceil\ell\rceil+1$ unit intervals
+shows that the expected number of visits to this interval is at most
+$C(1+\ell)$. The same estimates hold for the walk after any
+stopping time, conditionally on the past, by the strong Markov property.
 	\item $(e^{-D_j})_{j\ge0}$ is a nonnegative martingale with mean $1$, so that $\mathbb P(\inf_jD_j\le-w)\le e^{-w}$ for $w\ge0$.
 \end{enumerate}
 In the coordinate $y=U-z$, the points of the $j$-th block are $y_{j,i}=D_j-i\log2$. They lie in $[D_{j-1}-\log\tfrac32,\,D_j]$, because $D_j-(g_j-1)\log2=D_{j-1}+\log2-\log3$. Let $m_j$ be the number of $i<g_j$ with $c\,2^i\sigma_j\equiv r$ modulo $3^n$. It is a function of $g_{j-n+1},\ldots,g_j$ with $0\le m_j\le g_j$. We have $2^i\sigma_j=(1+3\sigma')2^{-(g_j-i)}$ with $\sigma'=\sum_{t=1}^{n-1}3^{t-1}2^{-(g_{j-t}+\dots+g_{j-1})}$, which is independent of $g_j$, and $(1+3\sigma')2^{-g_j}$ has the law of $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$. Hence
@@ -1229,9 +1248,57 @@ by~(ii). With~(i) and $\gamma_0=2/\mu_0$, this proves~\eqref{eq:V}.
 \[
 \mathbb E\sum_{j\ge n}\ \sum_{i=0}^{g_j-1}e^{z_{j,i}}\,\mathbf 1\bigl[\ell_1<z_{j,i}\le\ell_2,\ c\,2^i\sigma_j\equiv r\bigr]=\frac1L\int_{\ell_1}^{\ell_2}e^z\bigl(V(s-z+L)-V(s-z)\bigr)\,dz .
 \]
-As $s-z\ge0$, the integrand is at least $e^z(\gamma_0p_rL-2C)$ by~\eqref{eq:V}, which gives the first term of~(a). The sum $Z$ omits the blocks $j>\tau^*$. Such a block has a point above $\ell_1$ only if $U-D_{j-1}>\ell_1-\log\tfrac32$, whereas $U-D_{\tau^*}\le\ell_0$. By~(iii) and the strong Markov property at $\tau^*$, the walk returns in this way with a probability of at most $\tfrac32e^{-(\ell_1-\ell_0)}$. A block $j$ with $g_j=i$ has points in $(\ell_1,\ell_2]$ only if $U-\ell_2-i\log2\le D_{j-1}<U-\ell_1+\log\tfrac32$. By~(ii), applied to the walk after the first return, the blocks after it have at most $\sum_{i\ge1}i\,2^{-i}C(1+\ell_2-\ell_1+i)\le C(1+\ell_2-\ell_1)$ points in $(\ell_1,\ell_2]$ in expectation, and each of these points contributes at most $e^{\ell_2}$. This proves~(a).
+As $s-z\ge0$, the integrand is at least $e^z(\gamma_0p_rL-2C)$ by~\eqref{eq:V}, which gives the first term of~(a). The sum $Z$ omits the blocks $j>\tau^*$. Such a block can have a point above $\ell_1$ only if
+$D_{j-1}<b:=U-\ell_1+\log\tfrac32$, while
+$D_{\tau^*}\ge U-\ell_0$. Put
+$d=\ell_1-\ell_0-\log\tfrac32$ and let $\sigma$ be the first
+$k\ge1$ with $D_{\tau^*+k}<b$ (if no such $k$ exists, no
+omitted block contributes). For $d>0$, the exponential martingale
+in~(iii), applied after $\tau^*$, gives
+$\mathbb P(\sigma<\infty)\le e^{-d}
+=\tfrac32e^{-(\ell_1-\ell_0)}$.
+The negative increment is always $-\log\tfrac32$ (it occurs when
+$g_j=1$); thus, on $\{\sigma<\infty\}$, the first return ends
+in $[b-\log\tfrac32,b)$, and no omitted block can contribute
+before the next increment. By the strong Markov property at this
+first return, a later block with $g_j=i$ and a point in
+$(\ell_1,\ell_2]$ must satisfy
+$U-\ell_2-i\log2\le D_{j-1}<b$. The uniform interval-visit
+estimate in~(ii), conditional on the return, bounds its expected
+number of points by
+$\sum_{i\ge1}i\,2^{-i}C(1+\ell_2-\ell_1+i)
+\le C(1+\ell_2-\ell_1)$.
+Each point has weight at most $e^{\ell_2}$; multiplying by the
+probability of the return proves the error term in~(a).
+If $d\le0$, the same conditional interval-visit estimate applied
+directly after $\tau^*$ gives an error
+$O(e^{\ell_2}(1+\ell_2-\ell_1))$, which is absorbed in the
+stated error term because
+$e^{-(\ell_1-\ell_0)}\ge 2/3$ in this case.
 
-(b) For $q\le s$ let $N_q$ be the number of points $z_{j,i}$ in $(q-1,q]$, and let $j_1\ge1$ be the first $j$ with $U-D_j\le q$. A block $j<j_1$ has no point in $(q-1,q]$, and a block $j>j_1$ has one only if $D_{j-1}-D_{j_1}<1+\log\tfrac32$. Hence $N_q\le g_{j_1}+\sum_{i\ge1}g_{j_1+i}\mathbf 1[D_{j_1+i-1}-D_{j_1}<1+\log\tfrac32]$, where $g_{j_1+i}$ is independent of the indicator next to it. As for $\mathbb E\,g_T$ above, $\mathbb E\,g_{j_1}^2\le C$. By Minkowski's inequality and~(ii), $\mathbb E\,N_q^2\le C$ for all $q$. Since $Z\le\sum_{i\ge0}e^{\ell_2-i}N_{\ell_2-i}$, a second application of Minkowski's inequality gives~(b).
+(b) For $q\le s$ let $N_q$ be the number of points $z_{j,i}$ in $(q-1,q]$, and let $j_1\ge1$ be the first $j$ with $U-D_j\le q$. A block $j<j_1$ has no point in $(q-1,q]$, and a block $j>j_1$ has one only if $D_{j-1}-D_{j_1}<1+\log\tfrac32$. Hence $N_q\le g_{j_1}+\sum_{i\ge1}g_{j_1+i}\mathbf 1[D_{j_1+i-1}-D_{j_1}<1+\log\tfrac32]$, where $g_{j_1+i}$ is independent of the indicator next to it. The overshooting valuation also has a uniformly bounded second
+moment. Indeed, for $t=U-q>0$, conditioning on $g_j=v$ and using
+that $j$ is a first crossing only if
+$t-v\log2+\log3\le D_{j-1}<t$, we obtain by~(ii)
+\[
+\mathbb E\,g_{j_1}^2
+\le\sum_{v\ge1}v^2 2^{-v}
+\mathbb E\#\{j\ge1:t-v\log2+\log3\le D_{j-1}<t\}
+\le C\sum_{v\ge1}v^2 2^{-v}(1+v)\le C.
+\]
+After the stopping time $j_1$, the variables $g_{j_1+i}$ are
+independent of the events
+$\{D_{j_1+i-1}-D_{j_1}<1+\log\tfrac32\}$.
+Minkowski's inequality and the Chernoff bound in~(ii) consequently give
+\[
+\|N_q\|_{L^2}
+\le C+(\mathbb E g_1^2)^{1/2}
+\sum_{i\ge1}\mathbb P(D_{i-1}<1+\log\tfrac32)^{1/2}
+\le C,
+\]
+uniformly in $q\le s$. Since
+$Z\le\sum_{i\ge0}e^{\ell_2-i}N_{\ell_2-i}$, a second
+application of Minkowski's inequality gives~(b).
 
 (c) Let $j_0=\lceil8\Delta\rceil$. If $\tau^*>j_0$, then $D_{j_0}<\Delta$. We have $\mathbb E\,D_{j_0}\ge2\Delta$ and $\mathbb E(g_1+\dots+g_{j_0})=2j_0$, so that $\mathbb P(D_{j_0}<\Delta)$ and $\mathbb P(g_1+\dots+g_{j_0}>3j_0)$ are at most $Ce^{-\Delta/C}$ by Chernoff's bound. As $3j_0\le24\Delta+3$, this proves~(c).
 \end{proof}
