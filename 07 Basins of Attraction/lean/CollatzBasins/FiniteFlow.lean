@@ -1,5 +1,9 @@
 import CollatzBasins.Basic
 
+-- Scoped instance `Classical.propDecidable` is needed when elaborating
+-- the `if` expressions in the statement of `finite_hitting_mass`.
+open Classical
+
 /-!
 # Finite-horizon predecessor identity
 
