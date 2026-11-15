@@ -47,6 +47,7 @@ theorem finite_hitting_mass (c a : ℤ) (N : ℕ)
     (sample : Finset ℤ) (w : ℤ → ℚ) :
     (∑ n ∈ sample, if reachesWithin c n a (N + 1) then w n else 0) =
       ∑ n ∈ sample, if n = a ∨ reachesWithin c (step c n) a N then w n else 0 := by
+  classical
   apply Finset.sum_congr rfl
   intro n _
   rw [reachesWithin_succ_iff]
