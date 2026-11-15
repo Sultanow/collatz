@@ -24,3 +24,9 @@ import CollatzBasins
 #print axioms CollatzBasins.return_weighted_square_eq_odd_sum
 #print axioms CollatzBasins.return_occupation_cannot_contract
 #print axioms CollatzBasins.return_discounted_potential_sub_eigen
+
+#print axioms CollatzBasins.return_lyapunov_path
+#print axioms CollatzBasins.return_lyapunov_weighted
+#print axioms CollatzBasins.return_same_residue_arithmetic
+#print axioms CollatzBasins.return_same_residue_divisor
+#print axioms CollatzBasins.return_same_residue_dyadic

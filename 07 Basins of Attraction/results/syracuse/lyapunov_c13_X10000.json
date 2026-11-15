@@ -1,0 +1,78 @@
+{
+  "arithmetic": {
+    "A": 2560,
+    "X": 10000,
+    "c": 13,
+    "k": 8,
+    "modulus": 256,
+    "one_step_return": true,
+    "same_residue": true,
+    "shell": "(X/2,X]",
+    "y": 5107,
+    "z": 7667
+  },
+  "graph": {
+    "X": 10000,
+    "c": 13,
+    "cutoff": 2500,
+    "exact_barrier_verified": true,
+    "first_return_events": {
+      "passage": 1458,
+      "return": 3542
+    },
+    "max_visits": 24,
+    "mean_squared_visits_denominator": 5000,
+    "mean_squared_visits_numerator": 98408,
+    "residue_examples": {
+      "1024": {
+        "y": 6131,
+        "z": 9203
+      },
+      "16": {
+        "y": 5011,
+        "z": 7523
+      },
+      "2": {
+        "y": 5003,
+        "z": 7511
+      },
+      "2048": {
+        "y": 8205,
+        "z": 6157
+      },
+      "256": {
+        "y": 5107,
+        "z": 7667
+      },
+      "32": {
+        "y": 5043,
+        "z": 7571
+      },
+      "4": {
+        "y": 5003,
+        "z": 7511
+      },
+      "64": {
+        "y": 5107,
+        "z": 7667
+      },
+      "8": {
+        "y": 5011,
+        "z": 7523
+      }
+    },
+    "residue_self_edges": {
+      "1024": 4,
+      "16": 219,
+      "2": 1775,
+      "2048": 2,
+      "256": 14,
+      "32": 109,
+      "4": 881,
+      "64": 52,
+      "8": 437
+    },
+    "state_count": 5000,
+    "status": "FINITE_COMPLETE_ONLY"
+  }
+}

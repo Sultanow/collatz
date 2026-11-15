@@ -1,0 +1,61 @@
+% RESEARCH CANDIDATE -- DO NOT \input this into main.tex pending the Lean CI audit.
+\subsection*{Two-level Lyapunov certificates for shell return moments}
+Fix a deterministic map and a finite shell $I$ with a first-passage
+cutoff $a<\min I$.  On a subset of $I$ whose return chains terminate,
+write $R_I(y)$ for the next shell visit, or $\dagger$ if there is none.
+For a function $F$ define $(PF)(y)=F(R_I(y))$, with $F(\dagger)=0$.
+
+\paragraph{Proposition (two-level certificate).}
+Suppose $U,V:I\to[0,\infty)$ satisfy
+\[
+ U\ge 1+PU,\qquad V\ge 1+2PU+PV.
+\]
+If a starting state $y$ has exactly $N(y)$ shell visits before first
+passage, then
+\[
+ N(y)\le U(y),\qquad N(y)^2\le V(y).
+\]
+For every finite first-entrance subprobability measure $q_1$ supported
+on such states, it follows that
+\[
+ \boxed{\;\mathbb E[N_I^2]\le\sum_{y\in I}q_1(y)V(y).\;}
+\]
+\emph{Proof.}  At a terminal state $N=1$, and both inequalities follow
+from the hypotheses because $PF=0$.  If $R_I(y)=z$ and $N(z)=n$,
+then $N(y)=n+1$.  By induction $n\le U(z)$ and $n^2\le V(z)$, hence
+$U(y)\ge 1+U(z)\ge n+1$ and
+$V(y)\ge1+2U(z)+V(z)\ge(n+1)^2$.
+Integrate over $q_1$.\hfill$\square$
+
+This provides a \emph{second-moment} alternative to the strict
+sub-eigenmeasure criterion.  The exact choices $U=N$ and $V=N^2$
+trivially satisfy the inequalities on a finite terminated graph;
+the quantitative challenge is to find explicit scale-dependent
+certificates with $\sup_{X,j}\sum q_{1,X,j}V_{X,j}<\infty$.
+No such uniform construction is claimed here.
+
+\paragraph{Proposition (fixed-modulus obstruction).}
+Fix an odd integer $c$ and $k\ge1$.  For every sufficiently large
+$X$ there exist $y,z\in(X/2,X]$ satisfying
+\[
+ T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
+\]
+Consequently no function $U(y)$ depending \emph{only} on
+$y\bmod 2^k$ can satisfy $U\ge1+PU$ on all states of these shells.
+\emph{Proof.}  Put $m=2^k$ and choose a multiple $A$ of $m$ in
+\[
+ (X/4+c/2,\;(X+c)/3].
+\]
+The interval has length $X/12-c/6>m$ for sufficiently large $X$,
+so it contains such an $A$.  With $y=2A-c$ and $z=3A-c$,
+$y$ is odd and $(3y+c)/2=z$; the interval inequalities ensure
+$X/2<y<z\le X$.  Moreover $z-y=A\equiv0\pmod m$.
+Thus $R_I(y)=z$ immediately, while residue-only $U$ would yield
+$U(y)\ge 1+U(z)=1+U(y)$, a contradiction.\hfill$\square$
+
+\paragraph{Research direction.}  Test certificates depending on
+both the \emph{relative shell coordinate} $y/X$ and arithmetic
+features of the return state, rather than on a fixed binary residue
+alone.  The exact killed potential can be used to evaluate the
+resulting entry-weighted upper bounds, but does not automatically
+provide a uniform one.  None of this proves $T_X=o(X)$.

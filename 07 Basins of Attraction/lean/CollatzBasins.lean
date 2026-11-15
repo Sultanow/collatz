@@ -4,6 +4,7 @@ import CollatzBasins.Clipping
 import CollatzBasins.ReturnPairs
 import CollatzBasins.EntranceTransport
 import CollatzBasins.ReturnGreen
+import CollatzBasins.ReturnLyapunov
 
 /-!
 This root module collects the proof kernel of the Collatz-basins project.
