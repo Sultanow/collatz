@@ -4,7 +4,7 @@ import Mathlib
 # Elementary clipping algebra (candidate for Lean CI review)
 
 This file is NOT certified until `lake env lean CollatzBasins/Clipping.lean`
-passes on the repository's pinned toolchain and the CI axiom check runs.
+passes on the repository's pinned toolchain and the CI dependency audit runs.
 It proves only finite algebraic inequalities; nothing about actual Collatz
 orbits, logarithmic density, or the open local-time moment bound.
 -/
