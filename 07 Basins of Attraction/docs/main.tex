@@ -91,7 +91,7 @@
 \begin{document}
 
 \begin{abstract}
-We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari.
+We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. The elementary predecessor and finite-horizon hitting identities are verified in Lean~4; the asymptotic density and Syracuse statements are not covered by this machine check.
 \end{abstract}
 
 \begingroup
@@ -266,6 +266,27 @@ formula, remain open (Corollary~\ref{cor:remains},
 Conjectures~\ref{conj:profile} and~\ref{conj:formula}). The measurements in
 Tables~\ref{table:syracuse} and~\ref{table:convergence} provide independent
 numerical tests of these conjectures, but do not establish their limits.
+
+
+\subsection*{Machine-checked finite core and its scope}
+A companion Lean~4 development formalises the accelerated integer-valued
+$3x+c$ map, its immediate predecessors for odd $c$, the recursion for
+hitting a target within a fixed number of steps, and a finite weighted
+hitting-mass identity for arbitrary finite samples. The corresponding
+\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/lean}{Lean sources}
+are checked by the
+\href{https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml}{GitHub Actions kernel-check workflow}
+using Lean~4 and Mathlib. The reported successful kernel check lists only
+\texttt{propext}, \texttt{Quot.sound}, and \texttt{Classical.choice} as axiom
+dependencies. The public workflow should be consulted at the commit being
+cited, because the branch can change.
+
+This formal verification is deliberately \emph{limited to finite dynamics}.
+In particular, it does not certify Theorem~\ref{thm:logdens},
+Proposition~\ref{prop:potential}'s logarithmic-density assertions,
+Lemma~\ref{lem:model}, Theorem~\ref{thm:lower}, or the first-passage
+calibration. Their proofs and external dependencies require separate
+mathematical and, potentially, formal verification.
 
 \FloatBarrier
 
@@ -1019,21 +1040,122 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 
 
 
+
+%=====================================================================
+\section{First-passage tails: an exact reduction and an open moment problem}
+\label{sec:tail-programme}
+%=====================================================================
+The lower Syracuse-profile bound of Theorem~\ref{thm:lower} uses a
+clipped first-passage observable. To identify what would be needed for a
+matching upper bound, we record an exact decomposition and a conditional
+criterion. This section does \emph{not} assert that the missing bounds have
+been established.
+
+Fix the assumptions of Proposition~\ref{prop:clipped-calibration}, and
+retain its window $W_X$, first-passage mass $\Phi_X$, and clipping height
+$H_X=X(\log X)^{\varepsilon_0/2}$. For an odd positive starting value $m$,
+let $V_X(m)$ be the number of occurrences in $W_X$ in the same finite
+sequence of Syracuse blocks used to define $\Phi_X(m)$, with the same
+convention $V_X(m)=0$ if the relevant first passage does not occur. The
+points are counted with multiplicity in both observables; hence
+\begin{equation}\label{eq:visit-controls-mass}
+  0\le\Phi_X(m)\le X V_X(m).
+\end{equation}
+For a function $f$ of the odd part $w^\flat$ of $w$, write
+\[
+  \mathbb E_{\log}f(w^\flat)
+  :=\lim_{N\to\infty}\frac{1}{\log N}
+  \sum_{1\le w<N}\frac{f(w^\flat)}{w},
+\]
+whenever the limit exists. Existence of the means below is understood
+under the bounded-observable first-passage hypotheses of
+Lemma~\ref{lem:reduction} and the predecessor-density assertion of
+Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ and $V_X$
+are bounded, since a finite first-passage segment does not repeat a
+point in the target window.
+
+\begin{proposition}[Exact mass decomposition and a return-count criterion]
+\label{prop:return-count-criterion}
+Let $S_X=\sum_{a\le X}a\,h(a)$, and put
+\[
+\begin{aligned}
+ C_X&=\mathbb E_{\log}\min\{\Phi_X(w^\flat),H_X\},\\
+ T_X&=\mathbb E_{\log}(\Phi_X(w^\flat)-H_X)_+,\\
+ R_X&=S_X-\mathbb E_{\log}\Phi_X(w^\flat).
+\end{aligned}
+\]
+Then, under the preceding existence hypotheses,
+\begin{equation}\label{eq:exact-three-part-mass}
+  S_X=C_X+T_X+R_X,\qquad T_X\ge0,\quad R_X\ge0.
+\end{equation}
+If, in addition, for some $\theta>0$ and a constant $M$ independent
+of sufficiently large $X$,
+\begin{equation}\label{eq:return-moment-open}
+  \mathbb E_{\log}\bigl[V_X(w^\flat)^{1+\theta}\bigr]\le M,
+\end{equation}
+then
+\begin{equation}\label{eq:return-moment-consequence}
+  T_X\le M X(\log X)^{-\varepsilon_0\theta/2}=o(X).
+\end{equation}
+In conjunction with the clipped calibration
+$C_X=\gamma_0X+o(X)$ of Proposition~\ref{prop:clipped-calibration},
+this would reduce the full mean upper bound to the separate condition
+$R_X=o(X)$.
+\end{proposition}
+\begin{proof}
+For each starting value $w$, the terms counted by
+$\Phi_X(w^\flat)$ are distinct points of the orbit of $w$ up to its
+first passage below the lower threshold, as in Step~1 of the proof
+of Theorem~\ref{thm:lower}. Consequently
+\[
+  0\le\Phi_X(w^\flat)
+    \le\sum_{\substack{a\le X\\a\in\operatorname{orb}(w)}}a.
+\]
+Taking logarithmic means and using the definition of $h(a)$ shows
+$R_X\ge0$. The pointwise identity
+$t=\min\{t,H_X\}+(t-H_X)_+$ for $t\ge0$ gives
+\eqref{eq:exact-three-part-mass} by linearity. To prove
+\eqref{eq:return-moment-consequence}, set
+$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$. Since
+$\Phi_X\le X V_X$,
+\[
+ (\Phi_X-H_X)_+
+ \le X V_X\,\mathbf 1_{\{V_X>L_X\}}
+ \le X L_X^{-\theta}V_X^{1+\theta}.
+\]
+Average and apply \eqref{eq:return-moment-open}.
+\end{proof}
+
+\paragraph{The remaining gap.}
+The model second-moment estimate in Lemma~\ref{lem:model} concerns an
+\emph{idealised} renewal process; it does not establish
+\eqref{eq:return-moment-open} for actual Syracuse orbits. Rare starting
+values on which the coupling fails may have a disproportionately large
+weighted contribution. Nor does control of $T_X$ by itself imply
+$R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
+\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
+are currently conditional working drafts, not additional certified
+theorems. Establishing a uniform actual-orbit return-count moment bound
+and subsequently controlling $R_X$ are the two principal open steps.
+
 %=====================================================================
 \section{Outlook}
 \label{sec:outlook}
 %=====================================================================
-The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see five directions, in order of priority:
+The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+	\item \emph{Control of actual-orbit return counts}: prove the moment bound~\eqref{eq:return-moment-open} and the separate residual estimate $R_X=o(X)$ (Section~\ref{sec:tail-programme}); neither follows from the present ideal-model second moment.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: a Lean~4 formalisation of Lemma~\ref{lem:words} and Propositions~\ref{prop:unique_parent}, \ref{prop:local} and~\ref{prop:filtration} that refers to the maps themselves.
+	\item \emph{Certification}: the finite predecessor and hitting identities are already kernel-checked in Lean~4 (Section~\ref{sec:contributions}). Extending the development to the logarithmic-density existence theorem, the valuation coupling, the renewal estimates and the Syracuse-profile lower bound remains future work.
 \end{enumerate}
 
 \subsection*{Code and data availability}
 The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c}, \texttt{passage.c} (basin shares via first passage) and \texttt{backward\_mass.c} (backward-mass predictor), the analysis scripts, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares with their raw outputs, and the scripts for all figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Table~\ref{table:reproduction} lists which program and which data file belong to each result. All paths refer to the folder \emph{07 Basins of Attraction}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
+
+The Lean~4 implementation of the finite predecessor and hitting identities, the declared axiom audit, and the CI workflow are linked in the Contributions section. Research notes on the unproved exceptional-mass and return-count problems are kept separately from the main proof sources.
 
 % A longtable can break across pages, unlike a floating tabularx.
 \begingroup
@@ -1077,7 +1199,7 @@ Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_p
 We thank Dr.\ Kai Himstedt, Stephanie von Riegen and the whole EDIH Hamburg team for access to the Research Computing Infrastructure of the EDIH Hamburg.
 
 \subsection*{Use of Artificial Intelligence}
-Generative AI tools (Claude, Anthropic) were used to accelerate prototyping and testing, to explore mathematical arguments and the literature, and to draft portions of the supporting software and of the manuscript text. The author directed the research, reviewed and verified all code, computations and arguments, and takes full responsibility for the content and the conclusions of the paper.
+Generative AI tools (including Claude by Anthropic and ChatGPT by OpenAI) were used to accelerate prototyping and testing, to explore mathematical arguments and the literature, and to draft portions of the supporting software and of the manuscript text. The author directed the research, reviewed and verified all code, computations and arguments, and takes full responsibility for the content and the conclusions of the paper.
 
 \appendix
 \section{Notation}
