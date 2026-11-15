@@ -1,0 +1,183 @@
+% RESEARCH DRAFT — do not include in main.tex until Lemmas 2--4 and
+% Proposition~\ref{prop:clipped-calibration} have passed independent audit.
+% Relies on the specific uniform bounded-observable reduction of Lemma 2.
+\subsection*{Localising the clipping tail to exceptional mass}
+\label{subsec:exceptional-mass}
+Retain the definitions of Proposition~\ref{prop:clipped-calibration}:
+\[
+ W_X=(X^{1-\beta},X]\cap\mathbb N,\quad
+ \beta=1/200,\quad H_X=X(\log X)^{\varepsilon_0/2},
+ \quad B_X=\sum_{a\in W_X}a\ll X^2.
+\]
+For each fixed $X$, let $\mu_X$ denote the logarithmic limiting
+probability distribution of $\Phi_X(w^\flat)$ as $w$ varies over the
+positive integers with weights $1/w$. This distribution exists because
+$\Phi_X$ has finite range in $[0,B_X]$ and each indicator
+$\mathbf1\{\Phi_X\in A\}$ satisfies the first-passage invariance
+hypothesis of Lemma~\ref{lem:reduction}. Let $\nu_X$ be the law of
+$\Phi_X(\mathbf N)$ for the logarithmically sampled odd starting value
+$\mathbf N\sim\mathbf{Log}_{u,v}$ in the proof of
+Proposition~\ref{prop:clipped-calibration}.
+
+\begin{lemma}[Distribution-level reduction]
+\label{lem:distributional-reduction}
+Conditional on the uniform bounded-observable estimate in
+Lemma~\ref{lem:reduction},
+\[
+ d_{\mathrm{TV}}(\mu_X,\nu_X)
+ \ll(\log X)^{-\varepsilon_0}.
+\]
+\end{lemma}
+\begin{proof}
+For an arbitrary subset $A\subseteq[0,B_X]$, apply
+Lemma~\ref{lem:reduction} to
+$\varphi_A(m)=\mathbf1\{\Phi_X(m)\in A\}$. The invariance required
+there is exactly the first-passage invariance proved in Step~2 of
+Theorem~\ref{thm:lower}, and the error constant does not depend on $A$.
+Taking the supremum of the probability differences over $A$ proves
+the total-variation claim.
+\end{proof}
+
+\begin{proposition}[Exceptional-mass localisation; conditional]
+\label{prop:exceptional-mass}
+Assume Lemmas~\ref{lem:reduction}--\ref{lem:model}, the coupling in
+Step~3 of Theorem~\ref{thm:lower}, and the full ideal-window second-moment
+bound $\mathbb E(Z_X^+)^2\ll X^2$ of
+Lemma~\ref{lem:full-ideal-second-moment} in the separate working
+addendum on intermediate tails.
+There exists a coupling of $Y_X\sim\mu_X$ with the ideal-window
+variable $Z_X^+$ and an event $E_X$ such that
+\begin{equation}\label{eq:exception-probability}
+ \mathbb P(E_X)\ll\delta_X,\qquad
+ \delta_X:=(\log X)^{-\varepsilon_0}+X^{-\eta},
+\end{equation}
+and, on $E_X^c$,
+\[
+ Y_X\le(1+O(X^{-1/2}))Z_X^+.
+\]
+Moreover, for every $H\ge X$,
+\begin{equation}\label{eq:exceptional-tail-bound}
+ -C H\delta_X
+ \le \mathbb E(Y_X-H)_+-\mathbb E[Y_X\mathbf1_{E_X}]
+ \le C\frac{X^2}{H},
+\end{equation}
+where the upper bound has an absolute implied constant depending only on
+fixed parameters. In particular, for $H=H_X$,
+\begin{equation}\label{eq:exceptional-tail-asymptotic}
+ \boxed{T_X=\mathbb E[Y_X\mathbf1_{E_X}]+o(X).}
+\end{equation}
+Consequently $T_X=o(X)$ if and only if
+$\mathbb E[Y_X\mathbf1_{E_X}]=o(X)$ for this coupling.
+\end{proposition}
+\begin{proof}
+The preceding lemma and maximal coupling give a random variable
+$Y_X\sim\mu_X$ on an extension of the probability space of
+$\Phi_X(\mathbf N)$ such that
+$\mathbb P(Y_X\ne\Phi_X(\mathbf N))\ll(\log X)^{-\varepsilon_0}$.
+Retain the joint distribution of $\mathbf N,Z_X^+$ and the successful
+valuation coupling event $G_X$; declare
+$E_X=\{Y_X\ne\Phi_X(\mathbf N)\}\cup G_X^c$.
+The desired pointwise comparison holds off $E_X$, and
+\eqref{eq:exception-probability} follows.
+
+On $E_X^c$, the elementary inequality
+$(y-H)_+\le y^2/H$ for $y\ge0$, together with the model second moment,
+gives
+\[
+ \mathbb E[(Y_X-H)_+\mathbf1_{E_X^c}]
+ \ll X^2/H.
+\]
+On $E_X$, $0\le Y_X-(Y_X-H)_+=\min(Y_X,H)\le H$. Thus
+\[
+ \mathbb E[Y_X\mathbf1_{E_X}]-H\mathbb P(E_X)
+ \le\mathbb E[(Y_X-H)_+\mathbf1_{E_X}]
+ \le\mathbb E[Y_X\mathbf1_{E_X}].
+\]
+Combining the two bounds proves \eqref{eq:exceptional-tail-bound}.
+For $H=H_X$, both $X^2/H_X$ and $H_X\delta_X$ are $o(X)$.
+By the definition of $T_X$ in Corollary~\ref{cor:two-tails},
+$T_X=\mathbb E(Y_X-H_X)_+$, proving the conclusion.
+\end{proof}
+
+\begin{corollary}[Intrinsic high-mass criterion; conditional]
+\label{cor:intrinsic-exceptional-mass}
+Keep the preceding assumptions and put
+\[
+ K_X=\frac{X(\log X)^{\varepsilon_0}}{\log\log X}.
+\]
+For all sufficiently large $X$,
+\[
+ \mu_X\{Y_X>K_X\}\ll\frac{X^2}{K_X^2}+\delta_X,
+ \qquad K_X\mu_X\{Y_X>K_X\}=o(X),
+\]
+and
+\begin{equation}\label{eq:intrinsic-exceptional-mass}
+ \boxed{T_X=\mathbb E_{\mu_X}
+ \bigl[Y_X\mathbf1_{\{Y_X>K_X\}}\bigr]+o(X).}
+\end{equation}
+Hence $T_X=o(X)$ is equivalent to the \emph{intrinsic} condition
+\[
+ \mathbb E_{\log}\bigl[
+ \Phi_X(w^\flat)\mathbf1_{\{\Phi_X(w^\flat)>K_X\}}
+ \bigr]=o(X).
+\]
+\end{corollary}
+\begin{proof}
+On the good coupling event, Chebyshev's inequality for $Z_X^+$
+gives the first estimate. Multiplication by $K_X$ yields
+$O(X^2/K_X+K_X\delta_X)=o(X)$.
+The intermediate-tail proposition
+\ref{prop:intermediate-tail} gives
+$\mathbb E(Y_X-H_X)_+
+ =\mathbb E(Y_X-K_X)_++o(X)$, while
+\[
+ \mathbb E[Y_X\mathbf1_{Y_X>K_X}]
+ =\mathbb E(Y_X-K_X)_++K_X\mu_X\{Y_X>K_X\}.
+\]
+The last term is $o(X)$, proving the claim.
+\end{proof}
+
+\begin{corollary}[An unweighted return-count criterion]
+\label{cor:return-count}
+For odd $m$, let $V_X(m)$ be the number of target points in $W_X$
+visited in the Syracuse blocks through first passage below $X_1$,
+with $V_X(m)=0$ if that passage does not occur. If for some
+$\theta>0$ the actual logarithmic starting-value law satisfies
+\begin{equation}\label{eq:return-count-moment}
+ \sup_{X\ge X_0}\mathbb E_{\log}
+     V_X(w^\flat)^{1+\theta}<\infty,
+\end{equation}
+then $T_X=o(X)$. More precisely,
+\[
+ T_X\ll X(\log X)^{-\varepsilon_0\theta/2}.
+\]
+\end{corollary}
+\begin{proof}
+The sum defining $\Phi_X$ contains exactly $V_X$ target entries,
+each at most $X$, so $0\le\Phi_X\le XV_X$. If
+$\Phi_X>H_X$, then $V_X>H_X/X$. Thus
+\[
+ T_X=\mathbb E_{\log}(\Phi_X-H_X)_+
+ \le X\mathbb E_{\log}\bigl[V_X\mathbf1_{V_X>H_X/X}\bigr]
+ \le X(H_X/X)^{-\theta}\mathbb E_{\log}V_X^{1+\theta},
+\]
+proving the assertion. The missing estimate is
+\eqref{eq:return-count-moment} for \emph{actual} Syracuse orbits;
+Lemma~\ref{lem:model} only controls the corresponding ideal model.
+\end{proof}
+
+\begin{remark}[A sharp limitation of the available estimates]
+\label{rem:exception-mass-obstruction}
+The probability bound in \eqref{eq:exception-probability} by itself
+cannot give $T_X=o(X)$. For illustration, consider an \emph{abstract}
+random variable (not an actual Collatz orbit) equal to
+$\gamma_0X$ except on an event of probability
+$(\log X)^{-\varepsilon_0}$, where it equals $X^2/4$.
+It is within that total-variation distance of a model concentrated at
+$\gamma_0 X$, and its clipped mean at $H_X$ equals
+$\gamma_0X+o(X)$, yet its unclipped tail is asymptotic to
+$X^2/[4(\log X)^{\varepsilon_0}]$, which is not $o(X)$.
+The remaining task is therefore an $L^1$ estimate on exceptional
+\emph{actual-orbit mass}, not simply a smaller upper bound for the
+frequency of atypical valuation strings.
+\end{remark}

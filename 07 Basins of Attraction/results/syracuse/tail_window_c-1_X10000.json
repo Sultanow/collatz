@@ -1,0 +1,53 @@
+{
+  "label": "FINITE LOG-WEIGHTED START WINDOW ONLY; NOT E_log; NOT A PROOF",
+  "parameters": {
+    "X": 10000,
+    "c": -1,
+    "u": 11000,
+    "v": 18000,
+    "beta": 0.005,
+    "W_lower_real": 9549.92586021436,
+    "passage_real": 9120.108393559096,
+    "max_blocks": 10000
+  },
+  "starts_processed": 3500,
+  "outcomes": {
+    "passed": 3500
+  },
+  "unresolved_excluded_from_normalization": 0,
+  "mean_mass_over_X_on_resolved": 0.11797260237491781,
+  "max_mass_over_X": 1.9379,
+  "max_visits": 2,
+  "tail_statistics": {
+    "1": {
+      "fraction_above": 0.0011595754533000409,
+      "weighted_excess_over_X": 0.0010875658176501084,
+      "weighted_mass_above_over_X": 0.0022471412709501493
+    },
+    "2": {
+      "fraction_above": 0.0,
+      "weighted_excess_over_X": 0.0,
+      "weighted_mass_above_over_X": 0.0
+    },
+    "4": {
+      "fraction_above": 0.0,
+      "weighted_excess_over_X": 0.0,
+      "weighted_mass_above_over_X": 0.0
+    },
+    "8": {
+      "fraction_above": 0.0,
+      "weighted_excess_over_X": 0.0,
+      "weighted_mass_above_over_X": 0.0
+    },
+    "16": {
+      "fraction_above": 0.0,
+      "weighted_excess_over_X": 0.0,
+      "weighted_mass_above_over_X": 0.0
+    },
+    "32": {
+      "fraction_above": 0.0,
+      "weighted_excess_over_X": 0.0,
+      "weighted_mass_above_over_X": 0.0
+    }
+  }
+}
