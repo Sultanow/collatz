@@ -1047,41 +1047,41 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 
 
 %=====================================================================
-\section{First-passage tails: an exact reduction and an open moment problem}
+\section{First-passage tails and dyadic local-time control}
 \label{sec:tail-programme}
 %=====================================================================
-The lower Syracuse-profile bound of Theorem~\ref{thm:lower} uses a
-clipped first-passage observable. To identify what would be needed for a
-matching upper bound, we record an exact decomposition and a conditional
-criterion. This section does \emph{not} assert that the missing bounds have
-been established.
+The lower Syracuse-profile bound of Theorem~\ref{thm:lower} is obtained
+from a clipped observable. The following decomposition isolates the
+uncontrolled terms. Our new local-time criterion is a \emph{conditional}
+implication, not a bound on the actual return counts.
 
-Fix the assumptions of Proposition~\ref{prop:clipped-calibration}, and
-retain its window $W_X$, first-passage mass $\Phi_X$, and clipping height
-$H_X=X(\log X)^{\varepsilon_0/2}$. For an odd positive starting value $m$,
-let $V_X(m)$ be the number of occurrences in $W_X$ in the same finite
-sequence of Syracuse blocks used to define $\Phi_X(m)$, with the same
-convention $V_X(m)=0$ if the relevant first passage does not occur. The
-points are counted with multiplicity in both observables; hence
-\begin{equation}\label{eq:visit-controls-mass}
-  0\le\Phi_X(m)\le X V_X(m).
-\end{equation}
-For a function $f$ of the odd part $w^\flat$ of $w$, write
+Fix the assumptions of Proposition~\ref{prop:clipped-calibration}; retain
+$W_X=(X^{1-\beta},X]$, its first-passage mass $\Phi_X$, and the clipping
+height $H_X=X(\log X)^{\varepsilon_0/2}$. If $m$ is an odd positive starting
+value, let $N_{X,j}(m)$ count the occurrences (with multiplicity) in
 \[
-  \mathbb E_{\log}f(w^\flat)
-  :=\lim_{N\to\infty}\frac{1}{\log N}
-  \sum_{1\le w<N}\frac{f(w^\flat)}{w},
+ I_{X,j}=\bigl(X2^{-(j+1)},X2^{-j}\bigr]\cap W_X
 \]
-whenever the limit exists. Existence of the means below is understood
+among the same finite Syracuse blocks used to define $\Phi_X(m)$, and
+put $N_{X,j}(m)=0$ if that first passage never occurs. For each fixed
+$X$, only finitely many $I_{X,j}$ are nonempty. Since the weight of
+each point in shell $j$ is at most $X2^{-j}$, we have pointwise
+\begin{equation}\label{eq:visit-controls-mass}
+  0\le\Phi_X(m)/X\le\sum_{j\ge0}2^{-j}N_{X,j}(m).
+\end{equation}
+For functions of the odd part $w^\flat$ of $w$, write
+\[
+ \mathbb E_{\log} f(w^\flat)
+ :=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{f(w^\flat)}w
+\]
+whenever the limit exists. The fixed-$X$ means below are understood
 under the bounded-observable first-passage hypotheses of
-Lemma~\ref{lem:reduction} and the predecessor-density assertion of
-Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ and $V_X$
-are bounded, since a finite first-passage segment does not repeat a
-point in the target window.
+Lemma~\ref{lem:reduction} and Proposition~\ref{prop:potential}.
 
-\begin{proposition}[Exact mass decomposition and a return-count criterion]
+\begin{proposition}[Exact decomposition and dyadic local-time criterion]
 \label{prop:return-count-criterion}
-Let $S_X=\sum_{a\le X}a\,h(a)$, and put
+Let $S_X=\sum_{a\le X}a\,h(a)$ and put
 \[
 \begin{aligned}
  C_X&=\mathbb E_{\log}\min\{\Phi_X(w^\flat),H_X\},\\
@@ -1089,59 +1089,71 @@ Let $S_X=\sum_{a\le X}a\,h(a)$, and put
  R_X&=S_X-\mathbb E_{\log}\Phi_X(w^\flat).
 \end{aligned}
 \]
-Then, under the preceding existence hypotheses,
+Then, under the stated existence hypotheses,
 \begin{equation}\label{eq:exact-three-part-mass}
   S_X=C_X+T_X+R_X,\qquad T_X\ge0,\quad R_X\ge0.
 \end{equation}
-If, in addition, for some $\theta>0$ and a constant $M$ independent
-of sufficiently large $X$,
+Suppose in addition that for some constant $B<\infty$ independent
+of sufficiently large $X$ and of the shell index $j\ge0$,
 \begin{equation}\label{eq:return-moment-open}
-  \mathbb E_{\log}\bigl[V_X(w^\flat)^{1+\theta}\bigr]\le M,
+  \mathbb E_{\log}\bigl[N_{X,j}(w^\flat)^2\bigr]\le B.
 \end{equation}
-then
+Then
 \begin{equation}\label{eq:return-moment-consequence}
-  T_X\le M X(\log X)^{-\varepsilon_0\theta/2}=o(X).
+  \mathbb E_{\log}\bigl[(\Phi_X(w^\flat)/X)^2\bigr]\le4B,
+  \qquad
+  0\le T_X\le 4B X(\log X)^{-\varepsilon_0/2}=o(X).
 \end{equation}
-In conjunction with the clipped calibration
-$C_X=\gamma_0X+o(X)$ of Proposition~\ref{prop:clipped-calibration},
-this would reduce the full mean upper bound to the separate condition
-$R_X=o(X)$.
+Together with the clipped calibration
+$C_X=\gamma_0X+o(X)$ from Proposition~\ref{prop:clipped-calibration},
+this would reduce the full upper bound to $R_X=o(X)$.
 \end{proposition}
 \begin{proof}
-For each starting value $w$, the terms counted by
-$\Phi_X(w^\flat)$ are distinct points of the orbit of $w$ up to its
-first passage below the lower threshold, as in Step~1 of the proof
-of Theorem~\ref{thm:lower}. Consequently
+For each starting value the blocks counted by $\Phi_X$ consist
+of distinct points of the orbit until the specified first passage.
+Thus the full orbit-point sum over $a\le X$ dominates $\Phi_X$.
+Taking logarithmic means using $h(a)$ gives $R_X\ge0$. The identity
+$t=\min\{t,H_X\}+(t-H_X)_+$ gives the exact decomposition.
+
+For fixed $X$ the shell sum in~\eqref{eq:visit-controls-mass} is finite.
+Cauchy--Schwarz yields
 \[
-  0\le\Phi_X(w^\flat)
-    \le\sum_{\substack{a\le X\\a\in\operatorname{orb}(w)}}a.
+ \mathbb E_{\log}[N_{X,j}N_{X,k}]
+ \le\sqrt{\mathbb E_{\log}[N_{X,j}^2]
+          \mathbb E_{\log}[N_{X,k}^2]}\le B.
 \]
-Taking logarithmic means and using the definition of $h(a)$ shows
-$R_X\ge0$. The pointwise identity
-$t=\min\{t,H_X\}+(t-H_X)_+$ for $t\ge0$ gives
-\eqref{eq:exact-three-part-mass} by linearity. To prove
-\eqref{eq:return-moment-consequence}, set
-$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$. Since
-$\Phi_X\le X V_X$,
+Expanding the square, using nonnegativity and
+$\sum_{j\ge0}2^{-j}=2$, gives
 \[
- (\Phi_X-H_X)_+
- \le X V_X\,\mathbf 1_{\{V_X>L_X\}}
- \le X L_X^{-\theta}V_X^{1+\theta}.
+ \mathbb E_{\log}\bigl[(\Phi_X/X)^2\bigr]
+ \le B\bigl(\sum_{j\ge0}2^{-j}\bigr)^2\le4B.
 \]
-Average and apply \eqref{eq:return-moment-open}.
+For $y\ge0$ and $H>0$ we have $(y-H)_+\le y^2/H$.
+Apply this with $y=\Phi_X$ and $H=H_X$ to conclude.
 \end{proof}
 
+\paragraph{Why unweighted return counts are too coarse.}
+In the unrestricted ideal renewal model of Lemma~\ref{lem:model},
+the expected number of points whose logarithms lie in
+$((1-\beta)\log X,\log X]$ is
+$\gamma_0\beta\log X+O(1)$, by $V(t)=\gamma_0t+O(1)$.
+It therefore grows with $X$. This model fact does not prove the
+corresponding growth for the \emph{stopped actual} Syracuse orbit,
+but it makes a uniform moment bound on the entire unweighted visit
+count an unsuitable primary hypothesis. The dyadic criterion instead
+asks for uniform control in each fixed-ratio shell, whose ideal-model
+mean is $O(1)$.
+
 \paragraph{The remaining gap.}
-The model second-moment estimate in Lemma~\ref{lem:model} concerns an
-\emph{idealised} renewal process; it does not establish
-\eqref{eq:return-moment-open} for actual Syracuse orbits. Rare starting
-values on which the coupling fails may have a disproportionately large
-weighted contribution. Nor does control of $T_X$ by itself imply
-$R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
-\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
-are currently conditional working drafts, not additional certified
-theorems. Establishing a uniform actual-orbit return-count moment bound
-and subsequently controlling $R_X$ are the two principal open steps.
+The local second-moment estimate in Lemma~\ref{lem:model} concerns an
+idealised renewal process; it does not prove
+\eqref{eq:return-moment-open} for actual Syracuse orbits. On rare
+coupling-failure events, the true orbit may revisit a shell many
+times. Establishing uniform integrability of these local visits is
+still open. Nor would control of $T_X$ alone imply $R_X=o(X)$.
+The intermediate-tail, exceptional-mass and shell-local-time arguments
+in the \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
+remain conditional working drafts, not additional Lean-certified results.
 
 %=====================================================================
 \section{Outlook}
@@ -1150,7 +1162,7 @@ and subsequently controlling $R_X$ are the two principal open steps.
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
-	\item \emph{Control of actual-orbit return counts}: prove the moment bound~\eqref{eq:return-moment-open} and the separate residual estimate $R_X=o(X)$ (Section~\ref{sec:tail-programme}); neither follows from the present ideal-model second moment.
+	\item \emph{Control of actual-orbit return counts}: prove the dyadic local-time moment bound~\eqref{eq:return-moment-open} and the separate residual estimate $R_X=o(X)$ (Section~\ref{sec:tail-programme}); neither follows from the present ideal-model second moment.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.

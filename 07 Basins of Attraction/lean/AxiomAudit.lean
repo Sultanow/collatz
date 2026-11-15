@@ -8,3 +8,7 @@ import CollatzBasins
 #print axioms CollatzBasins.step_pos
 #print axioms CollatzBasins.reachesWithin_succ_iff
 #print axioms CollatzBasins.finite_hitting_mass
+
+-- Finite clipping algebra (new candidate; CI must certify).
+#print axioms CollatzBasins.clipping_identity
+#print axioms CollatzBasins.clipping_excess_le_quadratic

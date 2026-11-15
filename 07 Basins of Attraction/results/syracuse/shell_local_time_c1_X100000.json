@@ -1,0 +1,30 @@
+{
+  "warning": "FINITE log-weighted starting window only; NOT the limiting E_log; NOT a proof",
+  "parameters": {
+    "X": 100000,
+    "c": 1,
+    "u": 2000000,
+    "v": 2400000,
+    "samples": 1800,
+    "beta": 0.005,
+    "lower_integer": 94406,
+    "passage_integer": 89125,
+    "max_blocks": 10000
+  },
+  "outcomes": {
+    "passed": 1800
+  },
+  "pointwise_shell_inequality_checked_for": 1800,
+  "finite_log_weighted_mean_visits": 0.11613441537002789,
+  "finite_log_weighted_mean_visits_squared": 0.11613441537002789,
+  "finite_log_weighted_mean_mass_over_X": 0.112740676565808,
+  "finite_log_weighted_mean_mass_over_X_squared": 0.10947451075405926,
+  "finite_shell_second_moments": {
+    "0": 0.11613441537002789
+  },
+  "max_finite_shell_second_moment": 0.11613441537002789,
+  "checks": {
+    "empirical_E_mass_squared_le_4B": true
+  },
+  "max_visit_count": 1
+}

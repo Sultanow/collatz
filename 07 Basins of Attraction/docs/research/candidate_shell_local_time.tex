@@ -1,0 +1,80 @@
+% Research addendum: not yet a proven theorem about actual Syracuse orbits.
+% The implication is elementary; hypothesis (SL2) remains OPEN.
+% Intended location: docs/research/. Do not input into main.tex before review.
+\subsection*{A dyadic local-time criterion for the first-passage tail}
+\label{subsec:shell-local-time}
+Retain the setting and notation of Proposition~\ref{prop:return-count-criterion}.
+For an odd starting value $m$, let $N_{X,j}(m)$ be the number of occurrences,
+counted with multiplicity, in the dyadic shell
+\[
+ I_{X,j}=\bigl(X2^{-(j+1)},X2^{-j}\bigr]\cap W_X
+\]
+among exactly the Syracuse blocks used to define $\Phi_X(m)$. The shells
+are disjoint, and only finitely many are nonempty for each fixed $X$.
+The elementary inequality
+\begin{equation}\label{eq:shell-pointwise}
+ 0\le\frac{\Phi_X(m)}X\le
+ \sum_{j\ge0}2^{-j}N_{X,j}(m)
+\end{equation}
+retains the size information lost in the unweighted return count $V_X$.
+
+\begin{proposition}[Dyadic local-time second-moment criterion]
+\label{prop:shell-moment-criterion}
+Assume the existence of the logarithmic means used in
+Proposition~\ref{prop:return-count-criterion}. If a constant $B<\infty$
+satisfies, for all sufficiently large $X$ and every $j\ge0$,
+\begin{equation}\label{eq:shell-moment-open}
+ \mathbb E_{\log}\bigl[N_{X,j}(w^\flat)^2\bigr]\le B,
+\end{equation}
+then
+\begin{equation}\label{eq:shell-tail-bound}
+ \mathbb E_{\log}\bigl[(\Phi_X(w^\flat)/X)^2\bigr]\le4B,
+ \qquad
+ 0\le T_X\le 4B\,X(\log X)^{-\varepsilon_0/2}=o(X).
+\end{equation}
+This is a conditional criterion. Equation~\eqref{eq:shell-moment-open}
+for actual Syracuse orbits is not claimed here.
+\end{proposition}
+\begin{proof}
+For every fixed $X$ the sum in~\eqref{eq:shell-pointwise} is finite.
+For $j,k\ge0$, Cauchy--Schwarz gives
+\[
+ \mathbb E_{\log}[N_{X,j}N_{X,k}]
+ \le \sqrt{\mathbb E_{\log}[N_{X,j}^2]}
+      \sqrt{\mathbb E_{\log}[N_{X,k}^2]}\le B.
+\]
+Expanding the square in~\eqref{eq:shell-pointwise} and using
+$\sum_{j\ge0}2^{-j}=2$ therefore yields
+\[
+ \mathbb E_{\log}\left[(\Phi_X/X)^2\right]
+ \le B\bigl(\sum_{j\ge0}2^{-j}\bigr)^2=4B.
+\]
+For $y\ge0$ and $H>0$, $(y-H)_+\le y^2/H$. Apply this with
+$y=\Phi_X$ and $H=H_X=X(\log X)^{\varepsilon_0/2}$ and take
+logarithmic means to obtain~\eqref{eq:shell-tail-bound}.
+\end{proof}
+
+\paragraph{Why this is preferable to a uniform moment of $V_X$.}
+In the ideal renewal model of Lemma~\ref{lem:model}, the expected
+\emph{unweighted} total number of points with logarithms in
+$((1-\beta)\log X,\log X]$ is
+\[
+ \gamma_0\beta\log X+O(1),\qquad
+ \gamma_0=2/\log(4/3),
+\]
+by the renewal estimate $V(t)=\gamma_0t+O(1)$, averaged over the
+uniform logarithmic starting interval. Thus the full visit count grows
+in this model while each fixed-width logarithmic shell has expected
+count $O(1)$. This model statement does not, by itself, prove the
+corresponding growth for actual Syracuse orbits. It warns against
+using a scale-independent moment bound for the raw total count as the
+principal conjecture.
+
+\paragraph{The next open assertion.}
+The meaningful next theorem to seek is the actual-orbit bound
+\eqref{eq:shell-moment-open}, or a weighted substitute sufficient to
+bound the right-hand side of~\eqref{eq:shell-pointwise} in $L^2$.
+The ideal-model local visit bounds in Lemma~\ref{lem:model} do not
+transfer to the exceptional coupling events without an additional
+uniform-integrability estimate. Moreover this criterion does not
+control the separate residual term $R_X$.
