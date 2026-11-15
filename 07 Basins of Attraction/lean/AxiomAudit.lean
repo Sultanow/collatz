@@ -19,3 +19,8 @@ import CollatzBasins
 #print axioms CollatzBasins.supported_event_discrepancy
 #print axioms CollatzBasins.escape_mass_from_discrepancy
 #print axioms CollatzBasins.survival_contraction_of_escape
+
+#print axioms CollatzBasins.return_square_eq_odd_sum
+#print axioms CollatzBasins.return_weighted_square_eq_odd_sum
+#print axioms CollatzBasins.return_occupation_cannot_contract
+#print axioms CollatzBasins.return_discounted_potential_sub_eigen

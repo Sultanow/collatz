@@ -1,0 +1,102 @@
+% Research candidate - do NOT import into main.tex until proof audit / Lean review.
+% The finite identities are elementary; the uniform dynamical bounds remain open.
+\subsection*{Return-occupation potential and an exact second-moment identity}
+Let $T:\mathbb N\to\mathbb N$ be a deterministic map, $a\ge0$ a
+first-passage threshold, and $I\subset(a,\infty)\cap\mathbb N$ finite.
+Fix a finitely supported probability law $\mu$ on starting points for which
+$\tau_a(n)=\inf\{t\ge0:T^t(n)\le a\}<\infty$ holds $\mu$-almost surely.
+Set
+\[
+  N_I(n)=\#\{0\le t<\tau_a(n):T^t(n)\in I\},\qquad
+  h_{a,\mu}(y)=\mu\{n:\exists\,t<\tau_a(n),\ T^t(n)=y\}.
+\]
+For each $y$ with $h_{a,\mu}(y)>0$, define $r_{I,a}(y)$ as the number of
+\emph{later} visits to $I$ along the orbit starting at $y$ before its
+first passage through $a$.
+
+\paragraph{Proposition (Exact killed-potential moment formula).}
+Under the preceding assumptions,
+\begin{equation}\label{eq:killed-return-moment}
+  \boxed{\displaystyle
+  \mathbb E_\mu N_I^2
+     =\sum_{\substack{y\in I\\ h_{a,\mu}(y)>0}}
+       h_{a,\mu}(y)\bigl(1+2r_{I,a}(y)\bigr).}
+\end{equation}
+\emph{Proof.} A deterministic orbit which reaches $\le a$ cannot repeat
+any state before the passage, as a repetition would trap it in a periodic
+orbit above $a$. If its visits to $I$ are $y_1,\ldots,y_N$ in temporal
+order, then $r_{I,a}(y_i)=N-i$. Consequently
+\[
+  N^2=\sum_{i=1}^{N}\bigl(1+2(N-i)\bigr).
+\]
+Multiply by the starting-point weight and interchange the two finite
+sums. Since each $y\in I$ is visited at most once, the coefficient of
+$1+2r_{I,a}(y)$ is precisely $h_{a,\mu}(y)$.\hfill$\square$
+
+\paragraph{Equivalent Green-operator formulation.}
+Let $q_1$ denote the first-entrance distribution on $I$, and let $Q_I$
+be the deterministic partial first-return push-forward before passage
+through $a$. On the reachable return graph, which is acyclic under the
+stated finite-passage assumption, put
+\[
+  \nu_I=\sum_{j\ge0}Q_I^j q_1,\qquad
+  \sigma_I=\sum_{j\ge0}(j+1)Q_I^j q_1.
+\]
+These sums are finite on the support reachable from $q_1$. Exactly,
+\begin{equation}\label{eq:double-green}
+ \boxed{\displaystyle
+ \nu_I-Q_I\nu_I=q_1,\quad
+ \sigma_I-Q_I\sigma_I=\nu_I,\quad
+ \mathbb E_\mu N_I^2=2\sigma_I(I)-\nu_I(I).}
+\end{equation}
+In particular, $\nu_I(y)=h_{a,\mu}(y)$: for finite-passage trajectories,
+the occupation measure is a \emph{killed predecessor potential} and not
+an unconditioned stationary or iid entrance law.
+
+\paragraph{A precise limitation of naive potential weights.}
+The first Green identity implies, at every shell state with
+$q_1(y)=0$ and $\nu_I(y)>0$, that $(Q_I\nu_I)(y)=\nu_I(y)$.
+Consequently, $\nu_I$ \emph{cannot} satisfy a strict pointwise
+sub-eigenmeasure inequality $Q_I\nu_I\le\rho\nu_I$ for any $\rho<1$.
+The occupation potential alone is therefore not the hoped-for strict
+contraction weight. There is an exact, but quantitatively nontrivial,
+remedy: for any $0<\rho<1$, define
+\[
+ \nu_{I,\rho}=\sum_{j\ge0}\rho^{-j}Q_I^j q_1.
+ \quad\text{Then}\quad
+ Q_I\nu_{I,\rho}=\rho(\nu_{I,\rho}-q_1)\le\rho\nu_{I,\rho}.
+\]
+However, $\nu_{I,\rho}(I)=\mathbb E_\mu\sum_{j=0}^{N_I-1}\rho^{-j}$;
+bounding this uniformly in the shell scale is an \emph{exponential-moment}
+problem, strictly stronger than the second-moment bound we seek.
+
+\paragraph{Relation to the manuscript's predecessor potential.}
+If $I$ contains \emph{no periodic point}, define $r_I(y)$ by counting
+all later visits to $I$ in the forward orbit of $y$, without a passage
+cutoff. Every such orbit can visit any $y\in I$ at most once. Suppose the
+logarithmic densities $h(y)=\delta_{\log}\{n:\exists t,\ T^t(n)=y\}$
+exist for $y\in I$. Then, for the distinct-state full-orbit visit count
+$N_I^{\mathrm{full}}(n)$,
+\begin{equation}\label{eq:full-log-second-moment}
+ \boxed{\displaystyle
+ \lim_{M\to\infty}\frac1{H_M}
+   \sum_{n=1}^{M}\frac{N_I^{\mathrm{full}}(n)^2}{n}
+ =\sum_{y\in I}h(y)\bigl(1+2r_I(y)\bigr),\quad
+ H_M=\sum_{n\le M}\frac1n.}
+\end{equation}
+Indeed, apply the same pointwise identity and pass through the \emph{finite}
+outer sum. No separate assumption on joint predecessor-event densities
+is needed. This does \emph{not} imply a bound uniform in the moving
+shells $I=I_{X,j}$. Nor can one replace $h_{a,\mu}$ by $h$ in
+\eqref{eq:killed-return-moment}: first-passage killing matters.
+
+\paragraph{Open quantitative target.}
+For logarithmic entrance laws, \emph{if} the killed hitting-event densities
+$h_{a_X}(y)$ exist, the desired uniform second moments are equivalent to
+\[
+ \sup_{X,j}\sum_{\substack{y\in I_{X,j}\\h_{a_X}(y)>0}}
+ h_{a_X}(y)\bigl(1+2r_{I_{X,j},a_X}(y)\bigr)<\infty.
+\]
+Neither existence of all these killed densities nor the uniform bound
+is established here. The exact identities themselves require neither a
+Markov approximation nor independence of Syracuse valuations.

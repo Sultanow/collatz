@@ -1,0 +1,64 @@
+{
+  "X": 300000,
+  "c": -1,
+  "excluded_unresolved_outside_starts": 0,
+  "first_return_status": {
+    "passage": 18122,
+    "return": 212
+  },
+  "independent_raw_trajectory_spotchecks_passed": 259,
+  "lower_exclusive": 281666,
+  "max_steps_to_event": 132,
+  "maximum_return_chain_length": 3,
+  "outside_starts_that_passed_without_shell_visit": 8437,
+  "passage_cutoff": 264453,
+  "scenarios": {
+    "actual_first_entries_from_outside": {
+      "discounted_occupation_mass_per_start": {
+        "19/20": 1.011026761,
+        "9/10": 1.011639359
+      },
+      "distinct_first_entry_states": 1201,
+      "distinct_occupation_states": 1211,
+      "green_mass_nu": 1254,
+      "identity_moment_equals_2sigma_minus_nu": true,
+      "identity_moment_equals_weighted_potential": true,
+      "identity_nu_minus_Qnu_equals_q1": true,
+      "identity_sigma_minus_Qsigma_equals_nu": true,
+      "max_return_chain_on_scenario_support": 2,
+      "mean_visits_conditioned_on_first_entry": 1.010475423,
+      "number_of_first_entering_starts": 1241,
+      "occupied_without_first_entry_states": 10,
+      "original_occupation_mass_fails_strict_sub_eigenmeasure_test": true,
+      "second_green_mass_sigma": 1267,
+      "second_moment_conditioned_on_first_entry": 1.031426269,
+      "unweighted_total_squared_visits": 1280,
+      "unweighted_total_visits": 1254
+    },
+    "uniform_shell": {
+      "discounted_occupation_mass_per_start": {
+        "19/20": 1.012292678,
+        "9/10": 1.012982693
+      },
+      "distinct_first_entry_states": 18334,
+      "distinct_occupation_states": 18334,
+      "green_mass_nu": 18548,
+      "identity_moment_equals_2sigma_minus_nu": true,
+      "identity_moment_equals_weighted_potential": true,
+      "identity_nu_minus_Qnu_equals_q1": true,
+      "identity_sigma_minus_Qsigma_equals_nu": true,
+      "max_return_chain_on_scenario_support": 3,
+      "mean_visits_conditioned_on_first_entry": 1.011672303,
+      "number_of_first_entering_starts": 18334,
+      "occupied_without_first_entry_states": 0,
+      "original_occupation_mass_fails_strict_sub_eigenmeasure_test": false,
+      "second_green_mass_sigma": 18764,
+      "second_moment_conditioned_on_first_entry": 1.035235082,
+      "unweighted_total_squared_visits": 18980,
+      "unweighted_total_visits": 18548
+    }
+  },
+  "shell_kind": "narrow",
+  "shell_states": 18334,
+  "status": "EXACT_FINITE_IDENTITY_ONLY"
+}
