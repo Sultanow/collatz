@@ -15,3 +15,7 @@ import CollatzBasins
 
 #print axioms CollatzBasins.returnPairCount_succ
 #print axioms CollatzBasins.visit_square_eq_visits_add_double_pairs
+
+#print axioms CollatzBasins.supported_event_discrepancy
+#print axioms CollatzBasins.escape_mass_from_discrepancy
+#print axioms CollatzBasins.survival_contraction_of_escape
