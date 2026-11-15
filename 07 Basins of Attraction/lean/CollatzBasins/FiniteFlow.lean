@@ -55,5 +55,6 @@ theorem finite_hitting_mass (c a : ℤ) (N : ℕ)
   apply Finset.sum_congr rfl
   intro n _
   rw [reachesWithin_succ_iff]
+  rfl
 
 end CollatzBasins
