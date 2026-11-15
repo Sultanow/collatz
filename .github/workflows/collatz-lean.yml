@@ -1,0 +1,49 @@
+name: Collatz Lean foundation
+
+'on':
+  push:
+    paths:
+      - '07 Basins of Attraction/lean/**'
+      - '.github/workflows/collatz-lean.yml'
+  pull_request:
+    paths:
+      - '07 Basins of Attraction/lean/**'
+      - '.github/workflows/collatz-lean.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: '07 Basins of Attraction/lean'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        shell: bash
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://elan.lean-lang.org/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib release and get cache
+        run: |
+          lake update
+          lake exe cache get
+      - name: Reject incomplete proofs and unreviewed axioms
+        run: |
+          if grep -RnE '(^|[^[:alpha:]])(sorry|admit|axiom)[[:space:]]' \
+                --include='*.lean' CollatzBasins CollatzBasins.lean; then
+            echo 'Uncertified proof placeholder or axiom found'
+            exit 1
+          fi
+      - name: Arithmetic regression tests
+        run: python3 tests/smoke_check.py
+      - name: Build Lean theorems
+        run: lake build CollatzBasins
+      - name: Show the axiom dependencies of each named theorem
+        run: lake env lean AxiomAudit.lean
+      - name: Kernel / axiom check (Lean 4.35+)
+        run: lake check
