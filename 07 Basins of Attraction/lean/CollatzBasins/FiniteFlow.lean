@@ -54,7 +54,13 @@ theorem finite_hitting_mass (c a : ℤ) (N : ℕ)
   classical
   apply Finset.sum_congr rfl
   intro n _
-  rw [reachesWithin_succ_iff]
-  rfl
+  by_cases h : n = a ∨ reachesWithin c (step c n) a N
+  · have h_hit : reachesWithin c n a (N + 1) :=
+      (reachesWithin_succ_iff c n a N).2 h
+    simp [h, h_hit]
+  · have h_miss : ¬ reachesWithin c n a (N + 1) := by
+      intro h_hit
+      exact h ((reachesWithin_succ_iff c n a N).1 h_hit)
+    simp [h, h_miss]
 
 end CollatzBasins
