@@ -1,0 +1,119 @@
+% Research note: conditional finite-probability theorem.
+% The assumption (GSR) has NOT been proved for actual Collatz/Syracuse orbits.
+% Do NOT input into main.tex until separately reviewed.
+\subsection*{A block-geometric shell-return criterion}
+
+Keep the notation of Section~\ref{sec:tail-programme}, with
+$N_{X,j}$ the number of recorded visits to the shell $I_{X,j}$
+before first passage. For each fixed $X,j$, suppose that the
+logarithmic densities of the events $\{N_{X,j}\ge k\}$ exist, and
+write
+\[
+ p_{X,j}(k):=\mathbb P_{\log}(N_{X,j}\ge k),\qquad k\ge1.
+\]
+The following statement is strictly conditional; it does not assert
+that the actual Syracuse dynamics has geometric return tails.
+
+\begin{proposition}[Block-geometric return criterion]
+\label{prop:block-geometric-shell-return}
+Suppose there exist an integer $b\ge1$ and $0\le\rho<1$,
+independent of all sufficiently large $X$, all shell indices $j$,
+and all $k\ge1$, such that
+\begin{equation}\label{eq:block-geometric-shell-assumption}
+ p_{X,j}(k+b)\le\rho\,p_{X,j}(k).
+\end{equation}
+Then
+\[
+ \mathbb E_{\log}[N_{X,j}^{2}]
+ \le \frac{b^{2}(1+\rho)}{(1-\rho)^{2}},
+\]
+uniformly in $X,j$. Consequently, assuming the definition of $T_X$
+and the dyadic-shell criterion from Section~\ref{sec:tail-programme},
+\[
+ T_X \le
+ \frac{4b^{2}(1+\rho)}{(1-\rho)^{2}}
+ X(\log X)^{-\varepsilon_0/2}
+ =o(X).
+\]
+\end{proposition}
+\begin{proof}
+For an integer-valued, nonnegative random variable $N$,
+\[
+ N^{2}=\sum_{k\ge1}(2k-1)\mathbf 1_{\{N\ge k\}},
+\qquad
+\mathbb E[N^{2}]=\sum_{k\ge1}(2k-1)\mathbb P(N\ge k).
+\]
+These sums are finite in our first-passage setting for each fixed
+$X,j$: before reaching the lower threshold the trajectory cannot
+revisit a state, and each shell contains finitely many integers.
+By monotonicity and the assumed $b$-step inequality, for
+$mb+1\le k\le(m+1)b$,
+\[
+ p_{X,j}(k)\le p_{X,j}(mb+1)
+ \le \rho^{m}p_{X,j}(1)\le\rho^{m}.
+\]
+Thus
+\[
+ \begin{aligned}
+ \mathbb E_{\log}[N_{X,j}^{2}]
+ &\le \sum_{m\ge0}\rho^{m}
+    \sum_{k=mb+1}^{(m+1)b}(2k-1)\\
+ &= b^{2}\sum_{m\ge0}(2m+1)\rho^{m}
+ =\frac{b^{2}(1+\rho)}{(1-\rho)^{2}}.
+ \end{aligned}
+\]
+Apply the dyadic-shell second-moment criterion.
+\end{proof}
+
+\paragraph{Equivalent conditional interpretation.}
+When $p_{X,j}(k)>0$, assumption
+\eqref{eq:block-geometric-shell-assumption} says that, under the
+\emph{logarithmic distribution of initial values conditioned on at
+least $k$ visits}, the chance of reaching $k+b$ visits is at most
+$\rho$. No independent restart of the deterministic orbit is
+assumed. The claim must be proved for this induced conditional
+measure, and it cannot be read off from the ideal renewal model.
+
+\paragraph{Research obstacle.}
+The local-time bounds in the renewal model and finite sampled
+histograms do not establish a uniform $\rho<1$ for actual orbits.
+The effect of the induced distribution of shell entrance states,
+particularly on rare trajectories with many returns, is open.
+The separate residual term $R_X$ is unaffected.
+
+\paragraph{The independent valuation model does satisfy a geometric bound.}
+The obstruction is the transfer to actual orbits, not the renewal model.
+For the idealised walk $S_{n+1}=S_n+\xi_{n+1}$ with independent
+$\xi=g\log2-\log3$, $\mathbb P(g=k)=2^{-k}$ for $k\ge1$,
+let $N_I$ count all visits to any fixed interval
+$I=(a,a+\log2]$, starting from an arbitrary initial point.
+Then
+\begin{equation}\label{eq:model-geometric-rho}
+ \mathbb P(N_I\ge k+1)\le (1-p_0)\mathbb P(N_I\ge k),
+ \qquad
+ p_0=\frac18\left(1-\sqrt{\frac38}\right)>0.
+\end{equation}
+Indeed, after a visit at $x\in I$, the independent next increment
+satisfies $\xi\ge4\log2-\log3$ with probability $1/8$.
+On that event the walk rises at least
+$\delta=\log(8/3)$ above the upper endpoint of $I$.
+Moreover
+\[
+ \mathbb E[e^{-\xi/2}]
+ =\frac{\sqrt3}{2^{3/2}-1}<1.
+\]
+Thus the exponential process $e^{-S_n/2}$ is a nonnegative
+supermartingale. The standard maximal inequality for such processes
+bounds the probability of ever falling $\delta$ below the new
+position by $e^{-\delta/2}=\sqrt{3/8}$. Consequently, at
+\emph{each} visit the conditional probability of no further visit
+is at least $p_0$; the strong Markov property gives
+\eqref{eq:model-geometric-rho}. In particular,
+\[
+ \sup_{a,x}\mathbb E_x[N_I^2]
+ \le\frac{2-p_0}{p_0^2}<832.
+\]
+This is a deliberately crude explicit bound for the independent
+model. It does \emph{not} yield a return-tail bound for deterministic
+Collatz orbits, whose valuation sequence has no such independently
+resampled future under the induced starting-value measure.

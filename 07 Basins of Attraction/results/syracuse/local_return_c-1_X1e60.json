@@ -1,0 +1,207 @@
+{
+  "disclaimer": "Finite-window random sample; weighted only within sampled resolved trajectories. NOT E_log; NOT a geometric-tail proof.",
+  "n_resolved": 1800,
+  "outcomes": {
+    "passed": 1800
+  },
+  "parameters": {
+    "X": "1000000000000000000000000000000000000000000000000000000000000",
+    "block": 2,
+    "c": -1,
+    "max_blocks": 15000,
+    "passage_floor": "251188643150958011108503206779932739415851810078247542867988",
+    "samples": 1800,
+    "seed": 20261115,
+    "shell_lower_floor": "501187233627272285001554186884945768060471989832819263929697",
+    "u": "2000000000000000000000000000000000000000000000000000000000000",
+    "v": "2400000000000000000000000000000000000000000000000000000000000"
+  },
+  "per_shell": {
+    "0": {
+      "max_observed_visits": 25,
+      "mean_chronological_return_pairs": 8.104075734320427,
+      "mean_count": 3.411198179612879,
+      "p_any_visit": 0.9994871586425705,
+      "second_moment": 19.61934964825373,
+      "weighted_survival_probabilities": [
+        {
+          "conditional_survival_empirical": 0.5053754198800776,
+          "k": 1,
+          "p_ge_k": 0.9994871586425705,
+          "p_ge_k_plus_b": 0.5051162424637349,
+          "support_count_ge_k": 1799
+        },
+        {
+          "conditional_survival_empirical": 0.4717364597430489,
+          "k": 2,
+          "p_ge_k": 0.7281653245715254,
+          "p_ge_k_plus_b": 0.3435021323210195,
+          "support_count_ge_k": 1313
+        },
+        {
+          "conditional_survival_empirical": 0.47600808163385394,
+          "k": 3,
+          "p_ge_k": 0.5051162424637349,
+          "p_ge_k_plus_b": 0.24043941357726306,
+          "support_count_ge_k": 911
+        },
+        {
+          "conditional_survival_empirical": 0.5010310678978844,
+          "k": 4,
+          "p_ge_k": 0.3435021323210195,
+          "p_ge_k_plus_b": 0.17210524018200082,
+          "support_count_ge_k": 619
+        },
+        {
+          "conditional_survival_empirical": 0.5295732630213486,
+          "k": 5,
+          "p_ge_k": 0.24043941357726306,
+          "p_ge_k_plus_b": 0.12733028480705075,
+          "support_count_ge_k": 433
+        },
+        {
+          "conditional_survival_empirical": 0.5046034168394542,
+          "k": 6,
+          "p_ge_k": 0.17210524018200082,
+          "p_ge_k_plus_b": 0.08684489225181255,
+          "support_count_ge_k": 311
+        },
+        {
+          "conditional_survival_empirical": 0.47717515402119726,
+          "k": 7,
+          "p_ge_k": 0.12733028480705075,
+          "p_ge_k_plus_b": 0.06075884826436735,
+          "support_count_ge_k": 230
+        },
+        {
+          "conditional_survival_empirical": 0.4950977370119262,
+          "k": 8,
+          "p_ge_k": 0.08684489225181255,
+          "p_ge_k_plus_b": 0.04299670962491696,
+          "support_count_ge_k": 157
+        },
+        {
+          "conditional_survival_empirical": 0.5257634599101876,
+          "k": 9,
+          "p_ge_k": 0.06075884826436735,
+          "p_ge_k_plus_b": 0.03194478228363187,
+          "support_count_ge_k": 110
+        },
+        {
+          "conditional_survival_empirical": 0.49857385591194137,
+          "k": 10,
+          "p_ge_k": 0.04299670962491696,
+          "p_ge_k_plus_b": 0.02143703530922093,
+          "support_count_ge_k": 78
+        },
+        {
+          "conditional_survival_empirical": 0.5161191903969677,
+          "k": 11,
+          "p_ge_k": 0.03194478228363187,
+          "p_ge_k_plus_b": 0.01648731516963548,
+          "support_count_ge_k": 58
+        },
+        {
+          "conditional_survival_empirical": 0.6168422255275103,
+          "k": 12,
+          "p_ge_k": 0.02143703530922093,
+          "p_ge_k_plus_b": 0.01322326856885166,
+          "support_count_ge_k": 39
+        },
+        {
+          "conditional_survival_empirical": 0.47374935325289835,
+          "k": 13,
+          "p_ge_k": 0.01648731516963548,
+          "p_ge_k_plus_b": 0.007810854898491509,
+          "support_count_ge_k": 30
+        },
+        {
+          "conditional_survival_empirical": 0.3827409883725599,
+          "k": 14,
+          "p_ge_k": 0.01322326856885166,
+          "p_ge_k_plus_b": 0.00506108688155809,
+          "support_count_ge_k": 24
+        },
+        {
+          "conditional_survival_empirical": 0.3552507449148059,
+          "k": 15,
+          "p_ge_k": 0.007810854898491509,
+          "p_ge_k_plus_b": 0.0027748120211105692,
+          "support_count_ge_k": 14
+        },
+        {
+          "conditional_survival_empirical": 0.3303903354316292,
+          "k": 16,
+          "p_ge_k": 0.00506108688155809,
+          "p_ge_k_plus_b": 0.0016721341924465956,
+          "support_count_ge_k": 9
+        },
+        {
+          "conditional_survival_empirical": 0.20802663135011853,
+          "k": 17,
+          "p_ge_k": 0.0027748120211105692,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 5
+        },
+        {
+          "conditional_survival_empirical": 0.3452084168776313,
+          "k": 18,
+          "p_ge_k": 0.0016721341924465956,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 3
+        },
+        {
+          "conditional_survival_empirical": 1.0,
+          "k": 19,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 1.0,
+          "k": 20,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 1.0,
+          "k": 21,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 1.0,
+          "k": 22,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 1.0,
+          "k": 23,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0.0005772347973814457,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 24,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 25,
+          "p_ge_k": 0.0005772347973814457,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 1
+        }
+      ]
+    }
+  },
+  "sampling": "Independent uniform random odd start values in [u,v), with 1/m reweighting over resolved records",
+  "unresolved_excluded_from_statistics": 0
+}

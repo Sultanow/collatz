@@ -1,0 +1,46 @@
+{
+  "disclaimer": "Finite-window random sample; weighted only within sampled resolved trajectories. NOT E_log; NOT a geometric-tail proof.",
+  "n_resolved": 3000,
+  "outcomes": {
+    "passed": 3000
+  },
+  "parameters": {
+    "X": "100000",
+    "block": 2,
+    "c": 1,
+    "max_blocks": 20000,
+    "passage_floor": "89125",
+    "samples": 3000,
+    "seed": 20261115,
+    "shell_lower_floor": "94406",
+    "u": "2000000",
+    "v": "2400000"
+  },
+  "per_shell": {
+    "0": {
+      "max_observed_visits": 2,
+      "mean_chronological_return_pairs": 0.000656656411937004,
+      "mean_count": 0.1166062963409242,
+      "p_any_visit": 0.11594963992898719,
+      "second_moment": 0.1179196091647982,
+      "weighted_survival_probabilities": [
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 1,
+          "p_ge_k": 0.11594963992898719,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 349
+        },
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 2,
+          "p_ge_k": 0.000656656411937004,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 2
+        }
+      ]
+    }
+  },
+  "sampling": "Independent uniform random odd start values in [u,v), with 1/m reweighting over resolved records",
+  "unresolved_excluded_from_statistics": 0
+}

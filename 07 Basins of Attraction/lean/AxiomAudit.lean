@@ -12,3 +12,6 @@ import CollatzBasins
 -- Finite clipping algebra (new candidate; CI must certify).
 #print axioms CollatzBasins.clipping_identity
 #print axioms CollatzBasins.clipping_excess_le_quadratic
+
+#print axioms CollatzBasins.returnPairCount_succ
+#print axioms CollatzBasins.visit_square_eq_visits_add_double_pairs

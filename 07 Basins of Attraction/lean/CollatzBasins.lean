@@ -1,6 +1,7 @@
 import CollatzBasins.Basic
 import CollatzBasins.FiniteFlow
 import CollatzBasins.Clipping
+import CollatzBasins.ReturnPairs
 
 /-!
 This root module collects the proof kernel of the Collatz-basins project.

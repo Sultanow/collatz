@@ -1,0 +1,186 @@
+{
+  "disclaimer": "Finite-window random sample; weighted only within sampled resolved trajectories. NOT E_log; NOT a geometric-tail proof.",
+  "n_resolved": 1800,
+  "outcomes": {
+    "passed": 1800
+  },
+  "parameters": {
+    "X": "1000000000000000000000000000000000000000000000000000000000000",
+    "block": 2,
+    "c": 13,
+    "max_blocks": 15000,
+    "passage_floor": "251188643150958011108503206779932739415851810078247542867988",
+    "samples": 1800,
+    "seed": 20261115,
+    "shell_lower_floor": "501187233627272285001554186884945768060471989832819263929697",
+    "u": "2000000000000000000000000000000000000000000000000000000000000",
+    "v": "2400000000000000000000000000000000000000000000000000000000000"
+  },
+  "per_shell": {
+    "0": {
+      "max_observed_visits": 22,
+      "mean_chronological_return_pairs": 7.721153341370964,
+      "mean_count": 3.340387421545743,
+      "p_any_visit": 0.9989106192042871,
+      "second_moment": 18.78269410428767,
+      "weighted_survival_probabilities": [
+        {
+          "conditional_survival_empirical": 0.4934632409156493,
+          "k": 1,
+          "p_ge_k": 0.9989106192042871,
+          "p_ge_k_plus_b": 0.4929256715376056,
+          "support_count_ge_k": 1798
+        },
+        {
+          "conditional_survival_empirical": 0.4923179281235246,
+          "k": 2,
+          "p_ge_k": 0.710918801233509,
+          "p_ge_k_plus_b": 0.34999807128734095,
+          "support_count_ge_k": 1279
+        },
+        {
+          "conditional_survival_empirical": 0.4789941192441923,
+          "k": 3,
+          "p_ge_k": 0.4929256715376056,
+          "p_ge_k_plus_b": 0.2361084978910074,
+          "support_count_ge_k": 887
+        },
+        {
+          "conditional_survival_empirical": 0.4482611822360648,
+          "k": 4,
+          "p_ge_k": 0.34999807128734095,
+          "p_ge_k_plus_b": 0.15689054921560594,
+          "support_count_ge_k": 631
+        },
+        {
+          "conditional_survival_empirical": 0.5013473774936792,
+          "k": 5,
+          "p_ge_k": 0.2361084978910074,
+          "p_ge_k_plus_b": 0.11837237622162844,
+          "support_count_ge_k": 426
+        },
+        {
+          "conditional_survival_empirical": 0.5209432047765387,
+          "k": 6,
+          "p_ge_k": 0.15689054921560594,
+          "p_ge_k_plus_b": 0.08173106550752902,
+          "support_count_ge_k": 283
+        },
+        {
+          "conditional_survival_empirical": 0.5008413283199183,
+          "k": 7,
+          "p_ge_k": 0.11837237622162844,
+          "p_ge_k_plus_b": 0.0592857781432255,
+          "support_count_ge_k": 213
+        },
+        {
+          "conditional_survival_empirical": 0.5204584977279555,
+          "k": 8,
+          "p_ge_k": 0.08173106550752902,
+          "p_ge_k_plus_b": 0.04253762757175368,
+          "support_count_ge_k": 147
+        },
+        {
+          "conditional_survival_empirical": 0.5192882446804156,
+          "k": 9,
+          "p_ge_k": 0.0592857781432255,
+          "p_ge_k_plus_b": 0.030786407666508118,
+          "support_count_ge_k": 107
+        },
+        {
+          "conditional_survival_empirical": 0.450685619913602,
+          "k": 10,
+          "p_ge_k": 0.04253762757175368,
+          "p_ge_k_plus_b": 0.019171097051829736,
+          "support_count_ge_k": 77
+        },
+        {
+          "conditional_survival_empirical": 0.46809838965517764,
+          "k": 11,
+          "p_ge_k": 0.030786407666508118,
+          "p_ge_k_plus_b": 0.014411067851960266,
+          "support_count_ge_k": 56
+        },
+        {
+          "conditional_survival_empirical": 0.6362920125754512,
+          "k": 12,
+          "p_ge_k": 0.019171097051829736,
+          "p_ge_k_plus_b": 0.012198415926388042,
+          "support_count_ge_k": 35
+        },
+        {
+          "conditional_survival_empirical": 0.4215030456975529,
+          "k": 13,
+          "p_ge_k": 0.014411067851960266,
+          "p_ge_k_plus_b": 0.006074308991355344,
+          "support_count_ge_k": 26
+        },
+        {
+          "conditional_survival_empirical": 0.2294902089435541,
+          "k": 14,
+          "p_ge_k": 0.012198415926388042,
+          "p_ge_k_plus_b": 0.0027994170197271698,
+          "support_count_ge_k": 22
+        },
+        {
+          "conditional_survival_empirical": 0.36523597138545016,
+          "k": 15,
+          "p_ge_k": 0.006074308991355344,
+          "p_ge_k_plus_b": 0.002218556144953043,
+          "support_count_ge_k": 11
+        },
+        {
+          "conditional_survival_empirical": 0.5865406767977905,
+          "k": 16,
+          "p_ge_k": 0.0027994170197271698,
+          "p_ge_k_plus_b": 0.0016419719533900278,
+          "support_count_ge_k": 5
+        },
+        {
+          "conditional_survival_empirical": 0.5094185823927586,
+          "k": 17,
+          "p_ge_k": 0.002218556144953043,
+          "p_ge_k_plus_b": 0.0011301737263207227,
+          "support_count_ge_k": 4
+        },
+        {
+          "conditional_survival_empirical": 0.6883026984640982,
+          "k": 18,
+          "p_ge_k": 0.0016419719533900278,
+          "p_ge_k_plus_b": 0.0011301737263207227,
+          "support_count_ge_k": 3
+        },
+        {
+          "conditional_survival_empirical": 0.5073439803058755,
+          "k": 19,
+          "p_ge_k": 0.0011301737263207227,
+          "p_ge_k_plus_b": 0.0005733868367486786,
+          "support_count_ge_k": 2
+        },
+        {
+          "conditional_survival_empirical": 0.5073439803058755,
+          "k": 20,
+          "p_ge_k": 0.0011301737263207227,
+          "p_ge_k_plus_b": 0.0005733868367486786,
+          "support_count_ge_k": 2
+        },
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 21,
+          "p_ge_k": 0.0005733868367486786,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 1
+        },
+        {
+          "conditional_survival_empirical": 0.0,
+          "k": 22,
+          "p_ge_k": 0.0005733868367486786,
+          "p_ge_k_plus_b": 0,
+          "support_count_ge_k": 1
+        }
+      ]
+    }
+  },
+  "sampling": "Independent uniform random odd start values in [u,v), with 1/m reweighting over resolved records",
+  "unresolved_excluded_from_statistics": 0
+}
