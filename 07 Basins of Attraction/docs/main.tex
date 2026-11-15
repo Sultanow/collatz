@@ -208,6 +208,11 @@ Local versus global
 & Mirrored local residue tests have the same densities for $3x+1$ and $3x-1$, although the cycle and basin structures differ (Proposition~\ref{prop:local}).
 & \emph{Proof}. \\
 \addlinespace[2pt]
+Finite predecessor dynamics
+& Elementary inverse branches of the accelerated $3x+c$ map.
+& Exact immediate-predecessor characterisation for odd $c$, finite hitting-time recursion, and a weighted identity for finite samples.
+& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}. \\
+\addlinespace[2pt]
 Cycle census
 & Parity-word characterisations \cite{Boehm_Sontacchi_1978,Lagarias_1990}; earlier trajectory-based lists \cite{Belaga_Mignotte_2000,Wegner_2021}.
 & Exhaustive census of $1097$ primitive cycles for $|c|\le1000$ and parity-word length $l\le40$ (Proposition~\ref{prop:rational}).
@@ -245,7 +250,7 @@ Predicting basin shares
 \bottomrule
 \end{tabularx}
 \endgroup
-\caption{What was known, what is added here, and the logical status of each result. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links point only to the finite predecessor and hitting theorems, not to logarithmic-density or Syracuse results. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
 \label{table:contributions}
 \end{table}
 
@@ -272,14 +277,14 @@ numerical tests of these conjectures, but do not establish their limits.
 A companion Lean~4 development formalises the accelerated integer-valued
 $3x+c$ map, its immediate predecessors for odd $c$, the recursion for
 hitting a target within a fixed number of steps, and a finite weighted
-hitting-mass identity for arbitrary finite samples. The corresponding
-\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/lean}{Lean sources}
-are checked by the
+hitting-mass identity for arbitrary finite samples. The individual \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessor} and
+\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{finite-flow} theorems are linked in
+Table~\ref{table:contributions}. They are checked by the
 \href{https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml}{GitHub Actions kernel-check workflow}
 using Lean~4 and Mathlib. The reported successful kernel check lists only
 \texttt{propext}, \texttt{Quot.sound}, and \texttt{Classical.choice} as axiom
-dependencies. The public workflow should be consulted at the commit being
-cited, because the branch can change.
+dependencies. % For archival citation: pin the source links to the SHA of a successful kernel-check CI run.
+% The helper script pin_lean_links.py in the delivery package can do this.
 
 This formal verification is deliberately \emph{limited to finite dynamics}.
 In particular, it does not certify Theorem~\ref{thm:logdens},
