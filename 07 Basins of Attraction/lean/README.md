@@ -47,10 +47,20 @@ if possible and require the `kernel-check` workflow before merging.
 
 ## Current verification status
 
-Source prepared. **A Lean runtime was not available in the authoring
-container**, so the `.lean` files have not been type-checked here. The GitHub
-workflow is provided to make this status actionable. The Python cross-check
-is only an independent arithmetic smoke test, not a Lean certificate.
+**Kernel-checked foundation snapshot:** The GitHub Actions workflow
+[`collatz-lean`](https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml)
+succeeded at commit [`4ec912525812afb5d85f6a47450a7b5550821dda`](https://github.com/Sultanow/collatz/commit/4ec912525812afb5d85f6a47450a7b5550821dda)
+(2026-11-15; Lean v4.35.0; Mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`).
+The build and `lake check` succeeded; the source scan found no unfinished
+proof declarations, and the audit reported only `propext`, `Quot.sound`,
+and `Classical.choice` for the declarations checked in that run.
+
+**Certification boundary:** This records the precise commit above, not all
+future changes to `master`. Later-added modules require their own successful
+kernel-check run and commit-specific reference. The formalised results are
+finite predecessor/hitting identities; logarithmic-density existence,
+renewal/coupling results, the Syracuse profile and asymptotic tail bounds are
+**not** covered by this certificate.
 
 The next formalisation milestones are: disjoint predecessor-basin
 partition for nonperiodic targets, finite backward-level flow, and then

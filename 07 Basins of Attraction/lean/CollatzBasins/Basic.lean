@@ -20,7 +20,7 @@ def step (c n : ℤ) : ℤ :=
 theorem step_two_mul (c a : ℤ) : step c (2 * a) = a := by
   unfold step
   have h : (2 * a) % 2 = 0 := by omega
-  simp only [if_pos h]
+  simp only [ite_eq_left h]
   omega
 
 /-- An odd input uses the odd branch of the accelerated map. -/
@@ -37,7 +37,7 @@ theorem step_eq_iff (c a n : ℤ) (hc : c % 2 = 1) :
       n = 2 * a ∨ (n % 2 = 1 ∧ 3 * n + c = 2 * a) := by
   unfold step
   by_cases hn : n % 2 = 0
-  · simp only [if_pos hn]
+  · simp only [ite_eq_left hn]
     constructor
     · intro h
       left
@@ -47,7 +47,7 @@ theorem step_eq_iff (c a n : ℤ) (hc : c % 2 = 1) :
       · omega
       · omega
   · have ho : n % 2 = 1 := by omega
-    simp only [if_neg hn]
+    simp only [ite_eq_right hn]
     constructor
     · intro h
       right
@@ -89,9 +89,9 @@ theorem step_pos (c n : ℤ) (hc : -1 ≤ c) (hn : 0 < n) :
     0 < step c n := by
   unfold step
   by_cases he : n % 2 = 0
-  · simp only [if_pos he]
+  · simp only [ite_eq_left he]
     omega
-  · simp only [if_neg he]
+  · simp only [ite_eq_right he]
     omega
 
 -- Small arithmetic regression checks (not substitutes for universal proofs).

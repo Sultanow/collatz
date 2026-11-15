@@ -21,7 +21,7 @@ jobs:
       run:
         working-directory: '07 Basins of Attraction/lean'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install elan
         shell: bash
         run: |
