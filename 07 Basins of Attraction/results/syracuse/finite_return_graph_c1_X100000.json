@@ -1,0 +1,26 @@
+{
+  "enumerated_shell_states": 5594,
+  "first_return_states": 46,
+  "full_graph_resolved": true,
+  "harmonic_nu_not_subinvariant_with_factor_less_than_one": true,
+  "max_exact_harmonic_sub_eigenratio_as_fraction": "97418/94811",
+  "max_harmonic_sub_eigenratio": 1.02749681,
+  "max_visits_including_initial": 2,
+  "maximum_steps_to_first_event": 116,
+  "mean_visits_uniform_start_in_shell": 1.0082231,
+  "parameters": {
+    "X": 100000,
+    "c": 1,
+    "max_steps": 20000,
+    "passage_cutoff": 89125,
+    "shell_lower_exclusive": 94406
+  },
+  "positive_ratio_states": 46,
+  "return_graph_cycle_detected": false,
+  "states_with_ratio_ge_one": 26,
+  "status": "EXACT_FINITE_ENumeration_ONLY; no uniform asymptotic statement",
+  "termination_status": {
+    "passage": 5548,
+    "return": 46
+  }
+}

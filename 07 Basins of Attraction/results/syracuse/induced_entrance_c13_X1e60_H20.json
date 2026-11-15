@@ -1,0 +1,124 @@
+{
+  "counts": {
+    "passed": 650
+  },
+  "n_resolved": 650,
+  "notes": [
+    "Uniform odd samples from [u,v); 1/m reweighting only in the resolved sample.",
+    "The future from a shell state is deterministic: no iid restart is used.",
+    "Finite-time good event implies no b further visits before passage.",
+    "TV over a coarse residue histogram cannot bound the full-state escape event.",
+    "The support-capacity TV lower bound is mathematical and holds for any conditional law.",
+    "No conclusion for rare/unresolved trajectories or asymptotic X,k."
+  ],
+  "parameters": {
+    "H": 20,
+    "X": "1000000000000000000000000000000000000000000000000000000000000",
+    "b": 2,
+    "c": 13,
+    "first_passage_cutoff": "251188643150958011108503206779932739415851810078247542867988",
+    "max_blocks": 10000,
+    "samples": 650,
+    "seed": 261115,
+    "u": "2000000000000000000000000000000000000000000000000000000000000",
+    "v": "2400000000000000000000000000000000000000000000000000000000000",
+    "window_lower_floor": "501187233627272285001554186884945768060471989832819263929697"
+  },
+  "shells": {
+    "0": {
+      "THEORETICAL_lower_bound_on_true_conditional_TV": 0.99999053,
+      "conditional_return_stats": [
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.0473059,
+            "6": 0.0941394,
+            "8": 0.1816321
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.4770121,
+          "k": 1,
+          "n_sampled_kth_visits": 649,
+          "p_ge_k_in_resolved_sample": 0.99838,
+          "p_ge_k_plus_b_given_k": 0.5198455,
+          "unique_sampled_odd_part_states": 649
+        },
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.0704388,
+            "6": 0.1058876,
+            "8": 0.2057337
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.4987572,
+          "k": 2,
+          "n_sampled_kth_visits": 478,
+          "p_ge_k_in_resolved_sample": 0.736961,
+          "p_ge_k_plus_b_given_k": 0.4947606,
+          "unique_sampled_odd_part_states": 478
+        },
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.0638841,
+            "6": 0.0912561,
+            "8": 0.2495517
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.54392,
+          "k": 3,
+          "n_sampled_kth_visits": 337,
+          "p_ge_k_in_resolved_sample": 0.5190034,
+          "p_ge_k_plus_b_given_k": 0.4529835,
+          "unique_sampled_odd_part_states": 337
+        },
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.0414526,
+            "6": 0.1375543,
+            "8": 0.2723849
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.5424035,
+          "k": 4,
+          "n_sampled_kth_visits": 237,
+          "p_ge_k_in_resolved_sample": 0.3646192,
+          "p_ge_k_plus_b_given_k": 0.4534426,
+          "unique_sampled_odd_part_states": 237
+        },
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.1229709,
+            "6": 0.2131,
+            "8": 0.3930905
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.5601537,
+          "k": 5,
+          "n_sampled_kth_visits": 152,
+          "p_ge_k_in_resolved_sample": 0.2351,
+          "p_ge_k_plus_b_given_k": 0.4337659,
+          "unique_sampled_odd_part_states": 152
+        },
+        {
+          "coarse_oddpart_mod2B_TV_vs_uniform_DIAGNOSTIC_ONLY": {
+            "4": 0.1490967,
+            "6": 0.1975778,
+            "8": 0.4140625
+          },
+          "escape_plus_continuation_le_one": true,
+          "finite_H_certified_escape_given_k": 0.618147,
+          "k": 6,
+          "n_sampled_kth_visits": 107,
+          "p_ge_k_in_resolved_sample": 0.1653339,
+          "p_ge_k_plus_b_given_k": 0.3729674,
+          "unique_sampled_odd_part_states": 107
+        }
+      ],
+      "lower_exclusive": "501187233627272285001554186884945768060471989832819263929697",
+      "max_true_state_support": 498812766372727714998445813115054231939528010167180736070303,
+      "reference_modulus_power_B": 216,
+      "upper_inclusive": "1000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "status": "FINITE_SAMPLE_DIAGNOSTIC_ONLY; NOT a theorem about logarithmic entrance laws",
+  "unresolved_or_cycling_excluded_from_conditional_statistics": 0
+}

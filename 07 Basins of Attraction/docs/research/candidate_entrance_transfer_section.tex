@@ -1,0 +1,61 @@
+% Research note ONLY; not imported into main.tex.
+% Formal algebra proved; uniform actual-orbit hypotheses open.
+\subsection*{Induced entrance distributions and an exact return operator}
+Let $I=I_{X,j}$ be a finite dyadic shell above the first-passage
+threshold $a_X$. Consider a law $\mathbb P$ on initial values whose
+relevant first-passage segments are finite almost surely. Write $N_I$
+for the number of recorded visits, $Y_k$ for the state at the $k$-th
+visit on $\{N_I\ge k\}$, and
+\[
+  q_k(A)=\mathbb P(N_I\ge k,\;Y_k\in A),\qquad A\subseteq I.
+\]
+Define the deterministic first-return map $R_I:I\to I\cup\{\dagger\}$
+by following the accelerated orbit from a shell point until the first
+subsequent visit to $I$ before its first passage below $a_X$; in the
+absence of such a visit, put $R_I(y)=\dagger$.
+
+\begin{proposition}[Exact deterministic return transport]
+For the positive substochastic operator
+\[
+  (Q_I q)(A):=q\bigl(\{y\in I:R_I(y)\in A\}\bigr)
+\]
+one has $q_{k+1}=Q_Iq_k$ and hence $q_k=Q_I^{k-1}q_1$.
+If there exist $0\le\rho<1$, $C>0$, and a finite nonnegative measure
+$\nu_I$ on $I$ such that
+\[
+  q_1\le C\nu_I,\qquad Q_I\nu_I\le\rho\nu_I
+\]
+as measure inequalities, then
+\[
+ \mathbb P(N_I\ge k)\le C\nu_I(I)\rho^{k-1},\qquad
+ \mathbb E N_I^2\le C\nu_I(I)\frac{1+\rho}{(1-\rho)^2}.
+\]
+\end{proposition}
+\begin{proof}
+The $(k+1)$-st visit is the first return after the $k$-th visit,
+which is exactly the push-forward relation. The positive operator
+$Q_I$ preserves inequalities; iterating gives
+$q_k\le C\rho^{k-1}\nu_I$. Summation over $I$ proves the tail bound,
+and summing $\mathbb E N_I^2=\sum_{k\ge1}(2k-1)\mathbb P(N_I\ge k)$
+gives the claimed constant.
+\end{proof}
+
+\paragraph{Finite-time escape event.}
+For $b,H\ge1$ let $G^{(b,H)}_{I,a_X}$ contain the shell points whose
+actual forward orbits reach $\le a_X$ in at most $H$ accelerated steps
+without recording $b$ more visits to $I$. This set is decidable for
+fixed parameters. If $\mu_k$ is the conditional law of $Y_k$ given
+$N_I\ge k$, then the elementary event inclusion implies
+\[
+  \mathbb P(N_I\ge k+b)
+   \le\mathbb P(N_I\ge k)\,[1-\mu_k(G^{(b,H)}_{I,a_X})].
+\]
+For an auxiliary law $\nu_k$ on actual shell states and any $\eta>0$,
+the two conditions
+\[
+ \nu_k(G^{(b,H)}_{I,a_X})\ge\eta+\varepsilon,\qquad
+ d_{\mathrm{TV}}(\mu_k,\nu_k)\le\varepsilon
+\]
+imply a block-geometric contraction with factor $1-\eta$.
+\emph{Neither the required uniform domination nor the conditional
+transport estimates for the actual Collatz family have been proved.}
