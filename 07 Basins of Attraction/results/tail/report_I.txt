@@ -1,4 +1,4 @@
-Run I: Phi_X/X for actual orbits against the random-walk model of Lemma 5 (logarithmic starts in [X^(1+b),X^((1+b)^2)])
+Run I: Phi_X/X for actual orbits against the random-walk model of the paper (logarithmic starts in [X^(1+b),X^((1+b)^2)])
  beta log10X    c   samples |     mean    model |   2nd mom     model |   decay   model | P(Phi/X > L): actual / model (z)
 0.050     12   -1   4000000 |   4.7049   4.7048 |    36.707    36.745 |   0.261   0.259 | L=10: 9.19e-02/9.17e-02 (+0.7); L=20: 6.62e-03/6.67e-03 (-0.8); L=30: 4.88e-04/4.94e-04 (-0.3); L=40: 3.55e-05/3.45e-05 (+0.2)   max 60.5, >2^125: 0
 0.050     12    1   4000000 |   4.7032   4.7048 |    36.702    36.745 |   0.259   0.259 | L=10: 9.17e-02/9.17e-02 (-0.2); L=20: 6.62e-03/6.67e-03 (-0.8); L=30: 4.77e-04/4.94e-04 (-1.0); L=40: 3.65e-05/3.45e-05 (+0.5)   max 68.5, >2^125: 0

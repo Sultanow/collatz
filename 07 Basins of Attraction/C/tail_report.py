@@ -19,7 +19,7 @@ d=sys.argv[1]
 models={}
 for f in glob.glob(os.path.join(d,'model_*.txt')):
     r=load(f); models[(r['E'],r['b'],r['S'])]=r
-print("Run I: Phi_X/X for actual orbits against the random-walk model of Lemma 5 (logarithmic starts in [X^(1+b),X^((1+b)^2)])")
+print("Run I: Phi_X/X for actual orbits against the random-walk model of the paper (logarithmic starts in [X^(1+b),X^((1+b)^2)])")
 print("%5s %6s %4s %9s | %8s %8s | %9s %9s | %7s %7s | %s"%("beta","log10X","c","samples","mean","model","2nd mom","model","decay","model","P(Phi/X > L): actual / model (z)"))
 for f in sorted(glob.glob(os.path.join(d,'actual_*.txt')), key=lambda f:(-load(f)['b'],load(f)['E'],load(f)['c'],load(f)['S'])):
     r=load(f)

@@ -220,21 +220,6 @@ Local versus global
 & Mirrored local residue tests have the same densities for $3x+1$ and $3x-1$, although the cycle and basin structures differ (Proposition~\ref{prop:local}).
 & \emph{Proof}. \\
 \addlinespace[2pt]
-Finite predecessor dynamics
-& Elementary inverse branches of the accelerated $3x+c$ map.
-& Exact immediate-predecessor characterisation for odd $c$, finite hitting-time recursion, and a weighted identity for finite samples.
-& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}. \\
-\addlinespace[2pt]
-Finite tail and return algebra
-& Elementary truncation bounds and chronological return-pair counting.
-& Exact clipping identity and quadratic excess bound; the finite relation $N^2=N+2\,{\rm pairs}$ for recorded visits. These are algebraic tools, not return-tail estimates.
-& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}. \\
-\addlinespace[2pt]
-Finite return potentials and Lyapunov certificates
-& Green-type occupation identities and deterministic finite-return algebra.
-& Two-level certificates bound the second return-count moment; fixed binary-residue-only certificates cannot decrease along all returns (Propositions~\ref{prop:lyapunov-return}--\ref{prop:residue-obstruction}).
-& \emph{Proof; Lean~4 checked (finite):} \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}; uniform bound open. \\
-\addlinespace[2pt]
 Cycle census
 & Parity-word characterisations \cite{Boehm_Sontacchi_1978,Lagarias_1990}; earlier trajectory-based lists \cite{Belaga_Mignotte_2000,Wegner_2021}.
 & Exhaustive census of $1097$ primitive cycles for $|c|\le1000$ and parity-word length $l\le40$ (Proposition~\ref{prop:rational}).
@@ -251,7 +236,7 @@ Predecessor potential
 & \emph{Proof}. \\
 \addlinespace[2pt]
 Arithmetic restrictions
-& Gcd filtration \cite{Lagarias_1990,Wegner_2021} and residue-class dynamics \cite{Matthews_2010}.
+& Gcd filtration \cite{Lagarias_1990,Belaga_Mignotte_DMTCS_2006,Wegner_2021} and residue-class dynamics \cite{Matthews_2010}.
 & Invariant cosets of $\langle2,3\rangle$ modulo $c$ and exact densities of these classes (Proposition~\ref{prop:cosets}); these need not equal individual basin densities.
 & \emph{Proof for classes}. \\
 \addlinespace[2pt]
@@ -265,15 +250,20 @@ Syracuse potential profile
 & Lower bound for residue-class means of $a\,h(a)$ (Theorem~\ref{thm:lower}); the matching upper bound and full profile remain open (Conjecture~\ref{conj:profile}).
 & \emph{Proof of lower bound; conjecture of equality}. \\
 \addlinespace[2pt]
-First-passage mass tail
-& Renewal estimates for the model walk (Lemma~\ref{lem:model}) and the transfer of Lemma~\ref{lem:reduction}.
-& Calibration of the clipped mass (Proposition~\ref{prop:clipped-calibration}); exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$, which alone decides $T_X=o(X)$ (Proposition~\ref{prop:tightness}, Corollary~\ref{cor:extreme-tail}).
-& \emph{Proof under the uniformities of Lemmas~\ref{lem:reduction}--\ref{lem:model}; $T_X=o(X)$ open}. \\
-\addlinespace[2pt]
 Predicting basin shares
 & Empirical multi-basin shares in \cite{GGM_2025}; no general density formula.
 & Backward harmonic mass predicts $410$ measured basin shares with a median relative error of about $3\%$ using an explicit, unfitted factor (Conjecture~\ref{conj:formula}).
 & \emph{Numerical evidence; conjecture}. \\
+\addlinespace[2pt]
+First-passage tails
+& Renewal estimates for the model walk (Lemma~\ref{lem:model}) and the transfer of Lemma~\ref{lem:reduction}.
+& Calibration of the clipped mass; exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$, which alone decides $T_X=o(X)$; two-level return certificates and a fixed-modulus obstruction (Appendix~\ref{sec:tail-programme}).
+& \emph{Proof under the uniformities of Lemmas~\ref{lem:reduction}--\ref{lem:model}; $T_X=o(X)$ open}. \\
+\addlinespace[2pt]
+Lean-checked finite core
+& Elementary inverse branches, truncation bounds, return-pair counting and Green-type occupation identities.
+& Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates. Algebraic tools, not return-tail estimates.
+& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}. \\
 \end{longtable}
 \endgroup
 
@@ -306,9 +296,9 @@ finite truncation inequalities and the chronological return-pair identity. The i
 \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{finite-flow} theorems are linked in
 Table~\ref{table:contributions}. These statements are checked by the
 \href{https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml}{GitHub Actions kernel-check workflow}
-using Lean~4 and Mathlib. The reported successful kernel check lists only
-\texttt{propext}, \texttt{Quot.sound}, and \texttt{Classical.choice} as axiom
-dependencies. % For archival citation: pin the source links to the SHA of a successful kernel-check CI run.
+using Lean~4 and Mathlib; it runs \texttt{lake check}, which replays the
+build through the Lean kernel and fails if any theorem uses an axiom other
+than \texttt{propext}, \texttt{Quot.sound} and \texttt{Classical.choice}. % For archival citation: pin the source links to the SHA of a successful kernel-check CI run.
 % The helper script pin_lean_links.py in the delivery package can do this.
 
 This formal verification is deliberately \emph{limited to finite dynamics}.
@@ -326,18 +316,9 @@ mathematical and, potentially, formal verification.
 %=====================================================================
 The local view grows the tree of all predecessors of a cycle. For the Collatz map this tree is usually restricted to the \emph{branching numbers}, the even numbers with an odd predecessor, and drawn as a Cayley tree with \emph{Leftward} edges through an odd predecessor and \emph{Upward} edges by doubling \cite{Sultanow_graph_2020}. The congruence-class bookkeeping of these trees for general $an+b$ maps, including their \emph{cotree densities}, is developed in detail by Kleinnijenhuis et al.\ \cite{Kleinnijenhuis_2026}. In this section we record two facts that hold for every map of the family alike.
 
-Let $c$ be coprime to $6$. A \emph{branching number} is an even $n\in\N$ such that $(n-c)/3$ is an odd integer not divisible by $3$; let $S_c$ be the set of branching numbers. For $m\in S_c$ define the \emph{Leftward child} $L(m)=2^p\,(m-c)/3$ and the \emph{Upward child} $U(m)=2^r m$, where $p,r\ge1$ are minimal with $L(m),U(m)\in S_c$. Both exist because $2$ is a primitive root modulo $9$. The following tree property of the predecessor graph is standard; we include its short proof in the present notation.
+Let $c$ be coprime to $6$. A \emph{branching number} is an even $n\in\N$ such that $(n-c)/3$ is an odd integer not divisible by $3$; let $S_c$ be the set of branching numbers. For $m\in S_c$ define the \emph{Leftward child} $L(m)=2^p\,(m-c)/3$ and the \emph{Upward child} $U(m)=2^r m$, where $p,r\ge1$ are minimal with $L(m),U(m)\in S_c$. Both exist because $2$ is a primitive root modulo $9$. Every branching number has exactly one parent, either as a Leftward or as an Upward child: the maps $L,U:S_c\to S_c$ are injective, and $S_c$ is the disjoint union of $L(S_c)$ and $U(S_c)$ \cite{Sultanow_graph_2020,Kleinnijenhuis_2026}. The parent of $n$ is found by halving $n$ until the result is either a branching number $m$, the Upward parent, or an odd number $o$, in which case $3o+c$ is the Leftward parent.
 
-\begin{proposition}[Unique parent]
-\label{prop:unique_parent}
-The maps $L,U:S_c\to S_c$ are injective, and $S_c$ is the disjoint union of $L(S_c)$ and $U(S_c)$. In other words, every branching number has exactly one parent, either as a Leftward or as an Upward child.
-\end{proposition}
-
-\begin{proof}
-Let $n\in S_c$ and consider $n/2,n/4,\ldots$ up to the first term that is odd or lies in $S_c$. If this term is $n/2^r\in S_c$, then $m=n/2^r$ satisfies $U(m)=n$: the exponent $r$ is minimal, because an earlier term in $S_c$ would contradict the choice of $r$. If the first such term is an odd number $o=n/2^p$, then $3\nmid o$, since $n\equiv c\pmod 3$ and $3\nmid c$. Hence $m=3o+c$ is even, $(m-c)/3=o$ is odd and not divisible by $3$, so $m\in S_c$, and $L(m)=n$ by the same minimality argument. The two cases exclude each other, and in each case the parent is determined by $n$. This proves surjectivity onto the disjoint union and injectivity.
-\end{proof}
-
-For $c=\pm1$, the halving sequence in this proof stops after at most four steps, so whether $n$ is a Leftward or an Upward child depends only on $n\bmod 2^4\cdot18=288$. For $3x+1$, Kleinnijenhuis et al.\ count $27$ Leftward and $5$ Upward classes modulo $288$ \cite[(3.73), (3.79)]{Kleinnijenhuis_2026}, which gives the cotree density
+For $c=\pm1$, this halving stops after at most four steps, so whether $n$ is a Leftward or an Upward child depends only on $n\bmod 2^4\cdot18=288$. For $3x+1$, Kleinnijenhuis et al.\ count $27$ Leftward and $5$ Upward classes modulo $288$ \cite[(3.73), (3.79)]{Kleinnijenhuis_2026}, which gives the cotree density
 \begin{equation}
 \label{eq:forest_density}
 d\bigl(L(S_c)\bigr)+d\bigl(U(S_c)\bigr)=\frac{27}{288}+\frac{5}{288}=\frac{2}{18}=d(S_c).
@@ -418,7 +399,7 @@ Let $0\le p_1<p_2<\cdots<p_k\le l-1$ be the positions of the ones in $B$; the po
 z_q(B) = \sum_{j=1}^{k}q^{\,k-j}\,2^{p_j}.
 \label{eq:z}
 \end{equation}
-Let $\sigma B=b_1\cdots b_{l-1}b_0$ denote the left rotation of $B$, and let $\Zt$ be the ring of rationals with odd denominator. The following correspondence is classical \cite{Boehm_Sontacchi_1978,Lagarias_1990}; we state it in the notation of rotating binaries and sketch the proof.
+Let $\sigma B=b_1\cdots b_{l-1}b_0$ denote the left rotation of $B$, and let $\Zt$ be the ring of rationals with odd denominator. The following correspondence is classical \cite{Boehm_Sontacchi_1978,Lagarias_1990}; we state it in the notation of rotating binaries.
 
 \begin{lemma}[Cycles from words; B\"ohm--Sontacchi, Lagarias]
 \label{lem:words}
@@ -433,9 +414,7 @@ Then $x_B$ is a periodic point of $T$ (extended to $\Zt$) whose parity sequence 
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}[Sketch of proof]
-Let $T_0(x)=x/2$, $T_1(x)=(qx+c)/2$ and $T_B=T_{b_{l-1}}\circ\cdots\circ T_{b_0}$. By induction on $l$, $T_B(x)=(q^kx+c\,z_q(B))/2^l$, whose unique fixed point is $x_B$; it lies in $\Zt$ because $D$ is odd. From $T_{\sigma B}\circ T_{b_0}=T_{b_0}\circ T_B$ we get $T_{b_0}(x_B)=x_{\sigma B}$, and $2x_{\sigma B}=q^{b_0}x_B+b_0c$ shows that $x_B$ has parity $b_0$. Hence the orbit of $x_B$ follows $B$ periodically. If $y\in\Zt$ also has parity sequence $BBB\cdots$, then $T^{jl}(y)-T^{jl}(x_B)=(q^k/2^l)^j(y-x_B)$ lies in $\Zt$ for all $j$, so $y=x_B$. Statements (a) and (b) follow because $z_q(B)>0$ for $k\ge1$.
-\end{proof}
+It rests on the identity $T_B(x)=(q^kx+c\,z_q(B))/2^l$ for the composition $T_B$ of the branches $x/2$ and $(qx+c)/2$ along $B$, whose unique fixed point is $x_B$.
 
 Every positive integer cycle of $T$ arises in this way from the word of its parities, and its members are obtained by rotating the word. This is the precise sense in which cycles are \emph{rotating binaries}. The reverse direction, asking for which maps a given word yields a cycle, is also classical: it is Lagarias' theory of rational cycles \cite{Lagarias_1990} and the shift--member duality of Belaga and Mignotte \cite[Theorem~4]{Belaga_Mignotte_DMTCS_2006}.
 
@@ -483,21 +462,7 @@ T_{q,-c}(x)=-T_{q,c}(-x),
 \end{equation}
 so the cycles of $3x-1$ are the negatives of the cycles of $3x+1$ on the negative integers. By Lemma~\ref{lem:words}(b) they come from words with $D<0$: the three cycles of $3x-1$ through $1$, $5$ and $17$ have the words $1$, $110$ and $11110111000$, with $D=-1$, $-1$ and $-139$ (since $2^3<3^2$ and $2^{11}<3^7$). If $q=2^m-1$, the word $10^{m-1}$ has $D=2^m-q=1$ and $z_q=1$, so $x_B=c$; for $c=1$ the number $1$ lies on a cycle. This is the power-of-two root $c=q+1=2^m$ of the family $a=2^m-1$ studied in \cite{Kleinnijenhuis_2026}.
 
-\begin{remark}[The case $q=1$]
-For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, least significant first, are $b_0,\ldots,b_{l-1}$. For $c=2^l-1$, the map $T_{1,c}$ acts on $\{0,\ldots,2^l-1\}$ as the cyclic right rotation of $l$-bit numbers. For example, the cycles of $x+7$ are $\{1,4,2\}$, $\{3,5,6\}$ and $\{7\}$, the rotation classes of $001$, $011$ and $111$. For $c=1$, by contrast, $0<z_1(B)<2^l-1$ unless $B=1^l$, so $T_{1,1}$ has only the cycle $\{1\}$. This also follows from the descent $(x+1)/2<x$ for odd $x>1$, a global, Archimedean argument. This is the trivial base case $1n+1$ of the family $an+b$.
-\end{remark}
-
-\subsection*{The product identity}
-Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} of type $(l,k)$, in cyclic order, and put $A_i=qa_i$. Dividing~\eqref{eq:condition_cycle_existance} by $q^k$ gives
-\[
-\prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k},
-\]
-and for odd $q>1$ the right-hand side determines $(l,k)$. Hence the members of two cycles satisfy the product equality
-\begin{equation}
-\label{eq:diophantine_equation}
-(A_1+1)\cdots(A_m+1)\cdot B_1\cdots B_n=A_1\cdots A_m\cdot(B_1+1)\cdots(B_n+1)
-\end{equation}
-if and only if the cycles have the same type. For example, the two non-trivial cycles of $5x+1$ both have type $(7,3)$, so~\eqref{eq:diophantine_equation} holds for $A=5\cdot(13,33,83)$ and $B=5\cdot(27,17,43)$; both products equal $2^7/5^3$. Likewise, both cycles of $181x+1$ have type $(15,2)$ (Table~\ref{table:zoo}).
+Two further elementary remarks, on the case $q=1$ and on a product identity for cycles of the same type, are collected in Appendix~\ref{appx:cycles}.
 
 %=====================================================================
 \section{The decoded zoo: cycles live where \texorpdfstring{$2^l\approx q^k$}{2\^{}l ≈ q\^{}k}}
@@ -609,14 +574,12 @@ For a cycle $\mathcal C$ of $T_{q,c}$, its \emph{basin} is $\beta(\mathcal C)=\{
 
 Two empirical entries of Table~\ref{table:basins}, $0.20000$ and $0.07692$, are close to $1/5$ and $1/13$, respectively. The following elementary gcd invariance explains the scaling underlying these values, but their exact equality to those fractions would additionally require that the $3x+1$ basin of $1$ have density one. The invariance is implicit in Lagarias' primitive cycles \cite{Lagarias_1990}, explicit in \cite[(19)]{Belaga_Mignotte_DMTCS_2006} and also used by Wegner \cite{Wegner_2021}.
 
-\begin{proposition}[Divisibility filtration]
+\begin{proposition}[Divisibility filtration \cite{Lagarias_1990,Belaga_Mignotte_DMTCS_2006,Wegner_2021}]
 \label{prop:filtration}
 Let $\gcd(c,6)=1$ and, for a divisor $e$ of $|c|$, let $B_e=\{n\ge1:\gcd(n,c)=e\}$. Then $T_{3,c}(B_e)\subseteq B_e$, the map $n\mapsto n/e$ conjugates $T_{3,c}$ on $B_e$ to $T_{3,c/e}$ on the integers coprime to $c/e$, and $B_e$ has natural density $\varphi(|c|/e)/|c|$.
 \end{proposition}
 
-\begin{proof}
-Every prime divisor $p$ of $c$ satisfies $p\ge5$. Since $p\mid(3n+c)/2$ if and only if $p\mid n$, and $p\mid n/2$ if and only if $p\mid n$, the map preserves $\gcd(n,c)$. For odd $e$, the numbers $em$ and $m$ have the same parity, and $T_{3,c}(em)=e\,T_{3,c/e}(m)$. Finally, $n=em$ lies in $B_e$ if and only if $\gcd(m,c/e)=1$, a condition of density $\varphi(|c|/e)/(|c|/e)$ for $m$, hence of density $\varphi(|c|/e)/|c|$ for $n$.
-\end{proof}
+Indeed, every prime divisor of $c$ is at least $5$, so that $T_{3,c}$ preserves $\gcd(n,c)$, and $T_{3,c}(em)=e\,T_{3,c/e}(m)$ for odd $e$.
 
 \begin{table}[H]
 \centering
@@ -767,11 +730,6 @@ Finally, if the natural density of $A$ exists, partial summation shows that the 
 The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The method does not reach natural densities, because the stabilisation of first passages controls logarithmic averages only. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
 \end{remark}
 
-\begin{remark}[Predecessor sets]
-\label{rem:predecessors}
-Step~2 uses only that membership is preserved by the first passage below $x$ for all large $x$. This also holds for the set of $n$ whose orbit contains a fixed odd integer $a$, once $x\ge a$: an orbit that starts above $x$ stays above $x$ until its first passage, so it cannot meet $a$ before. Step~1 applies as well, because an orbit can meet the odd number $a$ only after its initial halvings. Hence these sets have logarithmic densities, which answers the existence question of \cite[Remark~1.7]{GGM_2025} in logarithmic form for every odd $a$. Its natural-density form remains open, except for $c=1$, where the proof of Corollary~\ref{cor:natural} applies to these sets as well (see also \cite{CLT_2026}). For $a$ on a cycle, the set is the basin of that cycle. Proposition~\ref{prop:potential} below treats all $a$ and the identities between these densities.
-\end{remark}
-
 \begin{remark}[A first-passage formula]
 \label{rem:passage}
 For $3\nmid c$, Steps~2, 4 and~6 and~\eqref{eq:ggm_hit} give, for all $\alpha,\lambda\in(1,1+\varepsilon_1)$,
@@ -859,7 +817,7 @@ For the two windows of Step~3 and $x\ge a'^2$, the last probability is $\ll(\log
 (c) For $a\in\mathcal C$ we have $P(a)=\beta(\mathcal C)$. Every $n\in\beta(\mathcal C)\setminus\mathcal C$ has a last iterate outside $\mathcal C$, which lies in $L_0(\mathcal C)$. Hence $\beta(\mathcal C)$ is the disjoint union of $\mathcal C$ and the sets $P(x)$, $x\in L_0(\mathcal C)$, and $L_0(\mathcal C)$ is finite, which gives the identity for $d=0$. No member of a level is periodic, so (b) applies to each of them, and the sum over $L_{d+1}(\mathcal C)$ equals the sum over $L_d(\mathcal C)$.
 \end{proof}
 
-We call $h$ the \emph{predecessor potential} of the map. Part~(a) answers the existence question of \cite[Remark~1.7]{GGM_2025} for every $a$, in logarithmic form. Part~(c) is a conservation law: the density of a basin is distributed over every level of the backward tree of its cycle. For $3x+1$, the existence of the predecessor densities as natural densities and their flow identity are stated in the formalisation \cite{CLT_2026}; Proposition~\ref{prop:potential} holds for the whole family, in logarithmic density. For $3x+1$ and $3x-1$, recent positivity results complete the picture.
+We call $h$ the \emph{predecessor potential} of the map. Part~(a) answers the existence question of \cite[Remark~1.7]{GGM_2025} for every $a$, in logarithmic form; its natural-density form remains open, except for $c=1$, where the proof of Corollary~\ref{cor:natural} applies to predecessor sets as well (see also \cite{CLT_2026}). Part~(c) is a conservation law: the density of a basin is distributed over every level of the backward tree of its cycle. For $3x+1$, the existence of the predecessor densities as natural densities and their flow identity are stated in the formalisation \cite{CLT_2026}; Proposition~\ref{prop:potential} holds for the whole family, in logarithmic density. For $3x+1$ and $3x-1$, recent positivity results complete the picture.
 
 \begin{corollary}[No sparse invariant sets for $3x\pm1$]
 \label{cor:dichotomy}
@@ -979,7 +937,7 @@ Let $c\ge-1$ be odd with $3\nmid c$.
 
 The proofs are given in Appendix~\ref{appx:lower}. Theorem~\ref{thm:lower} uses the same input from \cite{GGM_2025} as Theorem~\ref{thm:logdens}. The sum of $a\,h(a)$ over a set of targets is the mean, over the starting values, of the sum of the orbit points in this set. The points that an orbit collects on its first descent through a window do not change when the starting value is replaced by a first passage above the window. As in the proof of Theorem~\ref{thm:logdens}, this reduces their mean to starting values just above the window. For these, the valuations along the descent are independent and geometric up to a negligible error, and the residue of a Syracuse iterate modulo $3^n$ depends only on its last $n$ valuations, which gives the Syracuse law. The points that an orbit collects when it returns to the window from far below are not controlled by this argument. They can only increase the sum, so that a lower bound results.
 
-Part~(b) of the corollary shows that this is no defect of the method. An unbounded orbit passes through every window once more on its way up. The upper bound~\eqref{eq:upper} therefore excludes unbounded orbits of positive potential, and for $3x+1$ it contains, by Corollary~\ref{cor:dichotomy}, the statement that no Collatz trajectory diverges. Conjecture~\ref{conj:profile} is thus at least as hard as this open problem, and by part~(a) it is equivalent to the single inequality~\eqref{eq:upper} for the mean value.
+Part~(b) of the corollary shows that this is no defect of the method. An unbounded orbit passes through every window once more on its way up. The upper bound~\eqref{eq:upper} therefore excludes unbounded orbits of positive potential, and for $3x+1$ it contains, by Corollary~\ref{cor:dichotomy}, the statement that no Collatz trajectory diverges. Conjecture~\ref{conj:profile} is thus at least as hard as this open problem, and by part~(a) it is equivalent to the single inequality~\eqref{eq:upper} for the mean value. Appendix~\ref{sec:tail-programme} analyses this inequality further: the clipped first-passage mass has exactly the predicted mean (Proposition~\ref{prop:clipped-calibration}), it is exponentially tight outside an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$ (Proposition~\ref{prop:tightness}), and what remains are long but finite excursions and returns from far below (Remark~\ref{rem:tail-barrier}, Problem~\ref{prob:excursions}).
 
 We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+13$, the program \path{potential.c} counts, for all targets $a\le10^6$ at once, the starting values $n\le10^{10}$ whose orbit contains $a$. For these counts, the identities of Proposition~\ref{prop:potential}(b) and~(c) hold as exact integer identities, which tests the program, and the basin counts agree with Table~\ref{table:basins}. Table~\ref{table:syracuse} compares the means of $a\,h(a)$, with $h(a)$ estimated by the proportion of the starting values up to $10^{10}$, with Conjecture~\ref{conj:profile}. The overall means lie between $6.85$ and $6.97$. The class means modulo $9$ show the same six numbers for all four maps, once the classes are labelled by $a/c$, and deviate from the prediction by at most $2.4\,\%$. Modulo $81$, the median deviation over the $54$ classes is below $1\,\%$ for every map, and the largest deviation is below $6\,\%$. The deviations of about $1\,\%$ exceed the statistical error. They are an effect of the small targets and disappear at larger scales (Run~H). For each of the four maps we followed the orbits of $10^7$ random starting values between $10^{28}$ and $2\cdot10^{28}$ and collected their points; this estimates the means of $a\,h(a)$ over the targets of every decade $[10^k,10^{k+1})$ without storing any counts (\path{orbit_profile.c}). For $3x+1$ the decade means are $6.911$, $6.934$ and $6.949$ for $k=6,7,8$. Over the decades $9\le k\le25$ the four maps give $6.9515$, $6.9518$, $6.9524$ and $6.9518$, with a standard error of $0.0004$, against $2/\log(4/3)=6.9521$. There the class means modulo $9$ agree with Conjecture~\ref{conj:profile} to four digits, and among the $54$ classes modulo $81$ the largest deviation is $0.12\,\%$ (Table~\ref{table:syracuse}). In view of Theorem~\ref{thm:lower}, the content of these measurements is the upper bound~\eqref{eq:upper}: at the sampled scales, the orbits collect no measurable weight when they return from far below. By the proof of Corollary~\ref{cor:remains}(b), unbounded orbits through a number of potential $h$ would raise the mean value by at least $h/3$.
 
@@ -1071,304 +1029,13 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 
 
 
-%=====================================================================
-\section{First-passage tails: an exact reduction and an open moment problem}
-\label{sec:tail-programme}
-%=====================================================================
-The lower Syracuse-profile bound of Theorem~\ref{thm:lower} uses a
-clipped first-passage observable. To identify what would be needed for a
-matching upper bound, we record an exact decomposition and a conditional
-criterion. This section does \emph{not} assert that the missing bounds have
-been established.
-
-Fix the assumptions of Proposition~\ref{prop:clipped-calibration}, and
-retain its window $W_X$, first-passage mass $\Phi_X$, and clipping height
-$H_X=X(\log X)^{\varepsilon_0/2}$. The natural scale of $\Phi_X$ is $X$,
-and we work with the normalised mass $\Phi_X/X$. For a function $f$ of the odd part $w^\flat$ of $w$, write
-\[
-  \mathbb E_{\log}f(w^\flat)
-  :=\lim_{N\to\infty}\frac{1}{\log N}
-  \sum_{1\le w<N}\frac{f(w^\flat)}{w},
-\]
-whenever the limit exists. Existence of the means below is understood
-under the bounded-observable first-passage hypotheses of
-Lemma~\ref{lem:reduction} and the predecessor-density assertion of
-Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ is
-bounded, since a finite first-passage segment does not repeat a
-point in the target window.
-
-\begin{proposition}[Exact mass decomposition and a weighted-moment criterion]
-\label{prop:return-count-criterion}
-Let $S_X=\sum_{a\le X}a\,h(a)$, and put
-\[
-\begin{aligned}
- C_X&=\mathbb E_{\log}\min\{\Phi_X(w^\flat),H_X\},\\
- T_X&=\mathbb E_{\log}(\Phi_X(w^\flat)-H_X)_+,\\
- R_X&=S_X-\mathbb E_{\log}\Phi_X(w^\flat).
-\end{aligned}
-\]
-Then, under the preceding existence hypotheses,
-\begin{equation}\label{eq:exact-three-part-mass}
-  S_X=C_X+T_X+R_X,\qquad T_X\ge0,\quad R_X\ge0.
-\end{equation}
-If, in addition, for some $\theta>0$ and a constant $M$ independent
-of sufficiently large $X$,
-\begin{equation}\label{eq:weighted-passage-moment}
-  \mathbb E_{\log}\Bigl[\Bigl(\frac{\Phi_X(w^\flat)}{X}\Bigr)^{1+\theta}\Bigr]\le M,
-\end{equation}
-then
-\begin{equation}\label{eq:return-moment-consequence}
-  T_X\le M X(\log X)^{-\varepsilon_0\theta/2}=o(X).
-\end{equation}
-In conjunction with the clipped calibration
-$C_X=\gamma_0X+o(X)$ of Proposition~\ref{prop:clipped-calibration},
-this would reduce the full mean upper bound to the separate condition
-$R_X=o(X)$.
-\end{proposition}
-\begin{proof}
-For each starting value $w$, the terms counted by
-$\Phi_X(w^\flat)$ are distinct points of the orbit of $w$ up to its
-first passage below the lower threshold, as in Step~1 of the proof
-of Theorem~\ref{thm:lower}. Consequently
-\[
-  0\le\Phi_X(w^\flat)
-    \le\sum_{\substack{a\le X\\a\in\operatorname{orb}(w)}}a.
-\]
-Taking logarithmic means and using the definition of $h(a)$ shows
-$R_X\ge0$. The pointwise identity
-$t=\min\{t,H_X\}+(t-H_X)_+$ for $t\ge0$ gives
-\eqref{eq:exact-three-part-mass} by linearity. To prove
-\eqref{eq:return-moment-consequence}, set
-$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$. Then
-\[
- (\Phi_X-H_X)_+
- \le \Phi_X\,\mathbf 1_{\{\Phi_X>H_X\}}
- \le \Phi_X\Bigl(\frac{\Phi_X}{H_X}\Bigr)^{\theta}
- = X L_X^{-\theta}\Bigl(\frac{\Phi_X}{X}\Bigr)^{1+\theta}.
-\]
-Average and apply \eqref{eq:weighted-passage-moment}.
-\end{proof}
-
-The weighting in \eqref{eq:weighted-passage-moment} matters. The unweighted
-number $V_X(m)$ of points of $W_X$ in the same blocks satisfies
-$\Phi_X\le XV_X$, but it cannot obey a moment bound uniform in $X$: in
-the model of Lemma~\ref{lem:model} its mean is
-$\gamma_0\beta\log X+O(1)$, because $W_X$ has logarithmic length
-$\beta\log X$, and the coupling in Step~3 of the proof of
-Theorem~\ref{thm:lower}, applied with unit weights, transfers the lower
-bound $(\gamma_0\beta-o(1))\log X$ to $\mathbb E_{\log}V_X(w^\flat)$.
-Most of these points lie far below $X$ and contribute little to
-$\Phi_X$.
-
-\paragraph{The remaining gap.}
-The model second-moment estimate in Lemma~\ref{lem:model} concerns an
-\emph{idealised} renewal process; it does not establish
-\eqref{eq:weighted-passage-moment} for actual Syracuse orbits. Rare starting
-values on which the coupling fails may have a disproportionately large
-weighted contribution. Proposition~\ref{prop:tightness} in
-Appendix~\ref{appx:lower} makes this precise: $\Phi_X/X$ has the
-exponential tail of the model up to an exceptional set of logarithmic
-density $O((\log X)^{-\varepsilon_0})$, and by
-Corollary~\ref{cor:extreme-tail} the condition $T_X=o(X)$ concerns only
-the mass of this set above the height $M_XX$, for any $M_X$ between
-$(\log X)^{\varepsilon_0/2}$ and $o((\log X)^{\varepsilon_0})$. The same
-corollary relaxes \eqref{eq:weighted-passage-moment} to moments that grow
-like a small power of $\log X$. Remark~\ref{rem:tail-barrier} explains
-why the exceptional set is out of reach of the present methods. Nor does
-control of $T_X$ by itself imply $R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
-\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
-are currently conditional working drafts, not additional certified
-theorems. Establishing a uniform actual-orbit shell-moment bound, for example through the two-level certificates of Proposition~\ref{prop:lyapunov-return}, and subsequently controlling $R_X$ are the two principal open steps.
-
-%=====================================================================
-\begin{remark}[Finite-support obstruction to independent restarts]
-\label{rem:entrance-support}
-Let $I_{X,j}$ be one of the finite dyadic shells, and suppose the
-conditional distribution $\mu_{X,j,k}$ of the odd part of its $k$-th
-visited state is defined. It is supported on at most
-$s_{X,j}=\#(I_{X,j}\cap\mathbb N)$ states. Writing $U_B$ for the
-uniform law on the $2^{B-1}$ odd classes modulo $2^B$ (with $d_{\mathrm{TV}}$ defined as the supremum over events), we therefore have
-\[
- d_{\mathrm{TV}}(\mu_{X,j,k}\bmod 2^B,U_B)
- \ge 1-\frac{s_{X,j}}{2^{B-1}}.
-\]
-Indeed, the union of residue classes in the support has
-$\mu_{X,j,k}$-mass one and uniform mass at most
-$s_{X,j}/2^{B-1}$. For fixed $X,j$, the right-hand side tends to one
-as $B\to\infty$. Thus the usual approximate uniformity modulo large
-powers of two cannot simply be restarted after arbitrarily many
-shell returns. This observation does \emph{not} disprove geometric
-return tails. It identifies a limitation of the direct independent-
-valuation transfer and motivates a conditional entrance-measure
-criterion, developed separately in the research notes. Neither this
-remark nor the finite Lean modules proves the open return-moment
-bound or $T_X=o(X)$.
-\end{remark}
-
-\begin{lemma}[Finite-horizon residue balance; cf. Terras~\cite{Terras_1976}]
-\label{lem:finite-horizon-residue}
-Fix an odd $c\ge-1$, a positive stopping threshold, a shell $I$ and a
-starting interval $J=[A,D)\cap\N$ with $A\ge1$. Let $E_{k,\le T}$ be
-the starts $m\in J$ whose $k$-th visit to $I$ occurs by time $T$ before stopping,
-and let $Y_k$ be that visited state. For any $b\ge1$ and any set
-$G\subset\Z/2^b\Z$, put $p=|G|/2^b$. Then
-\[
-\left|\sum_{m\in E_{k,\le T}}\frac{\mathbf1_G(Y_k(m))-p}{m}\right|
-\le\frac{8(T+1)2^{T+b}}{A}.
-\]
-The same bound without $1/A$ holds for unweighted counting.
-\end{lemma}
-\begin{proof}
-Fix a time $t\le T$ and a parity cylinder $m=r+2^t j$.
-For $0\le s\le t$, the iterate is affine and increasing in $j$,
-with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$, where $h_t$ is
-the number of odd steps among the first $t$, which is fixed on the cylinder.
-Thus its values cycle through all classes modulo $2^b$.
-Stopping and shell-visit conditions partition the $j$-range into at
-most $3(t+1)+1$ intervals. Each contributes discrepancy at most
-$2^b$, also after harmonic weighting by summation by parts (with an
-additional factor $1/A$). Sum over $2^t$ cylinders and $0\le t\le T$.
-\end{proof}
-This is a quantitative form of classical parity-cylinder balance,
-not a new long-time mixing theorem. Its error is absolute, not
-relative to the mass of $E_{k,\le T}$, and it gives no uniform bound
-for visits beyond the chosen horizon.
-
-\subsection{Two-level Lyapunov certificates for return moments}
-\label{subsec:lyapunov-return}
-The Green-operator identities for finite return chains can be used without
-assuming a strict contraction of the ordinary occupation measure.  Here is
-an alternative that targets the second moment directly.
-Fix a finite shell $I\subset\N$ and a first-passage threshold $a<\min I$.
-Restrict attention to states $y\in I$ whose forward orbit under $T_{3,c}$
-reaches a value below $a$.  Let $R_I(y)$ be the next visit to $I$
-\emph{before} that passage, or $\dagger$ if there is none.  On the
-resulting terminating return graph write
-\[
-  (P_I F)(y)=
-  \begin{cases}F(R_I(y)),&R_I(y)\ne\dagger,\\
-  0,&R_I(y)=\dagger.
-  \end{cases}
-\]
-Let $N_I(y)\ge1$ denote the number of visits from $y$, including the
-initial visit.  This definition excludes unresolved orbits; no assertion
-about their convergence is implicit.
-
-\begin{proposition}[Two-level return certificate]
-\label{prop:lyapunov-return}
-Suppose nonnegative functions $U,V$ on the terminating return graph obey
-\begin{equation}\label{eq:two-level-lyapunov}
- U\ge1+P_IU,\qquad V\ge1+2P_IU+P_IV.
-\end{equation}
-Then $N_I(y)\le U(y)$ and $N_I(y)^2\le V(y)$ for every state $y$ of
-that graph.  Consequently, for any nonnegative finite first-entry
-subprobability $q_1$ supported on these states,
-\begin{equation}\label{eq:lyapunov-second-moment}
- \sum_{y\in I}q_1(y)N_I(y)^2
- \le \sum_{y\in I}q_1(y)V(y).
-\end{equation}
-\end{proposition}
-\begin{proof}
-Induct backwards along the finite return chain.  At a terminal state,
-$P_IU=P_IV=0$ and $N_I=1$, so both inequalities follow.  If the next
-return is $z$ and $N_I(z)=n$, then $N_I(y)=n+1$.  The induction
-hypotheses and~\eqref{eq:two-level-lyapunov} give
-\[
- U(y)\ge1+U(z)\ge n+1,\qquad
- V(y)\ge1+2U(z)+V(z)\ge1+2n+n^2=(n+1)^2.
-\]
-Multiply the latter inequality by $q_1(y)$ and sum.
-\end{proof}
-
-The functions $U(y)=N_I(y)$ and $V(y)=N_I(y)^2$ themselves satisfy
-\eqref{eq:two-level-lyapunov} with equality.  Thus existence of a
-certificate on a fixed finite graph is automatic.  The real problem is
-to find \emph{explicit certificates with uniformly bounded first-entry
-averages} as the shell varies.  In the dyadic decomposition
-$I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X$ of the observable $\Phi_X$, write
-$q_{1,X,j}$ for the logarithmically induced (possibly subprobability)
-first-entry law and $N_{X,j}$ for the corresponding number of visits.
-
-\begin{corollary}[Conditional removal of the clipping tail]
-\label{cor:lyapunov-tail}
-Assume the first-entry laws and corresponding second moments exist,
-and, for all sufficiently large $X$ and every relevant $j$, that
-functions $U_{X,j},V_{X,j}$ satisfy~\eqref{eq:two-level-lyapunov} on
-the supported terminating return paths with
-\begin{equation}\label{eq:lyapunov-uniform-open}
- \sup_{X,j}\sum_{y\in I_{X,j}}q_{1,X,j}(y)V_{X,j}(y)
- \le B<\infty.
-\end{equation}
-Then $T_X\le 4BX^2/H_X=o(X)$, where $T_X,H_X$ are defined in
-Proposition~\ref{prop:return-count-criterion}.
-\end{corollary}
-\begin{proof}
-By Proposition~\ref{prop:lyapunov-return}, every shell count has second
-moment at most $B$.  Each point in $I_{X,j}$ has weight at most
-$X2^{-j}$, so Minkowski's inequality gives
-\[
- \left\|\frac{\Phi_X}{X}\right\|_2
- \le\sum_{j\ge0}2^{-j}\|N_{X,j}\|_2\le2\sqrt B.
-\]
-For $t\ge0$ one has $(t-H_X)_+\le t^2/H_X$.  Taking the logarithmic
-mean yields $T_X\le\mathbb E_{\log}(\Phi_X^2)/H_X\le4BX^2/H_X$.
-Since $H_X=X(\log X)^{\varepsilon_0/2}$, this is $o(X)$.
-\end{proof}
-
-There is a simple arithmetic reason why certificates based solely on a
-fixed binary residue cannot work on all large dyadic shells.
-
-\begin{proposition}[Fixed-modulus obstruction]
-\label{prop:residue-obstruction}
-For every odd $c\in\Z$ and every $k\ge1$, there exists $X_0(c,k)$
-such that for every real $X\ge X_0(c,k)$ one can find positive integers
-$y,z\in(X/2,X]$ with
-\[
- T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
-\]
-Consequently, on any such shell, no function $U$ depending only on
-$y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
-containing this one-step return (with any cutoff $a<X/2$).
-\end{proposition}
-\begin{proof}
-Set $m=2^k$.  For sufficiently large $X$, the interval
-\[
- \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
-\]
-has length $X/12-c/6>m$ and is contained in $(0,\infty)$.
-It therefore contains a positive multiple $A$ of $m$.  Set
-$y=2A-c$ and $z=3A-c$.  Since $c$ is odd, $y$ is odd and
-$T_{3,c}(y)=(3y+c)/2=z$; the inequalities for $A$ imply
-$X/2<y<z\le X$.  Finally $z-y=A\equiv0\pmod m$.
-The next shell return from $y$ is thus $z$ itself.  A residue-only
-$U$ would give $U(y)=U(z)$ while the first inequality in
-\eqref{eq:two-level-lyapunov} forces $U(y)\ge1+U(z)$, a contradiction.
-\end{proof}
-
-\begin{remark}[Lean verification and the unresolved step]
-\label{rem:lyapunov-certification}
-The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
-formalises the finite rational-valued certificate and weighted inequality,
-as well as exact one-step arithmetic and an explicit family of dyadic
-congruence witnesses.  The assertion of Proposition~\ref{prop:residue-obstruction}
-for \emph{every sufficiently large} $X$ follows from the interval argument
-above and is \emph{not} covered by that module.  The related finite
-\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
-and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
-are also formalised.  None of these kernel checks establishes
-\eqref{eq:lyapunov-uniform-open} for the actual logarithmic entrance
-measures, nor the bounds $T_X=o(X)$ or $R_X=o(X)$ without further
-assumptions.  Certificates must encode more than a fixed congruence
-class, for instance relative shell position or return-history data.
-\end{remark}
-
 \section{Outlook}
 \label{sec:outlook}
 %=====================================================================
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
-	\item \emph{Control of actual-orbit return counts}: find scale-uniform first-entry-weighted Lyapunov certificates satisfying~\eqref{eq:lyapunov-uniform-open}, or prove a comparable dyadic-shell second-moment bound, and separately establish $R_X=o(X)$ (Section~\ref{sec:tail-programme}). By Corollary~\ref{cor:extreme-tail}, a moment bound that grows like $(\log X)^A$ with $A<\varepsilon_0$ suffices, and only the exceptional set of Proposition~\ref{prop:tightness} has to be controlled. Proposition~\ref{prop:residue-obstruction} excludes purely fixed-residue additive certificates.
+	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}), and $R_X=o(X)$ is a separate open problem.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
@@ -1378,7 +1045,7 @@ The local and the global view answer different questions. Cayley trees and their
 \subsection*{Code and data availability}
 The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c}, \texttt{passage.c} (basin shares via first passage) and \texttt{backward\_mass.c} (backward-mass predictor), the analysis scripts, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares with their raw outputs, and the scripts for all figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Table~\ref{table:reproduction} lists which program and which data file belong to each result. All paths refer to the folder \emph{07 Basins of Attraction}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
 
-The Lean~4 implementation of the finite predecessor, hitting, clipping and return-algebra identities, the declared axiom audit, and the CI workflow are linked in the Contributions section. The exact arithmetical obstruction and two-level certificate are detailed in Proposition~\ref{prop:residue-obstruction} and Proposition~\ref{prop:lyapunov-return}. Research notes on the unproved exceptional-mass and uniform return-count problems remain separate from the main proof sources.
+The Lean~4 implementation of the finite predecessor, hitting, clipping and return-algebra identities, the declared axiom audit, and the CI workflow are linked in the Contributions section. The two-level certificate and the fixed-modulus obstruction are detailed in Appendix~\ref{sec:tail-programme} (Propositions~\ref{prop:lyapunov-return} and~\ref{prop:residue-obstruction}). Research notes on the unproved exceptional-mass and uniform return-count problems remain separate from the main proof sources.
 
 % A longtable can break across pages, unlike a floating tabularx.
 \begingroup
@@ -1470,6 +1137,24 @@ First passage & $\operatorname{Pass}_x(m)$: the first Syracuse iterate of $m$ th
 
 
 
+
+\section{Supplementary remarks on cycles}
+\label{appx:cycles}
+\begin{remark}[The case $q=1$]
+For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, least significant first, are $b_0,\ldots,b_{l-1}$. For $c=2^l-1$, the map $T_{1,c}$ acts on $\{0,\ldots,2^l-1\}$ as the cyclic right rotation of $l$-bit numbers. For example, the cycles of $x+7$ are $\{1,4,2\}$, $\{3,5,6\}$ and $\{7\}$, the rotation classes of $001$, $011$ and $111$. For $c=1$, by contrast, $0<z_1(B)<2^l-1$ unless $B=1^l$, so $T_{1,1}$ has only the cycle $\{1\}$. This also follows from the descent $(x+1)/2<x$ for odd $x>1$, a global, Archimedean argument. This is the trivial base case $1n+1$ of the family $an+b$.
+\end{remark}
+
+\paragraph{The product identity.}
+Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} of type $(l,k)$, in cyclic order, and put $A_i=qa_i$. Dividing~\eqref{eq:condition_cycle_existance} by $q^k$ gives
+\[
+\prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k},
+\]
+and for odd $q>1$ the right-hand side determines $(l,k)$. Hence the members of two cycles satisfy the product equality
+\begin{equation}
+\label{eq:diophantine_equation}
+(A_1+1)\cdots(A_m+1)\cdot B_1\cdots B_n=A_1\cdots A_m\cdot(B_1+1)\cdots(B_n+1)
+\end{equation}
+if and only if the cycles have the same type. For example, the two non-trivial cycles of $5x+1$ both have type $(7,3)$, so~\eqref{eq:diophantine_equation} holds for $A=5\cdot(13,33,83)$ and $B=5\cdot(27,17,43)$; both products equal $2^7/5^3$. Likewise, both cycles of $181x+1$ have type $(15,2)$ (Table~\ref{table:zoo}).
 
 \section{Proof of Theorem~\ref{thm:lower} and Corollary~\ref{cor:remains}}
 \label{appx:lower}
@@ -1695,12 +1380,6 @@ By Lemma~\ref{lem:model}(a) and~(b), with $L\ge(\alpha-1)\log X$, $e^{\ell_2}-e^
 \end{proof}
 
 
-% Research development: sharp calibration of a clipped first-passage observable.
-\input{truncated_calibration.tex}
-
-% Research development: exponential tightness up to a logarithmic exceptional set.
-\input{tail_tightness.tex}
-
 \begin{proof}[Proof of Corollary~\ref{cor:remains}]
 (a) For $n=0$, Conjecture~\ref{conj:profile} states that $X^{-1}\sum_{a\le X}a\,h(a)\to\gamma_0$, which contains~\eqref{eq:upper}. Conversely, assume~\eqref{eq:upper}, and let $n\ge0$ and $r$ be given. The sum over the class of $r$ is the sum over all $a\le X$ minus the sums over the other classes modulo $3^n$. By~\eqref{eq:upper}, by Theorem~\ref{thm:lower} for the other classes, and since the $p_{r'}$ add up to $1$, its upper limit after division by $X$ is at most $\gamma_0-\gamma_0(1-p_r)=\gamma_0p_r$. With Theorem~\ref{thm:lower} for $r$ itself, the limit exists and equals $\gamma_0p_r$.
 
@@ -1716,6 +1395,663 @@ This is clear if $\Phi(w^\flat)=0$. Otherwise $\tau=\tau_{X_1}(w^\flat)$ is fini
 which contradicts~\eqref{eq:upper}. Finally, let $c\in\{1,-1\}$. An unbounded orbit contains a number $b=T_{3,c}(m)$ with $m$ odd, the orbit of $b$ is unbounded, and $h(b)>0$ by Corollary~\ref{cor:dichotomy}, because $3\nmid b$. By the first part, this contradicts~\eqref{eq:upper}.
 \end{proof}
 
+
+%=====================================================================
+\section{First-passage tails: reduction, tightness and obstructions}
+\label{sec:tail-programme}
+%=====================================================================
+The lower bound of Theorem~\ref{thm:lower} uses a clipped first-passage
+observable. This appendix records what the method gives towards the
+matching upper bound~\eqref{eq:upper}, and where it stops. Its results
+are conditional on Lemmas~\ref{lem:reduction}, \ref{lem:valuations}
+and~\ref{lem:model} with the uniformities used in the proof of
+Theorem~\ref{thm:lower}; it does \emph{not} assert that the missing bounds
+have been established. For a function $f$ of the odd part $w^\flat$ of
+$w$ we write
+\[
+  \mathbb E_{\log}f(w^\flat)
+  :=\lim_{N\to\infty}\frac{1}{\log N}
+  \sum_{1\le w<N}\frac{f(w^\flat)}{w}
+\]
+whenever the limit exists. The two open steps are the control of the
+clipping tail $T_X$ beyond the coupling horizon
+(Remark~\ref{rem:tail-barrier}, Problem~\ref{prob:excursions}) and the
+control of the return term $R_X$ (Corollary~\ref{cor:two-tails}). The
+intermediate-tail and exceptional-mass arguments in the
+\href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
+are conditional working drafts, not additional certified theorems.
+
+\subsection{Calibration and decomposition}
+\label{subsec:clipped-calibration}
+Throughout this subsection let $c\ge-1$ be odd with $3\nmid c$, fix
+$\beta=1/200$, and set $\gamma_0=2/\log(4/3)$.
+For $X>1$ put
+\[
+ W_X=(X^{1-\beta},X]\cap\N,\qquad X_1=X^{1-2\beta},\qquad
+ H_X=(\log X)^{\varepsilon_0/2}X.
+\]
+For an odd positive integer $m$, let $\Phi_X(m)$ be the sum, counted
+with multiplicity, of the elements of $W_X$ in Syracuse blocks
+$1,\ldots,\tau_{X_1}(m)$, and put $\Phi_X(m)=0$ if
+$\tau_{X_1}(m)=\infty$. For $w\in\N$, let $w^\flat$ be its odd part.
+\begin{proposition}[Sharp calibration after clipping]
+\label{prop:clipped-calibration}
+Assume Lemmas~\ref{lem:reduction}, \ref{lem:valuations}, and
+\ref{lem:model} with the uniformities used in the proof of
+Theorem~\ref{thm:lower}. Then the logarithmic mean
+\[
+ C_X:=\lim_{N\to\infty}\frac1{\log N}
+ \sum_{1\le w<N}\frac{\min\{\Phi_X(w^\flat),H_X\}}{w}
+\]
+exists for every sufficiently large $X$, and
+\begin{equation}\label{eq:clipped-calibration}
+ \boxed{C_X=\gamma_0 X+o(X)\qquad(X\to\infty).}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For fixed $X$, the first-passage invariance checked in Step~2 of
+the proof of Theorem~\ref{thm:lower} holds for
+$\varphi_X(m)=\min\{\Phi_X(m),H_X\}/H_X$.
+Lemma~\ref{lem:reduction} therefore gives the existence of $C_X$
+and, with $x_0=X^{1+\beta}$, $u=x_0^{\lambda_0}$,
+$v=u^\alpha$, and $\mathbf N\sim\mathbf{Log}_{u,v}$,
+\begin{equation}\label{eq:calib-window}
+ C_X=\mathbb E\min\{\Phi_X(\mathbf N),H_X\}
+  +O\bigl(H_X(\log u)^{-\varepsilon_0}\bigr)
+ =\mathbb E\min\{\Phi_X(\mathbf N),H_X\}+o(X).
+\end{equation}
+The proof of Theorem~\ref{thm:lower}, Step~3, with the residue
+condition removed, shows
+\begin{equation}\label{eq:calib-lower}
+ \mathbb E\min\{\Phi_X(\mathbf N),H_X\}\ge\gamma_0X-o(X).
+\end{equation}
+Here one must apply the argument to the \emph{total} block sum;
+summing separately clipped residue contributions would not suffice.
+
+We prove the reverse inequality. Couple $\mathbf N$ to
+$U\sim\mathrm{Unif}[s,s+L]$ and independent geometric variables
+$g_j$ as in Step~3, with $s=\log u$, $L=\log(v/u)$, and
+$\varepsilon=X^{-1/2}$. Let $G$ be the good coupling event there;
+for some $\eta>0$ it satisfies $\mathbb P(G^c)=O(X^{-\eta})$.
+For $j\ge1$ and $0\le i<g_j$, write
+$z_{j,i}=U-D_j+i\log2$ as in Lemma~\ref{lem:model}.
+The comparison in Step~3 gives uniformly for
+$j\le\tau_{X_1}(\mathbf N)$ on $G$,
+\[
+ \left|\log(2^i\operatorname{Syr}^j(\mathbf N))-z_{j,i}\right|
+ \le C\varepsilon,
+\]
+for all $0\le i<g_j$; in particular the valuations agree up to
+this stopping time. (The relative-error formula
+\eqref{eq:ideal} uses only preceding ideal iterates, which stay
+above $X_1/3$ even for the final block.) Consequently, with
+$\ell_-=(1-\beta)\log X-C\varepsilon$,
+$\ell_+=\log X+C\varepsilon$, and
+\[
+ Z^+=\sum_{j\ge1}\sum_{i=0}^{g_j-1}e^{z_{j,i}}
+       \mathbf 1[\ell_-<z_{j,i}\le\ell_+],
+\]
+we have the pointwise upper comparison
+\begin{equation}\label{eq:calib-upper-coupling}
+ \Phi_X(\mathbf N)\le (1+C\varepsilon)Z^+\quad\text{on }G.
+\end{equation}
+
+Let $V(t)$ be the expected number of unmarked model points
+$y_{j,i}=D_j-i\log2$ below $t$, over all $j\ge1$ and
+$0\le i<g_j$. Summing the three residue classes in the proof of
+Lemma~\ref{lem:model}, equation~\eqref{eq:V} for $n=1$, gives
+$V(t)=\gamma_0t+O(1)$ for $t\ge0$. Thus the same exact
+integration identity as in the proof of Lemma~\ref{lem:model}(a)
+gives
+\[
+ \begin{aligned}
+ \mathbb EZ^+
+ &=\frac1L\int_{\ell_-}^{\ell_+}e^z
+             \bigl(V(s+L-z)-V(s-z)\bigr)\,dz\\
+ &=\gamma_0\bigl(e^{\ell_+}-e^{\ell_-}\bigr)
+       +O\left(\frac{e^{\ell_+}}L\right)
+  =\gamma_0 X+o(X),
+ \end{aligned}
+\]
+because $s-\ell_+>0$, $L\asymp\log X$,
+$e^{\ell_+}=X(1+O(\varepsilon))$, and
+$e^{\ell_-}=O(X^{1-\beta})$.
+Since $\min\{\Phi_X,H_X\}\le H_X$ always,
+\[
+ \mathbb E\min\{\Phi_X(\mathbf N),H_X\}
+ \le(1+C\varepsilon)\mathbb EZ^+
+     +H_X\mathbb P(G^c)
+ =\gamma_0X+o(X).
+\]
+Together with \eqref{eq:calib-lower} and
+\eqref{eq:calib-window}, this proves the claim.
+\end{proof}
+
+\begin{corollary}[Two nonnegative obstructions to the mean upper bound]
+\label{cor:two-tails}
+Write $S_X=\sum_{a\le X}a h(a)$, and define
+\[
+\begin{aligned}
+ F_X&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{\Phi_X(w^\flat)}w,\\
+ R_X&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac1w
+   \left(\sum_{\substack{a\le X\\a\in\operatorname{orb}(w)}}a
+   -\Phi_X(w^\flat)\right),
+\end{aligned}
+\]
+where the limits exist by Lemma~\ref{lem:reduction},
+Proposition~\ref{prop:potential}(a), and finite linearity.
+Put
+\[
+ T_X=F_X-C_X
+ =\lim_{N\to\infty}\frac1{\log N}
+     \sum_{1\le w<N}\frac{(\Phi_X(w^\flat)-H_X)_+}{w}\ge0.
+\]
+Then
+\[
+ \boxed{S_X=C_X+T_X+R_X,\qquad T_X\ge0,\quad R_X\ge0.}
+\]
+In particular, conditional on the stated lemmas,
+\[
+ \limsup_{X\to\infty}\frac{S_X}{X}\le\gamma_0
+ \quad\Longleftrightarrow\quad T_X=o(X)\ \text{and}\ R_X=o(X).
+\]
+\end{corollary}
+\begin{proof}
+For fixed $X$, the first-passage blocks do not repeat points,
+by Step~1 of Theorem~\ref{thm:lower}. Thus for every $w$,
+$0\le\Phi_X(w^\flat)\le
+\sum_{a\le X,\ a\in\operatorname{orb}(w)}a$.
+Lemma~\ref{lem:reduction} applies to the bounded function
+$\Phi_X/B_X$, where $B_X=\sum_{a\in W_X}a$, since the first-passage
+invariance of Step~2 holds for all sufficiently large passage
+thresholds. Hence $F_X$ exists. Proposition~\ref{prop:potential}(a)
+and finite linearity show that the logarithmic mean of the full
+orbit-point sum is $S_X$. Subtracting proves that $R_X$ exists,
+$R_X\ge0$, and $S_X=F_X+R_X$.
+Finally $F_X-C_X$ is the mean of $(\Phi_X-H_X)_+$, so $T_X\ge0$. The claimed equivalence follows
+from Proposition~\ref{prop:clipped-calibration} and the fact that
+both tails are nonnegative.
+\end{proof}
+
+\begin{remark}[Moment criteria]
+\label{rem:moment-criterion}
+For $t\ge0$ and $\theta>0$ we have $(t-H_X)_+\le t^{1+\theta}H_X^{-\theta}$.
+Hence, if for some $\theta>0$ and some $M$ independent of large $X$
+\begin{equation}\label{eq:weighted-passage-moment}
+  \mathbb E_{\log}\Bigl[\Bigl(\frac{\Phi_X(w^\flat)}{X}\Bigr)^{1+\theta}\Bigr]\le M,
+\end{equation}
+then $T_X\le MX(\log X)^{-\varepsilon_0\theta/2}=o(X)$.
+Corollary~\ref{cor:extreme-tail}(c) below relaxes
+\eqref{eq:weighted-passage-moment} to moments that grow like a small power
+of $\log X$. The weighting matters. The unweighted number $V_X(m)$ of
+points of $W_X$ in the same blocks satisfies $\Phi_X\le XV_X$, but it
+cannot obey a moment bound uniform in $X$: in the model of
+Lemma~\ref{lem:model} its mean is $\gamma_0\beta\log X+O(1)$, because
+$W_X$ has logarithmic length $\beta\log X$, and the coupling in Step~3 of
+the proof of Theorem~\ref{thm:lower}, applied with unit weights, transfers
+the lower bound $(\gamma_0\beta-o(1))\log X$ to
+$\mathbb E_{\log}V_X(w^\flat)$. Most of these points lie far below $X$ and
+contribute little to $\Phi_X$. None of these conditions says anything
+about the return term $R_X$.
+\end{remark}
+
+\subsection{Exponential tightness of the first-passage mass}
+\label{subsec:tightness}
+Lemma~\ref{lem:reduction} transfers not only means but also
+distribution functions of first-passage observables, with an error that
+does not depend on the observable. Combined with the coupling in the
+proof of Proposition~\ref{prop:clipped-calibration}, this shows that the
+moment condition of Remark~\ref{rem:moment-criterion} can fail only through an exceptional set of
+logarithmic density $O((\log X)^{-\varepsilon_0})$. We keep the notation
+of Proposition~\ref{prop:clipped-calibration} and
+Corollary~\ref{cor:two-tails}, and put, for $\Lambda\ge0$ and $M\ge0$,
+\[
+ \begin{aligned}
+ \mu_X(\Lambda)&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{\mathbf 1[\Phi_X(w^\flat)>\Lambda X]}{w},\\
+ T_X(M)&=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{(\Phi_X(w^\flat)-MX)_+}{w},
+ \end{aligned}
+\]
+so that $T_X=T_X\bigl((\log X)^{\varepsilon_0/2}\bigr)$.
+
+\begin{proposition}[Exponential tightness up to a logarithmic exceptional set]
+\label{prop:tightness}
+Assume the hypotheses of Proposition~\ref{prop:clipped-calibration}.
+There are constants $C\ge1$ and $X_0$, independent of $X$ and $\Lambda$, such that
+for all $X\ge X_0$ and all $\Lambda\ge0$ the limit $\mu_X(\Lambda)$
+exists and
+\begin{equation}\label{eq:tightness}
+ \mu_X(\Lambda)\le C e^{-\Lambda/C}+C(\log X)^{-\varepsilon_0}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1 (transfer).} Fix $X$ and $\Lambda$, and let
+$\varphi=\mathbf 1[\Phi_X>\Lambda X]$. By Step~2 of the proof of
+Theorem~\ref{thm:lower}, $\Phi_X(m)=\Phi_X(\operatorname{Pass}_x(m))$ for
+all $x\ge x_0=X^{1+\beta}$ and all odd $m>x$ with $\tau_x(m)<\infty$ and
+$\operatorname{Pass}_x(m)>\frac34x\exp(-(\log x)^{0.7})$, once $X$ is
+large. Every function of $\Phi_X$ inherits this invariance. Hence
+Lemma~\ref{lem:reduction} applies to $\varphi$: the limit
+$\mu_X(\Lambda)=\delta_\varphi$ exists, and with $u=x_0^{\lambda_0}$,
+$v=u^\alpha$ and $\mathbf N\sim\mathbf{Log}_{u,v}$,
+\[
+ \bigl|\mu_X(\Lambda)-\mathbb P(\Phi_X(\mathbf N)>\Lambda X)\bigr|
+ \le C(\log u)^{-\varepsilon_0}\le C(\log X)^{-\varepsilon_0}.
+\]
+The constant of Lemma~\ref{lem:reduction} does not depend on
+$\varphi$, hence not on $\Lambda$.
+
+\emph{Step 2 (coupling).} Couple $\mathbf N$, $U$ and $(g_j)$ as in the
+proof of Proposition~\ref{prop:clipped-calibration}, with the good event
+$G$, $\mathbb P(G^c)\le CX^{-1/C}$, and the upper comparison
+\eqref{eq:calib-upper-coupling}. For large $X$ we have
+$1+C\varepsilon\le2$, so that
+\[
+ \mathbb P(\Phi_X(\mathbf N)>\Lambda X)
+ \le CX^{-1/C}+\mathbb P(Z^+>\Lambda X/2).
+\]
+
+\emph{Step 3 (exponential moments of local counts).} For $q\le s$ let
+$N_q$ be the number of pairs $(j,i)$ with $j\ge1$, $0\le i<g_j$ and
+$z_{j,i}\in(q-1,q]$. We claim that there are absolute constants
+$\theta_0>0$ and $K_0<\infty$ with
+\begin{equation}\label{eq:local-exp-moment}
+ \mathbb E\,e^{\theta_0N_q}\le K_0\qquad\text{for all }q\le s.
+\end{equation}
+As in the proof of Lemma~\ref{lem:model}(b), let $j_1$ be the first
+$j\ge1$ with $U-D_j\le q$, and put $b=1+\log\frac32$; then
+\[
+ N_q\le g_{j_1}+Y,\qquad
+ Y=\sum_{k\ge1}g_{j_1+k}\,\mathbf 1\bigl[D_{j_1+k-1}-D_{j_1}<b\bigr].
+\]
+Conditionally on $U$, $j_1$ is a stopping time for $(g_j)$. By the strong
+Markov property, $(g_{j_1+k})_{k\ge1}$ is an i.i.d.\ sequence with the
+law of $g_1$, independent of $U,g_1,\ldots,g_{j_1}$; thus $Y$ is
+independent of $g_{j_1}$ and has the law of
+$Y_0=\sum_{k\ge1}g_k\mathbf 1[D_{k-1}<b]$.
+
+\emph{The overshooting valuation.} Let $t=U-q\ge0$. The index $j$ is the
+first with $D_j\ge t$ and $g_j=v$ only if
+$t-v\log2+\log3\le D_{j-1}<t$, an interval of length less than $v$, and
+$g_j$ is independent of $D_{j-1}$. By the visit bound in
+Lemma~\ref{lem:model}(ii),
+\[
+ \mathbb P(g_{j_1}=v\mid U)\le 2^{-v}\,
+ \mathbb E\#\{j\ge1:\ t-v\log2+\log3\le D_{j-1}<t\}
+ \le C(1+v)2^{-v},
+\]
+so $\mathbb E[e^{\theta g_{j_1}}\mid U]\le C\sum_{v\ge1}(1+v)(e^\theta/2)^v$,
+which is bounded uniformly in $U$ for every $\theta<\log2$.
+
+\emph{The returns after the crossing.} Let
+$\kappa=1+\sup\{k\ge0:D_k<b\}$, which is finite almost surely. Then
+$Y_0\le S_\kappa$ with $S_k=g_1+\dots+g_k$, and by Chernoff's bound in
+Lemma~\ref{lem:model}(ii),
+$\mathbb P(\kappa\ge k+1)\le\sum_{k'\ge k}e^{b/2}\varrho^{k'}
+\le C\varrho^{k}$. Put
+$\psi(\theta)=\mathbb E\,e^{\theta g_1}=e^\theta/(2-e^\theta)$. The
+Cauchy--Schwarz inequality gives
+\[
+ \mathbb E\,e^{\theta Y_0}
+ \le\sum_{k\ge1}\mathbb E\bigl[e^{\theta S_k}\mathbf 1[\kappa=k]\bigr]
+ \le\sum_{k\ge1}\psi(2\theta)^{k/2}\,\mathbb P(\kappa\ge k)^{1/2}
+ \le C\sum_{k\ge1}\bigl(\psi(2\theta)\varrho\bigr)^{k/2},
+\]
+which is finite as soon as $\psi(2\theta)\varrho<1$. Since $\psi(0)=1$
+and $\varrho<1$, this holds for all small $\theta>0$. Choosing such a
+$\theta_0<\log 2$ and combining the two bounds by independence proves
+\eqref{eq:local-exp-moment}.
+
+\emph{Step 4 (conclusion).} Every point counted in $Z^+$ satisfies
+$z_{j,i}\le\ell_+\le s$, and $e^{\ell_+}=Xe^{C\varepsilon}\le2X$. Hence
+\[
+ \frac{Z^+}{X}\le2\sum_{i\ge0}e^{-i}N_{\ell_+-i}
+ =\frac{2}{1-e^{-1}}\sum_{i\ge0}w_iN_{\ell_+-i},
+ \qquad w_i=(1-e^{-1})e^{-i}.
+\]
+The weights $w_i$ add up to $1$. With
+$\theta_1=\theta_0(1-e^{-1})/2$, convexity of the exponential and
+\eqref{eq:local-exp-moment} give
+\[
+ \mathbb E\exp\bigl(\theta_1Z^+/X\bigr)
+ \le\sum_{i\ge0}w_i\,\mathbb E\exp\bigl(\theta_0N_{\ell_+-i}\bigr)\le K_0,
+\]
+and Markov's inequality gives
+$\mathbb P(Z^+>\Lambda X/2)\le K_0e^{-\theta_1\Lambda/2}$.
+Together with Steps~1 and~2,
+\[
+ \mu_X(\Lambda)\le C(\log X)^{-\varepsilon_0}+CX^{-1/C}
+   +K_0e^{-\theta_1\Lambda/2},
+\]
+which is \eqref{eq:tightness} after enlarging $C$.
+\end{proof}
+
+\noindent
+In particular, this yields tightness in probability,
+$\lim_{M\to\infty}\limsup_{X\to\infty}\mu_X(M)=0$.
+It does \emph{not} yield uniform integrability of $\Phi_X/X$:
+the exceptional probability in \eqref{eq:tightness} is independent
+of $M$ and can carry a non-negligible weighted contribution.
+
+
+\begin{corollary}[Where the clipping tail can live]
+\label{cor:extreme-tail}
+Assume the hypotheses of Proposition~\ref{prop:clipped-calibration}, and
+let $C$ and $X_0$ be as in Proposition~\ref{prop:tightness}.
+\begin{enumerate}[label=(\alph*)]
+ \item For $X\ge X_0$ and $0\le L\le M$, the means $T_X(L)$ and $T_X(M)$
+ exist, and
+ \[
+  T_X(M)\le T_X(L)\le T_X(M)+C^2Xe^{-L/C}+CXM(\log X)^{-\varepsilon_0}.
+ \]
+ \item If $M_X\ge(\log X)^{\varepsilon_0/2}$ and
+ $M_X=o\bigl((\log X)^{\varepsilon_0}\bigr)$, then
+ $T_X=T_X(M_X)+o(X)$. In particular, $T_X=o(X)$ if and only if
+ $T_X(M_X)=o(X)$.
+ \item Suppose that there are $p>1$, $A<(p-1)\varepsilon_0$ and $K$
+ such that, for all large $X$,
+ \[
+  \limsup_{N\to\infty}\frac1{\log N}\sum_{1\le w<N}\frac1w
+  \Bigl(\frac{\Phi_X(w^\flat)}X\Bigr)^p\le K(\log X)^A .
+ \]
+ Then $T_X=O\bigl(X(\log X)^{-\kappa}\bigr)$ with
+ $\kappa=\bigl((p-1)\varepsilon_0-A\bigr)/p>0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Let $B_X=\sum_{a\in W_X}a$. By Step~1 of the proof of
+Theorem~\ref{thm:lower}, $0\le\Phi_X\le B_X$. Lemma~\ref{lem:reduction},
+applied to the bounded invariant function $(\Phi_X-MX)_+/B_X$, gives the
+existence of $T_X(M)$.
+
+(a) The first inequality holds because $(t-MX)_+\le(t-LX)_+$. For
+$t\ge0$,
+\[
+ (t-LX)_+-(t-MX)_+=X\int_L^M\mathbf 1[t>\lambda X]\,d\lambda .
+\]
+We insert $t=\Phi_X(w^\flat)$, multiply by $1/w$, sum over $w<N$ and
+divide by $\log N$. For each $N$ the finite sum and the integral may be
+interchanged. The resulting integrands converge to $\mu_X(\lambda)$ for
+every $\lambda$ by Proposition~\ref{prop:tightness}, and they are bounded
+by $2$ for large $N$. By dominated convergence and \eqref{eq:tightness},
+\[
+ T_X(L)-T_X(M)=X\int_L^M\mu_X(\lambda)\,d\lambda
+ \le X\int_L^\infty Ce^{-\lambda/C}\,d\lambda+CX(M-L)(\log X)^{-\varepsilon_0}.
+\]
+
+(b) Apply (a) with $L=(\log X)^{\varepsilon_0/2}$, for which
+$T_X(L)=T_X$, and $M=M_X$:
+$0\le T_X-T_X(M_X)\le C^2Xe^{-(\log X)^{\varepsilon_0/2}/C}
++CXM_X(\log X)^{-\varepsilon_0}=o(X)$.
+
+(c) For $t\ge0$ and $M>0$ we have $(t-MX)_+\le t^p(MX)^{1-p}$, hence
+$T_X(M)\le KX(\log X)^AM^{1-p}$. Let $L=(\log X)^{\varepsilon_0/2}$. If
+$(A+\varepsilon_0)/p\ge\varepsilon_0/2$, apply (a) with
+$M=(\log X)^{(A+\varepsilon_0)/p}\ge L$; then
+$KX(\log X)^AM^{1-p}$ and $CXM(\log X)^{-\varepsilon_0}$ are both
+$O(X(\log X)^{-\kappa})$. Otherwise $A<\varepsilon_0(p/2-1)$, and the
+bound with $M=L$ gives directly
+$T_X\le KX(\log X)^{A-(p-1)\varepsilon_0/2}$, where
+$A-(p-1)\varepsilon_0/2<-\kappa$. In both cases the term
+$C^2Xe^{-L/C}$ is $O(X(\log X)^{-\kappa})$.
+\end{proof}
+
+\begin{remark}[What remains, and what the numerics can see]
+\label{rem:tail-barrier}
+Proposition~\ref{prop:tightness} says that actual orbits inherit the
+exponential tail of the model except on an exceptional set $E_X$ of
+logarithmic density $O((\log X)^{-\varepsilon_0})$. The exponent
+$\varepsilon_0$ comes from \eqref{eq:ggm_hit} and \eqref{eq:ggm_tv}; it
+is small and not explicit. On $E_X$ the only available bound is
+$\Phi_X\le B_X<X^2$. Thus the trivial estimate of the contribution of
+$E_X$ to $T_X$ is $X^2(\log X)^{-\varepsilon_0}$, which misses the
+target $o(X)$ by a factor $X(\log X)^{-\varepsilon_0}$.
+Corollary~\ref{cor:extreme-tail}(b) isolates exactly this: the clipping
+tail vanishes if and only if the orbits with $\Phi_X>M_XX$ carry mass
+$o(X)$, for one (equivalently, every) choice of $M_X$ between
+$(\log X)^{\varepsilon_0/2}$ and $o((\log X)^{\varepsilon_0})$.
+By definition, $\Phi_X(m)=0$ if the orbit of $m$ never reaches
+$[1,X_1]$. This does not exclude contributions from orbits that
+first descend below $X_1$ and later become unbounded or enter a
+cycle above $X_1$. The obstruction for the clipping tail consists of
+finite initial excursions that, before their first passage below $X_1$,
+collect more than $X(\log X)^{\varepsilon_0/2}$ in $W_X$.
+Excluding them requires information about individual orbits beyond the
+$2$-adic horizon of Lemma~\ref{lem:valuations} and beyond the
+total-variation scale of \eqref{eq:ggm_tv}; return certificates that
+depend only on a residue modulo a fixed power of $2$ cannot provide it
+(Proposition~\ref{prop:residue-obstruction}).
+
+Numerically, the typical part behaves exactly as in the model (Run~I).
+The program \path{tail_check.c} draws odd starts logarithmically from the
+window $[X^{1+\beta},X^{(1+\beta)^2}]$ used above and computes
+$\Phi_X/X$ along the actual orbit and along the random walk of
+Lemma~\ref{lem:model}; starts whose orbits leave $128$-bit arithmetic
+are recomputed exactly. For $c\in\{1,-1,5\}$,
+$X\in\{10^{12},10^{20},10^{30}\}$ and $\beta\in\{0.05,0.005\}$, with
+$4\cdot10^6$ starts per configuration ($2\cdot10^7$ for $c=1$,
+$X=10^{30}$, $\beta=0.05$), the means and second moments of $\Phi_X/X$
+agree with the model within the sampling error. For example, for $c=1$,
+$X=10^{30}$ and $\beta=0.05$ the mean is $6.714$ against $6.712$ and the
+second moment $69.33$ against $69.27$. The tail probabilities
+$\mathbb P(\Phi_X/X>\Lambda)$ agree in all $18$ configurations with
+$|z|\le2.1$. The sampled tails are consistent with exponential decay, with an
+empirically fitted rate of about $0.21$ for $\beta=0.05$ and
+$X\ge10^{20}$; this finite-sample fit is not an asymptotic tail
+estimate. The largest recorded value among the $2\cdot10^7$ starts
+is $\Phi_X/X=87.9$. Such samples see sets of
+density down to about $10^{-7}$. A set that could spoil $T_X=o(X)$ needs
+density only about $X^{-1}$, so the numerics support the model but do
+not test the exceptional set.
+\end{remark}
+
+\subsection{Return certificates and their limits}
+\label{subsec:lyapunov-return}
+Finite parity-cylinder balance holds up to any fixed horizon, but it
+cannot be restarted after many returns, and certificates built on a fixed
+residue fail on all large shells. The following results make this
+precise.
+
+\begin{lemma}[Finite-horizon residue balance; cf. Terras~\cite{Terras_1976}]
+\label{lem:finite-horizon-residue}
+Fix an odd $c\ge-1$, a positive stopping threshold, a shell $I$ and a
+starting interval $J=[A,D)\cap\N$ with $A\ge1$. Let $E_{k,\le T}$ be
+the starts $m\in J$ whose $k$-th visit to $I$ occurs by time $T$ before stopping,
+and let $Y_k$ be that visited state. For any $b\ge1$ and any set
+$G\subset\Z/2^b\Z$, put $p=|G|/2^b$. Then
+\[
+\left|\sum_{m\in E_{k,\le T}}\frac{\mathbf1_G(Y_k(m))-p}{m}\right|
+\le\frac{8(T+1)2^{T+b}}{A}.
+\]
+The same bound without $1/A$ holds for unweighted counting.
+\end{lemma}
+\begin{proof}
+Fix a time $t\le T$ and a parity cylinder $m=r+2^t j$.
+For $0\le s\le t$, the iterate is affine and increasing in $j$,
+with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$, where $h_t$ is
+the number of odd steps among the first $t$, which is fixed on the cylinder.
+Thus its values cycle through all classes modulo $2^b$.
+Stopping and shell-visit conditions partition the $j$-range into at
+most $3(t+1)+1$ intervals. Each contributes discrepancy at most
+$2^b$, also after harmonic weighting by summation by parts (with an
+additional factor $1/A$). Sum over $2^t$ cylinders and $0\le t\le T$.
+\end{proof}
+This is a quantitative form of classical parity-cylinder balance,
+not a new long-time mixing theorem. Its error is absolute, not
+relative to the mass of $E_{k,\le T}$, and it gives no uniform bound
+for visits beyond the chosen horizon.
+
+\begin{remark}[Finite-support obstruction to independent restarts]
+\label{rem:entrance-support}
+Let $I_{X,j}$ be one of the finite dyadic shells, and suppose the
+conditional distribution $\mu_{X,j,k}$ of the odd part of its $k$-th
+visited state is defined. It is supported on at most
+$s_{X,j}=\#(I_{X,j}\cap\mathbb N)$ states. Writing $U_B$ for the
+uniform law on the $2^{B-1}$ odd classes modulo $2^B$ (with $d_{\mathrm{TV}}$ defined as the supremum over events), we therefore have
+\[
+ d_{\mathrm{TV}}(\mu_{X,j,k}\bmod 2^B,U_B)
+ \ge 1-\frac{s_{X,j}}{2^{B-1}}.
+\]
+Indeed, the union of residue classes in the support has
+$\mu_{X,j,k}$-mass one and uniform mass at most
+$s_{X,j}/2^{B-1}$. For fixed $X,j$, the right-hand side tends to one
+as $B\to\infty$. Thus the usual approximate uniformity modulo large
+powers of two cannot simply be restarted after arbitrarily many
+shell returns. This observation does \emph{not} disprove geometric
+return tails. It identifies a limitation of the direct independent-
+valuation transfer and motivates a conditional entrance-measure
+criterion, developed separately in the research notes. Neither this
+remark nor the finite Lean modules proves the open return-moment
+bound or $T_X=o(X)$.
+\end{remark}
+
+The Green-operator identities for finite return chains can be used without
+assuming a strict contraction of the ordinary occupation measure.  Here is
+an alternative that targets the second moment directly.
+Fix a finite shell $I\subset\N$ and a first-passage threshold $a<\min I$.
+Restrict attention to states $y\in I$ whose forward orbit under $T_{3,c}$
+reaches a value below $a$.  Let $R_I(y)$ be the next visit to $I$
+\emph{before} that passage, or $\dagger$ if there is none.  On the
+resulting terminating return graph write
+\[
+  (P_I F)(y)=
+  \begin{cases}F(R_I(y)),&R_I(y)\ne\dagger,\\
+  0,&R_I(y)=\dagger.
+  \end{cases}
+\]
+Let $N_I(y)\ge1$ denote the number of visits from $y$, including the
+initial visit.  This definition excludes unresolved orbits; no assertion
+about their convergence is implicit.
+
+\begin{proposition}[Two-level return certificate]
+\label{prop:lyapunov-return}
+Suppose nonnegative functions $U,V$ on the terminating return graph obey
+\begin{equation}\label{eq:two-level-lyapunov}
+ U\ge1+P_IU,\qquad V\ge1+2P_IU+P_IV.
+\end{equation}
+Then $N_I(y)\le U(y)$ and $N_I(y)^2\le V(y)$ for every state $y$ of
+that graph.  Consequently, for any nonnegative finite first-entry
+subprobability $q_1$ supported on these states,
+\begin{equation}\label{eq:lyapunov-second-moment}
+ \sum_{y\in I}q_1(y)N_I(y)^2
+ \le \sum_{y\in I}q_1(y)V(y).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Induct backwards along the finite return chain.  At a terminal state,
+$P_IU=P_IV=0$ and $N_I=1$, so both inequalities follow.  If the next
+return is $z$ and $N_I(z)=n$, then $N_I(y)=n+1$.  The induction
+hypotheses and~\eqref{eq:two-level-lyapunov} give
+\[
+ U(y)\ge1+U(z)\ge n+1,\qquad
+ V(y)\ge1+2U(z)+V(z)\ge1+2n+n^2=(n+1)^2.
+\]
+Multiply the latter inequality by $q_1(y)$ and sum.
+\end{proof}
+
+The functions $U(y)=N_I(y)$ and $V(y)=N_I(y)^2$ themselves satisfy
+\eqref{eq:two-level-lyapunov} with equality.  Thus existence of a
+certificate on a fixed finite graph is automatic.  The real problem is
+to find \emph{explicit certificates with uniformly bounded first-entry
+averages} as the shell varies.  In the dyadic decomposition
+$I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X$ of the observable $\Phi_X$, write
+$q_{1,X,j}$ for the logarithmically induced (possibly subprobability)
+first-entry law and $N_{X,j}$ for the corresponding number of visits.
+
+\begin{corollary}[Conditional removal of the clipping tail]
+\label{cor:lyapunov-tail}
+Assume the first-entry laws and corresponding second moments exist,
+and, for all sufficiently large $X$ and every relevant $j$, that
+functions $U_{X,j},V_{X,j}$ satisfy~\eqref{eq:two-level-lyapunov} on
+the supported terminating return paths with
+\begin{equation}\label{eq:lyapunov-uniform-open}
+ \sup_{X,j}\sum_{y\in I_{X,j}}q_{1,X,j}(y)V_{X,j}(y)
+ \le B<\infty.
+\end{equation}
+Then $T_X\le 4BX^2/H_X=o(X)$, where $T_X,H_X$ are defined in
+Corollary~\ref{cor:two-tails}.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:lyapunov-return}, every shell count has second
+moment at most $B$.  Each point in $I_{X,j}$ has weight at most
+$X2^{-j}$, so Minkowski's inequality gives
+\[
+ \left\|\frac{\Phi_X}{X}\right\|_2
+ \le\sum_{j\ge0}2^{-j}\|N_{X,j}\|_2\le2\sqrt B.
+\]
+For $t\ge0$ one has $(t-H_X)_+\le t^2/H_X$.  Taking the logarithmic
+mean yields $T_X\le\mathbb E_{\log}(\Phi_X^2)/H_X\le4BX^2/H_X$.
+Since $H_X=X(\log X)^{\varepsilon_0/2}$, this is $o(X)$.
+\end{proof}
+
+There is a simple arithmetic reason why certificates based solely on a
+fixed binary residue cannot work on all large dyadic shells.
+
+\begin{proposition}[Fixed-modulus obstruction]
+\label{prop:residue-obstruction}
+For every odd $c\in\Z$ and every $k\ge1$, there exists $X_0(c,k)$
+such that for every real $X\ge X_0(c,k)$ one can find positive integers
+$y,z\in(X/2,X]$ with
+\[
+ T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
+\]
+Consequently, on any such shell, no function $U$ depending only on
+$y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
+containing this one-step return (with any cutoff $a<X/2$).
+\end{proposition}
+\begin{proof}
+Set $m=2^k$.  For sufficiently large $X$, the interval
+\[
+ \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
+\]
+has length $X/12-c/6>m$ and is contained in $(0,\infty)$.
+It therefore contains a positive multiple $A$ of $m$.  Set
+$y=2A-c$ and $z=3A-c$.  Since $c$ is odd, $y$ is odd and
+$T_{3,c}(y)=(3y+c)/2=z$; the inequalities for $A$ imply
+$X/2<y<z\le X$.  Finally $z-y=A\equiv0\pmod m$.
+The next shell return from $y$ is thus $z$ itself.  A residue-only
+$U$ would give $U(y)=U(z)$ while the first inequality in
+\eqref{eq:two-level-lyapunov} forces $U(y)\ge1+U(z)$, a contradiction.
+\end{proof}
+
+\begin{remark}[Lean verification and the unresolved step]
+\label{rem:lyapunov-certification}
+The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
+formalises the finite rational-valued certificate and weighted inequality,
+as well as exact one-step arithmetic and an explicit family of dyadic
+congruence witnesses.  The assertion of Proposition~\ref{prop:residue-obstruction}
+for \emph{every sufficiently large} $X$ follows from the interval argument
+above and is \emph{not} covered by that module.  The related finite
+\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
+and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
+are also formalised.  None of these kernel checks establishes
+\eqref{eq:lyapunov-uniform-open} for the actual logarithmic entrance
+measures, nor the bounds $T_X=o(X)$ or $R_X=o(X)$ without further
+assumptions.  Certificates must encode more than a fixed congruence
+class, for instance relative shell position or return-history data.
+\end{remark}
+
+\begin{problem}[Weighted occupation of long finite excursions]
+\label{prob:excursions}
+Show that, for some $M_X$ with
+$(\log X)^{\varepsilon_0/2}\le M_X=o\bigl((\log X)^{\varepsilon_0}\bigr)$,
+\[
+ \mathbb E_{\log}\bigl[(\Phi_X(w^\flat)-M_XX)_+\bigr]=o(X),
+\]
+that is, that unusually long but finite first-passage excursions carry a
+weighted occupation mass $o(X)$ in $W_X$. By
+Corollary~\ref{cor:extreme-tail}(b) this is equivalent to $T_X=o(X)$.
+A natural object is the return process to the shells $I_{X,j}$ induced by
+the actual entry points of orbits, and in particular its weighted sojourn
+times, rather than the residues of its first steps, which cannot carry
+the argument (Remark~\ref{rem:entrance-support},
+Proposition~\ref{prop:residue-obstruction}).
+\end{problem}
 
 \newpage
 \bibliographystyle{unsrt}
