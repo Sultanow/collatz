@@ -262,7 +262,7 @@ Predicting basin shares
 \addlinespace[2pt]
 First-passage tails
 & Renewal estimates for the model walk (Lemma~\ref{lem:model}) and the transfer of Lemma~\ref{lem:reduction}.
-& Calibration of the clipped mass; exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$, which alone decides $T_X=o(X)$; two-level return certificates and a fixed-modulus obstruction (Appendix~\ref{sec:tail-programme}).
+& Calibration of the clipped mass; exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$; whether $T_X=o(X)$ then depends only on the mass carried by this set, which is not controlled; two-level return certificates and a fixed-modulus obstruction (Appendix~\ref{sec:tail-programme}).
 & \emph{Proof under the uniformities of Lemmas~\ref{lem:reduction}--\ref{lem:model}; $T_X=o(X)$ open}. \\
 \addlinespace[2pt]
 Lean-checked finite core
@@ -2072,21 +2072,38 @@ assumptions.  Certificates must encode more than a fixed congruence
 class, for instance relative shell position or return-history data.
 \end{remark}
 
+The open part can be localised further. Order the points counted by $\Phi_X(m)$ as they occur along the orbit. For $L\ge0$ and $\Phi_X(m)>LX$ let $J_{X,L}(m)\in W_X$ be the point at which their partial sums first exceed $LX$, and put
+\[
+ \eta_{X,L}(y)=\mathbb E_{\log}\mathbf 1\bigl[J_{X,L}(w^\flat)=y\bigr]\qquad(y\in W_X),
+\]
+the \emph{first-excess entrance law}; it exists by Lemma~\ref{lem:reduction}, as $\mu_X(\Lambda)$ does, and its total mass is $\mu_X(L)$. For $y\in W_X$ let $r_X(y)$ be $X^{-1}$ times the sum of the later points of $W_X$ on the orbit of $y$ before its first value at most $X_1$, and let $N^+_{X,j}(y)$ be the number of those in $I_{X,j}$. (Counting along $T_{3,c}$ instead of Syracuse blocks gives the same points: the members of the final block below $X_1$ lie outside $W_X$.)
+
+\begin{proposition}[First-excess transport]
+\label{prop:first-excess}
+Assume the hypotheses of Proposition~\ref{prop:clipped-calibration}, and let $L\ge0$.
+\begin{enumerate}[label=(\alph*)]
+ \item $T_X(L)/X=\sum_{y\in W_X}\eta_{X,L}(y)\,r_X(y)+\vartheta$ with $0\le\vartheta\le\mu_X(L)$.
+ \item For all integers $K_j\ge0$, with $\mathcal E_X(L;K)=\sum_{y}\eta_{X,L}(y)\sum_{j\ge0}2^{-j}\bigl(N^+_{X,j}(y)-K_j\bigr)_+$,
+ \[
+  \tfrac12\,\mathcal E_X(L;K)\ \le\ \frac{T_X(L)}X\ \le\ \mu_X(L)\Bigl(1+\sum_{j\ge0}2^{-j}K_j\Bigr)+\mathcal E_X(L;K).
+ \]
+ \item Let $0<\sigma<\varepsilon_0$, $0\le\omega<1$, $L_X=(\log X)^{\varepsilon_0/2}$ and $K_{X,j}=\lceil(\log X)^\sigma2^{\omega j}\rceil$. Then $T_X=o(X)$ if and only if $\mathcal E_X(L_X;K_X)\to0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) If $\Phi_X(m)>LX$, the excess $(\Phi_X(m)-LX)/X$ is the overshoot at the first crossing, which lies in $(0,1]$ because every point is at most $X$, plus the mass of the later points. The orbit after the point $J_{X,L}(m)$ is determined by this point, so the later mass is $r_X(J_{X,L}(m))$. Taking logarithmic means gives (a). (b) For $z\in I_{X,j}$ we have $2^{-j-1}<z/X\le2^{-j}$, hence $\frac12\sum_j2^{-j}N^+_{X,j}(y)\le r_X(y)\le\sum_j2^{-j}N^+_{X,j}(y)$, and $N\le K+(N-K)_+$. (c) By Proposition~\ref{prop:tightness}, $\mu_X(L_X)=O((\log X)^{-\varepsilon_0})$, while $\sum_j2^{-j}K_{X,j}=O((\log X)^\sigma)$; so the first term in (b) is $o(1)$, and $T_X(L_X)=T_X$.
+\end{proof}
+
+In kernel form, $\sum_y\eta_{X,L}(y)\mathbf 1[N^+_{X,j}(y)\ge n]=\eta_{X,L}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1$, where $E_{X,j}$ is the first-entry kernel into $I_{X,j}$ and $Q_{X,j}$ the first-return kernel on $I_{X,j}$ of the terminating return graph of Proposition~\ref{prop:lyapunov-return}. The first $(\log X)^\sigma2^{\omega j}$ later visits to each shell are thus free; only an excess of late returns of a rare entrance law matters.
+
 \begin{problem}[Weighted occupation of long finite excursions]
 \label{prob:excursions}
-Show that, for some $M_X$ with
-$(\log X)^{\varepsilon_0/2}\le M_X=o\bigl((\log X)^{\varepsilon_0}\bigr)$,
+Show that unusually long but finite first-passage excursions carry a weighted occupation mass $o(X)$ in $W_X$, that is, $\mathcal E_X(L_X;K_X)\to0$ in Proposition~\ref{prop:first-excess}(c); this is equivalent to $T_X=o(X)$. The object is the first-excess entrance law $\eta_{X,L_X}$, of total mass $O((\log X)^{-\varepsilon_0})$, transported by the return kernels of the shells $I_{X,j}$; the residues of its first steps cannot carry the argument (Remark~\ref{rem:entrance-support}, Proposition~\ref{prop:residue-obstruction}). A polynomial survival bound
 \[
- \mathbb E_{\log}\bigl[(\Phi_X(w^\flat)-M_XX)_+\bigr]=o(X),
+ \eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1\ \le\ A\,\mu_X(L_X)\Bigl(\frac{K_{X,j}}n\Bigr)^{1+\kappa}\qquad(n>K_{X,j}),
 \]
-that is, that unusually long but finite first-passage excursions carry a
-weighted occupation mass $o(X)$ in $W_X$. By
-Corollary~\ref{cor:extreme-tail}(b) this is equivalent to $T_X=o(X)$.
-A natural object is the return process to the shells $I_{X,j}$ induced by
-the actual entry points of orbits, and in particular its weighted sojourn
-times, rather than the residues of its first steps, which cannot carry
-the argument (Remark~\ref{rem:entrance-support},
-Proposition~\ref{prop:residue-obstruction}).
+with constants $A$ and $\kappa>0$, would suffice: summing over $n>K_{X,j}$ and $j$ gives $\mathcal E_X(L_X;K_X)\le(A/\kappa)\,\mu_X(L_X)\sum_j2^{-j}K_{X,j}$, and hence $T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)$.
 \end{problem}
 
 %=====================================================================

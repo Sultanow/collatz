@@ -48,3 +48,14 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   Remark 7 in Appendix D: R_X = o(X) alone excludes unbounded orbits of positive potential.
 - Barina 2021 cited next to Barina 2025.
 - Renumbering: the lower-bound theorem is now Theorem 3 (was 2).
+
+## v6b
+- Contribution table, row "First-passage tails": the old wording ("which alone decides T_X = o(X)") could be read as
+  if exponential tightness proved T_X = o(X). Now: whether T_X = o(X) holds depends only on the mass carried by
+  the exceptional set, which is not controlled.
+- Appendix D.3: Proposition 12 (first-excess transport): T_X(L)/X = transported mass of the first-excess
+  entrance law + overshoot; sandwich with free per-shell allowances (log X)^sigma 2^{omega j};
+  T_X = o(X) iff the excess of late shell returns tends to 0. Kernel form via first-entry/first-return kernels.
+- Problem 3 restated in these terms, with the polynomial survival bound as a sufficient condition.
+- docs/research/first_excess/: the full research fragment and its finite exact-rational check
+  (3600 terminated paths, 1862 first-excess decompositions, all passed).

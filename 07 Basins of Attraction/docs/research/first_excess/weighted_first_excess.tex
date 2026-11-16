@@ -1,0 +1,304 @@
+% Research-only fragment, NOT inserted into main.tex.
+% Requires amsmath, amssymb, amsthm; environments theorem, proposition, corollary, remark, proof.
+\section{Weighted first-excess transport beyond the coupling horizon}
+\label{sec:first-excess-transport}
+
+\paragraph{Context and notation.}
+Fix an odd $c\ge-1$ with $3\nmid c$, and consider the accelerated map
+\[
+ T_{3,c}(n)=\begin{cases}n/2,&n\equiv0\pmod2,\\
+ (3n+c)/2,&n\equiv1\pmod2.
+ \end{cases}
+\]
+We use the precise first-passage observable and logarithmic averaging
+of the accompanying manuscript.  Set $\beta=1/200$ and, for $X>1$,
+\[
+ a_X=X^{1-2\beta},\quad
+ W_X=(X^{1-\beta},X]\cap\mathbb N,\quad
+ H_X=X(\log X)^{\varepsilon_0/2},\quad
+ L_X=H_X/X.
+\]
+For each odd $m$, write $b_1(m),\ldots,b_{s(m)}(m)$ for the
+\emph{chronologically ordered} elements of $W_X$ encountered in the
+Syracuse blocks up to and including the first passage below $a_X$.
+As in the manuscript, the entire list is declared empty if that
+first passage never occurs.  The first term $m$ itself is not included;
+thus
+\[
+  \Phi_X(m)=\sum_{i=1}^{s(m)}b_i(m),\qquad
+  Y_X(m)=\Phi_X(m)/X.
+\]
+Write $m=w^\flat$ for the odd part of a positive integer $w$, and let
+$\mathbb E_{\log}$ denote the limiting logarithmic mean over $w$.
+Throughout, we assume the manuscript's bounded-observable reduction
+lemma and the proven-in-the-manuscript tail estimate
+\begin{equation}\label{eq:fe-tightness}
+ \mu_X(L):=\mathbb E_{\log}{\bf1}_{\{Y_X>L\}}
+ \le C e^{-L/C}+C(\log X)^{-\varepsilon_0},\qquad L\ge0,
+\end{equation}
+with $C$ independent of $X,L$.  No unproved mixing or independence
+assumption after the coupling horizon is introduced below.
+
+\paragraph{The first-excess law.}
+Fix $L\ge0$. If $Y_X(m)>L$, let
+\[
+ \kappa_{X,L}(m):=\min\Big\{k:\sum_{i=1}^{k}\frac{b_i(m)}X>L\Big\},
+ \qquad J_{X,L}(m):=b_{\kappa_{X,L}(m)}(m),
+\]
+and otherwise set $J_{X,L}(m)=\dagger$.
+For $y\in W_X$ define
+\begin{equation}\label{eq:fe-entrance}
+ \eta_{X,L}(y):=\mathbb E_{\log}{\bf1}_{\{J_{X,L}=y\}},
+ \qquad p_X(L):=\sum_{y\in W_X}\eta_{X,L}(y)=\mu_X(L).
+\end{equation}
+All these limits exist under the stated reduction lemma: for fixed
+$X,L,y$ the relevant indicator is bounded and unchanged when an
+initial segment above $X$ is removed by an admissible high first
+passage.  The state space $W_X$ is finite.
+
+If $y\in W_X$ has a finite forward first passage below $a_X$, define
+its \emph{post-state weighted occupation}
+\begin{equation}\label{eq:fe-future-mass}
+ r_X(y):=\frac1X\sum_{\substack{t\ge1:\,t<\tau_{\le a_X}(y)\\
+                        T_{3,c}^{t}(y)\in W_X}}T_{3,c}^{t}(y),
+\end{equation}
+where $\tau_{\le a_X}(y)$ denotes the first accelerated-map time
+at which the value is at most $a_X$.  Set $r_X(y)=0$ for states
+without such a finite first passage.  On the support of
+$\eta_{X,L}$ the first passage is finite, so this convention is
+irrelevant.  Although the manuscript uses Syracuse blocks, counting
+future members of $W_X$ until the accelerated map first reaches
+$[1,a_X]$ gives the same remaining list: after an even term has
+fallen below $a_X$, all subsequent members of the current final
+block are still below $a_X<X^{1-\beta}$.
+
+\begin{theorem}[Exact weighted first-excess transport]
+\label{thm:first-excess-identity}
+Under the preceding definitions, the limit
+\[
+  T_X(L):=\mathbb E_{\log}\bigl[(\Phi_X-LX)_+\bigr]
+\]
+exists and
+\begin{equation}\label{eq:fe-exact}
+ \boxed{\quad
+ \frac{T_X(L)}X=\sum_{y\in W_X}\eta_{X,L}(y)r_X(y)
+                    +\vartheta_X(L),\qquad
+ 0\le\vartheta_X(L)\le p_X(L).
+ \quad}
+\end{equation}
+In particular, the only term not controlled by the probability
+$p_X(L)$ is the \emph{future weighted mass transported from the
+first-excess entrance law}.
+
+Let $\mathcal S_X\subseteq W_X$ be the states that reach $[1,a_X]$.
+Define the substochastic deterministic next-visit kernel $Q_X$ on
+$\mathcal S_X$: $Q_X(y,z)=1$ when $z$ is the next visit to $W_X$
+after $y$ and before that passage, and $Q_X(y,z)=0$ otherwise.
+For $v_X(z):=z/X$ one also has the \emph{finite Green expansion}
+\begin{equation}\label{eq:fe-green}
+ \sum_{y\in W_X}\eta_{X,L}(y)r_X(y)
+ =\sum_{k\ge1}\sum_{z\in\mathcal S_X}
+            v_X(z)\,(\eta_{X,L}Q_X^k)(z).
+\end{equation}
+The sum is finite for each fixed $X$.
+\end{theorem}
+
+\begin{proof}
+For a successful stopped orbit with $Y_X>L$, let $k=\kappa_{X,L}$.
+Then
+\[
+ Y_X-L
+ =\underbrace{\Big(\sum_{i=1}^{k}b_i/X-L\Big)}_{e_{X,L}\in(0,1]}
+  +\sum_{i=k+1}^{s(m)}b_i/X.
+\]
+The last sum is $r_X(J_{X,L}(m))$, because the accelerated-map
+trajectory after the selected state is deterministic and its stopping
+threshold is fixed.  On $Y_X\le L$ both terms are zero.  Thus the
+identity holds \emph{pointwise}. The overshoot $e_{X,L}$ is bounded
+by $1$, since every $b_i\le X$.  All involved observables have
+logarithmic means: the state $J_{X,L}$ takes finitely many values,
+and the future mass $r_X(y)$ is finite on its support.  Taking means
+proves \eqref{eq:fe-exact} and the bounds on $\vartheta_X(L)$.
+
+A state in $\mathcal S_X$ cannot be visited twice before the stated
+first passage, since a repetition would trap the deterministic orbit
+in a periodic cycle disjoint from $[1,a_X]$.  As $\mathcal S_X$ is
+finite, $Q_X$ is nilpotent.  Each subsequent $W_X$-visit from $y$
+is one of the states represented by $Q_X^k(y,\cdot)$, proving
+\eqref{eq:fe-green}.
+\end{proof}
+
+\paragraph{A scale-dependent allowance for later returns.}
+Let
+\[
+ I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X,\qquad j\ge0,
+\]
+which is nonempty only for finitely many $j$. For $y\in\mathcal S_X$,
+let $N^+_{X,j}(y)$ denote the number of visits to $I_{X,j}$
+\emph{strictly after} the state $y$ and before the first passage
+below $a_X$.  For arbitrary integers $K_{X,j}\ge1$ set
+\begin{equation}\label{eq:fe-excess-return}
+ \mathcal E_X(L;K):=
+  \sum_{y\in W_X}\eta_{X,L}(y)
+       \sum_{j\ge0}2^{-j}\bigl(N^+_{X,j}(y)-K_{X,j}\bigr)_+.
+\end{equation}
+
+\begin{theorem}[Late-return localisation with a free weighted budget]
+\label{thm:fe-free-budget}
+For any $L\ge0$ and any such integer allowances,
+\begin{equation}\label{eq:fe-sandwich}
+ \boxed{\quad
+ \frac12\mathcal E_X(L;K)
+ \le \frac{T_X(L)}X
+ \le p_X(L)\Bigl(1+\sum_{j\ge0}2^{-j}K_{X,j}\Bigr)
+      +\mathcal E_X(L;K).
+ \quad}
+\end{equation}
+Now fix $0<\sigma<\varepsilon_0$ and $0\le\alpha<1$, and take
+\begin{equation}\label{eq:fe-allowances}
+ L=L_X=(\log X)^{\varepsilon_0/2},\qquad
+ K_{X,j}=\Big\lceil(\log X)^\sigma 2^{\alpha j}\Big\rceil.
+\end{equation}
+Then, with $T_X=T_X(L_X)$ as in the manuscript,
+\begin{equation}\label{eq:fe-equivalence}
+ \boxed{\quad
+ T_X=o(X)\quad\Longleftrightarrow\quad
+ \mathcal E_X(L_X;K)=o(1).
+ \quad}
+\end{equation}
+In particular, the first $\asymp(\log X)^\sigma2^{\alpha j}$
+\emph{post-excess visits in shell $j$} make a combined contribution
+$o(X)$ to $T_X$, uniformly without any additional dynamical
+hypothesis.
+\end{theorem}
+
+\begin{proof}
+For $z\in I_{X,j}$,
+$2^{-j-1}<z/X\le2^{-j}$.  Thus
+\[
+ \frac12\sum_{j\ge0}2^{-j}N^+_{X,j}(y)
+ \le r_X(y)\le
+ \sum_{j\ge0}2^{-j}N^+_{X,j}(y).
+\]
+Moreover $N\le K+(N-K)_+$ for $N,K\ge0$.  Insert these inequalities
+into \eqref{eq:fe-exact}, using $0\le\vartheta_X(L)\le p_X(L)$;
+this proves \eqref{eq:fe-sandwich}.
+
+By \eqref{eq:fe-tightness},
+\[
+ p_X(L_X)\le Ce^{-L_X/C}+C(\log X)^{-\varepsilon_0}
+       =O((\log X)^{-\varepsilon_0}).
+\]
+The chosen allowances satisfy
+\[
+ \sum_{j\ge0}2^{-j}K_{X,j}
+ \le \frac{(\log X)^\sigma}{1-2^{\alpha-1}}+2
+ =O_\alpha((\log X)^\sigma),
+\]
+so the first term on the right of \eqref{eq:fe-sandwich} is
+$O((\log X)^{\sigma-\varepsilon_0})=o(1)$.
+The two inequalities of \eqref{eq:fe-sandwich} now give the exact
+equivalence \eqref{eq:fe-equivalence}.
+\end{proof}
+
+\begin{proposition}[An exact induced-shell transport formula]
+\label{prop:fe-shell-transport}
+For each nonempty $I_{X,j}$ let $E_{X,j}(y,z)$ be the
+(first-future-entry) kernel from $\mathcal S_X$ to
+$I_{X,j}\cap\mathcal S_X$: it is $1$ when $z$ is the first visit to
+$I_{X,j}$ strictly after $y$ and before the terminal passage, and
+$0$ otherwise.  Let $Q_{X,j}$ be the first-\emph{return} kernel on
+$I_{X,j}\cap\mathcal S_X$, defined analogously.  Both are
+substochastic deterministic kernels, and $Q_{X,j}$ is nilpotent.
+For every integer $n\ge1$, the logarithmic probability of the joint
+event ``first excess occurs and at least $n$ future visits to
+$I_{X,j}$ follow'' is precisely
+\begin{equation}\label{eq:fe-operator-survival}
+ p_{X,j,n}(L)
+ :=\sum_{y\in W_X}\eta_{X,L}(y)
+       {\bf1}_{\{N^+_{X,j}(y)\ge n\}}
+ =\eta_{X,L}E_{X,j}Q_{X,j}^{\,n-1}{\bf1}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:fe-operator-excess}
+ \boxed{\quad
+ \mathcal E_X(L;K)=\sum_{j\ge0}2^{-j}
+      \sum_{n>K_{X,j}}
+          \eta_{X,L}E_{X,j}Q_{X,j}^{\,n-1}{\bf1}.
+ \quad}
+\end{equation}
+Here $\mathbf1$ denotes the all-one vector on the appropriate
+finite shell. Thus the new open input is an estimate on a
+\emph{specific first-excess entrance measure transported by the
+actual return operator}, not equidistribution of unused parity bits.
+\end{proposition}
+\begin{proof}
+On a terminating deterministic orbit, at least $n$ future
+$j$-shell visits occur if and only if its first future shell entry
+exists and is followed by $n-1$ further returns to the same shell.
+This is exactly the event counted by the product of kernels on the
+right of \eqref{eq:fe-operator-survival}.  Finitely many states occur,
+so integration against the entrance law commutes with the kernel
+products.  Finally apply the integer tail-sum identity
+$(N-K)_+=\sum_{n>K}{\bf1}_{\{N\ge n\}}$ to obtain
+\eqref{eq:fe-operator-excess}.
+\end{proof}
+
+\begin{corollary}[A polynomial, not geometric, return-tail criterion]
+\label{cor:fe-polynomial}
+Use the allowances \eqref{eq:fe-allowances}. Suppose there are
+constants $A<\infty$ and $\kappa>0$, independent of $X,j,n$, such
+that, for all sufficiently large $X$, all $j$ with $I_{X,j}\ne\varnothing$,
+and every integer $n>K_{X,j}$,
+\begin{equation}\label{eq:fe-polynomial-assumption}
+ \sum_{y\in W_X}\eta_{X,L_X}(y)
+        {\bf1}_{\{N^+_{X,j}(y)\ge n\}}
+ \le A\,p_X(L_X)\left(\frac{K_{X,j}}n\right)^{1+\kappa}.
+\end{equation}
+Then
+\[
+ T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)=o(X).
+\]
+The polynomial survival bound is required \emph{only after the first
+excess crossing}; it is not a claim of renewal independence or of a
+uniform second moment on all orbits.
+\end{corollary}
+
+\begin{proof}
+For a nonnegative integer-valued $N$ and integer $K\ge1$,
+$(N-K)_+=\sum_{n>K}{\bf1}_{\{N\ge n\}}$.  Using
+\eqref{eq:fe-polynomial-assumption} and a decreasing-function
+integral bound gives
+\[
+ \begin{aligned}
+ \sum_{y\in W_X}\eta_{X,L_X}(y)
+      \bigl(N^+_{X,j}(y)-K_{X,j}\bigr)_+
+ &\le A p_X(L_X)K_{X,j}^{1+\kappa}
+          \sum_{n>K_{X,j}}n^{-1-\kappa}\\
+ &\le \frac{A}{\kappa}p_X(L_X)K_{X,j}.
+ \end{aligned}
+\]
+Therefore
+\[
+\mathcal E_X(L_X;K)\le\frac{A}{\kappa}p_X(L_X)
+  \sum_j2^{-j}K_{X,j}.
+\]
+The right-hand side of \eqref{eq:fe-sandwich} is
+$O((\log X)^{\sigma-\varepsilon_0})$, proving the claim.
+\end{proof}
+
+\begin{remark}[Research status and novelty boundary]
+\label{rem:fe-scope}
+Theorems~\ref{thm:first-excess-identity} and
+\ref{thm:fe-free-budget} are deterministic stopping-line accounting,
+combined with the manuscript's stated tightness estimate.  They do
+\emph{not} improve the Terras/Tao/GGM mixing estimates, prove the
+polynomial return-tail assumption \eqref{eq:fe-polynomial-assumption},
+or establish $T_X=o(X)$ unconditionally.  Their value for the
+present research programme is the sharper target:
+\emph{transport the small first-excess entrance measure through only
+very late, scale-weighted return visits}.  This replaces demands for
+uniform moment bounds across every return history by a targeted
+survival estimate for a rare stopped entrance law.  Whether that
+estimate follows from the actual Syracuse dynamics remains open.
+\end{remark}
