@@ -1,0 +1,778 @@
+[
+  {
+    "L": 1000,
+    "c": -1,
+    "T": 8,
+    "start": [
+      4000,
+      16000
+    ],
+    "cutoff": 15,
+    "theoretical_count_error_bound": 92160,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 3835,
+        "good": 1195,
+        "good_fraction": 0.311604,
+        "count_discrepancy_numerator": 55,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 1596,
+        "good": 489,
+        "good_fraction": 0.306391,
+        "count_discrepancy_numerator": 156,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 497,
+        "good": 152,
+        "good_fraction": 0.305835,
+        "count_discrepancy_numerator": 53,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 75,
+        "good": 24,
+        "good_fraction": 0.32,
+        "count_discrepancy_numerator": 9,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 1000,
+    "c": 1,
+    "T": 8,
+    "start": [
+      4000,
+      16000
+    ],
+    "cutoff": 15,
+    "theoretical_count_error_bound": 92160,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 3828,
+        "good": 1199,
+        "good_fraction": 0.313218,
+        "count_discrepancy_numerator": 44,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 1593,
+        "good": 489,
+        "good_fraction": 0.306968,
+        "count_discrepancy_numerator": 141,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 493,
+        "good": 155,
+        "good_fraction": 0.314402,
+        "count_discrepancy_numerator": 15,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 75,
+        "good": 23,
+        "good_fraction": 0.306667,
+        "count_discrepancy_numerator": 7,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 1000,
+    "c": 5,
+    "T": 8,
+    "start": [
+      4000,
+      16000
+    ],
+    "cutoff": 15,
+    "theoretical_count_error_bound": 92160,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 3833,
+        "good": 1202,
+        "good_fraction": 0.313592,
+        "count_discrepancy_numerator": 67,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 1586,
+        "good": 486,
+        "good_fraction": 0.306431,
+        "count_discrepancy_numerator": 154,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 492,
+        "good": 157,
+        "good_fraction": 0.319106,
+        "count_discrepancy_numerator": 52,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 73,
+        "good": 27,
+        "good_fraction": 0.369863,
+        "count_discrepancy_numerator": 67,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 1000,
+    "c": 13,
+    "T": 8,
+    "start": [
+      4000,
+      16000
+    ],
+    "cutoff": 15,
+    "theoretical_count_error_bound": 92160,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 3819,
+        "good": 1191,
+        "good_fraction": 0.311862,
+        "count_discrepancy_numerator": 39,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 1595,
+        "good": 499,
+        "good_fraction": 0.312853,
+        "count_discrepancy_numerator": 9,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 493,
+        "good": 141,
+        "good_fraction": 0.286004,
+        "count_discrepancy_numerator": 209,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 74,
+        "good": 25,
+        "good_fraction": 0.337838,
+        "count_discrepancy_numerator": 30,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 10000,
+    "c": -1,
+    "T": 12,
+    "start": [
+      40000,
+      160000
+    ],
+    "cutoff": 156,
+    "theoretical_count_error_bound": 2129920,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 60859,
+        "good": 19051,
+        "good_fraction": 0.313035,
+        "count_discrepancy_numerator": 521,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 34556,
+        "good": 10807,
+        "good_fraction": 0.312739,
+        "count_discrepancy_numerator": 132,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 17470,
+        "good": 5458,
+        "good_fraction": 0.312421,
+        "count_discrepancy_numerator": 22,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 7319,
+        "good": 2276,
+        "good_fraction": 0.310971,
+        "count_discrepancy_numerator": 179,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 2351,
+        "good": 721,
+        "good_fraction": 0.306678,
+        "count_discrepancy_numerator": 219,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 482,
+        "good": 151,
+        "good_fraction": 0.313278,
+        "count_discrepancy_numerator": 6,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 32,
+        "good": 10,
+        "good_fraction": 0.3125,
+        "count_discrepancy_numerator": 0,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 10000,
+    "c": 1,
+    "T": 12,
+    "start": [
+      40000,
+      160000
+    ],
+    "cutoff": 156,
+    "theoretical_count_error_bound": 2129920,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 60893,
+        "good": 19024,
+        "good_fraction": 0.312417,
+        "count_discrepancy_numerator": 81,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 34582,
+        "good": 10792,
+        "good_fraction": 0.31207,
+        "count_discrepancy_numerator": 238,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 17403,
+        "good": 5466,
+        "good_fraction": 0.314084,
+        "count_discrepancy_numerator": 441,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 7318,
+        "good": 2298,
+        "good_fraction": 0.31402,
+        "count_discrepancy_numerator": 178,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 2360,
+        "good": 729,
+        "good_fraction": 0.308898,
+        "count_discrepancy_numerator": 136,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 479,
+        "good": 145,
+        "good_fraction": 0.302714,
+        "count_discrepancy_numerator": 75,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 34,
+        "good": 11,
+        "good_fraction": 0.323529,
+        "count_discrepancy_numerator": 6,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 10000,
+    "c": 5,
+    "T": 12,
+    "start": [
+      40000,
+      160000
+    ],
+    "cutoff": 156,
+    "theoretical_count_error_bound": 2129920,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 60876,
+        "good": 19012,
+        "good_fraction": 0.312307,
+        "count_discrepancy_numerator": 188,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 34576,
+        "good": 10788,
+        "good_fraction": 0.312008,
+        "count_discrepancy_numerator": 272,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 17428,
+        "good": 5412,
+        "good_fraction": 0.310535,
+        "count_discrepancy_numerator": 548,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 7310,
+        "good": 2353,
+        "good_fraction": 0.321888,
+        "count_discrepancy_numerator": 1098,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 2336,
+        "good": 743,
+        "good_fraction": 0.318065,
+        "count_discrepancy_numerator": 208,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 469,
+        "good": 138,
+        "good_fraction": 0.294243,
+        "count_discrepancy_numerator": 137,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 29,
+        "good": 11,
+        "good_fraction": 0.37931,
+        "count_discrepancy_numerator": 31,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 10000,
+    "c": 13,
+    "T": 12,
+    "start": [
+      40000,
+      160000
+    ],
+    "cutoff": 156,
+    "theoretical_count_error_bound": 2129920,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 60842,
+        "good": 18984,
+        "good_fraction": 0.312021,
+        "count_discrepancy_numerator": 466,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 34569,
+        "good": 10741,
+        "good_fraction": 0.310712,
+        "count_discrepancy_numerator": 989,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 17488,
+        "good": 5474,
+        "good_fraction": 0.313015,
+        "count_discrepancy_numerator": 144,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 7338,
+        "good": 2310,
+        "good_fraction": 0.3148,
+        "count_discrepancy_numerator": 270,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 2348,
+        "good": 719,
+        "good_fraction": 0.306218,
+        "count_discrepancy_numerator": 236,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 474,
+        "good": 145,
+        "good_fraction": 0.305907,
+        "count_discrepancy_numerator": 50,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 32,
+        "good": 14,
+        "good_fraction": 0.4375,
+        "count_discrepancy_numerator": 64,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 20000,
+    "c": -1,
+    "T": 14,
+    "start": [
+      80000,
+      320000
+    ],
+    "cutoff": 312,
+    "theoretical_count_error_bound": 9830400,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 136159,
+        "good": 42548,
+        "good_fraction": 0.312488,
+        "count_discrepancy_numerator": 27,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 83589,
+        "good": 26039,
+        "good_fraction": 0.311512,
+        "count_discrepancy_numerator": 1321,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 46148,
+        "good": 14397,
+        "good_fraction": 0.311975,
+        "count_discrepancy_numerator": 388,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 22727,
+        "good": 7145,
+        "good_fraction": 0.314384,
+        "count_discrepancy_numerator": 685,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 9386,
+        "good": 2942,
+        "good_fraction": 0.313446,
+        "count_discrepancy_numerator": 142,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 3033,
+        "good": 967,
+        "good_fraction": 0.318826,
+        "count_discrepancy_numerator": 307,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 666,
+        "good": 201,
+        "good_fraction": 0.301802,
+        "count_discrepancy_numerator": 114,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 8,
+        "observed": 68,
+        "good": 19,
+        "good_fraction": 0.279412,
+        "count_discrepancy_numerator": 36,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 20000,
+    "c": 1,
+    "T": 14,
+    "start": [
+      80000,
+      320000
+    ],
+    "cutoff": 312,
+    "theoretical_count_error_bound": 9830400,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 136122,
+        "good": 42554,
+        "good_fraction": 0.312617,
+        "count_discrepancy_numerator": 254,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 83536,
+        "good": 26115,
+        "good_fraction": 0.31262,
+        "count_discrepancy_numerator": 160,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 46226,
+        "good": 14428,
+        "good_fraction": 0.312119,
+        "count_discrepancy_numerator": 282,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 22705,
+        "good": 7068,
+        "good_fraction": 0.311297,
+        "count_discrepancy_numerator": 437,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 9383,
+        "good": 2949,
+        "good_fraction": 0.314292,
+        "count_discrepancy_numerator": 269,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 3047,
+        "good": 942,
+        "good_fraction": 0.309157,
+        "count_discrepancy_numerator": 163,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 659,
+        "good": 197,
+        "good_fraction": 0.298938,
+        "count_discrepancy_numerator": 143,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 8,
+        "observed": 70,
+        "good": 22,
+        "good_fraction": 0.314286,
+        "count_discrepancy_numerator": 2,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 20000,
+    "c": 5,
+    "T": 14,
+    "start": [
+      80000,
+      320000
+    ],
+    "cutoff": 312,
+    "theoretical_count_error_bound": 9830400,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 136094,
+        "good": 42548,
+        "good_fraction": 0.312637,
+        "count_discrepancy_numerator": 298,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 83533,
+        "good": 26106,
+        "good_fraction": 0.312523,
+        "count_discrepancy_numerator": 31,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 46240,
+        "good": 14373,
+        "good_fraction": 0.310835,
+        "count_discrepancy_numerator": 1232,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 22726,
+        "good": 7108,
+        "good_fraction": 0.31277,
+        "count_discrepancy_numerator": 98,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 9398,
+        "good": 2983,
+        "good_fraction": 0.317408,
+        "count_discrepancy_numerator": 738,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 3057,
+        "good": 969,
+        "good_fraction": 0.316977,
+        "count_discrepancy_numerator": 219,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 654,
+        "good": 199,
+        "good_fraction": 0.304281,
+        "count_discrepancy_numerator": 86,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 8,
+        "observed": 67,
+        "good": 18,
+        "good_fraction": 0.268657,
+        "count_discrepancy_numerator": 47,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  },
+  {
+    "L": 20000,
+    "c": 13,
+    "T": 14,
+    "start": [
+      80000,
+      320000
+    ],
+    "cutoff": 312,
+    "theoretical_count_error_bound": 9830400,
+    "per_k": [
+      {
+        "k": 1,
+        "observed": 136075,
+        "good": 42548,
+        "good_fraction": 0.312681,
+        "count_discrepancy_numerator": 393,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 2,
+        "observed": 83600,
+        "good": 26294,
+        "good_fraction": 0.314522,
+        "count_discrepancy_numerator": 2704,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 3,
+        "observed": 46241,
+        "good": 14472,
+        "good_fraction": 0.312969,
+        "count_discrepancy_numerator": 347,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 4,
+        "observed": 22693,
+        "good": 7057,
+        "good_fraction": 0.310977,
+        "count_discrepancy_numerator": 553,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 5,
+        "observed": 9421,
+        "good": 2889,
+        "good_fraction": 0.306655,
+        "count_discrepancy_numerator": 881,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 6,
+        "observed": 3026,
+        "good": 928,
+        "good_fraction": 0.306675,
+        "count_discrepancy_numerator": 282,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 7,
+        "observed": 644,
+        "good": 194,
+        "good_fraction": 0.301242,
+        "count_discrepancy_numerator": 116,
+        "count_discrepancy_denominator": 16
+      },
+      {
+        "k": 8,
+        "observed": 72,
+        "good": 25,
+        "good_fraction": 0.347222,
+        "count_discrepancy_numerator": 40,
+        "count_discrepancy_denominator": 16
+      }
+    ],
+    "weighted_invariant": "weighted extension is established by summation by parts, not tested here"
+  }
+]

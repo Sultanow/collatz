@@ -30,3 +30,7 @@ import CollatzBasins
 #print axioms CollatzBasins.return_same_residue_arithmetic
 #print axioms CollatzBasins.return_same_residue_divisor
 #print axioms CollatzBasins.return_same_residue_dyadic
+
+#print axioms CollatzBasins.mod16_good_odd_class
+#print axioms CollatzBasins.mod16_good_even_classes
+#print axioms CollatzBasins.mod16_good_periodic

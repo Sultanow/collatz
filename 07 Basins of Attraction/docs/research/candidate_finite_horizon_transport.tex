@@ -1,0 +1,260 @@
+% Candidate research section -- mathematical manuscript proof, not yet Lean-certified.
+% It may be incorporated after independent peer review and a CI-verified formalization.
+\subsection{Finite-horizon transport through conditioned shell histories}
+\label{subsec:finite-horizon-transport}
+Let $c\ge-1$ be odd and let
+\[
+ T_c(n)=\begin{cases}n/2,&n\equiv0\pmod2,\\(3n+c)/2,&n\equiv1\pmod2.\end{cases}
+\]
+Fix positive integers $a,L$, a starting interval $J=[A,B)\cap\mathbb N$
+with $1\le A<B$, and the shell $I_L=(L/2,L]\cap\mathbb N$.
+An orbit is stopped immediately when its state is at most $a$.
+For integers $k\ge1$ and $t\ge0$, let $E_{k,t}\subset J$ consist
+of the starts for which the $k$-th visit to $I_L$ (counting the
+initial state, if applicable) occurs exactly at time $t$ before stopping.
+Set $E_{k,\le T}=\bigsqcup_{t=0}^T E_{k,t}$ and
+\[
+ G_c=\{y\in\mathbb N:y\equiv0\pmod4\text{ or }
+ 3y+c\equiv0\pmod{16}\}.
+\]
+Because $c$ is odd, $G_c$ consists of the five distinct classes
+$0,4,8,12,5c\pmod{16}$.
+
+\begin{proposition}[Finite-horizon conditional modulo-16 transport]
+\label{prop:finite-horizon-transport}
+For every $c,a,L,A,B,k,T$ as above, uniformly in the values of
+these parameters,
+\begin{align}
+ \left|\sum_{n\in E_{k,\le T}}
+  \left(\mathbf1_{G_c}(T_c^{\tau_k(n)}n)-\frac5{16}\right)\right|
+  &\le40(T+1)2^T,\label{eq:finite-horizon-count}\\
+ \left|\sum_{n\in E_{k,\le T}}\frac1n
+  \left(\mathbf1_{G_c}(T_c^{\tau_k(n)}n)-\frac5{16}\right)\right|
+  &\le\frac{40(T+1)2^T}{A}.\label{eq:finite-horizon-log}
+\end{align}
+Here $\tau_k(n)$ is the time of the $k$-th shell visit, so that
+$\tau_k(n)\le T$ on $E_{k,\le T}$. In particular, if the total
+weighted mass $W_{k,T}=\sum_{n\in E_{k,\le T}}1/n$ is positive, then
+\[
+ \left|\frac{\sum_{n\in E_{k,\le T}}
+                n^{-1}\mathbf1_{G_c}(T_c^{\tau_k(n)}n)}{W_{k,T}}
+      -\frac5{16}\right|
+ \le\frac{40(T+1)2^T}{A W_{k,T}}.
+\]
+\end{proposition}
+\begin{proof}
+Fix $t\le T$. For each residue $r\pmod{2^t}$, the first $t$
+parities of $T_c$ are fixed on the progression $n=r+2^t m$.
+If $h_s$ is the number of odd steps among the first $s$ steps,
+induction gives, for $0\le s\le t$,
+\[
+ T_c^s(r+2^t m)=T_c^s(r)+3^{h_s}2^{t-s}m.
+\]
+All these functions are strictly increasing affine functions of $m$.
+In particular the state at time $t$ advances by the \emph{odd} step
+$3^{h_t}$ as $m$ increases by one. Thus its residues modulo $16$
+traverse all $16$ classes in each consecutive block of $16$ values
+of $m$, with exactly five values in $G_c$.
+
+To determine whether the $k$-th shell visit occurs at time $t$
+before the cutoff, it is enough to know, for each $0\le s\le t$,
+on which side of the three thresholds $a,L/2,L$ the state
+$T_c^s(n)$ lies. Because each state is increasing affine in $m$,
+these comparisons partition the admissible $m$-interval (from $J$)
+into at most $3(t+1)+1$ consecutive integer subintervals. On each
+subinterval the full stopping/shell-visit profile, and hence
+membership of $n$ in $E_{k,t}$, is constant. Over any one such
+subinterval the discrepancy from the expected $5/16$ count is
+at most $5$: complete blocks of $16$ cancel, leaving at most
+$15$ terms. Hence the discrepancy for a fixed residue class
+$r\pmod{2^t}$ is at most $5[3(t+1)+1]$. There are $2^t$
+residue classes, so the discrepancy for $E_{k,t}$ is at most
+$5(3t+4)2^t$.
+
+For the harmonic weights $1/n$, the same bound holds after
+multiplication by $1/A$. Indeed, on each consecutive subinterval
+of $m$ the partial sums of the centred $16$-periodic sequence
+$\mathbf1_{G_c}(T_c^t(r+2^t m))-5/16$ are bounded in absolute
+value by $5$. Summation by parts against the positive,
+nonincreasing weights $(r+2^t m)^{-1}$ bounds the weighted
+contribution of that subinterval by $5/A$.
+
+Finally, the events $E_{k,t}$ for different $t$ are disjoint.
+Summing the two bounds over $0\le t\le T$ gives at most
+\[
+ 5(3T+4)\sum_{t=0}^T2^t
+ \le 10(3T+4)2^T\le40(T+1)2^T,
+\]
+which proves both assertions.
+\end{proof}
+
+\begin{corollary}[A controlled fraction of logarithmic time]
+\label{cor:finite-horizon-transport}
+Suppose $A\to\infty$, the starting intervals have $B/A$
+bounded above and away from $1$, and $T=T(A)$ satisfies
+$T\le(1-\eta)\log_2 A$ for some fixed $\eta>0$. Then the
+absolute errors in \eqref{eq:finite-horizon-log} vanish as
+$O((\log A)A^{-\eta})$. In particular, on any sequence
+of events $E_{k,\le T}$ of harmonic mass at least
+$\delta>0$, the \emph{conditional} probability of $G_c$
+converges to $5/16$. The same holds for uniform counting
+when $\#E_{k,\le T}$ is bounded below by a fixed positive
+multiple of $A$.
+\end{corollary}
+
+
+\begin{corollary}[Early--late reduction for the full entrance law]
+\label{cor:finite-horizon-early-late}
+Let $E_{k,<\infty}=\bigcup_{t\ge0}E_{k,t}$ (a disjoint union),
+$W=\sum_{n\in E_{k,<\infty}}1/n>0$, and
+$W_{>T}=\sum_{n\in E_{k,<\infty}\setminus E_{k,\le T}}1/n$.
+Then
+\[
+ \mathbb P_{\log}(Y_k\in G_c\mid E_{k,<\infty})
+ \ge \frac5{16}\left(1-\frac{W_{>T}}W\right)
+     -\frac{40(T+1)2^T}{AW},
+\]
+where $\mathbb P_{\log}$ is the finite harmonic probability on $J$,
+conditioned on $E_{k,<\infty}$.
+\end{corollary}
+\begin{proof}
+Apply the lower half of \eqref{eq:finite-horizon-log} to the early
+entrances and use the nonnegativity of the good-class mass on late
+entrances. Divide by $W$.
+\end{proof}
+
+
+
+\begin{proposition}[Unrestricted-time absolute transport at a shallow cutoff]
+\label{prop:full-time-shallow-mod16}
+Fix an odd $c\ge-1$, let $X\to\infty$ through integers, and
+choose any cutoff $a_X$ satisfying
+$X^{19/20}\le a_X<X/2$. Equip either all integers or just the
+odd integers in $J_X=[4X,16X)\cap\mathbb N$ with their normalized
+harmonic measure $\mu_X$. For the $k$-th visit $Y_k$ to
+$I_X=(X/2,X]$ \emph{before} the first passage at or below $a_X$,
+write $E_k$ for the event that this visit occurs (allowing arbitrarily
+many iteration steps). There is an absolute constant
+$\gamma=1/(1024\log 2)>0$ such that, for every fixed $c$,
+\[
+ \sup_{k\ge1}\left|
+ \mu_X(E_k\cap\{Y_k\in G_c\})-\frac5{16}\mu_X(E_k)
+ \right|=O_c(X^{-\gamma}).
+\]
+Consequently, whenever $\mu_X(E_k)\ge\delta>0$, the conditional
+probability of $G_c$ equals $5/16+O_{c,\delta}(X^{-\gamma})$.
+This estimate is uniform over $k$ in its \emph{absolute} form;
+it is not a relative estimate when $\mu_X(E_k)$ is small.
+\end{proposition}
+\begin{proof}
+Put $t=\lfloor\tfrac12\log_2 X\rfloor$. A parity word of
+length $t$ has $K$ odd steps and gives
+\[
+ T_c^t(n)=\frac{3^K}{2^t}n+b_t,\qquad
+ b_t\le c_+\bigl((3/2)^t-1\bigr),\quad c_+=\max(c,0).
+\]
+The second inequality follows by iterating the affine maps
+$n\mapsto n/2$ and $n\mapsto(3n+c)/2$ and bounding each
+positive additive contribution by a geometric series.
+If $K\le9t/16$ and $n<16X$, then
+\[
+ T_c^t(n)\le16X(3^{9/16}/2)^t
+     +c_+((3/2)^t-1)
+    =O_c\bigl(X^{1-\delta_0}+X^{\frac12\log_2(3/2)}\bigr),
+\]
+where
+$\delta_0=\frac12(1-\frac9{16}\log_2 3)>1/20$.
+Thus, for sufficiently large $X$, every such orbit has passed
+below $a_X\ge X^{19/20}$ by time $t$.
+
+Parity words of length $t$ are in bijection with residues modulo
+$2^t$. Over $J_X$ their frequencies differ from uniform by an
+additive $O(2^t/X)$; the same holds when restricting to odd
+starts, with the first bit then fixed to $1$. Under the uniform
+word law, $K$ is $\operatorname{Bin}(t,1/2)$ for unrestricted
+starts and $1+\operatorname{Bin}(t-1,1/2)$ for odd starts.
+Hoeffding's inequality gives
+\[
+ \Pr(K>9t/16)\le e^{-t/128}
+ \quad\text{or}\quad e^{-t/512},
+\]
+respectively, for sufficiently large $t$. Since all harmonic
+weights in $J_X$ differ by a factor at most $4$, this yields
+\[
+ \mu_X\{\text{first passage below }a_X\text{ takes more
+ than }t\text{ steps}\}
+ =O_c(X^{-\gamma}).
+\]
+Apply Proposition~\ref{prop:finite-horizon-transport} to the
+$k$-th shell visit up to time $t$. Its count error is
+$O(t2^t)$ and its harmonic error is $O(t2^t/X)$.
+The same bound holds for odd-only starts (the relevant times
+$t'\ge1$ have parity cylinders with odd first bit).
+The harmonic mass of $J_X$ is bounded below by a positive
+constant for either choice of starting parity, so the normalized
+early-event error is $O((\log X)X^{-1/2})$.
+The unrestricted event $E_k$ differs from this early event
+only on starts not yet past the cutoff by time $t$, whose
+harmonic probability is $O_c(X^{-\gamma})$. Because the
+centered indicator is bounded by $1$, the last two estimates
+prove the claim uniformly in $k$.
+\end{proof}
+
+
+\begin{corollary}[A polynomial starting window matching the manuscript scales]
+\label{cor:polynomial-starts-mod16}
+Put $\beta=1/200$, and for sufficiently large $X$ take odd starting
+values in
+\[
+ J_X=\bigl[\lceil X^{1+\beta}\rceil,
+             \lfloor X^{(1+\beta)^2}\rfloor\bigr],
+ \qquad a_X=\lfloor X^{1-2\beta}\rfloor.
+\]
+For the accelerated map $T_c$, the uniform-in-$k$ \emph{absolute}
+estimate of Proposition~\ref{prop:full-time-shallow-mod16} remains valid,
+with the same exponent $\gamma$ and the shell $I_X=(X/2,X]$.
+This statement concerns accelerated-map shell visits; it does not
+identify them with the block observables in the Syracuse-profile theorem.
+\end{corollary}
+\begin{proof}
+Use $t=\lfloor\frac12\log_2X\rfloor$ again. On a parity word
+with $K\le9t/16$ the preceding estimate gives
+\[
+ T_c^t(n)\ll_c X^{(1+\beta)^2-\delta_0}
+              +X^{\frac12\log_2(3/2)}
+              =o(X^{1-2\beta}),
+\]
+since $(1+\beta)^2-\delta_0<1-2\beta$.
+The proportion of parity words failing the binomial bound is
+$O(X^{-\gamma})$. For the odd harmonic starting law on $J_X$,
+the same bound holds after an $O(2^t/\min J_X)$ error in
+unnormalized harmonic mass: the bad-word indicator is periodic
+modulo $2^t$, and summation by parts controls its harmonic
+mean. Since the total harmonic mass of odd starts is asymptotic
+to $\tfrac12[(1+\beta)^2-(1+\beta)]\log X$, normalization
+only improves this error. Apply the finite-horizon harmonic
+bound~\eqref{eq:finite-horizon-log}, again observing that
+shell visits cannot occur at time zero.
+\end{proof}
+
+\paragraph{What this does not prove.}
+Proposition~\ref{prop:finite-horizon-transport} applies to \emph{finite-horizon}
+shell histories. Proposition~\ref{prop:full-time-shallow-mod16}
+extends the \emph{absolute} discrepancy to unrestricted hitting times
+for starting windows proportional to $X$ and a shallow polynomial
+cutoff. Neither proposition gives relative control
+when the conditioning event has very small mass, The polynomial starting windows of the paper are handled by
+Corollary~\ref{cor:polynomial-starts-mod16}, but the
+\emph{Syracuse block observable} still requires a separate
+identification or transport argument.
+Corollary~\ref{cor:finite-horizon-early-late} isolates the missing
+\emph{late-entrance mass}. In particular, the absolute discrepancy
+bound alone cannot furnish a return-index-uniform lower bound on
+conditional good-class probability, because the conditioning mass
+may be arbitrarily small for large $k$.
+It also does not bound the probability of rebounds after the
+local descent to $L/4$. Consequently it does not establish the
+scale-uniform geometric return condition or $T_X=o(X)$.
+The arithmetic of parity cylinders is classical; the point of
+the proposition is the explicit uniform discrepancy bound under
+shell-history conditioning.
