@@ -34,3 +34,8 @@ import CollatzBasins
 #print axioms CollatzBasins.mod16_good_odd_class
 #print axioms CollatzBasins.mod16_good_even_classes
 #print axioms CollatzBasins.mod16_good_periodic
+
+-- Fixed-modulus obstruction on every sufficiently large real shell (Proposition 11).
+#print axioms CollatzBasins.multiple_in_real_interval
+#print axioms CollatzBasins.fixed_modulus_obstruction_all_large
+#print axioms CollatzBasins.no_fixed_residue_strict_descent_all_large

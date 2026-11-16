@@ -199,7 +199,7 @@ shares.
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.17}
 \begin{longtable}{@{}P{0.16\textwidth}P{0.24\textwidth}p{\dimexpr0.43\textwidth-18pt\relax}P{0.17\textwidth}@{}}
-\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). Neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
 \label{table:contributions}\\
 \toprule
 \textbf{Topic} & \textbf{Previous foundation} & \textbf{Contribution of this paper} & \textbf{Status} \\
@@ -263,7 +263,7 @@ First-passage tails
 Lean-checked finite core
 & Elementary inverse branches, truncation bounds, return-pair counting and Green-type occupation identities.
 & Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates. Algebraic tools, not return-tail estimates.
-& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}. \\
+& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{large shells}. \\
 \end{longtable}
 \endgroup
 
@@ -1039,7 +1039,7 @@ The local and the global view answer different questions. Cayley trees and their
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the all-large-shell obstruction, the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
+	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
 \end{enumerate}
 
 \subsection*{Code and data availability}
@@ -1994,8 +1994,8 @@ fixed binary residue cannot work on all large dyadic shells.
 
 \begin{proposition}[Fixed-modulus obstruction]
 \label{prop:residue-obstruction}
-For every odd $c\in\Z$ and every $k\ge1$, there exists $X_0(c,k)$
-such that for every real $X\ge X_0(c,k)$ one can find positive integers
+For every odd $c\in\Z$ and every $k\ge0$, put $X_0(c,k)=24\cdot2^k+12|c|+24$.
+For every real $X\ge X_0(c,k)$ one can find positive integers
 $y,z\in(X/2,X]$ with
 \[
  T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
@@ -2005,7 +2005,7 @@ $y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
 containing this one-step return (with any cutoff $a<X/2$).
 \end{proposition}
 \begin{proof}
-Set $m=2^k$.  For sufficiently large $X$, the interval
+Set $m=2^k$.  For $X\ge X_0(c,k)$, the interval
 \[
  \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
 \]
@@ -2024,9 +2024,10 @@ $U$ would give $U(y)=U(z)$ while the first inequality in
 The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
 formalises the finite rational-valued certificate and weighted inequality,
 as well as exact one-step arithmetic and an explicit family of dyadic
-congruence witnesses.  The assertion of Proposition~\ref{prop:residue-obstruction}
-for \emph{every sufficiently large} $X$ follows from the interval argument
-above and is \emph{not} covered by that module.  The related finite
+congruence witnesses.  The module \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{\texttt{ReturnLargeShell.lean}}
+formalises Proposition~\ref{prop:residue-obstruction} for every real
+$X\ge X_0(c,k)$; it does not assert that the exhibited return lies on an
+orbit that terminates below a given cutoff.  The related finite
 \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
 and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
 are also formalised.  None of these kernel checks establishes

@@ -6,6 +6,7 @@ import CollatzBasins.EntranceTransport
 import CollatzBasins.ReturnGreen
 import CollatzBasins.ReturnLyapunov
 import CollatzBasins.FiniteHorizonTransport
+import CollatzBasins.ReturnLargeShell
 
 /-!
 This root module collects the proof kernel of the Collatz-basins project.
