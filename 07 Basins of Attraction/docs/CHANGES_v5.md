@@ -96,3 +96,15 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - docs/research/arithmetic_rigidity/: the note (tex + pdf), its audit, scripts and outputs
   (reproduced), and STATUS.md.
 - 66 pages.
+
+## v6g
+- Appendix D.3, new Proposition 13 (Single-depth concentration criterion):
+  D_X(A) <= E_X <= (2b mu_X + D_X(A))/(1-q). D_X(A) is the summed excess of the return laws over the
+  relative cap A 2^{-t_X}|nu| at the single modulus 2^{t_X} = X^{O(beta)}. Hence T_X = o(X) iff
+  D_X(A) -> 0, and the same holds for the excess on the dangerous classes alone.
+- Remark 11: its second paragraph is replaced by this proposition and a paragraph on the two sources of
+  the defect. The support statement now runs in the right direction: few states force a large defect,
+  while a large defect does not imply few states (heavy atoms).
+- docs/research/relative_energy/: the note (tex + pdf), its audit, the check script (reproduced), and
+  STATUS.md. STATUS.md explains why the criteria are equivalences, not weaker targets.
+- 67 pages.

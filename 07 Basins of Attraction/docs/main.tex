@@ -2126,8 +2126,41 @@ whose last sum is $O(|c|t/X_1)$ while the orbit stays above $X_1$. Hence a retur
 \]
 The first $t$ parities run bijectively through the residue classes modulo $2^t$ (Terras \cite{Terras_1976}; the induction works for every odd $c$), and at most $2^te^{-t\Delta_0}$ parity words of length $t$ have at least $\zeta_0t$ odd entries. Let $\nu$ be a finite measure on $I_{X,j}$ that gives every class modulo $2^t$ at most $A\,2^{-t}|\nu|$. Then, for large $X$ and $t\ge t_0(\zeta_0)$, the states that return to $I_{X,j}$ at time $t$ without passing below $X_1$ carry $\nu$-mass at most $Ae^{-t\Delta_0}|\nu|$; for $t\ge t_X$ the same bound holds for survival above $X_1$ during $t$ steps.
 
-As long as the return laws $\eta_{X,L_X}E_{X,j}Q^{\,m}_{X,j}$ satisfy this bound with one constant $A$ on the scales $2^t$, $t\le t_X$, their masses halve within every block of $b=b(A,\zeta_0)$ further returns, which is far more than Problem~\ref{prob:excursions} asks. Two inputs are missing, and they mark where new mathematics is needed on this route. First, the bound is relative to the mass of laws of total mass $O((\log X)^{-\varepsilon_0})$, whereas Lemma~\ref{lem:reduction} controls only absolute errors of that size (Remark~\ref{rem:tail-barrier}). Second, the bound cannot persist: a law with fewer than $2^{t_X}/A=X^{O(\beta)}/A$ atoms violates it on the scale $2^{t_X}$ (Remark~\ref{rem:entrance-support}). The mass left at that point sits on at most $X^{O(\beta)}$ states, and their later visits to $W_X$ need a bound that no residue count provides.
+Since a class modulo $2^{t_X}$ lies in one class modulo $2^t$ for every $t\le t_X$, it suffices to look at the single modulus $2^{t_X}=X^{O(\beta)}$.
 \end{remark}
+
+For $A\ge1$ and a finite measure $\nu$ on $\N$ let
+\[
+ \mathfrak d_t(\nu;A)=\sum_{r\bmod2^t}\bigl(\nu(r+2^t\Z)-A\,2^{-t}|\nu|\bigr)_+
+\]
+be the mass by which $\nu$ exceeds the relative cap $A\,2^{-t}|\nu|$ on the classes modulo $2^t$. Let $\nu_{X,j,n}=\eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}$ be the law of the $n$-th later visit to $I_{X,j}$, so that $|\nu_{X,j,n}|=s_{X,j}(n)$.
+
+\begin{proposition}[Single-depth concentration criterion]
+\label{prop:single-depth}
+Assume the hypotheses of Proposition~\ref{prop:first-excess}(c). Let $A>1$, choose an integer $b\ge t_0(\zeta_0)$ with $q=Ae^{-\Delta_0b}/(1-e^{-\Delta_0})<1$, and put
+\[
+ \mathfrak D_X(A)=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+Then, for all large $X$,
+\[
+ \mathfrak D_X(A)\ \le\ \mathcal E_X(L_X;K_X)\ \le\ \frac{2b\,\mu_X(L_X)+\mathfrak D_X(A)}{1-q}.
+\]
+In particular, $T_X=o(X)$ if and only if $\mathfrak D_X(A)\to0$.
+\end{proposition}
+
+\begin{proof}
+The identity $(N-K)_+=\sum_{n>K}\mathbf 1[N\ge n]$ gives
+\[
+ \mathcal E_X(L_X;K_X)=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n),
+\]
+and $\mathfrak d_t(\nu;A)\le|\nu|$; this is the lower bound. For the upper bound, let $y$ be a state at the $n$-th visit that makes $b$ further visits, the last one at time $\tau\ge b$. If $\tau<t_X$, Remark~\ref{rem:rigidity} gives $h_\tau(y)\ge\zeta_0\tau$; otherwise $y$ survives $t_X$ steps, and $h_{t_X}(y)\ge\zeta_0t_X$. In both cases the parity word of length $t_X$ of $y$ has a prefix of some length $t\in[b,t_X]$ with at least $\zeta_0t$ odd entries. By Terras' bijection these words form a set $\mathcal C_X$ of classes modulo $2^{t_X}$ of density $\alpha_X\le\sum_{t\ge b}e^{-\Delta_0t}=q/A$. Each class carries at most $A\,2^{-t_X}|\nu|$ plus its excess, so
+\[
+ s_{X,j}(n+b)\le\nu_{X,j,n}(\mathcal C_X)\le q\,s_{X,j}(n)+\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+Summing over $n>K$ and using $s_{X,j}\le\mu_X(L_X)$ for the first $b$ terms gives $(1-q)\sum_{n>K}s_{X,j}(n)\le b\,\mu_X(L_X)+\sum_{n>K}\mathfrak d_{t_X}(\nu_{X,j,n};A)$. Take $K=K_{X,j}$ and sum over $j$ with the weights $2^{-j}$. The last claim follows from Propositions~\ref{prop:tightness} and~\ref{prop:first-excess}(c).
+\end{proof}
+
+The criterion is an equivalence. It does not make Problem~\ref{prob:excursions} easier, but it restates it as a question about the $2$-adic distribution of the return laws at the single modulus $2^{t_X}$. The same two-sided bound holds, with $\alpha_X$ in place of $q$, for the excess $(\nu(\mathcal C_X)-\alpha_X|\nu|)_+$ on the dangerous classes alone. The defect has two sources, and neither is reached by the parity counting of Remark~\ref{rem:rigidity} and Lemma~\ref{lem:finite-horizon-residue}; this is where new mathematics is needed. First, the return laws are conditioned on repeated survival and have total mass $O((\log X)^{-\varepsilon_0})$, so they may concentrate in relative terms, while Lemma~\ref{lem:reduction} bounds only absolute errors of that size (Remark~\ref{rem:tail-barrier}). Second, a law $\nu$ on $r$ states has $\mathfrak d_t(\nu;A)\ge(1-Ar\,2^{-t})_+|\nu|$ (Remark~\ref{rem:entrance-support}). The laws of the latest visits live on few states, so once $r\le2^{t_X-1}/A$ they contribute at least half their mass; their contribution can only be made small by bounding the later visits of these few orbits directly. The converse is false: a law on many states can still have a large defect through a few heavy atoms.
 
 %=====================================================================
 \section{Natural densities for all maps \texorpdfstring{$3x+c$}{3x+c}}

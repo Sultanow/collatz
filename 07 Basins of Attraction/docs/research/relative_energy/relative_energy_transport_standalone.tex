@@ -1,0 +1,254 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,enumitem,microtype,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}[theorem]{Open problem}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\N}{\mathbb N}
+\title{\texorpdfstring{Relative $2$-adic energy budgets}{Relative 2-adic energy budgets} for genuine late Collatz returns\\\large An exact defect inequality beyond unconditional parity counting}
+\author{Independent research note for \textit{Same Shadows, Different Forests}}
+\date{16 November 2026 --- proof candidate, not yet Lean-certified}
+\begin{document}
+\maketitle
+\begin{abstract}
+We isolate a precise way to combine the two missing inputs in the first-excess approach: a relative anti-concentration estimate for genuine stopped return measures and an occupation estimate for their eventual atomic remnants.  The result is an \emph{unconditional finite-measure block inequality with an explicit concentration defect}; together with the paper's existing first-excess identity it yields a \emph{conditional} criterion for the disappearance of the clipping tail. The defect is bounded by a relative $\chi^2$ energy, exactly equal to the sum of squared nontrivial Fourier coefficients modulo $2^t$. No assumption of independent parity bits along actual post-return orbits is made. No proof of $T_X=o(X)$ is claimed.
+\end{abstract}
+
+\section{Setting and already available inputs}
+Let $c\ge-1$ be a fixed odd integer, $3\nmid c$, and let
+\[
+  T(n)=\begin{cases}n/2,&n\equiv0\pmod2,\\(3n+c)/2,&n\equiv1\pmod2.\end{cases}
+\]
+Fix $\beta=1/200$ and, for $X>1$, set $X_1=X^{1-2\beta}$ and
+$W_X=(X^{1-\beta},X]\cap\N$.  Let
+$I_{X,j}=W_X\cap(X2^{-j-1},X2^{-j}]$.
+Only trajectories with finite first passage below $X_1$ are considered. On them, no state is repeated before that first passage. Write $Q_{X,j}$ for the substochastic first-return operator on $I_{X,j}$, killed upon first passage at or below $X_1$; and $E_{X,j}$ for the first entry to $I_{X,j}$ after the first clipping-budget crossing.
+
+Retain the notation of the consolidated manuscript \texttt{main(6).tex}, Proposition ``First-excess transport'': $\eta_{X,L}$ is the first-excess entrance measure on $W_X$ and $\mu_X(L)=\eta_{X,L}(W_X)$. Put
+\[
+   \nu_{X,j,n}:=\eta_{X,L}\,E_{X,j}\,Q_{X,j}^{\,n-1},\qquad
+   s_{X,j}(n):=\nu_{X,j,n}(I_{X,j})\quad(n\ge1).
+\]
+We need only the following \emph{existing}, manuscript-conditional facts, not proved again here. With $L=L_X=(\log X)^{\varepsilon_0/2}$,
+\begin{equation}\label{eq:inputs}
+ \mu_X(L_X)=O((\log X)^{-\varepsilon_0}),\qquad
+ \frac{T_X}{X}=o(1)\quad\Longleftrightarrow\quad
+ \mathcal E_X:=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n)=o(1),
+\end{equation}
+where $K_{X,j}=\lceil(\log X)^\sigma2^{\omega j}\rceil$ for $0<\sigma<\varepsilon_0$, $0\le\omega<1$. Equation~\eqref{eq:inputs} invokes the precise hypotheses of Proposition ``Sharp calibration after clipping'' and Proposition ``First-excess transport'' in the consolidated manuscript. All subsequent finite-state inequalities are algebraic or deterministic and do not require those analytic hypotheses.
+
+\section{The finite-scale arithmetic exceptional sets}
+Choose once and for all
+\[
+ \tfrac12<\zeta_0<\zeta:=\frac{\log2}{\log3},\quad
+ \Delta_0:=\zeta_0\log(2\zeta_0)+(1-\zeta_0)\log(2-2\zeta_0)>0,
+\]
+and set
+\begin{equation}\label{eq:clock}
+ t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil.
+\end{equation}
+The $t_X$ in this section is a number of \emph{shortcut $T$-steps}, not Syracuse blocks. Constants may depend on $c,\zeta_0$.
+
+\begin{lemma}[Arithmetic thinness of return and survival cylinders]\label{lem:thin}
+There is a fixed integer $b_0$ such that, for all sufficiently large $X$, all $j$, and all $b_0\le t<t_X$:
+\begin{enumerate}[label=(\roman*)]
+\item The initial states $y\in I_{X,j}$ that return to $I_{X,j}$ at \emph{exactly} time $t$ without visiting $[1,X_1]$ lie in at most $2^te^{-\Delta_0t}$ residue classes modulo $2^t$.
+\item The states $y\in W_X$ whose orbit stays strictly above $X_1$ through time $t_X$ lie in at most $2^{t_X}e^{-\Delta_0t_X}$ residue classes modulo $2^{t_X}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $h_t(y)$ for the number of odd entries among the first $t$ states. The exact product formula, already recorded in Remark ``Arithmetic rigidity of returns'' of the manuscript, gives
+\[
+ \log\frac{T^t(y)}y=h_t(y)\log3-t\log2+O_c(t/X_1)
+\]
+whenever the orbit stays above $X_1$ until time $t$. If both $y$ and $T^t(y)$ lie in one dyadic shell, the left side is at least $-\log2$; hence $h_t(y)\ge\zeta_0t$ for all $t\ge b_0$ and $X$ large enough. If $y\in W_X$ survives through time $t_X$, the left side is greater than $-2\beta\log X$; the choice \eqref{eq:clock} again gives $h_{t_X}(y)\ge\zeta_0t_X$ for large $X$. Terras' bijection between length-$t$ parity words and residues modulo $2^t$ holds for every fixed odd $c$. Finally the elementary Chernoff bound
+\[
+ \#\{w\in\{0,1\}^t:\#\text{ones}(w)\ge\zeta_0t\}\le2^te^{-\Delta_0t}
+\]
+proves both claims. This lemma is an explicit extraction of the already known counting argument; no originality is claimed for the parity-vector bijection or Chernoff bound.
+\end{proof}
+
+\section{A capacity defect instead of perfect equidistribution}
+For any finite nonnegative measure $\nu$ on a set of positive integers, write $M=|\nu|$ and, for $m=2^t$,
+\[
+ \nu_t(r)=\sum_{y\equiv r\pmod m}\nu(y),\quad
+ \mathfrak d_t(\nu;A)=\sum_{r\bmod m}\bigl(\nu_t(r)-A M/m\bigr)_+\qquad(A\ge1).
+\]
+The defect vanishes if every residue class has mass at most $A M/2^t$, but it is meaningful without that hypothesis.
+
+\begin{lemma}[Absolute mass bound with a relative concentration defect]\label{lem:capacity}
+For every union $B$ of at most $q$ residue classes modulo $2^t$, every finite nonnegative $\nu$, and every $A\ge1$,
+\begin{equation}\label{eq:cap}
+ \nu(B)\le A\frac{q}{2^t}|\nu|+\mathfrak d_t(\nu;A).
+\end{equation}
+\end{lemma}
+\begin{proof}
+For each residue $r$, $\nu_t(r)\le A|\nu|/2^t+(\nu_t(r)-A|\nu|/2^t)_+$. Sum over the residues comprising $B$.
+\end{proof}
+
+\begin{theorem}[Single-depth block leakage with an explicit concentration error]\label{thm:block}
+Fix $A>1$ and an integer $b\ge b_0$. For $X$ sufficiently large that $t_X\ge b$, define the family of exceptional parity prefixes
+\begin{equation}\label{eq:badword}
+ \mathcal B_{b,t_X}:=\left\{w\in\{0,1\}^{t_X}:\exists t\in\{b,\dots,t_X\}\ \text{with}\ \sum_{i=1}^{t}w_i\ge\zeta_0t\right\}.
+\end{equation}
+Its relative size is bounded by
+\begin{equation}\label{eq:q}
+ \frac{|\mathcal B_{b,t_X}|}{2^{t_X}}
+ \le\sum_{t=b}^{t_X}e^{-\Delta_0t}
+ \le\frac{e^{-\Delta_0b}}{1-e^{-\Delta_0}}.
+\end{equation}
+The event of at least $b$ further visits to the same shell, before the cutoff, is contained in the union of the \emph{single-depth} residue classes modulo $2^{t_X}$ corresponding to $\mathcal B_{b,t_X}$. Consequently, with
+$q_{b,A}:=A e^{-\Delta_0b}/(1-e^{-\Delta_0})$,
+\begin{equation}\label{eq:leakage}
+ \boxed{\quad s_{X,j}(n+b)\le q_{b,A}\,s_{X,j}(n)
+      +\mathfrak d_{t_X}(\nu_{X,j,n};A).\quad}\qquad(n\ge1).
+\end{equation}
+For every fixed $A>1$ there is a fixed $b=b(A,\zeta_0)$ such that $q_{b,A}<1$ independently of $X,j,n$.
+\end{theorem}
+\begin{proof}
+Condition on the current state $y$ at visit $n$ and suppose at least $b$ further visits to $I_{X,j}$ occur. Let $\tau_b(y)\ge b$ be the time (in $T$-steps) of the $b$th subsequent return. If $\tau_b<t_X$, Lemma~\ref{lem:thin}(i) forces at least $\zeta_0\tau_b$ odd entries in the first $\tau_b$ steps. If $\tau_b\ge t_X$, the orbit survives through time $t_X$, and Lemma~\ref{lem:thin}(ii) forces at least $\zeta_0t_X$ odd entries in the first $t_X$ steps. In either case the full $t_X$-bit parity word lies in $\mathcal B_{b,t_X}$. Terras' bijection turns this into a union of precisely $|\mathcal B_{b,t_X}|$ residue classes modulo $2^{t_X}$. Apply Lemma~\ref{lem:capacity} \emph{once} at this depth to $\nu_{X,j,n}$. The union bound for the Bernoulli parity prefixes gives \eqref{eq:q}, hence \eqref{eq:leakage}. Choosing a fixed sufficiently large $b$ makes $q_{b,A}<1$.
+\end{proof}
+
+\begin{theorem}[An aggregate first-excess criterion]\label{thm:aggregate}
+Choose fixed $A,b,q=q_{b,A}<1$ as in Theorem~\ref{thm:block} and define the \emph{relative concentration budget}
+\begin{equation}\label{eq:budget}
+ \mathfrak D_X(A,b):=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\end{equation}
+Then
+\begin{equation}\label{eq:main}
+ \boxed{\quad\mathcal E_X\le\frac{2b\,\mu_X(L_X)+\mathfrak D_X(A,b)}{1-q}.\quad}
+\end{equation}
+Consequently, under the existing manuscript hypotheses \eqref{eq:inputs},
+\begin{equation}\label{eq:criterion}
+ \mathfrak D_X(A,b)=o(1)\quad\Longrightarrow\quad T_X=o(X).
+\end{equation}
+The implication is rigorous; its premise has \emph{not} been established for the actual first-excess entrance laws.
+\end{theorem}
+\begin{proof}
+For any integer $K\ge0$, sum \eqref{eq:leakage} over $n>K$ and use nonnegativity:
+\[
+ \sum_{n>K+b}s_{X,j}(n)\le q\sum_{n>K}s_{X,j}(n)+\sum_{n>K}\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+The first $b$ summands obey $\sum_{K<n\le K+b}s_{X,j}(n)\le b\mu_X(L_X)$, because every return law has mass at most the original entrance mass. Rearranging,
+\[
+ (1-q)\sum_{n>K}s_{X,j}(n)\le b\mu_X(L_X)+\sum_{n>K}\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+Set $K=K_{X,j}$, multiply by $2^{-j}$, sum over $j$, and use $\sum_{j\ge0}2^{-j}=2$. The identification of $\mathcal E_X$ with the left tail of $s_{X,j}$ is the elementary tail-sum identity for integer-valued visits. Finally apply \eqref{eq:inputs}.
+\end{proof}
+
+\section{A sharper target: correlation with the actual dangerous parity language}
+The global concentration defect in Theorem~\ref{thm:aggregate} penalizes masses concentrated on \emph{any} residue class, even a harmless one. A strictly more targeted criterion is available. For the rest of this section write $m_X=2^{t_X}$ and let $\mathcal C_X\subset\mathbb Z/m_X\mathbb Z$ be the image, under Terras' parity-residue bijection, of $\mathcal B_{b,t_X}$ in \eqref{eq:badword}. Define
+\[
+  \alpha_X:=\frac{|\mathcal C_X|}{m_X}\le a_b:=\frac{e^{-\Delta_0b}}{1-e^{-\Delta_0}}<1,
+\]
+where $b$ is chosen large enough that $a_b<1$. This set depends on $c$ and $X$ but not on the return shell or its entrance law. For a nonnegative measure $\nu$ let
+\begin{equation}\label{eq:spectraldefect}
+ \mathfrak c_X(\nu):=\bigl(\nu(\mathcal C_X)-\alpha_X|\nu|\bigr)_+.
+\end{equation}
+
+\begin{theorem}[Dangerous-cylinder correlation criterion]\label{thm:targeted}
+For every actual terminated return law $\nu_{X,j,n}$,
+\begin{equation}\label{eq:targetedleak}
+ s_{X,j}(n+b)\le\alpha_Xs_{X,j}(n)+\mathfrak c_X(\nu_{X,j,n}).
+\end{equation}
+Consequently, writing
+\[
+ \mathfrak C_X:=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}\mathfrak c_X(\nu_{X,j,n}),
+\]
+one has the explicit bound
+\begin{equation}\label{eq:targetedmain}
+ \boxed{\quad\mathcal E_X\le\frac{2b\mu_X(L_X)+\mathfrak C_X}{1-a_b}.\quad}
+\end{equation}
+Thus $\mathfrak C_X=o(1)$ would imply $T_X=o(X)$ under the manuscript's analytic hypotheses. This condition uses only the correlation with \emph{one specified, arithmetically defined subset} of residues. It imposes no anti-concentration cap on the other residues.
+\end{theorem}
+\begin{proof}
+The parity argument in Theorem~\ref{thm:block} gives $s_{X,j}(n+b)\le\nu_{X,j,n}(\mathcal C_X)$. By definition \eqref{eq:spectraldefect}, the right side is at most $\alpha_Xs_{X,j}(n)+\mathfrak c_X(\nu_{X,j,n})$, proving \eqref{eq:targetedleak}. Sum in $n>K_{X,j}$ exactly as in the proof of Theorem~\ref{thm:aggregate}, and use $\alpha_X\le a_b$ and $\sum_{j\ge0}2^{-j}=2$.
+\end{proof}
+
+\begin{proposition}[Exact Fourier expression for the targeted defect]\label{prop:targetfourier}
+For $m=m_X$, define the non-normalized transforms
+\[
+ \widehat\nu(k)=\sum_{r\bmod m}\nu_m(r)e^{2\pi ikr/m},\qquad
+ \widehat{\mathbf1}_{\mathcal C_X}(k)=\sum_{r\in\mathcal C_X}e^{2\pi ikr/m}.
+\]
+Then
+\begin{equation}\label{eq:targetfourier}
+ \boxed{\quad
+ \mathfrak c_X(\nu)=\left(\frac1m\sum_{k=1}^{m-1}
+       \widehat{\mathbf1}_{\mathcal C_X}(-k)\,\widehat\nu(k)\right)_+ .\quad}
+\end{equation}
+The sum in parentheses is real. Consequently the open task can be stated as an \emph{aggregate, signed Fourier-correlation bound} for the actual repeatedly conditioned entrance laws, rather than an $\ell^\infty$ bound at every residue or a full $\ell^2$ energy bound.
+\end{proposition}
+\begin{proof}
+Fourier inversion gives $\nu(\mathcal C_X)=m^{-1}\sum_{k\bmod m}\widehat{\mathbf1}_{\mathcal C_X}(-k)\widehat\nu(k)$. The $k=0$ term is exactly $\alpha_X|\nu|$. Subtract and take the positive part.
+\end{proof}
+
+\section{The $\chi^2$/Fourier formulation (stronger, not necessary)}
+For $M=|\nu|>0$ put $p_t(r)=\nu_t(r)/M$ and
+\[
+ \chi_t^2(\nu):=2^t\sum_{r\bmod2^t}\left(p_t(r)-2^{-t}\right)^2.
+\]
+Set $\chi_t^2(0)=0$.
+\begin{proposition}[Relative energy controls the concentration budget]\label{prop:energy}
+For $A>1$,
+\begin{equation}\label{eq:chi}
+ \boxed{\quad \mathfrak d_t(\nu;A)\le\frac{|\nu|}{A-1}\chi_t^2(\nu).\quad}
+\end{equation}
+Moreover, with $m=2^t$ and the normalized Fourier coefficients
+$\widehat p_t(k)=\sum_{r\bmod m}p_t(r)e^{2\pi i k r/m}$,
+\begin{equation}\label{eq:parseval}
+ \boxed{\quad\chi_t^2(\nu)=\sum_{k=1}^{m-1}|\widehat p_t(k)|^2.\quad}
+\end{equation}
+A mathematically sufficient but substantially \emph{stronger and potentially unrealistic} transport hypothesis for $T_X=o(X)$ is
+\begin{equation}\label{eq:fourier-goal}
+ \boxed{\quad
+ \mathfrak F_X:=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n)
+ \sum_{k=1}^{2^{t_X}-1}
+ \left|\widehat p_{X,j,n,t_X}(k)\right|^2=o(1).\quad}
+\end{equation}
+This full $\chi^2$ criterion is not our recommended target: it can fail even when the clipping tail vanishes. Here $p_{X,j,n,t_X}$ is the distribution of $\nu_{X,j,n}/s_{X,j}(n)$ modulo $2^{t_X}$ (and the whole summand is zero if the denominator vanishes).
+\end{proposition}
+\begin{proof}
+Let $u=M/m$, $v=\nu_t(r)$. When $v>Au$, the inequalities $v-Au\le v-u$ and $v-u>(A-1)u$ imply
+\[
+ (v-Au)_+\le\frac{(v-u)^2}{(A-1)u}.
+\]
+Sum over $r$; the right side equals $M\chi_t^2(\nu)/(A-1)$. The case $M=0$ is immediate. The identity \eqref{eq:parseval} is discrete Parseval on $\mathbb Z/m\mathbb Z$, with the zero Fourier mode removed. Combining \eqref{eq:chi} with Theorem~\ref{thm:aggregate} proves the stated conditional implication.
+\end{proof}
+
+\begin{remark}[Why the full energy criterion must not be mistaken for a necessity]
+Consider a sequence of abstract terminated return graphs in which the only visit after a clipping budget $K_X$ is a single point $y_X$ with entrance mass $\mu_X=1/\log X$ (there are no subsequent visits). Then $\mathcal E_X=\mu_X\to0$ and $\mathfrak C_X\le\mu_X\to0$, but the single-atom law has $\chi^2_{t_X}=2^{t_X}-1$. Thus $\mathfrak F_X\ge\mu_X(2^{t_X}-1)$ can diverge polynomially in $X$. This is an abstract example, not a realized Collatz trajectory. It shows why forcing the full untruncated Fourier energy to $o(1)$ would be an unnecessarily strong criterion, reminiscent of the excessive raw-visit moment in the earlier version of Proposition~9. The recommended target is $\mathfrak C_X=o(1)$, or, less selectively, $\mathfrak D_X=o(1)$.
+\end{remark}
+
+\section{Where genuine new dynamics are still required}
+\begin{proposition}[The terminal-atom obstruction, quantified]\label{prop:atoms}
+Let $r_t(\nu)$ be the number of residue classes modulo $2^t$ carrying positive $\nu$-mass. Then
+\begin{equation}\label{eq:atoms}
+ \mathfrak d_t(\nu;A)\ge |\nu|\left(1-\frac{A\,r_t(\nu)}{2^t}\right)_+.
+\end{equation}
+In particular, if $\nu$ is supported on fewer than $2^{t-1}/A$ states, then $\mathfrak d_t(\nu;A)\ge|\nu|/2$. Conversely, a large support does not imply a small defect.
+\end{proposition}
+\begin{proof}
+The identity
+$\mathfrak d_t(\nu;A)=|\nu|-\sum_r\min\{\nu_t(r),A|\nu|/2^t\}$
+and the bound of the last sum by $Ar_t(\nu)|\nu|/2^t$ give \eqref{eq:atoms}. For the converse, place half the mass at one state and distribute the rest over arbitrarily many different states; the heavy atom still violates any small relative cap at sufficiently large $t$.
+\end{proof}
+
+\begin{remark}[A necessary correction in the manuscript's prose]
+Failure of relative anti-concentration does \emph{not} imply that the surviving law has small support. The support-count argument runs in the reverse direction: \emph{small support forces a large concentration defect}. Accordingly, the final sentence of Remark ``Arithmetic rigidity of returns'' in \texttt{main(6).tex}, which says that the remaining mass ``sits on at most $X^{O(\beta)}$ states'', should be treated as a possible terminal regime, not as an inference from failure of a cap condition. Equation~\eqref{eq:atoms} is the justified formulation.
+\end{remark}
+
+\begin{problem}[The new, explicitly quantified task]
+Prove the \emph{event-specific} estimate $\mathfrak C_X=o(1)$ from Theorem~\ref{thm:targeted}, or the stronger single-depth concentration bound $\mathfrak D_X=o(1)$ in \eqref{eq:budget}, for the \emph{actual first-excess return laws} $\nu_{X,j,n}$. The inputs in the present manuscript and in Terras, Tao and Gon\c{c}alves--Greenfeld--Madrid establish the arithmetic exceptional-set sizes, but not a relative Fourier-energy bound for the repeatedly conditioned entrance measures. Atoms left after repeated conditioning may have long deterministic occupation and are not controlled by residue counting alone. This problem is still open. Its solution, together with the existing first-excess identity, would establish $T_X=o(X)$; it would not by itself establish the separate return bound $R_X=o(X)$.
+\end{problem}
+
+\paragraph{Novelty and rigor boundary.}
+The elementary parity-counting input is classical; capacity truncation, Fourier Parseval, and the tail-sum identity are also standard tools. The contribution here is an exact \emph{interface} for the actual first-excess law, including the sharper event-specific correlation: all failures of block contraction are charged to an explicit, relatively normalized $2$-adic concentration budget at just one depth $t_X$, and the terminal-atom obstruction is quantified in the same units. The full squared Fourier energy is explicitly identified as an over-strong sufficient condition, not a necessary goal. This is a proved \emph{conditional reduction}, not an unconditional polynomial-return theorem. It is offered for independent mathematical review, not for direct insertion into the main paper.
+
+\end{document}
