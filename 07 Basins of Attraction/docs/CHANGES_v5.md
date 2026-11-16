@@ -36,3 +36,15 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Problem 1 and Outlook (3) reformulated accordingly; reproduction table: row for Run J.
 - `alt_if_lean_green/`: the same paper plus the Lean statement for Proposition 11, to be used only after the
   CI has built ReturnLargeShell.lean (see alt_if_lean_green/README_FIRST.md).
+
+## v6: natural densities for all 3x+c (conditional), escape ladder
+- Theorem 2 (new): every completely invariant set of T_{3,c}, c >= -1 odd, has a natural density equal to
+  its logarithmic density, conditional on Allikvere's Section 6. Appendix E: transfer table (where the map
+  enters Tao §5 and Allikvere §§2–6) and Lemma 7 (uniform vs. logarithmic first passage on one block).
+  Predecessor sets: h(a) is a natural density (same proof). Remark 6 rewritten (two routes: Mazur, Allikvere).
+  Abstract, introduction, contribution table, Problem 2(a), Outlook (1) updated accordingly.
+- Escape ladder (Lemma 5 in Appendix C, colleague's idea): an unbounded orbit carries at least (2-o(1))X
+  below X. Corollary 6(b): the excess caused by an unbounded orbit of potential h is now 2h (was h/3).
+  Remark 7 in Appendix D: R_X = o(X) alone excludes unbounded orbits of positive potential.
+- Barina 2021 cited next to Barina 2025.
+- Renumbering: the lower-bound theorem is now Theorem 3 (was 2).

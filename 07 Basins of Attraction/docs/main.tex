@@ -91,7 +91,7 @@
 \begin{document}
 
 \begin{abstract}
-We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. Lean~4 checks the elementary finite statements; the density and Syracuse statements are not machine-certified.
+We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. Conditionally on a recent natural-density transport of Allikvere, which carries over to all these maps, they are natural densities. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. Lean~4 checks the elementary finite statements; the density and Syracuse statements are not machine-certified.
 \end{abstract}
 
 \begingroup
@@ -129,7 +129,7 @@ Leslie Davison observed that \emph{circuits}, i.e.\ cycles consisting of one run
 (2^{k+l}-3^k)h=2^l-1,
 \label{eq:diophantine_davison}
 \end{equation}
-see \cite[p.~67]{Lagarias_2010}. Steiner \cite{Steiner_1977} proved that $(h,k,l)=(1,1,1)$ is the only solution, so the trivial cycle is the only circuit of $3x+1$. Simons and de Weger \cite{Simons_deWeger_2005} and Hercher \cite{Hercher_2023} extended this to $m$-cycles (cycles with $m$ runs of odd steps) for $m\le 68$ and $m\le 91$, respectively. The general cycle problem remains open; convergence has been verified for all $n<2^{71}$ \cite{Barina_2025}.
+see \cite[p.~67]{Lagarias_2010}. Steiner \cite{Steiner_1977} proved that $(h,k,l)=(1,1,1)$ is the only solution, so the trivial cycle is the only circuit of $3x+1$. Simons and de Weger \cite{Simons_deWeger_2005} and Hercher \cite{Hercher_2023} extended this to $m$-cycles (cycles with $m$ runs of odd steps) for $m\le 68$ and $m\le 91$, respectively. The general cycle problem remains open; convergence has been verified for all $n<2^{71}$ \cite{Barina_2021,Barina_2025}.
 
 For $q>3$ cycles are rare. Table~\ref{table:known_cycles} lists the non-trivial cycles of~\eqref{eq:func_qxplus1} for odd $q\le1000$.
 
@@ -176,7 +176,7 @@ The \emph{global} view encodes a cycle by its parity word and asks whether the c
 The guiding question of this paper is therefore: \emph{what determines the global dynamics of a Collatz-type map when its local predecessor statistics agree with those of another map?} Sections~\ref{sec:local}--\ref{sec:basins} give three complementary answers. The local congruence and branching statistics compared here agree for $3x+1$ and $3x-1$. Cycles are characterised by an exact global divisibility condition. Logarithmic basin densities exist throughout the stated family, but the values vary and are largely unexplained.
 
 \subsection*{Main results}
-For $A\subseteq\N$ let $\delta(A)=\lim_{N\to\infty}(\log N)^{-1}\sum_{n<N,\,n\in A}1/n$ be its logarithmic density, if the limit exists. Our main theoretical result separates the existence of basin densities from their values. Theorem~\ref{thm:logdens} states that every set of positive integers that is completely invariant under $T_{3,c}$, with odd $c\ge-1$, has a logarithmic density; in particular, every basin of attraction has one. Existence is therefore common to all maps of the family, whereas the values separate them: numerically, the three basins of $3x-1$ have nearly equal densities, while two cycles of the same type in $3x+5$ attract about $50\,\%$ and $9\,\%$ of all integers. For the Collatz map itself, Corollary~\ref{cor:collatz} shows that the positive integers whose orbit reaches $1$ form a set with a logarithmic density. This does not decide the Collatz conjecture, which asserts that the set is $\N$, but it shows unconditionally that the logarithmic proportion of these integers converges. By a recent natural-counting transport estimate of Mazur \cite{Mazur_2026}, the density is even a natural density (Corollary~\ref{cor:natural}), and by \cite{Mazur_PD_2026} it is positive.
+For $A\subseteq\N$ let $\delta(A)=\lim_{N\to\infty}(\log N)^{-1}\sum_{n<N,\,n\in A}1/n$ be its logarithmic density, if the limit exists. Our main theoretical result separates the existence of basin densities from their values. Theorem~\ref{thm:logdens} states that every set of positive integers that is completely invariant under $T_{3,c}$, with odd $c\ge-1$, has a logarithmic density; in particular, every basin of attraction has one. Existence is therefore common to all maps of the family, whereas the values separate them: numerically, the three basins of $3x-1$ have nearly equal densities, while two cycles of the same type in $3x+5$ attract about $50\,\%$ and $9\,\%$ of all integers. For the Collatz map itself, Corollary~\ref{cor:collatz} shows that the positive integers whose orbit reaches $1$ form a set with a logarithmic density. This does not decide the Collatz conjecture, which asserts that the set is $\N$, but it shows unconditionally that the logarithmic proportion of these integers converges. By a recent natural-counting transport estimate of Mazur \cite{Mazur_2026}, the density is even a natural density (Corollary~\ref{cor:natural}), and by \cite{Mazur_PD_2026} it is positive. The independent transport of Allikvere \cite{Allikvere_2026} carries over to every map $3x+c$; conditionally on it, every completely invariant set and every predecessor set of these maps has a natural density (Theorem~\ref{thm:natural}).
 
 The proof is short. A basin is not changed by the first passage of an orbit below a threshold, so the stabilisation of first passages of Gon\c{c}alves, Greenfeld and Madrid \cite{GGM_2025}, after Tao \cite{Tao_2022}, makes the basin shares of consecutive logarithmic windows converge; two windows of incommensurable ratio then exclude oscillations in $\log\log N$. For $3x+1$, the existence of natural densities of predecessor sets has recently been stated in formalised form \cite{CLT_2026}; Theorem~\ref{thm:logdens} covers the whole family $3x+c$, in logarithmic density. The same argument gives every predecessor set a logarithmic density $h(a)$, and the density of a basin is the sum of $h$ over every level of the backward tree of its cycle (Proposition~\ref{prop:potential}). With the recent positivity results for $3x\pm1$ \cite{Mazur_Pred_2026,ElJaouhari_2026}, every nonempty completely invariant set of these two maps has positive density (Corollary~\ref{cor:dichotomy}); for $3x-1$, the three known cycles attract all integers if and only if their basin densities add up to $1$. How to compute the values from the global dynamics remains the central open problem (Problem~\ref{prob:basins}). Section~\ref{sec:basins} gives two partial answers. An elementary multiplicative invariant gives exact densities for certain invariant residue-class unions, not automatically for their constituent basins (Proposition~\ref{prop:cosets}); for a prime $p\equiv\pm1\pmod{24}$, for example, the Legendre symbol $(n/p)$ is constant along the orbits of $3x+p$. And the harmonic mass of the backward tree of a cycle, a heuristic quantity computed from the cycle alone, predicts the measured densities of $410$ cycles to about $5\,\%$ (Figure~\ref{fig:predictor}).
 
@@ -189,9 +189,9 @@ in the present manuscript, deductions that use recent external results,
 exhaustive computation within stated bounds, and conjectures supported by
 numerical tests. Table~\ref{table:contributions} distinguishes these levels
 and compares each contribution with the closest preceding work. In particular,
-we do not claim a proof of universal convergence, the existence of natural
-basin densities for general $c$, or an exact formula for individual basin
-shares.
+we do not claim a proof of universal convergence or an exact formula for
+individual basin shares, and the natural densities for general $c$ rest on
+the preprint \cite{Allikvere_2026}, which is not yet refereed.
 
 % A longtable can break across pages; the table is taller than one page.
 \begingroup
@@ -244,6 +244,11 @@ $3x\pm1$ and positivity
 & Recent positive-predecessor and natural-counting results \cite{Mazur_2026,Mazur_Pred_2026,ElJaouhari_2026}.
 & Positive basin potentials and a density-one criterion for the three known $3x-1$ cycles (Corollary~\ref{cor:dichotomy}); natural density for $3x+1$ (Corollary~\ref{cor:natural}).
 & \emph{Deductions using cited preprints}. \\
+\addlinespace[2pt]
+Natural densities
+& Natural-counting transport for $3x+1$ \cite{Mazur_2026,Allikvere_2026}; the question in \cite[Remark~1.7]{GGM_2025}.
+& Transfer of Allikvere's transport to every map $3x+c$: natural densities of all completely invariant sets and predecessor sets (Theorem~\ref{thm:natural}, Appendix~\ref{appx:natural}).
+& \emph{Deduction using a cited preprint}. \\
 \addlinespace[2pt]
 Syracuse potential profile
 & Syracuse random variables and first-passage methods \cite{Tao_2022,GGM_2025}.
@@ -303,6 +308,7 @@ than \texttt{propext}, \texttt{Quot.sound} and \texttt{Classical.choice}. % For 
 
 This formal verification is deliberately \emph{limited to finite dynamics}.
 In particular, it does not certify Theorem~\ref{thm:logdens},
+Theorem~\ref{thm:natural},
 Proposition~\ref{prop:potential}'s logarithmic-density assertions,
 Lemma~\ref{lem:model}, Theorem~\ref{thm:lower}, or the first-passage
 calibration. Their proofs and external dependencies require separate
@@ -727,7 +733,7 @@ Finally, if the natural density of $A$ exists, partial summation shows that the 
 
 \begin{remark}[Consequences and limits]
 \label{rem:consequences}
-The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The method does not reach natural densities, because the stabilisation of first passages controls logarithmic averages only. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
+The set of starting values with unbounded orbits is completely invariant as well, so it also has a logarithmic density. Existence is shared by all maps of the family, in particular by $3x+1$ and $3x-1$; what separates them are the values $\delta(\mathcal C)$. The stabilisation of first passages controls logarithmic averages only; natural densities need the additional transport of Theorem~\ref{thm:natural}. Maps $3x+c$ with $c\le-3$ do not map $\N$ into itself and are not covered; by~\eqref{eq:mirror} they are the maps $3x+|c|$ on the negative integers.
 \end{remark}
 
 \begin{remark}[A first-passage formula]
@@ -754,12 +760,17 @@ Let $\alpha=1001/1000$ as in \cite{Mazur_2026}. For large $N$ put $x=N^{1/\alpha
 Steps~4 and~6 give $\mathbb P(\mathbf L_y\in A_1)\to\delta(A)$: the window $[y,y^\alpha)$ splits into $K$ consecutive windows of ratio $\alpha^{1/K}<1+\varepsilon_1$, and $\mathbb P(\mathbf L_y\in A_1)$ is their $\mu$-weighted average; the endpoint conventions differ by at most one integer. The odd integers below $N^{1/\alpha}$ form a proportion $O(N^{1/\alpha-1})$ of the odd integers below $N$. Hence $A_1$ has natural density $\delta(A)$ relative to the odd integers. Since $2^km\in A$ if and only if $m\in A$, each set $\{2^km:m\text{ odd}\}$ meets $A$ in the same relative density, and $A$ has natural density $\delta(A)$.
 \end{proof}
 
-\begin{remark}[Natural densities for general $c$]
+\begin{remark}[Two routes to natural density]
 \label{rem:mazur}
-Mazur's argument combines Tao's first-passage architecture with a discrepancy bound for the rotation by $\log_2 3$, which he derives from Rhin's irrationality measure \cite{Mazur_2026}. For $T_{3,c}$ the rotation is the same, and the Syracuse offsets are $c$ times those of $3x+1$: in the notation of \cite{Tao_2022}, $\operatorname{Syr}^n(m)=3^n2^{-|\vec a|}m+c\,F_n(\vec a)$. An analogue of \cite[Theorem~3.1]{Mazur_2026} for $T_{3,c}$ would give natural densities for all basins of all maps $3x+c$ with $c\ge-1$, by the proof of Corollary~\ref{cor:natural}, and would settle Problem~\ref{prob:basins}(a). We have not verified that his argument carries over.
+Mazur's argument combines Tao's first-passage architecture with a discrepancy bound for the rotation by $\log_2 3$, which he derives from Rhin's irrationality measure \cite{Mazur_2026}; its proof chain is formalised in Lean for $3x+1$. Allikvere \cite{Allikvere_2026} conditions Tao's Fourier-decay and fine-scale-mixing estimates on the total $2$-valuation and uses an effective irrationality measure for $\log_23$ at a single point. Both arguments see the map only through the Syracuse offset. For $T_{3,c}$ this offset is $c$ times that of $3x+1$: in the notation of \cite{Tao_2022}, $\operatorname{Syr}^n(m)=3^n2^{-|\vec a|}m+c\,F_n(\vec a)$. For $3\nmid c$ the Syracuse random variable is therefore replaced by $c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$, whose law is the image of the law of $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$ under multiplication by a unit. Appendix~\ref{appx:natural} carries out the transfer for Allikvere's argument.
 \end{remark}
 
-Theorem~\ref{thm:logdens} settles existence in the logarithmic sense. Whether the natural densities exist for $c\ne1$, and nontrivial bounds for their values, remain open.
+\begin{theorem}[Natural densities for all maps $3x+c$]
+\label{thm:natural}
+Assume that the uniform-measure first-passage analysis of \cite[Section~6]{Allikvere_2026} is correct. Let $c\ge-1$ be odd. Then every set $A\subseteq\N$ that is completely invariant under $T_{3,c}$ has a natural density, and it equals $\delta(A)$.
+\end{theorem}
+
+The proof is given in Appendix~\ref{appx:natural}. The theorem rests on a preprint that is not yet refereed; for $c=1$, Corollary~\ref{cor:natural} gives an independent route through \cite{Mazur_2026}. Nontrivial bounds for the values of the densities remain open.
 
 \subsection*{The predecessor potential}
 The proof of Theorem~\ref{thm:logdens} applies to predecessor sets as well, and their densities satisfy exact identities along the backward trees. For $a\in\N$ let
@@ -817,7 +828,7 @@ For the two windows of Step~3 and $x\ge a'^2$, the last probability is $\ll(\log
 (c) For $a\in\mathcal C$ we have $P(a)=\beta(\mathcal C)$. Every $n\in\beta(\mathcal C)\setminus\mathcal C$ has a last iterate outside $\mathcal C$, which lies in $L_0(\mathcal C)$. Hence $\beta(\mathcal C)$ is the disjoint union of $\mathcal C$ and the sets $P(x)$, $x\in L_0(\mathcal C)$, and $L_0(\mathcal C)$ is finite, which gives the identity for $d=0$. No member of a level is periodic, so (b) applies to each of them, and the sum over $L_{d+1}(\mathcal C)$ equals the sum over $L_d(\mathcal C)$.
 \end{proof}
 
-We call $h$ the \emph{predecessor potential} of the map. Part~(a) answers the existence question of \cite[Remark~1.7]{GGM_2025} for every $a$, in logarithmic form; its natural-density form remains open, except for $c=1$, where the proof of Corollary~\ref{cor:natural} applies to predecessor sets as well (see also \cite{CLT_2026}). Part~(c) is a conservation law: the density of a basin is distributed over every level of the backward tree of its cycle. For $3x+1$, the existence of the predecessor densities as natural densities and their flow identity are stated in the formalisation \cite{CLT_2026}; Proposition~\ref{prop:potential} holds for the whole family, in logarithmic density. For $3x+1$ and $3x-1$, recent positivity results complete the picture.
+We call $h$ the \emph{predecessor potential} of the map. Part~(a) answers the existence question of \cite[Remark~1.7]{GGM_2025} for every $a$, in logarithmic form; the proof of Theorem~\ref{thm:natural} applies to predecessor sets as well (Appendix~\ref{appx:natural}), so that $h(a)$ is also a natural density, conditionally on \cite{Allikvere_2026} (for $c=1$ see also \cite{CLT_2026}). Part~(c) is a conservation law: the density of a basin is distributed over every level of the backward tree of its cycle. For $3x+1$, the existence of the predecessor densities as natural densities and their flow identity are stated in the formalisation \cite{CLT_2026}; Proposition~\ref{prop:potential} holds for the whole family, in logarithmic density. For $3x+1$ and $3x-1$, recent positivity results complete the picture.
 
 \begin{corollary}[No sparse invariant sets for $3x\pm1$]
 \label{cor:dichotomy}
@@ -937,9 +948,9 @@ Let $c\ge-1$ be odd with $3\nmid c$.
 
 The proofs are given in Appendix~\ref{appx:lower}. Theorem~\ref{thm:lower} uses the same input from \cite{GGM_2025} as Theorem~\ref{thm:logdens}. The sum of $a\,h(a)$ over a set of targets is the mean, over the starting values, of the sum of the orbit points in this set. The points that an orbit collects on its first descent through a window do not change when the starting value is replaced by a first passage above the window. As in the proof of Theorem~\ref{thm:logdens}, this reduces their mean to starting values just above the window. For these, the valuations along the descent are independent and geometric up to a negligible error, and the residue of a Syracuse iterate modulo $3^n$ depends only on its last $n$ valuations, which gives the Syracuse law. The points that an orbit collects when it returns to the window from far below are not controlled by this argument. They can only increase the sum, so that a lower bound results.
 
-Part~(b) of the corollary shows that this is no defect of the method. An unbounded orbit passes through every window once more on its way up. The upper bound~\eqref{eq:upper} therefore excludes unbounded orbits of positive potential, and for $3x+1$ it contains, by Corollary~\ref{cor:dichotomy}, the statement that no Collatz trajectory diverges. Conjecture~\ref{conj:profile} is thus at least as hard as this open problem, and by part~(a) it is equivalent to the single inequality~\eqref{eq:upper} for the mean value. Appendix~\ref{sec:tail-programme} analyses this inequality further: the clipped first-passage mass has exactly the predicted mean (Proposition~\ref{prop:clipped-calibration}), it is exponentially tight outside an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$ (Proposition~\ref{prop:tightness}), and what remains are long but finite excursions and returns from far below (Remark~\ref{rem:tail-barrier}, Problem~\ref{prob:excursions}).
+Part~(b) of the corollary shows that this is no defect of the method. An unbounded orbit passes through every window once more on its way up, and below $X$ the points of its ascent alone add up to at least $(2-o(1))X$ (Lemma~\ref{lem:escape-ladder}). The upper bound~\eqref{eq:upper} therefore excludes unbounded orbits of positive potential, and for $3x+1$ it contains, by Corollary~\ref{cor:dichotomy}, the statement that no Collatz trajectory diverges. Conjecture~\ref{conj:profile} is thus at least as hard as this open problem, and by part~(a) it is equivalent to the single inequality~\eqref{eq:upper} for the mean value. Appendix~\ref{sec:tail-programme} analyses this inequality further: the clipped first-passage mass has exactly the predicted mean (Proposition~\ref{prop:clipped-calibration}), it is exponentially tight outside an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$ (Proposition~\ref{prop:tightness}), and what remains are long but finite excursions and returns from far below (Remark~\ref{rem:tail-barrier}, Problem~\ref{prob:excursions}).
 
-We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+13$, the program \path{potential.c} counts, for all targets $a\le10^6$ at once, the starting values $n\le10^{10}$ whose orbit contains $a$. For these counts, the identities of Proposition~\ref{prop:potential}(b) and~(c) hold as exact integer identities, which tests the program, and the basin counts agree with Table~\ref{table:basins}. Table~\ref{table:syracuse} compares the means of $a\,h(a)$, with $h(a)$ estimated by the proportion of the starting values up to $10^{10}$, with Conjecture~\ref{conj:profile}. The overall means lie between $6.85$ and $6.97$. The class means modulo $9$ show the same six numbers for all four maps, once the classes are labelled by $a/c$, and deviate from the prediction by at most $2.4\,\%$. Modulo $81$, the median deviation over the $54$ classes is below $1\,\%$ for every map, and the largest deviation is below $6\,\%$. The deviations of about $1\,\%$ exceed the statistical error. They are an effect of the small targets and disappear at larger scales (Run~H). For each of the four maps we followed the orbits of $10^7$ random starting values between $10^{28}$ and $2\cdot10^{28}$ and collected their points; this estimates the means of $a\,h(a)$ over the targets of every decade $[10^k,10^{k+1})$ without storing any counts (\path{orbit_profile.c}). For $3x+1$ the decade means are $6.911$, $6.934$ and $6.949$ for $k=6,7,8$. Over the decades $9\le k\le25$ the four maps give $6.9515$, $6.9518$, $6.9524$ and $6.9518$, with a standard error of $0.0004$, against $2/\log(4/3)=6.9521$. There the class means modulo $9$ agree with Conjecture~\ref{conj:profile} to four digits, and among the $54$ classes modulo $81$ the largest deviation is $0.12\,\%$ (Table~\ref{table:syracuse}). In view of Theorem~\ref{thm:lower}, the content of these measurements is the upper bound~\eqref{eq:upper}: at the sampled scales, the orbits collect no measurable weight when they return from far below. By the proof of Corollary~\ref{cor:remains}(b), unbounded orbits through a number of potential $h$ would raise the mean value by at least $h/3$.
+We measured the potential directly (Run~G). For $3x+1$, $3x-1$, $3x+5$ and $3x+13$, the program \path{potential.c} counts, for all targets $a\le10^6$ at once, the starting values $n\le10^{10}$ whose orbit contains $a$. For these counts, the identities of Proposition~\ref{prop:potential}(b) and~(c) hold as exact integer identities, which tests the program, and the basin counts agree with Table~\ref{table:basins}. Table~\ref{table:syracuse} compares the means of $a\,h(a)$, with $h(a)$ estimated by the proportion of the starting values up to $10^{10}$, with Conjecture~\ref{conj:profile}. The overall means lie between $6.85$ and $6.97$. The class means modulo $9$ show the same six numbers for all four maps, once the classes are labelled by $a/c$, and deviate from the prediction by at most $2.4\,\%$. Modulo $81$, the median deviation over the $54$ classes is below $1\,\%$ for every map, and the largest deviation is below $6\,\%$. The deviations of about $1\,\%$ exceed the statistical error. They are an effect of the small targets and disappear at larger scales (Run~H). For each of the four maps we followed the orbits of $10^7$ random starting values between $10^{28}$ and $2\cdot10^{28}$ and collected their points; this estimates the means of $a\,h(a)$ over the targets of every decade $[10^k,10^{k+1})$ without storing any counts (\path{orbit_profile.c}). For $3x+1$ the decade means are $6.911$, $6.934$ and $6.949$ for $k=6,7,8$. Over the decades $9\le k\le25$ the four maps give $6.9515$, $6.9518$, $6.9524$ and $6.9518$, with a standard error of $0.0004$, against $2/\log(4/3)=6.9521$. There the class means modulo $9$ agree with Conjecture~\ref{conj:profile} to four digits, and among the $54$ classes modulo $81$ the largest deviation is $0.12\,\%$ (Table~\ref{table:syracuse}). In view of Theorem~\ref{thm:lower}, the content of these measurements is the upper bound~\eqref{eq:upper}: at the sampled scales, the orbits collect no measurable weight when they return from far below. By the proof of Corollary~\ref{cor:remains}(b), unbounded orbits through a number of potential $h$ would raise the mean value by at least $2h$.
 
 Note the contrast with the residue classes of the starting values, which carry no information about the basin: the residue class of a target modulo $9$ changes the frequency with which it is reached by a factor of up to $11$.
 
@@ -1019,7 +1030,7 @@ Whether the averages of $M_d$ converge is open, and so are both conjectures. By 
 \label{prob:basins}
 By Proposition~\ref{prop:filtration}, the basin densities of $3x+c$ are determined by those of the cycles coprime to $c'$ in the maps $3x+c'$, $c'\mid c$. For these cycles:
 \begin{enumerate}[label=(\alph*)]
-	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. For $c=1$ they exist by Corollary~\ref{cor:natural}; Remark~\ref{rem:mazur} outlines a route for general $c$. Table~\ref{table:passage} shows no difference between natural and logarithmic counting up to $10^{220}$.
+	\item \emph{Natural density.} Do the limits $\lim_{N\to\infty}d_N(\mathcal C)$ exist? If so, they equal $\delta(\mathcal C)$ by Theorem~\ref{thm:logdens}. By Theorem~\ref{thm:natural} they exist for every $c$, conditionally on \cite{Allikvere_2026}, and for $c=1$ also by Corollary~\ref{cor:natural}; an unconditional proof needs the confirmation of one of these preprints. Table~\ref{table:passage} shows no difference between natural and logarithmic counting up to $10^{220}$.
 	\item \emph{Explanation.} Proposition~\ref{prop:cosets} fixes the densities of invariant coset sets, but does not in general determine the densities of individual cycles even if they are the only known cycles in their cosets. What decides between the cycles of one coset: their parity words, the arithmetic position of their members, the distribution of their backward iterates?
 	\item \emph{Prediction.} Prove Conjectures~\ref{conj:profile} and~\ref{conj:formula}: the potential has the Syracuse profile on average, and the level averages of the backward mass $M_d(\mathcal C)$ converge to $\delta(\mathcal C)\log(4/3)/3$. Theorem~\ref{thm:lower} proves the lower half of Conjecture~\ref{conj:profile}; what remains is the upper bound~\eqref{eq:upper} for the mean value, which excludes unbounded orbits of positive potential (Corollary~\ref{cor:remains}). Numerically, the class means of $a\,h(a)$ agree with the Syracuse law to four digits for large targets (Table~\ref{table:syracuse}), and the absolute prediction reproduces the measured densities to about $3\,\%$ (Table~\ref{table:convergence}).
 \end{enumerate}
@@ -1034,7 +1045,7 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 %=====================================================================
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
-	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Natural densities follow for every $c$ once \cite{Allikvere_2026} is confirmed (Theorem~\ref{thm:natural}); a further aim is the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
 	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}), and $R_X=o(X)$ is a separate open problem.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works for coprime types, how the algebraic factors of $2^l-3^k$ bias it, and whether the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
@@ -1381,17 +1392,36 @@ By Lemma~\ref{lem:model}(a) and~(b), with $L\ge(\alpha-1)\log X$, $e^{\ell_2}-e^
 \end{proof}
 
 
+For part~(b) of Corollary~\ref{cor:remains} we use an elementary property of unbounded orbits.
+
+\begin{lemma}[Escape ladder]
+\label{lem:escape-ladder}
+Let $c\ge-1$ be odd, and suppose that the orbit $O$ of $m_0\in\N$ under $T_{3,c}$ is unbounded. For every $\rho>3/2$ there is $K=K(\rho,c,m_0)$ such that, for all sufficiently large $X$, the orbit $O$ contains distinct numbers $p_0,\ldots,p_J\in(m_0,X]$, all occurring after $m_0$, with
+\[
+ p_0+\dots+p_J\ \ge\ \frac{X}{\rho-1}-K .
+\]
+In particular, $\liminf_{X\to\infty}X^{-1}\sum_{a\le X,\ a\in O}a\ge2$.
+\end{lemma}
+
+\begin{proof}
+Put $d=\max\{c,0\}/2$, so that $T_{3,c}(n)\le\frac32n+d$ for all $n$. Fix $B>\max\{m_0,1,d/(\rho-\frac32)\}$, put $b_j=X\rho^{-(j+1)}$, and let $J$ be maximal with $b_J\ge B$. Since $O$ is unbounded and starts at $m_0<b_j$, it has a first member $p_j>b_j$, and $p_j$ occurs after $m_0$. Its predecessor in $O$ is at most $b_j$, so that $b_j<p_j\le\frac32b_j+d\le\rho b_j$. The intervals $(b_j,\rho b_j]$ are pairwise disjoint and contained in $(B,X]$, so the $p_j$ are distinct, exceed $m_0$ and are at most $X$. Since $b_{J+1}=X\rho^{-(J+2)}<B$,
+\[
+ \sum_{j=0}^Jp_j>\sum_{j=0}^Jb_j=\frac{X}{\rho-1}\bigl(1-\rho^{-(J+1)}\bigr)>\frac{X}{\rho-1}-\frac{\rho B}{\rho-1}.
+\]
+Divide by $X$, let $X\to\infty$, and then let $\rho\downarrow\frac32$.
+\end{proof}
+
 \begin{proof}[Proof of Corollary~\ref{cor:remains}]
 (a) For $n=0$, Conjecture~\ref{conj:profile} states that $X^{-1}\sum_{a\le X}a\,h(a)\to\gamma_0$, which contains~\eqref{eq:upper}. Conversely, assume~\eqref{eq:upper}, and let $n\ge0$ and $r$ be given. The sum over the class of $r$ is the sum over all $a\le X$ minus the sums over the other classes modulo $3^n$. By~\eqref{eq:upper}, by Theorem~\ref{thm:lower} for the other classes, and since the $p_{r'}$ add up to $1$, its upper limit after division by $X$ is at most $\gamma_0-\gamma_0(1-p_r)=\gamma_0p_r$. With Theorem~\ref{thm:lower} for $r$ itself, the limit exists and equals $\gamma_0p_r$.
 
-(b) Suppose that $h(m_0)>0$ and that the orbit $O$ of $m_0$ is unbounded. Then no number occurs twice in $O$, and $T_{3,c}^k(m_0)\to\infty$. We use the notation of the proof of Theorem~\ref{thm:lower} with $n=1$. For the three residues $r$ modulo $3$ let $\Phi_r$ and $\varphi_r$ be the functions $\Phi$ and $\varphi$ of that proof, and let $\Phi=\Phi_0+\Phi_1+\Phi_2$; thus $\Phi(m)$ is the sum of the numbers in $(X^{1-\beta},X]$ in the blocks $1,\ldots,\tau_{X_1}(m)$ of $m$. Take $X$ so large that $X\ge3m_0$, $X_1\ge m_0$ and $X\ge|c|$. Let $p$ be the first member of $O$ that exceeds $X/3$. Its predecessor in $O$ is at most $X/3$, hence $X/3<p\le(X+c)/2\le X$. Let $w\in P(m_0)$. The orbit of $w$ contains $O$; it is not eventually periodic, so that all its members are different. We claim that
+(b) Suppose that $h(m_0)>0$ and that the orbit $O$ of $m_0$ is unbounded. Then no number occurs twice in $O$, and $T_{3,c}^k(m_0)\to\infty$. We use the notation of the proof of Theorem~\ref{thm:lower} with $n=1$. For the three residues $r$ modulo $3$ let $\Phi_r$ and $\varphi_r$ be the functions $\Phi$ and $\varphi$ of that proof, and let $\Phi=\Phi_0+\Phi_1+\Phi_2$; thus $\Phi(m)$ is the sum of the numbers in $(X^{1-\beta},X]$ in the blocks $1,\ldots,\tau_{X_1}(m)$ of $m$. Fix $\rho>3/2$, take $X$ so large that $X_1\ge m_0$ and Lemma~\ref{lem:escape-ladder} applies, let $p_0,\ldots,p_J$ be the numbers it provides, and put $\Sigma_X=p_0+\dots+p_J\ge X/(\rho-1)-K$. Let $w\in P(m_0)$. The orbit of $w$ contains $O$; it is not eventually periodic, so that all its members are different. We claim that
 \begin{equation}
 \label{eq:extra}
-\sum_{a\le X,\ a\in\operatorname{orb}(w)}a\ \ge\ \Phi(w^\flat)+p .
+\sum_{a\le X,\ a\in\operatorname{orb}(w)}a\ \ge\ \Phi(w^\flat)+\Sigma_X .
 \end{equation}
-This is clear if $\Phi(w^\flat)=0$. Otherwise $\tau=\tau_{X_1}(w^\flat)$ is finite and positive, and $m_0$ lies on the orbit of $w^\flat$, because $w^\flat>X_1\ge m_0$. The first Syracuse iterate of $w^\flat$ that does not exceed $X_1$ is reached at the latest with the odd part of $m_0$. The members of the blocks $1,\ldots,\tau$ of $w^\flat$ therefore either precede $m_0$ in the orbit or are at most $m_0$, whereas $p$ follows $m_0$ and exceeds it. Hence $p$ is none of the numbers counted in $\Phi(w^\flat)$, which proves~\eqref{eq:extra}. For $w\notin P(m_0)$ we have $\sum_{a\le X,\,a\in\operatorname{orb}(w)}a\ge\Phi(w^\flat)$. Taking logarithmic means as in~\eqref{eq:mean_of_points}, and using~\eqref{eq:reduced} and the end of the proof of Theorem~\ref{thm:lower} for each $r$, together with $p_0+p_1+p_2=1$, we obtain
+This is clear if $\Phi(w^\flat)=0$. Otherwise $\tau=\tau_{X_1}(w^\flat)$ is finite and positive, and $m_0$ lies on the orbit of $w^\flat$, because $w^\flat>X_1\ge m_0$. The first Syracuse iterate of $w^\flat$ that does not exceed $X_1$ is reached at the latest with the odd part of $m_0$. The members of the blocks $1,\ldots,\tau$ of $w^\flat$ therefore either precede $m_0$ in the orbit or are at most $m_0$, whereas every $p_j$ follows $m_0$ and exceeds it. Hence no $p_j$ is counted in $\Phi(w^\flat)$, which proves~\eqref{eq:extra}. For $w\notin P(m_0)$ we have $\sum_{a\le X,\,a\in\operatorname{orb}(w)}a\ge\Phi(w^\flat)$. Taking logarithmic means as in~\eqref{eq:mean_of_points}, and using~\eqref{eq:reduced} and the end of the proof of Theorem~\ref{thm:lower} for each $r$, together with $p_0+p_1+p_2=1$, we obtain
 \[
-\sum_{a\le X}a\,h(a)\ \ge\ M_XX\sum_{r}\delta_{\varphi_r}+\frac X3\,h(m_0)\ \ge\ \Bigl(\gamma_0+\frac{h(m_0)}3\Bigr)X-o(X),
+\sum_{a\le X}a\,h(a)\ \ge\ M_XX\sum_{r}\delta_{\varphi_r}+\Sigma_X\,h(m_0)\ \ge\ \Bigl(\gamma_0+\frac{h(m_0)}{\rho-1}\Bigr)X-o(X),
 \]
 which contradicts~\eqref{eq:upper}. Finally, let $c\in\{1,-1\}$. An unbounded orbit contains a number $b=T_{3,c}(m)$ with $m$ odd, the orbit of $b$ is unbounded, and $h(b)>0$ by Corollary~\ref{cor:dichotomy}, because $3\nmid b$. By the first part, this contradicts~\eqref{eq:upper}.
 \end{proof}
@@ -1596,6 +1626,11 @@ the lower bound $(\gamma_0\beta-o(1))\log X$ to
 $\mathbb E_{\log}V_X(w^\flat)$. Most of these points lie far below $X$ and
 contribute little to $\Phi_X$. None of these conditions says anything
 about the return term $R_X$.
+\end{remark}
+
+\begin{remark}[Unbounded orbits and the return term]
+\label{rem:return-divergence}
+If the orbit of some $m_0$ with $h(m_0)>0$ is unbounded, then $\liminf_{X\to\infty}R_X/X\ge2h(m_0)$. Indeed, for $w\in P(m_0)$ the numbers $p_j$ of Lemma~\ref{lem:escape-ladder} lie on the orbit of $w$ but are not counted by $\Phi_X(w^\flat)$, as in the proof of Corollary~\ref{cor:remains}(b); hence the summand of $R_X$ at $w$ is at least $\mathbf 1_{P(m_0)}(w)\bigl(X/(\rho-1)-K\bigr)$. Thus $R_X=o(X)$ alone excludes unbounded orbits of positive potential, and for $c=\pm1$ all unbounded orbits.
 \end{remark}
 
 \subsection{Exponential tightness of the first-passage mass}
@@ -2053,6 +2088,80 @@ times, rather than the residues of its first steps, which cannot carry
 the argument (Remark~\ref{rem:entrance-support},
 Proposition~\ref{prop:residue-obstruction}).
 \end{problem}
+
+%=====================================================================
+\section{Natural densities for all maps \texorpdfstring{$3x+c$}{3x+c}}
+\label{appx:natural}
+%=====================================================================
+Throughout this appendix $c\ge-1$ is odd with $3\nmid c$, and $\alpha=1.001$. For $y\ge1$ let $\mathbf U_y$ and $\mathbf L_y$ be the uniform and the logarithmic law on the odd integers in $[y,y^\alpha]$. We use the parameters $n_0$ and $m_0$, the sets $E'(E)$ and $A^{(n)}$ of \cite[(5.1), (5.2), (5.10), (5.11)]{Tao_2022}, formed with $T_{3,c}$ in place of $3x+1$, the scale $m_1=\lfloor\log^{0.4}x\rfloor$ of \cite[Section~6]{Allikvere_2026}, and
+\[
+ p_m(r)=\mathbb P\bigl(c\cdot\mathbf{Syrac}(\mathbb Z/3^m\mathbb Z)=r\bigr)\qquad(r\in\mathbb Z/3^m\mathbb Z).
+\]
+
+\paragraph{The transfer.} Table~\ref{table:transfer} lists every point at which the arguments of \cite[Sections~1.3--5]{Tao_2022} and \cite[Sections~2--6]{Allikvere_2026} use the map. Apart from the offset, they use only the valuation statistics of $3m+c$, which are the same for every odd $c$, and the positivity of the iterates, which holds for $c\ge-1$.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}P{0.25\textwidth}P{0.27\textwidth}P{0.44\textwidth}@{}}
+\toprule
+\textbf{Ingredient} & \textbf{Source} & \textbf{For $T_{3,c}$} \\
+\midrule
+Syracuse formula & \cite[(1.7)]{Tao_2022}, \cite[(1)]{Allikvere_2026} & offset $c\,F_n(\vec a)$; $\mathbf{Syrac}$ becomes $c\cdot\mathbf{Syrac}$ \\
+Size of the offset & \cite[(1.13)]{Tao_2022}: $0\le F_n\le3^n$ & $|c\,F_n|\le|c|\,3^n$; every use is an error term $O(3^{n_0})$, which becomes $O(|c|\,3^{n_0})$ \\
+Valuations of $2$-adically uniform inputs & \cite[Proposition~1.9, Lemma~2.1]{Tao_2022} & unchanged; for general maps \cite[Proposition~3.1, Lemmas~3.2, 3.3]{GGM_2025} \\
+Fourier decay, also conditioned on $|\vec a|$ & \cite[Proposition~1.17]{Tao_2022}, \cite[Theorem~3.1]{Allikvere_2026} & invariant: $\mathbb E\,e(\xi c X/3^n)=\mathbb E\,e(c\xi X/3^n)$ and $3\nmid c\xi$ for $3\nmid\xi$ \\
+Fine-scale mixing, also conditioned & \cite[Proposition~1.14]{Tao_2022}, \cite[Theorem~4.1--Corollary~4.4]{Allikvere_2026} & invariant: multiplication by $c$ commutes with reduction modulo $3^m$ and permutes the residue classes \\
+Irrationality measure of $\log_23$ & \cite[Lemmas~5.1, 5.2, Section~6.3]{Allikvere_2026} & none \\
+First-passage formula & \cite[Proposition~5.2, (5.12)--(5.21)]{Tao_2022}, \cite[Proposition~6.2, Section~6.2]{Allikvere_2026} & fibre condition $M\equiv c\,F_{n'}(\vec a)\pmod{3^{n'}}$; for general maps \cite[proof of Proposition~3.5]{GGM_2025} \\
+Window replacement & \cite[Lemma~6.4]{Allikvere_2026}, uses $0<F\le3^{n'}$ & the shift $2^sc\,F/3^{n'}$ may have either sign; the straddling interval becomes $[y^{(\pm)}2^{-t}-|c|3^{n'},\,y^{(\pm)}2^{-t}+|c|3^{n'}]$, which changes the bound by a factor depending on $c$ only \\
+\bottomrule
+\end{tabular}
+\caption{Where the natural-density argument of \cite{Allikvere_2026} and the first-passage analysis of \cite{Tao_2022} use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$.}
+\label{table:transfer}
+\end{table}
+
+\begin{lemma}[One block, two laws]
+\label{lem:two-laws}
+Assume the conclusion of \cite[Section~6]{Allikvere_2026}. There is $c'>0$ such that for all sufficiently large $x$ and $y\in\{x^\alpha,x^{\alpha^2}\}$
+\begin{align}
+ \mathbb P\bigl(\tau_x(\mathbf U_y)=\infty\bigr)&\ll x^{-c'},\label{eq:two-laws-hit}\\
+ \sup_{E}\bigl|\mathbb P\bigl(\operatorname{Pass}_x(\mathbf U_y)\in E\bigr)-\mathbb P\bigl(\operatorname{Pass}_x(\mathbf L_y)\in E\bigr)\bigr|&\ll(\log x)^{-c'},\label{eq:two-laws-tv}
+\end{align}
+where $E$ runs over the sets of odd integers in $[1,x]$.
+\end{lemma}
+
+\begin{proof}
+By the transfer, \eqref{eq:two-laws-hit} is \cite[(D.1)]{Allikvere_2026} for $T_{3,c}$. For a set $E$ of odd integers in $[1,x]$ and $m\le m_0$ put
+\[
+ S_m(E)=\sum_{M\in E'(E)}\frac{3^m\,p_m(M\bmod 3^m)}{M},
+\]
+and let $E_x$ be the set of all odd integers in $[1,x]$. By \cite[Section~6.4]{Allikvere_2026} for $T_{3,c}$,
+\[
+ \mathbb P\bigl(\operatorname{Pass}_x(\mathbf U_y)\in E\bigr)=\bigl(1+O(\log^{-c'}x)\bigr)\frac{S_{m_1}(E)}{S_{m_1}(E_x)}+O(\log^{-c'}x),
+\]
+with $S_{m_1}(E_x)\asymp1$; the normaliser comes from $E=E_x$, for which the probability is $1$ by the convention $\operatorname{Pass}_x=1$ on no hit. By \cite[(5.7), (5.20), (5.21)]{Tao_2022} for $T_{3,c}$, normalised in the same way, the same holds for $\mathbf L_y$ with $m_0$ in place of $m_1$. It remains to compare $S_{m_0}$ and $S_{m_1}$. For $N\in\mathbb Z/3^{m_0}\mathbb Z$ put $C(N)=\sum_{M\in E',\,M\equiv N\ (3^{m_0})}3^{m_0}/M$. The argument of \cite[Step~3 in the proof of Proposition~3.5]{GGM_2025}, with $n=2m_0$, gives $C(N)\ll1$ uniformly in $N$. Hence, uniformly in $E$,
+\[
+ \begin{aligned}
+ \bigl|S_{m_0}(E)-S_{m_1}(E)\bigr|
+ &\le\sum_{N\in\mathbb Z/3^{m_0}\mathbb Z}\Bigl|p_{m_0}(N)-3^{m_1-m_0}p_{m_1}(N\bmod3^{m_1})\Bigr|\,C(N)\\
+ &\ll\operatorname{Osc}_{m_1,m_0}\bigl(p_{m_0}(N)\bigr)_N\ll_Am_1^{-A}
+ \end{aligned}
+\]
+by \cite[Proposition~1.14]{Tao_2022}, which holds for $c\cdot\mathbf{Syrac}$ by the transfer. As $m_1\asymp\log^{0.4}x$, the two normalised profiles differ by $O(\log^{-c'}x)$, and \eqref{eq:two-laws-tv} follows.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:natural}]
+For $3\mid c$ we reduce to $c'=c/3$ as in Step~0 of the proof of Theorem~\ref{thm:logdens}: an odd $n$ lies in $A$ if and only if $(n+c')/2$ lies in $A'=\{m:3m\in A\}$, and $n\mapsto(n+c')/2$ maps the odd integers below $Y$ onto the integers in $[(1+c')/2,(Y+c')/2)$, so that a natural density of $A'$ gives one of the odd part of $A$. Let now $3\nmid c$. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$, so that $\mathbf U_y$ is uniform on the odd integers in $[N^{1/\alpha},N]$. By~\eqref{eq:passage} for $\mathbf U_y$ and for $\mathbf L_y$, by \eqref{eq:two-laws-hit}, by \cite[(1.19)]{Tao_2022} for $T_{3,c}$ and by \eqref{eq:two-laws-tv} with $E=A_1\cap[1,x]$,
+\[
+ \bigl|\mathbb P(\mathbf U_y\in A_1)-\mathbb P(\mathbf L_y\in A_1)\bigr|\ll(\log x)^{-c'}.
+\]
+As in the proof of Corollary~\ref{cor:natural}, $\mathbb P(\mathbf L_y\in A_1)\to\delta(A)$, the odd integers below $N^{1/\alpha}$ are a proportion $O(N^{1/\alpha-1})$ of those below $N$, and the sets $\{2^km:m\text{ odd}\}$ carry the same relative density. Hence $A$ has the natural density $\delta(A)$.
+
+For a predecessor set $P(a)$, $3\nmid c$, the same argument applies to $A_1=P(a)\cap(2\N+1)$. The first-passage invariance~\eqref{eq:passage} now fails only on the event $\operatorname{Pass}_x=a'$, with $a'$ the odd part of $a$, as in the proof of Proposition~\ref{prop:potential}(a). Its probability under $\mathbf U_y$ is at most its probability under $\mathbf L_y$ plus $O(\log^{-c'}x)$ by~\eqref{eq:two-laws-tv}. Under $\mathbf L_y$ it is $O(\log^{-c'}x)$, because \cite[(5.12)--(5.15)]{Tao_2022} for $T_{3,c}$ give $\operatorname{Pass}_x(\mathbf L_y)\ge x\exp(-O(\log^{0.6}x))>a'$ outside an event of that probability. The numbers $2^ia$ form a set of natural density $0$. Hence $P(a)$ has the natural density $h(a)$.
+\end{proof}
 
 \newpage
 \bibliographystyle{unsrt}
