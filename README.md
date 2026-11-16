@@ -1,47 +1,516 @@
-# Collatz Sequences: Manuscripts and Computational Explorations
+# 07 Basins of Attraction
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/) [![Latest preprint](https://img.shields.io/badge/Latest-Preprints.org%202026-orange)](https://www.preprints.org/manuscript/202610.2552)
+[![Preprint](https://img.shields.io/badge/Preprints.org-202610.2552-orange)](https://www.preprints.org/manuscript/202610.2552)
+[![DOI](https://img.shields.io/badge/DOI-10.20944%2Fpreprints202610.2552.v1-blue)](https://doi.org/10.20944/preprints202610.2552.v1)
+[![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository collects the manuscripts (TeX) and the computational investigations (C/C++, Python, Mathematica, Blender) of our work on the Collatz problem and its generalizations. Every numbered folder is a self-contained subproject; where a subproject has its own README, it contains the paper reference, build instructions and results.
+> **Paper:** E. Sultanow, *Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps*. Preprints (2026), [doi:10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1).
+> **Read it on [Preprints.org](https://www.preprints.org/manuscript/202610.2552).** The code in this folder reproduces all computations of the paper.
 
-## Subprojects
+Same local trees, different forests. This section studies maps of the form
 
-| #  | subproject | topic | paper | sources |
-|----|------------|-------|-------|---------|
-| 01 | [**Graph Theory**](01%20Graph%20Theory) | The inverted Collatz tree: reachability, cycles, binary and ternary trees. The open book where the project started. | [publish.UP 2020](https://doi.org/10.25932/publishup-48214) | TeX · C · Python · Mathematica |
-| 02 | [**Divisions by Two**](02%20Divisions%20by%20Two) | Bounds for the number of divisions by two in a sequence, with a data-science approach | [OPUS 2020](https://doi.org/10.34646/thn/ohmdok-620) · [IJPMS 2020 (PDF)](02%20Divisions%20by%20Two/IJPMS.21.1.pdf) | TeX |
-| 03 | [**Engel Expansion**](03%20Engel%20Expansion) | Engel expansions as worst-case sequences that maximize the product $\prod_i (1+\frac{1}{3v_i})$ | working draft | TeX · Python · Mathematica |
-| 04 | [**Cycles**](04%20Cycles) | Parity vectors, rotating binaries and $3n+c$ cycles; Arty's cycle search, Darrell Cox's experiments | [AppliedMath 2022](https://doi.org/10.3390/appliedmath2010005) · [arXiv](https://arxiv.org/abs/2107.08363) | C · C++ · Python · Mathematica |
-| 05 | [**Feather**](05%20Feather) | 3D renderings of the Collatz tree, the "Collatz feather" | – | Python · Blender |
-| 06 | [**Collatz L-System**](06%20Collatz%20L-System) | Visualizing the Collatz feather as an L-system (master's thesis of Max Henkel) | thesis | Python · Blender · Mathematica |
-| 07 | [**Basins of Attraction**](07%20Basins%20of%20Attraction) | Cycles and basins of attraction of the maps $T_{q,c}$: $3x+1$ is conjectured to have one basin, $3x-1$ has three, $3x+5$ six | [Preprints.org 2026](https://doi.org/10.20944/preprints202610.2552.v1) | C · Python · SLURM · TeX |
-| 99 | [**Construction Zone**](99%20Construction%20Zone) | Early drafts, e.g. a 2-adic (binary) view of Collatz sequences | – | TeX |
+$$T_{q,c}(x)=\begin{cases}(qx+c)/2 & x \text{ odd},\\ x/2 & x \text{ even},\end{cases}\qquad q,c \text{ odd},$$
 
-## Publications
+which include the Collatz map ($q=3$, $c=1$), its mirror $3x-1$ ($c=-1$, i.e. $3x+1$ on the negative integers), the maps $3x+d$ and Crandall's $qx+1$. Locally, all of them generate predecessor trees with the same congruence-class statistics. Globally, they differ: $3x+1$ is conjectured to have a single tree (basin), $3x-1$ has three, and $3x+5$ has six.
 
-Newest first. The folder column shows where the sources and the code live.
+Four programs make the global side computable:
 
-| date    | publication | folder |
-|---------|-------------|--------|
-| 10/2026 | E. Sultanow: *Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps*. Preprints (2026), [doi:10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1) | [07](07%20Basins%20of%20Attraction) |
-| 02/2022 | A. Gupta, I. J. Aberkane, S. Ghosh, A. Abold, A. Rahn, E. Sultanow: *Rotating Binaries*. AppliedMath 2 (2022), 104–117, [doi:10.3390/appliedmath2010005](https://doi.org/10.3390/appliedmath2010005); preprint [arXiv:2107.08363](https://arxiv.org/abs/2107.08363) | [04](04%20Cycles) |
-| 08/2021 | A. Rahn, E. Sultanow, M. Henkel, S. Ghosh, I. J. Aberkane: *An Algorithm for Linearizing the Collatz Convergence*. Mathematics 9 (2021), 1898, [doi:10.3390/math9161898](https://doi.org/10.3390/math9161898) | [01](01%20Graph%20Theory) |
-| 2021    | D. Cox, S. Ghosh, E. Sultanow: *Generalizing Halbeisen's and Hungerbühler's optimal bounds for the length of Collatz cycles to 3n+c cycles*. Journal of Mathematics and Computer Science 24 (2021), 330–337, [doi:10.22436/jmcs.024.04.05](https://doi.org/10.22436/jmcs.024.04.05); preprint [arXiv:2101.04067](https://arxiv.org/abs/2101.04067) | [04](04%20Cycles) |
-| 11/2020 | E. Sultanow, C. Koch, S. Cox: *Collatz Sequences in the Light of Graph Theory* (Fifth Version). University of Potsdam, [doi:10.25932/publishup-48214](https://doi.org/10.25932/publishup-48214) | [01](01%20Graph%20Theory) |
-| 11/2020 | C. Koch, E. Sultanow, S. Cox: *Divisions by Two in Collatz Sequences: A Data Science Approach*. International Journal of Pure Mathematical Sciences 21 (2020), 1–13, doi:10.18052/www.scipress.com/IJPMS.21.1, [PDF](02%20Divisions%20by%20Two/IJPMS.21.1.pdf) | [02](02%20Divisions%20by%20Two) |
-| 05/2020 | C. Koch, E. Sultanow, S. Cox: *Divisions by Two in Collatz Sequences: A Data Science Approach* (2nd ed.). Working Paper, TH Nürnberg, [doi:10.34646/thn/ohmdok-620](https://doi.org/10.34646/thn/ohmdok-620) | [02](02%20Divisions%20by%20Two) |
-| 12/2017 | E. Sultanow, D. Volkov, S. Cox: *Introducing a Finite State Machine for Processing Collatz Sequences*. International Journal of Pure Mathematical Sciences 19 (2017), 10–19, doi:10.18052/www.scipress.com/IJPMS.19.10, [PDF](01%20Graph%20Theory/IJPMS.19.10.pdf) | predecessor of [01](01%20Graph%20Theory) |
+* `census_all` lists, in **one pass** over all parity words, the primitive cycles of **all** maps $3x+c$ with $|c| \le$ `DMAX` (Lagarias' rational cycles of $3x+1$ with denominator at most `DMAX`).
+* `census` does the same for a single map $T_{q,c}$.
+* `basin` measures how the positive integers split into the **basins of attraction** of these cycles.
+* `passage` samples the basin shares **far beyond enumeration** (windows up to $10^{220}$). It follows each orbit to its first passage below a table bound; a basin is not changed by first passage (Theorem 1 of the paper, version 2).
 
-## Layout
+The code accompanies the paper [*Same Shadows, Different Forests*](https://www.preprints.org/manuscript/202610.2552) (LaTeX sources in [docs](docs)). The rotating-binaries background is in [04 Cycles](../04%20Cycles) (notebooks `eldar_parityvector_k1.ipynb` and `eldar_rotate.ipynb`); a brute-force search over many $q$ is Arty's program in [04 Cycles/CPP](../04%20Cycles/CPP).
 
-Within a subproject, the sources are sorted by language: `TeX/` for manuscripts, `C/`, `CPP/`, `Python/` (scripts and `notebook/`), `Mathematica/` and `blender/`. Subprojects with a reproducible pipeline (currently 07) also have `docs/`, `results/` and SLURM templates.
+## Paper
 
-## Connect with us
+**Same Shadows, Different Forests: Local Predecessor Structure and Global Dynamics of Collatz-Type Maps**
+Eldar Sultanow · Preprints.org, version 1, posted 26 October 2026 (not peer-reviewed)
 
-We are on [ResearchGate](https://www.researchgate.net/project/Collatz-Conjecture-4) and open for any question and collaboration. Issues and pull requests are welcome.
+**[Preprints.org](https://www.preprints.org/manuscript/202610.2552)** · [DOI 10.20944/preprints202610.2552.v1](https://doi.org/10.20944/preprints202610.2552.v1)
 
-## License
+Working draft of version 2, *Same Shadows, Different Forests: Cycles and Basin Densities of Collatz-Type Maps*: [PDF](docs/main.pdf) · [LaTeX sources](docs)
 
-[![CC BY 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+#### Citation
+
+```bibtex
+@article{sultanow2026shadows,
+  title   = {Same Shadows, Different Forests: Local Predecessor Structure
+             and Global Dynamics of Collatz-Type Maps},
+  author  = {Sultanow, Eldar},
+  journal = {Preprints},
+  year    = {2026},
+  month   = oct,
+  doi     = {10.20944/preprints202610.2552.v1},
+  url     = {https://www.preprints.org/manuscript/202610.2552}
+}
+```
+
+## Structure
+
+```
+07 Basins of Attraction/
+├── README.md
+├── docs/                      working paper (LaTeX sources and PDF)
+├── figures/                   scripts for the two figures of the paper
+├── oeis/                      cross-check of the census with OEIS A226607
+├── C/
+│   ├── census_all.c           all maps 3x+c, |c| <= DMAX, in one pass (Run A)
+│   ├── census.c               cycle census for a single map
+│   ├── basin.c                basin counts for given cycles (Run B)
+│   ├── passage.c              basin shares far beyond enumeration, via first passage (Run C)
+│   ├── merge_census_all.py    merge census_all shards into one CSV
+│   ├── cycles_for_map.py      cycles of one map from that CSV (input for basin)
+│   ├── merge_census.py        merge census outputs
+│   ├── merge_basin.py         merge basin outputs, window shares
+│   ├── merge_passage.py       merge passage outputs, pooled shares, replicate check
+│   ├── local_structure.py     residue classes of 3x+1 and 3x-1 (Tables 2 and 3)
+│   ├── landscape.py           basin landscape of all maps 3x+c, c <= 400 (Run D)
+│   ├── residue_flatness.py    basin shares conditional on residue classes (Run E)
+│   ├── backward_mass.c        harmonic mass of the backward tree of a cycle (Run F)
+│   ├── predictor_eval.py      backward-mass predictor vs. measured basin shares (Run F)
+│   ├── cosets.py              cosets of <2,3> mod c against the measured shares (Prop. 6)
+│   ├── potential.c            predecessor counts for all targets a <= A at once (Run G)
+│   ├── potential_report.py    identities of the predecessor potential, mean value, Syracuse profile
+│   ├── orbit_profile.c        the same means at large scales from random orbits (Run H)
+│   ├── orbit_profile_report.py  decade means and Syracuse profile of Run H
+│   ├── tail_check.c           first-passage mass Phi_X/X: actual orbits vs. random-walk model (Run I)
+│   ├── tail_fallback.py       exact big-integer values for the starts that leave 128 bits (Run I)
+│   ├── tail_grid.sh           all configurations of Run I and the report
+│   ├── tail_report.py         actual vs. model: moments, tail probabilities, z-scores (Run I)
+│   ├── Makefile               make (incl. backward_mass, potential, tail_check), make test, make passage,
+│   │                          make test-passage, make test-potential, make test-tail
+│   ├── tests/                 independent reference and self-tests
+│   └── slurm/
+│       ├── census_all_array.sbatch
+│       ├── census_array.sbatch
+│       ├── basin_array.sbatch
+│       ├── submit_basins.sh
+│       ├── passage_array.sbatch
+│       ├── passage_configs.txt
+│       ├── landscape_configs.txt
+│       ├── residue_configs.txt
+│       ├── residue9_configs.txt
+│       ├── backward_mass_array.sbatch
+│       ├── potential_array.sbatch
+│       └── potential_configs.txt
+└── results/                   census outputs, rational cycle list, basin counts
+    ├── passage/               sampled basin shares (Run C)
+    └── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
+```
+
+## Background
+
+A parity word $B=b_0b_1\cdots b_{l-1}$ with $k$ ones has *type* $(l,k)$. With $D=2^l-q^k$ and
+
+$$z_q(B)=\sum_{j=1}^{k} q^{\,k-j}\,2^{p_j}\qquad(p_1<\dots<p_k \text{ the positions of the ones, position } 0 = \text{first step}),$$
+
+the number $x_B=c\,z_q(B)/D$ is the unique periodic point with parity sequence $BBB\cdots$. It is a positive integer if and only if $D \mid c\,z_q(B)$ and $c\,D>0$, and the rotations of $B$ give the other members of the cycle (Böhm–Sontacchi 1978, Lagarias 1990). Enumerating all words therefore yields a complete list of cycles up to a given word length.
+
+#### compile
+
+```console
+cd "07 Basins of Attraction/C"
+make
+```
+
+or directly `gcc -O2 -o census census.c -lm` and `gcc -O2 -o basin basin.c`. Both programs need `__int128` (GCC or Clang on 64 bit). `passage` also needs GMP and MPFR and has its own targets: `make passage` (with `GMP_PREFIX=/path/to/env` if GMP and MPFR come from a conda env with `gmp` and `mpfr`) and `make test-passage`.
+
+## census
+
+#### run
+
+```console
+./census q c Lmax [Lmin [s i]]
+```
+
+#### parameters
+
+* `q`, `c`: odd integers; `c` may be negative (`3 -1` is the $3x-1$ map).
+* `Lmax`, `Lmin`: range of word lengths (default `Lmin = 1`, at most 62).
+* `s`, `i`: sharding. Only words whose first `s` bits equal `i` are tested ($0 \le i < 2^s$); lengths `l <= s` are handled by shard 0. The shards $0,\dots,2^s-1$ together cover every word exactly once.
+
+#### output
+
+One header line, then one line per cycle: smallest member, type $(l,k)$, $D$ and the parity word starting at the smallest member.
+
+```console
+$ ./census 3 5 22
+q=3 c=5 Lmin=1 Lmax=22 shard=0/1 words=7286490 cycles=4
+min=5 l=2 k=1 D=1 word=10
+min=1 l=3 k=1 D=5 word=100
+min=19 l=5 k=3 D=5 word=11100
+min=23 l=5 k=3 D=5 word=11010
+```
+
+A cycle with primitive word length $l_0$ reappears at $2l_0, 3l_0,\dots$; `merge_census.py` keeps the smallest length per cycle:
+
+```console
+python3 merge_census.py out/census_q3_c5_*.txt
+```
+
+#### cost
+
+For $3x+c$ with $c>0$, all words up to $L=30$ are about $2\cdot10^9$ words and take about 2.5 minutes on one core. Every further unit of $L$ doubles the work. With 512 shards on a cluster, $L\approx 40$ takes minutes and $L\approx 45$ hours per map. For $c<0$ the 128-bit arithmetic limits $L$ to about 48 (the program stops with a message).
+
+## census_all
+
+#### run
+
+```console
+./census_all q DMAX Lmax [Lmin [s i]]
+```
+
+#### parameters
+
+* `q`: odd, at least 3.
+* `DMAX`: largest $|c_0|$ to report.
+* `Lmax`, `Lmin`, `s`, `i`: word lengths and sharding as for `census`.
+
+#### how it works
+
+For a word $B$ the periodic point of $T_{q,c}$ is $c\,z_q(B)/D$. Let $d_0$ be the denominator of $z_q(B)/D$ in lowest terms. Then $B$ gives a positive integer cycle exactly for $c=\mathrm{sign}(D)\,m\,d_0$ with $m$ odd, and these cycles are $m$ times the *primitive* cycle of $c_0=\mathrm{sign}(D)\,d_0$. The denominator is found by a continued-fraction expansion that stops as soon as it exceeds `DMAX`. Each primitive cycle is printed exactly once, by the rotation of its word that starts at the smallest member.
+
+#### output
+
+```console
+$ ./census_all 3 1000 28 > a.txt && python3 merge_census_all.py a.txt > cycles.csv
+files=1 words=536870882 cycles=900 mismatches=0
+$ head -6 cycles.csv
+c,min,l,k,D,word
+1,1,2,1,1,10
+-1,1,1,1,-1,1
+-1,5,3,2,-1,110
+-1,17,11,7,-139,11110111000
+5,1,3,1,5,100
+```
+
+The cycles of one map, e.g. $3x+5$ (input for `basin`):
+
+```console
+$ python3 cycles_for_map.py cycles.csv 5
+1 5 19 23 187 347
+```
+
+#### cost
+
+About 130 ns per word on one core. All words up to $L=28$ take 71 seconds. On 384 cores, $L=40$ takes about 15 minutes and $L=44$ about 3.5 hours.
+
+#### verification
+
+`make test` compares `census_all` with an independent implementation in exact rational arithmetic (`tests/ref_census.py`), checks that 16 shards reproduce a full run, compares with `census` for single maps, and checks that the cache size of `basin` does not change any count. The output field `mismatches` (parity check of every printed cycle) must be 0.
+
+## basin
+
+#### run
+
+```console
+./basin [-w] q c start end cache m1 [m2 ...]
+```
+
+#### parameters
+
+* `-w`: additionally report the counts per dyadic window $[2^j, 2^{j+1})$.
+
+* `q`, `c`: as above.
+* `start`, `end`: range $[start, end)$ of starting values.
+* `cache`: size of the label cache $1,\dots,cache$ (one byte per number). Orbits of $n > cache$ are followed until they drop to at most `cache`. The cache is enlarged automatically to the largest cycle member.
+* `m1 m2 ...`: smallest members of the known cycles, e.g. from `cycles_for_map.py`.
+
+Orbits that exceed $2^{120}$ or $10^6$ steps are counted as `unlabeled` (candidates for divergence or for an unknown cycle; for $5x+1$ this is the majority). For $c \le -3$ orbits can leave the positive integers ($3x-5$ maps $1$ to $-1$); such starting values are counted as `escaped`.
+
+#### output
+
+```console
+$ ./basin 3 -1 1 100000000 1000000 1 5 17
+start=1 end=100000000 cache=1000000 unlabeled=0 escaped=0
+m=1 count=32697317 share=0.326973
+m=5 count=32470805 share=0.324708
+m=17 count=34831877 share=0.348319
+```
+
+Counts of several ranges add up; `merge_basin.py` merges them. With `-w` it also prints the share of every basin per dyadic window and their mean over the complete windows with $j \ge 10$ (an estimate of the logarithmic density), and `--csv` writes the window counts:
+
+```console
+python3 merge_basin.py out/basin_q3_c-1_*.txt --csv ../results/basin_q3_c-1_windows.csv
+```
+
+#### cost
+
+About 23 seconds for $n < 10^8$ with a cache of $10^6$ on one core. A run up to $10^{12}$ with 384 array tasks and a cache of $10^9$ (1 GB per task) is a matter of minutes to hours.
+
+## passage
+
+#### run
+
+```console
+./passage c log10y alpha mode nsamples seed [B]
+```
+
+#### parameters
+
+* `c`: odd, at least $-1$ (the map $3x+c$).
+* `log10y`, `alpha`: the window $[y, y^\alpha]$ with $y=10^{\texttt{log10y}}$, e.g. `100 1.1` for $[10^{100}, 10^{110}]$.
+* `mode`: `log` draws odd starting values with probability proportional to $1/N$, `unif` draws them uniformly (natural counting), `exact` enumerates a small window completely (for validation).
+* `nsamples`, `seed`: number of starting values and seed of the random generator.
+* `B`: table bound (default $10^7$). All odd $m<B$ are labelled with their cycle first.
+* `m K` (optional): residue sweep. The starting values are drawn from $K$ residue classes $r \bmod m$, `nsamples` in each (all admissible classes if $K=0$ or $K$ is at least their number; for even $m$ only odd $r$). Two fields `m,r` are appended to every output line.
+
+#### how it works
+
+Each orbit is followed with GMP integers until it first drops below `B`; the basin of that point is read from the table. By basin invariance under first passage (Step 2 of the proof of Theorem 1 of the paper), this is the basin of the starting value. Cycles whose members all exceed `B` are detected on the fly with Brent's algorithm, reported on stderr and counted like the others. The logarithmic shares estimate the window probabilities of Remark 5, which converge to the logarithmic basin densities; the uniform shares estimate natural counting on the same window.
+
+#### output
+
+One CSV line per cycle: `c,log10y,alpha,mode,seed,n,cycle_min,count,share` (`cycle_min = -1`: orbits not resolved within $10^7$ steps). For example:
+
+```console
+$ ./passage 5 100 1.1 log 100000 1
+5,100,1.1,log,1,100000,1,14000,0.1400000000
+5,100,1.1,log,1,100000,19,49847,0.4984700000
+5,100,1.1,log,1,100000,5,19945,0.1994500000
+5,100,1.1,log,1,100000,23,9182,0.0918200000
+5,100,1.1,log,1,100000,187,3299,0.0329900000
+5,100,1.1,log,1,100000,347,3727,0.0372700000
+5,100,1.1,log,1,100000,-1,0,0.0000000000
+```
+
+`merge_passage.py` adds the counts of all replicates and prints shares, standard errors, $z$-scores against Table 6, homogeneity tests across the scales, and the comparison of both counting modes. `--pool 20` prints the shares pooled over the windows from $10^{20}$ on (Table 7 of the paper) together with the statistics quoted with it in the paper (deviations from $d_{10^{10}}$, between the counting modes and of single windows, homogeneity across the windows); `--replicates` checks that the replicates of each configuration scatter like independent binomial samples. It also reads its own summary CSV, so Table 7 can be reproduced from `results/passage/passage_shares.csv`:
+
+```console
+python3 merge_passage.py ../results/passage/passage_shares.csv --pool 20
+```
+
+#### cost
+
+About 3 µs per starting value at $10^{10}$, 25–35 µs at $10^{100}$ and 75 µs at $10^{200}$ on one core.
+
+#### verification
+
+`make test-passage` compares the sampled shares with an exact enumeration of the window $[10^6, 10^{6.6}]$ for both counting modes, repeats the test with a small table bound (so that every orbit has to pass), and compares the GMP path with an independent Python implementation at $[10^{40}, 10^{44}]$. The cycles through 5 of $3x+5$ and through 13 of $3x+13$ consist of the multiples of 5 and 13 and serve as controls of the sampler (shares $1/5$ and $1/13$).
+
+## potential
+
+Predecessor counts $\pi_a(N)=\#\{n\le N:\ a \text{ lies on the orbit of } n\}$ for **all** targets $a\le A$ at once (Run G). They estimate the predecessor potential $h(a)$ of Proposition 8 of the paper, the density of the starting values whose orbit reaches $a$.
+
+#### run
+
+```console
+make potential
+OMP_NUM_THREADS=32 ./potential 5 10000000000 1000000 potential_c5.csv
+python3 potential_report.py potential_c5.csv
+```
+
+#### parameters
+
+`potential C N A OUT.csv`: map $3x+c$ ($c$ odd, $c\ge-1$), starting values $1\le n\le N$, targets $1\le a\le A$.
+
+#### how it works
+
+For $n$ let $f(n)$ be the first iterate below $n$. The orbit of a starting value is the concatenation of the orbit segments between the successive stopping points $n>f(n)>f(f(n))>\dots$, and a segment that starts at $n$ only contains values $\ge n$. One descending pass computes $W(n)=1+\sum_{f(n')=n}W(n')$, the number of starting values whose chain of stopping points passes through $n$; then $\pi_a(N)$ is the sum of $W(n)$ over the $n\le a$ whose segment contains $a$. Periodic targets are counted once, at the end of the chain. No orbit is followed twice.
+
+#### output
+
+One line `a,count,cycle_min` per target; `cycle_min` is the minimum of the cycle if `a` is periodic, else 0. `potential_report.py` verifies, as exact integer identities, the flow identity $\pi_a=[a\le N]+\pi_{2a}+\pi_{(2a-c)/3}$ for all non-periodic $a\le A/2$, the doubling chains of the multiples of 3, and the level identity (basin = cycle + predecessor sets of its entry points). It prints the basin shares, the mean value of $a\,h(a)$ against $2/\log(4/3)$, and the means over the residue classes modulo 3, 9, 27 and 81 against the law of Tao's Syracuse random variable, $\frac{2}{\log(4/3)}\,3^n\,\mathbb P(c\cdot\mathrm{Syrac}(\mathbb Z/3^n\mathbb Z)=r)$.
+
+#### cost
+
+8 bytes per starting value (80 GB for $N=10^{10}$); about 2 s per $10^8$ starting values on one core.
+
+#### verification
+
+`make test-potential` compares the counts of all targets with a brute-force reference (`tests/ref_potential.py`) for $3x-1$, $3x+1$, $3x+5$, $3x+7$ and $3x+13$, and checks the identities for $3x+5$ up to $2\cdot10^6$. The basin shares of the report reproduce those of `basin` (Table 6) by an independent method.
+
+## orbit_profile
+
+The mean value and the Syracuse profile of the potential for large targets (Run H). The sum of $a\,h(a)$ over a set of targets equals the mean, over the starting values, of the sum of the orbit points in that set. `orbit_profile` therefore follows the orbits of random starting values and collects their points by decade and by the residue class of $a/c$ modulo 81; no counts are stored.
+
+```console
+make orbit_profile
+./orbit_profile 1 10000000 28 1 > orbit_profile_c1.txt     # C S E SEED [KMIN [KPOOL]]
+python3 orbit_profile_report.py orbit_profile_c*.txt
+```
+
+`S` starting values are drawn uniformly from $[10^E, 2\cdot10^E)$ ($E\le30$, 128-bit arithmetic, deterministic generator), the targets lie in the decades $10^{\text{KMIN}}$ to $10^{E-3}$ (default from $10^6$), and the residue classes are pooled over the decades from $10^{\text{KPOOL}}$ (default $10^9$). About one minute per $10^7$ starting values on one core. The report compares the decade means with $2/\log(4/3)$ and the class means modulo 3, 9, 27 and 81 with the law of Tao's Syracuse random variable (Conjecture 1 of the paper). The results in `results/potential/` use $S=10^7$, $E=28$ and the seeds 1, 2, 3, 4 for $c=1,-1,5,13$.
+
+## tail_check
+
+The distribution of the first-passage mass $\Phi_X/X$ (Run I; Proposition 13 and Remark 9 of the paper). For an odd start $m$, $\Phi_X(m)$ is the sum of the orbit points in the window $W_X=(X^{1-\beta},X]$ in the Syracuse blocks up to the first odd iterate $\le X_1=X^{1-2\beta}$. Proposition 13 proves, conditional on the lemmas of Appendix B, that $\Phi_X/X$ has an exponential tail up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$; Run I compares the actual distribution with the random-walk model of Lemma 5.
+
+```console
+make tail_check
+./tail_check 1 30 0.05 4000000 1 actual > a.raw 2> a.ovf    # C LOG10X BETA S SEED actual|model
+python3 tail_fallback.py a.raw a.ovf > a.txt
+./tail_check 1 30 0.05 4000000 2 model > m.txt
+bash tail_grid.sh                                            # all of Run I -> ../results/tail/report_I.txt
+```
+
+Starts are odd and logarithmically distributed in $[X^{1+\beta},X^{(1+\beta)^2}]$, the window used in the proofs. `actual` follows the orbit in 128-bit arithmetic; starts whose orbit exceeds $2^{125}$ are written to stderr (`OVF n`) and `tail_fallback.py` recomputes them exactly with Python integers. `model` runs the random walk $D_j=\sum_{t\le j}(g_t\log2-\log3)$ with geometric $g_t$. Output: mean, second moment and maximum of $\Phi_X/X$, and the counts of $\Phi_X/X>s$ for $s=1,\dots,60$. `tail_report.py DIR` compares actual and model (moments, fitted exponential tail rate, $z$-scores of the tail probabilities). `make test-tail` checks `actual`, `model` and the independent big-integer reference `tests/ref_tail.py` against each other.
+
+The results in `results/tail/` cover $c\in\{1,-1,5\}$, $X\in\{10^{12},10^{20},10^{30}\}$, $\beta\in\{0.05,0.005\}$ with $4\cdot10^6$ starts each ($2\cdot10^7$ for $c=1$, $X=10^{30}$, $\beta=0.05$). Actual and model agree in all 18 configurations ($|z|\le2.1$); for $\beta=0.05$ and $X\ge10^{20}$ the tail decays like $e^{-0.21\Lambda}$, and the largest value is $\Phi_X/X=87.9$. Samples of this size cannot see the exceptional set of Proposition 13, which is what remains open (Remark 9).
+
+## Pipeline example: 3x+5
+
+```console
+./census 3 5 30                                   # cycles with word length <= 30
+./basin 3 5 1 1000000000 100000000 1 5 19 23 187 347
+```
+
+## Cluster (SLURM)
+
+The templates in `C/slurm` run one shard or range per array task; adjust partition, time and memory to your cluster.
+
+**Run A** – all primitive cycles with $|c_0| \le 1000$, word length up to 40 (then 44):
+
+```console
+cd "07 Basins of Attraction/C" && make && make test && mkdir -p logs out
+Q=3 DMAX=1000 LMAX=40 sbatch --export=ALL slurm/census_all_array.sbatch
+python3 merge_census_all.py out/census_all_q3_d1000_L1-40_*.txt > ../results/rational_cycles_q3_d1000_L40.csv
+```
+
+**Run B** – basins of $3x-1$ and all $3x+c$, $0 < c \le 50$, $\gcd(c,6)=1$ (18 maps) up to $N=10^{11}$, with window output. The cycle lists come from Run A:
+
+```console
+CSV=../results/rational_cycles_q3_d1000_L40.csv N=100000000000 slurm/submit_basins.sh
+python3 merge_basin.py out/basin_q3_c5_N100000000000_*.txt --csv ../results/basin_q3_c5_windows.csv
+```
+
+`unlabeled` must be 0 for every map; otherwise the map has a cycle with a longer word, which is a result in itself. The columns $n\le10^6$ and $n\le10^8$ of Table 6 come from single runs, e.g. for $3x+5$:
+
+```console
+./basin 3 5 1 1000001 1000000 1 5 19 23 187 347 > out/b6.txt && python3 merge_basin.py out/b6.txt > ../results/basin_q3_c5_N1e6.txt
+./basin 3 5 1 100000001 1000000 1 5 19 23 187 347 > out/b8.txt && python3 merge_basin.py out/b8.txt > ../results/basin_q3_c5_N1e8.txt
+```
+
+**Run C** – basin shares of $3x-1$, $3x+5$ and $3x+13$ in the windows $[10^y, 10^{1.1y}]$, $y = 10, 20, 50, 100, 200$, with $10^8$ logarithmic and $10^8$ uniform starting values per window (30 configurations in `slurm/passage_configs.txt`, 10 replicates each):
+
+```console
+make passage && make test-passage && mkdir -p logs out
+sbatch --array=0-299 --export=ALL slurm/passage_array.sbatch
+python3 merge_passage.py out/passage_*.csv --csv ../results/passage/passage_shares.csv --pool 20 --replicates > ../results/passage/report.txt
+tar czf ../results/passage/runC_raw.tar.gz out/passage_*.csv     # raw outputs, needed for --replicates
+```
+
+**Run D** – basin landscape: all 133 maps $3x+c$ with $1 \le c \le 400$ and $\gcd(c,6)=1$, window $[10^{30}, 10^{33}]$, $5\cdot 10^7$ logarithmic starting values per map. `landscape.py` describes every cycle by its parity word, checks the gcd classes against Proposition 5 and cross-checks the cycles with $l \le 40$ against the census; `fig3_landscape.py` draws the landscape and prints rank correlations between the shares and simple features of the cycles:
+
+```console
+CONFIGS=slurm/landscape_configs.txt REPS=5 OUTDIR=out_landscape sbatch --array=0-664 --export=ALL slurm/passage_array.sbatch
+mkdir -p ../results/landscape
+python3 landscape.py out_landscape/passage_*.csv --csv ../results/landscape/landscape_shares.csv > ../results/landscape/report.txt
+python3 ../figures/fig3_landscape.py ../results/landscape/landscape_shares.csv ../docs/fig3_landscape.pdf
+tar czf ../results/landscape/runD_raw.tar.gz out_landscape/passage_*.csv
+```
+
+**Run E** – basin shares conditional on residue classes $r \bmod 2^k$ ($k = 4, \dots, 30$) and $r \bmod 3^j$ ($j = 1, \dots, 12$) for $3x-1$, $3x+5$ and $3x+13$, $10^6$ starting values in each of up to 64 classes; the classes mod 5 for $3x+5$ and mod 13 for $3x+13$ are positive controls (the multiples of 5 and 13 form a basin of their own). `residue_flatness.py` tests per map and modulus whether the class shares agree:
+
+```console
+CONFIGS=slurm/residue_configs.txt REPS=1 OUTDIR=out_residue sbatch --array=0-37 --export=ALL slurm/passage_array.sbatch
+mkdir -p ../results/residue
+python3 residue_flatness.py out_residue/passage_*.csv --csv ../results/residue/residue_classes.csv > ../results/residue/report.txt
+tar czf ../results/residue/runE_raw.tar.gz out_residue/passage_*.csv
+```
+
+**Run E2** – targeted repetition of the classes mod 9 (and mod 27 for $3x+13$) with $10^7$ starting values per class, as 10 replicates:
+
+```console
+CONFIGS=slurm/residue9_configs.txt REPS=10 OUTDIR=out_residue9 sbatch --array=0-39 --export=ALL slurm/passage_array.sbatch
+python3 residue_flatness.py out_residue9/passage_*.csv --csv ../results/residue/residue9_classes.csv > ../results/residue/report_mod9.txt
+tar czf ../results/residue/runE2_raw.tar.gz out_residue9/passage_*.csv
+```
+
+**Run F** – a predictor of the basin shares from the cycle alone. `backward_mass` walks the backward tree of a cycle depth first (predecessors $2y$ and $(2y-c)/3$; multiples of 3 are not expanded) and records the harmonic mass $\sum 1/x$ of every level, counting only nodes $x \ge c/2$ (below $c/2$ a node has no odd predecessor). `predictor_eval.py` normalises the mean mass of the deepest levels within every map, compares it with the measured shares of Run D and with simple baselines, and with `--sweep` shows the convergence in depth; `fig4_backward_mass.py` plots predicted against measured shares:
+
+```console
+make backward_mass && mkdir -p logs
+python3 predictor_eval.py --list ../results/landscape/landscape_shares.csv > ../results/landscape/primitive_cycles.txt
+sbatch --array=0-409 --export=ALL slurm/backward_mass_array.sbatch
+cat out_mass/bm_*.csv > ../results/landscape/backward_mass_D70.csv
+python3 predictor_eval.py ../results/landscape/landscape_shares.csv ../results/landscape/backward_mass_D70.csv --sweep 10 --csv ../results/landscape/predictions_D70.csv > ../results/landscape/predictor_D70.txt
+python3 ../figures/fig4_backward_mass.py ../results/landscape/predictions_D70.csv ../results/landscape/fig4_backward_mass.pdf
+tar czf ../results/landscape/runF_raw.tar.gz out_mass/bm_*.csv
+python3 cosets.py ../results/landscape/landscape_shares.csv --predictions ../results/landscape/predictions_D70.csv > ../results/landscape/cosets.txt
+```
+
+`cosets.py` checks the multiplicative filtration (Proposition 6 of the paper): for $c$ coprime to 6, $T(n)$ is congruent to $n/2$ or $3n/2$ modulo $c$, so the coset of $n$ modulo the subgroup $\langle 2,3\rangle$ of $(\mathbb Z/c\mathbb Z)^\times$ is constant along every orbit. The script prints the measured share of every coset (it must be $1/[G:H]$), the cycles that are alone in their coset (their share is then exact), and the predictor before and after normalising it within the cosets.
+
+Run G (predecessor potential, Proposition 8): four maps, $N=10^{10}$, targets up to $10^6$; 100 GB and a few minutes per task.
+
+```console
+make potential && mkdir -p logs ../results/potential
+sbatch --array=0-3 --export=ALL slurm/potential_array.sbatch
+python3 potential_report.py out_potential/potential_c*.csv > ../results/potential/report.txt
+tar czf ../results/potential/runG_raw.tar.gz out_potential/potential_c*.csv
+```
+
+## Reproduction map
+
+Which artifact produces which result of the paper (tables and figures as numbered in version 2):
+
+| Result | Artifacts (in `C/` unless noted) | Data |
+|---|---|---|
+| Residue classes mod 18 and 288 of $3x\pm1$, forest density (Table 2, upper rows); members of one class in different trees of $3x-1$ (Table 3); residues mod 13 of the near miss $(8,5)$ | `local_structure.py` | printed |
+| Cycles by binary rotation (Table 4) | `04 Cycles`: `eldar_parityvector_k1.ipynb`, `eldar_rotate.ipynb` | – |
+| Complete cycle lists of single maps (Table 5) | `census.c`, `slurm/census_array.sbatch`, `merge_census.py` | `results/census_q*_L*.txt` |
+| All primitive cycles of $3x+c$, $\lvert c_0\rvert \le 1000$, $l \le 40$ (Run A); census vs. heuristic (Figure 1) | `census_all.c`, `slurm/census_all_array.sbatch`, `merge_census_all.py`; `figures/fig1_cycles_vs_heuristic.py` | `results/rational_cycles_q3_d1000_L40.csv` |
+| Agreement with Belaga, Mignotte and Morley (OEIS A226607) | `oeis/compare_oeis.py` | `oeis/a226607_first1740.txt` |
+| Cycles with longer words ($3x+23$ through 41; $3x+29$ through 3811 and 7055) | `cycles_for_map.py --search 100000` | printed |
+| Basin shares up to $10^6$, $10^8$, $10^{10}$ (Table 6); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv`, `results/runB_N1e10.tar.gz` (raw) |
+| Basin shares far beyond enumeration, natural vs. logarithmic counting (Table 7) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt`, `results/passage/runC_raw.tar.gz` (raw) |
+| Multiplicative filtration (Proposition 6); survey of all maps $3x+c$ with $c \le 400$ (Figure 3) | `passage.c`, `slurm/landscape_configs.txt`, `landscape.py`, `cosets.py`; `figures/fig3_landscape.py` | `results/landscape/landscape_shares.csv`, `cosets.txt`, `correlations.txt`, `runD_raw.tar.gz` (raw) |
+| Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
+| Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Table 9, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
+| Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
+| First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I; Proposition 13, Remark 9) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
+| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`) | – |
+
+## Reference results
+
+**Complete cycle lists** (all positive integer cycles with word length $l \le L$; for the maps $3x+c$ from Run A, for $5x+1$ and $181x+1$ from `census.c`):
+
+| map | $L$ | cycle minima | type $(l,k)$ | $D=2^l-q^k$ |
+|---|---|---|---|---|
+| $3x+1$ | 40 | 1 | (2,1) | 1 |
+| $3x-1$ | 40 | 1 / 5 / 17 | (1,1) / (3,2) / (11,7) | −1 / −1 / −139 |
+| $3x+5$ | 40 | 5 / 1 / 19, 23 / 187, 347 | (2,1) / (3,1) / (5,3) / (27,17) | 1 / 5 / 5 / 5 077 565 |
+| $3x+13$ | 40 | 13 / 1 / 211, 227, 251, 259, 283, 287, 319 / 131 | (2,1) / (4,1) / (8,5) / (24,15) | 1 / 13 / 13 / 2 428 309 |
+| $5x+1$ | 28 | 1 / 13, 17 | (5,2) / (7,3) | 7 / 3 |
+| $181x+1$ | 40 | 27, 35 | (15,2) | 7 |
+
+Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are exactly the seven candidates for a $3x+1$ cycle of that type; they fail because none of their members is divisible by $13 = 2^8-3^5$.
+
+**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$).
+
+**Basin shares** for $n \le 10^{10}$ (Run B; all 18 maps in Figure 2 of the paper, every $n \le 10^{10}$ reaches a known cycle; exact counts in `results/basin_q3_c*_N1e10.txt`, for $3x-1$, $3x+5$, $3x+13$ also up to $10^6$ and $10^8$ in `*_N1e6.txt`, `*_N1e8.txt`):
+
+| map | basins (cycle minimum: share) |
+|---|---|
+| $3x-1$ | 1: 0.32701, 5: 0.32498, 17: 0.34801 |
+| $3x+5$ | 1: 0.14035, 5: 0.20000, 19: 0.49792, 23: 0.09223, 187: 0.03253, 347: 0.03697 |
+| $3x+13$ | 1: 0.47753, 13: 0.07692, 131: 0.25167, 211: 0.03345, 227: 0.01892, 251: 0.01984, 259: 0.03861, 283: 0.02528, 287: 0.04329, 319: 0.01449 |
+
+**Predecessor potential** (Run G, `results/potential/`, Table 8 of the paper): for $3x+1$, $3x-1$, $3x+5$ and $3x+13$, all starting values $n\le10^{10}$ and all targets $a\le10^6$. The flow identity (about $5\cdot10^5$ targets per map), the doubling chains of the multiples of 3 and the level identity of every cycle hold as exact integer identities, and the basin counts reproduce Table 6. The mean of $a\,h(a)$ is 6.85, 6.88, 6.88 and 6.97 against $2/\log(4/3)=6.95$; the class means modulo 9 follow the law of Tao's Syracuse random variable within 2.4 %, with the same six values for all four maps after relabelling the classes by $a/c$, and modulo 81 the median deviation is below 1 % (Conjecture 1). The deviations are an effect of the small targets: for the targets of the decades $10^9$ to $10^{25}$ (Run H, orbits of $10^7$ random starting values near $10^{28}$ per map) the mean is 6.9515, 6.9518, 6.9524 and 6.9518 against 6.9521, the class means modulo 9 agree to four digits, and modulo 81 the largest deviation is 0.12 %.
+
+**Absolute backward-mass predictor** (Run F data, `results/landscape/predictor_D70.txt`, Table 9): over the 410 primitive cycles, measured density / mean level mass has the median 10.41 for the levels 60 to 69 (quartiles 10.15 and 10.86) against the constant $3/\log(4/3)=10.43$ of Conjecture 2; the absolute prediction deviates by 3.0 % in the median, without any normalisation within the maps.
+
+**Basin shares at large scales** (Run C, `results/passage/`, Table 7 of the paper): pooled over the windows $[10^y, 10^{1.1y}]$ with $y = 20, 50, 100, 200$ and both counting modes, $8\cdot 10^8$ starting values per map (standard errors at most $2\cdot 10^{-5}$):
+
+| map | basins (cycle minimum: share) |
+|---|---|
+| $3x-1$ | 1: 0.32691, 5: 0.32503, 17: 0.34807 |
+| $3x+5$ | 1: 0.14042, 5: 0.20000, 19: 0.49790, 23: 0.09218, 187: 0.03255, 347: 0.03696 |
+| $3x+13$ | 1: 0.47751, 13: 0.07693, 131: 0.25167, 211: 0.03344, 227: 0.01892, 251: 0.01985, 259: 0.03862, 283: 0.02527, 287: 0.04333, 319: 0.01447 |
+
+Natural and logarithmic counting agree to within $7\cdot 10^{-5}$. The cumulative shares up to $10^{10}$ still differ from these by up to $10^{-4}$, the size of their own drift between $10^8$ and $10^{10}$.
+
+Basins of multiples of a divisor $e>1$ of $c$ have exactly predictable shares (divisibility filtration, see the paper). Predicting the shares of the cycles coprime to $c$ is an open question.
+
+## References
+
+* C. Böhm, G. Sontacchi: On the existence of cycles of given length in integer sequences like $x_{n+1}=x_n/2$ if $x_n$ even, and $x_{n+1}=3x_n+1$ otherwise. Atti Accad. Naz. Lincei Rend. 64 (1978), 260–264.
+* J. C. Lagarias: The set of rational cycles for the 3x+1 problem. Acta Arithmetica 56 (1990), 33–53.
+* R. P. Steiner: A theorem on the Syracuse problem. Congressus Numerantium 20 (1977), 553–559.
+* J. Simons, B. de Weger: Theoretical and computational bounds for m-cycles of the 3n+1 problem. Acta Arithmetica 117 (2005), 51–70.
+* C. Hercher: There are no Collatz m-cycles with m ≤ 91. Journal of Integer Sequences 26 (2023), Article 23.3.5.
+* A. Gupta, I. J. Aberkane, S. Ghosh, A. Abold, A. Rahn, E. Sultanow: Rotating binaries. AppliedMath 2 (2022), 104–117.

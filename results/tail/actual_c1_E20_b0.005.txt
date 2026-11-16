@@ -1,0 +1,4 @@
+# c=1 log10X=20.0 beta=0.0050 S=4000000 mode=actual overflow_resolved_exactly=0 unresolved=0
+mean 0.56465 second 0.73587 max 7.425
+tail 383236 62153 10390 1732 283 45 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+# overflow starts: 0, their Phi/X: 
