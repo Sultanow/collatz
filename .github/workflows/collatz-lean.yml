@@ -50,6 +50,12 @@ jobs:
       - name: Show the axiom dependencies of each named theorem
         run: lake env lean AxiomAudit.lean
       - name: Kernel / axiom check (Lean 4.35+)
+      - name: Install Bubblewrap
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap
+
+      - name: Kernel verification
         run: lake check
       # Replays the export through the additional checkers bundled with Lean 4.35 as well.
       # Non-blocking until it has passed once; then remove continue-on-error.
