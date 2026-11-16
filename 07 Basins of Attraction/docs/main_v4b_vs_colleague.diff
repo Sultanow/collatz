@@ -1,0 +1,200 @@
+--- colleague/main.tex	2026-11-16 15:07:49.752733569 +0100
++++ v4/main.tex	2026-11-16 15:09:06.510445492 +0100
+@@ -193,16 +193,28 @@
+ basin densities for general $c$, or an exact formula for individual basin
+ shares.
+ 
+-\begin{table}[htbp]
+-\centering
++% A longtable can break across pages; the table is taller than one page.
+ \begingroup
+ \footnotesize
+ \setlength{\tabcolsep}{3pt}
+ \renewcommand{\arraystretch}{1.17}
+-\begin{tabularx}{\textwidth}{@{}P{0.16\textwidth}P{0.24\textwidth}X P{0.17\textwidth}@{}}
++\begin{longtable}{@{}P{0.16\textwidth}P{0.24\textwidth}p{\dimexpr0.43\textwidth-18pt\relax}P{0.17\textwidth}@{}}
++\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
++\label{table:contributions}\\
++\toprule
++\textbf{Topic} & \textbf{Previous foundation} & \textbf{Contribution of this paper} & \textbf{Status} \\
++\midrule
++\endfirsthead
++\multicolumn{4}{@{}l}{\footnotesize\emph{Table \thetable\ (continued)}}\\[3pt]
+ \toprule
+ \textbf{Topic} & \textbf{Previous foundation} & \textbf{Contribution of this paper} & \textbf{Status} \\
+ \midrule
++\endhead
++\midrule
++\multicolumn{4}{r@{}}{\footnotesize Continued on next page}\\
++\endfoot
++\bottomrule
++\endlastfoot
+ Local versus global
+ & Cayley-tree congruences and cotree statistics \cite{Kleinnijenhuis_2026}.
+ & Mirrored local residue tests have the same densities for $3x+1$ and $3x-1$, although the cycle and basin structures differ (Proposition~\ref{prop:local}).
+@@ -253,16 +265,17 @@
+ & Lower bound for residue-class means of $a\,h(a)$ (Theorem~\ref{thm:lower}); the matching upper bound and full profile remain open (Conjecture~\ref{conj:profile}).
+ & \emph{Proof of lower bound; conjecture of equality}. \\
+ \addlinespace[2pt]
++First-passage mass tail
++& Renewal estimates for the model walk (Lemma~\ref{lem:model}) and the transfer of Lemma~\ref{lem:reduction}.
++& Calibration of the clipped mass (Proposition~\ref{prop:clipped-calibration}); exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$, which alone decides $T_X=o(X)$ (Proposition~\ref{prop:tightness}, Corollary~\ref{cor:extreme-tail}).
++& \emph{Proof under the uniformities of Lemmas~\ref{lem:reduction}--\ref{lem:model}; $T_X=o(X)$ open}. \\
++\addlinespace[2pt]
+ Predicting basin shares
+ & Empirical multi-basin shares in \cite{GGM_2025}; no general density formula.
+ & Backward harmonic mass predicts $410$ measured basin shares with a median relative error of about $3\%$ using an explicit, unfitted factor (Conjecture~\ref{conj:formula}).
+ & \emph{Numerical evidence; conjecture}. \\
+-\bottomrule
+-\end{tabularx}
++\end{longtable}
+ \endgroup
+-\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+-\label{table:contributions}
+-\end{table}
+ 
+ The unifying object is the \emph{predecessor potential} $h(a)$.
+ For a cycle $\mathcal C$, Proposition~\ref{prop:potential} gives the exact
+@@ -1070,11 +1083,8 @@
+ 
+ Fix the assumptions of Proposition~\ref{prop:clipped-calibration}, and
+ retain its window $W_X$, first-passage mass $\Phi_X$, and clipping height
+-$H_X=X(\log X)^{\varepsilon_0/2}$. The relevant moment condition must
+-weight a visit by its contribution to $\Phi_X$: the unweighted number
+-of visits across the whole logarithmic window is not expected to remain
+-bounded as $X\to\infty$ (cf. Lemma~\ref{lem:model}).
+-For a function $f$ of the odd part $w^\flat$ of $w$, write
++$H_X=X(\log X)^{\varepsilon_0/2}$. The natural scale of $\Phi_X$ is $X$,
++and we work with the normalised mass $\Phi_X/X$. For a function $f$ of the odd part $w^\flat$ of $w$, write
+ \[
+   \mathbb E_{\log}f(w^\flat)
+   :=\lim_{N\to\infty}\frac{1}{\log N}
+@@ -1083,8 +1093,9 @@
+ whenever the limit exists. Existence of the means below is understood
+ under the bounded-observable first-passage hypotheses of
+ Lemma~\ref{lem:reduction} and the predecessor-density assertion of
+-Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ is bounded, since a finite
+-first-passage segment does not repeat a point in the target window.
++Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ is
++bounded, since a finite first-passage segment does not repeat a
++point in the target window.
+ 
+ \begin{proposition}[Exact mass decomposition and a weighted-moment criterion]
+ \label{prop:return-count-criterion}
+@@ -1103,7 +1114,7 @@
+ If, in addition, for some $\theta>0$ and a constant $M$ independent
+ of sufficiently large $X$,
+ \begin{equation}\label{eq:weighted-passage-moment}
+-  \mathbb E_{\log}\left[\left(\frac{\Phi_X(w^\flat)}{X}\right)^{1+\theta}\right]\le M,
++  \mathbb E_{\log}\Bigl[\Bigl(\frac{\Phi_X(w^\flat)}{X}\Bigr)^{1+\theta}\Bigr]\le M,
+ \end{equation}
+ then
+ \begin{equation}\label{eq:return-moment-consequence}
+@@ -1128,30 +1139,43 @@
+ $t=\min\{t,H_X\}+(t-H_X)_+$ for $t\ge0$ gives
+ \eqref{eq:exact-three-part-mass} by linearity. To prove
+ \eqref{eq:return-moment-consequence}, set
+-$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$ and
+-$Z_X=\Phi_X(w^\flat)/X$. For every $z\ge0$,
+-$(z-L_X)_+\le L_X^{-\theta}z^{1+\theta}$; indeed the
+-left-hand side vanishes for $z\le L_X$, while for $z>L_X$
+-we have $(z-L_X)_+\le z\le L_X^{-\theta}z^{1+\theta}$.
+-Consequently,
++$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$. Then
+ \[
+- (\Phi_X-H_X)_+\le X L_X^{-\theta}
+-       \left(\frac{\Phi_X}{X}\right)^{1+\theta}.
++ (\Phi_X-H_X)_+
++ \le \Phi_X\,\mathbf 1_{\{\Phi_X>H_X\}}
++ \le \Phi_X\Bigl(\frac{\Phi_X}{H_X}\Bigr)^{\theta}
++ = X L_X^{-\theta}\Bigl(\frac{\Phi_X}{X}\Bigr)^{1+\theta}.
+ \]
+ Average and apply \eqref{eq:weighted-passage-moment}.
+ \end{proof}
+ 
++The weighting in \eqref{eq:weighted-passage-moment} matters. The unweighted
++number $V_X(m)$ of points of $W_X$ in the same blocks satisfies
++$\Phi_X\le XV_X$, but it cannot obey a moment bound uniform in $X$: in
++the model of Lemma~\ref{lem:model} its mean is
++$\gamma_0\beta\log X+O(1)$, because $W_X$ has logarithmic length
++$\beta\log X$, and the coupling in Step~3 of the proof of
++Theorem~\ref{thm:lower}, applied with unit weights, transfers the lower
++bound $(\gamma_0\beta-o(1))\log X$ to $\mathbb E_{\log}V_X(w^\flat)$.
++Most of these points lie far below $X$ and contribute little to
++$\Phi_X$.
++
+ \paragraph{The remaining gap.}
+ The model second-moment estimate in Lemma~\ref{lem:model} concerns an
+ \emph{idealised} renewal process; it does not establish
+-\eqref{eq:weighted-passage-moment} for actual Syracuse orbits. An
+-unweighted uniform moment assumption for the total visit count would
+-be inappropriate: already in the renewal model its mean grows with
+-the logarithmic width of $W_X$. The weighted condition is compatible
+-with that growth, but it remains open beyond the coupling horizon.
+-Rare starting values on which the coupling fails may have a
+-disproportionately large weighted contribution. Nor does control of $T_X$ by itself imply
+-$R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
++\eqref{eq:weighted-passage-moment} for actual Syracuse orbits. Rare starting
++values on which the coupling fails may have a disproportionately large
++weighted contribution. Proposition~\ref{prop:tightness} in
++Appendix~\ref{appx:lower} makes this precise: $\Phi_X/X$ has the
++exponential tail of the model up to an exceptional set of logarithmic
++density $O((\log X)^{-\varepsilon_0})$, and by
++Corollary~\ref{cor:extreme-tail} the condition $T_X=o(X)$ concerns only
++the mass of this set above the height $M_XX$, for any $M_X$ between
++$(\log X)^{\varepsilon_0/2}$ and $o((\log X)^{\varepsilon_0})$. The same
++corollary relaxes \eqref{eq:weighted-passage-moment} to moments that grow
++like a small power of $\log X$. Remark~\ref{rem:tail-barrier} explains
++why the exceptional set is out of reach of the present methods. Nor does
++control of $T_X$ by itself imply $R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
+ \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
+ are currently conditional working drafts, not additional certified
+ theorems. Establishing a uniform actual-orbit shell-moment bound, for example through the two-level certificates of Proposition~\ref{prop:lyapunov-return}, and subsequently controlling $R_X$ are the two principal open steps.
+@@ -1185,7 +1209,7 @@
+ \label{lem:finite-horizon-residue}
+ Fix an odd $c\ge-1$, a positive stopping threshold, a shell $I$ and a
+ starting interval $J=[A,D)\cap\N$ with $A\ge1$. Let $E_{k,\le T}$ be
+-the starts whose $k$-th visit to $I$ occurs by time $T$ before stopping,
++the starts $m\in J$ whose $k$-th visit to $I$ occurs by time $T$ before stopping,
+ and let $Y_k$ be that visited state. For any $b\ge1$ and any set
+ $G\subset\Z/2^b\Z$, put $p=|G|/2^b$. Then
+ \[
+@@ -1197,7 +1221,8 @@
+ \begin{proof}
+ Fix a time $t\le T$ and a parity cylinder $m=r+2^t j$.
+ For $0\le s\le t$, the iterate is affine and increasing in $j$,
+-with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$.
++with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$, where $h_t$ is
++the number of odd steps among the first $t$, which is fixed on the cylinder.
+ Thus its values cycle through all classes modulo $2^b$.
+ Stopping and shell-visit conditions partition the $j$-range into at
+ most $3(t+1)+1$ intervals. Each contributes discrepancy at most
+@@ -1343,7 +1368,7 @@
+ The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
+ \begin{enumerate}[label=(\arabic*)]
+ 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
+-	\item \emph{Control of actual-orbit return counts}: find scale-uniform first-entry-weighted Lyapunov certificates satisfying~\eqref{eq:lyapunov-uniform-open}, or prove a comparable dyadic-shell second-moment bound, and separately establish $R_X=o(X)$ (Section~\ref{sec:tail-programme}). Proposition~\ref{prop:residue-obstruction} excludes purely fixed-residue additive certificates.
++	\item \emph{Control of actual-orbit return counts}: find scale-uniform first-entry-weighted Lyapunov certificates satisfying~\eqref{eq:lyapunov-uniform-open}, or prove a comparable dyadic-shell second-moment bound, and separately establish $R_X=o(X)$ (Section~\ref{sec:tail-programme}). By Corollary~\ref{cor:extreme-tail}, a moment bound that grows like $(\log X)^A$ with $A<\varepsilon_0$ suffices, and only the exceptional set of Proposition~\ref{prop:tightness} has to be controlled. Proposition~\ref{prop:residue-obstruction} excludes purely fixed-residue additive certificates.
+ 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
+ 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
+ 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
+@@ -1389,7 +1414,8 @@
+ Residue classes & \texttt{passage.c}, \path{residue_configs.txt}, \path{residue9_configs.txt}, \path{residue_flatness.py} & \path{residue/*.csv}, \path{residue/report*.txt}, \path{residue/runE*_raw.tar.gz} (raw) \\
+ Table~\ref{table:convergence}, Figure~\ref{fig:predictor} & \path{backward_mass.c}, \path{backward_mass_array.sbatch}, \path{predictor_eval.py}, \path{cosets.py}; \path{figures/fig4_backward_mass.py} & \path{landscape/backward_mass_D70.csv}, \path{landscape/predictions_D70.csv}, \path{landscape/runF_raw.tar.gz} (raw) \\
+ Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} & \path{potential.c}, \path{potential_array.sbatch}, \path{potential_configs.txt}, \path{potential_report.py}; \path{orbit_profile.c}, \path{orbit_profile_report.py} & \path{potential/report.txt}, \path{potential/runG_raw.tar.gz} (raw); \path{potential/orbit_profile_c*.txt}, \path{potential/report_H.txt} \\
+-Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py} & -- \\
++Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} (Run~I) & \path{tail_check.c}, \path{tail_fallback.py}, \path{tail_grid.sh}, \path{tail_report.py} & \path{tail/report_I.txt}, \path{tail/*.txt} \\
++Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py} & -- \\
+ \end{longtable}
+ \endgroup
+ 
+@@ -1672,6 +1698,9 @@
+ % Research development: sharp calibration of a clipped first-passage observable.
+ \input{truncated_calibration.tex}
+ 
++% Research development: exponential tightness up to a logarithmic exceptional set.
++\input{tail_tightness.tex}
++
+ \begin{proof}[Proof of Corollary~\ref{cor:remains}]
+ (a) For $n=0$, Conjecture~\ref{conj:profile} states that $X^{-1}\sum_{a\le X}a\,h(a)\to\gamma_0$, which contains~\eqref{eq:upper}. Conversely, assume~\eqref{eq:upper}, and let $n\ge0$ and $r$ be given. The sum over the class of $r$ is the sum over all $a\le X$ minus the sums over the other classes modulo $3^n$. By~\eqref{eq:upper}, by Theorem~\ref{thm:lower} for the other classes, and since the $p_{r'}$ add up to $1$, its upper limit after division by $X$ is at most $\gamma_0-\gamma_0(1-p_r)=\gamma_0p_r$. With Theorem~\ref{thm:lower} for $r$ itself, the limit exists and equals $\gamma_0p_r$.
+ 

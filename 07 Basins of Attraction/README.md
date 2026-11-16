@@ -76,8 +76,12 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── potential_report.py    identities of the predecessor potential, mean value, Syracuse profile
 │   ├── orbit_profile.c        the same means at large scales from random orbits (Run H)
 │   ├── orbit_profile_report.py  decade means and Syracuse profile of Run H
-│   ├── Makefile               make (incl. backward_mass, potential), make test, make passage,
-│   │                          make test-passage, make test-potential
+│   ├── tail_check.c           first-passage mass Phi_X/X: actual orbits vs. random-walk model (Run I)
+│   ├── tail_fallback.py       exact big-integer values for the starts that leave 128 bits (Run I)
+│   ├── tail_grid.sh           all configurations of Run I and the report
+│   ├── tail_report.py         actual vs. model: moments, tail probabilities, z-scores (Run I)
+│   ├── Makefile               make (incl. backward_mass, potential, tail_check), make test, make passage,
+│   │                          make test-passage, make test-potential, make test-tail
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
 │       ├── census_all_array.sbatch
@@ -93,7 +97,8 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       ├── potential_array.sbatch
 │       └── potential_configs.txt
 └── results/                   census outputs, rational cycle list, basin counts
-    └── passage/               sampled basin shares (Run C)
+    ├── passage/               sampled basin shares (Run C)
+    └── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
 ```
 
 ## Background
@@ -330,6 +335,22 @@ python3 orbit_profile_report.py orbit_profile_c*.txt
 
 `S` starting values are drawn uniformly from $[10^E, 2\cdot10^E)$ ($E\le30$, 128-bit arithmetic, deterministic generator), the targets lie in the decades $10^{\text{KMIN}}$ to $10^{E-3}$ (default from $10^6$), and the residue classes are pooled over the decades from $10^{\text{KPOOL}}$ (default $10^9$). About one minute per $10^7$ starting values on one core. The report compares the decade means with $2/\log(4/3)$ and the class means modulo 3, 9, 27 and 81 with the law of Tao's Syracuse random variable (Conjecture 1 of the paper). The results in `results/potential/` use $S=10^7$, $E=28$ and the seeds 1, 2, 3, 4 for $c=1,-1,5,13$.
 
+## tail_check
+
+The distribution of the first-passage mass $\Phi_X/X$ (Run I; Proposition 13 and Remark 9 of the paper). For an odd start $m$, $\Phi_X(m)$ is the sum of the orbit points in the window $W_X=(X^{1-\beta},X]$ in the Syracuse blocks up to the first odd iterate $\le X_1=X^{1-2\beta}$. Proposition 13 proves, conditional on the lemmas of Appendix B, that $\Phi_X/X$ has an exponential tail up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$; Run I compares the actual distribution with the random-walk model of Lemma 5.
+
+```console
+make tail_check
+./tail_check 1 30 0.05 4000000 1 actual > a.raw 2> a.ovf    # C LOG10X BETA S SEED actual|model
+python3 tail_fallback.py a.raw a.ovf > a.txt
+./tail_check 1 30 0.05 4000000 2 model > m.txt
+bash tail_grid.sh                                            # all of Run I -> ../results/tail/report_I.txt
+```
+
+Starts are odd and logarithmically distributed in $[X^{1+\beta},X^{(1+\beta)^2}]$, the window used in the proofs. `actual` follows the orbit in 128-bit arithmetic; starts whose orbit exceeds $2^{125}$ are written to stderr (`OVF n`) and `tail_fallback.py` recomputes them exactly with Python integers. `model` runs the random walk $D_j=\sum_{t\le j}(g_t\log2-\log3)$ with geometric $g_t$. Output: mean, second moment and maximum of $\Phi_X/X$, and the counts of $\Phi_X/X>s$ for $s=1,\dots,60$. `tail_report.py DIR` compares actual and model (moments, fitted exponential tail rate, $z$-scores of the tail probabilities). `make test-tail` checks `actual`, `model` and the independent big-integer reference `tests/ref_tail.py` against each other.
+
+The results in `results/tail/` cover $c\in\{1,-1,5\}$, $X\in\{10^{12},10^{20},10^{30}\}$, $\beta\in\{0.05,0.005\}$ with $4\cdot10^6$ starts each ($2\cdot10^7$ for $c=1$, $X=10^{30}$, $\beta=0.05$). Actual and model agree in all 18 configurations ($|z|\le2.1$); for $\beta=0.05$ and $X\ge10^{20}$ the tail decays like $e^{-0.21\Lambda}$, and the largest value is $\Phi_X/X=87.9$. Samples of this size cannot see the exceptional set of Proposition 13, which is what remains open (Remark 9).
+
 ## Pipeline example: 3x+5
 
 ```console
@@ -441,7 +462,8 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Residue classes carry no further information (Section 5) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
 | Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Table 9, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
 | Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
-| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference) | – |
+| First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I; Proposition 13, Remark 9) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
+| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`) | – |
 
 ## Reference results
 
