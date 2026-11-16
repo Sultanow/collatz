@@ -199,7 +199,7 @@ shares.
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.17}
 \begin{longtable}{@{}P{0.16\textwidth}P{0.24\textwidth}p{\dimexpr0.43\textwidth-18pt\relax}P{0.17\textwidth}@{}}
-\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). Neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
 \label{table:contributions}\\
 \toprule
 \textbf{Topic} & \textbf{Previous foundation} & \textbf{Contribution of this paper} & \textbf{Status} \\
@@ -263,7 +263,7 @@ First-passage tails
 Lean-checked finite core
 & Elementary inverse branches, truncation bounds, return-pair counting and Green-type occupation identities.
 & Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates. Algebraic tools, not return-tail estimates.
-& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{large shells}. \\
+& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}. \\
 \end{longtable}
 \endgroup
 
@@ -550,11 +550,11 @@ The computation checked all $2\,199\,023\,255\,510$ words in $512$ shards of abo
 \[
 E_C(l,k)=L(l,k)\,\frac{S_C(D)}{|D|},\qquad S_C(D)=\sum_{e\,\mid\,|D|,\ e\le C}\varphi(e),
 \]
-where $L(l,k)$ is the number of aperiodic binary necklaces of type $(l,k)$. If all divisors of $|D|$ are at most $C$, then $S_C(D)=|D|$, every necklace yields a cycle, and $E_C$ is exact; for example, $D(10,5)=781=11\cdot71$ gives all $25$ necklaces. Summed over $l\le40$, the heuristic predicts $1148.7$ primitive cycles against $1097$ observed, and it reproduces the counts per word length including the peaks (Figure~\ref{fig:cycles}). The agreement has a deterministic and a statistical part. For the $44$ types with $|D|\le1000$, all divisors of $|D|$ are admissible, every necklace yields a cycle, and the $227$ cycles of these types are predicted exactly. For the other $116$ types with $E_{1000}\ge1$, the heuristic predicts $879.8$ cycles and we observe $839$; the remaining types with $E_{1000}<1$ contribute $41.9$ expected and $31$ observed cycles. For the $116$ types, $\sum(O-E)^2/E=71.4$, a dispersion index of $0.62$, nearly constant across the ranges $1\le E<3$, $3\le E<10$ and $E\ge10$. The counts thus scatter less than a Poisson model allows. This suggests that the residues $z_3(B)\bmod|D|$ of the words of a type are distributed more evenly than independent random residues would be.
+where $L(l,k)$ is the number of aperiodic binary necklaces of type $(l,k)$. If all divisors of $|D|$ are at most $C$, then $S_C(D)=|D|$, every necklace yields a cycle, and $E_C$ is exact; for example, $D(10,5)=781=11\cdot71$ gives all $25$ necklaces. Summed over $l\le40$, the heuristic predicts $1148.7$ primitive cycles against $1097$ observed, and it reproduces the counts per word length including the peaks (Figure~\ref{fig:cycles}). The agreement has a deterministic and a statistical part. For the $44$ types with $|D|\le1000$, all divisors of $|D|$ are admissible, every necklace yields a cycle, and the $227$ cycles of these types are predicted exactly. For the other $116$ types with $E_{1000}\ge1$, the heuristic predicts $879.8$ cycles and we observe $839$; the remaining types with $E_{1000}<1$ contribute $41.9$ expected and $31$ observed cycles. The deviations have a systematic and a statistical part (Run~J). The deficit comes from the types with $l$ and $k$ even and $D>0$: for these $46$ types the heuristic predicts $379.8$ cycles and we observe $329$, whereas the $49$ types with $\gcd(l,k)=1$ give $348$ cycles against $338.2$. For even $l$ and $k$, $D=(2^{l/2}-3^{k/2})(2^{l/2}+3^{k/2})$, and every periodic word $B=B'B'$ satisfies $P\mid z_3(B)$ for $P=2^{l/2}+3^{k/2}$, because $z_3(B'B')=P\,z_3(B')$. These words give no primitive cycles of type $(l,k)$, and the aperiodic words are not equidistributed modulo $P$: over the $38$ types with $l\le28$, $D>0$ and at least five expected multiples, only $0.61$ times the expected proportion $1/P$ of the aperiodic words have $P\mid z_3(B)$; for the $9$ such types with $D<0$ the factor is $1.40$. The heuristic thus fails for the algebraic factors of $2^l-3^k$. In addition, the counts scatter less than a Poisson model allows: over the $116$ types, $\sum(O-E)^2/E=71.4$, a dispersion index of $0.62$, and the index is $0.64$ for the coprime types alone. It depends on the bound $C$, however: an exact count of all words with $l\le30$ gives the index $0.55$ for $C=1000$ and $1.09$ for $C=2\cdot10^4$.
 
 \begin{problem}
 \label{prob:heuristic}
-Why does the equidistribution heuristic predict the number of primitive cycles so well, and why are the counts underdispersed? Can the distribution of $z_3(B)$ modulo $|D|$ over the words of a type be controlled?
+Why does the equidistribution heuristic predict the number of primitive cycles of the types with $\gcd(l,k)=1$ so well? How far is $z_3(B)$ from equidistribution modulo the algebraic factors of $2^l-3^k$, and is the remaining underdispersion of the counts real?
 \end{problem}
 
 \paragraph{Longer words.} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
@@ -1036,10 +1036,10 @@ The local and the global view answer different questions. Cayley trees and their
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
 	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}), and $R_X=o(X)$ is a separate open problem.
-	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
+	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works for coprime types, how the algebraic factors of $2^l-3^k$ bias it, and whether the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
+	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the all-large-shell obstruction, the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
 \end{enumerate}
 
 \subsection*{Code and data availability}
@@ -1081,6 +1081,7 @@ Figure~\ref{fig:landscape}, survey for Proposition~\ref{prop:cosets} & \texttt{p
 Residue classes & \texttt{passage.c}, \path{residue_configs.txt}, \path{residue9_configs.txt}, \path{residue_flatness.py} & \path{residue/*.csv}, \path{residue/report*.txt}, \path{residue/runE*_raw.tar.gz} (raw) \\
 Table~\ref{table:convergence}, Figure~\ref{fig:predictor} & \path{backward_mass.c}, \path{backward_mass_array.sbatch}, \path{predictor_eval.py}, \path{cosets.py}; \path{figures/fig4_backward_mass.py} & \path{landscape/backward_mass_D70.csv}, \path{landscape/predictions_D70.csv}, \path{landscape/runF_raw.tar.gz} (raw) \\
 Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} & \path{potential.c}, \path{potential_array.sbatch}, \path{potential_configs.txt}, \path{potential_report.py}; \path{orbit_profile.c}, \path{orbit_profile_report.py} & \path{potential/report.txt}, \path{potential/runG_raw.tar.gz} (raw); \path{potential/orbit_profile_c*.txt}, \path{potential/report_H.txt} \\
+Heuristic for primitive cycles, Problem~\ref{prob:heuristic} (Run~J) & \path{word_census.c}, \path{necklace_counts.py}, \path{algebraic_factor.c}, \path{heuristic_tests.py}, \path{run_J.sh} & \path{heuristic/report_J.txt}, \path{heuristic/*.txt} \\
 Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} (Run~I) & \path{tail_check.c}, \path{tail_fallback.py}, \path{tail_grid.sh}, \path{tail_report.py} & \path{tail/report_I.txt}, \path{tail/*.txt} \\
 Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py} & -- \\
 \end{longtable}
@@ -1994,8 +1995,8 @@ fixed binary residue cannot work on all large dyadic shells.
 
 \begin{proposition}[Fixed-modulus obstruction]
 \label{prop:residue-obstruction}
-For every odd $c\in\Z$ and every $k\ge0$, put $X_0(c,k)=24\cdot2^k+12|c|+24$.
-For every real $X\ge X_0(c,k)$ one can find positive integers
+For every odd $c\in\Z$ and every $k\ge1$, there exists $X_0(c,k)$
+such that for every real $X\ge X_0(c,k)$ one can find positive integers
 $y,z\in(X/2,X]$ with
 \[
  T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
@@ -2005,7 +2006,7 @@ $y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
 containing this one-step return (with any cutoff $a<X/2$).
 \end{proposition}
 \begin{proof}
-Set $m=2^k$.  For $X\ge X_0(c,k)$, the interval
+Set $m=2^k$.  For sufficiently large $X$, the interval
 \[
  \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
 \]
@@ -2024,10 +2025,9 @@ $U$ would give $U(y)=U(z)$ while the first inequality in
 The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
 formalises the finite rational-valued certificate and weighted inequality,
 as well as exact one-step arithmetic and an explicit family of dyadic
-congruence witnesses.  The module \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{\texttt{ReturnLargeShell.lean}}
-formalises Proposition~\ref{prop:residue-obstruction} for every real
-$X\ge X_0(c,k)$; it does not assert that the exhibited return lies on an
-orbit that terminates below a given cutoff.  The related finite
+congruence witnesses.  The assertion of Proposition~\ref{prop:residue-obstruction}
+for \emph{every sufficiently large} $X$ follows from the interval argument
+above and is \emph{not} covered by that module.  The related finite
 \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
 and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
 are also formalised.  None of these kernel checks establishes

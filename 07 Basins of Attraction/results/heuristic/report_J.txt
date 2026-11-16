@@ -1,0 +1,22 @@
+Part 1. Census l<=40, |c0|<=1000, types with |D|>1000 and E>=1
+  class           types   E      O     O/E     z    index   P(index<=obs)
+  gcd=1             49   338.2   348  1.029  +0.53  0.638   0.0312
+  gcd=1 D>0         45   194.2   196  1.009  +0.13  0.632   0.0310
+  gcd=1 D<0          4   144.1   152  1.055  +0.66  0.711   0.4203
+  even l,k          53   492.5   446  0.906  -2.09  0.679   0.0367
+  even l,k D>0      46   379.8   329  0.866  -2.61  0.682   0.0583
+  even l,k D<0       7   112.7   117  1.038  +0.41  0.658   0.3043
+  other g>1         14    49.1    45  0.916  -0.59  0.292   0.0037
+  all              116   879.8   839  0.954  -1.38  0.615   0.0000
+
+Part 2. Exact necklace counts, l<=30: dispersion index against the bound C
+  C       all types (n, O/E, index, P)          gcd=1 types (n, O/E, index, P)
+  300      55  0.890  0.586  0.009         20  1.158  0.735  0.225
+  1000     79  0.959  0.549  0.000         33  1.040  0.613  0.042
+  3000     98  0.922  0.753  0.042         40  0.977  0.741  0.113
+  10000   116  0.949  0.861  0.162         48  0.987  0.649  0.029
+  20000   118  0.967  1.087  0.757         53  0.989  0.847  0.232
+
+Part 3. Aperiodic words with P | z_3(B), P=2^{l/2}+3^{k/2}, l,k even, l<=28, expected count >= 5
+  D>0: 38 types, pooled observed/expected 0.612, median 0.569, range 0.00-1.82
+  D<0: 9 types, pooled observed/expected 1.395, median 1.167, range 0.00-2.72

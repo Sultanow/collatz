@@ -28,3 +28,11 @@ are merged into it and can be deleted from the repository. 60 pages (before: 62)
 Abstract: the three closing sentences on Lean and return certificates are shortened to one.
 
 Unchanged: title, keywords, all theorems of the main text, all numerical results.
+
+## v5c: Run J (heuristic for primitive cycles)
+- Section 4, paragraph "Heuristic": the deficit of the heuristic sits in the types with l, k even and D > 0;
+  mechanism: P = 2^{l/2}+3^{k/2} divides z_3 of every periodic word B'B', and aperiodic words are depleted modulo P
+  (factor 0.61 for D > 0, 1.40 for D < 0). The underdispersion is weaker than stated before and depends on the bound C.
+- Problem 1 and Outlook (3) reformulated accordingly; reproduction table: row for Run J.
+- `alt_if_lean_green/`: the same paper plus the Lean statement for Proposition 11, to be used only after the
+  CI has built ReturnLargeShell.lean (see alt_if_lean_green/README_FIRST.md).

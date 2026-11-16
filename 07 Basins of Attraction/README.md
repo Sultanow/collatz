@@ -80,6 +80,11 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── tail_fallback.py       exact big-integer values for the starts that leave 128 bits (Run I)
 │   ├── tail_grid.sh           all configurations of Run I and the report
 │   ├── tail_report.py         actual vs. model: moments, tail probabilities, z-scores (Run I)
+│   ├── word_census.c          all parity words up to length 30: reduced denominators (Run J)
+│   ├── necklace_counts.py     primitive-cycle counts per type from word_census, checked against the census (Run J)
+│   ├── algebraic_factor.c     divisibility of aperiodic words by 2^{l/2}+3^{k/2} (Run J)
+│   ├── heuristic_tests.py     where the equidistribution heuristic for cycles fails (Run J)
+│   ├── run_J.sh               all of Run J and the report
 │   ├── Makefile               make (incl. backward_mass, potential, tail_check), make test, make passage,
 │   │                          make test-passage, make test-potential, make test-tail
 │   ├── tests/                 independent reference and self-tests
@@ -98,7 +103,8 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       └── potential_configs.txt
 └── results/                   census outputs, rational cycle list, basin counts
     ├── passage/               sampled basin shares (Run C)
-    └── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
+    ├── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
+    └── heuristic/             diagnostics of the cycle-count heuristic (Run J)
 ```
 
 ## Background
@@ -351,6 +357,20 @@ Starts are odd and logarithmically distributed in $[X^{1+\beta},X^{(1+\beta)^2}]
 
 The results in `results/tail/` cover $c\in\{1,-1,5\}$, $X\in\{10^{12},10^{20},10^{30}\}$, $\beta\in\{0.05,0.005\}$ with $4\cdot10^6$ starts each ($2\cdot10^7$ for $c=1$, $X=10^{30}$, $\beta=0.05$). Actual and model agree in all 18 configurations ($|z|\le2.1$). For $\beta=0.05$ and $X\ge10^{20}$ the sampled tails are consistent with exponential decay at an empirically fitted rate of about $0.21$ (a finite-sample fit, not an asymptotic estimate); the largest value is $\Phi_X/X=87.9$. Samples of this size cannot see the exceptional set of the tightness proposition, which is what remains open.
 
+## heuristic tests (Run J)
+
+Where the equidistribution heuristic for the number of primitive cycles (Section 4, Problem 1) fails, added after version 2.
+
+```console
+bash run_J.sh            # about 2 minutes; needs python3 with sympy; writes ../results/heuristic/
+```
+
+`word_census L C` enumerates all parity words of length at most `L` and records, per type $(l,k)$, how many words have reduced denominator $e=|D|/\gcd(z_3(B),|D|)\le C$. `necklace_counts.py` removes the periodic words by Möbius inversion and checks the result against `rational_cycles_q3_d1000_L40.csv` (960 cycles for $l\le30$, no mismatch). `algebraic_factor l k` counts the aperiodic words of an even type with $P\mid z_3(B)$, $P=2^{l/2}+3^{k/2}$. `heuristic_tests.py` writes `report_J.txt`:
+
+1. Census $l\le40$, $|c_0|\le1000$: the deficit of the heuristic (839 observed, 879.8 expected) comes from the 46 types with $l,k$ even and $D>0$ (329 against 379.8); the 49 coprime types give 348 against 338.2.
+2. Exact counts for $l\le30$: the dispersion index of the counts is 0.55 for $C=1000$ and 1.09 for $C=2\cdot10^4$ (0.61 and 0.85 for the coprime types).
+3. For even $l,k$ every periodic word $B'B'$ satisfies $P\mid z_3(B)$. Among the aperiodic words, divisibility by $P$ occurs 0.61 times as often as $1/P$ predicts for $D>0$ (38 types) and 1.40 times for $D<0$ (9 types).
+
 ## Pipeline example: 3x+5
 
 ```console
@@ -463,6 +483,7 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Table 9, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
 | Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
 | First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I, after version 2; appendix on first-passage tails) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
+| Heuristic for primitive cycles: deficit from the algebraic factors of $2^l-3^k$, dispersion against the bound (Run J, after version 2) | `word_census.c`, `necklace_counts.py`, `algebraic_factor.c`, `heuristic_tests.py`, `run_J.sh` | `results/heuristic/report_J.txt` |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`) | – |
 
 ## Reference results
