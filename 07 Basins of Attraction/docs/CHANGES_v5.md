@@ -72,3 +72,13 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Figure 4: caption rewritten ("one point per cycle", which 98 maps, what the dashed line and the colour
   mean). The definition of the predicted share (mean mass of the levels 64 to 69, normalised so that the
   predicted shares of each map add up to 1) moved into the text before Table 10.
+
+## v6e
+- Problem 3 (Appendix D.3): the sufficient survival condition is now aggregate over the shells, taken at
+  the dyadic return counts 2^l K_{X,j}. Dyadic grouping gives D_X/2 <= E_X <= B_{X,0} + D_X, so
+  T_X = o(X) iff D_X -> 0. The bound B_{X,l} <= A 2^{-(1+kappa)l} mu_X S_X gives
+  T_X = O(X (log X)^{sigma-eps_0}). It follows from a fixed ratio q < 1/2 and from the old per-shell bound,
+  without needing the latter. Errors are admissible only if they are 2^l-summable.
+- docs/research/dyadic_leakage/: the full research note (with PDF), its proof audit, scripts and outputs
+  (all reproduced), and STATUS.md. STATUS.md explains why the finite-window ratios are not evidence for
+  the uniform condition.

@@ -1,0 +1,392 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Ex}{\mathcal E}
+\newcommand{\XX}{\mathcal X}
+\title{Dyadic Block Leakage for Actual Syracuse Return Histories\\
+\large An aggregate polynomial-survival criterion beyond first-excess stopping}
+\author{Independent research note --- not part of the main manuscript}
+\date{16 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We examine the unresolved polynomial-return hypothesis in the separate
+\emph{Weighted First-Excess Transport} note.  For the actual deterministic
+$3x+c$ orbits and their actual logarithmic first-excess entrance measure,
+we derive a two-sided dyadic layer-cake decomposition of the clipping tail.
+It yields a sufficient \emph{aggregate block-leakage criterion} with a critical
+geometric-series threshold of one half; no independence of successive valuations
+is assumed.  The criterion is weaker than uniform per-shell doubling
+control, and admits a weighted exceptional-error version.  A finite-window experiment on actual orbits is encouraging,
+but the uniform block-leakage inequality itself remains \textbf{open}.
+This note does \emph{not} establish $T_X=o(X)$ unconditionally and does
+not claim a solution of the Collatz problem.
+\end{abstract}
+
+\section{Actual-orbit measures and the remaining input}
+Fix an odd integer $c\ge-1$ with $3\nmid c$ and the accelerated map
+\[
+T_{3,c}(x)=\begin{cases}x/2,&x\text{ even},\\ (3x+c)/2,&x\text{ odd}.\end{cases}
+\]
+For definiteness, we retain the exact notation of the accompanying
+first-excess research note.  Let $\beta=1/200$,
+\[
+a_X=X^{1-2\beta},\qquad W_X=(X^{1-\beta},X]\cap\mathbb N,\qquad
+L_X=(\log X)^{\varepsilon_0/2}.
+\]
+The terminated first-passage occupation is
+$\Phi_X=\sum_{i=1}^{s(m)}b_i(m)$, with members $b_i(m)\in W_X$
+ordered chronologically and with $\Phi_X=0$ for orbits that never
+reach the lower cutoff.  The first index where the normalized partial
+sum exceeds $L_X$ determines an entry state $J_X\in W_X$.
+Its logarithmic entrance measure is
+\[
+\eta_X(y)=\mathbb E_{\log}\one_{\{J_X=y\}},\qquad
+p_X=\sum_{y\in W_X}\eta_X(y)
+=\mathbb E_{\log}\one_{\{\Phi_X>XL_X\}}.
+\]
+For the discussion below we assume the quantitative tightness estimate
+already established \emph{under the stated hypotheses of the main manuscript}:
+\begin{equation}\label{eq:p-small}
+p_X\le C e^{-L_X/C}+C(\log X)^{-\varepsilon_0}
+ =O((\log X)^{-\varepsilon_0}).
+\end{equation}
+No claim is made here that those analytic input lemmas have Lean certificates.
+
+Let $I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X$.
+The deterministic first-future-entry kernel $E_{X,j}$ carries an entry
+state $y\in W_X$ to its first later visit to $I_{X,j}$, if any, before
+its first passage below $a_X$.  On successful shell states, the
+first-return kernel $Q_{X,j}$ maps to the next shell visit, or kills
+mass if the orbit leaves the shell forever before that first passage.
+Both are \emph{actual-orbit}, not random-model, kernels.  They are
+substochastic and nilpotent on the finite successful-state graph.
+Define for $n\ge1$
+\begin{equation}\label{eq:q-def}
+q_{X,j}(n):=\eta_X E_{X,j}Q_{X,j}^{\,n-1}\one
+ =\sum_{y\in W_X}\eta_X(y)\one_{\{N^+_{X,j}(y)\ge n\}},
+\end{equation}
+where $N^+_{X,j}(y)$ counts \emph{later} visits to shell $j$
+following the first-excess state $y$.  Hence $q_{X,j}(n)$ is
+nonincreasing and $0\le q_{X,j}(n)\le p_X$.
+
+Choose $0<\sigma<\varepsilon_0$ and $0\le\alpha<1$, and set
+\begin{equation}\label{eq:allowances}
+K_j=K_{X,j}:=\big\lceil(\log X)^\sigma2^{\alpha j}\big\rceil,\quad
+S_X:=\sum_{j\ge0}2^{-j}K_j,
+\quad
+\Ex_X:=\sum_{j\ge0}2^{-j}\sum_{n>K_j}q_{X,j}(n).
+\end{equation}
+Sums over $j$ include only the finitely many nonempty shells.  In
+particular $S_X=O_{\alpha}((\log X)^\sigma)$.
+Write $T_X=\mathbb E_{\log}(\Phi_X-XL_X)_+$.
+
+\begin{lemma}[First-excess sandwich; recalled with proof]\label{lem:sandwich}
+Under the preceding definitions,
+\begin{equation}\label{eq:sandwich}
+\tfrac12\Ex_X\le T_X/X\le p_X(1+S_X)+\Ex_X.
+\end{equation}
+\end{lemma}
+\begin{proof}
+At the first threshold crossing, the overshoot is at most one in
+units of $X$; the rest is exactly the weighted sum of later visits.
+A member of $I_{X,j}$ weighs strictly more than $2^{-j-1}$ and at most
+$2^{-j}$.  The total cost of the first $K_j$ later visits per shell is
+at most $S_X$ and appears only when the first crossing exists, of
+probability $p_X$.  The identity
+$(N-K)_+=\sum_{n>K}\one_{\{N\ge n\}}$ gives the claimed bounds
+by averaging the remaining visits against $\eta_X$.
+\end{proof}
+
+\section{A two-sided dyadic decomposition}
+Instead of estimating all return indices $n$ separately, define the
+\emph{aggregate dyadic survival profile}
+\begin{equation}\label{eq:B-def}
+B_{X,\ell}:=\sum_{j\ge0}2^{-j}K_j\,
+ q_{X,j}(2^\ell K_j),\qquad \ell=0,1,2,\ldots,
+\qquad D_X:=\sum_{\ell\ge1}2^\ell B_{X,\ell}.
+\end{equation}
+All these sums are finite for fixed $X$: the successful orbit cannot
+revisit the same state before its first passage, and $W_X$ is finite.
+
+\begin{theorem}[Dyadic layer cake for the actual entrance law]\label{thm:dyadic}
+For every fixed $X$,
+\begin{equation}\label{eq:layer-cake}
+\boxed{\qquad \tfrac12D_X\le\Ex_X\le B_{X,0}+D_X.\qquad}
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:tail-sandwich}
+\boxed{\qquad \tfrac14D_X\le \frac{T_X}{X}
+\le p_X(1+2S_X)+D_X.\qquad}
+\end{equation}
+Under \eqref{eq:p-small} and the allowances \eqref{eq:allowances},
+\begin{equation}\label{eq:equivalence}
+\boxed{\qquad T_X=o(X)\quad\Longleftrightarrow\quad D_X=o(1).\qquad}
+\end{equation}
+Thus the missing uniform integrability problem is equivalent to a
+\emph{weighted sum of dyadic return-survival masses}, not to
+pointwise equidistribution of parity vectors.
+\end{theorem}
+\begin{proof}
+Fix $j$ and abbreviate $K=K_j$, $q(n)=q_{X,j}(n)$.
+Group the sum $\sum_{n>K}q(n)$ into integer intervals
+$(2^\ell K,2^{\ell+1}K]$, $\ell\ge0$.  As $q$ is nonincreasing,
+\[
+2^\ell K\,q(2^{\ell+1}K)
+\le\sum_{2^\ell K<n\le2^{\ell+1}K}q(n)
+\le2^\ell K\,q(2^\ell K).
+\]
+Multiply by $2^{-j}$, sum over all shells and $\ell$, and shift
+$\ell$ by one in the lower bound.  This yields
+$\Ex_X\ge\frac12\sum_{\ell\ge1}2^\ell B_{X,\ell}$ and
+$\Ex_X\le\sum_{\ell\ge0}2^\ell B_{X,\ell}$.
+The first claim follows.  Since $B_{X,0}\le p_X S_X$,
+Lemma~\ref{lem:sandwich} gives \eqref{eq:tail-sandwich}.
+Finally $p_X(1+2S_X)=O((\log X)^{\sigma-\varepsilon_0})=o(1)$,
+so \eqref{eq:equivalence} follows from the two-sided bounds.
+\end{proof}
+
+\section{The polynomial return estimate via block leakage}
+The dyadic profile has an exact \emph{escape-flux} identity, useful
+because it does not postulate independent return trials.
+
+\begin{proposition}[True-orbit doubling flux]\label{prop:flux}
+Let $a_{j,\ell}=2^\ell K_j$.  Then
+\begin{equation}\label{eq:flux}
+\boxed{\quad B_{X,\ell}-B_{X,\ell+1}
+=\sum_j 2^{-j}K_j\,\eta_XE_{X,j}Q_{X,j}^{a_{j,\ell}-1}
+       (\one-Q_{X,j}^{a_{j,\ell}}\one).\quad}
+\end{equation}
+The bracket is the indicator that a state having reached its
+$a_{j,\ell}$-th future shell visit does \emph{not} make another
+$a_{j,\ell}$ returns before first passage.  Formula
+\eqref{eq:flux} is an exact finite identity for the actual map.
+\end{proposition}
+\begin{proof}
+Use \eqref{eq:q-def} at $n=a_{j,\ell}$ and
+$n=2a_{j,\ell}$, subtract, and sum with weights $2^{-j}K_j$.
+The nonnegativity is immediate from substochasticity.
+\end{proof}
+
+\begin{theorem}[Aggregate dyadic block leakage]\label{thm:leakage}
+Assume the manuscript inputs above.  Suppose there exist constants
+$0\le q<\frac12$ and $X_0$ such that for all $X\ge X_0$ and all
+$\ell\ge0$,
+\begin{equation}\label{eq:leakage-assumption}
+\boxed{\quad B_{X,\ell+1}\le q\,B_{X,\ell}.\quad}
+\end{equation}
+Equivalently, the escape flux in \eqref{eq:flux} is at least
+$(1-q)B_{X,\ell}$.  Then
+\[
+D_X\le\frac{2q}{1-2q}B_{X,0},\qquad
+\boxed{\quad T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)=o(X).\quad}
+\]
+This hypothesis is \emph{aggregate over shells}, rather than a
+separate polynomial-tail assumption at every shell and return index.
+\end{theorem}
+\begin{proof}
+Iterating \eqref{eq:leakage-assumption} gives
+$B_{X,\ell}\le q^\ell B_{X,0}$.  Therefore
+\[
+D_X\le B_{X,0}\sum_{\ell\ge1}(2q)^\ell
+=\frac{2q}{1-2q}B_{X,0}\le
+\frac{2q}{1-2q}p_XS_X.
+\]
+Apply \eqref{eq:tail-sandwich} and \eqref{eq:p-small}.
+\end{proof}
+
+\begin{corollary}[A genuine polynomial survival bound from
+per-shell doubling]\label{cor:poly}
+Fix $0<q<1/2$ and let $\kappa=-\log_2q>1$.  If, more strongly,
+\[
+q_{X,j}(2n)\le q\,q_{X,j}(n)
+\quad\text{for all }X\ge X_0,\;j,\;n\ge K_j,
+\]
+then for all $n\ge K_j$,
+\begin{equation}\label{eq:polynomial}
+\boxed{\quad q_{X,j}(n)
+\le 2^\kappa p_X\left(\frac{K_j}{n}\right)^\kappa.\quad}
+\end{equation}
+In particular, this implies the polynomial criterion of the
+preceding first-excess research note (with exponent $\kappa>1$).
+The main Theorem~\ref{thm:leakage} needs only an aggregate condition.
+\end{corollary}
+\begin{proof}
+Choose $r\ge0$ with $2^rK_j\le n<2^{r+1}K_j$.
+By monotonicity and $r$ iterations of the assumption,
+$q_{X,j}(n)\le q^r q_{X,j}(K_j)\le q^r p_X$.
+Since $2^r>n/(2K_j)$, and $q=2^{-\kappa}$,
+$q^r\le(2K_j/n)^\kappa$.
+\end{proof}
+
+\begin{theorem}[Leakage with weighted exceptional errors]\label{thm:robust}
+Let $0\le q<1/2$ be fixed.  Suppose for all large $X$ that
+there are nonnegative $e_{X,\ell}$ such that
+\[
+B_{X,\ell+1}\le qB_{X,\ell}+e_{X,\ell},
+\qquad\sum_{\ell\ge0}2^\ell e_{X,\ell}=o(1).
+\]
+Then $T_X=o(X)$.  More precisely,
+\begin{equation}\label{eq:robust-bound}
+D_X\le \frac{2q}{1-2q}B_{X,0}
+   +\frac2{1-2q}\sum_{\ell\ge0}2^\ell e_{X,\ell}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Iterating the recursion gives
+$B_{X,m}\le q^m B_{X,0}+\sum_{\ell<m}q^{m-1-\ell}e_{X,\ell}$.
+Multiply by $2^m$, sum for $m\ge1$, and exchange the finite,
+nonnegative sums.  The main term sums to $2qB_{X,0}/(1-2q)$.
+For the errors,
+\[
+\sum_{\ell\ge0}e_{X,\ell}
+ \sum_{m\ge\ell+1}2^m q^{m-1-\ell}
+=\frac2{1-2q}\sum_{\ell\ge0}2^\ell e_{X,\ell}.
+\]
+Now use Theorem~\ref{thm:dyadic}.
+\end{proof}
+
+\section{Why this is not already Terras, Tao or GGM}
+The dyadic layer-cake and geometric-series estimates are elementary
+analytic tools, not claimed as new general-purpose probabilistic
+theorems.  What would be new is to establish the uniform flux bound
+\eqref{eq:target} for the \emph{particular, stopped} first-excess law
+of actual Syracuse trajectories.  That step is not contained in the
+results below and must not be inferred from the finite tests.
+
+\begin{remark}[A quantified obstacle at very late scales]
+The error in the existing tightness estimate is an \emph{absolute}
+$O((\log X)^{-\varepsilon_0})$ probability.  An error
+$e_{X,\ell}\le C(\log X)^{-\varepsilon_0}$ independent of $\ell$
+\emph{does not} satisfy the hypothesis of
+Theorem~\ref{thm:robust}:
+$\sum_\ell2^\ell e_{X,\ell}$ can be as large as an
+$O(X)$ multiple of that error because the largest possible visit
+count is $\#W_X\le X+1$.  This is the original exceptional-mass
+obstruction in dyadic form.  Neither finite parity-cylinder
+uniformity nor a short-horizon coupling bounds the required
+\emph{weighted} errors after an arbitrary first-excess stopping time.
+\end{remark}
+\begin{remark}[Why finite-kernel algebra alone cannot prove leakage]
+Take an abstract terminating deterministic path of $M$ distinct shell
+states, with entrance measure concentrated on its first state.
+Its return kernel is nilpotent, but
+$q(2n)=q(n)=1$ whenever $2n<M$.
+Thus neither nilpotence, finiteness, nor an exact Green expansion
+implies any $q<1$ independent of the path length.  A proof of
+\eqref{eq:leakage-assumption} must use arithmetic structure of the
+$3x+c$ dynamics \emph{and} how the true first-excess measure is
+transported across that structure.
+\end{remark}
+\begin{remark}[Strictly weaker than per-shell doubling]
+Even abstractly, an aggregate inequality is weaker than its
+per-shell counterpart.  For example, with two shells of weights
+$1$ and $1/2$, $K_0=K_1=1$, give a fraction $\delta$ of the
+entrance mass a deterministic path with $N_0^+=2$, and the remainder
+a path with $N_1^+=1$.  Then
+$B_0=\delta+\frac12(1-\delta)$ and $B_1=\delta$, so
+$B_1/B_0=2\delta/(1+\delta)<1/2$ for $0<\delta<1/3$,
+and $B_2=0$.  But in shell $0$, $q_0(2)/q_0(1)=1$.
+This is a mathematical toy example, not an observed Syracuse orbit.
+\end{remark}
+
+\section{Finite-window diagnostic on actual trajectories}
+\paragraph{Fully enumerated finite test.}
+For $X=8192$, choose the explicitly integer-truncated thresholds
+$a=786$, $W=(2538,8192]\cap\mathbb N$, $L=3$ and
+$K_0=4$, $K_1=5$.  We enumerated \emph{every odd start} in
+$[32768,131072)$, a total of $49{,}152$ actual trajectories for each
+$c\in\{-1,1,5,13\}$.  All these trajectories reached the cutoff
+before repetition or the implementation's iteration limit.  Counting
+$2B_{X,\ell}$ with integer arithmetic gives exact ratios:
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$c$ & first excess & $B_1/B_0$ & $B_2/B_1$ & max later visits per shell\\
+\midrule
+$-1$ & 25107 & $20639/81783$ & $1816/20639$ & 21\\
+$1$ & 24819 & $18711/78520$ & $0$ & 15\\
+$5$ & 25858 & $27534/80017$ & $3812/13767$ & 25\\
+$13$ & 25654 & $23117/79248$ & $3680/23117$ & 23\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus $B_{\ell+1}<B_\ell/2$ at every nonzero dyadic layer
+in this \emph{finite-window} experiment; all later $B_\ell$ vanish.
+The assertion follows from exhaustive integer enumeration, not from
+Lean or an asymptotic theorem.  Crucially, the entrance measure here
+is the \emph{uniform finite start-window measure}, not the limiting
+logarithmic $\eta_X$.
+
+\paragraph{Larger finite sample.}
+To test whether the aggregate condition is numerically plausible,
+we simulated \emph{actual integer trajectories} of $T_{3,c}$ for
+$c\in\{-1,1,5,13\}$, not random valuations.  For each map,
+$40{,}000$ odd starts were chosen approximately log-uniformly from
+$[4X,16X)$ at $X=10^6$; we set $\beta=0.13$, $L=10$, and
+$K_j=\lceil4\cdot2^{0.3j}\rceil$, with seed $202611161827$.
+Only successfully terminated orbits were counted.  There were no
+censored orbits in these samples.
+
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$c$ & first-excess paths & $B_1/B_0$ & $B_2/B_1$ & $B_3/B_2$\\
+\midrule
+$-1$ & $5429$ & $0.3376$ & $0.1373$ & $0$\\
+$1$  & $5155$ & $0.3082$ & $0.1060$ & $0$\\
+$5$  & $5134$ & $0.3087$ & $0.1144$ & $0$\\
+$13$ & $5201$ & $0.3228$ & $0.1533$ & $0.0044$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These ratios are sample quantities, not bounds on the limiting
+$\eta_X$.  We enlarged $\beta$ relative to the manuscript's
+$1/200$ deliberately: at the latter value and $X=10^6$, first-excess
+events with $L=2$ appeared only $1$--$3$ times in $40{,}000$ sampled
+starts for the four maps, making such ratio estimates unreliable.
+In particular, these finite data \emph{do not} establish a uniform
+$q<1/2$ for large $X$ and all dyadic scales $\ell$.
+
+\section{Exact next proof obligation}
+The single missing new analytic statement is the following
+\emph{actual-orbit, stopped-measure block-flux bound}, for some
+$\delta>1/2$ independent of $X,\ell$:
+\begin{equation}\label{eq:target}
+\boxed{\;
+\sum_j2^{-j}K_j\,\eta_XE_{X,j}Q_{X,j}^{a_{j,\ell}-1}
+       (\one-Q_{X,j}^{a_{j,\ell}}\one)
+\ge\delta\,B_{X,\ell},\quad
+ a_{j,\ell}=2^\ell K_j.
+\;}
+\end{equation}
+An acceptable weaker replacement is the same bound with errors
+$e_{X,\ell}$ having $\sum_\ell2^\ell e_{X,\ell}=o(1)$.
+This is a \emph{genuine dynamical estimate not proved in this note}.
+It concerns high-order correlations and stopping-biased entrance
+measures beyond the short parity-coupling horizon.  Theorems
+\ref{thm:dyadic}--\ref{thm:robust} are rigorous reductions showing
+exactly how such an estimate, if eventually proved, would finish
+$T_X=o(X)$.  The separate return term $R_X$ remains open.
+
+\begin{thebibliography}{9}
+\bibitem{Tao2022} T. Tao,
+\emph{Almost all orbits of the Collatz map attain almost bounded values},
+Forum Math. Pi \textbf{10} (2022), e12.
+\bibitem{GGM2025} F. Gon\c{c}alves, R. Greenfeld, J. Madrid,
+\emph{Generalized Collatz maps with almost bounded orbits},
+Indiana Univ. Math. J. \textbf{74} (2025), 1--46,
+arXiv:2111.06170.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,6 @@
+Full enumeration of odd starts in [4X,16X): X 8192 beta 0.13 cut 786 W_lower 2538 L 3 K {0: 4, 1: 5}
+c -1 total 49152 censored 0 excess 25107 maxN 21 B0scaled_integer 81783 q ratios ['0.25236 (20639/81783)', '0.08799 (1816/20639)', '0.00000 (0)', '-', '-']
+c 1 total 49152 censored 0 excess 24819 maxN 15 B0scaled_integer 78520 q ratios ['0.23830 (18711/78520)', '0.00000 (0)', '-', '-', '-']
+c 5 total 49152 censored 0 excess 25858 maxN 25 B0scaled_integer 80017 q ratios ['0.34410 (27534/80017)', '0.27689 (3812/13767)', '0.00000 (0)', '-', '-']
+c 13 total 49152 censored 0 excess 25654 maxN 23 B0scaled_integer 79248 q ratios ['0.29170 (23117/79248)', '0.15919 (3680/23117)', '0.00000 (0)', '-', '-']
+PASS: exact integer dyadic-weight calculations verify block leakage q<1/2 over the complete specified finite windows.

@@ -1,0 +1,31 @@
+X=1000000 beta=0.13 lower_W=165958 cutoff=27542 level=10.0 samples=40000
+WARNING: finite log-uniform input window [4X,16X); beta is deliberately larger than manuscript beta=1/200
+c=-1 completed=40000 censored=0 first_excess=5429 p_hat=0.1357250
+ B[0]=0.2968875 B[1]/B[0]=0.3376
+ B[1]=0.1002375 B[2]/B[1]=0.1373
+ B[2]=0.0137625 B[3]/B[2]=0.0000
+ shell=0, K=4, P(N>=4)=0.043400, ratio_P8_P4=0.3929
+ shell=1, K=5, P(N>=4)=0.055500, ratio_P8_P4=0.3694
+ shell=2, K=7, P(N>=4)=0.030100, ratio_P8_P4=0.1512
+c=1 completed=40000 censored=0 first_excess=5155 p_hat=0.1288750
+ B[0]=0.2705000 B[1]/B[0]=0.3082
+ B[1]=0.0833563 B[2]/B[1]=0.1060
+ B[2]=0.0088375 B[3]/B[2]=0.0000
+ shell=0, K=4, P(N>=4)=0.039875, ratio_P8_P4=0.3505
+ shell=1, K=5, P(N>=4)=0.052600, ratio_P8_P4=0.3460
+ shell=2, K=7, P(N>=4)=0.025775, ratio_P8_P4=0.1717
+c=5 completed=40000 censored=0 first_excess=5134 p_hat=0.1283500
+ B[0]=0.2673563 B[1]/B[0]=0.3087
+ B[1]=0.0825313 B[2]/B[1]=0.1144
+ B[2]=0.0094375 B[3]/B[2]=0.0000
+ shell=0, K=4, P(N>=4)=0.038275, ratio_P8_P4=0.3658
+ shell=1, K=5, P(N>=4)=0.051625, ratio_P8_P4=0.3274
+ shell=2, K=7, P(N>=4)=0.028000, ratio_P8_P4=0.1884
+c=13 completed=40000 censored=0 first_excess=5201 p_hat=0.1300250
+ B[0]=0.2873875 B[1]/B[0]=0.3228
+ B[1]=0.0927687 B[2]/B[1]=0.1533
+ B[2]=0.0142250 B[3]/B[2]=0.0044
+ B[3]=0.0000625 B[4]/B[3]=0.0000
+ shell=0, K=4, P(N>=4)=0.041375, ratio_P8_P4=0.3589
+ shell=1, K=5, P(N>=4)=0.056375, ratio_P8_P4=0.3596
+ shell=2, K=7, P(N>=4)=0.029425, ratio_P8_P4=0.1886

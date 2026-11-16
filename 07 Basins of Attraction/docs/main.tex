@@ -2103,11 +2103,15 @@ In kernel form, $\sum_y\eta_{X,L}(y)\mathbf 1[N^+_{X,j}(y)\ge n]=\eta_{X,L}E_{X,
 
 \begin{problem}[Weighted occupation of long finite excursions]
 \label{prob:excursions}
-Show that unusually long but finite first-passage excursions carry a weighted occupation mass $o(X)$ in $W_X$, that is, $\mathcal E_X(L_X;K_X)\to0$ in Proposition~\ref{prop:first-excess}(c); this is equivalent to $T_X=o(X)$. The object is the first-excess entrance law $\eta_{X,L_X}$, of total mass $O((\log X)^{-\varepsilon_0})$, transported by the return kernels of the shells $I_{X,j}$; the residues of its first steps cannot carry the argument (Remark~\ref{rem:entrance-support}, Proposition~\ref{prop:residue-obstruction}). A polynomial survival bound
+Show that unusually long but finite first-passage excursions carry a weighted occupation mass $o(X)$ in $W_X$, that is, $\mathcal E_X(L_X;K_X)\to0$ in Proposition~\ref{prop:first-excess}(c); this is equivalent to $T_X=o(X)$. The object is the first-excess entrance law $\eta_{X,L_X}$, of total mass $O((\log X)^{-\varepsilon_0})$, transported by the return kernels of the shells $I_{X,j}$; the residues of its first steps cannot carry the argument (Remark~\ref{rem:entrance-support}, Proposition~\ref{prop:residue-obstruction}). It suffices to control the survival $s_{X,j}(n)=\eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1$ at the dyadic return counts $n=2^\ell K_{X,j}$, summed over the shells. Put
 \[
- \eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1\ \le\ A\,\mu_X(L_X)\Bigl(\frac{K_{X,j}}n\Bigr)^{1+\kappa}\qquad(n>K_{X,j}),
+ B_{X,\ell}=\sum_{j\ge0}2^{-j}K_{X,j}\,s_{X,j}\bigl(2^\ell K_{X,j}\bigr),\qquad D_X=\sum_{\ell\ge1}2^\ell B_{X,\ell},\qquad S_X=\sum_{j\ge0}2^{-j}K_{X,j}.
 \]
-with constants $A$ and $\kappa>0$, would suffice: summing over $n>K_{X,j}$ and $j$ gives $\mathcal E_X(L_X;K_X)\le(A/\kappa)\,\mu_X(L_X)\sum_j2^{-j}K_{X,j}$, and hence $T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)$.
+Since $s_{X,j}$ is nonincreasing, grouping the counts $n\in(2^\ell K_{X,j},2^{\ell+1}K_{X,j}]$ gives $\frac12D_X\le\mathcal E_X(L_X;K_X)\le B_{X,0}+D_X$, and $B_{X,0}\le\mu_X(L_X)S_X$. Hence $T_X=o(X)$ if and only if $D_X\to0$, and an aggregate polynomial survival bound
+\[
+ B_{X,\ell}\ \le\ A\,2^{-(1+\kappa)\ell}\,\mu_X(L_X)\,S_X\qquad(\ell\ge1),
+\]
+with constants $A$ and $\kappa>0$, gives $T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)$. It holds if $B_{X,\ell+1}\le qB_{X,\ell}$ for all $\ell$ with a fixed $q<\frac12$, and if every shell satisfies $s_{X,j}(n)\le A\,\mu_X(L_X)(K_{X,j}/n)^{1+\kappa}$ for $n>K_{X,j}$, but it does not need the latter shell by shell. An additive error $e_{X,\ell}$ in the ratio condition is admissible if $\sum_\ell2^\ell e_{X,\ell}\to0$; an error of the size $(\log X)^{-\varepsilon_0}$ of the exceptional set is not (Remark~\ref{rem:tail-barrier}).
 \end{problem}
 
 %=====================================================================
