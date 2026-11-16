@@ -59,3 +59,11 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Problem 3 restated in these terms, with the polynomial survival bound as a sufficient condition.
 - docs/research/first_excess/: the full research fragment and its finite exact-rational check
   (3600 terminated paths, 1862 first-excess decompositions, all passed).
+
+## v6c
+- Table 2 (contributions): caption shortened to one sentence. Its caveats moved into the text:
+  the meaning of "exact bounded computation" into the paragraph before the table; the scope of the
+  Lean links into the subsection "Machine-checked finite core and its scope", whose list of what is
+  not certified now also names the first-passage calibration and tightness (Propositions 8 and 9)
+  and the all-large-shell obstruction of Proposition 11 (the latter only in the main variant; in
+  alt_if_lean_green it is formalised).

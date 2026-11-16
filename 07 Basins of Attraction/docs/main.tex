@@ -191,7 +191,9 @@ numerical tests. Table~\ref{table:contributions} distinguishes these levels
 and compares each contribution with the closest preceding work. In particular,
 we do not claim a proof of universal convergence or an exact formula for
 individual basin shares, and the natural densities for general $c$ rest on
-the preprint \cite{Allikvere_2026}, which is not yet refereed.
+the preprint \cite{Allikvere_2026}, which is not yet refereed. ``Exact bounded
+computation'' asserts completeness only within the stated limits, and numerical
+agreement is not a proof of a limiting density.
 
 % A longtable can break across pages; the table is taller than one page.
 \begingroup
@@ -199,7 +201,7 @@ the preprint \cite{Allikvere_2026}, which is not yet refereed.
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.17}
 \begin{longtable}{@{}P{0.16\textwidth}P{0.24\textwidth}p{\dimexpr0.43\textwidth-18pt\relax}P{0.17\textwidth}@{}}
-\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+\caption{What was known, what is added here, and the logical status of each result.}
 \label{table:contributions}\\
 \toprule
 \textbf{Topic} & \textbf{Previous foundation} & \textbf{Contribution of this paper} & \textbf{Status} \\
@@ -297,9 +299,9 @@ $3x+c$ map, its immediate predecessors for odd $c$, the recursion for
 hitting a target within a fixed number of steps, and a finite weighted
 hitting-mass identity for arbitrary finite samples. The separately checked
 modules \texttt{Clipping.lean} and \texttt{ReturnPairs.lean} certify
-finite truncation inequalities and the chronological return-pair identity. The individual \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessor} and
-\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{finite-flow} theorems are linked in
-Table~\ref{table:contributions}. These statements are checked by the
+finite truncation inequalities and the chronological return-pair identity. The links in the last row of Table~\ref{table:contributions} point to the
+individual declarations, among them the finite return certificates and explicit
+congruence witnesses. These statements are checked by the
 \href{https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml}{GitHub Actions kernel-check workflow}
 using Lean~4 and Mathlib; it runs \texttt{lake check}, which replays the
 build through the Lean kernel and fails if any theorem uses an axiom other
@@ -310,8 +312,10 @@ This formal verification is deliberately \emph{limited to finite dynamics}.
 In particular, it does not certify Theorem~\ref{thm:logdens},
 Theorem~\ref{thm:natural},
 Proposition~\ref{prop:potential}'s logarithmic-density assertions,
-Lemma~\ref{lem:model}, Theorem~\ref{thm:lower}, or the first-passage
-calibration. Their proofs and external dependencies require separate
+Lemma~\ref{lem:model}, Theorem~\ref{thm:lower}, the first-passage calibration and tightness
+(Propositions~\ref{prop:clipped-calibration} and~\ref{prop:tightness}), or the
+obstruction of Proposition~\ref{prop:residue-obstruction} for all sufficiently
+large shells. Their proofs and external dependencies require separate
 mathematical and, potentially, formal verification.
 
 \FloatBarrier
