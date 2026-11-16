@@ -1,0 +1,32 @@
+name: Bootstrap Collatz Lean dependency lockfile (one time)
+
+'on':
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-lockfile:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: '07 Basins of Attraction/lean'
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install elan
+        shell: bash
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://elan.lean-lang.org/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib and transitive dependencies once
+        run: |
+          lake update
+          test -s lake-manifest.json
+      - name: Upload the lockfile
+        uses: actions/upload-artifact@v5
+        with:
+          name: collatz-lean-lockfile
+          path: 07 Basins of Attraction/lean/lake-manifest.json
+          if-no-files-found: error

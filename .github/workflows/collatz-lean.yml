@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   kernel-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: '07 Basins of Attraction/lean'
@@ -28,13 +28,17 @@ jobs:
           curl --proto '=https' --tlsv1.2 -sSf https://elan.lean-lang.org/elan-init.sh \
             | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Resolve pinned Mathlib release and get cache
+      - name: Require the committed Lake lockfile
         run: |
-          lake update
-          lake exe cache get
+          if [ ! -s lake-manifest.json ]; then
+            echo 'Missing lake-manifest.json: commit the Lake-generated dependency lockfile.'
+            exit 1
+          fi
+      - name: Download cache using locked dependencies
+        run: lake exe cache get
       - name: Reject incomplete proofs and unreviewed axioms
         run: |
-          if grep -RnE '(^|[^[:alpha:]])(sorry|admit|axiom)[[:space:]]' \
+          if grep -RnE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom([[:space:]]|$)' \
                 --include='*.lean' CollatzBasins CollatzBasins.lean; then
             echo 'Uncertified proof placeholder or axiom found'
             exit 1

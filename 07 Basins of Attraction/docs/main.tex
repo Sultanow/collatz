@@ -1070,14 +1070,10 @@ been established.
 
 Fix the assumptions of Proposition~\ref{prop:clipped-calibration}, and
 retain its window $W_X$, first-passage mass $\Phi_X$, and clipping height
-$H_X=X(\log X)^{\varepsilon_0/2}$. For an odd positive starting value $m$,
-let $V_X(m)$ be the number of occurrences in $W_X$ in the same finite
-sequence of Syracuse blocks used to define $\Phi_X(m)$, with the same
-convention $V_X(m)=0$ if the relevant first passage does not occur. The
-points are counted with multiplicity in both observables; hence
-\begin{equation}\label{eq:visit-controls-mass}
-  0\le\Phi_X(m)\le X V_X(m).
-\end{equation}
+$H_X=X(\log X)^{\varepsilon_0/2}$. The relevant moment condition must
+weight a visit by its contribution to $\Phi_X$: the unweighted number
+of visits across the whole logarithmic window is not expected to remain
+bounded as $X\to\infty$ (cf. Lemma~\ref{lem:model}).
 For a function $f$ of the odd part $w^\flat$ of $w$, write
 \[
   \mathbb E_{\log}f(w^\flat)
@@ -1087,11 +1083,10 @@ For a function $f$ of the odd part $w^\flat$ of $w$, write
 whenever the limit exists. Existence of the means below is understood
 under the bounded-observable first-passage hypotheses of
 Lemma~\ref{lem:reduction} and the predecessor-density assertion of
-Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ and $V_X$
-are bounded, since a finite first-passage segment does not repeat a
-point in the target window.
+Proposition~\ref{prop:potential}. For each fixed $X$, $\Phi_X$ is bounded, since a finite
+first-passage segment does not repeat a point in the target window.
 
-\begin{proposition}[Exact mass decomposition and a return-count criterion]
+\begin{proposition}[Exact mass decomposition and a weighted-moment criterion]
 \label{prop:return-count-criterion}
 Let $S_X=\sum_{a\le X}a\,h(a)$, and put
 \[
@@ -1107,8 +1102,8 @@ Then, under the preceding existence hypotheses,
 \end{equation}
 If, in addition, for some $\theta>0$ and a constant $M$ independent
 of sufficiently large $X$,
-\begin{equation}\label{eq:return-moment-open}
-  \mathbb E_{\log}\bigl[V_X(w^\flat)^{1+\theta}\bigr]\le M,
+\begin{equation}\label{eq:weighted-passage-moment}
+  \mathbb E_{\log}\left[\left(\frac{\Phi_X(w^\flat)}{X}\right)^{1+\theta}\right]\le M,
 \end{equation}
 then
 \begin{equation}\label{eq:return-moment-consequence}
@@ -1133,22 +1128,29 @@ $R_X\ge0$. The pointwise identity
 $t=\min\{t,H_X\}+(t-H_X)_+$ for $t\ge0$ gives
 \eqref{eq:exact-three-part-mass} by linearity. To prove
 \eqref{eq:return-moment-consequence}, set
-$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$. Since
-$\Phi_X\le X V_X$,
+$L_X=H_X/X=(\log X)^{\varepsilon_0/2}$ and
+$Z_X=\Phi_X(w^\flat)/X$. For every $z\ge0$,
+$(z-L_X)_+\le L_X^{-\theta}z^{1+\theta}$; indeed the
+left-hand side vanishes for $z\le L_X$, while for $z>L_X$
+we have $(z-L_X)_+\le z\le L_X^{-\theta}z^{1+\theta}$.
+Consequently,
 \[
- (\Phi_X-H_X)_+
- \le X V_X\,\mathbf 1_{\{V_X>L_X\}}
- \le X L_X^{-\theta}V_X^{1+\theta}.
+ (\Phi_X-H_X)_+\le X L_X^{-\theta}
+       \left(\frac{\Phi_X}{X}\right)^{1+\theta}.
 \]
-Average and apply \eqref{eq:return-moment-open}.
+Average and apply \eqref{eq:weighted-passage-moment}.
 \end{proof}
 
 \paragraph{The remaining gap.}
 The model second-moment estimate in Lemma~\ref{lem:model} concerns an
 \emph{idealised} renewal process; it does not establish
-\eqref{eq:return-moment-open} for actual Syracuse orbits. Rare starting
-values on which the coupling fails may have a disproportionately large
-weighted contribution. Nor does control of $T_X$ by itself imply
+\eqref{eq:weighted-passage-moment} for actual Syracuse orbits. An
+unweighted uniform moment assumption for the total visit count would
+be inappropriate: already in the renewal model its mean grows with
+the logarithmic width of $W_X$. The weighted condition is compatible
+with that growth, but it remains open beyond the coupling horizon.
+Rare starting values on which the coupling fails may have a
+disproportionately large weighted contribution. Nor does control of $T_X$ by itself imply
 $R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
 \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
 are currently conditional working drafts, not additional certified
@@ -1178,6 +1180,34 @@ criterion, developed separately in the research notes. Neither this
 remark nor the finite Lean modules proves the open return-moment
 bound or $T_X=o(X)$.
 \end{remark}
+
+\begin{lemma}[Finite-horizon residue balance; cf. Terras~\cite{Terras_1976}]
+\label{lem:finite-horizon-residue}
+Fix an odd $c\ge-1$, a positive stopping threshold, a shell $I$ and a
+starting interval $J=[A,D)\cap\N$ with $A\ge1$. Let $E_{k,\le T}$ be
+the starts whose $k$-th visit to $I$ occurs by time $T$ before stopping,
+and let $Y_k$ be that visited state. For any $b\ge1$ and any set
+$G\subset\Z/2^b\Z$, put $p=|G|/2^b$. Then
+\[
+\left|\sum_{m\in E_{k,\le T}}\frac{\mathbf1_G(Y_k(m))-p}{m}\right|
+\le\frac{8(T+1)2^{T+b}}{A}.
+\]
+The same bound without $1/A$ holds for unweighted counting.
+\end{lemma}
+\begin{proof}
+Fix a time $t\le T$ and a parity cylinder $m=r+2^t j$.
+For $0\le s\le t$, the iterate is affine and increasing in $j$,
+with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$.
+Thus its values cycle through all classes modulo $2^b$.
+Stopping and shell-visit conditions partition the $j$-range into at
+most $3(t+1)+1$ intervals. Each contributes discrepancy at most
+$2^b$, also after harmonic weighting by summation by parts (with an
+additional factor $1/A$). Sum over $2^t$ cylinders and $0\le t\le T$.
+\end{proof}
+This is a quantitative form of classical parity-cylinder balance,
+not a new long-time mixing theorem. Its error is absolute, not
+relative to the mass of $E_{k,\le T}$, and it gives no uniform bound
+for visits beyond the chosen horizon.
 
 \subsection{Two-level Lyapunov certificates for return moments}
 \label{subsec:lyapunov-return}
