@@ -135,6 +135,14 @@ Together with Steps~1 and~2,
 which is \eqref{eq:tightness} after enlarging $C$.
 \end{proof}
 
+\noindent
+In particular, this yields tightness in probability,
+$\lim_{M\to\infty}\limsup_{X\to\infty}\mu_X(M)=0$.
+It does \emph{not} yield uniform integrability of $\Phi_X/X$:
+the exceptional probability in \eqref{eq:tightness} is independent
+of $M$ and can carry a non-negligible weighted contribution.
+
+
 \begin{corollary}[Where the clipping tail can live]
 \label{cor:extreme-tail}
 Assume the hypotheses of Proposition~\ref{prop:clipped-calibration}, and
@@ -212,11 +220,12 @@ Corollary~\ref{cor:extreme-tail}(b) isolates exactly this: the clipping
 tail vanishes if and only if the orbits with $\Phi_X>M_XX$ carry mass
 $o(X)$, for one (equivalently, every) choice of $M_X$ between
 $(\log X)^{\varepsilon_0/2}$ and $o((\log X)^{\varepsilon_0})$.
-Since $\Phi_X(m)=0$ when $\tau_{X_1}(m)=\infty$, unbounded orbits and
-cycles above $X_1$ do not contribute. The obstruction consists of
-finite excursions that, before falling below $X_1$, return to the top
-of $W_X$ often enough to collect a mass of more than
-$X(\log X)^{\varepsilon_0/2}$.
+By definition, $\Phi_X(m)=0$ if the orbit of $m$ never reaches
+$[1,X_1]$. This does not exclude contributions from orbits that
+first descend below $X_1$ and later become unbounded or enter a
+cycle above $X_1$. The obstruction for the clipping tail consists of
+finite initial excursions that, before their first passage below $X_1$,
+collect more than $X(\log X)^{\varepsilon_0/2}$ in $W_X$.
 Excluding them requires information about individual orbits beyond the
 $2$-adic horizon of Lemma~\ref{lem:valuations} and beyond the
 total-variation scale of \eqref{eq:ggm_tv}; return certificates that
@@ -236,9 +245,11 @@ agree with the model within the sampling error. For example, for $c=1$,
 $X=10^{30}$ and $\beta=0.05$ the mean is $6.714$ against $6.712$ and the
 second moment $69.33$ against $69.27$. The tail probabilities
 $\mathbb P(\Phi_X/X>\Lambda)$ agree in all $18$ configurations with
-$|z|\le2.1$. The tails are exponential, with a fitted rate of about
-$0.21$ for $\beta=0.05$ and $X\ge10^{20}$, and the largest value among
-the $2\cdot10^7$ starts is $\Phi_X/X=87.9$. Such samples see sets of
+$|z|\le2.1$. The sampled tails are consistent with exponential decay, with an
+empirically fitted rate of about $0.21$ for $\beta=0.05$ and
+$X\ge10^{20}$; this finite-sample fit is not an asymptotic tail
+estimate. The largest recorded value among the $2\cdot10^7$ starts
+is $\Phi_X/X=87.9$. Such samples see sets of
 density down to about $10^{-7}$. A set that could spoil $T_X=o(X)$ needs
 density only about $X^{-1}$, so the numerics support the model but do
 not test the exceptional set.

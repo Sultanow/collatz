@@ -5,7 +5,7 @@ import CollatzBasins.Mod16Escape
 
 Only elementary congruence facts are formalized here.  The finite-horizon
 transport bound with error `40*(T+1)*2^T` is proved on paper but is NOT
-yet checked by Lean.  No `sorry` or new axioms are used below.
+yet checked by Lean. The declarations below await kernel verification.
 -/
 namespace CollatzBasins
 
