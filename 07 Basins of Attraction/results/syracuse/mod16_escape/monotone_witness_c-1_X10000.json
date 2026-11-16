@@ -1,0 +1,17 @@
+{
+  "X": 10000,
+  "a": 1250,
+  "c": -1,
+  "modulus": 32,
+  "residue": 11,
+  "upward": {
+    "y": 5003,
+    "next_return": 7504
+  },
+  "downward": {
+    "y": 6699,
+    "next_return": 5024
+  },
+  "certified_global_cutoff": true,
+  "implication": "No monotone (nondecreasing or nonincreasing) U(y/X) can satisfy U>=1+PU on entire terminating return graph"
+}

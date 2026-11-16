@@ -1,0 +1,134 @@
+{
+  "X": 100000,
+  "c": 13,
+  "complete_orbits": 10000,
+  "draw": "approx log uniform [4X,16X)",
+  "first_entries": 10000,
+  "first_entry_mod16": {
+    "0": 641,
+    "1": 635,
+    "10": 612,
+    "11": 637,
+    "12": 588,
+    "13": 564,
+    "14": 611,
+    "15": 673,
+    "2": 627,
+    "3": 679,
+    "4": 653,
+    "5": 621,
+    "6": 619,
+    "7": 610,
+    "8": 607,
+    "9": 623
+  },
+  "good_class_residues": [
+    0,
+    1,
+    4,
+    8,
+    12
+  ],
+  "max_shell_visits": 20,
+  "max_steps_to_passage": 183,
+  "no_shell_entry": 0,
+  "samples": 10000,
+  "seed": 20361415,
+  "shell": "(X/2,X]",
+  "statistical_status": "finite numerical evidence, NOT asymptotic proof",
+  "threshold": "X/4",
+  "unresolved": 0,
+  "verified_good_visits": 10488,
+  "visits_by_index": {
+    "1": {
+      "good_count": 3124,
+      "good_fraction": 0.3124,
+      "survival_2_return_ratio": 0.4992,
+      "survivors": 10000
+    },
+    "10": {
+      "good_count": 144,
+      "good_fraction": 0.353808,
+      "survival_2_return_ratio": 0.437346,
+      "survivors": 407
+    },
+    "11": {
+      "good_count": 87,
+      "good_fraction": 0.334615,
+      "survival_2_return_ratio": 0.461538,
+      "survivors": 260
+    },
+    "12": {
+      "good_count": 57,
+      "good_fraction": 0.320225,
+      "survival_2_return_ratio": 0.382022,
+      "survivors": 178
+    },
+    "13": {
+      "good_count": 52,
+      "good_fraction": 0.433333,
+      "survival_2_return_ratio": 0.308333,
+      "survivors": 120
+    },
+    "14": {
+      "good_count": 32,
+      "good_fraction": 0.470588,
+      "survival_2_return_ratio": 0.294118,
+      "survivors": 68
+    },
+    "15": {
+      "good_count": 16,
+      "good_fraction": 0.432432,
+      "survival_2_return_ratio": 0.351351,
+      "survivors": 37
+    },
+    "2": {
+      "good_count": 2151,
+      "good_fraction": 0.304804,
+      "survival_2_return_ratio": 0.500638,
+      "survivors": 7057
+    },
+    "3": {
+      "good_count": 1500,
+      "good_fraction": 0.300481,
+      "survival_2_return_ratio": 0.501202,
+      "survivors": 4992
+    },
+    "4": {
+      "good_count": 1105,
+      "good_fraction": 0.312765,
+      "survival_2_return_ratio": 0.482876,
+      "survivors": 3533
+    },
+    "5": {
+      "good_count": 824,
+      "good_fraction": 0.329337,
+      "survival_2_return_ratio": 0.470424,
+      "survivors": 2502
+    },
+    "6": {
+      "good_count": 558,
+      "good_fraction": 0.327081,
+      "survival_2_return_ratio": 0.489449,
+      "survivors": 1706
+    },
+    "7": {
+      "good_count": 363,
+      "good_fraction": 0.308411,
+      "survival_2_return_ratio": 0.495327,
+      "survivors": 1177
+    },
+    "8": {
+      "good_count": 273,
+      "good_fraction": 0.326946,
+      "survival_2_return_ratio": 0.487425,
+      "survivors": 835
+    },
+    "9": {
+      "good_count": 183,
+      "good_fraction": 0.313894,
+      "survival_2_return_ratio": 0.445969,
+      "survivors": 583
+    }
+  }
+}

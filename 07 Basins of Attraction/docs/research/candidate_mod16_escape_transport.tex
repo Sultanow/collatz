@@ -1,0 +1,127 @@
+% Research-only candidate, 2026-11-16.
+% NOT included in main.tex. The two finite propositions have paper proofs;
+% the transport/rebound hypothesis is OPEN for the actual logarithmic law.
+\subsection{Sixteen-residue escape mechanism and a conditional return bound}
+\label{subsec:mod16-escape-candidate}
+For odd $c\ge-1$, put $T(n)=T_{3,c}(n)$. Fix a shell
+$I_L=(L/2,L]\cap\mathbb N$, and distinguish a \emph{local} lower
+threshold $L/4$ from the possibly much smaller \emph{global}
+first-passage threshold $a_L$. Write
+\[
+ G_c=\{y\in\mathbb N:y\equiv0\pmod4\text{ or }
+                 3y+c\equiv0\pmod{16}\}.
+\]
+Modulo $16$, $G_c$ comprises the five classes
+$0,4,8,12,5c$. In particular, the uniform distribution on all
+$16$ classes gives it mass $5/16$; no analogous claim for a
+\emph{conditioned entrance distribution} is being made.
+
+\begin{proposition}[Deterministic local escape]
+\label{prop:mod16-local-escape-candidate}
+Let $c\ge-1$ be odd and $L\ge\max\{16,2|c|\}$. If
+$y\in I_L\cap G_c$, then the orbit starting at $y$ reaches
+$(0,L/4]$ in at most four steps, and before that first passage
+visits $I_L$ at most twice, counting the initial state.
+\end{proposition}
+\begin{proof}
+If $4\mid y$ then $T(y)=y/2\le L/2$ and
+$T^2(y)=y/4\le L/4$. Otherwise $16\mid(3y+c)$, so $y$ is odd.
+Put $z=(3y+c)/4$, a positive multiple of $4$. The trajectory
+begins $y\mapsto2z\mapsto z\mapsto z/2\mapsto z/4$.
+Since $y\le L$ and $c\le L$, we have $z\le L$, hence
+$z/4\le L/4$. If $2z\le L$, then $2z$ is the only possible
+extra visit to the shell, because $z\le L/2$. If $2z>L$,
+then $2z$ lies above the shell and $z$ is its only possible
+extra visit. No independence hypothesis is used.
+\end{proof}
+
+\begin{proposition}[Finite-modulus conditional return criterion]
+\label{prop:mod16-transport-candidate}
+Fix a probability or subprobability law on stopped trajectories
+that start above a global cutoff $a_L\le L/4$. Let $N$ be
+its number of visits to $I_L$ before this global first passage,
+with $Y_k$ the $k$-th visited shell state on $\{N\ge k\}$.
+Let $B_k$ denote a \emph{rebound}: after the first subsequent
+passage below $L/4$, the trajectory revisits $I_L$ before
+its global first passage. Suppose constants $g>0$ and
+$\vartheta<1$ satisfy, for all $k$ with $\Pr(N\ge k)>0$,
+\[
+ \Pr(Y_k\in G_c\mid N\ge k)\ge g,
+ \qquad
+ \Pr(B_k\mid Y_k\in G_c,N\ge k)\le\vartheta.
+\]
+Then with $\epsilon=g(1-\vartheta)>0$,
+\[
+ \Pr(N\ge k+2)\le(1-\epsilon)\Pr(N\ge k),
+ \qquad
+ \mathbb E N^2\le {4(2-\epsilon)\over\epsilon^2}.
+\]
+It suffices for the first inequality to have
+$d_{\rm TV}(\mathcal L(Y_k\bmod16\mid N\ge k),U_{16})\le\delta<5/16$,
+with $g=5/16-\delta$.
+\end{proposition}
+\begin{proof}
+On $\{N\ge k,Y_k\in G_c,\neg B_k\}$, the preceding
+proposition allows at most one more shell visit, so $N<k+2$.
+The conditional hypotheses imply that this event has conditional
+probability at least $\epsilon$. Thus $p_{k+2}\le(1-\epsilon)p_k$
+for $p_k=\Pr(N\ge k)$. Since
+$\mathbb E N^2=\sum_{k\ge1}(2k-1)p_k$ and
+$p_{2j+1},p_{2j+2}\le(1-\epsilon)^j$, the displayed moment bound
+follows from summing the geometric series. The total-variation
+claim follows because $G_c$ occupies five residue classes.
+\end{proof}
+
+\paragraph{The missing transport estimates.}
+For the actual logarithmic first-entrance law, neither the
+conditional modulo-$16$ discrepancy bound nor the uniform
+\emph{post-local-exit rebound bound} has been proved. In the
+first-passage argument of the paper, the global cutoff may lie
+far below $L/4$; therefore passing below $L/4$ does \emph{not}
+by itself end the counted trajectory. Consequently this
+proposition is a proved \emph{conditional criterion}, not a
+proof of $T_X=o(X)$.
+
+\begin{proposition}[Obstruction to monotone position-only certificates]
+\label{prop:position-monotone-obstruction-candidate}
+Fix odd $c\ge-1$. Let $L$ and $a$ be positive integers satisfying
+$L\ge16(|c|+1)$ and $64\le a\le L/4$.
+In the terminating first-return graph of $I_L=(L/2,L]$
+with global cutoff $a$, there exist return edges
+$y_+\to z_+$ and $y_-\to z_-$ such that
+$y_+<z_+$ and $y_->z_-$.
+In particular no potential of the form $U(y)=f_L(y/L)$, with
+$f_L$ monotone (in either direction), can obey
+$U\ge1+P_IU$ on the whole terminating graph.
+\end{proposition}
+\begin{proof}
+Choose a power of two $M\ge(3L+|c|)/a$ that is minimal
+with this property. Then $M\ge16$ and
+$M<2(3L+|c|)/a<L/8$. Since $3$ is invertible modulo
+$M$, the congruence $3y+c\equiv0\pmod M$ has exactly one
+class modulo $M$. The intervals
+\[
+ J_+=\bigl(L/2,(2L-c)/3\bigr],\qquad
+ J_-=\bigl((2L-c)/3,L\bigr]
+\]
+have lengths greater than $L/8$ under the stated assumptions;
+therefore they each contain a representative of this class,
+say $y_+$ and $y_-$. Both are odd.
+For $y_+$, the next iterate $z_+=(3y_++c)/2$ belongs to
+$I_L$ and exceeds $y_+$. For $y_-$, the first iterate
+$(3y_-+c)/2$ exceeds $L$ and is even, while the second iterate
+$z_-=(3y_-+c)/4$ belongs to $I_L$ and is smaller than $y_-$.
+The prescribed divisibility by $M$ ensures that, after the
+respective return, repeated halving reaches a value at most
+$(3L+|c|)/M\le a$, so these edges belong to the \emph{terminating}
+return graph even without any Collatz convergence assumption.
+A nondecreasing $f_L$ contradicts the first strict-return
+inequality, while a nonincreasing $f_L$ contradicts the second.
+\end{proof}
+
+\paragraph{Status.}
+The deterministic escape, conditional return criterion, and
+monotone-obstruction proofs are supplied here as a research draft.
+The uniform conditional hypotheses are \emph{open}. The arithmetic
+construction has independent exact-integer regression tests, but the
+new claims are not yet kernel-certified in Lean.

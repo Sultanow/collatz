@@ -1,0 +1,121 @@
+{
+  "X": 10000,
+  "c": 1,
+  "completed": 5000,
+  "global_cutoff_divisor": 64,
+  "max_visits": 25,
+  "n": 5000,
+  "note": "Finite sampled distributions, not asymptotic or fully induced logarithmic law",
+  "seed": 20271139,
+  "unresolved": 0,
+  "visits_by_index": {
+    "1": {
+      "count": 5000,
+      "good": 1585,
+      "good_fraction": 0.317,
+      "good_no_rebound": 1232,
+      "good_no_rebound_fraction": 0.2464,
+      "rebound_given_good": 0.222713,
+      "two_step_survival": 0.6108
+    },
+    "10": {
+      "count": 541,
+      "good": 153,
+      "good_fraction": 0.28281,
+      "good_no_rebound": 112,
+      "good_no_rebound_fraction": 0.207024,
+      "rebound_given_good": 0.267974,
+      "two_step_survival": 0.639556
+    },
+    "11": {
+      "count": 431,
+      "good": 144,
+      "good_fraction": 0.334107,
+      "good_no_rebound": 94,
+      "good_no_rebound_fraction": 0.218097,
+      "rebound_given_good": 0.347222,
+      "two_step_survival": 0.593968
+    },
+    "12": {
+      "count": 346,
+      "good": 162,
+      "good_fraction": 0.468208,
+      "good_no_rebound": 114,
+      "good_no_rebound_fraction": 0.32948,
+      "rebound_given_good": 0.296296,
+      "two_step_survival": 0.508671
+    },
+    "2": {
+      "count": 3901,
+      "good": 1162,
+      "good_fraction": 0.297872,
+      "good_no_rebound": 927,
+      "good_no_rebound_fraction": 0.237631,
+      "rebound_given_good": 0.202238,
+      "two_step_survival": 0.60728
+    },
+    "3": {
+      "count": 3054,
+      "good": 934,
+      "good_fraction": 0.305828,
+      "good_no_rebound": 739,
+      "good_no_rebound_fraction": 0.241978,
+      "rebound_given_good": 0.208779,
+      "two_step_survival": 0.600851
+    },
+    "4": {
+      "count": 2369,
+      "good": 725,
+      "good_fraction": 0.306036,
+      "good_no_rebound": 580,
+      "good_no_rebound_fraction": 0.244829,
+      "rebound_given_good": 0.2,
+      "two_step_survival": 0.60954
+    },
+    "5": {
+      "count": 1835,
+      "good": 541,
+      "good_fraction": 0.294823,
+      "good_no_rebound": 447,
+      "good_no_rebound_fraction": 0.243597,
+      "rebound_given_good": 0.173752,
+      "two_step_survival": 0.599455
+    },
+    "6": {
+      "count": 1444,
+      "good": 473,
+      "good_fraction": 0.327562,
+      "good_no_rebound": 349,
+      "good_no_rebound_fraction": 0.24169,
+      "rebound_given_good": 0.262156,
+      "two_step_survival": 0.611496
+    },
+    "7": {
+      "count": 1100,
+      "good": 339,
+      "good_fraction": 0.308182,
+      "good_no_rebound": 240,
+      "good_no_rebound_fraction": 0.218182,
+      "rebound_given_good": 0.292035,
+      "two_step_survival": 0.627273
+    },
+    "8": {
+      "count": 883,
+      "good": 291,
+      "good_fraction": 0.329558,
+      "good_no_rebound": 203,
+      "good_no_rebound_fraction": 0.229898,
+      "rebound_given_good": 0.302405,
+      "two_step_survival": 0.612684
+    },
+    "9": {
+      "count": 690,
+      "good": 228,
+      "good_fraction": 0.330435,
+      "good_no_rebound": 165,
+      "good_no_rebound_fraction": 0.23913,
+      "rebound_given_good": 0.276316,
+      "two_step_survival": 0.624638
+    }
+  }
+}

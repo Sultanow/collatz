@@ -1,0 +1,217 @@
+{
+  "tested": 30,
+  "total_states": 163760,
+  "all_checks_passed": true,
+  "examples": [
+    {
+      "L": 128,
+      "c": -1,
+      "states": 64,
+      "good": 20,
+      "fraction": 0.3125
+    },
+    {
+      "L": 256,
+      "c": -1,
+      "states": 128,
+      "good": 40,
+      "fraction": 0.3125
+    },
+    {
+      "L": 1024,
+      "c": -1,
+      "states": 512,
+      "good": 160,
+      "fraction": 0.3125
+    },
+    {
+      "L": 4096,
+      "c": -1,
+      "states": 2048,
+      "good": 640,
+      "fraction": 0.3125
+    },
+    {
+      "L": 10000,
+      "c": -1,
+      "states": 5000,
+      "good": 1563,
+      "fraction": 0.3126
+    },
+    {
+      "L": 50000,
+      "c": -1,
+      "states": 25000,
+      "good": 7813,
+      "fraction": 0.31252
+    },
+    {
+      "L": 128,
+      "c": 1,
+      "states": 64,
+      "good": 20,
+      "fraction": 0.3125
+    },
+    {
+      "L": 256,
+      "c": 1,
+      "states": 128,
+      "good": 40,
+      "fraction": 0.3125
+    },
+    {
+      "L": 1024,
+      "c": 1,
+      "states": 512,
+      "good": 160,
+      "fraction": 0.3125
+    },
+    {
+      "L": 4096,
+      "c": 1,
+      "states": 2048,
+      "good": 640,
+      "fraction": 0.3125
+    },
+    {
+      "L": 10000,
+      "c": 1,
+      "states": 5000,
+      "good": 1562,
+      "fraction": 0.3124
+    },
+    {
+      "L": 50000,
+      "c": 1,
+      "states": 25000,
+      "good": 7812,
+      "fraction": 0.31248
+    },
+    {
+      "L": 128,
+      "c": 5,
+      "states": 64,
+      "good": 20,
+      "fraction": 0.3125
+    },
+    {
+      "L": 256,
+      "c": 5,
+      "states": 128,
+      "good": 40,
+      "fraction": 0.3125
+    },
+    {
+      "L": 1024,
+      "c": 5,
+      "states": 512,
+      "good": 160,
+      "fraction": 0.3125
+    },
+    {
+      "L": 4096,
+      "c": 5,
+      "states": 2048,
+      "good": 640,
+      "fraction": 0.3125
+    },
+    {
+      "L": 10000,
+      "c": 5,
+      "states": 5000,
+      "good": 1563,
+      "fraction": 0.3126
+    },
+    {
+      "L": 50000,
+      "c": 5,
+      "states": 25000,
+      "good": 7813,
+      "fraction": 0.31252
+    },
+    {
+      "L": 128,
+      "c": 13,
+      "states": 64,
+      "good": 20,
+      "fraction": 0.3125
+    },
+    {
+      "L": 256,
+      "c": 13,
+      "states": 128,
+      "good": 40,
+      "fraction": 0.3125
+    },
+    {
+      "L": 1024,
+      "c": 13,
+      "states": 512,
+      "good": 160,
+      "fraction": 0.3125
+    },
+    {
+      "L": 4096,
+      "c": 13,
+      "states": 2048,
+      "good": 640,
+      "fraction": 0.3125
+    },
+    {
+      "L": 10000,
+      "c": 13,
+      "states": 5000,
+      "good": 1562,
+      "fraction": 0.3124
+    },
+    {
+      "L": 50000,
+      "c": 13,
+      "states": 25000,
+      "good": 7812,
+      "fraction": 0.31248
+    },
+    {
+      "L": 128,
+      "c": 47,
+      "states": 64,
+      "good": 20,
+      "fraction": 0.3125
+    },
+    {
+      "L": 256,
+      "c": 47,
+      "states": 128,
+      "good": 40,
+      "fraction": 0.3125
+    },
+    {
+      "L": 1024,
+      "c": 47,
+      "states": 512,
+      "good": 160,
+      "fraction": 0.3125
+    },
+    {
+      "L": 4096,
+      "c": 47,
+      "states": 2048,
+      "good": 640,
+      "fraction": 0.3125
+    },
+    {
+      "L": 10000,
+      "c": 47,
+      "states": 5000,
+      "good": 1563,
+      "fraction": 0.3126
+    },
+    {
+      "L": 50000,
+      "c": 47,
+      "states": 25000,
+      "good": 7813,
+      "fraction": 0.31252
+    }
+  ]
+}

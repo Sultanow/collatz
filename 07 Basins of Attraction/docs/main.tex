@@ -83,7 +83,7 @@
 \address{Capgemini Deutschland GmbH\\Bahnhofstraße 30, 90402 Nuremberg, Germany}
 \email{eldar.sultanow@capgemini.com}
 
-\date{October 2026}
+\date{November 2026}
 
 \keywords{Collatz problem, $qx+1$ problem, cycles, parity vectors, rotating binaries, Diophantine approximation, basins of attraction, logarithmic density, first passage, Cayley trees}
 \subjclass[2020]{Primary 11B83; Secondary 11Y55, 37P99}
@@ -91,7 +91,7 @@
 \begin{document}
 
 \begin{abstract}
-We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. The elementary predecessor and finite-horizon hitting identities are verified in Lean~4; the asymptotic density and Syracuse statements are not covered by this machine check.
+We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. Lean~4 checks the elementary predecessor, finite-horizon hitting and finite return-algebra statements, including two-level return certificates. A fixed-modulus obstruction shows that residue-only certificates cannot work on all large dyadic shells. The required uniform second-moment estimate for actual-orbit returns and the asymptotic density and Syracuse statements are not machine-certified.
 \end{abstract}
 
 \begingroup
@@ -218,6 +218,11 @@ Finite tail and return algebra
 & Exact clipping identity and quadratic excess bound; the finite relation $N^2=N+2\,{\rm pairs}$ for recorded visits. These are algebraic tools, not return-tail estimates.
 & \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}. \\
 \addlinespace[2pt]
+Finite return potentials and Lyapunov certificates
+& Green-type occupation identities and deterministic finite-return algebra.
+& Two-level certificates bound the second return-count moment; fixed binary-residue-only certificates cannot decrease along all returns (Propositions~\ref{prop:lyapunov-return}--\ref{prop:residue-obstruction}).
+& \emph{Proof; Lean~4 checked (finite):} \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}; uniform bound open. \\
+\addlinespace[2pt]
 Cycle census
 & Parity-word characterisations \cite{Boehm_Sontacchi_1978,Lagarias_1990}; earlier trajectory-based lists \cite{Belaga_Mignotte_2000,Wegner_2021}.
 & Exhaustive census of $1097$ primitive cycles for $|c|\le1000$ and parity-word length $l\le40$ (Proposition~\ref{prop:rational}).
@@ -255,7 +260,7 @@ Predicting basin shares
 \bottomrule
 \end{tabularx}
 \endgroup
-\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly listed finite predecessor, hitting, clipping and return-pair identities; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
+\caption{What was known, what is added here, and the logical status of each result. The Lean~4 links cover only the explicitly identified finite algebraic and arithmetic declarations (including return certificates and explicit congruence witnesses). The all-sufficiently-large-shell obstruction is proved in the manuscript but is not formalised in Lean; neither logarithmic-density existence nor the Syracuse-profile or actual-orbit uniform return estimates are machine-checked. ``Exact bounded computation'' asserts completeness only within the stated finite limits; numerical agreement is not a proof of a limiting density.}
 \label{table:contributions}
 \end{table}
 
@@ -1147,8 +1152,7 @@ weighted contribution. Nor does control of $T_X$ by itself imply
 $R_X=o(X)$. The intermediate-tail and exceptional-mass arguments in the
 \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research}{research notes}
 are currently conditional working drafts, not additional certified
-theorems. Establishing a uniform actual-orbit return-count moment bound
-and subsequently controlling $R_X$ are the two principal open steps.
+theorems. Establishing a uniform actual-orbit shell-moment bound, for example through the two-level certificates of Proposition~\ref{prop:lyapunov-return}, and subsequently controlling $R_X$ are the two principal open steps.
 
 %=====================================================================
 \begin{remark}[Finite-support obstruction to independent restarts]
@@ -1171,8 +1175,136 @@ shell returns. This observation does \emph{not} disprove geometric
 return tails. It identifies a limitation of the direct independent-
 valuation transfer and motivates a conditional entrance-measure
 criterion, developed separately in the research notes. Neither this
-remark nor the two finite Lean modules proves the open return-moment
+remark nor the finite Lean modules proves the open return-moment
 bound or $T_X=o(X)$.
+\end{remark}
+
+\subsection{Two-level Lyapunov certificates for return moments}
+\label{subsec:lyapunov-return}
+The Green-operator identities for finite return chains can be used without
+assuming a strict contraction of the ordinary occupation measure.  Here is
+an alternative that targets the second moment directly.
+Fix a finite shell $I\subset\N$ and a first-passage threshold $a<\min I$.
+Restrict attention to states $y\in I$ whose forward orbit under $T_{3,c}$
+reaches a value below $a$.  Let $R_I(y)$ be the next visit to $I$
+\emph{before} that passage, or $\dagger$ if there is none.  On the
+resulting terminating return graph write
+\[
+  (P_I F)(y)=
+  \begin{cases}F(R_I(y)),&R_I(y)\ne\dagger,\\
+  0,&R_I(y)=\dagger.
+  \end{cases}
+\]
+Let $N_I(y)\ge1$ denote the number of visits from $y$, including the
+initial visit.  This definition excludes unresolved orbits; no assertion
+about their convergence is implicit.
+
+\begin{proposition}[Two-level return certificate]
+\label{prop:lyapunov-return}
+Suppose nonnegative functions $U,V$ on the terminating return graph obey
+\begin{equation}\label{eq:two-level-lyapunov}
+ U\ge1+P_IU,\qquad V\ge1+2P_IU+P_IV.
+\end{equation}
+Then $N_I(y)\le U(y)$ and $N_I(y)^2\le V(y)$ for every state $y$ of
+that graph.  Consequently, for any nonnegative finite first-entry
+subprobability $q_1$ supported on these states,
+\begin{equation}\label{eq:lyapunov-second-moment}
+ \sum_{y\in I}q_1(y)N_I(y)^2
+ \le \sum_{y\in I}q_1(y)V(y).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Induct backwards along the finite return chain.  At a terminal state,
+$P_IU=P_IV=0$ and $N_I=1$, so both inequalities follow.  If the next
+return is $z$ and $N_I(z)=n$, then $N_I(y)=n+1$.  The induction
+hypotheses and~\eqref{eq:two-level-lyapunov} give
+\[
+ U(y)\ge1+U(z)\ge n+1,\qquad
+ V(y)\ge1+2U(z)+V(z)\ge1+2n+n^2=(n+1)^2.
+\]
+Multiply the latter inequality by $q_1(y)$ and sum.
+\end{proof}
+
+The functions $U(y)=N_I(y)$ and $V(y)=N_I(y)^2$ themselves satisfy
+\eqref{eq:two-level-lyapunov} with equality.  Thus existence of a
+certificate on a fixed finite graph is automatic.  The real problem is
+to find \emph{explicit certificates with uniformly bounded first-entry
+averages} as the shell varies.  In the dyadic decomposition
+$I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X$ of the observable $\Phi_X$, write
+$q_{1,X,j}$ for the logarithmically induced (possibly subprobability)
+first-entry law and $N_{X,j}$ for the corresponding number of visits.
+
+\begin{corollary}[Conditional removal of the clipping tail]
+\label{cor:lyapunov-tail}
+Assume the first-entry laws and corresponding second moments exist,
+and, for all sufficiently large $X$ and every relevant $j$, that
+functions $U_{X,j},V_{X,j}$ satisfy~\eqref{eq:two-level-lyapunov} on
+the supported terminating return paths with
+\begin{equation}\label{eq:lyapunov-uniform-open}
+ \sup_{X,j}\sum_{y\in I_{X,j}}q_{1,X,j}(y)V_{X,j}(y)
+ \le B<\infty.
+\end{equation}
+Then $T_X\le 4BX^2/H_X=o(X)$, where $T_X,H_X$ are defined in
+Proposition~\ref{prop:return-count-criterion}.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:lyapunov-return}, every shell count has second
+moment at most $B$.  Each point in $I_{X,j}$ has weight at most
+$X2^{-j}$, so Minkowski's inequality gives
+\[
+ \left\|\frac{\Phi_X}{X}\right\|_2
+ \le\sum_{j\ge0}2^{-j}\|N_{X,j}\|_2\le2\sqrt B.
+\]
+For $t\ge0$ one has $(t-H_X)_+\le t^2/H_X$.  Taking the logarithmic
+mean yields $T_X\le\mathbb E_{\log}(\Phi_X^2)/H_X\le4BX^2/H_X$.
+Since $H_X=X(\log X)^{\varepsilon_0/2}$, this is $o(X)$.
+\end{proof}
+
+There is a simple arithmetic reason why certificates based solely on a
+fixed binary residue cannot work on all large dyadic shells.
+
+\begin{proposition}[Fixed-modulus obstruction]
+\label{prop:residue-obstruction}
+For every odd $c\in\Z$ and every $k\ge1$, there exists $X_0(c,k)$
+such that for every real $X\ge X_0(c,k)$ one can find positive integers
+$y,z\in(X/2,X]$ with
+\[
+ T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
+\]
+Consequently, on any such shell, no function $U$ depending only on
+$y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
+containing this one-step return (with any cutoff $a<X/2$).
+\end{proposition}
+\begin{proof}
+Set $m=2^k$.  For sufficiently large $X$, the interval
+\[
+ \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
+\]
+has length $X/12-c/6>m$ and is contained in $(0,\infty)$.
+It therefore contains a positive multiple $A$ of $m$.  Set
+$y=2A-c$ and $z=3A-c$.  Since $c$ is odd, $y$ is odd and
+$T_{3,c}(y)=(3y+c)/2=z$; the inequalities for $A$ imply
+$X/2<y<z\le X$.  Finally $z-y=A\equiv0\pmod m$.
+The next shell return from $y$ is thus $z$ itself.  A residue-only
+$U$ would give $U(y)=U(z)$ while the first inequality in
+\eqref{eq:two-level-lyapunov} forces $U(y)\ge1+U(z)$, a contradiction.
+\end{proof}
+
+\begin{remark}[Lean verification and the unresolved step]
+\label{rem:lyapunov-certification}
+The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
+formalises the finite rational-valued certificate and weighted inequality,
+as well as exact one-step arithmetic and an explicit family of dyadic
+congruence witnesses.  The assertion of Proposition~\ref{prop:residue-obstruction}
+for \emph{every sufficiently large} $X$ follows from the interval argument
+above and is \emph{not} covered by that module.  The related finite
+\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
+and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
+are also formalised.  None of these kernel checks establishes
+\eqref{eq:lyapunov-uniform-open} for the actual logarithmic entrance
+measures, nor the bounds $T_X=o(X)$ or $R_X=o(X)$ without further
+assumptions.  Certificates must encode more than a fixed congruence
+class, for instance relative shell position or return-history data.
 \end{remark}
 
 \section{Outlook}
@@ -1181,17 +1313,17 @@ bound or $T_X=o(X)$.
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Further aims are natural densities, most directly through an analogue of Mazur's natural-counting transport for $T_{3,c}$ (Remark~\ref{rem:mazur}), and the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
-	\item \emph{Control of actual-orbit return counts}: prove the moment bound~\eqref{eq:return-moment-open} and the separate residual estimate $R_X=o(X)$ (Section~\ref{sec:tail-programme}); neither follows from the present ideal-model second moment.
+	\item \emph{Control of actual-orbit return counts}: find scale-uniform first-entry-weighted Lyapunov certificates satisfying~\eqref{eq:lyapunov-uniform-open}, or prove a comparable dyadic-shell second-moment bound, and separately establish $R_X=o(X)$ (Section~\ref{sec:tail-programme}). Proposition~\ref{prop:residue-obstruction} excludes purely fixed-residue additive certificates.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works and why the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
-	\item \emph{Certification}: the finite predecessor and hitting identities are already kernel-checked in Lean~4 (Section~\ref{sec:contributions}). Extending the development to the logarithmic-density existence theorem, the valuation coupling, the renewal estimates and the Syracuse-profile lower bound remains future work.
+	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the all-large-shell obstruction, the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
 \end{enumerate}
 
 \subsection*{Code and data availability}
 The programs \texttt{census.c}, \texttt{census\_all.c}, \texttt{basin.c}, \texttt{passage.c} (basin shares via first passage) and \texttt{backward\_mass.c} (backward-mass predictor), the analysis scripts, the SLURM templates, the list of all $1097$ primitive cycles as a CSV file, the basin counts with their dyadic windows, the sampled basin shares with their raw outputs, and the scripts for all figures are available in the folder \emph{07 Basins of Attraction} of the repository \cite{Sultanow_collatz_07}. Table~\ref{table:reproduction} lists which program and which data file belong to each result. All paths refer to the folder \emph{07 Basins of Attraction}; programs and scripts are in \texttt{C/}, SLURM templates in \texttt{C/slurm/} and data in \texttt{results/}, unless noted otherwise.
 
-The Lean~4 implementation of the finite predecessor and hitting identities, the declared axiom audit, and the CI workflow are linked in the Contributions section. Research notes on the unproved exceptional-mass and return-count problems are kept separately from the main proof sources.
+The Lean~4 implementation of the finite predecessor, hitting, clipping and return-algebra identities, the declared axiom audit, and the CI workflow are linked in the Contributions section. The exact arithmetical obstruction and two-level certificate are detailed in Proposition~\ref{prop:residue-obstruction} and Proposition~\ref{prop:lyapunov-return}. Research notes on the unproved exceptional-mass and uniform return-count problems remain separate from the main proof sources.
 
 % A longtable can break across pages, unlike a floating tabularx.
 \begingroup
