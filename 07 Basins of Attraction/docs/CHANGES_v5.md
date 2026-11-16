@@ -25,4 +25,6 @@ are merged into it and can be deleted from the repository. 60 pages (before: 62)
 - Contribution table: the three Lean rows are merged into one, the tail rows into one ("First-passage tails").
 - Machine-checked core: states that the workflow runs `lake check` (fails on non-standard axioms).
 
-Unchanged: title, abstract, keywords, all theorems of the main text, all numerical results.
+Abstract: the three closing sentences on Lean and return certificates are shortened to one.
+
+Unchanged: title, keywords, all theorems of the main text, all numerical results.
