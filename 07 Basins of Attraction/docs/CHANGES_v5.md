@@ -67,3 +67,8 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   not certified now also names the first-passage calibration and tightness (Propositions 8 and 9)
   and the all-large-shell obstruction of Proposition 11 (the latter only in the main variant; in
   alt_if_lean_green it is formalised).
+
+## v6d
+- Figure 4: caption rewritten ("one point per cycle", which 98 maps, what the dashed line and the colour
+  mean). The definition of the predicted share (mean mass of the levels 64 to 69, normalised so that the
+  predicted shares of each map add up to 1) moved into the text before Table 10.
