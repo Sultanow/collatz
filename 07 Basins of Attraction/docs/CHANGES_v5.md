@@ -82,3 +82,17 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - docs/research/dyadic_leakage/: the full research note (with PDF), its proof audit, scripts and outputs
   (all reproduced), and STATUS.md. STATUS.md explains why the finite-window ratios are not evidence for
   the uniform condition.
+
+## v6f
+- Appendix D.3, new Remark 11 ("Arithmetic rigidity of returns"), after Problem 3:
+  - The exact log-cocycle of T_{3,c} forces every return to a shell into the parity strip
+    |h_t - zeta t| <= zeta + O(t/X_1), with zeta = log 2/log 3, at every time t. Survival above X_1
+    for t >= t_X ~ beta log X steps forces h_t >= zeta_0 t.
+  - With Terras' bijection, a law with relative 2-adic concentration <= A on the scales 2^t
+    (t <= t_X) returns or survives with mass <= A exp(-t Delta_0).
+  - Two inputs are missing, and they mark where new mathematics is needed on this route:
+    (1) relative instead of absolute errors for laws of mass O((log X)^{-eps_0});
+    (2) a bound on the later visits of the last X^{O(beta)} states, which no residue count gives.
+- docs/research/arithmetic_rigidity/: the note (tex + pdf), its audit, scripts and outputs
+  (reproduced), and STATUS.md.
+- 66 pages.

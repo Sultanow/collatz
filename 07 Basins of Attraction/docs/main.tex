@@ -2114,6 +2114,21 @@ Since $s_{X,j}$ is nonincreasing, grouping the counts $n\in(2^\ell K_{X,j},2^{\e
 with constants $A$ and $\kappa>0$, gives $T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)$. It holds if $B_{X,\ell+1}\le qB_{X,\ell}$ for all $\ell$ with a fixed $q<\frac12$, and if every shell satisfies $s_{X,j}(n)\le A\,\mu_X(L_X)(K_{X,j}/n)^{1+\kappa}$ for $n>K_{X,j}$, but it does not need the latter shell by shell. An additive error $e_{X,\ell}$ in the ratio condition is admissible if $\sum_\ell2^\ell e_{X,\ell}\to0$; an error of the size $(\log X)^{-\varepsilon_0}$ of the exceptional set is not (Remark~\ref{rem:tail-barrier}).
 \end{problem}
 
+\begin{remark}[Arithmetic rigidity of returns]
+\label{rem:rigidity}
+Let $h_t(z)$ be the number of odd values among $z,T_{3,c}(z),\dots,T_{3,c}^{t-1}(z)$, and $\zeta=\log2/\log3\approx0.631$. Multiplying the steps of $T_{3,c}$ gives the exact identity
+\[
+ \log\frac{T_{3,c}^t(z)}{z}=h_t(z)\log3-t\log2+\sum_{\substack{0\le i<t\\ T_{3,c}^i(z)\ \mathrm{odd}}}\log\Bigl(1+\frac{c}{3\,T_{3,c}^i(z)}\Bigr),
+\]
+whose last sum is $O(|c|t/X_1)$ while the orbit stays above $X_1$. Hence a return of $z\in I_{X,j}$ to $I_{X,j}$ after $t$ steps forces $|h_t(z)-\zeta t|\le\zeta+O(|c|t/X_1)$, at every time $t$, and survival above $X_1$ for $t$ steps from $W_X$ forces $h_t(z)\ge\zeta t-2\beta\log X/\log3-O(|c|t/X_1)$. Fix $\zeta_0\in(\frac12,\zeta)$, and put
+\[
+ \Delta_0=\zeta_0\log(2\zeta_0)+(1-\zeta_0)\log(2-2\zeta_0)>0,\qquad t_X=\Bigl\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\Bigr\rceil.
+\]
+The first $t$ parities run bijectively through the residue classes modulo $2^t$ (Terras \cite{Terras_1976}; the induction works for every odd $c$), and at most $2^te^{-t\Delta_0}$ parity words of length $t$ have at least $\zeta_0t$ odd entries. Let $\nu$ be a finite measure on $I_{X,j}$ that gives every class modulo $2^t$ at most $A\,2^{-t}|\nu|$. Then, for large $X$ and $t\ge t_0(\zeta_0)$, the states that return to $I_{X,j}$ at time $t$ without passing below $X_1$ carry $\nu$-mass at most $Ae^{-t\Delta_0}|\nu|$; for $t\ge t_X$ the same bound holds for survival above $X_1$ during $t$ steps.
+
+As long as the return laws $\eta_{X,L_X}E_{X,j}Q^{\,m}_{X,j}$ satisfy this bound with one constant $A$ on the scales $2^t$, $t\le t_X$, their masses halve within every block of $b=b(A,\zeta_0)$ further returns, which is far more than Problem~\ref{prob:excursions} asks. Two inputs are missing, and they mark where new mathematics is needed on this route. First, the bound is relative to the mass of laws of total mass $O((\log X)^{-\varepsilon_0})$, whereas Lemma~\ref{lem:reduction} controls only absolute errors of that size (Remark~\ref{rem:tail-barrier}). Second, the bound cannot persist: a law with fewer than $2^{t_X}/A=X^{O(\beta)}/A$ atoms violates it on the scale $2^{t_X}$ (Remark~\ref{rem:entrance-support}). The mass left at that point sits on at most $X^{O(\beta)}$ states, and their later visits to $W_X$ need a bound that no residue count provides.
+\end{remark}
+
 %=====================================================================
 \section{Natural densities for all maps \texorpdfstring{$3x+c$}{3x+c}}
 \label{appx:natural}

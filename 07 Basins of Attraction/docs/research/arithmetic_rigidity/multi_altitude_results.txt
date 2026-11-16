@@ -1,0 +1,16 @@
+c=-1 power=1 samples=20000 successful=20000 censored=0 excess=10215 maxN=21 q0=0.2439 q1=0.0988 q2=0.0000
+c=-1 power=2 samples=20000 successful=20000 censored=0 excess=10167 maxN=21 q0=0.2564 q1=0.0916 q2=0.0000
+c=-1 power=3 samples=20000 successful=20000 censored=0 excess=10268 maxN=21 q0=0.2417 q1=0.0873 q2=0.0000
+c=-1 power=4 samples=20000 successful=20000 censored=0 excess=10230 maxN=21 q0=0.2524 q1=0.0894 q2=0.0000
+c=1 power=1 samples=20000 successful=20000 censored=0 excess=10166 maxN=15 q0=0.2535 q1=0.0000
+c=1 power=2 samples=20000 successful=20000 censored=0 excess=10084 maxN=15 q0=0.2445 q1=0.0000
+c=1 power=3 samples=20000 successful=20000 censored=0 excess=10063 maxN=15 q0=0.2429 q1=0.0000
+c=1 power=4 samples=20000 successful=20000 censored=0 excess=10162 maxN=15 q0=0.2511 q1=0.0000
+c=5 power=1 samples=20000 successful=20000 censored=0 excess=10361 maxN=25 q0=0.3342 q1=0.2779 q2=0.0000
+c=5 power=2 samples=20000 successful=20000 censored=0 excess=10497 maxN=25 q0=0.3422 q1=0.2576 q2=0.0000
+c=5 power=3 samples=20000 successful=20000 censored=0 excess=10609 maxN=25 q0=0.3548 q1=0.2898 q2=0.0000
+c=5 power=4 samples=20000 successful=20000 censored=0 excess=10693 maxN=25 q0=0.3334 q1=0.2658 q2=0.0000
+c=13 power=1 samples=20000 successful=20000 censored=0 excess=10312 maxN=23 q0=0.2866 q1=0.1626 q2=0.0000
+c=13 power=2 samples=20000 successful=20000 censored=0 excess=10536 maxN=23 q0=0.2805 q1=0.1685 q2=0.0000
+c=13 power=3 samples=20000 successful=20000 censored=0 excess=10518 maxN=23 q0=0.2864 q1=0.1522 q2=0.0000
+c=13 power=4 samples=20000 successful=20000 censored=0 excess=10503 maxN=23 q0=0.2980 q1=0.1547 q2=0.0000

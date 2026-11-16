@@ -1,0 +1,298 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\FF}{\mathcal F}
+\title{Arithmetic Rigidity of Late $3x+c$ Returns\\
+\large Deterministic parity-strip constraints and the entropy barrier at a stopped entrance}
+\author{Independent research note --- not inserted into the main manuscript}
+\date{16 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Starting from the dyadic block-leakage reduction for
+actual stopped Syracuse trajectories, we isolate an elementary but useful
+\emph{unconditional dynamical constraint}: every return to the same
+multiplicative shell before a lower first-passage cutoff forces the
+cumulative accelerated-map parity count to be within a narrow strip about
+slope $\log 2/\log 3\approx0.63093$.  This holds for arbitrary late
+return times, not just the classical finite coupling horizon.  We prove
+an explicit finite-horizon counting inequality and, equally importantly,
+a sharp obstruction to extending its Bernoulli estimate past $O(\log X)$
+using only initial residue-class equidistribution.  These results do
+\emph{not} prove polynomial survival of the stopped first-excess law.
+We give a precise two-part target for subsequent genuinely new work.
+\end{abstract}
+
+\section{The unrestricted-time arithmetic identity}
+Let $c$ be an odd integer with $c\ge-1$, and write
+\[
+ T_c(n)=\begin{cases}n/2,&n\equiv0\pmod2,\\(3n+c)/2,&n\equiv1\pmod2.\end{cases}
+\]
+For $n_i=T_c^i(n)$, define the count of odd steps
+$H_t(n)=\sum_{i=0}^{t-1}\ind_{\{n_i\equiv1\pmod2\}}$ and
+$\rho=\log 2/\log 3$.
+Fix a cutoff $a\ge\max(1,2|c|)$; all the formulas below involve
+integer states strictly larger than $a$.
+
+\begin{lemma}[Exact log-cocycle and uniform cutoff error]\label{lem:cocycle}
+If $n_0,\ldots,n_{t-1}>a$, then
+\begin{equation}\label{eq:exact}
+ \log\frac{n_t}{n_0}=H_t(n)\log3-t\log2+
+ \sum_{\substack{0\le i<t\\ n_i\ \mathrm{odd}}}
+ \log\!\left(1+\frac{c}{3n_i}\right).
+\end{equation}
+In particular, writing
+$\epsilon_a=|c|/((3a-|c|)\log3)$,
+\begin{equation}\label{eq:drift}
+\left|H_t(n)-\rho t-\frac{\log(n_t/n_0)}{\log3}\right|
+\le \epsilon_a t.
+\end{equation}
+\end{lemma}
+\begin{proof}
+At an even step $n_{i+1}/n_i=1/2$.  At an odd step
+$n_{i+1}/n_i=(3/2)(1+c/(3n_i))$. Multiplication and taking
+logarithms gives \eqref{eq:exact}. Since $|c|/(3n_i)<|c|/(3a)<1$,
+the elementary bound $|\log(1+u)|\le |u|/(1-|u|)$ gives
+$|\log(1+c/(3n_i))|\le |c|/(3a-|c|)$.
+Summing at most $t$ terms and dividing by $\log3$ proves
+\eqref{eq:drift}.
+\end{proof}
+
+\begin{theorem}[Every return must revisit a high-parity strip]\label{thm:strip}
+Let $I=(Y/2,Y]\cap\mathbb N$ be any multiplicative shell with
+$Y/2>a$.  If $n_0,n_t\in I$ and $n_i>a$ for every $0\le i<t$, then
+\begin{equation}\label{eq:strip}
+\boxed{\quad |H_t(n_0)-\rho t|\le
+C_0+\epsilon_a t,\qquad C_0=\frac{\log2}{\log3}.\quad}
+\end{equation}
+Thus for any $\theta\in(1/2,\rho)$ there are explicit
+$a_0(c,\theta)$ and $t_0(\theta)$ such that, whenever $a\ge a_0$
+and $t\ge t_0$, every such return satisfies
+\begin{equation}\label{eq:biased}
+\boxed{\quad H_t(n_0)\ge \theta t.\quad}
+\end{equation}
+One admissible choice is
+$\epsilon_a\le(\rho-\theta)/2$ and
+$t_0=\left\lceil2C_0/(\rho-\theta)\right\rceil$.
+The assertion is completely deterministic and makes no assumption on
+the distribution of parity steps or the size of $t$.
+\end{theorem}
+\begin{proof}
+As both endpoints lie in $I$, their ratio is in $(1/2,2)$, so
+$|\log(n_t/n_0)|\le\log2$.  Apply Lemma~\ref{lem:cocycle}.
+The final assertion follows from
+$H_t/t\ge \rho-C_0/t-\epsilon_a\ge\theta$.
+\end{proof}
+
+\begin{remark}[Why this applies beyond the logarithmic horizon]
+As $a_X=X^{1-2\beta}\to\infty$ in the main manuscript, the error
+$\epsilon_{a_X}t$ in \eqref{eq:strip} remains $o(1)$ for
+$t=o(a_X)$, including polynomially long times such as
+$t\le a_X^{1/2}$.  This is a \emph{pathwise} relation, not a
+probabilistic estimate for how often such paths occur.
+All step counts here refer to the accelerated $T_c$ map; the odd-to-odd
+Syracuse map groups several of these steps into one block.
+\end{remark}
+
+\section{An explicit arithmetic counting bound}
+For a probability measure $\nu$ on a finite set of positive integers,
+let
+\[
+ d_\nu(t)=2^t\max_{r\in\mathbb Z/2^t\mathbb Z}
+  \nu\{n:n\equiv r\pmod{2^t}\},\qquad t\ge1.
+\]
+This is the exact maximal density of the first $t$ parity bits
+relative to their uniform Bernoulli distribution.  Let
+$D(\theta\|1/2)=\theta\log(2\theta)
++(1-\theta)\log(2(1-\theta))$.
+
+\begin{lemma}[Parity words are a residue permutation]\label{lem:parity}
+For every odd $c$ and $t\ge1$, the map
+\[
+ n\bmod2^t\longmapsto
+ (n_0\bmod2,\ldots,n_{t-1}\bmod2)
+\]
+is a bijection between $\mathbb Z/2^t\mathbb Z$ and the binary words
+of length $t$.
+\end{lemma}
+\begin{proof}
+Induct on $t$.  Fixing the first parity bit writes $n=2v$ or
+$n=2v+1$.  The first iterate is respectively $v$ or
+$3v+(3+c)/2$, each a bijection of the residue classes
+$v\bmod2^{t-1}$.  The induction hypothesis uniquely determines
+those residue classes from the remaining $t-1$ bits.
+\end{proof}
+
+\begin{proposition}[Stopped-return counting at an arbitrary time]\label{prop:count}
+Choose $\theta\in(1/2,\rho)$, $a$ and $t_0$ as in
+Theorem~\ref{thm:strip}, and let $\nu$ be any probability measure
+supported on a shell $I\subset(a,\infty)$.  For every $t\ge t_0$,
+\begin{equation}\label{eq:count}
+\nu\{n:T_c^t(n)\in I,\;T_c^i(n)>a\ (0\le i<t)\}
+\le d_\nu(t)\exp[-tD(\theta\|1/2)].
+\end{equation}
+Writing $N_{I,T}(n)$ for the number of visits to $I$ at accelerated
+times $0\le t\le T$ before first passage at or below $a$, one also
+has, for $k-1\ge t_0$,
+\begin{equation}\label{eq:count-visits}
+\nu\{N_{I,T}\ge k\}\le
+\sum_{t=k-1}^{T}d_\nu(t)\exp[-tD(\theta\|1/2)].
+\end{equation}
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:strip} places the return event inside
+$\{H_t\ge\theta t\}$.  Lemma~\ref{lem:parity} shows that the latter
+comprises $\sum_{h\ge\theta t}\binom{t}{h}$ residue classes
+modulo $2^t$.  Each such class has $\nu$-mass at most
+$2^{-t}d_\nu(t)$, and the standard binomial Chernoff bound gives
+\[
+ 2^{-t}\sum_{h\ge\theta t}\binom{t}{h}
+ \le e^{-tD(\theta\|1/2)}.
+\]
+If there are at least $k$ visits by time $T$, starting with the
+initial one, at least one further visit occurs at some $t\ge k-1$.
+The union bound proves \eqref{eq:count-visits}.
+\end{proof}
+
+\begin{proposition}[An entropy barrier for finite stopped entrance laws]
+\label{prop:barrier}
+If $\nu$ is supported on at most $M$ positive integers, then
+\begin{equation}\label{eq:entropy-floor}
+\boxed{\quad d_\nu(t)\ge\frac{2^t}{M}\quad\text{for every }t.\quad}
+\end{equation}
+Consequently no $X$-uniform estimate $d_{\nu_X}(t)\le
+C\exp(\zeta t)$ with $\zeta<\log2$ can hold for
+arbitrarily large $t/\log M_X$, when $\nu_X$ is supported on
+$M_X$ finite states.  In particular, for the first-excess entrance
+law on $W_X$ one has $M_X\le X+1$, so a Bernoulli Chernoff bound based
+\emph{only on the residue distribution at the initial stopped state}
+can never yield a decaying estimate throughout the polynomial-time
+range $t\sim a_X^{1/2}$.
+\end{proposition}
+\begin{proof}
+The largest atom of a probability measure on at most $M$ points is
+at least $1/M$.  Its residue class has at least that mass, whence
+\eqref{eq:entropy-floor}.  The claimed incompatibility follows by
+comparing $e^{t\log2}/M_X$ with $Ce^{\zeta t}$ as
+$t/\log M_X\to\infty$.  Note that
+$D(\theta\|1/2)<\log2$, so \eqref{eq:count} indeed loses power
+in this range without \emph{new dynamical} information.
+\end{proof}
+
+\section{What actually remains for first-excess block leakage}
+Let $\eta_X$ be the actual subprobability distribution of the
+first-excess state in $W_X$, as defined in the preceding independent
+research note.  Its mass $p_X\to0$ is covered by the manuscript's
+tightness estimate.  For a shell $I_{X,j}$, let $E_{X,j}$ denote the
+exact first-future-entry kernel and let $z$ be the first such state.
+Write $\tau_a(z)$ for the first passage to $[1,a]$.
+
+For $T\ge1$, define the arithmetic strip local time
+\[
+ \mathcal L_{a,T}(z)=
+ \#\bigl\{1\le t<\min(T,\tau_a(z)):
+ |H_t(z)-\rho t|\le C_0+\epsilon_a t\bigr\}.
+\]
+When the entry shell lies above $a$, every visit to the shell by
+time $T$ lies inside this strip, by Theorem~\ref{thm:strip}.
+
+\begin{proposition}[Exact two-obstruction decomposition]
+\label{prop:two-obstructions}
+For any integer $n\ge2$ and horizon $T\ge1$, the actual return
+survival mass defined in the dyadic block-leakage note obeys
+\begin{align}\label{eq:two-obstructions}
+ q_{X,j}(n)
+ &\le
+ \eta_X E_{X,j}\ind_{\{\mathcal L_{a_X,T}\ge n-1\}}
+ +\eta_X E_{X,j}\ind_{\{\tau_{a_X}>T\}}.
+\end{align}
+Thus to prove an actual polynomial return bound by this route,
+one needs to control \emph{both} the stopped-law parity-strip local
+time and the mass of orbits surviving beyond the mesoscopic horizon.
+Neither bound follows from the original finite-cylinder coupling.
+\end{proposition}
+\begin{proof}
+If a first shell entry $z$ has at least $n$ shell visits before the
+cutoff and its orbit reaches the cutoff by time $T$, then at least
+$n-1$ of these visits occur at positive times strictly below
+$\tau_{a_X}(z)\le T$.  Every such time is counted by
+$\mathcal L_{a_X,T}(z)$, so its local time is at least $n-1$.
+Otherwise $\tau_{a_X}(z)>T$.  Sum these two exhaustive alternatives
+against the actual entrance measure $\eta_X E_{X,j}$.
+\end{proof}
+
+\begin{remark}[What is and is not new]
+The parity-word bijection and the binomial large-deviation estimate
+are classical (Terras); they are not offered as new contributions.
+The deterministic cocycle is elementary.  The useful distinction in
+this note is that \emph{pathwise} return rigidity persists at very
+late times, whereas \emph{distributional} randomness provably cannot
+be inferred from finite-support residue equidistribution there.
+Proposition~\ref{prop:two-obstructions} identifies two distinct tasks
+for an actual-orbit proof.  Establishing either task uniformly for
+the stopped first-excess law remains open.  We do not claim
+$T_X=o(X)$, a polynomial return theorem, or a solution to the
+Collatz conjecture.
+\end{remark}
+
+\section{Independent, finite-window diagnostic}
+We extended the earlier fixed-$X$ orbit sampling to higher starting
+altitudes.  For $X=8192$, the actual accelerated map, cutoff $a=786$,
+window lower limit $2538$, clipping level $L=3$, and allowances
+$K_0=4,K_1=5$, we used $20{,}000$ sampled odd starts for each map and
+altitude.  Power $1$ means $[4X,16X)$; powers $2,3,4$ mean
+$[X^p,4X^p)$.  All $320{,}000$ sampled trajectories reached the
+cutoff.  The first dyadic survival ratio $B_1/B_0$ was:
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+$c$ & $[4X,16X)$ & $[X^2,4X^2)$ & $[X^3,4X^3)$ & $[X^4,4X^4)$\\
+\midrule
+$-1$ & 0.2439 & 0.2564 & 0.2417 & 0.2524\\
+$1$ & 0.2535 & 0.2445 & 0.2429 & 0.2511\\
+$5$ & 0.3342 & 0.3422 & 0.3548 & 0.3334\\
+$13$ & 0.2866 & 0.2805 & 0.2864 & 0.2980\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are \emph{finite uniform-band} distributions, not the limiting
+logarithmic first-excess entrance measure.  Their stability with
+altitude is suggestive but does not give an effective rate for
+convergence to $\eta_X$ nor a bound uniform as $X\to\infty$.
+This diagnostic uses the standalone executable source included with
+this note; it is not a Lean formalisation or an asymptotic proof.
+
+\section{The actual next proof obligation}
+The promising new problem is not another parity-cylinder lemma.  It
+is a \emph{stopped-law renewal statement}: prove quantitative
+non-concentration for the distribution of the next shell-entry state
+\emph{after survival conditioning}, together with a control of
+ultralong excursions outside the window.  Such a statement would
+have to use global first-passage transport or the harmonic predecessor
+potential, not merely equidistribution of one fixed finite parity word.
+Only after this can the weighted dyadic block-leakage
+criterion be applied to establish $T_X=o(X)$.
+
+\begin{thebibliography}{9}
+\bibitem{Terras} R. Terras,
+\emph{A stopping time problem on the positive integers},
+Acta Arith. \textbf{30} (1976), 241--252.
+\bibitem{Tao} T. Tao,
+\emph{Almost all orbits of the Collatz map attain almost bounded values},
+Forum Math. Pi \textbf{10} (2022), e12.
+\bibitem{GGM} F. Gon\c{c}alves, R. Greenfeld, J. Madrid,
+\emph{Generalized Collatz maps with almost bounded orbits},
+arXiv:2111.06170.
+\end{thebibliography}
+\end{document}
