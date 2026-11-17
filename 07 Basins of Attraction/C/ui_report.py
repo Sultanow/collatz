@@ -237,7 +237,7 @@ def report(outdir, files):
     for n in range(1, max(NPROF, *NPROF_TAIL) + 1):
         D = syracuse_law(n, D)
         laws[n] = D
-    lines, rows_w, rows_t, rows_p, rows_d = [], [], [], [], []
+    lines, rows_w, rows_t, rows_p, rows_d, rows_o = [], [], [], [], [], []
     summary = {}
     P = lines.append
     P("Run K: uniform integrability of the predecessor potential v(a) = a*h(a)")
@@ -276,6 +276,12 @@ def report(outdir, files):
             summary[c]["windows"][k] = {"mean": float(vs.mean()), "max": float(vs.max()),
                                         "tails": dict(zip(M_LIST, tails)),
                                         "exponent": tail_exponent([x / vs.mean() for x in tails])}
+            # odd targets only (the hypothesis of the odd-core version of Proposition 14)
+            odd = (a & 1).astype(bool)
+            vo = vs[odd]
+            sh_odd = [float(vo[vo > m].sum() / vo.sum()) for m in M_LIST]
+            rows_o.append((c, k, int(vo.size), float(vo.mean()), float(vo.max()),
+                           tail_exponent(sh_odd), *sh_odd))
             # pointwise comparison with the Syracuse profile
             l1 = []
             for n in range(0, NPROF + 1):
@@ -291,16 +297,27 @@ def report(outdir, files):
                 alpha = danger_density(t, b)
                 cnt_ratio = flag.mean() / alpha
                 mass_ratio = (vs[flag].sum() / vs.sum()) / alpha
-                rows_d.append((c, k, t, b, alpha, cnt_ratio, mass_ratio))
+                fo = flag[odd]
+                odd_share = float(fo.mean())          # exact density of C among the odd classes
+                odd_ratio = float((vo[fo].sum() / vo.sum()) / odd_share) if odd_share else float("nan")
+                rows_d.append((c, k, t, b, alpha, cnt_ratio, mass_ratio, odd_share, odd_ratio))
                 summary[c]["windows"][k][f"danger_{t}_{b}"] = (alpha, cnt_ratio, mass_ratio)
         P("tail exponent gamma (share above M ~ M^-gamma, fitted on 20 <= M <= 200) per window: "
           + "  ".join(f"{k}:{w['exponent']:.3f}" for k, w in summary[c]["windows"].items() if k >= 12))
         P("L1 distance mean|v - v_n| to the Syracuse profile of depth n (last window):")
         P("  " + "  ".join(f"n={n}:{x:.3f}" for n, x in enumerate(rows_p[-1][2:])))
-        P("dangerous classes (t, b): density alpha, count ratio, mass ratio (last window):")
+        P("dangerous classes (t, b): density alpha, count ratio, mass ratio; among odd targets: "
+          "density, mass ratio (last window):")
         for r in [r for r in rows_d if r[0] == c and r[1] == kmax]:
             P(f"  t={r[2]:2d} b={r[3]}: alpha={r[4]:.4f}  count/alpha={r[5]:.4f}  "
-              f"mass/alpha={r[6]:.4f}")
+              f"mass/alpha={r[6]:.4f}   odd: density={r[7]:.4f}  mass ratio={r[8]:.4f}")
+        ro = [r for r in rows_o if r[0] == c]
+        P("odd targets only, per window: mean, max, exponent, share of the odd mean above M = "
+          + ", ".join(f"{m:g}" for m in M_LIST))
+        for r in ro:
+            if r[1] >= 14:
+                P(f"  k={r[1]:2d} mean={r[3]:.4f} max={r[4]:9.2f} gamma={r[5]:.3f}  "
+                  + " ".join(f"{x:.4f}" for x in r[6:]))
     # Syracuse-profile tails: the multiset of values of v_n does not depend on c
     P("")
     P("Syracuse profile v_n (Haar measure on Z/3^n, the same for every c): share of the mean above M")
@@ -321,7 +338,9 @@ def report(outdir, files):
     write_csv(os.path.join(outdir, "ui_profile_l1.csv"),
               "c,k," + ",".join(f"l1_n{n}" for n in range(NPROF + 1)), rows_p)
     write_csv(os.path.join(outdir, "ui_dangerous.csv"),
-              "c,k,t,b,alpha,count_ratio,mass_ratio", rows_d)
+              "c,k,t,b,alpha,count_ratio,mass_ratio,odd_density,odd_mass_ratio", rows_d)
+    write_csv(os.path.join(outdir, "ui_odd.csv"),
+              "c,k,targets,mean,max,exponent," + ",".join(f"share_gt{m:g}" for m in M_LIST), rows_o)
     write_csv(os.path.join(outdir, "ui_syracuse_tails.csv"),
               "n,max,exponent," + ",".join(f"share_gt{m:g}" for m in M_LIST), rows_s)
     with open(os.path.join(outdir, "report_K.txt"), "w") as f:
@@ -346,21 +365,28 @@ def read_csv_rows(path):
 
 def load_tables(outdir):
     """Shares per (c, k), windows per (c, k), dangerous ratios, profile tails, from the CSVs."""
-    shares, windows, danger, prof = {}, {}, {}, {}
+    shares, windows, danger, prof, odd, danger_odd = {}, {}, {}, {}, {}, {}
     for r in read_csv_rows(os.path.join(outdir, "ui_tails.csv")):
         shares.setdefault((int(r["c"]), int(r["k"])), {})[float(r["M"])] = float(r["share"])
     for r in read_csv_rows(os.path.join(outdir, "ui_windows.csv")):
         windows[(int(r["c"]), int(r["k"]))] = r
     for r in read_csv_rows(os.path.join(outdir, "ui_dangerous.csv")):
-        danger[(int(r["c"]), int(r["k"]), int(r["t"]), int(r["b"]))] = float(r["mass_ratio"])
+        key = (int(r["c"]), int(r["k"]), int(r["t"]), int(r["b"]))
+        danger[key] = float(r["mass_ratio"])
+        if "odd_mass_ratio" in r:
+            danger_odd[key] = float(r["odd_mass_ratio"])
+    path = os.path.join(outdir, "ui_odd.csv")
+    if os.path.exists(path):
+        for r in read_csv_rows(path):
+            odd[(int(r["c"]), int(r["k"]))] = r
     for r in read_csv_rows(os.path.join(outdir, "ui_syracuse_tails.csv")):
         prof[int(r["n"])] = (float(r["max"]), {m: float(r[f"share_gt{m:g}"]) for m in M_LIST})
-    return shares, windows, danger, prof
+    return shares, windows, danger, prof, odd, danger_odd
 
 
 def table_from_csv(outdir, ms=(20.0, 100.0, 1000.0), tb=(12, 8)):
     """LaTeX rows for the paper: per map three windows, then the Syracuse profile."""
-    shares, windows, danger, prof = load_tables(outdir)
+    shares, windows, danger, prof, odd, danger_odd = load_tables(outdir)
     cs = list(dict.fromkeys(c for c, _ in windows))
     out = ["% generated by ui_report.py (Run K) from the CSV files in this directory",
            "% map & X & mean of a h(a) & shares (percent) of the mean above M = "
@@ -376,6 +402,15 @@ def table_from_csv(outdir, ms=(20.0, 100.0, 1000.0), tb=(12, 8)):
             out.append(f"{lab} & $2^{{{k}}}$ & {float(w['mean']):.3f} & "
                        + " & ".join(pct(sh[m]) for m in ms)
                        + f" & {g:.2f} & {float(w['max']):.0f} & "
+                       + (f"{ratio:.3f}" if ratio is not None else "--") + " \\\\")
+        if (c, pick[-1]) in odd:
+            k = pick[-1]
+            r = odd[(c, k)]
+            sh = {m: float(r[f"share_gt{m:g}"]) for m in M_LIST}
+            ratio = danger_odd.get((c, k, tb[0], tb[1]))
+            out.append(f" & $2^{{{k}}}$, odd & {float(r['mean']):.3f} & "
+                       + " & ".join(pct(sh[m]) for m in ms)
+                       + f" & {float(r['exponent']):.2f} & {float(r['max']):.0f} & "
                        + (f"{ratio:.3f}" if ratio is not None else "--") + " \\\\")
         out.append("\\addlinespace")
     for i, n in enumerate(sorted(prof)):
@@ -404,7 +439,7 @@ def figure_from_csv(outdir):
         import matplotlib.pyplot as plt
     except ImportError:
         return
-    shares, windows, _, prof = load_tables(outdir)
+    shares, windows, _, prof, _, _ = load_tables(outdir)
     cs = list(dict.fromkeys(c for c, _ in windows))
     colors = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]   # validated categorical slots 1-4
     markers = ["o", "s", "^", "D"]
