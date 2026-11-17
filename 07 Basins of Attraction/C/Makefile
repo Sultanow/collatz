@@ -46,7 +46,14 @@ test-potential: potential
 test-tail: tail_check
 	bash tests/run_tail_tests.sh
 
-clean:
-	rm -f census census_all basin passage backward_mass potential orbit_profile tail_check
+tests/ref_counts: tests/ref_counts.c
+	$(CC) $(CFLAGS) -o $@ $<
 
-.PHONY: all test test-passage test-potential test-tail clean
+# Run K: ui_report.py on brute-force counts; cross-check with potential if it is built
+test-ui: tests/ref_counts
+	bash tests/run_ui_tests.sh
+
+clean:
+	rm -f census census_all basin passage backward_mass potential orbit_profile tail_check tests/ref_counts
+
+.PHONY: all test test-passage test-potential test-tail test-ui clean

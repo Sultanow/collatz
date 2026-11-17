@@ -85,8 +85,10 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── algebraic_factor.c     divisibility of aperiodic words by 2^{l/2}+3^{k/2} (Run J)
 │   ├── heuristic_tests.py     where the equidistribution heuristic for cycles fails (Run J)
 │   ├── run_J.sh               all of Run J and the report
+│   ├── ui_report.py           tails of the potential a*h(a) against the Syracuse profile (Run K)
+│   ├── run_K.sh               submits Run K (counts with potential, then ui_report.py)
 │   ├── Makefile               make (incl. backward_mass, potential, tail_check), make test, make passage,
-│   │                          make test-passage, make test-potential, make test-tail
+│   │                          make test-passage, make test-potential, make test-tail, make test-ui
 │   ├── tests/                 independent reference and self-tests
 │   └── slurm/
 │       ├── census_all_array.sbatch
@@ -100,11 +102,14 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │       ├── residue9_configs.txt
 │       ├── backward_mass_array.sbatch
 │       ├── potential_array.sbatch
-│       └── potential_configs.txt
+│       ├── potential_configs.txt
+│       ├── run_K_counts.sbatch
+│       └── run_K_report.sbatch
 └── results/                   census outputs, rational cycle list, basin counts
     ├── passage/               sampled basin shares (Run C)
     ├── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
-    └── heuristic/             diagnostics of the cycle-count heuristic (Run J)
+    ├── heuristic/             diagnostics of the cycle-count heuristic (Run J)
+    └── potential_ui/          tails of the potential a*h(a), Syracuse profile, dangerous classes (Run K)
 ```
 
 ## Background
@@ -370,6 +375,36 @@ bash run_J.sh            # about 2 minutes; needs python3 with sympy; writes ../
 1. Census $l\le40$, $|c_0|\le1000$: the deficit of the heuristic (839 observed, 879.8 expected) comes from the 46 types with $l,k$ even and $D>0$ (329 against 379.8); the 49 coprime types give 348 against 338.2.
 2. Exact counts for $l\le30$: the dispersion index of the counts is 0.55 for $C=1000$ and 1.09 for $C=2\cdot10^4$ (0.61 and 0.85 for the coprime types).
 3. For even $l,k$ every periodic word $B'B'$ satisfies $P\mid z_3(B)$. Among the aperiodic words, divisibility by $P$ occurs 0.61 times as often as $1/P$ predicts for $D>0$ (38 types) and 1.40 times for $D<0$ (9 types).
+
+## potential tails (Run K)
+
+Tests the hypothesis of the proposition "Domination by the stopped potential" (Appendix on first-passage tails): the clipping tail vanishes, $T_X=o(X)$, if the stopped profile $y\,h(y)$ is uniformly integrable on average. Run K recomputes the predecessor counts of Run G with `potential` for more targets and evaluates the distribution of $v(a)=a\,h(a)$ on the dyadic windows $(X/2,X]$.
+
+```console
+make potential test-potential test-ui      # test-ui: ui_report.py on brute-force counts, potential vs. brute force
+bash run_K.sh                              # SLURM: 4 maps x (N = 3e10, A = 2^22), then the report
+# quick smoke test first:
+N=100000000 A=262144 MEM=8G WORK=$HOME/data/runK_smoke RES=$HOME/data/runK_smoke/results bash run_K.sh
+```
+
+`slurm/run_K_counts.sbatch` runs `potential C N A` for $c=1,-1,5,13$ (array job, 32 threads, 300 GB: 8 bytes per starting value) and converts the CSV to a compact `counts_c*.npz` (`ui_report.py convert`). `slurm/run_K_report.sbatch` runs `ui_report.py report` on the four files and writes `../results/potential_ui/`. Only numpy is required (pandas speeds up reading, matplotlib draws the figure).
+
+#### output
+
+- `report_K.txt`: per map and window $(2^{k-1},2^k]$: mean, quantiles and maximum of $v$; the Cesàro tails $\tau_M=|{\rm window}|^{-1}\sum_{v(a)>M}v(a)$ for $M$ from 10 to 1000 and a fitted tail exponent ($\tau_M/{\rm mean}\approx M^{-\gamma}$); the number of targets whose orbit does not reach $[1,X^{1-2\beta}]$ (stopped profile, $\beta=1/200$); the $L^1$ distance $|v-v_n|$ to the Syracuse profile $v_n(a)=\frac{2}{\log(4/3)}3^n\,\mathbb P(c\cdot\mathrm{Syrac}(\mathbb Z/3^n\mathbb Z)=a)$ for $n\le14$; and the mass of $v$ on the dangerous 2-adic classes of the propositions "Single-depth concentration criterion" and "Domination by the stopped potential" ($\zeta_0=0.55$), relative to their density. It also gives the tails of the profile $v_n$ itself for $n=8,12,16$ (the same for every $c$) and the steps $\|f_n-f_{n-1}\|_1$ of its densities, which Tao's fine-scale mixing (1.26) makes summable.
+- `ui_windows.csv`, `ui_tails.csv`, `ui_profile_l1.csv`, `ui_dangerous.csv`, `ui_syracuse_tails.csv`: the same numbers.
+- `table_K.tex` (rows for the table in the paper) and `fig_ui_tails.pdf`/`.png`.
+- `counts_c*.npz`: the raw counts $\pi_a(N)$, $a\le A$ (uint64 for $a<4096$, uint32 above; periodic targets with their cycle minimum).
+
+The Syracuse law modulo $3^n$ is computed exactly: $S_n=2^{-a}(1+3S_{n-1})$ with geometric $a$ becomes a cyclic correlation in discrete-log coordinates of the units modulo $3^n$ (2 is a primitive root), done by FFT.
+
+#### verification
+
+`ui_report.py selftest` checks the Syracuse law modulo 9 against Section 6 of the paper and modulo 81 against an exact enumeration, and the densities of the dangerous parity words against brute force. `make test-ui` runs the whole report on brute-force counts (`tests/ref_counts.c`) for four maps and checks the flow identity $\pi_a=[a\le N]+\pi_{2a}+\pi_{(2a-c)/3}$ exactly; if `potential` is built, it compares its counts with the brute force. The report checks the flow identity on the cluster counts as well.
+
+#### cost
+
+The counts take 8 bytes per starting value (240 GB for $N=3\cdot10^{10}$) and, as in Run G, about 2 s per $10^8$ starting values on one core. The report takes a few minutes.
 
 ## Pipeline example: 3x+5
 
