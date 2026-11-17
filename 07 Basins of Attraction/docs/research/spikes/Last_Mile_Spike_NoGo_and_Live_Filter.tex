@@ -1,0 +1,190 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\nuTwo}{\nu_2}
+\title{A Last-Mile Audit: Polynomial Predecessor Spikes\ and Survival-Gated Dangerous Cylinders}
+\author{Internal mathematical research checkpoint --- independent review pending}
+\date{17 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We test whether the pointwise upper bound proposed in the ``Extreme-Spike Barrier'' note is a realistic route to the vanishing of the Collatz clipping tail.  For the actual accelerated map $T_{3,1}$ we construct, without any conjectural dynamical input, arbitrarily large odd targets which (i) lie in the previously defined dangerous parity-cylinder set, (ii) have a short initial $2$-valuation, yet (iii) are guaranteed to reach the first-passage cutoff quickly.  A simple predecessor-potential inclusion then shows that any uniform lower bound $h(n)\ge\kappa/n$ for targets prime to three forces polynomial-size spikes on these harmless targets.  Such a uniform lower bound has recently been claimed in a separate 2026 research manuscript; we treat it explicitly as an \emph{external, not independently validated, assumption}.  In particular, our prior pointwise sufficient criterion would be false under this input.  We also prove a survival-gated variant of the dangerous-cylinder domination, which removes the constructed false positives while leaving the genuine weighted-tail problem open.  No resolution of the Collatz conjecture or of $T_X=o(X)$ is asserted.
+\end{abstract}
+
+\section{Notation and the pointwise target}
+Let $T:\N\to\N$ be the accelerated Collatz map
+\[
+ T(n)=\begin{cases}n/2,&2\mid n,\\(3n+1)/2,&2\nmid n.\end{cases}
+\]
+Let $P(a)=\{n\ge1:T^k(n)=a\text{ for some }k\ge0\}$ and let $h(a)$ denote its logarithmic density, as established in the consolidated manuscript.  Fix $\beta=1/200$, $X_1=X^{1-2\beta}$, $\zeta=\log2/\log3$, $\zeta_0=11/20$, and
+\[
+ t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil.
+\]
+For an integer $b_\star\ge1$, let $\calC_{X,b_\star}$ be the set of positive integers whose length-$t_X$ parity word has a prefix of length $\ell\in[b_\star,t_X]$ with at least $\zeta_0\ell$ odd steps.  This is the dangerous-cylinder \emph{superset} used in the main manuscript.  Write
+\[
+ h_X^\downarrow(a)=\begin{cases}h(a),&T^k(a)\le X_1\text{ for some }k\ge0,\\0,&\text{otherwise},\end{cases}
+ \qquad g_X(a)=a h_X^\downarrow(a).
+\]
+The previous extreme-spike criterion would follow from
+\[
+\log\left(2+\max_{\substack{X_1/4<a\le X,\ a\text{ odd}\\
+ \nuTwo(3a+1)\le \lfloor(1-\zeta_0)t_X+1\rfloor}}g_X(a)\right)
+ =o((\log X)^{\varepsilon_0}).\tag{ES}
+\]
+It is a logically sufficient but extremely strong proposed hypothesis; the aim here is to audit its feasibility.
+
+\section{Explicit parity cylinders with guaranteed descent}
+\begin{theorem}[Dangerous but quickly descending targets]\label{thm:construct}
+For every sufficiently large integer $t$, put
+\[
+ r=\lceil t/30\rceil,\quad s=\lceil t/20\rceil,\quad d=r+s.
+\]
+There exist positive integers $u,n,a,m$ satisfying
+\begin{align*}
+  &1\le u<2^{d+1},\qquad 3\nmid n,\\
+  &n=2^{t+1}u-1,\qquad a=2u3^t-1,\\
+  &m=(u3^{t+1}-1)/2^r>0,\qquad m\equiv-1\pmod{2^s},
+\end{align*}
+with the following properties.  Setting $X=a$ and $b_\star(X)=\lceil(\log\log X)^2\rceil$, one has:
+\begin{enumerate}
+ \item $T^t(n)=a$, $\nuTwo(3a+1)=r+1$, and $T^{r+1}(a)=m$;
+ \item $m\le X^{1-2\beta}$, hence $h_X^\downarrow(a)=h(a)$;
+ \item $a\in\calC_{X,b_\star(X)}$; in fact the parity prefix of length $L=1+r+s\le t_X$ has exactly $1+s$ odd steps, and $(1+s)/L>\zeta_0$;
+ \item $\nuTwo(3a+1)\le\lfloor(1-\zeta_0)t_X+1\rfloor$;
+ \item there is a numerical constant $C>0$ independent of $t$ such that
+ \[
+ \frac an\ge\tfrac12(3/2)^t,
+ \qquad X\le C\exp\bigl(t(\log3+\tfrac1{12}\log2)\bigr).
+ \]
+\end{enumerate}
+Thus the dangerous parity-cylinder condition can be fulfilled by states that provably reach the cutoff \emph{before} their danger-witnessing prefix ends.
+\end{theorem}
+\begin{proof}
+The odd number $3^{t+1}$ is invertible modulo $2^d$.  Choose the unique odd $u_0\in[1,2^d)$ such that
+\[
+ 3^{t+1}u_0\equiv 1-2^r\pmod{2^d}.
+\]
+Of $u_0$ and $u_0+2^d$, choose $u$ for which $3\nmid 2^{t+1}u-1$; this is possible because the two candidates give distinct residues modulo $3$.  Their sizes are below $2^{d+1}$.  The congruence implies
+\[
+ u3^{t+1}-1=2^r m,\qquad m\equiv-1\pmod{2^s}.
+\]
+Since $s\ge1$, the last congruence makes $m$ odd, hence $\nuTwo(u3^{t+1}-1)=r$.  Also $m>0$ for sufficiently large $t$.
+
+For $0\le j\le t+1$ the identities
+\[
+ T^j(n)=2^{t+1-j}3^j u-1
+\]
+follow by induction: every value with $j<t+1$ is odd.  At $j=t$ it equals $a$; the next accelerated step gives $2^rm$, followed by $r$ halvings to $m$.  This proves (1).
+
+Since $X=a\le2^{d+2}3^t$ and $d\le t/12+2$,
+\[
+ \log X\le t\left(\log3+\frac{\log2}{12}\right)+O(1).
+\]
+Furthermore $m=(3X+1)/2^{r+1}$, so
+\[
+ \log m\le\log X-r\log2+O(1).
+\]
+As $r\ge t/30$ and
+\[
+ \frac{\log2}{30}> 2\beta\left(\log3+\frac{\log2}{12}\right),
+\]
+we have $\log m\le(1-2\beta)\log X$ for all sufficiently large $t$.  This proves (2).
+
+The first step from $a$ is odd, the next $r$ are even, and the next $s$ are odd because $m\equiv-1\pmod{2^s}$ (indeed the first $s$ steps starting at $2^sq-1$ are odd).  Therefore the prefix $L=1+r+s$ has $1+s$ odd entries.  Its limiting odd fraction is $(1/20)/(1/30+1/20)=3/5>11/20$.  Also $L/t\to1/12$, whereas
+\[
+ \liminf_{t\to\infty}\frac{t_X}{t}\ge\frac{3\beta}{\zeta-\zeta_0}>0.18.
+\]
+Consequently $L\le t_X$ and $b_\star(X)\le L$ for large $t$, proving (3).  Since $r/t\to1/30$ while $(1-\zeta_0)t_X/t$ has lower limit above $0.08$, (4) follows.  Finally $a\ge u3^t$ and $n\le2^{t+1}u$, giving the first bound in (5); the second was established above.
+\end{proof}
+
+\section{Potential amplification and a conditional no-go result}
+The next theorem uses a clearly separated external hypothesis:
+\begin{equation}\label{eq:floor}
+ \tag{UF} \exists\kappa>0\ \forall n\ge1\ (3\nmid n\implies h(n)\ge\kappa/n).
+\end{equation}
+A 2026 research manuscript by the author \emph{fourier\_wren}, entitled \emph{A uniform linear lower bound for Collatz predecessor counts, from joint Syracuse atoms at fixed valuation}, claims a stronger finite-count theorem implying (UF); it is not a refereed or independently checked input here.  All assertions below invoking (UF) are explicitly conditional on it.
+\begin{theorem}[Conditional polynomial spikes on harmless dangerous cylinders]\label{thm:spikes}
+Assume (UF) and the existence of the logarithmic densities $h(n)$ used above.  Along the unbounded sequence of $X=a$ constructed in Theorem~\ref{thm:construct},
+\[
+ \max_{\substack{X_1/4<y\le X,\ y\text{ odd}\\
+       y\in\calC_{X,b_\star(X)}\\
+       \nuTwo(3y+1)\le\lfloor(1-\zeta_0)t_X+1\rfloor}}
+       y h_X^\downarrow(y)
+ \ \ge\ c_0 X^{\delta},
+ \qquad \delta=\frac{\log(3/2)}{\log3+\frac1{12}\log2}>0.35,
+\]
+where $c_0>0$ depends only on $\kappa$.  In particular the condition (ES) fails, even when its maximum is restricted to the dangerous cylinders themselves.
+\end{theorem}
+\begin{proof}
+Because $T^t(n)=a$, the predecessor sets satisfy $P(n)\subseteq P(a)$, hence $h(a)\ge h(n)$.  Theorem~\ref{thm:construct} gives $h_X^\downarrow(a)=h(a)$ and $3\nmid n$.  Using (UF),
+\[
+  a h_X^\downarrow(a)\ge\kappa\frac an
+     \ge\frac\kappa2(3/2)^t.
+\]
+The upper bound on $X$ from Theorem~\ref{thm:construct}(5) gives $(3/2)^t\gg X^\delta$, with the stated exponent.  All the restrictions on the displayed maximum hold for the constructed target.  Since $\log X^\delta\asymp\log X$ while $\varepsilon_0<1$, (ES) cannot hold.
+\end{proof}
+
+\begin{corollary}[Conditional obstruction to large moments]\label{cor:moment}
+Under (UF), the strong odd-target moment condition
+\[
+ \sup_{X\ge X_0}\frac1X\sum_{\substack{X^{1-2\beta}/4<y\le X\\y\text{ odd}}}
+ \bigl(y h_X^\downarrow(y)\bigr)^p<\infty
+\]
+is false for every $p>1/\delta$, in particular for $p\ge3$.  This does \emph{not} rule out the weaker useful range $1<p<1/\delta$.
+\end{corollary}
+\begin{proof}
+The single value $y=a=X$ provided by Theorem~\ref{thm:spikes} contributes at least $c_0^pX^{p\delta-1}$, which diverges when $p\delta>1$.
+\end{proof}
+
+\begin{remark}[Unconditional transfer identity]
+The only external assertion needed for polynomial height is (UF).  Without it, Theorem~\ref{thm:construct} still proves the arithmetic construction, and the \emph{unconditional} monotonicity
+\[
+  g_X(a)=a h(a)\ge(a/n)h(n)\ge\tfrac12(3/2)^t h(n).
+\]
+Positivity $h(n)>0$ by itself gives no polynomial lower bound along this moving sequence of $n$.
+\end{remark}
+
+\section{A survival-gated refinement (without the external input)}
+The theorem above shows that the parity-cylinder superset $\calC_{X,b}$ includes states whose witnesses occur \emph{after} first passage.  This is a structural source of unnecessarily large potential sums.  Let $H_\ell(y)$ denote the number of odd steps in the first $\ell$ accelerated steps, and define the \emph{live dangerous set}
+\begin{align*}
+ \calC^{\mathrm{live}}_{X,b}=\{y\in W_X:\ &\exists\ell\in[b,t_X]\text{ such that }H_\ell(y)\ge\zeta_0\ell,\\[-2pt]
+ &\qquad T^i(y)>X_1\text{ for all }0\le i<\ell\}.
+\end{align*}
+It is a subset of $W_X\cap\calC_{X,b}$, but unlike the latter it depends on the true stopped orbit, not just a residue class.
+
+\begin{proposition}[Live dangerous domination]\label{prop:live}
+Assume the hypotheses and notation of the single-depth return argument in the consolidated manuscript, including the parity-prefix necessity: a state permitting $b$ more visits to its shell before hitting $[1,X_1]$ admits a prefix of length $\ell\in[b,t_X]$ with $H_\ell\ge\zeta_0\ell$, and its orbit stays above $X_1$ during that prefix.  Then the earlier potential-domination inequality strengthens to
+\[
+ \boxed{\quad
+ \mathcal E_X(L_X;K_X)\le2b\,\mu_X(L_X)
+ +\frac2X\sum_{y\in\calC^{\mathrm{live}}_{X,b}}y h_X^\downarrow(y).
+ \quad}
+\]
+Every target constructed in Theorem~\ref{thm:construct} is outside $\calC^{\mathrm{live}}_{X,b_\star(X)}$ for sufficiently large $t$.
+\end{proposition}
+\begin{proof}
+By the stated parity-prefix necessity, the event that a state at its $n$th visit makes at least $b$ additional shell visits is supported on $\calC^{\mathrm{live}}_{X,b}$.  Therefore the estimate $s_{X,j}(n+b)\le\nu_{X,j,n}(\calC_{X,b})$ in the previous potential-domination proof holds with $\calC^{\mathrm{live}}_{X,b}$ on the right.  The remainder of that proof is unchanged: sum the shifted survival probabilities over $n>K_{X,j}$, bound the first $b$ terms by $b\mu_X(L_X)$, use the disjointness of visits to a fixed state on an orbit eventually reaching $[1,X_1]$, and sum the shells with $2^{-j}<2y/X$.  This yields the displayed inequality.
+
+For the constructed $a$, the first prefix meeting the odd-fraction condition after time $b_\star(X)$ cannot occur before the orbit reaches $m$: between the initial odd step and that time, the odd-step count remains $1$ and the prefix length is at least $b_\star(X)\to\infty$.  At all subsequent prefixes the orbit has already reached $m\le X_1$, so the live condition fails.  Hence $a\notin\calC^{\mathrm{live}}_{X,b_\star(X)}$.
+\end{proof}
+
+\begin{remark}[Scope of the improvement]
+The live filter removes these explicit high-potential false positives, and it is a genuine strengthening of the \emph{upper bound}.  Nevertheless, the new sum still involves a stopped orbit condition and is not known to vanish.  It is not a proof of the clipping-tail estimate or of the Collatz conjecture.  In particular there is no right to replace the conditional lower bound (UF) by a theorem merely because an online manuscript claims it.
+\end{remark}
+
+\section{Research decision}
+The global pointwise route (ES) should not be used as a plausible ``last-mile'' target without addressing Theorem~\ref{thm:spikes}.  A viable proof should estimate \emph{weighted mass on states that genuinely survive the relevant return prefix}, rather than a maximum over all parity-compatible targets.  Such a weighted and survival-aware estimate could be consistent with isolated polynomial spikes.  The required upper bound on the live weighted sum remains open and is the actual next research step.
+
+\begin{thebibliography}{9}
+\bibitem{Tao2022} T. Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum of Mathematics, Pi \textbf{10} (2022), e12.
+\bibitem{Wren2026} fourier\_wren, \emph{A uniform linear lower bound for Collatz predecessor counts, from joint Syracuse atoms at fixed valuation}, online research manuscript (2026), \url{https://rstation.ai/problems/collatz/papers/10/v3}.  The asserted uniform lower bound is an \emph{unverified external hypothesis} in the present note.
+\end{thebibliography}
+\end{document}

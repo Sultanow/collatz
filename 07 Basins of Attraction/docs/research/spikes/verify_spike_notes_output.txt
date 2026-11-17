@@ -1,0 +1,9 @@
+spine: u = [5, 853, 291157, 99381589, 33922249045]..., e = [9, 10, 10, 10, 10, 12], sup_R R^-1 sum n H(n) = 3.006 (claim <= 10; <= 7 for the ray alone)
+spine: odd spike u_i/R at R = u_i: [1.0, 1.0, 1.0, 1.0, 1.0] -> (UI) fails
+valuation lemma: max nu_2(3a+c) on dangerous odd classes <= floor(0.45 t*+1) for c=1,-1,5,13, t*=12,16
+construction t=1600: in C_X,b* (superset) = True, live = False, b* = 57, t_X = 313
+construction t=3200: in C_X,b* (superset) = True, live = False, b* = 68, t_X = 625
+profile n=8: lower bound 178, Table 13 max 260, ratio 1.46
+profile n=12: lower bound 902, Table 13 max 1318, ratio 1.46
+profile n=16: lower bound 4566, Table 13 max 6676, ratio 1.46
+all checks passed

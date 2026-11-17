@@ -1,0 +1,186 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\title{An Extreme-Spike Barrier for the Collatz Clipping Tail\\
+\large An internal consequence of odd-core compression}
+\author{Research checkpoint --- not a proof of the asymptotic tail bound}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We derive a pointwise, one-sided sufficient condition for the vanishing
+of the clipping tail from the \emph{odd-core compression} estimate and the
+sparsity of dangerous parity cylinders already established in the
+consolidated manuscript and its companion note. A failure of
+$T_X=o(X)$ forces exceptional odd target weights of size at least
+$\exp(\kappa (\log X)^{\varepsilon_0})$ on an infinite sequence of scales.
+This is a rigorous \emph{necessary condition for failure}, not a proof
+that these spikes do not exist. The required pointwise estimate for the
+true logarithmic predecessor potential remains open.
+\end{abstract}
+
+\section{Inputs and notation}
+Fix the accelerated map $T_{3,c}$, odd $c\ge-1$, $3\nmid c$, and the
+constants of the consolidated manuscript, in particular $\beta=1/200$
+and $0<\varepsilon_0<1$. Put $X_1=X^{1-2\beta}$.
+Let $h_X^\downarrow(a)=h(a)$ if the forward orbit of $a$ reaches
+$[1,X_1]$, and $h_X^\downarrow(a)=0$ otherwise.  Set
+\[
+ g_X(a):=a h_X^\downarrow(a),\qquad
+ \mu_X:=\mu_X(L_X),\qquad
+ \mu_X\le C_\mu(\log X)^{-\varepsilon_0},
+\]
+where $L_X=(\log X)^{\varepsilon_0/2}$ and $C_\mu>0$ is fixed.
+We do not reprove the first-passage inputs here.
+
+Fix $\zeta_0=0.55$ and define
+\[
+ \zeta=\frac{\log2}{\log3},\qquad
+ \Delta=\zeta_0\log(2\zeta_0)+(1-\zeta_0)\log(2-2\zeta_0)>0,
+ \qquad t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil.
+\]
+Numerically $\Delta\approx0.00500837$ and
+$2^{t_X}\le 2X^{0.12}$ for all sufficiently large $X$.
+For $b_0\le b\le t_X$, let $\mathcal C_{X,b}$ denote the union
+of residue classes modulo $2^{t_X}$ whose parity word has at least
+$\zeta_0 t$ odd entries in some prefix $b\le t\le t_X$.
+As established by parity-word counting,
+\begin{equation}\label{eq:sparse}
+ \#(\mathcal C_{X,b}\cap[1,X])\le X\alpha_b+2^{t_X},
+ \qquad \alpha_b:=\frac{e^{-\Delta b}}{1-e^{-\Delta}}.
+\end{equation}
+
+Our sole dynamical input beyond these definitions is the previously
+proved odd-core bound (companion note, Theorem ``Odd-core upper bound
+for the clipping tail''):
+\begin{equation}\label{eq:oddinput}
+ \frac{T_X}{X}\le (5+6b)\mu_X+
+ \frac{36}{X}\sum_{\substack{X_1/4<a\le X\\a\text{ odd},\ a\in\mathcal C_{X,b}}}g_X(a)
+ \quad(b_0\le b\le t_X).
+\end{equation}
+Thus the claims below are conditional on the first-passage and odd-core
+propositions, not independent of their hypotheses.
+
+\section{Pointwise extreme-spike theorem}
+For each large $X$ define the \emph{short-valuation odd maximum}
+\[
+ G_X:=\max\Bigl(\{0\}\cup
+ \bigl\{g_X(a):\ X_1/4<a\le X,\ a\text{ odd},\
+ \nu_2(3a+c)\le\lfloor(1-\zeta_0)t_X+1\rfloor\bigr\}\Bigr).
+\]
+This maximum is finite and $0\le G_X\le X$. The valuation restriction
+is justified by the proved deterministic initial-valuation lemma:
+every odd $a\in\mathcal C_{X,b}$ satisfies that restriction for $b\ge2$.
+
+\begin{theorem}[Quantitative extreme-spike bound]\label{thm:main}
+Under the stated inputs, for all large $X$ and all
+$\max(2,b_0)\le b\le t_X$,
+\begin{equation}\label{eq:main}
+ \boxed{\quad
+ \frac{T_X}{X}\le
+ (5+6b)C_\mu(\log X)^{-\varepsilon_0}
+ +36G_X\left(\frac{e^{-\Delta b}}{1-e^{-\Delta}}
+ +2X^{-0.88}\right).\quad}
+\end{equation}
+In particular:
+\begin{enumerate}
+\item If $\log(2+G_X)=o((\log X)^{\varepsilon_0})$ as
+$X\to\infty$, then $T_X=o(X)$.
+\item If for some fixed $A\ge0$ one has
+$G_X\le(\log X)^A$ for all sufficiently large $X$, then
+\begin{equation}\label{eq:polylog}
+ \frac{T_X}{X}
+ =O_{A,c}\bigl((\log\log X)(\log X)^{-\varepsilon_0}
+ +(\log X)^{-2}+X^{-0.88}(\log X)^A\bigr).
+\end{equation}
+\item Conversely, if $\limsup_{X\to\infty}T_X/X>0$, then
+there are constants $\kappa>0$ and $\delta>0$ and a sequence
+$X_j\to\infty$ such that
+\begin{equation}\label{eq:spike}
+ \frac{T_{X_j}}{X_j}\ge\delta,
+ \qquad
+ G_{X_j}\ge\exp\bigl(\kappa(\log X_j)^{\varepsilon_0}\bigr).
+\end{equation}
+Thus failure of the clipping-tail conclusion forces
+super-polylogarithmic odd-target spikes \emph{among stopped
+orbits with short initial valuation}.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+By the initial-valuation lemma, every odd state counted in
+\eqref{eq:oddinput} has weight at most $G_X$. The number of such
+states is at most $X\alpha_b+2^{t_X}$, by \eqref{eq:sparse}.
+Using $2^{t_X}\le2X^{0.12}$ proves \eqref{eq:main}.
+
+For the first consequence put $L=(\log X)^{\varepsilon_0}$ and
+$H_X=\log(2+G_X)=o(L)$. Choose
+\[
+ b=\max\left(\lceil b_0\rceil,2,
+ \left\lceil\frac{H_X+\log\log X}{\Delta}\right\rceil\right).
+\]
+Because $0<\varepsilon_0<1$, we have $b=o(L)=o(\log X)$, so
+$b\le t_X$ for large $X$. The first term in \eqref{eq:main}
+is $o(1)$. The exponential term is at most a constant multiple
+of $(\log X)^{-1}$, while
+$G_X X^{-0.88}=\exp(o(\log X))X^{-0.88}=o(1)$.
+This proves (1).
+
+For (2) choose
+$b=\max(\lceil b_0\rceil,2,
+\lceil (A+2)\Delta^{-1}\log\log X\rceil)$.
+This is below $t_X$ for all sufficiently large $X$.
+Substitution in \eqref{eq:main} gives \eqref{eq:polylog}.
+
+For (3), select $\delta>0$ and an infinite sequence of $X$
+with $T_X/X\ge\delta$. Set $L=(\log X)^{\varepsilon_0}$ and
+$b=\lfloor\delta L/(24C_\mu)\rfloor$. Eventually
+$\max(2,b_0)\le b\le t_X$, and
+$(5+6b)C_\mu/L\le\delta/3$.
+Thus \eqref{eq:main} yields
+\[
+ \frac{2\delta}{3}\le
+ 36G_X\left(\frac{e^{-\Delta b}}{1-e^{-\Delta}}
+ +2X^{-0.88}\right).
+\]
+Since $b=O((\log X)^{\varepsilon_0})=o(\log X)$,
+we have $X^{-0.88}=o(e^{-\Delta b})$. Therefore
+$G_X\ge c_\delta e^{\Delta b}$ for a positive constant
+$c_\delta$, proving \eqref{eq:spike} with any
+$0<\kappa<\Delta\delta/(24C_\mu)$ on the sequence.
+\end{proof}
+
+\section{Interpretation and limits}
+\begin{remark}[A genuine one-way criterion, not a completed proof]
+The condition in Theorem~\ref{thm:main}(1) is a \emph{sufficient}
+pointwise upper bound.  Its converse is not claimed: large isolated
+values of $G_X$ need not force a large clipping tail.  It is
+logically different from the previously criticised concentration
+criteria that are equivalent to the tail statement.  It also differs
+from a uniform $L^p$ condition: an abstract profile that takes the
+value $(\log X)^A$ on a positive proportion of the odd targets
+satisfies the pointwise criterion but has divergent normalized $L^p$
+means for every $p>1$ when $A>0$. Such an abstract profile need
+not satisfy the Collatz harmonic equations.
+\end{remark}
+\begin{remark}[The hard missing input]
+No theorem here establishes
+$\log(2+G_X)=o((\log X)^{\varepsilon_0})$ for the true
+logarithmic predecessor potential. The trivial inequality
+$h_X^\downarrow(a)\le1$ gives only $G_X\le X$, far weaker
+than required. Neither parity-word counting (Terras) nor the
+available first-passage total-variation estimates (Tao/GGM)
+supplies this pointwise estimate. The constant
+$\Delta\approx0.005$ also makes the explicit asymptotic bounds
+numerically ineffective at accessible scales. Thus this note
+isolates a strong obstruction; it is \emph{not} yet a breakthrough
+and should not be integrated in the main article as one.
+\end{remark}
+\end{document}

@@ -1,8 +1,9 @@
 # Research notes — Same Shadows, Different Forests
 
 This folder contains **working research material** from the development of the appendices of the
-paper ([`../main.tex`](../main.tex), version 3). It is not part of the paper: only what the paper
-states, with its stated hypotheses, is claimed there. Numbers below refer to version 3 of the paper.
+paper ([`../main.tex`](../main.tex)). It is not part of the paper: only what the paper states, with
+its stated hypotheses, is claimed there. Numbers below refer to version 3 of the paper and to the
+draft after it (Remark 12).
 
 ## Notes that entered the paper
 
@@ -14,6 +15,7 @@ states, with its stated hypotheses, is claimed there. Numbers below refer to ver
 | [`relative_energy/`](relative_energy) | single-depth relative-energy defect | Proposition 13 (stated as an equivalence) |
 | [`stopped_potential/`](stopped_potential) | domination of the first-excess tail by the stopped predecessor potential | Proposition 14 (first form) |
 | [`odd_core/`](odd_core) | odd-core compression: only odd targets enter | Proposition 14 (odd targets), Run K odd rows |
+| [`spikes/`](spikes) | pointwise criterion and its failure, inverse-ray countermodel, live dangerous points | Remark 12 (draft after version 3) |
 
 Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
 statements of these notes stay here.
@@ -31,7 +33,8 @@ unless the table above or the paper says so; do not `\input` them into `main.tex
 ## Open problems (as in the paper)
 
 - `T_X = o(X)` for the clipping tail (Problem 3; equivalent to Proposition 13's defect condition;
-  implied by uniform integrability of the stopped potential of the odd targets, Proposition 14).
+  implied by uniform integrability of the stopped potential of the odd targets, Proposition 14;
+  needed in averaged form and not implied by the structural properties of `h`, Remark 12).
 - `R_X = o(X)` for the return term (Corollary 7).
 - The audit of the GGM parameter uniformities used in Lemmas 2–4 and Theorem 3.
 

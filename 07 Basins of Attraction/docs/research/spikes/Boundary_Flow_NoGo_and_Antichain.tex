@@ -1,0 +1,369 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\N}{\mathbb N}
+\newcommand{\ind}{\mathbf 1}
+\title{Boundary-Flow Obstruction and Antichain Packing\\for the Collatz Predecessor Potential}
+\author{Independent research note --- not a claim of a complete tail estimate}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We examine whether the remaining uniform-integrability assumption in
+\emph{odd-core compression} can be proved from the predecessor recurrence,
+cycle-level mass conservation, positivity of the harmonic profile, and a
+bounded weighted Ces\`aro first moment. We prove a stronger countermodel:
+even strict positivity on \emph{every} non-multiple-of-three state whose
+$3x+1$ trajectory reaches the $1$--$2$ cycle does not suffice. We also
+record an exact finite-source Poisson equation and prove a
+multiplicative sibling-leakage identity and record a valid
+orbit-antichain occupation inequality for the genuine
+logarithmic predecessor potential. The latter gives a weak $K^{-1}$
+occupation bound if a linear upper bound on the global potential mass is
+available; such a weak bound alone cannot give the necessary tail moment.
+No unconditional proof of $T_X=o(X)$ is obtained.
+\end{abstract}
+
+\section{Definitions and a uniformly bounded inverse ray}
+Set
+\[
+T(n)=\begin{cases}n/2&n\text{ even},\\(3n+1)/2&n\text{ odd}.
+\end{cases}
+\]
+Write $q(y)=(2y-1)/3$ when this is a positive integer (then it is
+necessarily odd). A nonnegative profile $H$ is \emph{harmonic outside the
+periodic states} if
+\begin{equation}\label{eq:harmonic}
+ H(y)=H(2y)+\ind_{\{q(y)\text{ exists}\}}H(q(y))
+ \qquad (y\text{ not periodic}).
+\end{equation}
+A $T$-orbit is \emph{terminating} here if it reaches the $1$--$2$ cycle.
+Let $\mathcal B=\{a\in\N:3\nmid a,\ T^k(a)\in\{1,2\}\text{ for some }k\}$.
+We do not assume that every positive integer belongs to this basin.
+
+\begin{lemma}[Inverse-ray bound]\label{lem:ray}
+Let $u_0$ be positive, odd and prime to $3$. Choose integers $e_i\ge8$
+such that $2^{e_i}u_i\equiv4\pmod9$ and put
+\[
+ u_{i+1}=\frac{2^{e_i}u_i-1}{3}.
+\]
+For $i\ge1$ one may and shall take $e_i\in\{8,9,10,11,12,13\}$.
+Then $u_i$ are positive odd numbers prime to $3$,
+$u_{i+1}\ge85u_i$, and the set
+\[
+ \mathcal R(u_0)=\bigcup_{i\ge0}
+ \{2^ku_i:0\le k<e_i\}
+\]
+is an injective inverse ray. For every $R\ge1$,
+\begin{equation}\label{eq:raybound}
+\sum_{\substack{v\in\mathcal R(u_0)\\v\le R}}v\le7R.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The element $2$ has order six modulo $9$. For each $u_i$ prime to $3$
+there is a unique allowed exponent in any six consecutive integers.
+The congruence gives $u_{i+1}\equiv1\pmod3$, and $u_{i+1}$ is odd.
+The inequality follows from $e_i\ge8$:
+$(2^{e_i}u_i-1)/3\ge85u_i$.
+The identity $3u_{i+1}+1=2^{e_i}u_i$ shows
+\[
+ u_{i+1}\longmapsto 2^{e_i-1}u_i\longmapsto\cdots
+ \longmapsto u_i
+\]
+under $T$. As all $u_i$ are distinct odd numbers, the blocks are
+disjoint and form one ray.
+If $R<u_0$, there is no contribution. Otherwise choose $i$ with
+$u_i\le R<u_{i+1}$. The (possibly truncated) $i$th block contributes
+less than $2R$. Every earlier full block contributes
+\[
+ (2^{e_j}-1)u_j=3u_{j+1}+1-u_j\le3u_{j+1}+1.
+\]
+Because $u_{j+1}\ge85u_j$,
+$\sum_{\ell=1}^{i}u_\ell\le(85/84)u_i$, and $i\le u_i$.
+Consequently the total is bounded by
+$2R+3(85/84)R+R<7R$.
+\end{proof}
+
+\section{Strict positivity does not rescue the dyadic argument}
+\begin{theorem}[Full terminating-basin support and persistent odd spikes]
+\label{thm:positive}
+There exists a function $H:\N\to[0,1]$ with all of the following
+properties:
+\begin{enumerate}
+\item $H(1)=H(2)=1$, and $H$ satisfies \eqref{eq:harmonic} at every
+nonperiodic target.
+\item $H(a)>0$ for every $a\in\mathcal B$, and $H(a)=0$ whenever
+$3\mid a$. Every supported state terminates at the $1$--$2$ cycle.
+\item On every positive-depth predecessor level of the $1$--$2$
+cycle, the total $H$-mass is exactly one.
+\item $\sup_{R\ge1}R^{-1}\sum_{a\le R}aH(a)<\infty$.
+\item For every $0<\beta<1$,
+\begin{equation}\label{eq:failure}
+ \lim_{M\to\infty}\limsup_{R\to\infty}
+ \frac1R\sum_{\substack{R^{1-\beta}<a\le R\\a\text{ odd}\\aH(a)>M}}
+ aH(a)\ge\frac12.
+\end{equation}
+In particular, the normalized odd-target $L^p$ means are unbounded
+for every $p>1$.
+\end{enumerate}
+Thus harmonicity, conservation, bounded mean and even positivity on
+all \emph{known terminating} non-multiples of $3$ do not prove the
+odd-only uniform-integrability condition.
+\end{theorem}
+\begin{proof}
+For each $a\in\mathcal B$, write $a=2^ku$ with $u$ odd. Since
+$T^k(a)=u$, the forward orbit of $u$ reaches $\{1,2\}$.
+Let $F_u$ be the finite set of states in that orbit, including the
+cycle. Choose the first exponent $e_0$ in Lemma~\ref{lem:ray}
+sufficiently large that $e_0>k$ and $u_1>\max F_u$; then use the
+six-term choice for subsequent exponents. Put
+\[
+ \mathcal S_a=F_u\cup\mathcal R(u),\qquad
+ H_a(v)=\ind_{\{v\in\mathcal S_a\}}.
+\]
+Every vertex of this support eventually reaches the cycle; all its
+vertices are prime to $3$. Outside the cycle, exactly one supported
+immediate predecessor enters each supported vertex. To see that no
+extra incoming edge occurs, note that $T$ is deterministic, the
+inverse ray is injective, and its first block cannot meet the
+nonperiodic forward orbit of $u$: if the forward orbit of a
+nonperiodic $u$ reached $2^ru$ for $r>0$, the ensuing even steps
+would return to $u$ and make it periodic. Higher inverse blocks
+lie above $\max F_u$ by construction. For $u=1$, the only
+intersection is with the periodic pair $\{1,2\}$, where
+\eqref{eq:harmonic} is not required. Unsupported vertices have no
+supported predecessor because $\mathcal S_a$ is forward invariant.
+Hence $H_a$ is harmonic outside periodic states, and its support
+forms a single inverse ray attached to the cycle. In particular,
+$H_a(a)=1$, $H_a(1)=H_a(2)=1$, and each positive-depth predecessor
+level has total mass one.
+By Lemma~\ref{lem:ray}, with the finite extra forward orbit,
+\[
+ \sum_{v\le R}vH_a(v)\le (7+\sum_{v\in F_u}v)R=:C_aR
+ \qquad(R\ge1).
+\]
+Enumerate the countably infinite set $\mathcal B$ as $a_1,a_2,\dots$.
+Choose positive coefficients $p_i$ with
+$\sum_i p_i=1/2$ and $\sum_i p_i C_{a_i}<\infty$;
+for example normalize $2^{-i}/(1+C_{a_i})$ to total $1/2$.
+Let $H_0$ be the indicator of the particular infinite inverse ray
+starting at $u_0=5$ with all exponents $e_i\in\{8,\dots,13\}$,
+adjoined to its finite forward orbit $5\to8\to4\to2\to1$.
+Set
+\[
+ H=\frac12 H_0+\sum_{i\ge1}p_iH_{a_i}.
+\]
+The coefficients sum to one. All assertions in parts (1)--(4)
+follow by linearity, nonnegative summation, and the individual bounds.
+For the odd points $u_i$ on the designated spine, $H(u_i)\ge1/2$
+and $u_i\to\infty$. Taking $R=u_i$ gives a contribution at least
+$1/2$ to \eqref{eq:failure} for any fixed $M$ and all large $i$.
+The same single point contributes at least
+$2^{-p}u_i^{p-1}$ to the normalized $p$th moment.
+\end{proof}
+\begin{remark}[Conditional stronger interpretation]
+If every positive integer prime to $3$ eventually reaches the
+$1$--$2$ cycle, then $\mathcal B=\{a:3\nmid a\}$,
+and the same construction is positive at \emph{every}
+non-multiple-of-three target. We use this only as an implication,
+not as a proved assertion about the Collatz conjecture.
+The constructed $H$ is not the true logarithmic predecessor density.
+Its relevance is to exclude hypotheses that forget how the true
+density arises as a finite-source logarithmic limit.
+\end{remark}
+
+\section{The genuine finite-source identity}
+The formal profile in Theorem~\ref{thm:positive} does not arise
+from logarithmically weighting a finite collection of source
+integers and then taking a limit. The exact finite-source equation
+makes this distinction explicit.
+Let
+\[
+ \mathsf H_N=\sum_{1\le m\le N}\frac1m,\qquad
+ h_N(y)=\frac1{\mathsf H_N}\sum_{1\le m\le N}
+ \frac{\ind_{\{m\in P(y)\}}}{m}.
+\]
+\begin{proposition}[Finite-source Poisson defect]\label{prop:source}
+For every nonperiodic positive integer $y$,
+\begin{equation}\label{eq:poisson}
+ \boxed{\quad h_N(y)=h_N(2y)+
+ \ind_{\{q(y)\text{ exists}\}}h_N(q(y))
+ +\frac{\ind_{\{y\le N\}}}{y\,\mathsf H_N}.\quad}
+\end{equation}
+The additive source $d_N(y)=\ind_{\{y\le N\}}/(y\mathsf H_N)$
+has uniformly small weighted Ces\`aro norm:
+\begin{equation}\label{eq:defect}
+ \sup_{R\ge1}\frac1R\sum_{1\le y\le R}y\,d_N(y)
+ \le\mathsf H_N^{-1}\longrightarrow0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For nonperiodic $y$, the three sets $\{y\}$, $P(2y)$,
+and $P(q(y))$ when the last is defined, partition $P(y)$.
+Indeed the first arrival to $y$ is either at time zero or is
+immediately preceded by exactly one of its possible parents.
+Two distinct parent events cannot overlap, as this would force
+the nonperiodic target $y$ to be revisited. Weighting this disjoint
+union by $1/m$ for $m\le N$ proves \eqref{eq:poisson}.
+For the second assertion, the sum on the left equals
+$\lfloor\min(R,N)\rfloor/(R\mathsf H_N)\le1/\mathsf H_N$.
+\end{proof}
+\begin{remark}[The noncommuting-limits barrier]
+Equation~\eqref{eq:defect} does \emph{not} imply that $h_N$
+vanishes: the inverse-tree Green operator amplifies a small
+source over arbitrarily many predecessor generations. The limit
+$N\to\infty$ at fixed $y$ erases the source and recovers the
+homogeneous recurrence, while estimates involving target scales
+$R\to\infty$ require additional uniform information. This is
+precisely where a real finite-source regularity argument, rather
+than another harmonic identity, would be needed.
+\end{remark}
+
+\section{An exact positive result: multiplicative sibling leakage}
+The actual logarithmic potential contains more information than its
+abstract conservation laws: the mass of an \emph{unused} inverse
+branch can be measured relative to the mass of the target.
+For the next proposition, all displayed $h$-values are those of the
+actual predecessor density, and positivity is assumed at the states
+where a ratio is formed.
+\begin{proposition}[Sibling-leakage product identity]
+\label{prop:leak}
+Let $a_0,\ldots,a_t$ be a finite positive $T$-orbit segment with
+$a_{i+1}=T(a_i)$, $h(a_0)>0$, and every target $a_{i+1}$
+nonperiodic. For each step define the unused predecessor
+\[
+ s_i=\begin{cases}
+ 2a_{i+1}, & a_i\text{ odd},\\
+ (2a_{i+1}-1)/3, & a_i\text{ even and the quotient is a
+ positive integer},\\
+ \varnothing,& \text{otherwise},
+ \end{cases}
+\]
+with $h(\varnothing)=0$, and define
+$\rho_i=h(s_i)/h(a_{i+1})$. Then $0\le\rho_i<1$ and
+\begin{equation}\label{eq:prod}
+ \boxed{\quad h(a_0)=h(a_t)\prod_{i=0}^{t-1}(1-\rho_i)\quad}.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:leak}
+ \boxed{\quad h(a_0)\le h(a_t)
+ \exp\left(-\sum_{\substack{0\le i<t\\a_i\text{ odd}}}
+ \frac{h(2a_{i+1})}{h(a_{i+1})}\right).\quad}
+\end{equation}
+If $3\nmid a_0$ and the positive-density statement for all
+non-multiples of three from the consolidated manuscript applies,
+then every odd step has $\rho_i>0$.
+\end{proposition}
+\begin{proof}
+By the nonperiodic predecessor recurrence, the two possible
+predecessors of $a_{i+1}$ are precisely $a_i$ and $s_i$,
+so that $h(a_{i+1})=h(a_i)+h(s_i)$. Since $h(a_i)\ge h(a_0)>0$
+by forward inclusion of predecessor sets, all ratios are defined
+and strictly less than one. Dividing each equality by
+$h(a_{i+1})$ and multiplying gives \eqref{eq:prod}.
+Dropping all nonnegative even-step leakage terms and using
+$1-x\le e^{-x}$ gives \eqref{eq:leak}. If $a_i$ is odd, its
+unused sibling $2a_{i+1}$ is prime to three whenever $a_i$ is,
+and hence has positive $h$ by the cited positivity input.
+\end{proof}
+\begin{corollary}[A scale-sensitive sufficient estimate]
+\label{cor:scale}
+Under the assumptions of Proposition~\ref{prop:leak}, suppose
+that $h(a_t)\le M/a_t$ and that
+\begin{equation}\label{eq:pressure}
+ \sum_{\substack{0\le i<t\\a_i\text{ odd}}}
+ \frac{h(2a_{i+1})}{h(a_{i+1})}
+ \ge \log\frac{a_0}{a_t}-C.
+\end{equation}
+Then $a_0h(a_0)\le M e^C$.
+\end{corollary}
+\begin{proof}
+Insert the two assumptions into \eqref{eq:leak} and multiply
+by $a_0$.
+\end{proof}
+\begin{remark}[Why this is not yet the breakthrough]
+The product identity is exact and the bound depends on positive
+\emph{relative sibling mass}, rather than parity-word counting.
+But no uniform lower bound of the form \eqref{eq:pressure} is proved
+for real Collatz orbits. The full-support countermodel in
+Theorem~\ref{thm:positive} shows why mere positivity
+$\rho_i>0$ cannot substitute for quantitative lower bounds on
+its accumulated size. Corollary~\ref{cor:scale} is a conditional
+one-sided estimate, not an assertion about the actual asymptotics.
+\end{remark}
+
+\section{An occupation bound for the genuine potential}
+For the remainder let $h(a)$ be the true logarithmic density of
+$P(a)=\{w:\exists t\ge0,\ T^t(w)=a\}$, assumed to exist as in the
+consolidated paper. Set
+\[
+ S_R=\sum_{1\le y\le R}y\,h(y),\qquad
+ V_R(a)=\sum_{\substack{y\le R\\ y\in\operatorname{orb}(a)}}y.
+\]
+Call a finite set $A$ an \emph{orbit-antichain} when
+$a\notin\operatorname{orb}(b)$ for all distinct $a,b\in A$.
+\begin{proposition}[Orbit-antichain packing]\label{prop:packing}
+For every real $R\ge1$ and every finite orbit-antichain $A$,
+\begin{equation}\label{eq:packing}
+ \boxed{\sum_{a\in A}h(a)V_R(a)\le S_R.}
+\end{equation}
+Consequently, if $S_R\le CR$ and every $a\in A$ has at least
+$K$ \emph{distinct} orbit points in $(R/2,R]$, then
+\begin{equation}\label{eq:weak}
+ \boxed{\sum_{a\in A}h(a)\le\frac{2C}{K}.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The events $P(a)$, $a\in A$, are pairwise disjoint: a forward orbit
+visiting two different targets must visit one of them after the other,
+contradicting the antichain condition. If $w\in P(a)$, then
+$\operatorname{orb}(a)\subseteq\operatorname{orb}(w)$, whence the
+pointwise inequality
+\[
+ \sum_{\substack{y\le R\\y\in\operatorname{orb}(w)}}y
+ \ge\sum_{a\in A}\ind_{P(a)}(w)V_R(a).
+\]
+Take the logarithmic mean over $w$; finite sums pass through the
+limit, yielding \eqref{eq:packing}. The additional occupation
+hypothesis gives $V_R(a)>KR/2$, proving \eqref{eq:weak}.
+\end{proof}
+
+\section{What is still missing}
+The bound \eqref{eq:weak} is only of order $K^{-1}$, even after
+assuming a linear upper bound on $S_R$. For a nonnegative occupation
+variable $N$, the identity
+\[
+ \mathbb E(N-K)_+=\sum_{j>K}\mathbb P(N\ge j)
+\]
+shows that a uniform $K^{-1}$ survival bound alone does not control
+its excess expectation: the harmonic series diverges. A genuine
+improvement such as $\mathbb P(N\ge K)\ll K^{-1-\delta}$,
+$\delta>0$, for the \emph{actual stopped entrance law} would be
+substantive and would have to exploit information not present in
+abstract harmonicity or strict positivity. Such an improvement is
+\emph{not proved in this note}.
+
+The strengthened countermodel, finite-source equation, and exact
+sibling-leakage identity clarify the proof obligation:
+a successful upper bound must exploit quantitative finite-source
+logarithmic mass transport, mixing at first passage, or a genuinely
+new lower bound on the mass diverted into competing inverse branches.
+Neither the classical parity-word bijection nor the local potential
+recurrence by themselves furnish such a bound.
+
+\paragraph{Status.} Theorem~\ref{thm:positive} and
+Propositions~\ref{prop:source},~\ref{prop:leak},
+and~\ref{prop:packing} have self-contained paper proofs;
+we have not run a Lean kernel check for them and make no priority claim.
+They do not close the $T_X=o(X)$ problem. This research note is
+intentionally separate from \texttt{main.tex}.
+\end{document}

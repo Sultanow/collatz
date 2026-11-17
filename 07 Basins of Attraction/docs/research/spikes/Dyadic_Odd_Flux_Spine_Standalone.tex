@@ -1,0 +1,276 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\N}{\mathbb N}
+\newcommand{\one}{\mathbf 1}
+\title{A Sharp Obstruction to Proving Odd-Core Tightness from Dyadic Flux Alone}
+\author{Independent research note --- for mathematical review}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The odd-core compression result in our ongoing study reduces a clipping-tail
+problem for $3x+c$ to uniform integrability of the stopped logarithmic
+predecessor potential on \emph{odd} targets.  The recurrence
+$h(y)-h(2y)=h((2y-c)/3)$ suggests a dyadic telescoping argument.
+We show that such an argument cannot succeed using harmonicity,
+positivity, cycle-level conservation, a bounded weighted Ces\`aro first
+moment, and eventual entrance into a fixed cycle alone.  For the
+$3x+1$ map we construct an explicit $\{0,1\}$-valued harmonic profile
+supported on one lacunary inverse orbit, with uniformly bounded weighted
+Ces\`aro mass but arbitrarily high odd-target spikes.  All statements
+are about an \emph{abstract harmonic profile}; this is not the actual
+predecessor density.  The construction identifies the genuinely missing
+input: quantitative information about how logarithmic predecessor mass
+splits among inverse branches.
+\end{abstract}
+
+\section{Notation and the proposed dyadic route}
+For $n\in\N$ let
+\[
+ T(n)=\begin{cases}n/2&n\text{ even},\\(3n+1)/2&n\text{ odd}.
+ \end{cases}
+\]
+For $y\in\N$ let $q(y)=(2y-1)/3$ when this is a positive odd integer,
+and otherwise regard $q(y)$ as absent.  A formal harmonic predecessor
+profile is a function $H:\N\to[0,1]$ satisfying
+\begin{equation}\label{eq:recurrence}
+ H(y)=H(2y)+\one_{\{q(y)\text{ exists}\}}H(q(y))
+ \qquad(y\notin\{1,2\}).
+\end{equation}
+The cycle $\{1,2\}$ is excluded, as required in the predecessor-potential
+recurrence used in the consolidated manuscript.  Actual logarithmic
+predecessor densities satisfy this recurrence; the converse is not
+asserted.  Given $0<\beta<1$, write $W_R=(R^{1-\beta},R]\cap\N$.
+We ask whether \eqref{eq:recurrence}, together with bounded weighted
+Ces\`aro first moments, forces
+\begin{equation}\label{eq:odd-ui}
+ \lim_{M\to\infty}\limsup_{R\to\infty}\frac1R
+ \sum_{\substack{a\in W_R\\a\ \mathrm{odd}\\aH(a)>M}}aH(a)=0.
+\end{equation}
+The answer is \emph{no}, even under additional natural restrictions.
+
+\section{An explicit odd harmonic spine}
+The choice of large, but \emph{uniformly bounded}, inverse Syracuse
+valuations is essential to keeping the example elementary.
+\begin{lemma}[An arithmetic inverse branch]\label{lem:branch}
+For every positive odd $u$ with $3\nmid u$ there is a unique
+$e(u)\in\{8,9,10,11,12,13\}$ satisfying
+\begin{equation}\label{eq:cong}
+ 2^{e(u)}u\equiv4\pmod 9.
+\end{equation}
+The number
+\begin{equation}\label{eq:inverse}
+ v=\frac{2^{e(u)}u-1}{3}
+\end{equation}
+is a positive odd integer, $v\equiv1\pmod3$, $v\ge85u$, and
+$T(v)=2^{e(u)-1}u$.
+\end{lemma}
+\begin{proof}
+The element $2$ has multiplicative order $6$ modulo $9$ and hence
+$2^8,\ldots,2^{13}$ run through all six units modulo $9$.
+Because $u$ is a unit, precisely one of these powers satisfies
+\eqref{eq:cong}.  The congruence implies $2^{e(u)}u-1\equiv3\pmod9$,
+so $v$ is integral, is $1$ modulo $3$, and is odd since the numerator
+is odd.  As $e(u)\ge8$ and $u\ge1$,
+$v\ge(256u-1)/3\ge85u$.  The last identity follows from
+$3v+1=2^{e(u)}u$ and the odd branch of $T$.
+\end{proof}
+
+Define $u_0=5$ and, recursively,
+\[
+ e_i=e(u_i),\qquad u_{i+1}=\frac{2^{e_i}u_i-1}{3}.
+\]
+By Lemma~\ref{lem:branch}, every $u_i$ is odd, coprime to $3$, and
+$u_{i+1}\ge85u_i$.  Define the subset
+\begin{equation}\label{eq:support}
+ \mathcal S=\{1,2,4,8\}\ \cup\
+ \bigcup_{i\ge0}\{2^k u_i:0\le k<e_i\},
+ \qquad H(n)=\one_{\{n\in\mathcal S\}}.
+\end{equation}
+For example, $u_0=5$, $e_0=9$, $u_1=853$, $e_1=10$,
+$u_2=291157$.  Each inverse segment is
+\[
+ u_{i+1}\ \xrightarrow{\ T\ }\ 2^{e_i-1}u_i
+ \ \xrightarrow{\ T\ }\ 2^{e_i-2}u_i
+ \ \xrightarrow{\ T\ }\ \cdots\ \xrightarrow{\ T\ }\ u_i.
+\]
+The initial segment is $5\to8\to4\to2\to1\to2$.
+
+\begin{theorem}[Bounded mean, unbounded odd spikes]\label{thm:spine}
+The profile $H$ of \eqref{eq:support} has all the following properties.
+\begin{enumerate}
+\item $0\le H\le1$, $H(1)=H(2)=1$, and $H$ satisfies the full
+      nonperiodic recurrence \eqref{eq:recurrence}.
+\item Every state in the support of $H$ reaches the $1$--$2$ cycle.
+      All states in the support are coprime to $3$.
+\item On every backward-tree level outside the $1$--$2$ cycle,
+      the sum of $H$ is exactly $1$.
+\item For every real $R\ge1$,
+      \begin{equation}\label{eq:mean}
+       \frac1R\sum_{n\le R}nH(n)\le10.
+      \end{equation}
+\item For every $0<\beta<1$, condition \eqref{eq:odd-ui} fails;
+      more precisely,
+      \begin{equation}\label{eq:odd-spike}
+       \lim_{M\to\infty}\limsup_{R\to\infty}
+       \frac1R\sum_{\substack{a\in W_R\\ a\ \mathrm{odd}\\aH(a)>M}}
+       aH(a)\ge1.
+      \end{equation}
+      For every $p>1$, the odd-target $L^p$ means
+      $R^{-1}\sum_{a\le R,\,a\ \mathrm{odd}}(aH(a))^p$ are unbounded.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The displayed inverse segments concatenate to a single injective
+infinite backward ray emanating from the cycle.  Its supported
+vertices all map forward to supported vertices.  Outside the cycle,
+every supported vertex has \emph{exactly one} supported immediate
+predecessor: the next doubled vertex in its own block, or the next
+odd vertex $u_{i+1}$ at a block's upper endpoint; the same holds for
+$4$ and $8$.  No unsupported vertex has a supported predecessor,
+since the support is forward invariant.  Consequently the indicator
+$H$ satisfies \eqref{eq:recurrence}, with the periodic targets $1,2$
+properly excluded.  Lemma~\ref{lem:branch} gives coprimality with $3$;
+forward convergence and cycle-level conservation follow from the
+single-ray construction.
+
+For the weighted first moment, if $R<5$ only the finite initial segment
+contributes and \eqref{eq:mean} is immediate.  Otherwise choose the
+unique $i\ge0$ with $u_i\le R<u_{i+1}$.  The initial segment has
+weight $15\le3R$.  The contribution from the current block $i$,
+truncated at $R$, is a geometric series of powers of two and is at
+most $2R$.  Every earlier block $j<i$ has total weight
+\[
+ \sum_{k=0}^{e_j-1}2^ku_j
+ =(2^{e_j}-1)u_j=3u_{j+1}+1-u_j\le3u_{j+1}+1.
+\]
+Since $u_{j+1}\ge85u_j$, one has
+$\sum_{\ell=1}^iu_\ell\le(85/84)u_i$ and $i\le u_i$.  Thus
+\[
+ \sum_{n\le R}nH(n)
+ \le 3R+2R+3(85/84)u_i+i
+ \le(6+255/84)R<10R.
+\]
+Here over-counting entire earlier blocks is harmless even if their
+largest vertices exceed $R$.
+
+Finally, take $R=u_i\to\infty$.  The number $u_i$ is odd, belongs
+to $W_{u_i}$, and satisfies $H(u_i)=1$.  For every fixed $M$ this
+single term contributes $u_i/R=1$ to \eqref{eq:odd-spike} for large
+$i$.  Similarly, its contribution to the normalized $p$th moment
+is $u_i^{p-1}\to\infty$.
+\end{proof}
+
+\section{Why dyadic telescoping does not smooth weighted spikes}
+For an odd base $u$ write $H_k=H(2^ku)$.  When $2^ku$ is not
+periodic, the recurrence yields
+\[
+ H_k-H_{k+1}=
+ \one_{\{(2^{k+1}u-1)/3\ \text{positive odd integer}\}}
+ H\left(\frac{2^{k+1}u-1}{3}\right)\ge0.
+\]
+The unweighted differences telescope, but the odd-core moment uses a
+factor comparable to $2^ku$.  For any nonnegative weights $w_k$,
+Abel summation gives the exact identity
+\begin{equation}\label{eq:abel}
+ \sum_{k=K}^M w_k(H_k-H_{k+1})
+ =w_K H_K+\sum_{k=K+1}^M(w_k-w_{k-1})H_k-w_MH_{M+1}.
+\end{equation}
+At the branching edge of our construction,
+$H(2^{e_i-1}u_i)=1$ but $H(2^{e_i}u_i)=0$; hence the dyadic
+flux is $1$ at arbitrarily large odd targets $u_{i+1}$.
+Thus a bound on unweighted total flux per dyadic ray does not
+control its size-weighted distribution.  The parity-sparse dangerous
+language from the main manuscript is a separate restriction: the
+present example disproves the proposed \emph{global odd-target}
+implication, not a potentially stronger theorem localized to that
+language.
+
+
+\section{A positive refinement: dangerous odd targets have short initial valuations}
+The failure of the \emph{global} odd-target condition does not rule out
+using the sparse dangerous language from odd-core compression.  In
+fact, that language automatically excludes very long initial
+even runs.
+\begin{lemma}[Valuation truncation in a dangerous cylinder]\label{lem:valuation}
+Fix an odd $c\ge-1$ with $3\nmid c$, $1/2<\zeta_0<1$,
+integers $2\le b\le t_*$, and let
+$\mathcal C_{b,t_*}$ be the set of positive odd starting states $a$
+under $T_{3,c}$ whose accelerated parity prefix of some length $t\in[b,t_*]$
+contains at least $\zeta_0t$ odd states.  Then every
+$a\in\mathcal C_{b,t_*}$ satisfies
+\begin{equation}\label{eq:valuationcut}
+ \boxed{\nu_2(3a+c)\le\left\lfloor(1-\zeta_0)t_*+1\right\rfloor.}
+\end{equation}
+In particular, for $\zeta_0=0.55$ only initial valuations
+$e\le\lfloor0.45t_*+1\rfloor$ can contribute to the dangerous
+odd-target potential sum.
+\end{lemma}
+\begin{proof}
+Put $e=\nu_2(3a+c)\ge1$ and write $3a+c=2^eu$ with $u$ odd.
+The accelerated orbit begins with the odd state $a$ and then has
+$e-1$ consecutive even states before it reaches $u$ at time $e$.
+Thus a prefix of length $t\le e$ contains exactly one odd state.
+Since $t\ge b\ge2$ and $\zeta_0>1/2$, such a prefix cannot be
+dangerous.  For a dangerous length $t>e$, the number of odd states
+is at most $1+(t-e)$.  Therefore
+$\zeta_0t\le1+t-e$, that is,
+$e\le(1-\zeta_0)t+1\le(1-\zeta_0)t_*+1$.
+\end{proof}
+\begin{remark}[What this improves, and what it does not]
+For the cutoff $t_*=t_X$ from our odd-core theorem, the relevant
+\emph{dyadic flux exponents} are at most $0.45t_X+1$, rather than
+$t_X$ itself.  This is a genuine deterministic localization,
+not an additional assumption on an entrance law.  It does
+\emph{not} shrink the modulus $2^{t_X}$ needed to recognize all
+parity prefixes and does not by itself bound their weighted
+predecessor mass.  On nonperiodic branching targets, that mass is
+represented by differences $h(2^{e-1}u)-h(2^eu)$; periodic-target
+corrections must be retained rather than silently omitted.
+\end{remark}
+
+\section{The genuine finite-source distinction}
+The actual potential is the limit of logarithmically normalized
+counting functions
+\[
+ h_N(a)=\frac1{\sum_{m\le N}1/m}
+ \sum_{m\le N}\frac{\one_{\{\exists t\ge0:T^t(m)=a\}}}{m},
+ \qquad h(a)=\lim_{N\to\infty}h_N(a).
+\]
+This origin as a limit is information \emph{not contained} in the
+harmonic recurrence and cycle-level conservation.
+\begin{proposition}[Finite-source vanishing along a selected ray]
+For the sequence $(u_i)$ above and every fixed finite $N$,
+there exists $i_N$ such that $h_N(u_i)=0$ for all $i\ge i_N$.
+\end{proposition}
+\begin{proof}
+If the forward orbit of $m$ hits one of the $u_i$, it subsequently
+reaches $1$ in finitely many steps.  Before reaching $1$ it has
+only finitely many states, so it can hit only finitely many members
+of the pairwise distinct sequence $(u_i)$.  Take the union of these
+finite sets over $1\le m\le N$.
+\end{proof}
+\begin{remark}[Scope and next analytic input]
+The theorem does \emph{not} disprove odd-core compression or show that
+the actual $h$ fails odd-target uniform integrability.  It rules out
+a strategy based only on boundedness, positivity, the harmonic
+recurrence, dyadic telescoping, cycle-level conservation, or a bounded
+first Ces\`aro moment.  The missing ingredient must exploit
+quantitative \emph{distribution of logarithmic predecessor mass among
+competing inverse branches}, or use the more localized dangerous
+parity cylinders, without claiming that classical finite parity
+bijections control later conditioned returns.  The proposition makes
+clear why uniformity in the target $a$ matters when passing from
+$h_N(a)$ to $h(a)$.
+\end{remark}
+\end{document}

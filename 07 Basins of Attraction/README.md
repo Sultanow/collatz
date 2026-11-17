@@ -29,7 +29,7 @@ Eldar Sultanow · Preprints.org, version 3, November 2026 (not peer-reviewed)
 
 **[Preprints.org](https://www.preprints.org/manuscript/202610.2552)** · [DOI 10.20944/preprints202610.2552.v3](https://doi.org/10.20944/preprints202610.2552.v3) · version 1 (26 October 2026, subtitle *Local Predecessor Structure and Global Dynamics of Collatz-Type Maps*): [DOI …v1](https://doi.org/10.20944/preprints202610.2552.v1) · version 2: [DOI …v2](https://doi.org/10.20944/preprints202610.2552.v2)
 
-Version 3: [PDF](docs/main.pdf) · [LaTeX sources](docs) · [changes](docs/CHANGES_v5.md) · [research notes](docs/research) (working material, not part of the paper). Table 11 of the paper lists the computational runs A–K with links to their data in `results/`; Table 12 and the [reproduction map](#reproduction-map) below list programs and files.
+Current draft after version 3: [PDF](docs/main.pdf) · [LaTeX sources](docs) · [changes](docs/CHANGES_v5.md) · [research notes](docs/research) (working material, not part of the paper). Table 11 of the paper lists the computational runs A–K with links to their data in `results/`; Table 12 and the [reproduction map](#reproduction-map) below list programs and files.
 
 Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
 

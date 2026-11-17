@@ -195,3 +195,19 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   references updated to version 3. docs/research/README.md: index of the notes and where they
   entered the paper.
 - 71 pages.
+
+## v4a (draft after Preprints.org version 3)
+- New Remark 12 "Averages, not maxima" at the end of Appendix D (after Run K):
+  (a) bounding the sum of Proposition 14 by its maximum would give T_X = o(X) under
+  log G_X = o((log X)^eps0), but maxima grow polynomially: the Syracuse profile has
+  max v_n >= (2/log(4/3)) (3/2)^n (Table 13 shows 1.46 times this), and the Run K maxima over odd
+  targets grow like X^0.37 to X^0.62; this is compatible with (UI), which is needed in averaged form.
+  (b) the indicator of one inverse ray of 3x+1 (u_0 = 5, e_i in {8..13}) satisfies Proposition 7(b), (c)
+  and has a bounded mean, but violates (UI); convex combinations are positive on the basin. The ray is
+  invisible to the finite counts h_N. (c) Proposition 14 holds with the live dangerous points; the
+  subset is proper (explicit Chinese-remainder construction).
+- Outlook item 2: pointer to Remark 12.
+- docs/research/spikes/: the four notes, both audits (wording adjusted), checks (reproduced), STATUS.md.
+  The conditional spike bound under (UF) is not used: (UF) rests on an unrefereed online manuscript.
+- README: docs/main.pdf is the draft after version 3; research index row for spikes/.
+- 72 pages.
