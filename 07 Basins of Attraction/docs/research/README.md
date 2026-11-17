@@ -1,34 +1,38 @@
 # Research notes — Same Shadows, Different Forests
 
-This folder contains **working research material**, not claims that have all been
-independently verified or accepted for publication.
+This folder contains **working research material** from the development of the appendices of the
+paper ([`../main.tex`](../main.tex), version 3). It is not part of the paper: only what the paper
+states, with its stated hypotheses, is claimed there. Numbers below refer to version 3 of the paper.
 
-| File | Purpose | Current status |
+## Notes that entered the paper
+
+| Folder | Content | In the paper (version 3) |
 |---|---|---|
-| `PROOF_AUDIT.md` | Review notes for the reduction, coupling, renewal model and potential bounds | Targeted audit only; full Theorem 2 chain remains to be independently verified |
-| `RESEARCH_NOTE.md` | Truncated first-passage calibration and the open tails `T_X`, `R_X` | Conditional research result relying on Lemmas 2–4 |
-| `candidate_residual_section.tex` | Proposed first-passage/residual decomposition | **Candidate only**, not included in the paper |
+| [`first_excess/`](first_excess) | weighted first-excess transport beyond the coupling horizon | Proposition 12, Problem 3 (Appendix D.3) |
+| [`dyadic_leakage/`](dyadic_leakage) | aggregate dyadic block-leakage criterion | Problem 3 (aggregate survival bound) |
+| [`arithmetic_rigidity/`](arithmetic_rigidity) | parity strip of late returns | Remark 11 |
+| [`relative_energy/`](relative_energy) | single-depth relative-energy defect | Proposition 13 (stated as an equivalence) |
+| [`stopped_potential/`](stopped_potential) | domination of the first-excess tail by the stopped predecessor potential | Proposition 14 (first form) |
+| [`odd_core/`](odd_core) | odd-core compression: only odd targets enter | Proposition 14 (odd targets), Run K odd rows |
 
-## Connection to the paper
+Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
+statements of these notes stay here.
 
-The publication manuscript lives one directory up (`../main.tex` and
-`../main.bib`), with the auxiliary LaTeX file `../truncated_calibration.tex`.
-Do **not** add `\input{research/candidate_residual_section.tex}` without a
-separate mathematical review. The current paper uses
-`\input{truncated_calibration.tex}` when that proposition is enabled.
+## Earlier audits and candidate sections
 
-The numerical reference implementation and its exact small-n output are at:
+`PROOF_AUDIT.md`, `RESEARCH_NOTE.md` (clipped calibration, now Proposition 8), `TAIL_AUDIT.md`,
+`TAIL_RESEARCH_AUDIT.md`, `EXCEPTIONAL_MASS_AUDIT.md`, `ENTRANCE_TRANSPORT_AUDIT.md`,
+`RETURN_*_AUDIT.md`, `SHELL_LOCAL_TIME_AUDIT.md`, `MOD16_ESCAPE_RESEARCH_REPORT.md`,
+`natural_density_3xc.md` (transfer audit, now Theorem 2 and Appendix E) and the
+`candidate_*.tex` sections are working drafts from 15–16 November 2026. Their lemma and theorem
+numbers refer to the manuscript of that day. They are conditional and **not** included in the paper
+unless the table above or the paper says so; do not `\input` them into `main.tex`.
 
-- [`../../C/syracuse_exact.py`](../../C/syracuse_exact.py)
-- [`../../results/syracuse/`](../../results/syracuse/)
+## Open problems (as in the paper)
 
-## Research checklist
+- `T_X = o(X)` for the clipping tail (Problem 3; equivalent to Proposition 13's defect condition;
+  implied by uniform integrability of the stopped potential of the odd targets, Proposition 14).
+- `R_X = o(X)` for the return term (Corollary 7).
+- The audit of the GGM parameter uniformities used in Lemmas 2–4 and Theorem 3.
 
-- [ ] Audit the GGM parameter uniformities and quantitative first-passage bound.
-- [ ] Independently verify the full proof of Theorem 2, especially the model-to-orbit comparison.
-- [ ] Prove uniform integrability / bound `T_X=o(X)` or find a counterexample to the proposed moment bound.
-- [ ] Bound or characterize the residual mass `R_X`.
-- [ ] Compare 3-adic Syracuse profiles with predecessor-potential data.
-
-Cite proved results and conjectures separately in the manuscript. Reference
-outputs here are computational checks, not proofs of asymptotic statements.
+Reference outputs here are computational checks, not proofs of asymptotic statements.

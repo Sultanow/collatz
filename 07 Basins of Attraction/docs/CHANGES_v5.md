@@ -178,3 +178,20 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - results/potential_ui/: report rerun (18 s) with the odd-target output.
 - docs/research/odd_core/: the fragment, its audit, check script and outputs (reproduced), STATUS.md.
 - 70 pages.
+
+## v3 (Preprints.org version 3)
+- New Table 11 "computational runs": Runs A–K with computation, scale, place in the paper and a link
+  to the data folder in results/. The text labels every run where it is described (Runs A–F added),
+  the contributions section points to the table, and the reproduction table (now Table 12) carries
+  the run labels. Numbering: reproduction 11 -> 12, Run K table 12 -> 13, transfer table 13 -> 14.
+- Abstract: one sentence on Appendix D (clipping tail reduced to uniform integrability of the stopped
+  potential of the odd targets, conditional on the coupling estimates; Run K consistent, not decisive).
+- Contributions: the same pointer to Appendix D, Proposition 14 and Run K.
+- Introduction: the predictor accuracy now matches abstract and Section 6 (median about 5 % after
+  normalisation within each map, 3 % absolute with the constant 3/log(4/3)).
+- Run K: Table 13 and Figure 5 are separate floats again (the joint float was 72 pt too high and
+  drifted into Appendix E); a float barrier keeps both in Appendix D.
+- README: paper section and citation for version 3, numbering of the reproduction map and of all
+  references updated to version 3. docs/research/README.md: index of the notes and where they
+  entered the paper.
+- 71 pages.
