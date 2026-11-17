@@ -70,15 +70,14 @@ def convert(c, N, csv_path, npz_path):
     A = int(a.max())
     if not np.array_equal(a, np.arange(1, A + 1)):
         raise SystemExit(f"{csv_path}: targets are not exactly 1..{A}")
-    split = min(A, 1 << 12)
+    big = np.flatnonzero(cnt >= 2**32)            # counts that need 64 bits (small or heavy targets)
+    split = int(big.max()) + 1 if big.size else 0
     tail = cnt[split:]
-    if tail.size and tail.max() >= 2**32:
-        raise SystemExit("count >= 2^32 above a = 4096; store uint64")
     per = np.flatnonzero(cyc)
     np.savez_compressed(npz_path, c=np.int64(c), N=np.int64(N), A=np.int64(A),
                         head=cnt[:split].astype(np.uint64), tail=tail.astype(np.uint32),
                         per_idx=per.astype(np.int64), per_min=cyc[per].astype(np.int64))
-    print(f"{npz_path}: c={c} N={N} A={A} periodic targets={per.size}")
+    print(f"{npz_path}: c={c} N={N} A={A} periodic targets={per.size} uint64 head={split}")
 
 
 def load_npz(path):
