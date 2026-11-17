@@ -10,13 +10,23 @@ name: Collatz Lean foundation
       - '07 Basins of Attraction/lean/**'
       - '.github/workflows/collatz-lean.yml'
   workflow_dispatch:
+    inputs:
+      deep_check:
+        description: 'Also run the sandboxed independent kernel replay (resource intensive)'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
 
 jobs:
-  kernel-check:
+  foundation:
+    name: Lean build and axiom report
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: '1'
     defaults:
       run:
         working-directory: '07 Basins of Attraction/lean'
@@ -34,30 +44,62 @@ jobs:
             echo 'Missing lake-manifest.json: commit the Lake-generated dependency lockfile.'
             exit 1
           fi
-      - name: Download cache using locked dependencies
+      - name: Download Mathlib cache with locked dependencies
         run: lake exe cache get
-      - name: Reject incomplete proofs and unreviewed axioms
+      - name: Reject proof placeholders and explicit axioms
         run: |
           if grep -RnE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom([[:space:]]|$)' \
                 --include='*.lean' CollatzBasins CollatzBasins.lean; then
-            echo 'Uncertified proof placeholder or axiom found'
+            echo 'Uncertified proof placeholder or explicit axiom found'
             exit 1
           fi
       - name: Arithmetic regression tests
         run: python3 tests/smoke_check.py
-      - name: Build Lean theorems
+      - name: Kernel elaboration and build of all project modules
         run: lake build CollatzBasins
-      - name: Show the axiom dependencies of each named theorem
+      - name: Print axiom dependencies of named theorems
         run: lake env lean AxiomAudit.lean
-      - name: Install Bubblewrap
+
+  deep-kernel-check:
+    name: Independent sandboxed kernel replay (manual)
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.deep_check == true }}
+    needs: foundation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      LEAN_NUM_THREADS: '1'
+    defaults:
+      run:
+        working-directory: '07 Basins of Attraction/lean'
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install elan
+        shell: bash
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://elan.lean-lang.org/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Require committed Lake lockfile
+        run: test -s lake-manifest.json
+      - name: Fetch pinned Mathlib cache
+        run: lake exe cache get
+      - name: Install Bubblewrap for sandboxed replay
         run: |
           sudo apt-get update
           sudo apt-get install -y bubblewrap
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-
-      - name: Kernel verification
-        run: lake check
-
-      - name: Multi-kernel check (lake check --paranoid)
-        continue-on-error: true
-        run: lake check --paranoid
+      - name: Independent kernel verification with resource diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'Memory at start of independent replay:'
+          free -h
+          (
+            while sleep 30; do
+              echo "Memory during replay: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+              free -h
+            done
+          ) &
+          monitor_pid=$!
+          trap 'kill "$monitor_pid" 2>/dev/null || true' EXIT
+          /usr/bin/time -v timeout --signal=TERM --kill-after=30s 20m lake check
