@@ -46,19 +46,28 @@ jobs:
           fi
       - name: Download Mathlib cache with locked dependencies
         run: lake exe cache get
-      - name: Reject proof placeholders and explicit axioms
+      - name: Reject proof placeholders, explicit axioms and native evaluation
         run: |
-          if grep -RnE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom([[:space:]]|$)' \
-                --include='*.lean' CollatzBasins CollatzBasins.lean; then
-            echo 'Uncertified proof placeholder or explicit axiom found'
+          if grep -RnE '(^|[^[:alnum:]_])(sorry|admit|native_decide)([^[:alnum:]_]|$)|^[[:space:]]*axiom([[:space:]]|$)' \
+                --include='*.lean' CollatzBasins CollatzBasins.lean AxiomAudit.lean; then
+            echo 'Uncertified proof placeholder, explicit axiom or native_decide found'
             exit 1
           fi
+      - name: Every module is imported by the root module
+        run: |
+          for f in CollatzBasins/*.lean; do
+            m="CollatzBasins.$(basename "$f" .lean)"
+            grep -qx "import $m" CollatzBasins.lean || { echo "not imported by CollatzBasins.lean: $m"; exit 1; }
+          done
       - name: Arithmetic regression tests
         run: python3 tests/smoke_check.py
       - name: Kernel elaboration and build of all project modules
         run: lake build CollatzBasins
-      - name: Print axiom dependencies of named theorems
-        run: lake env lean AxiomAudit.lean
+      - name: Print and enforce axiom dependencies of named theorems
+        run: |
+          set -o pipefail
+          lake env lean AxiomAudit.lean 2>&1 | tee axioms.txt
+          python3 tests/check_axioms.py axioms.txt AxiomAudit.lean
 
   deep-kernel-check:
     name: Independent sandboxed kernel replay (manual)

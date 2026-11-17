@@ -1,9 +1,9 @@
 import Mathlib
 
 /-!
-Finite entrance-measure algebra. This file is a CI CANDIDATE until the
-repository's pinned Lean/Mathlib build and kernel check are green.
-It proves no uniform tail bound for deterministic Collatz trajectories.
+Finite entrance-measure algebra, checked by the "Collatz Lean foundation"
+workflow (build and axiom audit). It proves no uniform tail bound for
+deterministic Collatz trajectories.
 -/
 
 namespace CollatzBasins

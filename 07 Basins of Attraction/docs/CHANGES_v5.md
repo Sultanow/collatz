@@ -120,3 +120,23 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Contributions table (row "First-passage tails") and Outlook item (2): one clause each.
 - docs/research/stopped_potential/: the note (tex + pdf) and STATUS.md.
 - 68 pages.
+
+## v6i (Lean CI green)
+- docs/: the Lean variant is now the main version (formerly alt_if_lean_green/docs). Proposition 11 has the
+  explicit threshold X0(c,k) = 24*2^k + 12|c| + 24. The Lean remark cites ReturnLargeShell.lean, the
+  contributions table links "large shells", and the Outlook no longer lists the all-large-shell
+  obstruction as future work.
+- Section 2, "Machine-checked finite core": the description of the CI now matches the workflow. It
+  builds every module (kernel), rejects sorry/admit/native_decide/axiom, and enforces the axiom audit
+  (propext, Quot.sound, Classical.choice). An optional manual job runs lake check. The old sentence said
+  that the workflow runs lake check and fails on non-standard axioms, which was not what the workflow did.
+- docs/pin_lean_links.py: pins all Lean links to one commit SHA and inserts the sentence naming it
+  (marker line '% lean-pin').
+- lean/: docstrings updated after the green run (no more "candidate / not yet checked"). The
+  FiniteHorizonTransport docstring no longer quotes an outdated error bound. AxiomAudit also prints the
+  five Mod16Escape theorems. The root module imports Mod16Escape explicitly. New: tests/check_axioms.py.
+- .github/workflows/collatz-lean.yml (repository root, in _repo_root/): native_decide added to the
+  forbidden list, AxiomAudit.lean added to the grep; new step "every module is imported by the root";
+  the axiom audit now fails on any axiom outside the standard three (and on missing reports).
+- README: new section "Lean" (modules, what the paper cites, how to check locally, the CI); Run K section.
+- C/: Run K scripts (ui_report.py, run_K.sh, slurm/run_K_*.sbatch, tests); results follow.

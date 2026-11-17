@@ -3,7 +3,7 @@ import Mathlib
 /-!
 Finite second-moment algebra for return visits.
 No probabilistic or asymptotic Collatz statements are formalized here.
-New CI candidate: not yet Lean-kernel-checked.
+Checked by the "Collatz Lean foundation" workflow (build and axiom audit).
 -/
 
 namespace CollatzBasins

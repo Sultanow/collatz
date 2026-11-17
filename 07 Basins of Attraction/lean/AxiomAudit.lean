@@ -1,6 +1,8 @@
 import CollatzBasins
 
 -- Dependency reports for the theorems that this small project actually proves.
+-- The workflow fails unless every report lists at most propext, Classical.choice
+-- and Quot.sound (tests/check_axioms.py) and unless every line below is reported.
 #print axioms CollatzBasins.step_two_mul
 #print axioms CollatzBasins.step_of_odd
 #print axioms CollatzBasins.step_eq_iff
@@ -9,7 +11,7 @@ import CollatzBasins
 #print axioms CollatzBasins.reachesWithin_succ_iff
 #print axioms CollatzBasins.finite_hitting_mass
 
--- Finite clipping algebra (new candidate; CI must certify).
+-- Finite clipping algebra.
 #print axioms CollatzBasins.clipping_identity
 #print axioms CollatzBasins.clipping_excess_le_quadratic
 
@@ -34,6 +36,13 @@ import CollatzBasins
 #print axioms CollatzBasins.mod16_good_odd_class
 #print axioms CollatzBasins.mod16_good_even_classes
 #print axioms CollatzBasins.mod16_good_periodic
+
+-- Auxiliary mod-16 escape lemmas (not used in the paper).
+#print axioms CollatzBasins.mod16_escape_odd
+#print axioms CollatzBasins.mod16_escape_residue
+#print axioms CollatzBasins.mod16_escape_even_two_steps
+#print axioms CollatzBasins.no_nondecreasing_return_potential
+#print axioms CollatzBasins.no_nonincreasing_return_potential
 
 -- Fixed-modulus obstruction on every sufficiently large real shell (Proposition 11).
 #print axioms CollatzBasins.multiple_in_real_interval

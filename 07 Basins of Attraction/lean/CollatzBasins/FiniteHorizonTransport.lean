@@ -3,9 +3,11 @@ import CollatzBasins.Mod16Escape
 /-!
 # Elementary finite-horizon transport ingredients
 
-Only elementary congruence facts are formalized here.  The finite-horizon
-transport bound with error `40*(T+1)*2^T` is proved on paper but is NOT
-yet checked by Lean. The declarations below await kernel verification.
+Only elementary congruence facts are formalized here: the escape residues
+modulo 16 (one odd class and the multiples of four). They are auxiliary and
+not used in the paper. The finite-horizon residue balance of the paper
+(lemma "Finite-horizon residue balance") is proved on paper and is not
+formalized.
 -/
 namespace CollatzBasins
 

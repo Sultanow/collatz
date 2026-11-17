@@ -4,8 +4,8 @@ import CollatzBasins.Basic
 # Arithmetic ingredients for the candidate mod-16 shell escape criterion
 
 These theorems do NOT establish any distributional entrance estimate, any
-uniform return moment, or T_X = o(X). The full paper propositions have
-additional interval and stopping-time hypotheses.
+uniform return moment, or T_X = o(X). They are auxiliary and not used in
+the paper.
 -/
 
 namespace CollatzBasins

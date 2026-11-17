@@ -5,6 +5,7 @@ import CollatzBasins.ReturnPairs
 import CollatzBasins.EntranceTransport
 import CollatzBasins.ReturnGreen
 import CollatzBasins.ReturnLyapunov
+import CollatzBasins.Mod16Escape
 import CollatzBasins.FiniteHorizonTransport
 import CollatzBasins.ReturnLargeShell
 

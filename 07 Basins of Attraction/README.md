@@ -56,6 +56,7 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 ├── docs/                      working paper (LaTeX sources and PDF)
 ├── figures/                   scripts for the two figures of the paper
 ├── oeis/                      cross-check of the census with OEIS A226607
+├── lean/                      Lean 4 proofs of the finite statements (see "Lean" below)
 ├── C/
 │   ├── census_all.c           all maps 3x+c, |c| <= DMAX, in one pass (Run A)
 │   ├── census.c               cycle census for a single map
@@ -405,6 +406,31 @@ The Syracuse law modulo $3^n$ is computed exactly: $S_n=2^{-a}(1+3S_{n-1})$ with
 #### cost
 
 The counts take 8 bytes per starting value (240 GB for $N=3\cdot10^{10}$) and, as in Run G, about 2 s per $10^8$ starting values on one core. The report takes a few minutes.
+
+## Lean
+
+`lean/` is a Lean 4 + Mathlib project (`lakefile`, committed `lake-manifest.json`) with the finite, elementary statements of the paper. Nothing about densities, the Syracuse profile or actual-orbit return estimates is formalised.
+
+| module | content | in the paper |
+|---|---|---|
+| `Basic.lean` | accelerated map $T_{3,c}$ on $\mathbb Z$, exact immediate predecessors for odd $c$, positivity for $c\ge-1$ | Table 2, last row ("predecessors") |
+| `FiniteFlow.lean` | finite-horizon hitting recursion, weighted hitting mass for finite samples | Table 2 ("hits", "weights") |
+| `Clipping.lean` | clipping identity, quadratic excess bound | Table 2 ("clipping") |
+| `ReturnPairs.lean`, `ReturnGreen.lean` | $N^2=N+2\,$pairs, odd-sum and Green-type occupation identities | Table 2, Remark on Lean verification |
+| `EntranceTransport.lean` | finite entrance-measure inequalities | Remark on Lean verification |
+| `ReturnLyapunov.lean` | two-level return certificate on terminating return graphs, one-step return arithmetic | Proposition "Two-level return certificate" |
+| `ReturnLargeShell.lean` | fixed-modulus obstruction on every real shell with $X\ge24\cdot2^k+12|c|+24$ | Proposition "Fixed-modulus obstruction" |
+| `Mod16Escape.lean`, `FiniteHorizonTransport.lean` | auxiliary escape residues modulo 16 | not used |
+
+```console
+cd lean
+lake exe cache get                 # pinned Mathlib build cache
+lake build CollatzBasins           # every declaration passes the kernel
+lake env lean AxiomAudit.lean | tee axioms.txt
+python3 tests/check_axioms.py axioms.txt AxiomAudit.lean
+```
+
+The workflow `.github/workflows/collatz-lean.yml` (repository root) runs these steps on every change of `lean/`. It rejects `sorry`, `admit`, `native_decide` and `axiom` declarations, requires every module to be imported by `CollatzBasins.lean`, and fails unless every theorem listed in `AxiomAudit.lean` depends at most on `propext`, `Classical.choice` and `Quot.sound`. A manually triggered job (`workflow_dispatch` with `deep_check`) replays the build with `lake check`. The paper links to the source at a fixed commit with a green run (`docs/pin_lean_links.py`).
 
 ## Pipeline example: 3x+5
 
