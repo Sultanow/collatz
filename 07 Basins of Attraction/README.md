@@ -385,19 +385,23 @@ Tests the hypothesis of the proposition "Domination by the stopped potential" (A
 make potential test-potential test-ui      # test-ui: ui_report.py on brute-force counts, potential vs. brute force
 bash run_K.sh                              # SLURM: 4 maps x (N = 3e10, A = 2^22), then the report
 # quick smoke test first:
-N=100000000 A=262144 MEM=8G WORK=$HOME/data/runK_smoke RES=$HOME/data/runK_smoke/results bash run_K.sh
+N=100000000 A=262144 MEM=8G RUNK_DIR=$HOME/data/runK_smoke RES=$HOME/data/runK_smoke/results bash run_K.sh
 ```
 
-`slurm/run_K_counts.sbatch` runs `potential C N A` for $c=1,-1,5,13$ (array job, 32 threads, 300 GB: 8 bytes per starting value) and converts the CSV to a compact `counts_c*.npz` (`ui_report.py convert`). `slurm/run_K_report.sbatch` runs `ui_report.py report` on the four files and writes `../results/potential_ui/`. Only numpy is required (pandas speeds up reading, matplotlib draws the figure).
+`slurm/run_K_counts.sbatch` runs `potential C N A` for $c=1,-1,5,13$ (array job, 32 threads, 240 GB: 8 bytes per starting value) and converts the CSV to a compact `counts_c*.npz` (`ui_report.py convert`). The scheduler of the cluster does not account memory, so `--mem` alone packs several tasks onto one node; the script requests `--exclusive`. The working directory is `RUNK_DIR` (default `~/data/runK`; not `WORK`, which the cluster sets). `slurm/run_K_report.sbatch` runs `ui_report.py report` on the four files and writes `../results/potential_ui/`; `ui_report.py figures DIR` rebuilds `table_K.tex` and the figure from the CSV files alone. Only numpy is required (pandas speeds up reading, matplotlib draws the figure).
 
 #### output
 
 - `report_K.txt`: per map and window $(2^{k-1},2^k]$: mean, quantiles and maximum of $v$; the Cesàro tails $\tau_M=|{\rm window}|^{-1}\sum_{v(a)>M}v(a)$ for $M$ from 10 to 1000 and a fitted tail exponent ($\tau_M/{\rm mean}\approx M^{-\gamma}$); the number of targets whose orbit does not reach $[1,X^{1-2\beta}]$ (stopped profile, $\beta=1/200$); the $L^1$ distance $|v-v_n|$ to the Syracuse profile $v_n(a)=\frac{2}{\log(4/3)}3^n\,\mathbb P(c\cdot\mathrm{Syrac}(\mathbb Z/3^n\mathbb Z)=a)$ for $n\le14$; and the mass of $v$ on the dangerous 2-adic classes of the propositions "Single-depth concentration criterion" and "Domination by the stopped potential" ($\zeta_0=0.55$), relative to their density. It also gives the tails of the profile $v_n$ itself for $n=8,12,16$ (the same for every $c$) and the steps $\|f_n-f_{n-1}\|_1$ of its densities, which Tao's fine-scale mixing (1.26) makes summable.
 - `ui_windows.csv`, `ui_tails.csv`, `ui_profile_l1.csv`, `ui_dangerous.csv`, `ui_syracuse_tails.csv`: the same numbers.
 - `table_K.tex` (rows for the table in the paper) and `fig_ui_tails.pdf`/`.png`.
-- `counts_c*.npz`: the raw counts $\pi_a(N)$, $a\le A$ (uint64 for $a<4096$, uint32 above; periodic targets with their cycle minimum).
+- `counts_c*.npz`: the raw counts $\pi_a(N)$, $a\le A$ (uint64 up to the last target with a count of at least $2^{32}$, uint32 above; periodic targets with their cycle minimum).
 
 The Syracuse law modulo $3^n$ is computed exactly: $S_n=2^{-a}(1+3S_{n-1})$ with geometric $a$ becomes a cyclic correlation in discrete-log coordinates of the units modulo $3^n$ (2 is a primitive root), done by FFT.
+
+#### results
+
+`results/potential_ui/` holds the run with $N=3\cdot10^{10}$ and $A=2^{22}$ for $c=1,-1,5,13$ (about 6 minutes and 225 GB per map on one node of the std partition). The flow identity holds exactly for the $2.1\cdot10^6$ non-periodic targets of every map, and every target reaches $[1,X^{1-2\beta}]$. The distribution of $a\,h(a)$ is the same for the four maps and stable from $X=2^{14}$ to $2^{22}$. At $X=2^{22}$ the median is 2.3, the 99th percentile 68 and the mean 6.91–6.98 (against $2/\log(4/3)=6.952$). About half of the mean comes from $a\,h(a)>20$, 15 % from $a\,h(a)>100$ and 1.4–2.4 % from $a\,h(a)>1000$; the fitted tail exponent is about 0.8. The exact Syracuse profile has the same tail (12.6 % above 100 at depth 16), and its far tail grows with the depth as the measured one grows with $X$. The mass on the dangerous 2-adic classes is within 2 % of their density for $X\ge2^{18}$. The profile predicts the distribution, not yet the individual values: the mean distance $|a\,h(a)-v_{14}(a)|$ is still about 2.0. In the paper: the paragraph "Run K", Table 12 and Figure 5 in the appendix on first-passage tails.
 
 #### verification
 
@@ -545,7 +549,9 @@ Which artifact produces which result of the paper (tables and figures as numbere
 | Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Proposition 8, Table 8, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
 | First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I, after version 2; appendix on first-passage tails) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
 | Heuristic for primitive cycles: deficit from the algebraic factors of $2^l-3^k$, dispersion against the bound (Run J, after version 2) | `word_census.c`, `necklace_counts.py`, `algebraic_factor.c`, `heuristic_tests.py`, `run_J.sh` | `results/heuristic/report_J.txt` |
-| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`) | – |
+| Tails of the potential $a\,h(a)$ against the Syracuse profile, dangerous classes (Run K, after version 2: proposition "Domination by the stopped potential", Table 12, Figure 5) | `potential.c`, `ui_report.py`, `run_K.sh`, `slurm/run_K_counts.sbatch`, `slurm/run_K_report.sbatch` | `results/potential_ui/` |
+| Lean 4 proofs of the finite statements (Table 2, last row; Propositions "Two-level return certificate" and "Fixed-modulus obstruction") | `lean/`, `.github/workflows/collatz-lean.yml` (repository root) | links pinned to commit `ee5a5b4` |
+| Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`); `tests/run_ui_tests.sh` (Run K report on brute-force counts `tests/ref_counts.c`, `potential` vs. brute force) | – |
 
 ## Reference results
 

@@ -140,3 +140,23 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   the axiom audit now fails on any axiom outside the standard three (and on missing reports).
 - README: new section "Lean" (modules, what the paper cites, how to check locally, the CI); Run K section.
 - C/: Run K scripts (ui_report.py, run_K.sh, slurm/run_K_*.sbatch, tests); results follow.
+
+## v6j (Run K, Lean links pinned)
+- Appendix D.3, after Proposition 14: paragraph "Run K", Table 12 and Figure 5. The predecessor counts
+  use N = 3e10 for all targets a <= 2^22 of 3x+1, 3x-1, 3x+5 and 3x+13. The flow identity holds exactly,
+  and every target is stopped. The distribution of a h(a) is the same for the four maps and stable from
+  2^14 to 2^22: median 2.3, q99 68, mean 6.91-6.98 vs 6.952. It is heavy-tailed: half of the mean comes
+  from a h(a) > 20, 15 % from > 100, 1.4-2.4 % from > 1000, fitted exponent about 0.8. The exact Syracuse
+  profile has the same tail; it converges by Tao (1.26) but its far tail still grows with the depth. The
+  data are consistent with (UI) but cannot decide uniformity in X, and an L^p bound is possible at most for
+  p < 1 + gamma. The dangerous classes carry their density share of the mass to within 2 %.
+- Reproduction table: row for Run K; tests row with run_ui_tests.sh / ref_counts.c.
+- Lean links pinned to commit ee5a5b4 (both CI jobs green, including the independent lake check replay);
+  the sentence in "Machine-checked finite core" names the commit. docs/pin_lean_links.py: --deep option,
+  re-pinning updates the existing sentence.
+- C/: ui_report.py has a robust CSV reader, chooses the uint64 split automatically, and has a new
+  subcommand `figures` (table and figure from the CSVs); slurm/run_K_counts.sbatch uses --exclusive and
+  RUNK_DIR (the cluster sets WORK).
+- results/potential_ui/: report, CSVs, table and figure. Copy counts_c*.npz from the cluster archive.
+- README: Run K results, notes on --exclusive/RUNK_DIR, reproduction map rows for Run K and Lean.
+- 70 pages.

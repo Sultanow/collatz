@@ -1,7 +1,7 @@
 #!/bin/bash
 # Run K: submit the counts (array job, four maps) and the report (runs after all counts succeeded).
-# Overrides: N, A, MEM, WORK, RES, CONDA_ENV, e.g. a quick smoke test:
-#   N=100000000 A=262144 MEM=8G WORK=$HOME/data/runK_smoke RES=$HOME/data/runK_smoke/results bash run_K.sh
+# Overrides: N, A, MEM, RUNK_DIR, RES, CONDA_ENV, e.g. a quick smoke test:
+#   N=100000000 A=262144 MEM=8G RUNK_DIR=$HOME/data/runK_smoke RES=$HOME/data/runK_smoke/results bash run_K.sh
 set -euo pipefail
 cd "$(dirname "$0")"
 make potential

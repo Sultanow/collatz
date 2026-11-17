@@ -270,7 +270,7 @@ First-passage tails
 Lean-checked finite core
 & Elementary inverse branches, truncation bounds, return-pair counting and Green-type occupation identities.
 & Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates. Algebraic tools, not return-tail estimates.
-& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}, \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{large shells}. \\
+& \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{large shells}. \\
 \end{longtable}
 \endgroup
 
@@ -309,7 +309,7 @@ passes the Lean kernel; it rejects \texttt{sorry}, \texttt{admit},
 each theorem listed in \texttt{AxiomAudit.lean} depends at most on the axioms
 \texttt{propext}, \texttt{Quot.sound} and \texttt{Classical.choice}. An
 optional job replays the build in an independent kernel (\texttt{lake check}).
-% lean-pin: not yet pinned (docs/pin_lean_links.py SHA replaces the links and this line)
+The links point to commit \href{https://github.com/Sultanow/collatz/commit/ee5a5b4}{\texttt{ee5a5b4}}, for which both jobs of the workflow, including the independent replay, ran successfully.
 
 This formal verification is deliberately \emph{limited to finite dynamics}.
 In particular, it does not certify Theorem~\ref{thm:logdens},
@@ -1099,7 +1099,8 @@ Table~\ref{table:convergence}, Figure~\ref{fig:predictor} & \path{backward_mass.
 Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} & \path{potential.c}, \path{potential_array.sbatch}, \path{potential_configs.txt}, \path{potential_report.py}; \path{orbit_profile.c}, \path{orbit_profile_report.py} & \path{potential/report.txt}, \path{potential/runG_raw.tar.gz} (raw); \path{potential/orbit_profile_c*.txt}, \path{potential/report_H.txt} \\
 Heuristic for primitive cycles, Problem~\ref{prob:heuristic} (Run~J) & \path{word_census.c}, \path{necklace_counts.py}, \path{algebraic_factor.c}, \path{heuristic_tests.py}, \path{run_J.sh} & \path{heuristic/report_J.txt}, \path{heuristic/*.txt} \\
 Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} (Run~I) & \path{tail_check.c}, \path{tail_fallback.py}, \path{tail_grid.sh}, \path{tail_report.py} & \path{tail/report_I.txt}, \path{tail/*.txt} \\
-Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py} & -- \\
+Proposition~\ref{prop:potential-domination}, Table~\ref{table:ui}, Figure~\ref{fig:ui} (Run~K) & \path{potential.c}, \path{ui_report.py}, \path{run_K.sh}, \path{run_K_counts.sbatch}, \path{run_K_report.sbatch} & \path{potential_ui/report_K.txt}, \path{potential_ui/ui_*.csv}, \path{potential_ui/counts_c*.npz} (raw) \\
+Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py}, \path{tests/run_ui_tests.sh}, \path{tests/ref_counts.c} & -- \\
 \end{longtable}
 \endgroup
 
@@ -2062,15 +2063,15 @@ $U$ would give $U(y)=U(z)$ while the first inequality in
 
 \begin{remark}[Lean verification and the unresolved step]
 \label{rem:lyapunov-certification}
-The \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
+The \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
 formalises the finite rational-valued certificate and weighted inequality,
 as well as exact one-step arithmetic and an explicit family of dyadic
-congruence witnesses.  The module \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{\texttt{ReturnLargeShell.lean}}
+congruence witnesses.  The module \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{\texttt{ReturnLargeShell.lean}}
 formalises Proposition~\ref{prop:residue-obstruction} for every real
 $X\ge X_0(c,k)$; it does not assert that the exhibited return lies on an
 orbit that terminates below a given cutoff.  The related finite
-\href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
-and \href{https://github.com/Sultanow/collatz/blob/master/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
+\href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
+and \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
 are also formalised.  None of these kernel checks establishes
 \eqref{eq:lyapunov-uniform-open} for the actual logarithmic entrance
 measures, nor the bounds $T_X=o(X)$ or $R_X=o(X)$ without further
@@ -2188,6 +2189,49 @@ Multiply by $2^{-j}$, which is less than $2y/X$ for $y\in I_{X,j}$, and sum over
 \end{proof}
 
 Unlike Proposition~\ref{prop:single-depth}, the hypothesis~\eqref{eq:UI} concerns the unconditioned potential, not the conditioned return laws, and it is sufficient, not necessary. It implies that the stopped profile has a bounded mean over $W_X$, a weak form of~\eqref{eq:upper} for the targets whose orbits come down. Unlike~\eqref{eq:upper}, it says nothing about unbounded orbits, since all their points have $h^\downarrow=0$ (Corollary~\ref{cor:remains}(b)). It is what Conjecture~\ref{conj:profile} suggests for individual targets. By \cite[(1.26)]{Tao_2022}, the densities $3^n\,\mathbb P(c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)=\cdot)$ converge in $L^1(\mathbb Z_3)$ as $n\to\infty$, so the Syracuse profile itself is uniformly integrable. A bound $\sup_X X^{-1}\sum_{y\in W_X}(y\,h^\downarrow(y))^p<\infty$ for some $p>1$ implies~\eqref{eq:UI}. Whether~\eqref{eq:UI} holds is open.
+
+\paragraph{Run~K.} We recomputed the predecessor counts of Run~G with $N=3\cdot10^{10}$ for all targets $a\le2^{22}$ of $3x+1$, $3x-1$, $3x+5$ and $3x+13$, estimated $h(a)$ by the proportion of the starting values, and evaluated $v(a)=a\,h(a)$ on the windows $(X/2,X]$. The counts satisfy the identity of Proposition~\ref{prop:potential}(b) exactly, and every target lies on an orbit that reaches $[1,X^{1-2\beta}]$, so here $h^\downarrow=h$. The distribution of $v$ is the same for the four maps and stable from $X=2^{14}$ to $2^{22}$ (Table~\ref{table:ui}, Figure~\ref{fig:ui}). At $X=2^{22}$ its median is $2.3$, its $99$th percentile $68$, and its mean lies between $6.91$ and $6.98$, against $2/\log(4/3)=6.952$. The distribution is heavy-tailed. Targets with $v(a)>20$ carry half of the mean, those with $v(a)>100$ about $15\,\%$, and those with $v(a)>1000$ between $1.4$ and $2.4\,\%$. For $20\le M\le200$ the share above $M$ decays like $M^{-\gamma}$, with fitted exponents $\gamma\approx0.8$. The Syracuse profile $v_n(a)=\frac{2}{\log(4/3)}\,3^n\,\mathbb P(c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)=a)$, computed exactly, has the same tail. Its far tail grows with $n$, as the measured one grows with $X$, and it converges by \cite[(1.26)]{Tao_2022}. The data are therefore consistent with~\eqref{eq:UI}, but they cannot decide the uniformity in $X$, and an $L^p$ bound can hold at most for $p<1+\gamma$. Finally, the mass of $v$ on the dangerous classes of depth $12$ ($b=8$, $\zeta_0=0.55$) equals their density to within $2\,\%$ for $X\ge2^{18}$ (last column of Table~\ref{table:ui}). The potential does not concentrate on these classes, and the sum in Proposition~\ref{prop:potential-domination} is of the order of $\alpha_b$ times the mean.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{share of the mean above $M$ (\%)} & & & \\
+\cmidrule(lr){4-6}
+map & $X$ & mean & $M=20$ & $M=100$ & $M=1000$ & $\gamma$ & max & on $\mathcal C$ \\
+\midrule
+$3x+1$ & $2^{14}$ & 6.726 & 49.9 & 12.3 & 0 & 0.98 & 429 & 0.965 \\
+ & $2^{18}$ & 6.763 & 49.9 & 12.7 & 1.2 & 0.93 & 1717 & 0.983 \\
+ & $2^{22}$ & 6.906 & 51.0 & 14.9 & 1.4 & 0.82 & 8736 & 0.995 \\
+\addlinespace
+$3x-1$ & $2^{14}$ & 6.879 & 51.1 & 13.4 & 0 & 0.98 & 584 & 1.008 \\
+ & $2^{18}$ & 6.776 & 50.2 & 12.5 & 0.3 & 0.95 & 1490 & 0.986 \\
+ & $2^{22}$ & 6.922 & 51.1 & 15.0 & 1.6 & 0.81 & 3976 & 1.004 \\
+\addlinespace
+$3x+5$ & $2^{14}$ & 7.026 & 51.7 & 14.7 & 2.1 & 0.77 & 1209 & 0.979 \\
+ & $2^{18}$ & 6.856 & 50.4 & 14.8 & 1.0 & 0.80 & 1946 & 0.988 \\
+ & $2^{22}$ & 6.976 & 51.5 & 15.6 & 2.4 & 0.80 & 12682 & 1.003 \\
+\addlinespace
+$3x+13$ & $2^{14}$ & 7.083 & 52.1 & 18.8 & 0 & 0.73 & 468 & 1.021 \\
+ & $2^{18}$ & 6.932 & 51.2 & 15.4 & 1.4 & 0.80 & 2328 & 0.999 \\
+ & $2^{22}$ & 6.935 & 51.2 & 15.1 & 1.6 & 0.81 & 12727 & 0.997 \\
+\addlinespace
+profile & $n=8$ & 6.952 & 46.8 & 8.1 & 0 & 1.69 & 260 & -- \\
+ & $n=12$ & 6.952 & 49.4 & 10.5 & 0.04 & 1.08 & 1318 & -- \\
+ & $n=16$ & 6.952 & 50.2 & 12.6 & 0.5 & 0.94 & 6676 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Run~K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$).}
+\label{table:ui}
+
+\vspace{1.2em}
+\includegraphics[width=0.56\linewidth]{fig5_potential_tails.pdf}
+\captionof{figure}{Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run~K) and the Syracuse profile at the depths $n=8$, $12$ and $16$.}
+\label{fig:ui}
+\end{table}
+
+\FloatBarrier
 
 %=====================================================================
 \section{Natural densities for all maps \texorpdfstring{$3x+c$}{3x+c}}
