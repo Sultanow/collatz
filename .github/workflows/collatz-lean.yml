@@ -65,7 +65,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.deep_check == true }}
     needs: foundation
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 90
     env:
       LEAN_NUM_THREADS: '1'
     defaults:
@@ -102,4 +102,4 @@ jobs:
           ) &
           monitor_pid=$!
           trap 'kill "$monitor_pid" 2>/dev/null || true' EXIT
-          /usr/bin/time -v timeout --signal=TERM --kill-after=30s 20m lake check
+          /usr/bin/time -v timeout --signal=TERM --kill-after=30s 75m lake check

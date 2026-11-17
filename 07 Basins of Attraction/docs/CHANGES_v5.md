@@ -108,3 +108,15 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - docs/research/relative_energy/: the note (tex + pdf), its audit, the check script (reproduced), and
   STATUS.md. STATUS.md explains why the criteria are equivalences, not weaker targets.
 - 67 pages.
+
+## v6h
+- Appendix D.3, new Proposition 14 (Domination by the stopped potential):
+  E_X <= 2b mu_X + (2/X) sum over the dangerous classes C_{X,b} of y h(y), restricted to targets whose
+  orbit reaches [1, X_1]. The proof uses the fact that a terminating orbit never revisits a state.
+  Consequence: T_X = o(X) if the stopped profile y h(y) is uniformly integrable on average.
+  This is a one-way, static criterion: the hypothesis concerns the unconditioned potential, not
+  conditioned return laws, and says nothing about unbounded orbits. It is supported by Tao (1.26),
+  which makes the Syracuse densities converge in L^1, so the Syracuse profile is uniformly integrable.
+- Contributions table (row "First-passage tails") and Outlook item (2): one clause each.
+- docs/research/stopped_potential/: the note (tex + pdf) and STATUS.md.
+- 68 pages.

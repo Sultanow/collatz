@@ -1,0 +1,147 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\EX}{\mathcal E_X}
+\newcommand{\CX}{\mathcal C_{X,b}}
+\newcommand{\1}{\mathbf 1}
+\title{Stopped predecessor potential and the weighted first-excess tail\\\large A separate research note, not for insertion in the main manuscript}
+\author{Research working draft --- independent review required}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove a deterministic domination of the complete post-excess return occupation by the predecessor potential of targets whose forward orbits actually reach the lower first-passage cutoff. Together with the thin parity-cylinder argument already present in the consolidated manuscript, it gives a new sufficient criterion for removal of the clipping tail in terms of \emph{Ces\`aro uniform integrability of the stopped predecessor profile} $a h(a)$. Unlike the earlier concentration-defect criteria, this hypothesis is a statement about predecessor densities, not a restatement of the conditional return law. The hypothesis itself remains unproved for actual $3x+c$ orbits; no unconditional proof of $T_X=o(X)$ is claimed.
+\end{abstract}
+
+\section{Notation and inputs}
+Fix odd $c\ge-1$ with $3\nmid c$, $\beta=1/200$, and the accelerated map
+\[
+ T(n)=\begin{cases} n/2,&n\text{ even},\\(3n+c)/2,&n\text{ odd}.\end{cases}
+\]
+Let $W_X=(X^{1-\beta},X]\cap\NN$, $X_1=X^{1-2\beta}$, and let $\tau_{X_1}(y)$ denote the first time the forward $T$-orbit reaches a number at most $X_1$ (with value $\infty$ if it never does). For $y\in\NN$ let $P(y)$ denote its full predecessor set and $h(y)$ its logarithmic density, assumed to exist as in Proposition ``Predecessor potential'' of the manuscript.
+
+We use the source measure $\eta_{X,L_X}$, the $j$th dyadic shell $I_{X,j}$, the first-entry and return kernels $E_{X,j},Q_{X,j}$ and
+\[
+ \nu_{X,j,n}=\eta_{X,L_X}E_{X,j}Q_{X,j}^{n-1},\quad s_{X,j}(n)=|\nu_{X,j,n}|,\quad
+ \EX=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n)
+\]
+from Proposition ``First-excess transport'' of \texttt{main(8).tex}. Each source trajectory underlying $\eta_{X,L_X}$ reaches $X_1$ in finite time by the definition of $\Phi_X$, and the measures count subsequent visits only \emph{before} that first passage. Write $\mu_X=|\eta_{X,L_X}|$. The previous arguments, under their explicitly stated analytic hypotheses, give
+\begin{equation}\label{eq:inputs}
+ \mu_X=O((\log X)^{-\varepsilon_0}),\qquad
+ T_X=o(X)\ \Longleftrightarrow\ \EX=o(1).
+\end{equation}
+The only additional arithmetic input is the established thin-cylinder implication from Remark ``Arithmetic rigidity of returns'': fix $\zeta_0\in(1/2,\log2/\log3)$; with $\zeta=\log2/\log3$, put
+\[
+ \Delta_0=\zeta_0\log(2\zeta_0)+(1-\zeta_0)\log(2-2\zeta_0)>0,\quad
+ t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil.
+\]
+For every integer $b\ge b_0(c,\zeta_0)$, $b\le t_X$, there exists a union $\mathcal C_{X,b}$ of congruence classes modulo $m_X=2^{t_X}$, independent of $j,n$, such that
+\begin{equation}\label{eq:thin}
+ s_{X,j}(n+b)\le\nu_{X,j,n}(\mathcal C_{X,b}),\qquad
+ \frac{|\mathcal C_{X,b}\bmod m_X|}{m_X}\le\alpha_b:=\frac{e^{-b\Delta_0}}{1-e^{-\Delta_0}}.
+\end{equation}
+This implication uses Terras' classical parity-vector bijection and the Chernoff bound; it is \emph{not} presented as new.
+
+\section{No repeated vertex in a terminating excursion}
+Define the \emph{stopped predecessor profile}
+\[
+ h^{\downarrow}_{X_1}(y):=h(y)\,\1_{\{\tau_{X_1}(y)<\infty\}},\qquad
+ g_X(y):=y\,h^{\downarrow}_{X_1}(y).
+\]
+This cutoff is essential: nothing here assumes that an unbounded orbit eventually returns below $X_1$.
+
+\begin{lemma}[Occupation domination by the stopped predecessor potential]\label{lem:occupation}
+For each fixed $X,j$ and each $y\in I_{X,j}$,
+\begin{equation}\label{eq:dom}
+ \sum_{n\ge1}\nu_{X,j,n}(\{y\})\le h^{\downarrow}_{X_1}(y).
+\end{equation}
+Consequently, for every $B\subseteq I_{X,j}$,
+\begin{equation}\label{eq:bad-dominated}
+ \sum_{n\ge1}\nu_{X,j,n}(B)\le\sum_{y\in B}h^{\downarrow}_{X_1}(y).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Fix an initial integer $w$ contributing to the first-excess measure. Its forward orbit from its odd part reaches the lower cutoff in finite time. If this orbit visited the same state $y>X_1$ twice before the cutoff, determinism would force a cycle through $y$, hence the orbit could never subsequently reach $X_1$. Thus each such orbit visits $y$ at most once, no matter which return index $n$ labels that visit. If the orbit visits $y$, then $\tau_{X_1}(y)<\infty$ and the original integer $w$ is a predecessor of $y$ (the even steps leading from $w$ to its odd part occur before the counted trajectory). Hence the sum of the indicators of the events ``$n$th return equals $y$'' is bounded pointwise by $\1_{P(y)}(w)\1_{\{\tau_{X_1}(y)<\infty\}}$. Take the logarithmic mean. For fixed $X$ the number of visits to $I_{X,j}$ on any terminating orbit is at most $|I_{X,j}|$, because states cannot repeat, so the sum over $n$ is finite and requires no interchange of infinite limits. The density of $P(y)$ is $h(y)$, giving \eqref{eq:dom}. Sum in $y$ to obtain \eqref{eq:bad-dominated}.
+\end{proof}
+
+\section{A new upper bound requiring no relative return-law cap}
+\begin{theorem}[Thin-cylinder predecessor domination]\label{thm:main}
+Assume the arithmetic containment \eqref{eq:thin} and the definitions above. For every $b\ge b_0$ with $b\le t_X$,
+\begin{equation}\label{eq:main}
+ \boxed{\quad
+ \EX\le 2b\mu_X+
+ \frac2X\sum_{y\in W_X\cap\mathcal C_{X,b}}g_X(y).
+ \quad}
+\end{equation}
+No regularity or non-concentration assumption is placed on any conditioned return distribution $\nu_{X,j,n}$.
+\end{theorem}
+\begin{proof}
+For each shell, split the sum at $K_{X,j}+b$ and use monotonicity $s_{X,j}(n)\le\mu_X$:
+\[
+ \sum_{n>K_{X,j}}s_{X,j}(n)
+ \le b\mu_X+\sum_{n>K_{X,j}}s_{X,j}(n+b)
+ \le b\mu_X+\sum_{n>K_{X,j}}\nu_{X,j,n}(\mathcal C_{X,b}).
+\]
+The last sum is at most $\sum_{y\in I_{X,j}\cap\mathcal C_{X,b}} h^{\downarrow}_{X_1}(y)$ by Lemma~\ref{lem:occupation}. Multiply by $2^{-j}$ and sum over $j$; these shells partition $W_X$, and $\sum_{j\ge0}2^{-j}\le2$. For $y\in I_{X,j}$, $y>X2^{-j-1}$, hence $2^{-j}<2y/X$. This proves \eqref{eq:main}.
+\end{proof}
+
+\section{A sufficient condition in terms of the predecessor profile}
+Choose $\zeta_0=11/20=0.55$. Then $m_X=2^{t_X}\le2X^{\delta}$ with
+\[
+ \delta=\frac{3\beta\log2}{(\zeta-\zeta_0)\log3}<0.117<1.
+\]
+Let $b_X=\max\{b_0,\lceil(\log\log X)^2\rceil\}$. For $X$ large, $b_X\le t_X$, $b_X\mu_X=o(1)$ under \eqref{eq:inputs}, and $\alpha_{b_X}\to0$. Counting one residue class per period yields
+\begin{equation}\label{eq:sparse}
+ \frac{\#(W_X\cap\mathcal C_{X,b_X})}{X}
+ \le\alpha_{b_X}+\frac{m_X}{X}=o(1).
+\end{equation}
+
+\begin{theorem}[Ces\`aro uniform-integrability criterion]\label{thm:UI}
+Assume \eqref{eq:inputs} and \eqref{eq:thin}. If the stopped predecessor profiles are uniformly integrable in the following \emph{Ces\`aro} sense,
+\begin{equation}\label{eq:UI}
+ \lim_{M\to\infty}\limsup_{X\to\infty}\frac1X
+ \sum_{y\in W_X}g_X(y)\,\1_{\{g_X(y)>M\}}=0,
+\end{equation}
+then $T_X=o(X)$.
+\end{theorem}
+\begin{proof}
+For any $M>0$, nonnegativity gives
+\[
+ \frac1X\sum_{y\in W_X\cap\mathcal C_{X,b_X}}g_X(y)
+ \le M\frac{\#(W_X\cap\mathcal C_{X,b_X})}{X}
+ +\frac1X\sum_{y\in W_X}g_X(y)\1_{\{g_X(y)>M\}}.
+\]
+Take $\limsup_{X\to\infty}$, use \eqref{eq:sparse}, then let $M\to\infty$. The right-hand side tends to zero by \eqref{eq:UI}. Apply Theorem~\ref{thm:main} with $b=b_X$, use $b_X\mu_X=o(1)$, and finish with \eqref{eq:inputs}.
+\end{proof}
+
+\begin{corollary}[A concrete $L^p$ condition]\label{cor:Lp}
+Fix $p>1$. Under the same existing manuscript hypotheses, the bound
+\begin{equation}\label{eq:Lp}
+ \sup_{X\ge X_0}\frac1X\sum_{y\in W_X}\bigl(yh(y)\bigr)^p
+ \1_{\{\tau_{X_1}(y)<\infty\}}<\infty
+\end{equation}
+is sufficient for $T_X=o(X)$. More quantitatively, if the supremum in \eqref{eq:Lp} is $M_p$, then
+\[
+ \EX\le 2b_X\mu_X+2M_p^{1/p}
+ \left(\alpha_{b_X}+\frac{m_X}{X}\right)^{1-1/p}=o(1).
+\]
+\end{corollary}
+\begin{proof}
+Use H\"older's inequality on the subset $W_X\cap\mathcal C_{X,b_X}$ to bound the sum in \eqref{eq:main}, and invoke \eqref{eq:sparse}. Alternatively, \eqref{eq:Lp} directly implies \eqref{eq:UI}.
+\end{proof}
+
+\section{What this does and does not establish}
+\begin{remark}[A genuine change of target, not a solution]
+The earlier dangerous-cylinder defect criterion is equivalent to $T_X=o(X)$, because the defect is itself bounded above by return-survival mass. The new criterion \eqref{eq:UI} is instead a condition on the \emph{unconditioned logarithmic predecessor densities} restricted to targets that reach the cutoff. Its relation to the open tail is one-way in the proof above; no converse is asserted. The bound is derived by disjointness of visits to each \emph{individual state}, not by equidistribution of return entrance laws. A proof of \eqref{eq:UI} or \eqref{eq:Lp} for real Syracuse dynamics is still missing, and such bounds may be demanding. In particular, one should not silently replace $h^{\downarrow}_{X_1}$ by $h$ and assume a pointwise estimate $h(y)=O(1/y)$: that could rule out unbounded positive-potential orbits and would be a much stronger hypothesis than justified here.
+\end{remark}
+\begin{remark}[Priority and attribution]
+The thin parity language and Terras bijection are classical; $h(y)$ and the first-excess transport are defined in the consolidated paper. The observation \eqref{eq:dom} and the resulting stopped-potential sufficient criterion are derived here from those inputs. Their novelty relative to the full Collatz literature has \emph{not} been established, and no Lean kernel certification is claimed. Independent checking is necessary before any insertion into the paper.
+\end{remark}
+\end{document}

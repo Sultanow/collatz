@@ -264,7 +264,7 @@ Predicting basin shares
 \addlinespace[2pt]
 First-passage tails
 & Renewal estimates for the model walk (Lemma~\ref{lem:model}) and the transfer of Lemma~\ref{lem:reduction}.
-& Calibration of the clipped mass; exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$; whether $T_X=o(X)$ then depends only on the mass carried by this set, which is not controlled; two-level return certificates and a fixed-modulus obstruction (Appendix~\ref{sec:tail-programme}).
+& Calibration of the clipped mass; exponential tightness of $\Phi_X/X$ up to an exceptional set of logarithmic density $O((\log X)^{-\varepsilon_0})$; whether $T_X=o(X)$ then depends only on the mass carried by this set, which is not controlled; two-level return certificates and a fixed-modulus obstruction; $T_X=o(X)$ follows if the stopped potential profile is uniformly integrable (Appendix~\ref{sec:tail-programme}).
 & \emph{Proof under the uniformities of Lemmas~\ref{lem:reduction}--\ref{lem:model}; $T_X=o(X)$ open}. \\
 \addlinespace[2pt]
 Lean-checked finite core
@@ -1050,7 +1050,7 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Natural densities follow for every $c$ once \cite{Allikvere_2026} is confirmed (Theorem~\ref{thm:natural}); a further aim is the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
-	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}), and $R_X=o(X)$ is a separate open problem.
+	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}), and so would uniform integrability of the stopped potential profile $a\,h(a)$ (Proposition~\ref{prop:potential-domination}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}), and $R_X=o(X)$ is a separate open problem.
 	\item \emph{The arithmetic structure of the primitive cycles} (Problem~\ref{prob:heuristic}): why the equidistribution heuristic works for coprime types, how the algebraic factors of $2^l-3^k$ bias it, and whether the counts are underdispersed.
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
@@ -2161,6 +2161,31 @@ Summing over $n>K$ and using $s_{X,j}\le\mu_X(L_X)$ for the first $b$ terms give
 \end{proof}
 
 The criterion is an equivalence. It does not make Problem~\ref{prob:excursions} easier, but it restates it as a question about the $2$-adic distribution of the return laws at the single modulus $2^{t_X}$. The same two-sided bound holds, with $\alpha_X$ in place of $q$, for the excess $(\nu(\mathcal C_X)-\alpha_X|\nu|)_+$ on the dangerous classes alone. The defect has two sources, and neither is reached by the parity counting of Remark~\ref{rem:rigidity} and Lemma~\ref{lem:finite-horizon-residue}; this is where new mathematics is needed. First, the return laws are conditioned on repeated survival and have total mass $O((\log X)^{-\varepsilon_0})$, so they may concentrate in relative terms, while Lemma~\ref{lem:reduction} bounds only absolute errors of that size (Remark~\ref{rem:tail-barrier}). Second, a law $\nu$ on $r$ states has $\mathfrak d_t(\nu;A)\ge(1-Ar\,2^{-t})_+|\nu|$ (Remark~\ref{rem:entrance-support}). The laws of the latest visits live on few states, so once $r\le2^{t_X-1}/A$ they contribute at least half their mass; their contribution can only be made small by bounding the later visits of these few orbits directly. The converse is false: a law on many states can still have a large defect through a few heavy atoms.
+
+The potential gives a criterion of a different kind. Fix $\zeta_0=0.55$ in Remark~\ref{rem:rigidity}; then $2^{t_X}\le2X^{0.12}$. For an integer $b\in[t_0(\zeta_0),t_X]$ let $\mathcal C_{X,b}$ be the set $\mathcal C_X$ of the proof of Proposition~\ref{prop:single-depth} formed with this $b$, a union of classes modulo $2^{t_X}$ of density at most $\alpha_b=e^{-\Delta_0b}/(1-e^{-\Delta_0})$. Let $h^\downarrow(y)=h(y)$ if the orbit of $y$ reaches $[1,X_1]$, and $h^\downarrow(y)=0$ otherwise.
+
+\begin{proposition}[Domination by the stopped potential]
+\label{prop:potential-domination}
+Assume the hypotheses of Proposition~\ref{prop:first-excess}(c). For all large $X$ and every integer $b\in[t_0(\zeta_0),t_X]$,
+\[
+ \mathcal E_X(L_X;K_X)\ \le\ 2b\,\mu_X(L_X)+\frac2X\sum_{y\in W_X\cap\mathcal C_{X,b}}y\,h^\downarrow(y).
+\]
+Consequently, $T_X=o(X)$ if the stopped profile is uniformly integrable on average:
+\begin{equation}
+\label{eq:UI}
+ \lim_{M\to\infty}\ \limsup_{X\to\infty}\ \frac1X\sum_{\substack{y\in W_X\\ y\,h^\downarrow(y)>M}}y\,h^\downarrow(y)=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+An orbit that reaches $[1,X_1]$ visits no number above $X_1$ twice before it does. Hence, for fixed $y\in I_{X,j}$, the events that the $n$-th later visit to $I_{X,j}$ is $y$ are disjoint in $n$. Each of them implies that $y$ lies on the orbit of the starting value $w$ and that the orbit of $y$ reaches $[1,X_1]$ (compare Step~1 of the proof of Theorem~\ref{thm:lower}). Taking logarithmic means gives $\sum_{n\ge1}\nu_{X,j,n}(\{y\})\le h^\downarrow(y)$. By the proof of Proposition~\ref{prop:single-depth}, $s_{X,j}(n+b)\le\nu_{X,j,n}(\mathcal C_{X,b})$, so that
+\[
+ \sum_{n>K_{X,j}}s_{X,j}(n)\ \le\ b\,\mu_X(L_X)+\sum_{n\ge1}\nu_{X,j,n}(\mathcal C_{X,b})\ \le\ b\,\mu_X(L_X)+\sum_{y\in I_{X,j}\cap\mathcal C_{X,b}}h^\downarrow(y).
+\]
+Multiply by $2^{-j}$, which is less than $2y/X$ for $y\in I_{X,j}$, and sum over $j$. For the consequence, take $b=\lceil(\log\log X)^2\rceil$. Then $b\,\mu_X(L_X)\to0$ by Proposition~\ref{prop:tightness}, and $W_X\cap\mathcal C_{X,b}$ has at most $(\alpha_b+2^{t_X}/X)X=o(X)$ elements. Splitting the sum at $y\,h^\downarrow(y)=M$ bounds it by $M\cdot o(1)$ plus the tail in~\eqref{eq:UI}. Conclude with Proposition~\ref{prop:first-excess}(c).
+\end{proof}
+
+Unlike Proposition~\ref{prop:single-depth}, the hypothesis~\eqref{eq:UI} concerns the unconditioned potential, not the conditioned return laws, and it is sufficient, not necessary. It implies that the stopped profile has a bounded mean over $W_X$, a weak form of~\eqref{eq:upper} for the targets whose orbits come down. Unlike~\eqref{eq:upper}, it says nothing about unbounded orbits, since all their points have $h^\downarrow=0$ (Corollary~\ref{cor:remains}(b)). It is what Conjecture~\ref{conj:profile} suggests for individual targets. By \cite[(1.26)]{Tao_2022}, the densities $3^n\,\mathbb P(c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)=\cdot)$ converge in $L^1(\mathbb Z_3)$ as $n\to\infty$, so the Syracuse profile itself is uniformly integrable. A bound $\sup_X X^{-1}\sum_{y\in W_X}(y\,h^\downarrow(y))^p<\infty$ for some $p>1$ implies~\eqref{eq:UI}. Whether~\eqref{eq:UI} holds is open.
 
 %=====================================================================
 \section{Natural densities for all maps \texorpdfstring{$3x+c$}{3x+c}}
