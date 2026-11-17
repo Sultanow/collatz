@@ -23,11 +23,21 @@ mean of v over a <= A: 6.8911
 tail exponent gamma (share above M ~ M^-gamma, fitted on 20 <= M <= 200) per window: 12:0.328  13:0.844  14:0.975  15:0.740  16:0.755  17:0.857  18:0.931  19:0.883  20:0.856  21:0.835  22:0.821
 L1 distance mean|v - v_n| to the Syracuse profile of depth n (last window):
   n=0:7.737  n=1:6.047  n=2:5.279  n=3:4.699  n=4:4.244  n=5:3.876  n=6:3.564  n=7:3.293  n=8:3.051  n=9:2.834  n=10:2.636  n=11:2.456  n=12:2.291  n=13:2.142  n=14:2.004
-dangerous classes (t, b): density alpha, count ratio, mass ratio (last window):
-  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=0.9973
-  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=0.9968
-  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=0.9953
-  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=0.9984
+dangerous classes (t, b): density alpha, count ratio, mass ratio; among odd targets: density, mass ratio (last window):
+  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=0.9973   odd: density=0.7500  mass ratio=0.9999
+  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=0.9968   odd: density=0.7969  mass ratio=0.9993
+  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=0.9953   odd: density=0.6641  mass ratio=0.9990
+  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=0.9984   odd: density=0.7079  mass ratio=1.0001
+odd targets only, per window: mean, max, exponent, share of the odd mean above M = 10, 15, 20, 30, 50, 75, 100, 150, 200, 300, 500, 1000
+  k=14 mean=6.8189 max=   338.47 gamma=0.890  0.7111 0.5996 0.5111 0.3788 0.2663 0.1836 0.1327 0.0957 0.0634 0.0121 0.0000 0.0000
+  k=15 mean=6.8115 max=   520.91 gamma=0.644  0.7127 0.5848 0.4943 0.3831 0.2637 0.1936 0.1625 0.1312 0.1180 0.0772 0.0093 0.0000
+  k=16 mean=6.7500 max=   881.99 gamma=0.781  0.7084 0.5829 0.4913 0.3797 0.2579 0.1911 0.1418 0.0999 0.0871 0.0604 0.0380 0.0000
+  k=17 mean=6.7227 max=  1331.35 gamma=0.867  0.7115 0.5845 0.4931 0.3702 0.2419 0.1643 0.1330 0.0941 0.0650 0.0412 0.0324 0.0060
+  k=18 mean=6.7246 max=  1717.13 gamma=0.973  0.7136 0.5888 0.4967 0.3745 0.2421 0.1669 0.1240 0.0762 0.0524 0.0337 0.0158 0.0119
+  k=19 mean=6.8622 max=  2934.00 gamma=0.878  0.7177 0.5953 0.5057 0.3897 0.2630 0.1831 0.1377 0.0938 0.0669 0.0395 0.0223 0.0089
+  k=20 mean=6.8416 max=  2298.41 gamma=0.881  0.7176 0.5955 0.5059 0.3856 0.2622 0.1836 0.1377 0.0916 0.0669 0.0389 0.0185 0.0088
+  k=21 mean=6.9033 max=  5172.61 gamma=0.834  0.7200 0.5983 0.5095 0.3910 0.2668 0.1923 0.1486 0.1001 0.0746 0.0515 0.0315 0.0111
+  k=22 mean=6.8925 max=  5823.18 gamma=0.828  0.7198 0.5978 0.5088 0.3906 0.2645 0.1889 0.1477 0.1017 0.0756 0.0491 0.0260 0.0131
 
 === 3x-1: N = 3.000e+10, A = 4194304, file counts_c-1.npz
 flow identity: 2097137 non-periodic targets checked, 0 violations
@@ -51,11 +61,21 @@ mean of v over a <= A: 6.9171
 tail exponent gamma (share above M ~ M^-gamma, fitted on 20 <= M <= 200) per window: 12:1.341  13:0.851  14:0.982  15:0.941  16:0.890  17:0.996  18:0.947  19:0.857  20:0.805  21:0.799  22:0.811
 L1 distance mean|v - v_n| to the Syracuse profile of depth n (last window):
   n=0:7.753  n=1:6.064  n=2:5.296  n=3:4.714  n=4:4.259  n=5:3.892  n=6:3.578  n=7:3.304  n=8:3.061  n=9:2.845  n=10:2.646  n=11:2.468  n=12:2.306  n=13:2.157  n=14:2.022
-dangerous classes (t, b): density alpha, count ratio, mass ratio (last window):
-  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=1.0011
-  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=1.0027
-  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=1.0035
-  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=1.0030
+dangerous classes (t, b): density alpha, count ratio, mass ratio; among odd targets: density, mass ratio (last window):
+  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=1.0011   odd: density=0.7500  mass ratio=1.0018
+  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=1.0027   odd: density=0.7969  mass ratio=1.0024
+  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=1.0035   odd: density=0.6641  mass ratio=1.0032
+  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=1.0030   odd: density=0.7079  mass ratio=1.0028
+odd targets only, per window: mean, max, exponent, share of the odd mean above M = 10, 15, 20, 30, 50, 75, 100, 150, 200, 300, 500, 1000
+  k=14 mean=6.7753 max=   516.66 gamma=1.150  0.7150 0.5947 0.5082 0.3856 0.2408 0.1584 0.1066 0.0473 0.0414 0.0326 0.0186 0.0000
+  k=15 mean=6.8385 max=   619.26 gamma=0.930  0.7170 0.5918 0.5126 0.3912 0.2507 0.1827 0.1379 0.0880 0.0576 0.0450 0.0309 0.0000
+  k=16 mean=6.7843 max=  1000.18 gamma=0.986  0.7155 0.5939 0.5029 0.3885 0.2596 0.1707 0.1205 0.0740 0.0546 0.0364 0.0232 0.0090
+  k=17 mean=6.6274 max=   882.49 gamma=1.038  0.7101 0.5822 0.4892 0.3662 0.2278 0.1573 0.1177 0.0732 0.0407 0.0162 0.0091 0.0000
+  k=18 mean=6.7666 max=  1323.95 gamma=0.975  0.7163 0.5911 0.5002 0.3796 0.2484 0.1696 0.1220 0.0765 0.0533 0.0289 0.0030 0.0030
+  k=19 mean=6.9083 max=  1986.43 gamma=0.837  0.7203 0.5990 0.5109 0.3924 0.2684 0.1928 0.1514 0.1012 0.0732 0.0430 0.0222 0.0033
+  k=20 mean=6.9281 max=  1673.71 gamma=0.811  0.7213 0.5996 0.5106 0.3944 0.2696 0.1919 0.1499 0.1048 0.0796 0.0510 0.0275 0.0044
+  k=21 mean=6.9401 max=  2178.29 gamma=0.796  0.7216 0.6011 0.5127 0.3944 0.2698 0.1961 0.1543 0.1077 0.0820 0.0565 0.0330 0.0126
+  k=22 mean=6.9142 max=  3733.50 gamma=0.819  0.7205 0.5990 0.5107 0.3925 0.2670 0.1913 0.1500 0.1018 0.0784 0.0525 0.0321 0.0158
 
 === 3x+5: N = 3.000e+10, A = 4194304, file counts_c5.npz
 flow identity: 2097083 non-periodic targets checked, 0 violations
@@ -79,11 +99,21 @@ mean of v over a <= A: 6.9373
 tail exponent gamma (share above M ~ M^-gamma, fitted on 20 <= M <= 200) per window: 12:0.684  13:0.721  14:0.768  15:0.950  16:0.981  17:0.874  18:0.804  19:0.808  20:0.816  21:0.822  22:0.797
 L1 distance mean|v - v_n| to the Syracuse profile of depth n (last window):
   n=0:7.807  n=1:6.116  n=2:5.347  n=3:4.764  n=4:4.310  n=5:3.938  n=6:3.622  n=7:3.350  n=8:3.110  n=9:2.894  n=10:2.699  n=11:2.523  n=12:2.364  n=13:2.217  n=14:2.078
-dangerous classes (t, b): density alpha, count ratio, mass ratio (last window):
-  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=1.0047
-  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=1.0022
-  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=1.0030
-  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=1.0006
+dangerous classes (t, b): density alpha, count ratio, mass ratio; among odd targets: density, mass ratio (last window):
+  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=1.0047   odd: density=0.7500  mass ratio=1.0039
+  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=1.0022   odd: density=0.7969  mass ratio=1.0021
+  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=1.0030   odd: density=0.6641  mass ratio=1.0030
+  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=1.0006   odd: density=0.7079  mass ratio=1.0015
+odd targets only, per window: mean, max, exponent, share of the odd mean above M = 10, 15, 20, 30, 50, 75, 100, 150, 200, 300, 500, 1000
+  k=14 mean=6.9960 max=  1209.11 gamma=0.718  0.7223 0.6050 0.5127 0.3955 0.2733 0.1993 0.1644 0.1197 0.1014 0.1014 0.1014 0.0422
+  k=15 mean=6.3885 max=   255.66 gamma=1.448  0.6983 0.5606 0.4619 0.3283 0.2089 0.1274 0.0799 0.0389 0.0128 0.0000 0.0000 0.0000
+  k=16 mean=6.7079 max=   576.22 gamma=0.928  0.7092 0.5865 0.4935 0.3745 0.2429 0.1623 0.1231 0.0761 0.0625 0.0323 0.0052 0.0000
+  k=17 mean=6.7640 max=  1184.65 gamma=0.852  0.7122 0.5869 0.4994 0.3813 0.2591 0.1815 0.1375 0.0949 0.0710 0.0447 0.0210 0.0053
+  k=18 mean=6.8774 max=  1946.40 gamma=0.775  0.7192 0.5964 0.5076 0.3911 0.2691 0.1968 0.1539 0.1109 0.0859 0.0545 0.0281 0.0111
+  k=19 mean=6.8658 max=  1391.49 gamma=0.828  0.7172 0.5952 0.5060 0.3863 0.2613 0.1882 0.1442 0.0995 0.0758 0.0504 0.0258 0.0082
+  k=20 mean=6.9094 max=  3132.14 gamma=0.801  0.7202 0.5991 0.5104 0.3920 0.2668 0.1885 0.1486 0.1056 0.0820 0.0585 0.0428 0.0213
+  k=21 mean=6.9256 max=  5377.17 gamma=0.820  0.7209 0.6001 0.5107 0.3939 0.2678 0.1912 0.1478 0.1023 0.0784 0.0535 0.0353 0.0238
+  k=22 mean=6.9952 max= 12682.02 gamma=0.787  0.7239 0.6038 0.5168 0.4003 0.2769 0.2005 0.1577 0.1107 0.0850 0.0614 0.0405 0.0275
 
 === 3x+13: N = 3.000e+10, A = 4194304, file counts_c13.npz
 flow identity: 2097066 non-periodic targets checked, 0 violations
@@ -107,11 +137,21 @@ mean of v over a <= A: 6.9388
 tail exponent gamma (share above M ~ M^-gamma, fitted on 20 <= M <= 200) per window: 12:0.576  13:1.223  14:0.732  15:0.754  16:0.860  17:0.819  18:0.799  19:0.716  20:0.792  21:0.814  22:0.811
 L1 distance mean|v - v_n| to the Syracuse profile of depth n (last window):
   n=0:7.767  n=1:6.077  n=2:5.310  n=3:4.729  n=4:4.273  n=5:3.903  n=6:3.588  n=7:3.315  n=8:3.072  n=9:2.855  n=10:2.658  n=11:2.478  n=12:2.317  n=13:2.170  n=14:2.033
-dangerous classes (t, b): density alpha, count ratio, mass ratio (last window):
-  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=0.9977
-  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=0.9987
-  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=0.9971
-  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=0.9970
+dangerous classes (t, b): density alpha, count ratio, mass ratio; among odd targets: density, mass ratio (last window):
+  t= 8 b=4: alpha=0.5781  count/alpha=1.0000  mass/alpha=0.9977   odd: density=0.7500  mass ratio=1.0006
+  t=12 b=4: alpha=0.6443  count/alpha=1.0000  mass/alpha=0.9987   odd: density=0.7969  mass ratio=1.0003
+  t=12 b=8: alpha=0.5308  count/alpha=1.0000  mass/alpha=0.9971   odd: density=0.6641  mass ratio=0.9988
+  t=16 b=8: alpha=0.5832  count/alpha=1.0000  mass/alpha=0.9970   odd: density=0.7079  mass ratio=0.9998
+odd targets only, per window: mean, max, exponent, share of the odd mean above M = 10, 15, 20, 30, 50, 75, 100, 150, 200, 300, 500, 1000
+  k=14 mean=7.1809 max=   394.93 gamma=0.778  0.7295 0.6130 0.5235 0.4139 0.3161 0.2405 0.1975 0.1299 0.0767 0.0256 0.0000 0.0000
+  k=15 mean=6.8291 max=   889.93 gamma=0.739  0.7124 0.5967 0.4999 0.3806 0.2505 0.1771 0.1475 0.1093 0.0965 0.0696 0.0505 0.0000
+  k=16 mean=6.7829 max=  1208.66 gamma=0.946  0.7108 0.5910 0.5009 0.3843 0.2610 0.1794 0.1220 0.0757 0.0613 0.0349 0.0154 0.0109
+  k=17 mean=6.9071 max=   961.79 gamma=0.793  0.7200 0.5988 0.5080 0.3895 0.2680 0.1943 0.1566 0.1082 0.0805 0.0485 0.0197 0.0000
+  k=18 mean=6.9569 max=  2327.70 gamma=0.798  0.7225 0.6007 0.5129 0.3965 0.2767 0.2001 0.1580 0.1073 0.0818 0.0562 0.0330 0.0169
+  k=19 mean=7.1379 max=  4874.44 gamma=0.674  0.7284 0.6109 0.5237 0.4132 0.2955 0.2202 0.1758 0.1350 0.1152 0.0831 0.0548 0.0402
+  k=20 mean=6.8738 max=  2713.27 gamma=0.830  0.7192 0.5962 0.5067 0.3869 0.2615 0.1869 0.1455 0.0999 0.0751 0.0541 0.0336 0.0083
+  k=21 mean=6.9148 max=  5655.77 gamma=0.813  0.7203 0.5987 0.5104 0.3927 0.2667 0.1920 0.1496 0.1033 0.0795 0.0524 0.0316 0.0172
+  k=22 mean=6.9474 max= 12726.55 gamma=0.808  0.7219 0.6017 0.5133 0.3953 0.2713 0.1944 0.1521 0.1057 0.0803 0.0565 0.0352 0.0164
 
 Syracuse profile v_n (Haar measure on Z/3^n, the same for every c): share of the mean above M
   n= 8: max=   259.556  exponent=1.686  >10:7.113e-01  >15:5.838e-01  >20:4.682e-01  >30:3.394e-01  >50:2.128e-01  >75:1.132e-01  >100:8.117e-02  >150:3.558e-02  >200:5.690e-03  >300:0.000e+00  >500:0.000e+00  >1000:0.000e+00
