@@ -41,17 +41,25 @@ NPROF_TAIL = (8, 12, 16)                    # depths of the profile tails (map-i
 
 # ----------------------------------------------------------------------------- I/O
 def read_potential_csv(path):
-    """Return (a, count, cycle_min) as int64 arrays; accepts an optional header line."""
-    with open(path) as f:
-        first = f.readline()
-    skip = 1 if any(ch.isalpha() for ch in first) else 0
+    """Return (a, count, cycle_min) as int64 arrays. Only lines whose first field is an
+    integer are data; comment lines, a header line and any other text are skipped."""
     try:
         import pandas as pd
-        df = pd.read_csv(path, header=None, skiprows=skip, comment="#")
-        a, cnt = df[0].to_numpy(np.int64), df[1].to_numpy(np.int64)
-        cyc = df[2].to_numpy(np.int64) if df.shape[1] > 2 else np.zeros_like(a)
+        df = pd.read_csv(path, header=None, names=[0, 1, 2], comment="#",
+                         skipinitialspace=True, dtype=str, on_bad_lines="skip")
+        first = pd.to_numeric(df[0].str.strip(), errors="coerce")
+        df = df[first.notna()]
+        a = pd.to_numeric(df[0]).to_numpy(np.int64)
+        cnt = pd.to_numeric(df[1]).to_numpy(np.int64)
+        cyc = pd.to_numeric(df[2], errors="coerce").fillna(0).to_numpy(np.int64)
     except ImportError:
-        arr = np.loadtxt(path, delimiter=",", dtype=np.int64, skiprows=skip, comments="#", ndmin=2)
+        rows = []
+        with open(path) as f:
+            for line in f:
+                parts = line.split("#", 1)[0].strip().split(",")
+                if parts and parts[0].strip().lstrip("-").isdigit():
+                    rows.append([int(x) for x in parts[:3]])
+        arr = np.array(rows, dtype=np.int64).reshape(-1, len(rows[0]) if rows else 3)
         a, cnt = arr[:, 0], arr[:, 1]
         cyc = arr[:, 2] if arr.shape[1] > 2 else np.zeros_like(a)
     return a, cnt, cyc
