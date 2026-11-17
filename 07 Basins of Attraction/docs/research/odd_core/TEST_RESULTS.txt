@@ -1,0 +1,4 @@
+PASSED: harmonic spine recurrence for 99997 nonperiodic n in [3,100000]
+PASSED: charging inequality exact arithmetic, prefix cases by c: {-1: 6480, 1: 6480, 5: 6480, 13: 6480, 31: 3600}
+Maximum random prefix length: 321
+NOTE: no asymptotic claim and no Lean kernel formalisation is certified by these tests.

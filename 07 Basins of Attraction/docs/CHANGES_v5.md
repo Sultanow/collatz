@@ -160,3 +160,21 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - results/potential_ui/: report, CSVs, table and figure. Copy counts_c*.npz from the cluster archive.
 - README: Run K results, notes on --exclusive/RUNK_DIR, reproduction map rows for Run K and Lean.
 - 70 pages.
+
+## v6k (odd targets suffice)
+- Proposition 14 now uses odd targets: T_X/X <= (3+2b) mu_X + (8/X) * sum over odd a in C_{X,b},
+  X_1 < a <= X, of a h(a). Every visit to a shell is its first point, follows an odd point of the band
+  J = ((U-c)/3, U], or ends an excursion above U started by such a point. The odd points of J with b
+  later odd points of J lie in C_{X,b} (strip of Remark 11 on a band of ratio < 4). The bound is on T_X
+  directly, without the allowances K_j. (UI) is now required for odd targets only.
+- Discussion: for odd a, h(a) = h(T(a)) - h(2T(a)), so the hypothesis concerns the dyadic differences of
+  the potential and doubling chains drop out. Conversely, even targets are sums along dyadic rays, so
+  for the actual potential the restriction changes little.
+- Run K: odd-target rows in Table 12. The shares change by at most 0.4 percentage points, and the odd
+  mass on the dangerous classes is within 0.4 % of their density at 2^22. The float barrier before
+  Appendix E is gone; Table 12/Figure 5 form a float page.
+- Contributions table and Outlook: "of the odd targets".
+- C/ui_report.py: ui_odd.csv, odd mass ratios in ui_dangerous.csv, table row "odd".
+- results/potential_ui/: report rerun (18 s) with the odd-target output.
+- docs/research/odd_core/: the fragment, its audit, check script and outputs (reproduced), STATUS.md.
+- 70 pages.

@@ -1,0 +1,330 @@
+% Independent research fragment, not yet included in main.tex.
+% Requires AMS packages, standard theorem environments.
+\providecommand{\ind}{\mathbf1}
+\providecommand{\eps}{\varepsilon}
+\section{Fixed notation and context}
+Fix an odd integer $c\ge-1$ with $3\nmid c$ and
+\[
+ T(n)=T_{3,c}(n)=\begin{cases}n/2,&n\text{ even},\\(3n+c)/2,&n\text{ odd}.\end{cases}
+\]
+As in the consolidated manuscript \texttt{main(9).tex}, fix
+$\beta=1/200$ and a positive $\eps_0$ given by the first-passage
+estimates.  Write
+\[
+ X_1=X^{1-2\beta},\quad W_X=(X^{1-\beta},X]\cap\N,\quad
+ L_X=(\log X)^{\eps_0/2},\quad H_X=XL_X.
+\]
+The first-excess law $\eta_X=\eta_{X,L_X}$ is the logarithmic
+subprobability measure on the first point in $W_X$ at which the orbit's
+cumulative $W_X$-mass exceeds $XL_X$.  Put
+$\mu_X=|\eta_X|=\mathbb P_{\log}(\Phi_X>XL_X)$.
+The hypotheses and exponential tightness in the manuscript give
+\begin{equation}\label{eq:mu}
+ \mu_X=O((\log X)^{-\eps_0}).
+\end{equation}
+For a state $y$ under $\eta_X$, its future before the lower cutoff
+$X_1$ is finite; denote the sum of its later visits to $W_X$ by
+$Xr_X(y)$.  The first-excess formula in the manuscript states
+\begin{equation}\label{eq:excess}
+ 0\le \frac{T_X}{X}-\sum_y\eta_X(y)r_X(y)\le\mu_X.
+\end{equation}
+For a target $a$, let $h(a)$ be the logarithmic predecessor density,
+which exists by the manuscript's potential theorem.  Define
+\[
+ h_X^{\downarrow}(a)=h(a)\ind\{\text{the forward orbit of }a
+ \text{ reaches }[1,X_1]\}.
+\]
+There is no assertion here that this profile is uniformly bounded
+in a weighted $L^p$ space.
+
+\section{A deterministic even-run charging lemma}
+For $U>0$ set
+\[
+ I_U=(U/2,U]\cap\N,\qquad J_U=((U-c)/3,U]\cap\N.
+\]
+For a finite positive trajectory segment $z_0,\dots,z_s$, with
+$z_{i+1}=T(z_i)$, write
+\[
+ \mathcal W_U=\sum_{i=0}^{s} z_i\ind_{I_U}(z_i),\qquad
+ \mathcal O_U=\sum_{i=0}^{s}\ind\{z_i\text{ odd and }z_i\in J_U\}.
+\]
+\begin{lemma}[Even-run compression]\label{lem:charge}
+If $U\ge 4|c|+12$, then every finite positive trajectory segment
+satisfies the \emph{pathwise} bound
+\begin{equation}\label{eq:charge}
+ \boxed{\mathcal W_U\le U(2+3\mathcal O_U).}
+\end{equation}
+In particular, no independent-parity or random-model assumption is used.
+\end{lemma}
+\begin{proof}
+Split the visits to $I_U$ into the odd visits and maximal runs
+of consecutive even visits.  Each even run halves at every step and
+its sum is less than $2U$.  Every odd visit in $I_U$ is counted by
+$\mathcal O_U$, because $(U-c)/3<U/2$ under the stated size condition.
+
+We claim that, after the first even run (if any), every even run can
+be charged injectively to an odd visit in $J_U$ occurring no later
+than that run.  If a run follows an odd value in $I_U$, charge that
+value.  If the trajectory re-enters $I_U$ from below $U/2$, the last
+step of entry is odd (halving cannot increase), and its source $z$
+satisfies $(3z+c)/2>U/2$, so $z>(U-c)/3$; also $z\le U/2$, hence
+$z\in J_U$.  If it re-enters from above $U$, an earlier departure
+from $I_U$ across the upper boundary must have occurred since the
+previous visit.  Such an upward departure is an odd step from a value
+in $I_U\subset J_U$: an even step cannot increase.  An orbit cannot
+jump from below $U/2$ to above $U$ in one step, since
+$T(z)\le\frac32 z+\frac12\max(c,0)\le U$ for $z\le U/2$.
+Hence the last kind of re-entry can be charged to the earlier odd
+upward departure.  These charges are distinct: the associated time
+intervals are disjoint, and a given odd step cannot both start a
+within-shell even run and launch an above-shell excursion.
+
+Thus there are at most $1+\mathcal O_U$ even runs.  Their total
+weight is at most $2U(1+\mathcal O_U)$; the odd visits in $I_U$
+have total weight at most $U\mathcal O_U$.  This proves
+\eqref{eq:charge}.
+\end{proof}
+
+\begin{remark}[Why pure doubling is harmless]
+Arbitrarily many consecutive even iterates inside a shell contribute
+less than $2U$ in total.  A possible violation of uniform integrability
+of $a h(a)$ supported on doubling chains need not cause a large
+first-passage clipping tail.  This is the distinction exploited below.
+\end{remark}
+
+\section{Odd-core predecessor transport}
+For each nonempty dyadic shell
+\[
+ I_{X,j}=(U_j/2,U_j]\cap W_X,\qquad U_j=X2^{-j},
+\]
+let $J_{X,j}=((U_j-c)/3,U_j]\cap\N$.
+Only indices $U_j>X^{1-\beta}$ matter.  The lower cutoff $X_1$
+is smaller, so all relevant shells eventually satisfy the size
+condition of Lemma~\ref{lem:charge}.  Define $\zeta=\log2/\log3$
+and choose $\zeta_0\in(1/2,\zeta)$, say $\zeta_0=0.55$.  Put
+\[
+ \Delta_0=\zeta_0\log(2\zeta_0)+(1-\zeta_0)\log(2-2\zeta_0),
+ \qquad
+ t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil.
+\]
+For an integer $b\ge1$ define the \emph{dangerous parity language}
+$\mathcal C_{X,b}$ to be the union of residue classes modulo
+$2^{t_X}$ whose parity word has at least $\zeta_0t$ odd entries
+in some prefix of length $t\in[b,t_X]$.
+By the parity-word bijection and the binomial Chernoff bound,
+\begin{equation}\label{eq:sparse}
+ \frac{\#(\mathcal C_{X,b}\bmod2^{t_X})}{2^{t_X}}
+ \le\alpha_b:=\frac{e^{-b\Delta_0}}{1-e^{-\Delta_0}}.
+\end{equation}
+For fixed $c$ and all sufficiently large $X$, there is a constant
+$b_0=b_0(c,\zeta_0)$ such that the following observation holds:
+if an odd state $a\in J_{X,j}$ occurs before the lower cutoff and
+has at least $b\ge b_0$ \emph{later odd visits} to $J_{X,j}$ before
+that cutoff, then $a\in\mathcal C_{X,b}$.  Indeed, if $t$ is the time
+to the last of these visits, then $t\ge b$.  When $t<t_X$ both
+endpoints belong to a band of asymptotic multiplicative width $3$;
+the exact product identity for $T$ gives
+$h_t(a)\ge\zeta t-O(1)-O_c(t/X_1)$, hence
+$h_t(a)\ge\zeta_0t$ for $t\ge b_0$.  When $t\ge t_X$, survival
+above $X_1$ and $a\le X$ give instead
+$h_{t_X}(a)\ge\zeta t_X-2\beta\log X/\log3
+-O_c(t_X/X_1)\ge\zeta_0t_X$.
+This is the same deterministic product argument as the manuscript's
+arithmetic-rigidity remark, used here on odd visits to an expanded
+band rather than on all shell returns.
+
+\begin{theorem}[Odd-core upper bound for the clipping tail]\label{thm:odd}
+Assume the first-excess formula \eqref{eq:excess} and the
+first-passage hypotheses used in the consolidated manuscript.
+There are $X_0(c)$ and $b_0(c)$ such that for all sufficiently large
+$X$ and integers $b_0\le b\le t_X$,
+\begin{equation}\label{eq:oddmain}
+\boxed{\displaystyle
+ \frac{T_X}{X}\le(5+6b)\mu_X+
+ \frac{36}{X}\sum_{\substack{X_1/4<a\le X\\
+             a\ \mathrm{odd},\ a\in\mathcal C_{X,b}}}
+         a h_X^{\downarrow}(a).}
+\end{equation}
+In particular, a sufficient condition for $T_X=o(X)$ is the
+\emph{odd-target} uniform-integrability condition
+\begin{equation}\label{eq:oddUI}
+ \lim_{M\to\infty}\limsup_{X\to\infty}
+ \frac1X\sum_{\substack{X_1/4<a\le X\\
+ a\ \mathrm{odd},\ a h_X^{\downarrow}(a)>M}}
+ a h_X^{\downarrow}(a)=0.
+\end{equation}
+No condition on $a h_X^{\downarrow}(a)$ at \emph{even targets}
+is required.
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:charge} to the finite future trajectory
+from any first-excess point $y$ up to the lower cutoff, for each
+shell $I_{X,j}$.  If $O_j(y)$ is its number of odd visits to
+$J_{X,j}$, then
+\[
+ r_X(y)\le\sum_j2^{-j}(2+3O_j(y)).
+\]
+The last $b$ odd visits to a given $J_{X,j}$ contribute at most $b$
+to $O_j(y)$.  By the preceding parity observation, each earlier
+odd visit lies in $\mathcal C_{X,b}$.  Since the trajectory reaches
+the cutoff, no state above it can occur twice: repetition would
+trap the trajectory in a cycle.  Consequently,
+\[
+ O_j(y)\le b+
+ \sum_{\substack{a\in J_{X,j}\cap\mathcal C_{X,b}\\a\ \mathrm{odd}}}
+ \ind\{a\text{ occurs later on the trajectory from }y\}.
+\]
+Under $\eta_X$, the event that the later trajectory visits a fixed
+$a$ is contained in the logarithmic predecessor event $P(a)$.
+Since the trajectory also reaches $[1,X_1]$, the logarithmic mass
+of this event is at most $h_X^{\downarrow}(a)$.  Hence
+\[
+ \sum_y\eta_X(y)r_X(y)
+ \le (4+6b)\mu_X+
+ 3\sum_j2^{-j}\sum_{\substack{a\in J_{X,j}\cap\mathcal C_{X,b}\\
+ a\ \mathrm{odd}}}h_X^{\downarrow}(a).
+\]
+By \eqref{eq:excess}, add another $\mu_X$.
+For relevant $j$, $U_j\ge X^{1-\beta}\gg_c1$;
+$a\in J_{X,j}$ implies $a\ge U_j/4$, and every fixed $a$
+belongs to at most three bands $J_{X,j}$ (their upper endpoints
+are dyadically spaced and lie in $[a,4a]$).  Thus
+\[
+ \sum_{j:a\in J_{X,j}}2^{-j}\le12a/X,
+ \qquad a\in J_{X,j}\Longrightarrow a>X_1/4.
+\]
+This proves \eqref{eq:oddmain}.
+
+Choose $b=b_X=\lceil(\log\log X)^2\rceil$, so that
+$b_X\mu_X=o(1)$ by \eqref{eq:mu}.  Since
+$2^{t_X}=O(X^{0.12})=o(X)$ for $\beta=1/200$ and
+$\zeta_0=0.55$, equation \eqref{eq:sparse} implies
+\[
+ \frac1X\#\{a\le X:a\in\mathcal C_{X,b_X}\}
+ \le\alpha_{b_X}+O(2^{t_X}/X)=o(1).
+\]
+Fix $M>0$ and split the sum in \eqref{eq:oddmain} into
+$a h_X^{\downarrow}(a)\le M$ and $>M$.  The former contributes
+$o_M(1)$ after division by $X$, and the limsup of the latter tends
+to zero as $M\to\infty$ by \eqref{eq:oddUI}.  This proves the
+consequence.
+\end{proof}
+
+\begin{corollary}[Quantitative odd-target moment criterion]\label{cor:oddlp}
+Suppose that for some $p>1$ and $M_p<\infty$,
+\[
+ \frac1X\sum_{\substack{X_1/4<a\le X\\a\ \mathrm{odd}}}
+   (a h_X^{\downarrow}(a))^p\le M_p
+\]
+uniformly for all large $X$.  Then, whenever $b_0\le b\le t_X$,
+\begin{equation}\label{eq:quantitative}
+ \frac{T_X}{X}\le(5+6b)\mu_X+
+ 36M_p^{1/p}\left(\alpha_b+\frac{2^{t_X}}X\right)^{1-1/p}.
+\end{equation}
+Thus choosing $b=\lceil(\log\log X)^2\rceil$ gives $T_X=o(X)$
+with an explicit rate furnished by \eqref{eq:quantitative}.
+\end{corollary}
+\begin{proof}
+The dangerous language comprises at most $\alpha_b2^{t_X}$
+residue classes modulo $2^{t_X}$, and hence at most
+$\alpha_b X+2^{t_X}$ integers up to $X$.  Apply H\"older's
+inequality to the restricted sum in \eqref{eq:oddmain}.
+\end{proof}
+
+\section{A countermodel to global uniform integrability}
+\begin{proposition}[Dyadic harmonic spine]\label{prop:spine}
+For $c=1$ define $H(n)=\ind\{n=2^k\text{ for some }k\ge0\}$.
+Then $0\le H\le1$, $H(1)=H(2)=1$, and for every nonperiodic
+$n\ge3$ the potential identity
+\[
+ H(n)=H(2n)+
+  \ind\{(2n-1)/3\text{ is a positive odd integer}\}
+ H((2n-1)/3)
+\]
+holds.  Moreover
+\[
+ \sup_{X\ge1}\frac1X\sum_{n\le X}nH(n)\le2,
+\quad\text{but}\quad
+ \lim_{M\to\infty}\limsup_{X\to\infty}
+ \frac1X\sum_{\substack{n\in W_X\\nH(n)>M}}nH(n)\ge1.
+\]
+On the other hand, the odd-only analogue of the last tail is
+identically zero for all sufficiently large $X$.
+\end{proposition}
+\begin{proof}
+$H(2n)=H(n)$.  An admissible odd predecessor of $n$ can itself
+be a power of two only when it equals $1$, which forces $n=2$;
+this is the periodic target exempt from the identity.  Thus the
+recurrence holds for nonperiodic $n$.  The geometric sum
+$\sum_{2^k\le X}2^k<2X$ proves the mean bound.  Along $X=2^m$,
+$X\in W_X$ and $XH(X)=X>M$ for all fixed $M$ and large $m$,
+so the displayed tail is at least $1$.  The only odd power of
+two is $1$, which lies outside $W_X$ for large $X$.
+\end{proof}
+\begin{remark}[Scope of the countermodel]
+$H$ is a \emph{formal harmonic profile}, not the actual logarithmic
+predecessor potential of the $3x+1$ map.  It disproves only the
+proposed implication ``finite mean plus the local harmonic recurrence
+implies global uniform integrability''.  It demonstrates the strict
+logical difference between controlling all targets and controlling
+the odd core.  The actual odd-core condition \eqref{eq:oddUI} remains
+open, and the note does \emph{not} establish $T_X=o(X)$.
+\end{remark}
+
+\section{A dyadic-flux representation of odd-target mass}
+The ordinary potential recurrence already proved in the manuscript has a
+useful interpretation when restricted to \emph{odd} targets.
+\begin{proposition}[Odd mass as a dyadic difference]\label{prop:flux}
+For each positive odd $a$, let $y=(3a+c)/2$.  If $y$ is not
+periodic, then
+\begin{equation}\label{eq:flux}
+ \boxed{h(a)=h(y)-h(2y)\ge0.}
+\end{equation}
+For a fixed positive integer $u$ and integers $K\le M$ such that
+$2^ku$ is nonperiodic for every $K\le k\le M$, put $q_k=(2^{k+1}u-c)/3$, and define $H_c(q_k)=h(q_k)$
+if $q_k$ is a positive odd integer and $H_c(q_k)=0$ otherwise.  Then
+\begin{equation}\label{eq:telescoping}
+ \boxed{\sum_{k=K}^{M} H_c(q_k)
+       =h(2^Ku)-h(2^{M+1}u)\le1.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+When $y$ is not periodic, its inverse target set is the disjoint
+union, up to the singleton $\{y\}$ of zero logarithmic density,
+of the inverse target sets of $2y$ and of its odd predecessor $a$.
+The potential recurrence is therefore $h(y)=h(2y)+h(a)$.
+The second identity is the same recurrence on the successive
+members of one dyadic ray, summed telescopically.  Nonnegativity
+follows from the predecessor-set inclusion $P(2y)\subseteq P(y)$.
+\end{proof}
+\begin{remark}[Why this may help analytically]
+Write $d(y)=h(y)-h(2y)$.  On nonperiodic targets $d(y)$ is exactly
+the incoming mass from the odd branch.  For the model spine
+$H$ from Proposition~\ref{prop:spine}, this dyadic derivative
+vanishes at every nonperiodic target.  Thus a potential estimate
+on \emph{dyadic dissipation}, as opposed to the entire potential,
+is structurally less sensitive to harmless long halving chains.
+The periodic-target exception in \eqref{eq:flux} is essential and
+cannot be suppressed without proving additional global information
+about cycles.  The telescoping bound alone does not imply a
+weighted Ces\`aro $L^p$ estimate; a large loss at a single scale
+could still carry large weight.
+\end{remark}
+
+\section{Next independently testable target}
+It would suffice to prove, for some $p>1$, the uniform bound
+\[
+ \sup_{X\ge X_0}\frac1X
+ \sum_{\substack{X_1/4<a\le X\\a\ \mathrm{odd}}}
+ (a h_X^{\downarrow}(a))^p<\infty.
+\]
+More economically, it is enough to bound the weighted potential
+\emph{only on the explicitly sparse dangerous parity language}
+from \eqref{eq:oddmain}, with $b=b_X\to\infty$ and
+$b_X(\log X)^{-\eps_0}\to0$.  This is a genuine one-sided,
+unconditioned-potential question, not a relative-entrance-law
+equivalence such as the previous dangerous-cylinder defect.
+The main missing ingredient is a quantitative estimate on odd-target
+predecessor mass on such sparse $2$-adic cylinders; neither the
+binomial parity count nor the finite-window coupling supplies it.
+
