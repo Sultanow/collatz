@@ -17,6 +17,7 @@ draft after it (Remark 12).
 | [`odd_core/`](odd_core) | odd-core compression: only odd targets enter | Proposition 14 (odd targets), Run K odd rows |
 | [`spikes/`](spikes) | pointwise criterion and its failure, inverse-ray countermodel, live dangerous points | Remark 12 (draft after version 3) |
 | [`returns/`](returns) | return ladders; live points without returns; return-certificate identity | paragraph before Problem 3 (return ladders, Phi_X >= (5/8) b X), Remark 12(c) (draft after version 3) |
+| [`return_excess/`](return_excess) | window excess J_X of the return term; single-scale ladder; conditional polynomial heights; finite-horizon escapes | Remark 7, second part (draft after version 3) |
 
 Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
 statements of these notes stay here.

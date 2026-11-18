@@ -1,0 +1,237 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=28mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\Syr}{\operatorname{Syr}}
+\newcommand{\T}{\mathcal T}
+\title{A window-excess criterion for polynomial Syracuse orbit heights}
+\date{Research note --- 18 November 2026 (conditional; not a solution of Collatz)}
+\begin{document}
+\maketitle
+\begin{abstract}
+We deduce a conditional polynomial bound on every positive Syracuse orbit
+from two precise inputs: a power-saving bound on the nonnegative window excess
+in the first-passage potential decomposition, and a polynomially uniform
+lower bound on predecessor densities. The argument uses a finite escape ladder
+and a short nonperiodic predecessor selection. It does not prove either
+hypothesis, exclude nontrivial cycles, or resolve the Collatz conjecture.
+\end{abstract}
+
+\section{Setup}
+Let $T:\N\to\N$ be the shortcut $3x+1$ map,
+\[
+T(x)=\begin{cases}(3x+1)/2,&x\text{ odd},\\x/2,&x\text{ even},\end{cases}
+\qquad \Syr(x)=\frac{3x+1}{2^{\nu_2(3x+1)}}\quad(x\text{ odd}).
+\]
+Let $P(a)=\{w\in\N:T^j(w)=a\text{ for some }j\ge0\}$ and assume
+that its logarithmic density $h(a)$ exists, as in the source manuscript.
+Set $S_X=\sum_{a\le X}a h(a)$. Fix $\beta\in(0,1/2)$ (the source
+manuscript uses $\beta=1/200$), and write
+\[
+Y_X=X^{1-\beta},\qquad W_X=(Y_X,X]\cap\N,\qquad X_1=X^{1-2\beta}.
+\]
+For odd $m$, let $\Phi_X(m)$ be the sum, with multiplicities, of
+members of $W_X$ appearing in the Syracuse blocks from the first block
+through the first odd iterate at most $X_1$. Set $\Phi_X(m)=0$
+if there is no such passage. Put $w^\flat=w/2^{\nu_2(w)}$ and
+\[
+C_X=\lim_{N\to\infty}\frac1{\log N}\sum_{1\le w<N}
+\frac{\min\{\Phi_X(w^\flat),H_X\}}{w},\qquad
+H_X=X(\log X)^{\varepsilon_0/2}.
+\]
+Here $\varepsilon_0>0$ is the exponent from the original first-passage
+reduction. Assume the density and mean limits of the source manuscript.
+We propose the sharper \emph{window excess}
+\[
+E_X:=\sum_{a\in W_X}a h(a)-C_X
+=S_X-S_{Y_X}-C_X.\tag{1}
+\]
+This is nonnegative: for each starting value the sum of the \emph{distinct}
+visited points of $W_X$ dominates $\Phi_X$, since no point can repeat
+before a finite first passage below $X_1$; in turn
+$\min\{\Phi_X,H_X\}\le\Phi_X$. Therefore
+\[
+\boxed{S_X=S_{Y_X}+C_X+E_X,\qquad E_X\ge0.}\tag{2}
+\]
+Unlike the full nonnegative excess $D_X=S_X-C_X=T_X+R_X$ in the source
+manuscript, $E_X=D_X-S_{Y_X}$ removes the unavoidable mass of targets
+below the upper window. In fact, $E_X$ is the clipping tail plus the
+\emph{within-window} part of the return term.
+
+\begin{lemma}[Window excess and the original profile]\label{lem:equivalence}
+Assume the source manuscript's calibration
+$C_X=\gamma X+o(X)$ with $\gamma=2/\log(4/3)$.
+Then $E_X=o(X)$ if and only if $S_X=\gamma X+o(X)$.
+\end{lemma}
+\begin{proof}
+The reverse direction follows immediately from (1), since
+$S_{Y_X}=\gamma Y_X+o(Y_X)=o(X)$.
+Conversely, if $E_X=o(X)$, then for every $\eta>0$ and sufficiently
+large $X$, (2) gives
+$S_X\le(\gamma+\eta)X+S_{X^{1-\beta}}$.
+Iterate along the scales $x_j=X^{(1-\beta)^j}$ until the first scale
+below a fixed cutoff $M>1$. There are $O(\log\log X)$ iterations,
+and the sum of all scales except $x_0=X$ is at most
+$O(X^{1-\beta}\log\log X)=o(X)$; the terminal $S_{x_j}$ is bounded.
+Thus $\limsup S_X/X\le\gamma+\eta$.
+The inequality $S_X\ge C_X$ gives $\liminf S_X/X\ge\gamma$.
+Let $\eta\downarrow0$.
+\end{proof}
+
+\section{A quantitative finite escape ladder}
+\begin{lemma}[A high excursion forces window excess]\label{lem:ladder}
+Let $a$ be odd and not itself periodic under $T$, with $h(a)>0$.
+Suppose $a\le X^{1-2\beta}$, $X^{-\beta}\le1/4$, and an iterate of
+$a$ is at least $X$. Then
+\[
+E_X\ge h(a)\bigl(X-2X^{1-\beta}\bigr)
+\ge\frac12h(a)X.\tag{3}
+\]
+\end{lemma}
+\begin{proof}
+Write $Y=X^{1-\beta}$ and $b_j=X/2^{j+1}$ for
+$j=0,\dots,J$, where $J$ is maximal with $b_J\ge Y$.
+Since $a\le X^{1-2\beta}<Y\le b_j$ and the forward orbit of $a$
+subsequently reaches at least $X$, there is a first orbit point
+$p_j>b_j$ occurring after $a$. Its predecessor is at most $b_j$.
+The inequality $T(x)\le(3x+1)/2$ implies, as $b_j\ge Y\ge1$,
+\[
+b_j<p_j\le\frac32b_j+\frac12\le2b_j.
+\]
+The disjoint intervals $(b_j,2b_j]$ show that the $p_j$ are distinct.
+Moreover they all lie in $W_X$, and
+\[
+\sum_{j=0}^J p_j>\sum_{j=0}^Jb_j
+=X(1-2^{-(J+1)})>X-2Y.
+\]
+For any $w\in P(a)$, the first Syracuse passage below $X_1$ occurs
+no later than the visit to $a$ (or has already occurred at time zero).
+Thus every point counted by $\Phi_X(w^\flat)$ occurs before, or at, $a$.
+No orbit point after $a$ can be among these points: if an orbit point
+before or at $a$ repeated later, $a$ itself would lie on a periodic
+orbit. Therefore the distinct $p_j$ lie in the full window-point sum
+but are absent from $\Phi_X(w^\flat)$.
+The summand defining the window remainder is consequently at least
+$\mathbf1_{P(a)}(w)\sum_jp_j$. Taking logarithmic means, and using
+clipping only to decrease the first-passage contribution, proves (3).
+\end{proof}
+
+\begin{theorem}[Power saving plus predecessor density implies polynomial height]
+\label{thm:height}
+Assume there are $\delta,K>0$ and $X_*\ge2$ such that
+\[
+0\le E_X\le K X^{1-\delta}\qquad(X\ge X_*).\tag{4}
+\]
+Assume further that for some $\kappa,c_*>0$,
+\[
+h(a)\ge c_*a^{-\kappa}\quad
+\text{for all odd }a\ge1\text{ with }3\nmid a.\tag{5}
+\]
+Then there is $C=C(K,\delta,\beta,c_*,\kappa,X_*)$ such that
+for every positive integer $n$,
+\[
+\boxed{\sup_{j\ge0}T^j(n)\le C n^A,\qquad
+A=\max\left\{\frac1{1-2\beta},\frac\kappa\delta\right\}.}\tag{6}
+\]
+In particular, all positive $T$-orbits are bounded.
+\end{theorem}
+\begin{proof}
+First take an odd nonperiodic $a$ with $3\nmid a$.
+If its orbit reaches
+$X\ge\max\{X_*,4^{1/\beta},a^{1/(1-2\beta)}\}$,
+Lemma~\ref{lem:ladder} and (4) give
+$\frac12h(a)X\le K X^{1-\delta}$, hence
+\[
+X\le\left(\frac{2K}{h(a)}\right)^{1/\delta}
+\le\left(\frac{2K}{c_*}\right)^{1/\delta}a^{\kappa/\delta}.
+\]
+Thus the height of this orbit obeys (6) with $a$ in place of $n$.
+
+Next let $u$ be any odd integer with $3\nmid u$. Choose
+$e_0\in\{1,2\}$ with $2^{e_0}u\equiv1\pmod3$ and form three odd
+Syracuse predecessors
+\[
+b_i=\frac{2^{e_0+2i}u-1}{3},\qquad i=0,1,2.
+\]
+They are positive, each satisfies $\Syr(b_i)=u$, and $b_i<22u$.
+Since $b_{i+1}-b_i=2^{e_0+2i}u\not\equiv0\pmod3$ and the differences
+have the same nonzero residue modulo $3$, at least two of the $b_i$
+are not divisible by $3$. At most one $b_i$ can be periodic: in a
+deterministic cycle containing $u$, there is only one predecessor of
+$u$ in that cycle. Choose $b$ which is both nonperiodic and
+coprime to $3$. The entire forward orbit of $u$ is contained in that
+of $b$, and its height is therefore at most $C(22u)^A$.
+
+Finally, for arbitrary $n$, divide by $2$ until reaching an odd $v\le n$.
+If $3\nmid v$, put $u=v$; otherwise put $u=\Syr(v)$, which is odd,
+not divisible by $3$, and at most $(3v+1)/2\le2n$. The shortcut
+orbit from $n$ up to $u$ never exceeds $2n$, and all later terms
+belong to the orbit of $u$. Apply the preceding bound to $u\le2n$.
+Enlarging $C$ proves (6).
+\end{proof}
+
+\begin{corollary}[Conditional polynomial total stopping time]
+Under the hypotheses of Theorem~\ref{thm:height}, if the only
+positive periodic orbit of $T$ is $1\leftrightarrow2$, then every
+positive integer $n$ reaches $1$ within $C' n^A$ shortcut steps.
+\end{corollary}
+\begin{proof}
+There are at most $\lfloor Cn^A\rfloor$ possible positive states in
+the orbit. Its first repeated state therefore occurs after at most
+$Cn^A+1$ transitions, and belongs to the asserted unique cycle.
+\end{proof}
+
+\begin{remark}[Logical status and exponent]
+For $\beta=1/200$, $1/(1-2\beta)=100/99$. The source manuscript
+establishes $C_X=(2/\log(4/3))X+o(X)$ under its first-passage inputs,
+but (4) is a \emph{new, substantially stronger open hypothesis};
+indeed even $E_X=o(X)$ is open. Theorem~\ref{thm:height} is not an
+unconditional polynomial bound. Recent 2026 non-refereed predecessor
+estimates have proposed polynomially uniform bounds (5), including
+$\kappa=2+\epsilon$ and a stronger $\kappa=1$ based on additional
+joint Syracuse mixing. Their proofs and inputs require independent
+validation. With $\kappa=2+\epsilon$ the stated exponent is
+$A=\max\{100/99,(2+\epsilon)/\delta\}$; with the stronger estimate
+it would be $A=\max\{100/99,1/\delta\}$.
+If only $E_X\ll X/(\log X)^p$ can be shown, the same argument gives
+at best a stretched-exponential height in $n$, not a polynomial one.
+Even (4) by itself does not exclude nontrivial cycles.
+\end{remark}
+
+\section{Concrete proof obligation and numerical diagnostic}
+Define the finite-orbit observable
+\[
+A_X(w)=\sum_{a\in\Orb(w)\cap W_X}a,
+\qquad
+G_X(w)=A_X(w)-\min\{\Phi_X(w^\flat),H_X\}\ge0.
+\]
+Its logarithmic mean is exactly $E_X$:
+\[
+E_X=\lim_{N\to\infty}\frac1{\log N}
+   \sum_{1\le w<N}\frac{G_X(w)}w.
+\]
+Therefore the missing analytic input is the \emph{one-sided,
+positive-observable} estimate
+\[
+\boxed{\mathbb E_{\log}G_X(w)\ll X^{1-\delta}}.
+\]
+It does not involve subtraction of two large measured averages.
+A possible route is to write $G_X$ as the clipping tail of the first
+passage plus occupation \emph{within} $W_X$ after that passage.
+The source manuscript already supplies conditional entrance laws,
+two-level return certificates, and a finite-modulus obstruction.
+The missing step is a bound uniform in the window scale for the
+actual weighted entrance laws, not just a geometric tail in an
+independent random-walk surrogate. To claim an unconditional
+polynomial height bound, (4) and an independently validated form of
+(5) must be proved for the deterministic map.
+
+\end{document}

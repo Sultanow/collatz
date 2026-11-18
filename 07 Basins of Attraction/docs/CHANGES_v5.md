@@ -239,3 +239,16 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - After Corollary 6: Theorem 3 and Corollary 6 as the analogue of Inselmann's lower bound and
   conditional equality; Theorem 3 refines it to residue classes mod 3^n and holds for all 3x+c.
 - main.bib: Inselmann_2024, Shaik_2026. 73 pages.
+
+## v4d (window form of the return term)
+- Remark 7, second part: R_X = S_Y + J_X with the window excess J_X (points of W_X outside the
+  first-passage blocks). Given Proposition 8, (upper) holds iff T_X + J_X = o(X) (iteration over
+  the scales X^{(1-beta)^j}); S_Y, the ordinary descent, drops out. Single-scale ladder:
+  J_X >= h(a)(X - 2X^{1-beta}) if a <= X_1 is not periodic and its orbit reaches X. A power saving
+  for J_X would bound heights (polynomially under a uniform lower bound for h, which is not known).
+  Model prediction J_X = O(X^{1-beta}) (martingale e^{-D_j}); rigorous for uniform starts over the
+  first log X steps (Doob). Entrance-law density bound and later returns are open.
+- Appendix D intro and Outlook item 2: the return problem concerns only J_X.
+- docs/research/return_excess/: both notes, their programs, an independent check showing that the
+  entrance escape excess is parity (odd states), not 2-adic bias; STATUS.md.
+- 73 pages.

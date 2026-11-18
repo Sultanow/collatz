@@ -1,0 +1,184 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=24mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\Elog}{\mathbb E_{\mathrm{log}}}
+\newcommand{\one}{\mathbf 1}
+\title[Polynomial Syracuse heights via return excess]{Polynomial Syracuse heights via return excess\\and finite-horizon escape estimates}
+\date{18 November 2026 --- research note; the central power-saving input is OPEN}
+\begin{document}
+\begin{abstract}
+We remove the clipped first-passage tail from a previously formulated conditional criterion for polynomially bounded $3x+1$ orbit heights.  The strictly weaker sufficient condition concerns only the nonnegative within-window \emph{return excess} $J_X$.  We also prove, by exact parity-word equidistribution and a nonnegative martingale, a power-saving bound for excursions from below the first-passage threshold over a logarithmic number of steps.  A quantitative $L^p$ condition on the actual entrance measure transfers this finite-horizon saving to the returns.  Neither the long-time return contribution nor the non-hitting contribution is controlled, so the Collatz conjecture is not proved.
+\end{abstract}
+\maketitle
+
+\section{Exact return-excess observable}
+Write
+\[
+ T(n)=\begin{cases}n/2&2\mid n,\\(3n+1)/2&2\nmid n,\end{cases}
+ \qquad \mathrm{Syr}(n)=\frac{3n+1}{2^{\nu_2(3n+1)}}\quad(n\text{ odd}).
+\]
+Let $P(a)=\{w\ge1:T^j(w)=a\text{ for some }j\ge0\}$ and let $h(a)$ be its logarithmic density, assumed to exist as in the source manuscript. Fix $\beta=1/200$, and put
+\[
+ B= X^{1-2\beta},\quad Y=X^{1-\beta},\quad W_X=(Y,X]\cap\N.
+\]
+For the original manuscript's first-passage sum $\Phi_X(m)$ through the Syracuse blocks until the first odd iterate at most $B$, set
+\[
+ F_X=\Elog\Phi_X(w^\flat),\qquad
+ C_X=\Elog\min\{\Phi_X(w^\flat),H_X\},\quad H_X=X(\log X)^{\varepsilon_0/2}.
+\]
+These limits and the density statements are inputs from the source manuscript, not independently re-proved here.  It defines $S_X=\sum_{a\le X}a h(a)$ and the nonnegative tail $T_X=F_X-C_X$.  In the previous note, the window excess was
+\[
+ E_X=S_X-S_Y-C_X\ge0.
+\]
+For the height criterion, the natural object is instead
+\begin{equation}\label{eq:J}
+ \boxed{J_X:=\sum_{a\in W_X}a h(a)-F_X=E_X-T_X=R_X-S_Y\ge0.}
+\end{equation}
+The final inequality follows from the fact that a finite first-passage orbit visits any window point at most once before its first passage; hence $\Phi_X$ is dominated by the sum over distinct window states visited.  The $R_X$ on the right denotes the original manuscript's *full* remainder in $S_X=C_X+T_X+R_X$.  No estimate for $C_X$ or $T_X$ is needed for the use of $J_X$ below.
+
+\begin{theorem}[Clipping-free polynomial height criterion]\label{thm:height}
+Assume that $F_X$ and the predecessor densities exist as above.  Suppose that some $K,\delta>0$ satisfy
+\begin{equation}\label{eq:power}
+ J_X\le K X^{1-\delta}\qquad(X\ge X_*),
+\end{equation}
+and some $c_*,\kappa>0$ satisfy
+\begin{equation}\label{eq:pred}
+ h(a)\ge c_* a^{-\kappa}\quad\text{for every odd }a\ge1\text{ with }3\nmid a.
+\end{equation}
+Then, for some $C>0$ and every $n\ge1$,
+\[
+ \boxed{\sup_{t\ge0}T^t(n)\le Cn^{A},\quad A=\max\left\{\frac1{1-2\beta},\frac{\kappa}{\delta}\right\}.}
+\]
+This asserts bounded heights, not convergence to $1$.
+\end{theorem}
+\begin{proof}
+Fix an odd nonperiodic $a$ with $3\nmid a$.  Suppose $a\le X^{1-2\beta}$ and an iterate of $a$ reaches $X$.  For $b_j=X/2^{j+1}$ with $b_j\ge Y$, let $p_j$ be the first state after $a$ exceeding $b_j$.  Since $T(z)\le(3z+1)/2$, for sufficiently large $X$,
+\[
+ b_j<p_j\le 2b_j\le X.
+\]
+The disjoint half-open intervals $(b_j,2b_j]$ make these states distinct, and
+\[
+ \sum_jp_j>\sum_jb_j\ge X-2Y\ge X/2.
+\]
+For every starting $w$ whose orbit visits $a$, the first passage below $X^{1-2\beta}$ occurs no later than its visit to $a$ (and after removing the initial even doubling prefix, which has logarithmic density zero for each fixed $X$).  Since $a$ is nonperiodic, no $p_j$ can have appeared before or at $a$.  The $p_j$ therefore belong to the remainder counted by $J_X$, yielding
+\[
+ J_X\ge \tfrac12 h(a) X.
+\]
+The assumed bound implies $X^{\delta}\le 2K/h(a)\le(2K/c_*)a^{\kappa}$.  For smaller $X$ the threshold $X<a^{1/(1-2\beta)}$ already suffices.  Hence the claimed bound holds for nonperiodic odd $a$ coprime to $3$.
+
+For an arbitrary odd $u$ coprime to $3$, choose $e_0\in\{1,2\}$ with $2^{e_0}u\equiv1\pmod3$, and consider the three distinct Syracuse predecessors
+\[
+ b_i=(2^{e_0+2i}u-1)/3,\qquad i=0,1,2.
+\]
+All satisfy $\mathrm{Syr}(b_i)=u$ and $b_i<22u$.  Exactly one is divisible by $3$, while at most one is periodic (a deterministic cycle has only one predecessor of $u$ inside the cycle).  Thus at least one is nonperiodic and coprime to $3$, and bounds the whole orbit of $u$.  For general $n$, remove powers of $2$ to reach an odd $v\le n$; if $3\mid v$, replace it with $u=\mathrm{Syr}(v)\le2n$, which is coprime to $3$.  The finite prefix stays below $2n$.  Constants may be enlarged to cover all small $n$.
+\end{proof}
+\begin{corollary}[Only geometric scales need be controlled]
+It is enough to assume \eqref{eq:power} on the dyadic sequence $X=2^k$, for all sufficiently large integers $k$: the conclusion of Theorem~\ref{thm:height} is unchanged, up to the constant $C$.
+If instead $J_{2^k}=o(2^k)$ and all odd $a$ coprime to $3$ have $h(a)>0$, then every positive $T$-orbit is bounded (without any quantitative exponent).
+\end{corollary}
+\begin{proof}
+For any visited value $M\ge2$, choose $X=2^{\lfloor\log_2 M\rfloor}$, so $X\le M<2X$.  If $X\ge a^{1/(1-2\beta)}$, the escape ladder used in Theorem~\ref{thm:height} applies at this $X$; otherwise $M<2a^{1/(1-2\beta)}$.  The same predecessor selection extends either conclusion to all initial values.  For the qualitative statement, an unbounded nonperiodic orbit would cross all sufficiently large dyadic scales, forcing $J_{2^k}/2^k\ge h(a)/2>0$, a contradiction.  Periodic orbits are already bounded.
+\end{proof}
+
+\begin{remark}[Why the modification matters]
+The older sufficient condition $E_X=O(X^{1-\delta})$ controlled both $J_X$ and the clipped tail $T_X$.  The polynomial height argument uses only the states appearing \emph{after} a low state and \emph{outside} the first-passage sum; these already force $J_X$.  The clipped tail plays no role. In particular, an exponential tail at the model clipping level $H_X/X=(\log X)^{\varepsilon_0/2}$ would not by itself yield a polynomial bound on $T_X$.  Theorem~\ref{thm:height} avoids this unnecessary burden.
+\end{remark}
+
+\section{An unconditional short-time escape estimate}
+Here we allow $0<\beta<(1-\log 2)/3$ and let $B_X=\lfloor X^{1-2\beta}\rfloor$, $Y_X=X^{1-\beta}$, $L_X=\lfloor\log X\rfloor$, where $\log$ is natural.
+\begin{theorem}[Short-time escapes from a lower scale]\label{thm:short}
+For all sufficiently large $X$,
+\begin{equation}\label{eq:bad}
+ \#\{1\le n\le B_X:\max_{0\le t\le L_X}T^t(n)>Y_X\}
+ \le 2B_X X^{-\beta}+2^{L_X}=O(B_X X^{-\beta}).
+\end{equation}
+Consequently, writing $W_X=(Y_X,X]\cap\N$,
+\begin{equation}\label{eq:occ}
+ \frac1{B_X}\sum_{n=1}^{B_X}\sum_{t=0}^{L_X}T^t(n)\one_{W_X}(T^t(n))
+ =O\bigl(X^{1-\beta}\log X\bigr).
+\end{equation}
+Both estimates are unconditional and concern only $t\le L_X$, not arbitrary return times.
+\end{theorem}
+\begin{proof}
+Write $b_t\in\{0,1\}$ for the parity of $T^t(n)$ and $q_t=b_0+\cdots+b_{t-1}$.  Iterating the affine transformations gives
+\[
+ T^t(n)=Z_tn+A_t,\qquad Z_t=\frac{3^{q_t}}{2^t},\qquad 0\le A_t\le(3/2)^t-1.
+\]
+The parity-word map $n\bmod 2^L\mapsto (b_0,\ldots,b_{L-1})$ is bijective for every $L$ (the classical parity-cylinder bijection).  Thus, under the uniform law on the $2^L$ residues, the parity bits are independent fair bits and $Z_t$ is a nonnegative martingale with $Z_0=1$, because
+\[
+ \mathbb E(Z_{t+1}\mid b_0,\ldots,b_{t-1})
+ = Z_t\left[\tfrac12\cdot\tfrac12+\tfrac12\cdot\tfrac32\right]=Z_t.
+\]
+For large $X$, $(3/2)^{L_X}\le Y_X/2$.  If $n\le B_X$ and some $t\le L_X$ satisfies $T^t(n)>Y_X$, then
+\[
+ Z_t>\frac{Y_X}{2B_X}\ge\tfrac12 X^{\beta}.
+\]
+Doob's maximal inequality therefore bounds the fraction of bad residue classes modulo $2^{L_X}$ by $2X^{-\beta}$.  Each residue class occurs either $\lfloor B_X/2^{L_X}\rfloor$ or $\lceil B_X/2^{L_X}\rceil$ times in $1,\ldots,B_X$.  The exceptional count is at most $2B_X X^{-\beta}+2^{L_X}$.  Since $2^{L_X}\le X^{\log2}$ and $\beta<(1-\log2)/3$, the latter is $O(B_X X^{-\beta})$.  Every $n$ with a visit to $W_X$ in $t\le L_X$ is bad, and every contribution is at most $X$; summing at most $L_X+1$ contributions per bad $n$ proves \eqref{eq:occ}.
+\end{proof}
+
+\section{The precise entrance-measure condition}
+Let $\nu_X$ be any finite nonnegative measure supported on $\{1,\ldots,B_X\}$, with mass at most $1$.  Define the density relative to uniform counting measure by $\rho_X(y)=B_X\nu_X(\{y\})$, and for $p>1$ define
+\[
+ M_{p,X}:=\left(\frac1{B_X}\sum_{y=1}^{B_X}\rho_X(y)^p\right)^{1/p}.
+\]
+\begin{corollary}[Short-time occupation under a nonuniform entrance law]\label{cor:entry}
+For every $p>1$ and sufficiently large $X$,
+\begin{equation}\label{eq:entry}
+ \sum_{y\le B_X}\nu_X(\{y\})\sum_{t=0}^{L_X}T^t(y)\one_{W_X}(T^t(y))
+ \le (L_X+1)X\,M_{p,X}\left(2X^{-\beta}+\frac{2^{L_X}}{B_X}\right)^{1-1/p}.
+\end{equation}
+In particular, if $M_{p,X}=O(X^\eta)$ for some $\eta<\beta(1-1/p)$, the left-hand side is $O(X^{1-\delta})$ for every $\delta<\beta(1-1/p)-\eta$.
+\end{corollary}
+\begin{proof}
+Every summand is zero outside the exceptional set in Theorem~\ref{thm:short}, and at most $(L_X+1)X$ inside.  H\"older's inequality on the uniform probability space $\{1,\ldots,B_X\}$ bounds the entrance mass of the exceptional set by $M_{p,X}$ times its uniform mass raised to $1-1/p$.  Now apply \eqref{eq:bad}, and absorb $\log X$ in an arbitrarily small power of $X$.
+\end{proof}
+\begin{remark}[Quantitative example; NOT a bound for $J_X$]
+For the source paper's $\beta=1/200$, a uniformly bounded $L^{3/2}$ norm ($p=3/2$) for the \emph{actual} first-passage entrance measures would yield an early-return bound $O(X^{1-1/600}\log X)$. This assumption is not proved by the uniform parity-word law, because a first-passage entrance distribution is not uniform over states or residues.  Existing $3$-adic model $L^p$ results do not by themselves provide it for the deterministic first-passage distribution.
+\end{remark}
+
+\section{The remaining gap, stated without independence assumptions}
+To control $J_X$ it would suffice to establish, with a common $\delta>0$:
+\begin{enumerate}
+\item The logarithmically weighted contribution of starts that \emph{never} pass below $B_X$ but visit $W_X$ is $O(X^{1-\delta})$.
+\item The actual distribution of the first odd state at most $B_X$ has $M_{p,X}=O(X^\eta)$ for some $p>1$ and $\eta<\beta(1-1/p)$.  By Corollary~\ref{cor:entry}, the first $L_X$ steps after that passage then have power-saving weighted occupation.
+\item The logarithmically weighted contribution of \emph{new} distinct visits to $W_X$ after time $L_X$ past the first passage is $O(X^{1-\delta})$.  This is the essential long-return/conditional-mixing step; it cannot be replaced by re-randomizing the parity bits after a stopping time.
+\end{enumerate}
+The three contributions cover the distinct window states missing from the first-passage sum (up to zero-density initial-prefix corrections), and are nonnegative.  Proving these three bounds would yield \eqref{eq:power}, and hence the polynomial height criterion provided \eqref{eq:pred} is independently justified.  The existing original-paper return-kernel/entrance-measure formalism is a suitable language for condition (3); finite-horizon parity balance alone does not prove (3).
+
+\begin{problem}[Core open bound]
+Prove $J_X=O(X^{1-\delta})$ for some $\delta>0$ without assuming that first-passage entrance measures are uniform, and without assuming a global Collatz height bound.  Any proposed long-return estimate should be checked against the deterministic finite-support and fixed-residue obstructions from the source manuscript.
+\end{problem}
+
+\section{Finite computation as a diagnostic, not a proof}
+For illustration only, exhaustive evaluation for $\beta=0.1$ and $L_X=\lfloor\log X\rfloor$ over all $1\le n\le B_X$ produced:
+\[
+\begin{array}{c|r|r|r|c}
+X&B_X&L_X&\#\{\text{escapes}\}&\text{escape fraction}\\\hline
+2^{20}&65\,536&13&4\,142&0.0632019\\
+2^{24}&602\,248&16&29\,583&0.0491210\\
+2^{28}&5\,534\,417&19&213\,584&0.0385920
+\end{array}
+\]
+These are checks of the \emph{finite-horizon} observable.  They are not estimates of the actual logarithmic entrance law, $J_X$, or the global Collatz stopping time.
+
+
+\noindent\textbf{Pilot entrance-law diagnostic (simulation, not a theorem).}
+For each $X=2^k$, we sampled $500\,000$ odd starting values with approximately log-uniform magnitude between $2^{k+5}$ and $2^{k+20}$, ran the Syracuse map until the first odd value $y\le B_X$, and measured the $L_X$-step escape event from the actual sampled entrance states.  In this preliminary experiment ($\beta=0.1$), the sampled entrance distribution differed measurably from uniform counting measure:
+\[
+\begin{array}{c|c|c|c}
+ X&\Pr_{\rm uniform}(\mathrm{escape})&\Pr_{\rm sampled\ entry}(\mathrm{escape})&\widehat M_{3/2,X}\\\hline
+ 2^{20}&0.0632019&0.1061260&1.75\\
+ 2^{24}&0.0491210&0.0825300&1.85
+\end{array}
+\]
+All sampled orbits hit the threshold within $10\,000$ accelerated steps in this experiment.  The quantities $\widehat M_{3/2,X}$ are empirical finite-sample estimates and may be inflated by sampling noise.  These observations do \emph{not} verify the true limiting entrance-law $L^p$ assumption, but they illustrate why substituting uniform residues at a stopping time is unsound.
+\end{document}
