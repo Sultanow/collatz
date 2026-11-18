@@ -1,0 +1,8 @@
+{'t': 25000, 's': 173, 'r': 556, 't_X': 4719, 'b_X': 105, 'log_X': 27970.933675, 'log_m_over_log_X': 0.98873, 'log_a_over_n': 10136.627703, 'log_g_lower_over_log_X': 0.362399, 'digits_X': 12148}
+{'t': 30000, 's': 178, 'r': 667, 't_X': 5660, 'b_X': 109, 'log_X': 33545.106674, 'log_m_over_log_X': 0.988369, 'log_a_over_n': 12163.953243, 'log_g_lower_over_log_X': 0.362615, 'digits_X': 14569}
+{'t': 40000, 's': 185, 'r': 889, 't_X': 7540, 'b_X': 115, 'log_X': 44688.805857, 'log_m_over_log_X': 0.98789, 'log_a_over_n': 16218.604324, 'log_g_lower_over_log_X': 0.362923, 'digits_X': 19409}
+{'t': 50000, 's': 191, 'r': 1112, 't_X': 9420, 'b_X': 120, 'log_X': 55834.886496, 'log_m_over_log_X': 0.987582, 'log_a_over_n': 20273.255405, 'log_g_lower_over_log_X': 0.363093, 'digits_X': 24249}
+{'t': 75000, 's': 203, 'r': 1667, 't_X': 14120, 'b_X': 129, 'log_X': 83692.333449, 'log_m_over_log_X': 0.987177, 'log_a_over_n': 30409.883108, 'log_g_lower_over_log_X': 0.363353, 'digits_X': 36348}
+{'t': 100000, 's': 211, 'r': 2223, 't_X': 18820, 'b_X': 136, 'log_X': 111547.926231, 'log_m_over_log_X': 0.986953, 'log_a_over_n': 40546.510811, 'log_g_lower_over_log_X': 0.36349, 'digits_X': 48445}
+{'t': 125000, 's': 218, 'r': 2778, 't_X': 23519, 'b_X': 141, 'log_X': 139404.268276, 'log_m_over_log_X': 0.986821, 'log_a_over_n': 50683.138514, 'log_g_lower_over_log_X': 0.363569, 'digits_X': 60543}
+Orbit checks: [{'t': 25000, 'visits': 2, 'odd_streak': 173, 'even_descent': 556, 'steps_until_cutoff': 678}, {'t': 30000, 'visits': 2, 'odd_streak': 178, 'even_descent': 667, 'steps_until_cutoff': 767}, {'t': 50000, 'visits': 2, 'odd_streak': 191, 'even_descent': 1112, 'steps_until_cutoff': 1109}]

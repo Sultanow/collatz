@@ -1,0 +1,13 @@
+c = 1 {'b': 100, 'log2X': 277.17, 'visits': 116, 'visits_over_log2X': 0.4185, 'mass_over_X': 92.8, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 1 {'b': 300, 'log2X': 824.56, 'visits': 347, 'visits_over_log2X': 0.4208, 'mass_over_X': 277.5, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 1 {'b': 1000, 'log2X': 2739.95, 'visits': 1159, 'visits_over_log2X': 0.423, 'mass_over_X': 924.9, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = -1 {'b': 100, 'log2X': 276.44, 'visits': 116, 'visits_over_log2X': 0.4196, 'mass_over_X': 92.8, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = -1 {'b': 300, 'log2X': 825.09, 'visits': 347, 'visits_over_log2X': 0.4206, 'mass_over_X': 277.5, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = -1 {'b': 1000, 'log2X': 2739.73, 'visits': 1159, 'visits_over_log2X': 0.423, 'mass_over_X': 924.9, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 5 {'b': 100, 'log2X': 276.69, 'visits': 116, 'visits_over_log2X': 0.4192, 'mass_over_X': 92.8, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 5 {'b': 300, 'log2X': 824.47, 'visits': 347, 'visits_over_log2X': 0.4209, 'mass_over_X': 277.5, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 5 {'b': 1000, 'log2X': 2739.36, 'visits': 1159, 'visits_over_log2X': 0.4231, 'mass_over_X': 924.9, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 13 {'b': 100, 'log2X': 276.64, 'visits': 116, 'visits_over_log2X': 0.4193, 'mass_over_X': 92.8, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 13 {'b': 300, 'log2X': 824.28, 'visits': 347, 'visits_over_log2X': 0.421, 'mass_over_X': 277.5, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+c = 13 {'b': 1000, 'log2X': 2740.24, 'visits': 1159, 'visits_over_log2X': 0.423, 'mass_over_X': 924.9, 'odd_start': True, 'bound_log2X': True, 'visits_ge_b1': True}
+ladders: all checks passed

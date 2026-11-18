@@ -211,3 +211,19 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   The conditional spike bound under (UF) is not used: (UF) rests on an unrefereed online manuscript.
 - README: docs/main.pdf is the draft after version 3; research index row for spikes/.
 - 72 pages.
+
+## v4b
+- After Proposition 12: return ladders. Blocks (odd, odd, even) and (odd, even) with a balanced
+  product in [3/4, 9/8], followed by halvings and realised by Terras' bijection, give starts with at
+  least b+1 visits to (X/2, X] before X^0.99 and log2 X < (100/33) b + 6. Return counts of order log X
+  exist; Problem 3 is about the mass of the entrance law on such states.
+- Remark 12(c): the proof of Proposition 14 counts only odd points with b actual later odd points in
+  J; actual return states ⊂ live points ⊂ C_{X,b}, both inclusions proper (second example:
+  a = 2^s v 3^t - 1 with s odd steps above X, then halvings).
+- docs/research/returns/: the two notes, audits, scripts and results (reproduced), independent checks
+  for c = 1, -1, 5, 13, STATUS.md. The (UF)-conditional corollary is not used.
+- 73 pages.
+- v4b review: the ladder paragraph defines X = floor(6a/5), states that the construction carries over
+  to every odd c (checked exactly for c = -1, 5, 13), and adds Phi_X(a) >= (5/8) b X, so the finite
+  excursions of Remark 8 exist at arbitrarily large scales. research/returns/verify_ladders.py checks
+  b = 100, 300, 1000 for c = 1, -1, 5, 13, including the orbit mass in W_X.

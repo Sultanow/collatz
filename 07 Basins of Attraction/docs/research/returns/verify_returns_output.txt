@@ -1,0 +1,11 @@
+ladder c=  1 b=100: log2 X = 278, visits to (X/2,X] before X^0.99: 116, ratio 0.417
+ladder c=  1 b=300: log2 X = 825, visits to (X/2,X] before X^0.99: 347, ratio 0.421
+ladder c= -1 b=100: log2 X = 277, visits to (X/2,X] before X^0.99: 116, ratio 0.419
+ladder c= -1 b=300: log2 X = 826, visits to (X/2,X] before X^0.99: 347, ratio 0.420
+ladder c=  5 b=100: log2 X = 277, visits to (X/2,X] before X^0.99: 116, ratio 0.419
+ladder c=  5 b=300: log2 X = 825, visits to (X/2,X] before X^0.99: 347, ratio 0.421
+ladder c= 13 b=100: log2 X = 277, visits to (X/2,X] before X^0.99: 116, ratio 0.419
+ladder c= 13 b=300: log2 X = 825, visits to (X/2,X] before X^0.99: 347, ratio 0.421
+live family t=2000: s=113 odd steps above X, visits to (X/2,X] = 2, later odd points in J = 0
+live family t=5000: s=133 odd steps above X, visits to (X/2,X] = 2, later odd points in J = 0
+all checks passed

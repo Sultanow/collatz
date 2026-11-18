@@ -1,0 +1,293 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\calE}{\mathcal E}
+\title{Live Parity False Positives and Exact Return Certificates\\
+\large An internal audit of the weighted Collatz clipping-tail strategy}
+\author{Research note --- independent review pending}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We audit the proposed improvement of the Collatz clipping-tail bound by
+restricting dangerous parity cylinders to trajectories that remain above the
+first-passage cutoff during the witnessing prefix.  We give an explicit
+infinite family of \emph{real} accelerated $3x+1$ trajectories that satisfies
+this survival gate, with an arbitrarily long all-odd prefix, but makes only
+two visits to its initial dyadic shell before first passage. Thus the
+live-parity gate is still only a necessary, not sufficient, return certificate.
+Conditional on a separately stated, presently unverified uniform lower bound
+for logarithmic predecessor densities, the same family produces polynomial
+spikes in the gated potential.  We then prove an exact return-certificate
+identity and the corresponding sharper stopped-potential bound.  Neither
+statement proves that the remaining weighted mass is $o(X)$.
+\end{abstract}
+
+\section{Set-up and quantifiers}
+Let
+\[
+T(n)=\begin{cases}n/2,&n\text{ even},\\(3n+1)/2,&n\text{ odd},\end{cases}
+\qquad \beta=1/200,\quad \gamma=1-2\beta=0.99.
+\]
+For a large real $X$ let $X_1=X^\gamma$, $W_X=(X^{1-\beta},X]\cap\N$,
+$\zeta=\log 2/\log3$, and $\zeta_0=11/20$. Let
+\[
+ t_X=\left\lceil\frac{3\beta\log X}{(\zeta-\zeta_0)\log3}\right\rceil,
+\qquad b_X=\left\lceil(\log\log X)^2\right\rceil.
+\]
+Write $H_\ell(y)$ for the number of odd steps among the first $\ell$
+applications of $T$. The \emph{live parity danger set} is
+\[
+\calC^{\mathrm{live}}_{X,b}
+=\left\{y\in W_X:\ \exists\ell\in[b,t_X],\quad
+H_\ell(y)\ge\zeta_0\ell,\quad
+T^i(y)>X_1\ \text{for all }0\le i<\ell\right\}.
+\]
+For a dyadic shell $I\subset W_X$, write $N_I^+(y)$ for the
+number of \emph{later} visits of the orbit of $y$ to $I$ before first
+hitting $[1,X_1]$. The first-passage stopping time is $\tau_{X_1}(y)$.
+
+\section{A surviving parity witness with only two shell visits}
+\begin{theorem}[Live danger does not imply many returns]\label{thm:family}
+For each sufficiently large integer $t$, put
+\[
+ s=\left\lceil(\log t+3)^2\right\rceil,\qquad
+ r=\left\lceil t/45\right\rceil.
+\]
+There exist positive integers $v,n,a,m$ such that
+\begin{align*}
+ &v<2^{r+2},\quad 3\nmid n,\quad
+ n=2^{t+s}v-1,\quad a=2^s v3^t-1,\\
+ &m=(v3^{t+s}-1)/2^r\in\N\text{ is odd},\\
+ &T^t(n)=a,\quad T^s(a)=2^rm,\quad T^{s+r}(a)=m.
+\end{align*}
+Set $X=a$. Then, for all sufficiently large $t$:
+\begin{enumerate}
+\item $m<X^{0.99}$, so the orbit of $a$ reaches the actual
+first-passage cutoff;
+\item $a\in\calC^{\mathrm{live}}_{X,b_X}$, witnessed by the prefix
+$\ell=s$ with $H_s(a)=s$, and $\nu_2(3a+1)=1$;
+\item the orbit of $a$ has \emph{exactly two} visits to its own shell
+$I=(X/2,X]$ before hitting $[1,X_1]$: the initial point and one
+point on the later halving descent.
+\end{enumerate}
+Thus survival-gated parity danger can hold along an arbitrarily long
+prefix even when $N_I^+(a)=1$.
+\end{theorem}
+\begin{proof}
+Because $3^{t+s}$ is odd, it is invertible modulo $2^{r+1}$.
+Choose the unique odd residue $v_0\in[1,2^{r+1})$ satisfying
+\[
+ 3^{t+s}v_0\equiv1+2^r\pmod{2^{r+1}}.
+\]
+Of $v_0$ and $v_0+2^{r+1}$ choose $v$ for which
+$3\nmid 2^{t+s}v-1$. Such a choice exists because the two values of
+$2^{t+s}v-1$ differ by a nonzero residue modulo $3$. The congruence
+ensures that $v3^{t+s}-1$ has \emph{exact} $2$-adic valuation $r$;
+therefore $m$ is a positive odd integer for large $t$.
+
+For $0\le j\le t$, induction gives
+\[
+ T^j(n)=2^{t+s-j}v3^j-1.
+\]
+Every intermediate starting value is odd, proving $T^t(n)=a$.
+Likewise, for $0\le i\le s$,
+\[
+ T^i(a)=2^{s-i}v3^{t+i}-1.
+\]
+The first $s$ states are odd; each of the corresponding odd
+steps strictly increases the state.  After these $s$ steps the
+value is $v3^{t+s}-1=2^rm$, followed by $r$ consecutive halvings.
+
+The bounds $v<2^{r+2}$ and $s=o(t)$ yield
+\[
+ \log X\le t\log3+(s+r+2)\log2,
+ \qquad
+ \log(m/X)\le s\log(3/2)-r\log2+O(1).
+\]
+Since $r/t\to1/45$ and
+\[
+ \frac{\log2}{45}>0.01\left(\log3+\frac{\log2}{45}\right),
+\]
+we obtain $m<X^{0.99}$ for all sufficiently large $t$.
+Furthermore, $s\to\infty$, $s=o(t)$, $\log X=O(t)$, and
+$\log\log X\le\log t+O(1)$; hence $b_X\le s\le t_X$ eventually.
+The first $s$ steps from $a$ are odd and strictly increasing, so
+$T^i(a)\ge a=X>X_1$ for all $0\le i<s$. Thus the prefix $s$
+certifies membership in the live danger set. Because $s\ge2$,
+$3a+1=2(2^{s-1}v3^{t+1}-1)$ with an odd factor in parentheses,
+so $\nu_2(3a+1)=1$.
+
+Finally, the $s$ initial odd steps move strictly above $a=X$.
+The ensuing pure halving chain begins above $X$ and reaches
+$m<X_1<X/2$. It therefore crosses $(X/2,X]$ \emph{exactly once},
+with all its subsequent states at most $X/2$. This crossing occurs
+before the first passage through $X_1$. Together with the initial
+state $a$, there are exactly two shell visits.
+\end{proof}
+
+\section{Potential spikes: a strictly conditional observation}
+For $y\in\N$ set $P(y)=\{w:\exists k\ge0,\ T^k(w)=y\}$ and let
+$h(y)$ be its logarithmic density, assuming existence as in the
+consolidated manuscript. Set
+\[
+ h_X^\downarrow(y)=h(y)\,\one_{\{\tau_{X_1}(y)<\infty\}},
+ \qquad g_X(y)=y h_X^\downarrow(y).
+\]
+\begin{corollary}[Conditional polynomial live-set spikes]\label{cor:UF}
+Assume, in addition to the established existence of $h$, the
+\emph{external, not independently verified} hypothesis
+\[
+ \tag{UF}\label{eq:UF}
+ \exists\kappa>0\quad\forall z\in\N\quad
+ (3\nmid z\implies h(z)\ge\kappa/z).
+\]
+Define
+\[
+ \delta_*:=\frac{\log(3/2)}{\log3+(\log2)/45}=0.3639\ldots.
+\]
+For every fixed $0<\delta<\delta_*$ and arbitrarily large
+$X$, there is an odd $a=X\in\calC^{\mathrm{live}}_{X,b_X}$
+with $\nu_2(3a+1)=1$, $N_{(X/2,X]}^+(a)=1$, and
+\[
+ \boxed{\quad g_X(a)\ge X^\delta.\quad}
+\]
+Consequently, under (UF), a uniform odd-target $L^p$ bound in
+$W_X$ fails for each $p>1/\delta_*=2.7475\ldots$, even with
+the average restricted to the live parity danger set.
+\end{corollary}
+\begin{proof}
+Since $T^t(n)=a$, $P(n)\subseteq P(a)$, so
+$h(a)\ge h(n)\ge\kappa/n$. The stopping property of
+Theorem~\ref{thm:family} gives $g_X(a)=ah(a)$. Also
+\[
+ \frac an\ge\frac12(3/2)^t,
+ \qquad
+ \log X\le t\bigl(\log3+(\log2)/45+o(1)\bigr).
+\]
+It follows that $g_X(a)\ge X^{\delta_*-o(1)}$.
+For any $\delta<\delta_*$ this exceeds $X^\delta$ eventually.
+The single term $y=a=X$ contributes at least $X^{p\delta-1}$ to
+$X^{-1}\sum_{y\in W_X\cap\calC^{\mathrm{live}}_{X,b_X}}g_X(y)^p$.
+Choose $\delta<\delta_*$ with $p\delta>1$.
+\end{proof}
+\begin{remark}[Evidence boundary]
+Theorem~\ref{thm:family} is unconditional. Its conclusions do
+\emph{not} require (UF), and its examples may have negligible
+actual predecessor density. The polynomial-height claim in
+Corollary~\ref{cor:UF} is conditional on an outside lower-bound
+claim that has not been audited for this note. In particular,
+no violation of the clipping-tail asymptotic is inferred: each
+constructed orbit visits its own shell only twice.
+\end{remark}
+
+\section{The exact repair: certify actual later returns}
+Fix a finite subprobability entrance law $\eta$ supported on states
+whose orbits reach $[1,X_1]$. In a shell $I\subset (X_1,\infty)$,
+let $\nu_n(y)$ be the $\eta$-mass whose $n$th visit to $I$ (before
+first passage) is at $y\in I$, and let $s(n)=\sum_{y\in I}\nu_n(y)$.
+Let
+\[
+ A_{I,b}:=\{y\in I:N_I^+(y)\ge b\}.
+\]
+\begin{proposition}[Exact return-certificate identity]\label{prop:certificate}
+For every $n,b\ge1$,
+\[
+ \boxed{s(n+b)=\sum_{y\in A_{I,b}}\nu_n(y).}
+\]
+For every integer $K\ge0$,
+\[
+ \sum_{n>K}s(n)
+ =\sum_{n=K+1}^{K+b}s(n)
+ +\sum_{n>K}\nu_n(A_{I,b}).
+\]
+In particular, if $s(n)\le|\eta|$, then
+\[
+ \sum_{n>K}s(n)\le b|\eta|+\sum_{n\ge1}\nu_n(A_{I,b}).
+\]
+If, in addition, $\eta$ is the logarithmic first-excess entrance
+law in the consolidated manuscript, all trajectories in its support
+reach the cutoff, and $h^\downarrow_X(y)$ dominates the total
+$\eta$-mass of starting values whose trajectory visits $y$, then
+\[
+ \sum_{n>K}s(n)\le b|\eta|+\sum_{y\in A_{I,b}}h_X^\downarrow(y).
+\]
+\end{proposition}
+\begin{proof}
+On the event of an $n$th visit at $y$, the future orbit is
+\emph{deterministic}. It contains an $(n+b)$th visit precisely when
+$N_I^+(y)\ge b$. This proves the first identity. Shift indices in
+$\sum_{n>K+b}s(n)$ to obtain the second; bound the first $b$
+terms by $b|\eta|$. A trajectory reaching the cutoff cannot revisit
+the same $y>X_1$ before first passage, as that would trap it in a
+cycle above $X_1$. Hence the events ``the $n$th visit is at $y$''
+are disjoint in $n$, and
+$\sum_{n\ge1}\nu_n(y)$ is at most the total entrance-source mass
+whose orbit visits $y$. The stated predecessor-potential domination
+proves the last inequality.
+\end{proof}
+
+\begin{corollary}[Return-certified shell-potential bound]
+Under the entrance-law and first-passage hypotheses of
+Proposition~\ref{prop:certificate}, suppose the weighted shell
+excess of the consolidated manuscript is
+\[
+ \calE_X(L_X;K_X)=\sum_j2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n),
+ \quad I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X,
+\]
+with $|\eta_{X,L_X}|=\mu_X(L_X)$. Then, for every $b\ge1$,
+\[
+ \boxed{\quad
+ \calE_X(L_X;K_X)\le2b\,\mu_X(L_X)
+ +\frac2X\sum_j\sum_{y\in A_{I_{X,j},b}}
+ y\,h_X^\downarrow(y).\quad}
+\]
+For $b\ge2$, the targets of Theorem~\ref{thm:family} are excluded
+from the return-certified set for their own shell, although they
+belong to the corresponding live danger set.
+\end{corollary}
+\begin{proof}
+Apply Proposition~\ref{prop:certificate} to each shell. Sum
+with weights $2^{-j}$. Since $\sum_j2^{-j}\le2$ and
+$2^{-j}<2y/X$ for $y\in I_{X,j}$, the displayed bound follows.
+The final assertion is Theorem~\ref{thm:family}(3).
+\end{proof}
+
+\section{Interpretation: what is \emph{not} yet established}
+The return-certified estimate is strictly more selective than the
+survival-gated parity-cylinder estimate. Its condition is, however,
+\emph{dynamical}: the set $A_{I,b}$ requires actual later returns,
+not just a combinatorial parity word. No decay estimate for
+$X^{-1}\sum_{j,y\in A_{I_{X,j},b}}y h_X^\downarrow(y)$ is established
+here, and such an estimate must not be inferred from the cardinality
+of parity cylinders. The key open problem remains a \emph{weighted}
+upper bound for genuine multi-return states under the logarithmic
+first-excess measure.  This is not a proof of $T_X=o(X)$ or a new
+Lean kernel certificate. Nothing in the consolidated paper has been
+modified.
+
+\begin{thebibliography}{9}
+\bibitem{Tao}
+T. Tao, \emph{Almost all orbits of the Collatz map attain almost
+bounded values}, Forum Math. Pi \textbf{10} (2022), e12.
+\bibitem{PriorNote}
+Internal note, \emph{A Last-Mile Audit: Polynomial Predecessor
+Spikes and Survival-Gated Dangerous Cylinders}, 17 November 2026.
+\bibitem{UFclaim}
+Fourier\_wren, \emph{A uniform linear lower bound for Collatz
+predecessor counts, from joint Syracuse atoms at fixed valuation},
+2026 online manuscript, \url{https://rstation.ai/problems/collatz/papers/10/v2}.
+The asserted uniform lower bound is unverified here.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,236 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ind}{\mathbf 1}
+\title{Genuine Return Ladders before First Passage\\
+\large A deterministic stress test for Collatz return-certificate bounds}
+\author{Internal research note --- independent mathematical review pending}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the accelerated Collatz map $T(n)=n/2$ for even $n$ and
+$T(n)=(3n+1)/2$ for odd $n$, we construct an explicit sequence of
+scales $X\to\infty$ and starting values $a\in(X/2,X]$ whose trajectories
+visit the same dyadic shell at least $0.3\log_2X$ times \emph{before}
+provably crossing below $X^{0.99}$. Every certified shell visit is also
+in the manuscript window $(X^{0.995},X]$. Consequently the individual
+weighted first-passage orbit sum can be at least $cX\log X$ along a
+sparse sequence of starts. This is an unconditional arithmetic
+construction, not an estimate of the logarithmic predecessor
+\emph{mass} of the return-certified set. It precludes a uniform
+pointwise sublogarithmic bound for genuine finite excursions; it does
+not rule out decay of their weighted ensemble mass or prove the open
+clipping-tail estimate $T_X=o(X)$.
+\end{abstract}
+
+\section{Set-up}
+Write
+\[
+ T(n)=\begin{cases}n/2,&n\equiv0\pmod2,\\ (3n+1)/2,&n\equiv1\pmod2.\end{cases}
+\]
+For $X>1$, put
+\[
+ I_X=(X/2,X]\cap\NN,\qquad W_X=(X^{199/200},X]\cap\NN,
+ \qquad \tau_X(a)=\inf\{t\ge0:T^t(a)\le X^{99/100}\}.
+\]
+Let $N_X(a)=\#\{0\le i<\tau_X(a):T^i(a)\in I_X\}$, and let
+\[
+ \Phi_X(a)=\sum_{0\le i<\tau_X(a)}T^i(a)\ind_{\{T^i(a)\in W_X\}}
+\]
+be the unnormalised weighted occupation before the first-passage
+cutoff, as in the consolidated manuscript. All statements in this
+note use genuine positive-integer trajectories.
+
+\section{Two affine blocks and bounded multiplicative drift}
+Consider the two prescribed parity blocks
+\[
+ P=(\mathrm O,\mathrm O,\mathrm E),\qquad
+ M=(\mathrm O,\mathrm E).
+\]
+When the respective parity pattern is realised, their exact action is
+\begin{equation}\label{eq:blocks}
+ T^3(x)=\frac{9x+5}{8}=\frac98x+\frac58
+ \quad(P),\qquad
+ T^2(x)=\frac{3x+1}{4}=\frac34x+\frac14
+ \quad(M).
+\end{equation}
+Choose a sequence of $b$ blocks recursively. Let $r_0=1$.
+If $r_i\le1$, choose block $P$ and put $r_{i+1}=(9/8)r_i$;
+otherwise choose block $M$ and put $r_{i+1}=(3/4)r_i$.
+\begin{lemma}[Balanced block ladder]\label{lem:balance}
+For each $0\le i\le b$,
+\[
+ \frac34\le r_i\le\frac98.
+\]
+Let $a$ be any positive integer whose Collatz parity word begins
+with these $b$ prescribed blocks, and let $z_i$ be its value after
+the first $i$ blocks. Then
+\begin{equation}\label{eq:additive}
+ \frac34a\le z_i\le\frac98a+\frac{15}{16}i
+ \qquad(0\le i\le b).
+\end{equation}
+All intermediate values within a block are at least the smaller
+of its two endpoint values.
+\end{lemma}
+\begin{proof}
+If $r_i\le1$, multiplication by $9/8$ sends $[3/4,1]$ into
+$[27/32,9/8]$. If $r_i>1$, multiplication by $3/4$ sends
+$(1,9/8]$ into $(3/4,27/32]$. This proves the first assertion
+by induction.
+
+By \eqref{eq:blocks}, each block has an affine form
+$z_{i+1}=\lambda_i z_i+d_i$, with
+$\lambda_i\in\{9/8,3/4\}$ and $0<d_i\le5/8$.
+Writing $z_i=r_i a+e_i$, $e_0=0$, gives
+\[
+ e_i=r_i\sum_{k<i}\frac{d_k}{r_{k+1}}
+ \le\frac98\cdot i\cdot\frac{5/8}{3/4}=\frac{15}{16}i.
+\]
+Both affine offsets are nonnegative, so $e_i\ge0$, which proves
+\eqref{eq:additive}. Within $P$, the first two steps are odd,
+and hence strictly increasing, before the final halving; within
+$M$, its odd step increases the state before the final halving.
+Therefore no intermediate state is smaller than both endpoints.
+\end{proof}
+
+\begin{lemma}[Realisation of any finite parity word]\label{lem:realisability}
+Every prescribed word $w\in\{\mathrm E,\mathrm O\}^d$ is realised
+by all positive integers in one residue class modulo $2^d$.
+Consequently a prescribed concatenation of the $b$ blocks with
+$r$ additional even steps can be realised by an integer
+\[
+ 2^{m+r}\le a<2^{m+r+1},
+\]
+where $m$ is the combined block length.
+\end{lemma}
+\begin{proof}
+For a word of length $d-1$, its prescribed parity cylinder is a
+residue class modulo $2^{d-1}$ and the iterate has form
+$(3^h a+B)/2^{d-1}$, where $h$ is the fixed number of odd steps.
+The two lifts of the residue class modulo $2^d$ change this
+iterate by the odd integer $3^h$, so exactly one lift has either
+desired parity at step $d-1$. Induction from $d=0$ proves the
+claim. Choose the representative $v\in[0,2^{m+r})$ for the
+concatenated word and set $a=2^{m+r}+v$.
+\end{proof}
+
+\section{Unconditionally many actual returns and certain descent}
+\begin{theorem}[Logarithmically many genuine shell returns]\label{thm:many}
+For every integer $b\ge100$ there exist positive integers $a$ and
+$X$ with the following properties:
+\begin{enumerate}
+ \item $a\in I_X\subset W_X$ and $X\to\infty$ as $b\to\infty$;
+ \item the trajectory of $a$ reaches a value at most $X^{99/100}$;
+ \item before first passage below $X^{99/100}$, it has at least
+ $b+1$ \emph{distinct} visits to $I_X$, all belonging to $W_X$;
+ \item the scale is controlled by
+ \begin{equation}\label{eq:scale}
+ \log_2 X<\frac{100}{33}b+6.
+ \end{equation}
+\end{enumerate}
+In particular, there exist arbitrarily large $X$ and $a\in I_X$
+with
+\begin{equation}\label{eq:main}
+ N_X(a)>\frac{33}{100}(\log_2X-6)
+ \quad\text{and}\quad
+ \frac{\Phi_X(a)}X>\frac58\cdot\frac{33}{100}(\log_2X-6).
+\end{equation}
+Thus for arbitrarily large $X$ the return number is at least
+$0.3\log_2 X$, and the individual weighted first-passage mass is
+at least $cX\log X$ for an absolute $c>0$.
+\end{theorem}
+\begin{proof}
+Choose the balanced $b$-block word from Lemma~\ref{lem:balance},
+with total length $m\in[2b,3b]$, and append
+\[
+ r=\left\lceil\frac{m+2}{99}\right\rceil+2
+\]
+even steps. By Lemma~\ref{lem:realisability}, realise this full
+word at an integer $a\in[2^{m+r},2^{m+r+1})$. Define the integer
+shell height
+\[
+ X=\left\lfloor\frac{6a}{5}\right\rfloor.
+\]
+Since $a\ge2^{2b}\gg16b$, inequality~\eqref{eq:additive}
+shows that every block endpoint $z_i$ satisfies
+\[
+ \frac34a\le z_i\le\frac98a+\frac{15}{16}b
+ <\frac65a-1\le X,\qquad
+ z_i>\frac X2.
+\]
+Thus $z_0=a,z_1,\ldots,z_b$ are visits to $I_X$. Moreover
+$X>2^{200}$ because $b\ge100$, and therefore
+$X^{199/200}\le X/2$. Hence every visit lies in $W_X$.
+By the last assertion of Lemma~\ref{lem:balance}, all states
+during the block prefix remain above $X/2>X^{99/100}$.
+
+After the prescribed block word, the next $r$ steps are all even,
+so the trajectory decreases from $z_b<X$ to $z_b/2^r$.
+Since $X<2^{m+r+2}$ and $99r\ge m+2$, we have
+$X<2^{100r}$, hence $2^r>X^{1/100}$. Therefore
+\[
+ \frac{z_b}{2^r}<\frac{X}{2^r}<X^{99/100}.
+\]
+The guaranteed first passage occurs after the $b$ block
+endpoints. They must be distinct: a repeated state before the
+cutoff would create a periodic orbit above it, contradicting the
+later certified descent.
+
+Lastly, $m\le3b$, $r\le(m+2)/99+3$, and $X<2^{m+r+2}$ yield
+\[
+ \log_2 X<m+r+2
+ \le\frac{100}{99}m+5+\frac2{99}
+ \le\frac{100}{33}b+6.
+\]
+Rearranging proves the first inequality in~\eqref{eq:main}.
+The $b+1$ block endpoints each contribute at least $3a/4$,
+and $X\le6a/5$. Hence $(3a/4)/X\ge5/8$ exactly, giving
+the second inequality in~\eqref{eq:main}.
+\end{proof}
+
+\section{Consequences and evidence boundary}
+\begin{corollary}[No uniform sublogarithmic visit ceiling]
+There is no universal function $B(X)=o(\log X)$ such that every
+positive-integer trajectory reaching $X^{99/100}$ from $W_X$ makes
+at most $B(X)$ visits to the top shell $I_X$ before that passage.
+The same holds if ``visits'' is replaced by the weighted occupation
+mass divided by $X$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:many} to its unbounded sequence of $X$.
+\end{proof}
+
+\begin{remark}[What remains open]
+The construction produces \emph{points} of the genuine
+return-certificate set, not a positive lower bound on the
+\emph{logarithmically weighted entrance law} of that set. The
+parity-cylinder realisation is classical in the sense of
+Terras's parity parametrisation. The new observation here is the
+controlled concatenation of two affine blocks into arbitrary
+return ladders followed by a \emph{provable} power-cutoff descent.
+No fresh upper bound for the weighted sum
+$\sum_{y\in A_{I,b}}y\,h_X^\downarrow(y)$ is established.
+This note does not imply a failure of $T_X=o(X)$ or of any
+aggregate dyadic Block-Leakage criterion.
+\end{remark}
+
+\section*{Next mathematical step}
+Any proof of the desired return-mass estimate must distinguish the
+arithmetic realisability of a long sequence of returns from its
+probability under the \emph{first-excess entrance law}.
+An effective new theorem would control this entrance law on the
+actual long-return cylinders \emph{relative to its total mass},
+or exploit the finite-source character of $h$ to bound their
+\emph{weighted} contribution. Counting parity words by itself
+is insufficient beyond the coupling horizon.
+
+\end{document}

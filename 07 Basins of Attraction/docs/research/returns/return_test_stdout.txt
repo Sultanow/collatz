@@ -1,0 +1,1 @@
+PASS 1060 exact n,b shell return identities; associated tail identities also passed

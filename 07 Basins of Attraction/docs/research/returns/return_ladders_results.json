@@ -1,0 +1,58 @@
+[
+  {
+    "b": 40,
+    "parity_length": 108,
+    "even_descent": 4,
+    "bits_start": 113,
+    "bits_shell_top": 113,
+    "visits_certified": 41,
+    "visit_to_bits_ratio": 0.362832,
+    "min_endpoint_relative_start": 0.751568,
+    "max_endpoint_relative_start": 1.125,
+    "first_passage_reached": true,
+    "cutoff_exponent": "99/100",
+    "block_prefix": "+-++-++-+++-++-+++-++-+++-++-++-+++-++-+"
+  },
+  {
+    "b": 100,
+    "parity_length": 271,
+    "even_descent": 5,
+    "bits_start": 277,
+    "bits_shell_top": 278,
+    "visits_certified": 101,
+    "visit_to_bits_ratio": 0.363309,
+    "min_endpoint_relative_start": 0.751568,
+    "max_endpoint_relative_start": 1.125,
+    "first_passage_reached": true,
+    "cutoff_exponent": "99/100",
+    "block_prefix": "+-++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++"
+  },
+  {
+    "b": 300,
+    "parity_length": 813,
+    "even_descent": 11,
+    "bits_start": 825,
+    "bits_shell_top": 825,
+    "visits_certified": 301,
+    "visit_to_bits_ratio": 0.364848,
+    "min_endpoint_relative_start": 0.7508,
+    "max_endpoint_relative_start": 1.125,
+    "first_passage_reached": true,
+    "cutoff_exponent": "99/100",
+    "block_prefix": "+-++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++"
+  },
+  {
+    "b": 1000,
+    "parity_length": 2709,
+    "even_descent": 30,
+    "bits_start": 2740,
+    "bits_shell_top": 2740,
+    "visits_certified": 1001,
+    "visit_to_bits_ratio": 0.365328,
+    "min_endpoint_relative_start": 0.750033,
+    "max_endpoint_relative_start": 1.125,
+    "first_passage_reached": true,
+    "cutoff_exponent": "99/100",
+    "block_prefix": "+-++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++-++-+++-++-++-+++-++-+++-++-+++"
+  }
+]
