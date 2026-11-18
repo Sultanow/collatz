@@ -227,3 +227,15 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   to every odd c (checked exactly for c = -1, 5, 13), and adds Phi_X(a) >= (5/8) b X, so the finite
   excursions of Remark 8 exist at arbitrarily large scales. research/returns/verify_ladders.py checks
   b = 100, 300, 1000 for c = 1, -1, 5, 13, including the orbit mass in W_X.
+
+## v4c (related work: Inselmann, Shaik)
+- Related work: Inselmann (arXiv:2402.03276v3): descent below m^eps in natural density, and the mean
+  total stopping time of T_{3,1} is at least (2/log(4/3)) log x, with equality if tau(m) = O(log m).
+  Shaik (Zenodo preprint 4.0.2): height (log m)^9.99 f(m) in natural density by counting parity words,
+  after (2/log(4/3)) log m + O(sqrt(log m log log m)) steps.
+- Contributions table, row "Syracuse potential profile": Inselmann added to the previous foundation.
+- Heuristic before Conjecture 1: the typical time c* log m is proved for 3x+1 (Shaik); almost-all
+  statements miss the exceptional set, which the mean value counts (Corollary 6).
+- After Corollary 6: Theorem 3 and Corollary 6 as the analogue of Inselmann's lower bound and
+  conditional equality; Theorem 3 refines it to residue classes mod 3^n and holds for all 3x+c.
+- main.bib: Inselmann_2024, Shaik_2026. 73 pages.
