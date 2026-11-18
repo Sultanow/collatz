@@ -263,3 +263,8 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   total variation does not bound Q (1 + m eps^2). Experiments: Q within 2 % of 1.
 - docs/research/entrance/: both notes, their programs, independent exhaustive check, STATUS.md.
 - 74 pages.
+
+## v4f
+- Remark 7, "Early returns": the progression identity Syr^k(n + 2^{A+1}) = Syr^k(n) + 2*3^k is displayed,
+  derived from the affine form Syr^k(n) = 3^k 2^{-A} n + c F_k (Remark 4) on the residue class mod 2^{A+1}
+  of a valuation word (proof of Lemma 3); it holds for every odd c. "Early returns" starts a new paragraph.
