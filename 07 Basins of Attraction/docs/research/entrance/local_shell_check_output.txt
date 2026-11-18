@@ -1,0 +1,3 @@
+X=2^20 B=912838 L=13 m=4096 | local shell: R=456419 P(tau<=5)=0.75430 Q=1.01799 early=0.54985 words=62900 AP_ok=yes max|count-N/m|<=1 | sampled entrance (N=2000000): Q_debiased=1.01198
+X=2^22 B=3601084 L=15 m=16384 | local shell: R=1800542 P(tau<=5)=0.75431 Q=1.01299 early=0.55244 words=205532 AP_ok=yes max|count-N/m|<=1 | sampled entrance (N=2000000): Q_debiased=1.00935
+X=2^24 B=14206029 L=16 m=32768 | local shell: R=7103014 P(tau<=5)=0.75431 Q=1.00592 early=0.55225 | sampled entrance (N=2000000): Q_debiased=1.00489

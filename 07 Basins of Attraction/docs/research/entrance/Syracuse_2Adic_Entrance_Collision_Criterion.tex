@@ -1,0 +1,176 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+\newcommand{\N}{\mathbb N}
+\newcommand{\1}{\mathbf1}
+\newcommand{\Ell}{\mathcal L}
+\title[Two-adic collisions of Syracuse entrances]{Two-adic collision control for Syracuse first-passage entrance laws\\ A shorter route to a finite-horizon return power saving}
+\date{18 November 2026 -- independent working note; the main entrance estimate remains open}
+\begin{document}
+\begin{abstract}
+We isolate a weaker condition than a full-state $L^p$ bound on Syracuse first-passage entrance laws.  An $L^2$ bound on their projection to odd classes modulo $2^{\lfloor\log X\rfloor}$ already gives a polynomial saving for window visits during the first logarithmic number of shortcut steps after first passage.  The condition is equivalent to a collision bound for two independent entrances, and to a square-summed $2$-adic Fourier estimate.  We prove the reduction, identify the obstruction to transferring ordinary total-variation stabilization to the needed norm, and report finite-sample collision diagnostics. This does not control arbitrarily late returns, non-hitting orbits, or the Collatz conjecture.
+\end{abstract}
+\maketitle
+\section{Setup and exact entrance law}
+Let $T(n)=n/2$ for even $n$ and $T(n)=(3n+1)/2$ for odd $n$; let $\operatorname{Syr}$ be its acceleration on odd integers. Fix $0<\beta<1/2$ and, for real $X>1$, let
+\[
+ B=\lfloor X^{1-2\beta}\rfloor,\qquad Y=X^{1-\beta},\qquad W_X=(Y,X]\cap\N,\qquad L=\lfloor\log X\rfloor.
+\]
+For each starting number $w$ write $w^\flat$ for its odd part and $\tau_B(w^\flat)$ for the first index at which its Syracuse orbit is at most $B$.  For odd $y\le B$, set
+\[
+ \nu_X(y)=\lim_{N\to\infty}\frac1{\log N}\sum_{1\le w<N}\frac1w\,
+ \1\{\tau_B(w^\flat)<\infty,\ \operatorname{Pass}_B(w^\flat)=y\},
+\]
+assuming the logarithmic-density limit exists (as furnished by the relevant first-passage stabilisation hypotheses). This is a subprobability, $a_X:=\sum_y\nu_X(y)\le1$. The starting values whose odd parts begin at most $B$ have logarithmic density zero.
+
+The predecessor potential $h(y)$ of the source manuscript gives the pointwise domination
+\begin{equation}\label{eq:domination}
+ 0\le\nu_X(y)\le h(y),\qquad y\le B,
+\end{equation}
+by inclusion of events.  Every entry value is odd and not divisible by $3$: for odd $m$, $(3m+1)/2^k$ is coprime to $3$. This means that a uniform law on \emph{all} residues modulo $2^L$ is the wrong comparison; the correct reference law is uniform on \emph{odd} residues.
+
+Let $m=2^{L-1}$, and for odd residues $r\bmod2^L$ define the projected masses
+\[
+ q_X(r)=\sum_{\substack{1\le y\le B\\y\equiv r\pmod{2^L}}}\nu_X(y),\qquad
+ \boxed{Q_X=m\sum_{r\text{ odd}}q_X(r)^2.}
+\]
+The quantity $Q_X$ is finite for each $X$; the open question is its uniform boundedness as $X\to\infty$. We do not assume $a_X=1$.
+
+\section{Power saving for early returns}
+\begin{theorem}[Projected collision criterion]\label{thm:main}
+For all sufficiently large $X$ (depending on $\beta$), let $\nu_X$ be any subprobability supported on odd $y\le B$, and let $Q_X$ be as above. Then
+\begin{equation}\label{eq:main}
+ \sum_{y\le B}\nu_X(y)\sum_{t=1}^{L}
+ T^t(y)\,\1_{W_X}(T^t(y))
+ \le (L+1)\sqrt{3Q_X}\,X^{1-\beta/2}.
+\end{equation}
+Consequently, $Q_X=O(1)$ implies an $O(X^{1-\beta/2}\log X)$ bound for the weighted \emph{early-return} contribution, and hence a power saving $O(X^{1-\delta})$ for every $\delta<\beta/2$.
+\end{theorem}
+\begin{proof}
+Fix $L\ge1$. For any $n$ and $0\le t\le L$ let $b_0,\ldots,b_{L-1}$ be its first $L$ shortcut parities, and put $s_t=\sum_{i<t}b_i$ and $Z_t=3^{s_t}/2^t$. Iterating the affine branches gives
+\[
+ T^t(n)=nZ_t+A_t,\qquad 0\le A_t\le(3/2)^t-1.
+\]
+Since $\log(3/2)<1-\beta$ for $\beta<1/2$, we have $(3/2)^L<Y/2$ for large $X$.  If $n\le B$ and some $1\le t\le L$ satisfies $T^t(n)>Y$, then $Z_t>Y/(2B)\ge X^\beta/2$.
+
+The classical parity-cylinder bijection identifies the odd residues modulo $2^L$ with parity words $(1,b_1,\ldots,b_{L-1})$ whose remaining bits are independent and fair under the uniform measure.  Under this law, $(Z_t)_{1\le t\le L}$ is a nonnegative martingale starting at $Z_1=3/2$.  Doob's inequality therefore gives
+\[
+ \alpha_X:=\frac1m\#\left\{r\text{ odd}:\max_{1\le t\le L} Z_t(r)>\frac12X^\beta\right\}
+ \le3X^{-\beta}.
+\]
+Every entry state whose shortcut orbit visits $W_X$ within $L$ steps belongs to one of these dangerous residue classes. Thus Cauchy--Schwarz gives
+\[
+ \nu_X(\text{early visit to }W_X)
+ \le \sum_{r\in\mathcal B_X}q_X(r)
+ \le \sqrt{\#\mathcal B_X\sum_rq_X(r)^2}
+ =\sqrt{\alpha_X Q_X}\le\sqrt{3Q_X}\,X^{-\beta/2}.
+\]
+Every visited value in the window is at most $X$, and there are at most $L$ relevant steps. This proves \eqref{eq:main} with the harmless $L+1$.
+\end{proof}
+
+\begin{corollary}[Application to the return excess in the source manuscript]
+Let $J_X=\sum_{a\in W_X}a h(a)-F_X\ge0$ be the return excess from the preceding research note, where $F_X$ is the mean of the full first-passage window sum.  Let $J_X^{\mathrm{early}}$ denote the logarithmic mean of the \emph{distinct} new window points visited during the first $L$ shortcut steps strictly after a finite first passage to $B$ (excluding all points already recorded in the first-passage sum). Then, assuming existence of the relevant limits,
+\[
+ 0\le J_X^{\mathrm{early}}
+ \le (L+1)\sqrt{3Q_X}\,X^{1-\beta/2}.
+\]
+\end{corollary}
+\begin{proof}
+Pointwise the distinct newly visited sum is no larger than the nonnegative weighted occupation sum appearing on the left of \eqref{eq:main}, after conditioning on the first entrance state. Taking logarithmic means gives the assertion.
+\end{proof}
+
+\begin{remark}[A smaller hypothesis than full-state $L^p$]
+The full-state density $\rho_X(y)=B\nu_X(y)$ used in the previous note is not required here. The projected condition controls only coincidences of low parity bits, with resolution $2^L\ll B$ for the source paper's $\beta=1/200$. The statement is conditional on $Q_X=O(1)$ and does not bound the long-time or never-hitting parts of $J_X$.
+\end{remark}
+
+\section{Exact collision and Fourier reformulations}
+\begin{proposition}[Two entrances and Fourier energy]\label{prop:fourier}
+Let $Y_1,Y_2$ be independent draws from the subprobability $\nu_X$ (non-entrance mass may be placed at a cemetery state). Then
+\[
+ \boxed{Q_X=m\,\Pr\{Y_1,Y_2\text{ enter and }Y_1\equiv Y_2\pmod{2^L}\}.}
+\]
+Index the odd residues by $r=2j+1$, $j\in\mathbb Z/m\mathbb Z$, and define
+\[
+ \widehat q_X(k)=\sum_{j=0}^{m-1}q_X(2j+1)e^{-2\pi i kj/m}.
+\]
+Then Parseval gives the exact identity
+\begin{equation}\label{eq:parseval}
+ \boxed{Q_X=\sum_{k=0}^{m-1}|\widehat q_X(k)|^2
+ =a_X^2+\sum_{k=1}^{m-1}|\widehat q_X(k)|^2.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The coincidence probability is $\sum_rq_X(r)^2$. Fourier orthogonality on the group $\mathbb Z/m\mathbb Z$ gives \eqref{eq:parseval}; its zero coefficient is $a_X$.
+\end{proof}
+
+The desired $Q_X=O(1)$ is therefore a \emph{square-summed two-adic Fourier bound} for the actual entrance law, not a demand that each Fourier coefficient be tiny, nor a global total-variation mixing theorem.
+
+\section{Why existing stabilization estimates are insufficient}
+Let $\widetilde\nu_X$ be a finite-window approximation to the limiting first-passage law, and let $d_r=q_X(r)-\widetilde q_X(r)$.  The triangle inequality in Euclidean space gives
+\begin{equation}\label{eq:transfer}
+ \boxed{\sqrt{Q_X}\le \sqrt{\widetilde Q_X}
+ +\left(m\sum_{r\text{ odd}}d_r^2\right)^{1/2}.}
+\end{equation}
+Thus an $O(1)$ collision bound for the finite-window law \emph{and} an $O(1)$ projected $L^2$ stabilization error would imply the needed bound for $\nu_X$.
+
+By contrast, a mere total-variation error $\epsilon_X$ gives only a bound of order $\sqrt{m}\,\epsilon_X$ on the last term. Since $m\asymp X^{\log2}$, an error of size $O((\log X)^{-\varepsilon_0})$ does not suffice.  Indeed, moving mass $\epsilon_X$ from a uniform odd-residue distribution onto one distinguished residue keeps total variation at most $\epsilon_X$ but produces $Q_X\asymp1+m\epsilon_X^2$ when $m\epsilon_X\to\infty$. This is precisely the concentration obstacle: the transport theory must control squared residue masses, not just absolute exceptional probability.
+
+\begin{lemma}[Long progression components have bounded collision energy]
+Fix $m\ge1$. A probability measure uniform on $N$ consecutive values of an arithmetic progression of \emph{odd} integers with step $2d$, $d$ odd, has projected collision energy modulo $2m$ satisfying
+\[
+ Q\le 1+\frac{m}{N}.
+\]
+A convex mixture $\sum_i\omega_i\mu_i$ of such measures satisfies
+\[
+ \sqrt{Q}\le\sum_i\omega_i\sqrt{1+\frac{m}{N_i}}.
+\]
+\end{lemma}
+\begin{proof}
+As $d$ is invertible modulo $m$, each residue class among odd residues modulo $2m$ occurs either $\lfloor N/m\rfloor$ or $\lceil N/m\rceil$ times. Hence $\max_r q(r)\le\lceil N/m\rceil/N$, and $Q=m\sum_rq(r)^2\le m\max_rq(r)\le1+m/N$. For mixtures apply the triangle inequality to $\sqrt Q=\sqrt m\,\|q\|_2$.
+\end{proof}
+\begin{remark}
+This lemma suggests a concrete method: decompose a local first-passage law into parity cylinders whose \emph{output values} range over long progressions, and prove a projected $L^2$ stabilization estimate before passing to the actual logarithmic entrance law.  The necessary decomposition and uniform error estimates have \emph{not} been established.  Source-manuscript coupling handles an initial finite horizon but does not automatically furnish such an $L^2$ stabilization estimate across arbitrarily many passages.
+\end{remark}
+
+\section{Reproducible numerical diagnostic}
+To test the proposed observable, we sampled $N=600{,}000$ odd starting values approximately uniformly in log-scale from $[2^{k+5},2^{k+20}]$, stopped the accelerated Syracuse orbit at its first odd value $y\le B$, and recorded $y\bmod2^L$. All samples reached $B$ within $10{,}000$ accelerated steps. The unbiased finite-sample collision estimator for a \emph{normalized} entrance law is
+\[
+ \widehat Q_X=\frac{m}{N(N-1)}\sum_{r\text{ odd}}c_r(c_r-1),
+\]
+where $c_r$ counts sampled entrances in residue $r$ (the denominator uses the number of successful entrances). Removing the diagonal $c_r$ terms is essential when the number of residues is comparable to the sample size. The results are compared with $Q_X^{\mathrm{base}}$, the exact collision energy of a uniform law on the odd $y\le B$ with $3\nmid y$.  This baseline is not the actual Syracuse entrance law:
+\[
+\begin{array}{c|r|r|r|r|r}
+ \beta & X & B & m & \widehat Q_X & Q_X^{\mathrm{base}} \\\hline
+ 1/200&2^{20}&912{,}838&4{,}096&1.01184&1.000037\\
+ 1/200&2^{24}&14{,}206{,}029&32{,}768&1.00436&1.000012\\
+ 1/200&2^{28}&221{,}081{,}030&262{,}144&1.00386&1.000004\\
+ 0.1&2^{20}&65{,}536&4{,}096&1.20409&1.007812\\
+ 0.1&2^{24}&602{,}248&32{,}768&1.16514&1.002942\\
+ 0.1&2^{28}&5{,}534{,}417&262{,}144&1.15210&1.006702
+\end{array}
+\]
+A separate sampling window $[2^{k+20},2^{k+35}]$ for $\beta=0.1$ yielded collision energies $1.20123$, $1.16231$, and $1.15214$, respectively. These are \emph{finite-window} observations, not estimates with proved uniform errors for the limiting $\nu_X$. In particular, the numbers being close to one do not verify $Q_X=O(1)$.
+
+\section{Localized open problem}
+\begin{problem}[Mesoscopic collision control for first passage]
+Prove that the actual first-passage entrance law for $B=\lfloor X^{1-2\beta}\rfloor$ satisfies
+\[
+ \sup_{X\ge X_0}2^{L-1}\sum_{r\text{ odd}\bmod2^L}
+ \left(\sum_{y\le B,\,y\equiv r\pmod{2^L}}\nu_X(y)\right)^2<\infty,
+ \qquad L=\lfloor\log X\rfloor.
+\]
+A promising intermediate objective is to prove this for the local, polynomial-size first-passage sampling window using long parity cylinders, then strengthen the first-passage stabilization from total variation to the projected $L^2$ norm in \eqref{eq:transfer}. The latter is the central missing step.
+\end{problem}
+
+Even a solution to this problem supplies only the early-return component of $J_X$. To prove $J_X=O(X^{1-\delta})$ one must also control returns at times $t>L$ and orbits that never first pass below $B$. Therefore none of the statements in this note proves a universal Collatz height or stopping-time bound.
+\end{document}

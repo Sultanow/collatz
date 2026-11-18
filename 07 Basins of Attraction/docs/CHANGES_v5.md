@@ -252,3 +252,14 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - docs/research/return_excess/: both notes, their programs, an independent check showing that the
   entrance escape excess is parity (odd states), not 2-adic bias; STATUS.md.
 - 73 pages.
+
+## v4e (early returns after first passage)
+- Remark 7, new paragraph "Early returns": besides uniform starts below X_1, the bound O(X^{-beta})
+  for reaching Y within floor(log X) steps also holds after an actual first passage from one source
+  shell (c = 1, beta = 1/200, odd starts uniform in (X_1, 2X_1]): valuation words give residue classes,
+  entrance points form progressions with difference 2*3^k, Chernoff for the rest. The logarithmic
+  entrance law is the Cesaro mean over all source shells; the transfer is open. Collision energy
+  Q = m sum_r q(r)^2 on the odd classes mod 2^{floor(log X)}: early returns O(sqrt(Q) X^{1-beta/2} log X);
+  total variation does not bound Q (1 + m eps^2). Experiments: Q within 2 % of 1.
+- docs/research/entrance/: both notes, their programs, independent exhaustive check, STATUS.md.
+- 74 pages.

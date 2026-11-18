@@ -1,0 +1,277 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Syr}{\operatorname{Syr}}
+\newcommand{\Pass}{\operatorname{Pass}}
+\newcommand{\odd}{\operatorname{odd}}
+\newcommand{\Psh}{\mathbb P_{\mathrm{sh}}}
+\newcommand{\Ph}{\mathbb P_{\mathrm{Haar}}}
+\title[Local first-passage progressions]{An unconditional local first-passage progression estimate\\for Syracuse entrances and short upward excursions}
+\author{Research working note}
+\date{18 November 2026 -- preliminary note, not a proof of the Collatz conjecture}
+\begin{document}
+\begin{abstract}
+We prove a local, unconditional power saving for the probability of an upward shortcut-Collatz excursion within $\lfloor\log X\rfloor$ steps \emph{after} a first Syracuse passage below $B=\lfloor X^{99/100}\rfloor$, when the original odd starting integer is sampled uniformly from $(B,2B]$.  Exact valuation-word cylinders map consecutive source points to long arithmetic progressions of entry states; for typical short first passages this implies $2$-adic residue balance.  Chernoff estimates handle the long and high-valuation first passages.  Explicit parameters give an $O(X^{-1/200})$ exceptional probability.  The result also applies to harmonic weights on this source shell.  Importantly, it is a \emph{local-shell} result, not a bound for the limiting logarithmic first-passage law in the source manuscript, and it does not control arbitrarily late returns.
+\end{abstract}
+\maketitle
+
+\section{Definitions and the elementary progression mechanism}
+For positive integers put
+\[
+ T(n)=\begin{cases}n/2 &2\mid n,\\(3n+1)/2&2\nmid n,\end{cases}
+ \qquad \Syr(n)=\frac{3n+1}{2^{\nu_2(3n+1)}}\quad(n\text{ odd}).
+\]
+Fix $X>1$, $0<\beta<1/2$, and abbreviate
+\[
+ b=1-2\beta,\qquad B=\lfloor X^b\rfloor,\quad Y=X^{1-\beta},\quad
+ L=\lfloor\log X\rfloor,\quad m=2^{L-1}.
+\]
+Our \emph{local shell} is $\mathcal I_B=(B,2B]\cap(2\N+1)$, with $R=\#\mathcal I_B=B/2+O(1)$, equipped with normalized uniform counting measure $\Psh$.  Put
+\[
+ \tau_B(n)=\inf\{k\ge1:\Syr^k(n)\le B\},\qquad
+ \Pass_B(n)=\Syr^{\tau_B(n)}(n)
+\]
+when $\tau_B(n)<\infty$.  The full limiting entrance law obtained from starts tending to infinity is \emph{not} the same as this local law.
+
+\begin{lemma}[Valuation cylinder and interval progression]\label{lem:progression}
+Let $\mathbf a=(a_1,\ldots,a_k)$ be a positive-integer valuation word and $A=a_1+\cdots+a_k$.  Among odd positive integers, those whose first $k$ Syracuse valuations equal $\mathbf a$ form exactly one residue class modulo $2^{A+1}$.  On that class, consecutive inputs $n=n_0+2^{A+1}j$ have
+\[
+ \Syr^i(n)=\Syr^i(n_0)+2\,3^i\,2^{A-A_i}j\quad(0\le i\le k),
+ \qquad A_i=\sum_{\ell\le i}a_\ell,
+\]
+with $A_0=0$ (and for $i=0$ the displayed increment is $2^{A+1}j$).  In particular, the entry outputs $\Syr^k(n)$ form an arithmetic progression of step $2\cdot3^k$.  The additional restrictions
+\[
+ n\in\mathcal I_B,\qquad \Syr^i(n)>B\ (0\le i<k),\qquad
+ \Syr^k(n)\le B
+\]
+select a \emph{consecutive interval} of indices $j$.  Consequently, for any odd residue $r\bmod2^L$ and any such valuation word $\mathbf a$,
+\[
+ \left|\#\{\text{admissible inputs giving output }r\}-\frac{N_{\mathbf a}}m\right|\le1,
+\]
+where $N_{\mathbf a}$ is the total number of admissible inputs on that cylinder.
+\end{lemma}
+\begin{proof}
+The Syracuse valuation coding is bijective between words with total valuation $A$ and their compatible odd residue modulo $2^{A+1}$; this follows inductively by imposing $\nu_2(3\Syr^{i-1}(n)+1)=a_i$. On a fixed word, each iterate is an affine function of $n$ with positive slope $3^i/2^{A_i}$.  Translating $n$ by $2^{A+1}$ therefore translates the $i$-th iterate by $3^i2^{A+1-A_i}$, yielding the formula above.  Every first-passage inequality is a half-line in $j$, so their intersection with the input interval is consecutive.  As $3^k$ is invertible modulo $m=2^{L-1}$, the final outputs $y_0+2\cdot3^kj$ run through all odd residues modulo $2^L$ once every $m$ consecutive $j$'s.  Each count differs from $N_{\mathbf a}/m$ by less than one.
+\end{proof}
+\begin{lemma}[Uniform residue balance for truncated passage]\label{lem:balance}
+Fix positive integers $H,A_0$.  Define $G$ as the starts $n\in\mathcal I_B$ satisfying $\tau_B(n)\le H$ and $\sum_{i\le\tau_B(n)}\nu_2(3\Syr^{i-1}(n)+1)\le A_0$.  Let $q_G(r)=R^{-1}\#\{n\in G:\Pass_B(n)\equiv r\pmod{2^L}\}$, $a_G=\Psh(G)$. Then
+\begin{equation}\label{eq:residue}
+ \boxed{\left|q_G(r)-\frac{a_G}{m}\right|\le \frac{2^{A_0}}R\quad (r\text{ odd}).}
+\end{equation}
+In particular, for any set $D$ of odd residues modulo $2^L$,
+\begin{equation}\label{eq:dangerous}
+ \Psh\{n\in G:\Pass_B(n)\bmod2^L\in D\}
+ \le\frac{|D|}{m}a_G+\frac{|D|2^{A_0}}R.
+\end{equation}
+Moreover $Q_G:=m\sum_{r\text{ odd}}q_G(r)^2$ satisfies
+\begin{equation}\label{eq:goodQ}
+ 0\le Q_G-a_G^2\le\left(\frac{m2^{A_0}}R\right)^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+At total valuation $A$, the number of positive integer words of arbitrary length with sum $A$ equals $2^{A-1}$.  Thus there are at most $\sum_{A=1}^{A_0}2^{A-1}<2^{A_0}$ words in $G$. Apply Lemma~\ref{lem:progression} to each word and sum the discrepancies.  For \eqref{eq:goodQ}, write $q_G(r)=a_G/m+d_r$ with $\sum_r d_r=0$, and observe $m\sum_rq_G(r)^2-a_G^2=m\sum_rd_r^2\le m^2(2^{A_0}/R)^2$.
+\end{proof}
+
+\section{Controlling discarded valuation words}
+Under normalized Haar measure on odd $2$-adic integers, successive Syracuse valuations $V_i$ are independent with
+\[ \Ph(V_i=a)=2^{-a},\quad a\ge1,\qquad A_H=V_1+\cdots+V_H.
+\]
+For $0<s<1$ the geometric moment formula is
+\[ \mathbb E 2^{sV_1}=\frac{2^s}{2-2^s},\qquad
+\mathbb E 2^{-sV_1}=\frac{2^{-s}}{2-2^{-s}}.\]
+We will use $s=1/2$ and the constants
+\[
+ \rho_+=\sqrt2+1,\qquad \rho_-=(2\sqrt2-1)^{-1},\qquad
+ \lambda_-=-\log(\sqrt3\rho_-)=0.054149958\ldots>0.
+\]
+
+\begin{lemma}[Finite-shell and Haar comparison]\label{lem:haar}
+For any integer $K\ge H$ and each event $E$ of the form $\{A_H\le K\}$ or its complement,
+\[
+ \left|\Psh(E)-\Ph(E)\right|\ll \frac{2^K}{B}.
+\]
+Consequently, if $H=\lfloor\varepsilon\log X\rfloor$, $A_0=\lfloor\gamma\log_2 X\rfloor$ and $\varepsilon\log3<\gamma$, then
+\begin{align}
+ \Psh(A_H>A_0)&\ll X^{-\gamma/2+\varepsilon\log\rho_+}+X^{\gamma-b},\label{eq:largeA}\\
+ \Psh\left(A_H\le H\log_2 3+2\right)&\ll X^{-\varepsilon\lambda_-}+X^{\gamma-b}.\label{eq:smallA}
+\end{align}
+\end{lemma}
+\begin{proof}
+Every exact word $(a_1,\ldots,a_H)$ with total valuation at most $K$ corresponds to an odd $2$-adic cylinder of modulus $2^{A_H+1}$, hence the event $\{A_H\le K\}$ is a union of odd residue classes modulo $2^{K+1}$.  Any such set has discrepancy $O(2^K/R)=O(2^K/B)$ between normalized uniform sampling on $\mathcal I_B$ and normalized $2$-adic Haar measure.  Complements have the same bound.  Chernoff's inequality gives
+\[
+ \Ph(A_H>A_0)\le2^{-A_0/2}\rho_+^H,
+ \qquad \Ph(A_H\le H\log_2 3+2)
+ \le2^{(H\log_2 3+2)/2}\rho_-^H=2e^{-\lambda_-H}.
+\]
+For the second event take $K=\lfloor H\log_2 3+2\rfloor$, which is at most $A_0$ for large $X$ under the parameter hypothesis.  Floor and ceiling effects are absorbed in constants.
+\end{proof}
+
+\begin{lemma}[Long passages require atypically few divisions]\label{lem:late}
+For $n\in\mathcal I_B$, if $\tau_B(n)>H$ then
+\begin{equation}\label{eq:lowtail}
+ A_H(n)\le H\log_2 3+2
+\end{equation}
+for sufficiently large $X$ and $H=O(\log X)$.
+\end{lemma}
+\begin{proof}
+All $\Syr^j(n)>B$ for $0\le j\le H$; consequently
+\[
+ \Syr^H(n)=n\,\frac{3^H}{2^{A_H}}\prod_{j=0}^{H-1}
+ \left(1+\frac1{3\Syr^j(n)}\right)
+ \le 2B\frac{3^H}{2^{A_H}}\exp\!\left(\frac H{3B}\right).
+\]
+The left-hand side exceeds $B$.  Taking base-two logarithms gives
+$A_H<H\log_2 3+1+H/(3B\log2)\le H\log_2 3+2$ for large $X$.
+\end{proof}
+
+\section{A local post-entrance power saving}
+\begin{theorem}[Local first-passage short-excursion estimate]\label{thm:local}
+Let $0<\beta< (1-\log2)/2$, let $b=1-2\beta$, and choose constants $\gamma,\varepsilon>0$ such that
+\[
+ \gamma<b-\log2,\qquad \varepsilon\log3<\gamma,
+ \qquad \gamma/2>\varepsilon\log(\sqrt2+1).
+\]
+Draw $n$ uniformly from $\mathcal I_B$.  Define $\Pass_B(n)$ only when $\tau_B(n)<\infty$.  Then, with $H=\lfloor\varepsilon\log X\rfloor$,
+\begin{align}
+ &\Psh\Bigl(\tau_B(n)<\infty,\ 
+       \max_{1\le t\le L}T^t(\Pass_B(n))>Y\Bigr)\label{eq:local}\nonumber\\
+ &\qquad\ll X^{-\beta}+X^{-(b-\log2-\gamma)}
+     +X^{-(\gamma/2-\varepsilon\log\rho_+)}
+     +X^{-\varepsilon\lambda_-}.
+\end{align}
+The same bound, up to a factor of $2$, holds when the input is sampled with harmonic weight proportional to $1/n$ on $\mathcal I_B$.
+\end{theorem}
+\begin{proof}
+For odd $y$ let $b_0,\ldots,b_{L-1}$ denote the shortcut parities under $T$ and define $Z_t(y)=3^{\sum_{j<t}b_j}/2^t$.  The odd residues modulo $2^L$ are in bijection with binary parity words beginning with $b_0=1$.  Under the uniform law on these residues, $(Z_t)_{1\le t\le L}$ is a nonnegative martingale with $Z_1=3/2$.  Also $T^t(y)=yZ_t(y)+E_t(y)$ with $0\le E_t(y)\le(3/2)^t-1$.  Since $\log(3/2)<1-\beta$, the additive error is smaller than $Y/2$ for $t\le L$ and large $X$. Thus for $y\le B$, an excursion $T^t(y)>Y$ implies $Z_t(y)>X^\beta/2$.  By Doob's inequality the set $D_X$ of dangerous odd residues has
+\begin{equation}\label{eq:doob}
+ \frac{|D_X|}{m}\le3X^{-\beta}.
+\end{equation}
+Let $G$ be the truncated, bounded-total-valuation first-passage set of Lemma~\ref{lem:balance}.  That lemma and \eqref{eq:doob} give
+\[
+ \Psh\{n\in G:\Pass_B(n)\bmod2^L\in D_X\}
+ \le3X^{-\beta}+O\left(\frac{m2^{A_0}}B\right)
+ \ll X^{-\beta}+X^{-(b-\log2-\gamma)}.
+\]
+Every remaining input either satisfies $A_H>A_0$ or $\tau_B(n)>H$.  Indeed, a passage by time $H$ with total valuation exceeding $A_0$ also has $A_H>A_0$.  The first exceptional event is bounded by \eqref{eq:largeA}.  By Lemma~\ref{lem:late} and \eqref{eq:smallA}, the second is $\ll X^{-\varepsilon\lambda_-}+X^{\gamma-b}$.  The $X^{\gamma-b}$ terms are absorbed by $X^{-(b-\log2-\gamma)}$.  This establishes \eqref{eq:local}.  In $(B,2B]$ the ratio between the maximum and minimum harmonic weight is at most $2$, so harmonic sampling changes any event probability by at most a factor of $2$.
+\end{proof}
+
+\begin{corollary}[Explicit power saving at the paper's parameters]\label{cor:concrete}
+Set $\beta=1/200$, $\gamma=1/4$ and $\varepsilon=1/10$. Then
+\[
+ \boxed{\Psh\!\left(\tau_B<\infty,\ \max_{1\le t\le\lfloor\log X\rfloor}
+ T^t(\Pass_B(n))>X^{199/200}\right)=O(X^{-1/200}).}
+\]
+Consequently the expected weighted $W_X=(X^{199/200},X]$ occupation during the first $L$ shortcut steps after passage is
+\[
+ \boxed{\mathbb E_{\mathrm{sh}}\sum_{t=1}^L T^t(\Pass_B(n))\mathbf1_{W_X}(T^t(\Pass_B(n)))
+ =O\!\left(X^{199/200}\log X\right),}
+\]
+where the sum is set to zero when no first passage exists.  These estimates remain true under harmonic weighting on the shell.
+\end{corollary}
+\begin{proof}
+Here $b=0.99$, and the positive exponents on the right of \eqref{eq:local} are
+\[
+\begin{aligned}
+  \beta &=0.005, & b-\log2-\gamma&=0.0468528\ldots,\\
+  \gamma/2-\varepsilon\log\rho_+&=0.0368626\ldots,
+  &\varepsilon\lambda_-&=0.00541499\ldots.
+\end{aligned}
+\]
+Thus the smallest exponent is $\beta=0.005$.  On the excursion event each term of the restricted window sum is at most $X$, and there are at most $L$ terms.
+\end{proof}
+
+
+\section{The exact source-scale obstruction and a renewal identity}
+\begin{proposition}[Dyadic Ces\`aro representation of the limiting law]\label{prop:cesaro}
+For fixed $B$, let $D$ be any set of odd integers not exceeding $B$, and assume that its logarithmic first-passage mass $\nu_B(D)$ exists in the sense of the source manuscript.  Write $\mathcal I_{j,B}=(2^jB,2^{j+1}B]\cap(2\N+1)$ and set
+\[
+ p_{j,B}(D)=\frac{\displaystyle\sum_{n\in\mathcal I_{j,B}}n^{-1}\mathbf1_{\{\tau_B(n)<\infty,\ \Pass_B(n)\in D\}}}
+ {\displaystyle\sum_{n\in\mathcal I_{j,B}}n^{-1}}.
+\]
+Then the following identity is exact in the limiting sense:
+\begin{equation}\label{eq:cesaro}
+ \boxed{\nu_B(D)=\lim_{J\to\infty}\frac1J\sum_{j=0}^{J-1}p_{j,B}(D).}
+\end{equation}
+In particular, controlling only the initial shell $j=0$, or any fixed number of source shells, does not bound $\nu_B(D)$.
+\end{proposition}
+\begin{proof}
+For any bounded $F$ on odd positive integers, the decomposition $w=2^in$ with $n$ odd yields
+\[
+ \sum_{w\le N}\frac{F(w^{\flat})}{w}
+ =\sum_{\substack{n\le N\\n\ \mathrm{odd}}}\frac{F(n)}n
+ \sum_{0\le i\le\lfloor\log_2(N/n)\rfloor}2^{-i}
+ =2\sum_{\substack{n\le N\\n\ \mathrm{odd}}}\frac{F(n)}n+O(1).
+\]
+Indeed the discarded tail is at most $2n/N$ for each $n$, resulting in an $O(1)$ total error.  Apply this to the first-passage indicator defining $\nu_B(D)$, and choose $N=2^JB$. The harmonic mass of each odd dyadic shell equals $(\log2)/2+O((2^jB)^{-1})$, with summable errors.  The finitely many odd integers $n\le B$ have a fixed total harmonic mass, which disappears after division by $\log N$.  Thus the logarithmic average is the Ces\`aro mean of the shell probabilities, proving \eqref{eq:cesaro}.
+\end{proof}
+
+\begin{proposition}[First-passage renewal across one threshold]\label{prop:renewal}
+Assume that the logarithmic first-passage laws $\nu_B$ and $\nu_{2B}$ exist. Then, for any set $D\subseteq[1,B]\cap(2\N+1)$,
+\begin{equation}\label{eq:renewal}
+ \boxed{\nu_B(D)=\nu_{2B}(D)+
+ \sum_{\substack{B<z\le2B\\z\ \mathrm{odd}}}\nu_{2B}(z)
+ \mathbf1_{\{\tau_B(z)<\infty,\ \Pass_B(z)\in D\}}.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Any orbit that first enters $[1,B]$ necessarily first enters $[1,2B]$.  If the latter entrance already belongs to $[1,B]$, the two entrance values agree; otherwise, the first entry $z$ is in $(B,2B]$ and the subsequent deterministic evolution to $[1,B]$ gives the second term.  The two cases partition the event pointwise. Taking the logarithmic means gives the identity because, for fixed $B$, it contains only finitely many entry states.
+\end{proof}
+\begin{corollary}[A concrete sufficient condition for transfer]\label{cor:transfer}
+Let $D_X$ be the dangerous odd-residue set of \eqref{eq:doob}, and interpret $D_X$ as a subset of odd positive integers by reduction modulo $2^L$. Suppose for some constants $K>0$ and $\delta>0$ that
+\[
+  \nu_{2B}(D_X\cap[1,B])\le KX^{-\delta},
+ \qquad \sup_{\substack{B<z\le2B\\z\ \mathrm{odd}}} B\,\nu_{2B}(z)\le K.
+\]
+Then $\nu_B(D_X\cap[1,B])\ll K(X^{-\delta}+X^{-\beta})$.
+\end{corollary}
+\begin{proof}
+In the renewal identity \eqref{eq:renewal}, the first term is $\le KX^{-\delta}$.  In the second term, each input $z$ has weight at most $K/B$, while Theorem~\ref{thm:local} bounds the number of relevant odd $z\in(B,2B]$ by $O(BX^{-\beta})$.  Summing yields $O(KX^{-\beta})$.
+\end{proof}
+\begin{remark}
+The pointwise incoming-weight hypothesis is a \emph{strong, unproved sufficient condition}, not a prediction from existing potential bounds.  One can replace it with a weaker estimate for incoming mass on the particular pullback of $D_X$; the difficulty remains to prove this for the actual large-source first-passage law.
+\end{remark}
+
+\begin{remark}
+Equation \eqref{eq:renewal} exposes two tasks absent from the local-shell estimate: the \emph{direct overshoot} $\nu_{2B}(D)$, and the generally nonuniform incoming weights $\nu_{2B}(z)$ on $(B,2B]$.  Our local theorem controls the second term only when these incoming weights are suitably regular (for example, uniformly bounded by $C/B$).  Nothing proved here bounds the direct overshoot.  This is a more informative obstruction than assuming that the incoming states are automatically uniform.
+\end{remark}
+
+\section{What has, and has not, been established}
+Let $\nu_X$ be the logarithmic limiting first-passage law from the source manuscript, obtained from starts tending to infinity before $X$ is sent to infinity.  The above proof begins with a nearly uniform source shell $(B,2B]$, and it does not say that the \emph{last pre-entry state} of a much longer orbit is so distributed.  In particular, it does not prove $Q_X=O(1)$ for $\nu_X$, does not bound the late return excess, and does not imply a polynomial bound on all Collatz orbits.
+
+The conditional collision criterion of the preceding research note is stronger than needed to control short visits.  Here we directly bound the mass of the \emph{specific dangerous class set} $D_X$; the discarded first-passage mass can have insufficient $L^2$ regularity while still being $O(X^{-1/200})$ in total mass.  The only result about the local collision norm $Q_G$ is \eqref{eq:goodQ}; the omitted exceptional part is not controlled in that norm.
+
+\begin{problem}[Transfer to the true entrance law]
+Prove, for the actual logarithmic entrance law $\nu_X$ and the exact dangerous set $D_X$ from \eqref{eq:doob}, a one-set estimate
+\[
+  \boxed{\nu_X\{y:y\bmod2^L\in D_X\}=O(X^{-\delta})}
+ \quad\text{for some }\delta>0.
+\]
+Unlike a uniform $L^2$ Fourier bound, this requests mixing only against a \emph{specific set of parity cylinders}.  A potential approach is to compare entrance laws from successive multiplicative source shells in this one-set norm, and to sum the errors; elementary progression balance gives the local ingredient but not the required inter-shell transfer or the long-time return estimate.
+\end{problem}
+
+\section{Finite data: diagnostic only}
+An exhaustive C++ check for all odd starts in $(B,2B]$ for three finite values of $X$ gave the following.  Here $\widehat Q$ is the exact collision energy of the \emph{normalized finite local-shell entrance histogram}, computed directly as $m\sum_r(c_r/R)^2$ from exhaustive shell counts; it is not $Q_X$ for the limiting law.
+\[
+\begin{array}{c|r|r|r|r}
+X & B & \Psh(\tau_B\le5) & \widehat Q & \Psh(\text{early excursion})\\\hline
+2^{20} & 912{,}838 &0.75430&1.01799&0.54985\\
+2^{22} &3{,}601{,}084&0.75431&1.01299&0.55244\\
+2^{24} &14{,}206{,}029&0.75431&1.00591&0.55225
+\end{array}
+\]
+The asymptotic exponent $1/200$ is extremely small, so no useful finite-$X$ numerical decay is expected at these scales.  The source code records the exact sampling and counting convention.  The local theorem is proved independently of these measurements.
+
+\noindent\textbf{References and positioning.} The parity-word bijection and finite cylinder balance are classical (Terras--Everett; see also Lagarias' survey); the source manuscript itself gives a related finite-horizon balance lemma.  Tao's work on almost-all Collatz orbits treats a different, global first-passage stabilization problem involving $3$-adic Fourier analysis.  The local statement above repackages elementary cylinder and Chernoff estimates into a targeted bound; no priority or novelty claim is made without external review.
+\end{document}
