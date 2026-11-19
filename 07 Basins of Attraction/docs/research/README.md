@@ -20,6 +20,7 @@ draft after it (Remark 12).
 | [`return_excess/`](return_excess) | window excess J_X of the return term; single-scale ladder; conditional polynomial heights; finite-horizon escapes | Remark 7, second part (draft after version 3) |
 | [`entrance/`](entrance) | early returns: local first-passage progression theorem, Cesaro form of the entrance law, collision criterion | Remark 7, paragraph "Early returns" (draft after version 3) |
 | [`transfer/`](transfer) | threshold transfer of the entrance law; residue-by-residue transfer refuted (incl. the refuted note); no L^2 density of the Syracuse profile | Remark 7 (one sentence), Remark 12(d) (draft after version 3) |
+| [`overlap/`](overlap) | 3-adic overlap principle (obstruction); domination of all returns by the potential at the excursion starts; pathwise and Run K checks | Proposition 15, Remark 7 (end), Run K paragraph (draft after version 3) |
 
 Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
 statements of these notes stay here.
@@ -39,7 +40,9 @@ unless the table above or the paper says so; do not `\input` them into `main.tex
 - `T_X = o(X)` for the clipping tail (Problem 3; equivalent to Proposition 13's defect condition;
   implied by uniform integrability of the stopped potential of the odd targets, Proposition 14;
   needed in averaged form and not implied by the structural properties of `h`, Remark 12).
-- `R_X = o(X)` for the return term (Corollary 7).
+- `R_X = o(X)` for the return term (Corollary 7); only its window part `J_X` matters (Remark 7), and
+  `J_X = o(X)` follows from (UI) with the full potential `h` in place of `h^downarrow` (Proposition 15),
+  which together with Proposition 14 gives the upper bound.
 - The audit of the GGM parameter uniformities used in Lemmas 2–4 and Theorem 3.
 
 Reference outputs here are computational checks, not proofs of asymptotic statements.

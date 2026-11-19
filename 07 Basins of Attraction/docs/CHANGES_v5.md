@@ -279,3 +279,22 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - docs/research/transfer/: notes V2, V3 and the refuted transfer-operator note, scripts and outputs,
   independent Monte Carlo of H_2(n), STATUS.md with the three errors of the refuted note.
 - 74 pages.
+
+## v4h (returns dominated by the potential)
+- Proposition 15 (new, after Proposition 14): J_X/X <= 2b sum_{u in G_X} h(u) + 2(1+b) g_X
+  + (8/X) sum_{a in C_{X,b}} a h(a). G_X = odd excursion starts u in ((2X_1-c)/3, X_1] whose excursion
+  above X_1 climbs above (Y-|c|)/3, |G_X| <= 6 X^{-beta} X_1 (Doob and Chernoff on u mod 2^{T_0});
+  g_X -> 0 = upper log density of starts that never come below X_1. Consequence: (UI) with h in
+  place of h^downarrow gives J_X = o(X), and with Proposition 14 the upper bound (eq. upper), under the
+  hypotheses of Proposition 12(c). The entrance law of the returns is not used; early and late
+  returns alike. Paragraph after the proof: why h and not h^downarrow; Hoelder form for 1 < p < 2.
+- Remark 7, end: "Later returns are not covered at all" replaced by a pointer to Proposition 15.
+- Abstract, introduction, Outlook (upper bound), Appendix D introduction, contribution table: the
+  missing upper bound reduces to uniform integrability of the potential of the odd targets (both tails).
+- Run K paragraph: the potential does not prefer the climbing excursion starts (ratio 0.95-1.04, one
+  exception 1.15); L^{3/2} means of a h(a) on odd targets 10.1-14.7 for 2^14 <= X <= 2^22.
+- docs/research/overlap/: the overlap/transfer diagram, STATUS.md, pathwise check of the counting
+  (four maps, no violation), Run K checks.
+- Proposition 15 independently reviewed (no error in the inequality or the consequence); the review's
+  wording fixes and conditionality remarks are included (list in docs/research/overlap/STATUS.md).
+- 77 pages.
