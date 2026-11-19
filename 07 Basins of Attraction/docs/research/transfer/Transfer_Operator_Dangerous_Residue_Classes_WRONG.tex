@@ -1,0 +1,289 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{bm}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{A Transfer Operator for Dangerous $2$-Adic Residue Classes\\
+in the Syracuse First-Passage Problem}
+\author{Draft Research Note}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\odd}{\mathrm{odd}}
+\newcommand{\Syr}{\operatorname{Syr}}
+\newcommand{\Pass}{\operatorname{Pass}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\Res}{\mathcal R_L}
+\newcommand{\DX}{D_X}
+\newcommand{\KB}{K_B}
+\newcommand{\TB}{\mathcal T_B}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We formulate a local transfer-operator framework for the Syracuse first-passage problem at adjacent thresholds $2B$ and $B$. The goal is to control the transport of mass into the dangerous $2$-adic residue classes modulo $2^L$ that permit short-time escape above the height $Y=X^{1-\beta}$. The main outcome is a precise operator-theoretic reduction: it suffices to establish a uniform smallness bound for the local first-passage kernel on the dangerous residue set. We also isolate a good/bad code decomposition that identifies the exact remaining obstruction.
+\end{abstract}
+
+\section{Introduction}
+
+Let
+\[
+T(n)=
+\begin{cases}
+n/2, & n \text{ even},\\
+(3n+1)/2, & n \text{ odd},
+\end{cases}
+\]
+be the shortcut Collatz map, and let $\Syr$ denote the Syracuse map on odd integers,
+\[
+\Syr(m)=\frac{3m+1}{2^{\nu_2(3m+1)}}.
+\]
+
+Fix a large parameter $X$ and a constant $\beta\in(0,1/2)$; in the intended application we take
+\[
+\beta=\frac1{200}.
+\]
+Set
+\[
+B=X^{1-2\beta},\qquad Y=X^{1-\beta},\qquad L=\lfloor \log X\rfloor.
+\]
+
+The program developed in the previous notes reduces polynomial height bounds for Syracuse orbits to quantitative control of the excess return mass into the window $(X^{1-\beta},X]$. The next local step is to understand how first-passage mass is transported between the adjacent thresholds $2B$ and $B$, with special attention to the dangerous residue classes modulo $2^L$.
+
+\section{Dangerous residue classes}
+
+Let $\Res$ denote the set of odd residue classes modulo $2^L$:
+\[
+\Res:=\{r \in \Z/2^L\Z : r \equiv 1 \pmod 2\}.
+\]
+
+\begin{definition}[Dangerous classes]
+A residue class $r\in\Res$ is called \emph{dangerous} if there exists an odd integer $y\leq B$ with
+\[
+y\equiv r \pmod{2^L}
+\]
+such that
+\[
+\max_{1\le t\le L} T^t(y)>Y.
+\]
+We write $\DX\subseteq \Res$ for the set of dangerous residue classes.
+\end{definition}
+
+The martingale argument from the short-escape analysis suggests that $\DX$ is sparse inside $\Res$; heuristically one expects
+\[
+\frac{|\DX|}{|\Res|}\ll X^{-\beta}.
+\]
+In the present note we do not need the sharp constant, only the fact that dangerous classes are rare.
+
+\section{Local first-passage kernel}
+
+For an odd integer $z>B$, let $\tau_B(z)$ be the first time that the Syracuse orbit of $z$ falls to or below $B$, and let
+\[
+\Pass_B(z)
+\]
+be the corresponding first odd value $\le B$ reached by the orbit, whenever $\tau_B(z)<\infty$.
+
+We now define the transfer kernel on residue classes modulo $2^L$.
+
+\begin{definition}[Local first-passage kernel]
+For $r,s\in \Res$, define
+\[
+\KB(r,s)
+:=
+\mathbb{P}\!\left(
+\Pass_B(z)\equiv r \!\!\!\!\pmod{2^L}
+\;\middle|\;
+z\in(B,2B],\ z\equiv s\!\!\!\!\pmod{2^L},\ \tau_B(z)<\infty
+\right),
+\]
+where $z$ is sampled according to a fixed local reference measure on odd integers in $(B,2B]$ (for instance the uniform odd measure or harmonic odd measure).
+\end{definition}
+
+Thus $\KB(\cdot,s)$ is a probability measure on $\Res$ whenever the conditioning event has positive mass.
+
+\begin{definition}[Transfer operator]
+For any finite measure $\mu$ on $\Res$, define
+\[
+(\TB\mu)(r):=\sum_{s\in\Res}\KB(r,s)\mu(s).
+\]
+Equivalently, for any subset $A\subseteq \Res$,
+\[
+(\TB\mu)(A)=\sum_{s\in\Res}\KB(A,s)\mu(s),
+\qquad
+\KB(A,s):=\sum_{r\in A}\KB(r,s).
+\]
+\end{definition}
+
+The quantity of central interest is
+\[
+\KB(\DX,s),
+\]
+the probability that a local first passage starting from residue class $s$ lands in a dangerous class.
+
+\section{Why the operator matters}
+
+Let $q_B$ denote the global first-passage entrance distribution on residue classes modulo $2^L$ at threshold $B$, and let $q_{2B}^{\mathrm{mid}}$ denote the mass of the threshold-$2B$ entrance law restricted to the intermediate interval $(B,2B]$, projected to residues mod $2^L$.
+
+The heuristic recursion then takes the form
+\[
+q_B \approx q_{2B} + \TB q_{2B}^{\mathrm{mid}}.
+\]
+Hence
+\[
+q_B(\DX)\le q_{2B}(\DX)+(\TB q_{2B}^{\mathrm{mid}})(\DX).
+\]
+Consequently, any uniform upper bound for $\KB(\DX,s)$ translates into a transfer inequality for dangerous mass across one dyadic scale.
+
+\section{Good and bad passage codes}
+
+We now encode the local first-passage trajectories by their Syracuse valuation data.
+
+Suppose a first passage from $z\in(B,2B]$ to $\Pass_B(z)\le B$ takes $k$ odd Syracuse steps, with valuation sequence
+\[
+(a_1,\dots,a_k),\qquad a_j:=\nu_2(3m_j+1),
+\]
+where $m_j$ are the intermediate odd states.
+
+Let
+\[
+A:=a_1+\cdots+a_k.
+\]
+
+Fix parameters $H\ge1$ and $A_0\ge1$ to be chosen later.
+
+\begin{definition}[Good and bad codes]
+A passage code $(a_1,\dots,a_k)$ is called \emph{good} if
+\[
+k\le H
+\qquad\text{and}\qquad
+A\le A_0.
+\]
+Otherwise it is called \emph{bad}.
+\end{definition}
+
+The good/bad decomposition is useful because good codes are structured enough to yield near-equidistribution modulo $2^L$, while bad codes are rare.
+
+\begin{lemma}[Arithmetic progression structure]
+Fix a valuation sequence $(a_1,\dots,a_k)$ with total valuation $A$. Then the set of odd starting values $z$ that realize this valuation sequence lies in a single residue class modulo $2^{A+1}$, and along that class the map
+\[
+z\mapsto \Pass_B(z)
+\]
+is affine with increment
+\[
+\Pass_B(z+2^{A+1})=\Pass_B(z)+2\cdot 3^k.
+\]
+In particular, as $z$ ranges over a sufficiently long interval in that residue class, the values $\Pass_B(z)$ are distributed nearly uniformly among the odd residue classes modulo $2^L$.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+This is the standard parity/valuation coding for Syracuse trajectories. The valuation sequence uniquely fixes the congruence constraints on $z$ modulo $2^{A+1}$. Iterating the affine relation induced by each odd Syracuse step yields the linear increment $2\cdot 3^k$ on the entrance values. Since $3^k$ is odd, the increment is invertible modulo $2^{L-1}$ on odd residue classes.
+\end{proof}
+
+\section{Target local transfer theorem}
+
+The following is the key local statement we want.
+
+\begin{theorem}[Uniform smallness of dangerous transfer]\label{thm:target}
+There exists $\delta>0$ such that for all sufficiently large $X$,
+\[
+\sup_{s\in\Res}\KB(\DX,s)\ll X^{-\beta}+X^{-\delta}.
+\]
+Equivalently,
+\[
+\sup_{s\in\Res}\sum_{r\in \DX}\KB(r,s)\ll X^{-\beta}+X^{-\delta}.
+\]
+\end{theorem}
+
+This theorem would provide a genuine local transfer gain across one dyadic step.
+
+\begin{corollary}[Operator form]
+Under Theorem~\ref{thm:target}, for every finite measure $\mu$ on $\Res$,
+\[
+(\TB\mu)(\DX)\ll (X^{-\beta}+X^{-\delta})\,\mu(\Res).
+\]
+In particular, if $\mu$ is a probability measure, then
+\[
+(\TB\mu)(\DX)\ll X^{-\beta}+X^{-\delta}.
+\]
+\end{corollary}
+
+\section{Proof strategy}
+
+We split the kernel into the contribution of good codes and bad codes:
+\[
+\KB=\KB^{\mathrm{good}}+\KB^{\mathrm{bad}}.
+\]
+
+\subsection*{Step 1: Good codes}
+For good codes, the progression lemma implies that entrance residues are nearly equidistributed modulo $2^L$. Since $\DX$ is sparse, one expects
+\[
+\KB^{\mathrm{good}}(\DX,s)\ll \frac{|\DX|}{|\Res|}+\varepsilon_{\mathrm{prog}}(X)
+\ll X^{-\beta}+\varepsilon_{\mathrm{prog}}(X),
+\]
+uniformly in $s$.
+
+\subsection*{Step 2: Bad codes}
+For bad codes, one aims to prove a large-deviation bound of the form
+\[
+\KB^{\mathrm{bad}}(\Res,s)\ll X^{-\delta}
+\]
+uniformly in $s$, by combining:
+\begin{itemize}[leftmargin=2em]
+\item a tail bound for the first-passage length $k$,
+\item a tail bound for the total valuation $A$,
+\item and a union bound over code families.
+\end{itemize}
+
+Combining the two steps gives Theorem~\ref{thm:target}.
+
+\section{The exact remaining obstruction}
+
+The good-code component is now largely structural. The difficult point is no longer to describe the residue transport, but to obtain a uniform large-deviation control for the bad-code sector that is strong enough to produce a power saving.
+
+Thus the next sharp subproblem is:
+
+\medskip
+\noindent
+\textbf{Open Problem.}
+Show that there exist parameters $H=H(X)$ and $A_0=A_0(X)$ with both at most logarithmic in $X$ such that
+\[
+\sup_{s\in\Res}\KB^{\mathrm{bad}}(\Res,s)\ll X^{-\delta}
+\]
+for some $\delta>0$.
+\medskip
+
+A positive solution would establish the transfer bound in Theorem~\ref{thm:target}, and would provide the desired local operator control on dangerous mass.
+
+\section{Conclusion}
+
+We have isolated a concrete transfer operator $\TB$ governing how first-passage mass moves from scale $2B$ to scale $B$ on odd residue classes modulo $2^L$. The core quantitative objective is the bound
+\[
+\sup_{s\in\Res}\KB(\DX,s)\ll X^{-\beta}+X^{-\delta},
+\]
+which would show that dangerous residue classes remain uniformly rare under one local passage step. This gives a clean bridge from local progression structure to the global recursive control of dangerous mass.
+
+\end{document}

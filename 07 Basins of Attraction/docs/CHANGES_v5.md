@@ -268,3 +268,14 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Remark 7, "Early returns": the progression identity Syr^k(n + 2^{A+1}) = Syr^k(n) + 2*3^k is displayed,
   derived from the affine form Syr^k(n) = 3^k 2^{-A} n + c F_k (Remark 4) on the residue class mod 2^{A+1}
   of a valuation word (proof of Lemma 3); it holds for every odd c. "Early returns" starts a new paragraph.
+
+## v4g (no residue-wise transfer; moments of order >= 2)
+- Remark 7, "Early returns": the transfer cannot be organised residue by residue mod 2^{floor(log X)};
+  the first passage does not factor through these residues, and for c = 1 the class -5*3^{-1} sends a
+  third of its members in (X_1, 2X_1] in one step to y = -1 mod 2^{L-2}, which climb above Y.
+- Remark 12(d): the Syracuse profile densities f_n satisfy H_p(n) >= 3^{p-1}/(2^p-1) H_p(n-1); the
+  limiting profile has no L^2 density, so H_p(n) -> infinity for p >= 2. With Theorem 3 and Jensen,
+  X^{-1} sum_{a <= X} (a h(a))^p -> infinity for every p >= 2; moment routes to (UI) need 1 < p < 2.
+- docs/research/transfer/: notes V2, V3 and the refuted transfer-operator note, scripts and outputs,
+  independent Monte Carlo of H_2(n), STATUS.md with the three errors of the refuted note.
+- 74 pages.

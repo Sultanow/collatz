@@ -1,0 +1,232 @@
+\documentclass[10pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}[theorem]{Problem}
+\newcommand{\Syr}{\operatorname{Syr}}
+\newcommand{\Pass}{\operatorname{Pass}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\one}{\mathbf1}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cI}{\mathcal I}
+\title[Regularity and an $L^2$ barrier]{Syracuse regularity and threshold transfer, version 3:\\ a sharp $L^2$ obstruction for the $3$-adic profile}
+\author{Research working note}
+\date{18 November 2026 --- preliminary, for independent verification}
+\begin{document}
+\begin{abstract}
+We revisit the attempt to control dangerous $2$-adic first-passage classes by $L^p$ regularity. There is a structural obstruction, independent of the Collatz conjecture: the canonical $3$-adic Syracuse offset law has no $L^2$ density relative to Haar measure. We prove this with a critical self-similar energy identity, and give an exponential lower bound for its finite-level $L^p$ moments for every $p>2$. Combined with known $L^1$ convergence of the finite profiles, the collision energy grows at least linearly with depth. This does \emph{not} disprove $L^2$ regularity for the distinct $2$-adic entrance law. For the latter, we prove a deterministic data-processing bound and a potential-dominated transfer criterion that avoids normalising by possibly small intermediate mass. Computational diagnostics carefully distinguish the two laws. The polynomial Collatz height bound remains open.
+\end{abstract}
+\maketitle
+
+\section{The two distributions must not be confused}
+Let $\Syr(n)=(3n+1)/2^{\nu_2(3n+1)}$ on positive odd integers. The earlier transfer notes consider a (hypothesised to exist) logarithmic first-passage law $\nu_b(y)$ for fixed threshold $b$, and its restriction $\mu_B=\nu_{2B}|_{\cI_B}$ to the odd shell $\cI_B=(B,2B]$, $R=|\cI_B|$. The genuine deterministic transfer is
+\[
+ (\cP_B\mu)(y)=\sum_{z\in\cI_B}\mu(z)\one_{\{\tau_B(z)<\infty,\ \Pass_B(z)=y\}},\quad y\le B\text{ odd}.
+\]
+The shell-uniform reference is $\lambda_B(z)=R^{-1}$, not the true law $\mu_B$. The preceding local progression theorem supplies, with $\beta=1/200$, $X\to\infty$, $B=\lfloor X^{1-2\beta}\rfloor$, $L=\lfloor\log X\rfloor$, a dangerous input subset $E_B\subset\cI_B$ such that
+\begin{equation}\label{eq:local}
+ \lambda_B(E_B)\le C_0X^{-\beta}.
+\end{equation}
+Here $E_B$ consists of the starts in the shell whose first passage to $[1,B]$ is followed by a shortcut-Collatz excursion above $X^{1-\beta}$ within $L$ steps. Equation~\eqref{eq:local} concerns the local uniform shell only. We take it as the previously established local lemma, rather than claiming a proof of the global first-passage estimate.
+
+A different object appears in Tao's $3$-adic mixing argument: let $A_j$ be independent variables with $\Pr(A_j=a)=2^{-a}$ for $a\ge1$, and put $S_j=A_1+\cdots+A_j$. The convergent $3$-adic series
+\begin{equation}\label{eq:V}
+ V=\sum_{j\ge1}3^{j-1}2^{-S_j}\in\Z_3
+\end{equation}
+induces the \emph{Syracuse offset profile} $\sigma=\operatorname{Law}(V)$. This $3$-adic profile is not the entrance law $\nu_b$ or its reduction modulo $2^L$.
+
+\section{The $3$-adic $L^2$ obstruction}
+Let $m_3$ be normalised Haar measure on $\Z_3$. For each $n\ge0$, let $f_n$ be the locally constant density on $\Z_3$ obtained by lifting the distribution of $V\bmod3^n$: on a residue class $r\bmod3^n$, $f_n=3^n\sigma(r+3^n\Z_3)$. Set
+\[
+ H_p(n)=\int_{\Z_3}f_n(x)^p\,dm_3(x),\qquad p\ge1.
+\]
+The series satisfies the self-similar distributional identity
+\begin{equation}\label{eq:ifs}
+ V\stackrel d=F_A(V'),\quad F_a(x)=2^{-a}(1+3x),\quad\Pr(A=a)=2^{-a},
+\end{equation}
+where $V'$ is an independent copy. Each $F_a$ is a bijection from $\Z_3$ onto a unit residue class modulo $3$, shrinking Haar measure by a factor $3$.
+
+\begin{proposition}[Critical $L^p$ energy coefficient]\label{prop:p}
+For all $n\ge1$ and $p\ge1$,
+\begin{equation}\label{eq:renyi}
+ H_p(n)\ge c_p H_p(n-1),\qquad c_p=\frac{3^{p-1}}{2^p-1}.
+\end{equation}
+For every $p>2$, $c_p>1$, and consequently $H_p(n)\ge c_p^n\to\infty$.
+\end{proposition}
+\begin{proof}
+Write $C_a=F_a(\Z_3)$. The density at depth $n$ is the sum of the nonnegative branch densities
+\[
+ f_n(x)=\sum_{a\ge1}g_{a,n}(x),\quad
+ g_{a,n}(x)=3\,2^{-a}\one_{C_a}(x) f_{n-1}(F_a^{-1}(x)).
+\]
+For $p\ge1$, $(\sum_a g_{a,n})^p\ge\sum_a g_{a,n}^p$. Since $m_3(F_a(U))=m_3(U)/3$,
+\[
+ \int g_{a,n}^p\,dm_3=3^{p-1}2^{-ap}H_p(n-1).
+\]
+Summing the geometric series proves~\eqref{eq:renyi}. The function $\log c_p=(p-1)\log3-\log(2^p-1)$ is strictly convex, equals $0$ at $p=2$, and has positive derivative there, so $c_p>1$ for $p>2$. Finally $H_p(0)=1$.
+\end{proof}
+
+\begin{theorem}[No $L^2$ density for the Syracuse offset law]\label{thm:noL2}
+The $3$-adic measure $\sigma$ defined by~\eqref{eq:V} does not admit a density in $L^2(\Z_3,m_3)$. Equivalently,
+\begin{equation}\label{eq:L2unbounded}
+ H_2(n)\longrightarrow\infty\qquad(n\to\infty).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Suppose to the contrary that $\sigma=f\,dm_3$ for a nonzero $f\in L^2(m_3)$. By~\eqref{eq:ifs}, $f=\sum_{a\ge1}g_a$ almost everywhere, where
+\[
+ g_a(x)=3\,2^{-a}\one_{C_a}(x)f(F_a^{-1}(x))\ge0.
+\]
+A change of variables gives $\sum_a\|g_a\|_2^2=3(\sum_a4^{-a})\|f\|_2^2=\|f\|_2^2$. Because the summands are nonnegative, the identity $f=\sum_a g_a$ would force all distinct branch-overlap integrals $\int g_ag_b\,dm_3$ to vanish.
+
+Choose $a=1$ and $b=1+2\cdot3^k$. The two maps have the same image $C_a=C_b$ because $b-a$ is even. For $x=F_a(t)$, the inverse image under $F_b$ is
+\[
+ F_b^{-1}(F_a(t))=R_k(t):=2^{2\cdot3^k}t+\frac{2^{2\cdot3^k}-1}{3}.
+\]
+The elementary lifting-the-exponent identity gives $2^{2\cdot3^k}\equiv1\pmod{3^{k+1}}$, so $R_k(t)\equiv t\pmod{3^k}$. Each $R_k$ preserves Haar measure. Approximating $f\in L^2$ by a function constant modulo $3^r$ proves $\|f\circ R_k-f\|_2\to0$. It follows that
+\[
+ \int g_ag_b\,dm_3
+ =3\cdot2^{-a-b}\int f(t)f(R_k(t))\,dm_3>0
+\]
+for all sufficiently large fixed $k$, a contradiction.
+
+If $\sup_nH_2(n)<\infty$, the finite-level densities $f_n$ form a bounded $L^2$ martingale and converge in $L^2$ to a density of $\sigma$, contradicting the first part. Hence the monotone sequence $H_2(n)$ diverges.
+\end{proof}
+
+\begin{proposition}[Linear divergence under $L^1$ profile convergence]\label{prop:linear}
+Assume the established fine-scale mixing / $L^1$ convergence of the finite Syracuse profiles $f_n$ (Tao, Proposition 1.14). Then some constant $c>0$ satisfies
+\begin{equation}\label{eq:linear}
+ H_2(n)\ge c n\quad\text{for all sufficiently large }n.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The finite-level collision probability $P_n=\Pr(V\equiv V'\bmod3^n)$ satisfies
+\[
+ P_n=\frac13 P_{n-1}+C_n,
+\]
+where $C_n\ge0$ is the collision contribution with different first geometric digits, since $\sum_a2^{-2a}=1/3$. Thus $H_2(n)-H_2(n-1)=3^n C_n$.
+
+The $L^1$ limit $f$ of $f_n$ is nonnegative and integrates to $1$. Choose $S=\{f>\epsilon\}$ with $m_3(S)>0$. For all sufficiently large $k$, $R_k$ from Theorem~\ref{thm:noL2} is close enough to the identity that $m_3(S\cap R_k^{-1}S)>0$ (continuity in $L^1$ of $\one_S$ under $R_k$). Fix such $k$ and set $a=1$, $b=1+2\cdot3^k$. The two ordered digit pairs $(a,b)$ and $(b,a)$ contribute
+\[
+ H_2(n)-H_2(n-1)\ge6\,2^{-a-b}\int f_{n-1}(t)f_{n-1}(R_k(t))\,dm_3(t).
+\]
+Because $f_n$ are conditional expectations of $f$ on the $3$-adic residue sigma-algebras, they converge almost everywhere to $f$; the same holds after composing with the measure-preserving $R_k$. Fatou's lemma yields a positive lower limit of the integral, at least $\epsilon^2m_3(S\cap R_k^{-1}S)$. The increments are therefore eventually bounded below by a positive constant, proving~\eqref{eq:linear}.
+\end{proof}
+
+\begin{remark}[Scope of the obstruction]
+Theorem~\ref{thm:noL2} is about the $3$-adic offset law $\sigma$. It does \emph{not} imply that the $2$-adic collision energy $Q_{\rm in}$ of the genuine first-passage entrance measure is unbounded: there is no demonstrated identification of those two distributions or their $L^2$ norms. In particular, $L^2$ on one space must not be transferred to the other without a theorem. The $p<2$ regime remains a natural regularity target; Proposition~\ref{prop:p} does not establish any such bound.
+\end{remark}
+
+\section{What deterministic threshold transfer really preserves}
+\begin{theorem}[Data processing for a partially defined first-passage map]\label{thm:dp}
+Let $U$ be a finite state space with reference probability $\lambda$, let $F:U\to V\cup\{\dagger\}$ be any deterministic map, with cemetery state $\dagger$ for non-passage, and let $\rho=F_*\lambda$. If $\mu\ll\lambda$ is nonnegative with density $f=d\mu/d\lambda$, then $F_*\mu\ll\rho$ with density $g$ satisfying, for every $p\ge1$,
+\begin{equation}\label{eq:dp}
+ \|g\|_{L^p(\rho)}\le\|f\|_{L^p(\lambda)}.
+\end{equation}
+If also $\rho\le C\sigma_0$ pointwise for a reference probability $\sigma_0$ on $V\cup\{\dagger\}$, then
+\begin{equation}\label{eq:change}
+ \left\|\frac{dF_*\mu}{d\sigma_0}\right\|_{L^p(\sigma_0)}
+ \le C^{1-1/p}\|f\|_{L^p(\lambda)}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For $\rho(v)>0$, $g(v)=\E_\lambda(f\mid F=v)$. Jensen gives $g(v)^p\le\E_\lambda(f^p\mid F=v)$, and summation proves~\eqref{eq:dp}. Since $dF_*\mu/d\sigma_0=g\,d\rho/d\sigma_0$, its $p$th power integral is $\int g^p(d\rho/d\sigma_0)^{p-1}d\rho$, bounded by $C^{p-1}\int g^p d\rho$.
+\end{proof}
+
+This is a genuine \emph{non-expansion}, but only relative to the \emph{transported reference} $\rho$. Replacing $\rho$ by the uniform target reference requires the separate domination $\rho\le C\sigma_0$; this is exactly the nontrivial smoothing step. In a chain of thresholds, the losses $\prod_j C_j^{1-1/p}$ accumulate. Data processing alone is not a source of new equidistribution.
+
+\begin{lemma}[One code preserves low $2$-adic input bits]\label{lem:bits}
+Fix a Syracuse valuation word of length $k$ and total valuation $A<L$. If two starting states $u,v$ follow that word and $u\equiv v\pmod{2^L}$, then their $k$th Syracuse iterates satisfy
+\[
+ \Syr^k(u)\equiv\Syr^k(v)\pmod{2^{L-A}}.
+\]
+Thus, inside one incoming residue class modulo $2^L$, the outputs of this fixed code occupy at most $2^A$ odd classes modulo $2^L$.
+\end{lemma}
+\begin{proof}
+On a fixed valuation word, $\Syr^k(z)=(3^kz+c)/2^A$ for a fixed integer $c$. Subtract the formulas and use $2^L\mid(u-v)$.
+\end{proof}
+
+\section{A potential-dominated transfer inequality without normalisation}
+For a fixed odd $z$, let $h(z)$ be the logarithmic density of its predecessor set, whose existence is established in the source manuscript (under its stated hypotheses). If the genuine first-passage laws exist, the event of first entrance at $z$ is contained in the event that the orbit ever visits $z$, so
+\begin{equation}\label{eq:domin}
+ 0\le\nu_{2B}(z)\le h(z)\qquad(z\in\cI_B).
+\end{equation}
+For $p>1$ write
+\[
+ \mathcal H_p(B)=\left(\frac1R\sum_{z\in\cI_B}(R h(z))^p\right)^{1/p}.
+\]
+\begin{theorem}[Potential-moment criterion for dangerous incoming mass]\label{thm:potential}
+Under~\eqref{eq:local} and~\eqref{eq:domin}, for every $p>1$,
+\begin{equation}\label{eq:potential}
+ \boxed{\quad(\cP_B\mu_B)(D_X)\le\mu_B(E_B)\le C_0^{1-1/p}\,\mathcal H_p(B) X^{-\beta(1-1/p)}.\quad}
+\end{equation}
+Here $(\cP_B\mu_B)(D_X)=\mu_B(E_B)$ if $D_X$ denotes precisely the dangerous target set used to define $E_B$. Therefore if $\mathcal H_p(B)=O(X^\eta)$ with $\eta<\beta(1-1/p)$, the one-step dangerous transfer has a power saving. No lower bound on the total incoming shell mass is required.
+\end{theorem}
+\begin{proof}
+By~\eqref{eq:domin}, $\mu_B(E_B)\le\sum_{z\in E_B}h(z)$. Since $\lambda_B$ is uniform,
+\[
+ \sum_{z\in E_B}h(z)=\E_{\lambda_B}\bigl[(R h(z))\one_{E_B}(z)\bigr]
+ \le\mathcal H_p(B)\lambda_B(E_B)^{1-1/p}
+\]
+by H\"older. Apply~\eqref{eq:local}.
+\end{proof}
+\begin{remark}
+This criterion uses a moment of the \emph{genuine predecessor potential}, which is considerably stronger than its unproved uniform-integrability assertion in the source manuscript. The $L^2$ obstruction to the distinct $3$-adic model gives a reason to test moments with $1<p<2$ first; it is not a proof that such potential moments hold or fail. Direct overshoots and returns after the short horizon remain uncontrolled.
+\end{remark}
+
+\section{Finite computations and limitations}
+We report diagnostics of two \emph{different} measures. First, the finite $3$-adic model: the recursion in Proposition~\ref{prop:p} was evaluated by summing the geometric digit distribution up to $a=45$, discarding per-step mass at most $2^{-45}$.
+\begin{center}
+\begin{tabular}{rccc}
+\toprule
+$3$-adic depth $n$ & $\|f_n\|_{1.5}$ & $\|f_n\|_2$ & $\|f_n\|_3$\\
+\midrule
+1 &1.17652&1.29099&1.44225\\
+5 &1.43809&1.87994&2.75438\\
+8 &1.54776&2.22075&3.96478\\
+11 &1.62566&2.51674&5.46568\\
+\bottomrule
+\end{tabular}
+\end{center}
+The rise of the $L^2$ norms is a numerical illustration of Theorem~\ref{thm:noL2}, not its proof.
+
+Second, for the actual \emph{finite-source} first-passage histogram, we sampled $200{,}000$ odd starting integers per source shell $(2^{j+1}B,2^{j+2}B]$, first hitting $[1,2B]$. We used $\beta=0.08$ to make rare-event diagnostics visible at tractable scales, not the paper's asymptotic $\beta=0.005$. Among those hitting $(B,2B]$, let $f_B$ be the incoming density relative to the uniform shell and $\widehat Q$ its residue-collision energy, both normalised by the number of observed incoming hits. The following are the $j=8$ columns:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$B$ & $\|f_B\|_2$ & $\widehat Q$ & uniform local $\lambda_B(E_B)$ & incoming fraction in $E_B$\\
+\midrule
+2048 &1.70875&1.35899&0.22559&0.23101\\
+8192 &1.74419&1.16220&0.20532&0.19919\\
+32768&1.78491&1.19190&0.17352&0.16974\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are finite samples at three scales with sampling noise. They do not estimate $\nu_{2B}$ as the starting scale tends to infinity, prove bounded moments, or identify the $2$-adic law with the $3$-adic offset law.
+
+\section{Next precise proof tasks}
+\begin{problem}[A subcritical potential moment]
+For some $1<p<2$ and $\eta<\beta(1-1/p)$, prove or refute the shell moment bound
+\[
+ \mathcal H_p(B)=O(X^\eta),\qquad B=\lfloor X^{1-2\beta}\rfloor,\quad\beta=1/200.
+\]
+Even a weaker \emph{one-set} estimate $\sum_{z\in E_B}h(z)=O(X^{-\delta})$ would suffice for the one-step dangerous transfer; the full moment bound is only one route.
+\end{problem}
+\begin{problem}[Reference-law and long-return transport]
+Determine whether the local passage reference $\cP_B\lambda_B$ admits effective comparison to a stable reference across multiple thresholds without accumulating polynomial distortion. Independently control the direct overshoot term $\nu_{2B}([1,B]\cap D_X)$ and all later-window returns. Neither follows from this note.
+\end{problem}
+
+\noindent\textbf{References and positioning.} T. Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum of Mathematics, Pi \textbf{10} (2022), e12, in particular Proposition 1.14; and the supplied source manuscript \emph{Basins of attraction} (November 2026), predecessor potential and first-passage tails appendix. The elementary critical-energy argument is recorded here as a working derivation, with no priority claim. Independent mathematical review is required before publication.
+\end{document}

@@ -19,6 +19,7 @@ draft after it (Remark 12).
 | [`returns/`](returns) | return ladders; live points without returns; return-certificate identity | paragraph before Problem 3 (return ladders, Phi_X >= (5/8) b X), Remark 12(c) (draft after version 3) |
 | [`return_excess/`](return_excess) | window excess J_X of the return term; single-scale ladder; conditional polynomial heights; finite-horizon escapes | Remark 7, second part (draft after version 3) |
 | [`entrance/`](entrance) | early returns: local first-passage progression theorem, Cesaro form of the entrance law, collision criterion | Remark 7, paragraph "Early returns" (draft after version 3) |
+| [`transfer/`](transfer) | threshold transfer of the entrance law; residue-by-residue transfer refuted (incl. the refuted note); no L^2 density of the Syracuse profile | Remark 7 (one sentence), Remark 12(d) (draft after version 3) |
 
 Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
 statements of these notes stay here.

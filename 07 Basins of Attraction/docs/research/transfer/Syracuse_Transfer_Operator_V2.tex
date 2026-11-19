@@ -1,0 +1,244 @@
+\documentclass[10pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}\newtheorem{definition}{Definition}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+\newcommand{\Syr}{\operatorname{Syr}}
+\newcommand{\Pass}{\operatorname{Pass}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\N}{\mathbb N}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cP}{\mathcal P}
+\title[Weighted Syracuse threshold transfer]{Syracuse threshold transfer, version 2:\\a no-go theorem for residue-only uniform contraction\\and a weighted replacement}
+\author{Research working note}
+\date{18 November 2026 --- preliminary; not a proof of Collatz}
+\begin{document}
+\begin{abstract}
+We examine the proposed transfer from the Syracuse first-passage law at threshold $2B$ to that at $B$, tested against the odd $2$-adic classes producing short upward excursions.  A proposed pointwise-in-input-residue power saving is \emph{false}: one explicit input class sends asymptotically at least a third of its uniformly sampled shell mass to dangerous states in a single Syracuse step with valuation $2$.  Further, the exact first-passage transfer does not factor through the residue projection.  We prove both obstructions and formulate a mathematically valid replacement: an exact transfer on individual states, with a bound under either an incoming $L^p$-density hypothesis or a projected collision-energy hypothesis coupled to an explicit within-class discrepancy.  The remaining unproved hypotheses are isolated; neither the long-return excess nor a polynomial bound for all Collatz orbits follows.
+\end{abstract}
+\maketitle
+
+\section{Scales and dangerous residues}
+Write
+\[
+ T(n)=\begin{cases}n/2&2\mid n,\\(3n+1)/2&2\nmid n,\end{cases}
+ \qquad \Syr(n)=\frac{3n+1}{2^{\nu_2(3n+1)}}\quad(n\ \mathrm{odd}).
+\]
+Fix $\beta=1/200$ and take $X\to\infty$, with natural logarithm throughout. Put
+\[
+ B=\lfloor X^{1-2\beta}\rfloor,\quad Y=X^{1-\beta},\quad
+ L=\lfloor\log X\rfloor,\quad M_L=2^L,\quad m=2^{L-1},
+\]
+\[\cI_B=(B,2B]\cap (2\N+1),\qquad
+\cR_L=(\mathbb Z/2^L\mathbb Z)_{\rm odd},\qquad
+ R=|\cI_B|.\]
+For odd $z>B$ let $\tau_B(z)$ be its first positive Syracuse passage time to a value at most $B$, and let $\Pass_B(z)$ denote the value, \emph{only when the passage occurs}.  No fictitious value is assigned on non-passage.
+
+For an odd residue $r\pmod{2^L}$, let $N_t(r)$ be the number of odd shortcut steps among the first $t$ iterates of any representative of $r$, $1\le t\le L$. This is well-defined by the parity-word bijection. Put
+\begin{equation}\label{eq:D}
+ \cD_X=\left\{r\in\cR_L:\max_{1\le t\le L}\frac{3^{N_t(r)}}{2^t}>\frac{X^\beta}{2}\right\}.
+\end{equation}
+The parity martingale started at $3/2$ on uniform odd residues and Doob's inequality yield
+\begin{equation}\label{eq:rare}
+ \frac{|\cD_X|}{m}\le 3X^{-\beta}.
+\end{equation}
+Moreover, every $y\le B$ with $\max_{1\le t\le L}T^t(y)>Y$ has $y\bmod 2^L\in\cD_X$ for sufficiently large $X$: the affine correction in $T^t(y)=y3^{N_t}/2^t+A_t$ obeys $0\le A_t\le(3/2)^t-1=o(Y)$.
+
+\section{The correct exact operator and failure of residue lumping}
+The first-passage operator on individual states is the substochastic operator
+\begin{equation}\label{eq:fulloperator}
+ (\cP_B\mu)(y)=\sum_{z\in\cI_B}\mu(z)
+ \one_{\{\tau_B(z)<\infty,\ \Pass_B(z)=y\}},\qquad y\le B\ \mathrm{odd}.
+\end{equation}
+Let $\pi_L$ send an entry measure on odd states to its masses on the classes $\cR_L$.
+
+\begin{proposition}[Exact two-threshold renewal identity]\label{prop:renew}
+Let $\nu_B$ and $\nu_{2B}$ be the genuine (subprobability) first-passage laws for the same initial ensemble, whenever the relevant limits exist. Then
+\begin{equation}\label{eq:renew}
+ \nu_B=\nu_{2B}|_{[1,B]}+\cP_B\bigl(\nu_{2B}|_{\cI_B}\bigr).
+\end{equation}
+In particular, the mass of trajectories never passing the threshold is not silently normalised away.
+\end{proposition}
+\begin{proof}
+A path first reaching $[1,B]$ either first reaches $[1,2B]$ in $[1,B]$, or first reaches $[1,2B]$ at some $z\in\cI_B$ and later first reaches $[1,B]$ from $z$. These events are disjoint, and the equality holds pathwise before taking any limits.
+\end{proof}
+
+\begin{proposition}[Failure of residue-only Markov projection]\label{prop:lump}
+For all large $X$ there is no linear operator $\mathcal K_B$ on measures on $\cR_L$ such that
+\[
+ \pi_L\cP_B=\mathcal K_B\pi_L
+\]
+for every finitely supported measure on $\cI_B$.
+\end{proposition}
+\begin{proof}
+Because $B/3\gg 2^L$, choose $z,z+2^L\in(B,(4B-1)/3]$ in the same odd residue class with $\nu_2(3z+1)=2$. Both have one-step passages, but their output difference is
+\[
+ \frac{3(z+2^L)+1}{4}-\frac{3z+1}{4}=3\cdot2^{L-2},
+\]
+nonzero modulo $2^L$. Their input Dirac masses have equal residue projections while their output Dirac masses do not, contradicting the proposed factorisation.
+\end{proof}
+\begin{remark}
+The kernel $K_B(r,s)$ obtained by \emph{averaging uniformly} over input states of residue $s$ is perfectly well-defined. It represents $\pi_L\cP_B\mu$ only when the incoming measure has the matching conditional distribution inside each residue class (or when a discrepancy is controlled). Merely knowing the projected incoming masses does not suffice.
+\end{remark}
+
+\section{An explicit counterexample to uniform contraction}
+For the uniform shell law $\lambda_B(z)=1/R$ on $\cI_B$, let
+\[
+ K_B^{\rm sh}(D,s)=\lambda_B\!\left(\Pass_B(z)\bmod2^L\in D\ \middle|\ z\equiv s\pmod{2^L},\tau_B(z)<\infty\right)
+\]
+whenever conditioning makes sense.
+
+\begin{theorem}[A dangerous one-step cylinder]\label{thm:nogo}
+Take
+\begin{equation}\label{eq:s}
+ s_X\equiv -5\,3^{-1}\pmod{2^L},\qquad s_X\text{ odd}.
+\end{equation}
+Then all sufficiently large $X$ satisfy
+\begin{equation}\label{eq:nogo}
+ \boxed{\ K_B^{\rm sh}(\cD_X,s_X)\ge \frac13-O\!\left(\frac{2^L}{B}\right).\ }
+\end{equation}
+In particular, no $O(X^{-\delta})$ bound for $\sup_sK_B^{\rm sh}(\cD_X,s)$ is possible for any $\delta>0$. The obstruction belongs to the \emph{good}-code sector $k=1$, $A=2$.
+\end{theorem}
+\begin{proof}
+For any $z\equiv s_X\pmod{2^L}$ we have
+$3z+1\equiv-4\pmod{2^L}$, so for $L\ge4$ its first Syracuse valuation is exactly $2$. If $B<z\le(4B-1)/3$, then
+\[
+ y=\Syr(z)=\frac{3z+1}{4}\in(3B/4,B],\qquad
+ y\equiv-1\pmod{2^{L-2}}.
+\]
+The first $L-2$ shortcut iterates of $y$ follow odd branches and satisfy
+\[
+ T^{L-2}(y)=\left(\frac32\right)^{L-2}(y+1)-1.
+\]
+Since $L=\lfloor\log X\rfloor$ and $\log(3/2)>\beta$, the right-hand side exceeds $Y=X^{1-\beta}$ for all such $y$ once $X$ is sufficiently large. Thus $y\bmod2^L\in\cD_X$. There are $B/(3\cdot2^L)+O(1)$ such $z$ in the chosen class, out of $B/2^L+O(1)$ class members in $(B,2B]$. Their proportion is $1/3+O(2^L/B)$. Every such $z$ has a successful first passage; conditioning on success only decreases the denominator. This proves \eqref{eq:nogo}.
+\end{proof}
+\begin{remark}
+The same construction under harmonic shell weights gives a liminf of at least $\log(4/3)/\log2\approx0.415$, since each congruence class has the same asymptotic harmonic proportions. This failure is not a finite-size artefact.
+\end{remark}
+
+\section{Two valid weighted-transfer replacements}
+Define the \emph{dangerous pullback} of the local passage by
+\begin{equation}\label{eq:E}
+ E_B=\{z\in\cI_B:\tau_B(z)<\infty,\ \Pass_B(z)\bmod 2^L\in\cD_X\}.
+\end{equation}
+The preceding local first-passage progression estimate, using the same $\beta$, $L$ and $\cD_X$, establishes the \emph{unconditional shell bound}
+\begin{equation}\label{eq:shell}
+ \lambda_B(E_B)=\frac{|E_B|}{R}\le C_0 X^{-\beta}
+\end{equation}
+for sufficiently large $X$ with a constant $C_0$. Its proof sums the $\le 2^{A_0}$ short valuation-word progression discrepancies, and bounds the discarded long words with Chernoff estimates; the explicit choices are $A_0=\lfloor\tfrac14\log_2X\rfloor$ and $H=\lfloor\tfrac1{10}\log X\rfloor$. All subsequent weighted statements are valid whenever \eqref{eq:shell} holds, independently of how it is obtained.
+
+\begin{theorem}[$L^p$-weighted transfer]\label{thm:lp}
+Let $\mu$ be an arbitrary nonnegative measure on $\cI_B$, with total mass $M=\mu(\cI_B)>0$. With reference law $\lambda_B$ define its density
+\[
+ f_B(z)=\frac{R\mu(z)}{M},\qquad
+ \|f_B\|_{L^p(\lambda_B)}=
+ \left(\frac1R\sum_{z\in\cI_B}f_B(z)^p\right)^{1/p},\qquad p>1.
+\]
+Then
+\begin{equation}\label{eq:lp}
+ \boxed{\ (\cP_B\mu)\bigl(\pi_L^{-1}(\cD_X)\bigr)
+ \le M\,\|f_B\|_{L^p(\lambda_B)}\,C_0^{1-1/p}
+ X^{-\beta(1-1/p)}.\ }
+\end{equation}
+Consequently, $\|f_B\|_p=O(X^\eta)$ yields a power saving whenever $\eta<\beta(1-1/p)$.
+\end{theorem}
+\begin{proof}
+The left side is $\mu(E_B)=M\E_{\lambda_B}(f_B\one_{E_B})$. By H\"older,
+\[
+ \E_{\lambda_B}(f_B\one_{E_B})
+ \le\|f_B\|_p\lambda_B(E_B)^{1-1/p}.
+\]
+Apply \eqref{eq:shell}.
+\end{proof}
+
+A second formulation preserves the residue-class perspective without falsely requiring a bound uniform in $s$. Set $R_s=\#\{z\in\cI_B:z\equiv s\pmod{2^L}\}$ and
+\[
+ \kappa_B(s)=\frac{\#(E_B\cap\{z\equiv s\})}{R_s},\qquad
+ p_s=\mu\{z:z\equiv s\},\qquad
+ Q_{\rm in}=m\sum_{s\in\cR_L}\left(\frac{p_s}{M}\right)^2.
+\]
+All $R_s>0$ for large $X$. Let $\mu_s$ be the conditional law of $z$ in class $s$ under $\mu$ (arbitrary when $p_s=0$), and define the \emph{one-set within-class discrepancy}
+\begin{equation}\label{eq:delta}
+ \Delta_B(E_B;\mu)=\sum_{s\in\cR_L}\frac{p_s}{M}
+ \bigl|\mu_s(E_B)-\kappa_B(s)\bigr|.
+\end{equation}
+
+\begin{theorem}[Collision plus within-class discrepancy]\label{thm:collision}
+Under \eqref{eq:shell},
+\begin{equation}\label{eq:coll}
+ \boxed{\ \mu(E_B)\le M\left[\sqrt{Q_{\rm in}\left(C_0X^{-\beta}+O(2^L/B)\right)}+\Delta_B(E_B;\mu)\right].\ }
+\end{equation}
+In particular, $Q_{\rm in}=O(1)$ and $\Delta_B(E_B;\mu)=O(X^{-\delta})$ produce a transfer power saving of exponent $\min\{\beta/2,\delta\}$ (as $2^L/B=o(X^{-\beta})$).
+\end{theorem}
+\begin{proof}
+Each $R_s=B/2^L+O(1)$ while $R=B/2+O(1)$, so
+\[
+ \frac1m\sum_s\kappa_B(s)
+ =\lambda_B(E_B)+O(m/R)
+ \le C_0X^{-\beta}+O(2^L/B).
+\]
+Because $0\le\kappa_B(s)\le1$, the same right-hand side bounds $m^{-1}\sum_s\kappa_B(s)^2$.  By Cauchy--Schwarz,
+\[
+ \sum_s\frac{p_s}{M}\kappa_B(s)
+ \le\left(\sum_s(p_s/M)^2\right)^{1/2}
+ \left(\sum_s\kappa_B(s)^2\right)^{1/2}
+ \le\sqrt{Q_{\rm in}(C_0X^{-\beta}+O(2^L/B))}.
+\]
+Finally $\mu(E_B)/M=\sum_s(p_s/M)\mu_s(E_B)$ differs from this sum by at most \eqref{eq:delta}.
+\end{proof}
+
+\begin{corollary}[Corrected dyadic entrance-law transfer]\label{cor:global}
+For the genuine first-passage entrance law, put $\mu=\nu_{2B}|_{\cI_B}$ and $M=\mu(\cI_B)$. Then
+\begin{align*}
+ \nu_B\bigl(\{y\le B:y\bmod2^L\in\cD_X\}\bigr)
+ &\le\nu_{2B}\bigl(\{y\le B:y\bmod2^L\in\cD_X\}\bigr)\\
+ &\quad+M\left[\sqrt{Q_{\rm in}(C_0X^{-\beta}+O(2^L/B))}
+ +\Delta_B(E_B;\mu)\right],
+\end{align*}
+with the last term interpreted as zero if $M=0$. Alternatively use \eqref{eq:lp}.
+\end{corollary}
+\begin{proof}
+Restrict \eqref{eq:renew} to the dangerous target set and apply Theorem~\ref{thm:collision}.
+\end{proof}
+
+\section{What the obstruction teaches us}
+The original source manuscript already warns, through its single-depth concentration and return-kernel criteria, that conditioning on rare survival can concentrate mass on very few residue classes. Our explicit one-step example shows why a universal pointwise-in-residue contraction fails \emph{even before} any late-return complication. The valid remaining tasks are now distinct:
+\begin{enumerate}
+\item \textbf{Incoming regularity:} bound $\|f_B\|_{L^p(\lambda_B)}$, or prove a collision bound $Q_{\rm in}=O(1)$ plus the targeted discrepancy $\Delta_B(E_B;\mu)=O(X^{-\delta})$ for $\mu=\nu_{2B}|_{\cI_B}$.
+\item \textbf{Direct overshoot:} control the term $\nu_{2B}(\{y\le B:y\bmod2^L\in\cD_X\})$ in Corollary~\ref{cor:global}.
+\item \textbf{Late return mass:} combine a genuine transfer estimate with the source manuscript's return kernels; control of the first $L$ post-entrance steps alone is insufficient for $J_X=O(X^{1-\delta})$.
+\end{enumerate}
+No existing argument in this note proves any of these three bounds for the limiting entrance laws.
+
+\section{Exact finite check of the counterexample}
+For $X=2^k$, the table counts all odd $z\equiv s_X\pmod{2^L}$ in $(B,2B]$. The numerator counts those with a \emph{one-step} entry via valuation $2$, each of which is verified to be dangerous by the explicit iterates. These ratios are lower bounds for the \emph{conditional} kernel $K_B^{\rm sh}(\cD_X,s_X)$, not estimates of the true global entrance measure.
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$k$ & $L$ & $s_X$ & shell count & direct dangerous & ratio\\
+\midrule
+20 &13 &2,729 &111 &37 &0.33333\\
+24 &16 &43,689&216 &72 &0.33333\\
+28 &19 &174,761&422 &140&0.33175\\
+32 &22 &2,796,201&820&274&0.33415\\
+\bottomrule
+\end{tabular}
+\end{center}
+A short deterministic verification program accompanies this note. The asymptotic result is proved independently of the computations.
+
+\bigskip
+\noindent\textbf{Context.} The $2$-adic valuation and parity coding are classical. The distinction between local shell laws and genuine long-source first-passage laws is essential in Tao, \emph{Forum of Mathematics, Pi} \textbf{10} (2022), e12, and in the source manuscript \emph{Basins of attraction} (provided LaTeX manuscript, November 2026). This note is a corrected research draft; no novelty or priority claim is made prior to expert review.
+\end{document}

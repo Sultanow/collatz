@@ -1,0 +1,3 @@
+n=5: H_2 Monte Carlo = 3.536  (S=4000000)
+n=8: H_2 Monte Carlo = 4.931  (S=8000000)
+n=11: H_2 Monte Carlo = 6.338  (S=8000000)
