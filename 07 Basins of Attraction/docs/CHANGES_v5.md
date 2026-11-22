@@ -298,3 +298,18 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Proposition 15 independently reviewed (no error in the inequality or the consequence); the review's
   wording fixes and conditionality remarks are included (list in docs/research/overlap/STATUS.md).
 - 77 pages.
+
+## v4i (Appendix F: the 3-adic Syracuse law)
+- Appendix F (new): L^p regularity and Fourier decay of the Syracuse law (research notes syracuse_lp).
+  Lemma 8 (self-similarity, pair maps g_d), Proposition 16 (E_n = 2 sum_d 2^{-d} Cor_{n-1}(g_d) and the
+  twisted-collision recursion), Proposition 17 (singular set y -> 2^e y), Lemma 9 (Kahane-Peyriere
+  inequality H_p(n) <= lambda_p H_p(n-1) + E_n^{p/2}), Corollary 10 (bounded E_n gives L^p for every
+  p < 2, critical exponent 2), Conjecture 3 (bounded energy) and the decorrelation conjecture.
+- Run L (exact laws, n <= 20): E_n -> about 0.475, H_p for p < 2 converging, Table 15.
+  Run M (Monte Carlo, n <= 80, 2 x 1e11 samples): maximiser xi ~ 3^n/64, largest Fourier coefficient
+  ~ A n^{-1} 0.943^n (exponential decay; every power law excluded), Table 16.
+- Pointers: abstract (one sentence), contribution table (row "Syracuse law"), introduction, Remark 12(d)
+  (the window 1 < p < 2 is sharp under bounded E_n), Outlook item (7); runs table rows L, M,
+  reproduction table row; references Kahane-Peyriere 1976, Durrett-Liggett 1983, Toguchi 2026.
+- Paragraph headings no longer end with a full stop of their own (the class adds one: "Run K.." before).
+- 82 pages.

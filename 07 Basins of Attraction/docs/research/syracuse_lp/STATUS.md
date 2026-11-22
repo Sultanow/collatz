@@ -1,7 +1,7 @@
 # L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-22, evening)
 
 Two tracks on the Syracuse law itself, the reference object of Theorem 3, Remark 12(d) and Table 13.
-Nothing here enters the paper yet. Note: `syracuse_lp_note.tex`/`.pdf` (updated with the cluster runs).
+In the paper since draft v4i: Appendix F (Lemmas 8, 9, Propositions 16, 17, Corollary 10, Conjecture 3; Runs L and M), a pointer at the end of Remark 12(d) and Outlook item (7). Note: `syracuse_lp_note.tex`/`.pdf` (updated with the cluster runs).
 
 ## Track 1: critical L^p exponent
 

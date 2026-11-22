@@ -91,7 +91,7 @@
 \begin{document}
 
 \begin{abstract}
-We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. Conditionally on a recent natural-density transport of Allikvere, which carries over to all these maps, they are natural densities. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. An appendix reduces the missing upper bound, conditionally on the coupling estimates of that proof, to uniform integrability of the predecessor potential of the odd targets; large-scale predecessor counts are consistent with this but cannot decide it. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. Lean~4 checks the elementary finite statements; the density and Syracuse statements are not machine-certified.
+We study why Collatz-type maps with similar local predecessor statistics can have different global cycles and basin shares. The maps $3x+1$ and $3x-1$ have corresponding local branching and cotree statistics, yet the latter has three known positive cycles. The classical parity-word divisibility criterion gives an exhaustive census of $1097$ primitive cycles for $3x+c$ with $|c|\le1000$ and parity-word length at most $40$. Using first-passage estimates of Gon\c{c}alves, Greenfeld and Madrid, we prove that every completely invariant set of the accelerated map $T_{3,c}$, for odd $c\ge-1$, has a logarithmic density. In particular, basin and predecessor-set densities exist in this sense. Conditionally on a recent natural-density transport of Allikvere, which carries over to all these maps, they are natural densities. The resulting predecessor potential $h(a)$ satisfies an exact conservation law across the backward levels of a cycle. Gcd classes and multiplicative cosets give further invariant sets of exactly computable density, but do not by themselves determine individual basin densities. We also prove a residue-class \emph{lower bound} for the means of $a\,h(a)$ in terms of the Syracuse law; a matching upper bound and the proposed exact profile remain conjectural. An appendix reduces the missing upper bound, conditionally on the coupling estimates of that proof, to uniform integrability of the predecessor potential of the odd targets; large-scale predecessor counts are consistent with this but cannot decide it. A further appendix shows that the Syracuse profile is $p$-integrable for every $p<2$ as soon as the $L^2$ energy of its unit frequencies stays bounded, which it does numerically, and finds numerically that its largest Fourier coefficients decay like $n^{-1}\,0.943^{\,n}$. Numerically, a parameter-free harmonic backward-mass model predicts $410$ measured basin shares with approximately $3\,\%$ median relative error. Additional conclusions for $3x\pm1$ use recent predecessor-density preprints of Mazur and El Jaouhari. Lean~4 checks the elementary finite statements; the density and Syracuse statements are not machine-certified.
 \end{abstract}
 
 \begingroup
@@ -257,6 +257,11 @@ Syracuse potential profile
 & Lower bound for residue-class means of $a\,h(a)$ (Theorem~\ref{thm:lower}); the matching upper bound and full profile remain open (Conjecture~\ref{conj:profile}).
 & \emph{Proof of lower bound; conjecture of equality}. \\
 \addlinespace[2pt]
+Syracuse law
+& $L^1$ convergence of the densities and decay of the characteristic function \cite{Tao_2022}; no $L^2$ density (Remark~\ref{rem:spikes}(d)); Fourier maxima up to $n=21$ \cite{Toguchi_2026}.
+& Kahane--Peyri\`ere inequality: the profile lies in $L^p$ for every $p<2$ if the unit-frequency energy $E_n$ is bounded; exact second-moment identity and singular set (Appendix~\ref{sec:syracuse-lp}). Exact laws up to $n=20$ and Monte Carlo up to $n=80$: $E_n\to0.475$, largest Fourier coefficient $\approx n^{-1}0.943^n$ (Runs~L, M).
+& \emph{Proof of the reduction; numerical evidence for its hypothesis and for exponential decay}. \\
+\addlinespace[2pt]
 Predicting basin shares
 & Empirical multi-basin shares in \cite{GGM_2025}; no general density formula.
 & Backward harmonic mass predicts $410$ measured basin shares with a median relative error of about $3\%$ using an explicit, unfitted factor (Conjecture~\ref{conj:formula}).
@@ -296,7 +301,7 @@ clipping tail and a return term and, conditionally on the coupling estimates of
 the proof of Theorem~\ref{thm:lower}, reduces both to uniform
 integrability of the potential of the odd targets
 (Propositions~\ref{prop:potential-domination} and~\ref{prop:return-domination}), which the counts of Run~K support
-but cannot decide. All computations are labelled Run~A to Run~K;
+but cannot decide. Appendix~\ref{sec:syracuse-lp} turns to the Syracuse profile itself: its $p$-integrability for $p<2$ follows from a bounded $L^2$ energy of the unit frequencies, which we observe numerically, as we do an exponential decay of its largest Fourier coefficients. All computations are labelled Run~A to Run~M;
 Table~\ref{table:runs} lists them with links to their data.
 
 
@@ -445,7 +450,7 @@ Take $q=5$ and the word $B=111110000000$ of type $(12,5)$. Then $D=2^{12}-5^5=97
 of $5x+971$. Its odd members are $1031,3063,8143,20843,52593$. The binary representation of $B$ reflects the course of the cycle: the ones mark the odd members.
 \end{example}
 
-\paragraph{Words with $D=c$.} If $c=2^l-q^k>0$, then $D=c$, and Lemma~\ref{lem:words} gives
+\paragraph{Words with $D=c$} If $c=2^l-q^k>0$, then $D=c$, and Lemma~\ref{lem:words} gives
 \begin{equation}
 \label{eq:D_equals_c}
 x_B=z_q(B)\qquad\text{for every word $B$ of type $(l,k)$.}
@@ -473,7 +478,7 @@ Every such word therefore yields a positive integer cycle of $T_{q,c}$, with mem
 	\label{table:non_q1_cycles}
 \end{table}
 
-\paragraph{Mirror and $D=1$.} The conjugation $x\mapsto-x$ gives
+\paragraph{Mirror and $D=1$} The conjugation $x\mapsto-x$ gives
 \begin{equation}
 \label{eq:mirror}
 T_{q,-c}(x)=-T_{q,c}(-x),
@@ -562,9 +567,9 @@ For word length $l\le40$ there are exactly $1097$ primitive cycles of the maps $
 
 The computation (Run~A; all runs are listed in Table~\ref{table:runs}) checked all $2\,199\,023\,255\,510$ words in $512$ shards of about six minutes each on the HPC cluster of the EDIH Hamburg, with a parity check of every reported cycle. The program was validated against an independent implementation in exact rational arithmetic (for $l\le16$ and $|c_0|\le50$) and against the single-map census for $3x\pm1$, $3x+5$ and $3x+13$.
 
-\paragraph{Comparison with the published tables.} For each of the $333$ values $0<k<1000$ with $\gcd(k,6)=1$, the primitive cycles of $3x+k$ listed by Belaga, Mignotte and Morley \cite{Belaga_Mignotte_2006,OEIS_A226607} that have at most $40$ elements coincide exactly with those of Proposition~\ref{prop:rational}; there are $763$ of them. The other $462$ listed cycles have between $41$ and $426$ elements, and for $153$ of these maps every known primitive cycle is longer than $40$. Proposition~\ref{prop:rational} therefore turns the conjecturally complete tables into a theorem for all cycles with at most $40$ elements and $k<1000$.
+\paragraph{Comparison with the published tables} For each of the $333$ values $0<k<1000$ with $\gcd(k,6)=1$, the primitive cycles of $3x+k$ listed by Belaga, Mignotte and Morley \cite{Belaga_Mignotte_2006,OEIS_A226607} that have at most $40$ elements coincide exactly with those of Proposition~\ref{prop:rational}; there are $763$ of them. The other $462$ listed cycles have between $41$ and $426$ elements, and for $153$ of these maps every known primitive cycle is longer than $40$. Proposition~\ref{prop:rational} therefore turns the conjecturally complete tables into a theorem for all cycles with at most $40$ elements and $k<1000$.
 
-\paragraph{Heuristic.} If $z_3(B)$ were equidistributed modulo $|D|$, the reduced denominator of $z_3(B)/|D|$ would equal a divisor $e$ of $|D|$ with probability $\varphi(e)/|D|$. A primitive cycle corresponds to one aperiodic necklace of words, so the expected number of primitive cycles of type $(l,k)$ with $|c_0|\le C$ is
+\paragraph{Heuristic} If $z_3(B)$ were equidistributed modulo $|D|$, the reduced denominator of $z_3(B)/|D|$ would equal a divisor $e$ of $|D|$ with probability $\varphi(e)/|D|$. A primitive cycle corresponds to one aperiodic necklace of words, so the expected number of primitive cycles of type $(l,k)$ with $|c_0|\le C$ is
 \[
 E_C(l,k)=L(l,k)\,\frac{S_C(D)}{|D|},\qquad S_C(D)=\sum_{e\,\mid\,|D|,\ e\le C}\varphi(e),
 \]
@@ -575,7 +580,7 @@ where $L(l,k)$ is the number of aperiodic binary necklaces of type $(l,k)$. If a
 Why does the equidistribution heuristic predict the number of primitive cycles of the types with $\gcd(l,k)=1$ so well? How far is $z_3(B)$ from equidistribution modulo the algebraic factors of $2^l-3^k$, and is the remaining underdispersion of the counts real?
 \end{problem}
 
-\paragraph{Longer words.} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
+\paragraph{Longer words} The census is complete for $l\le40$ only. A search over the starting values $n<10^5$ of the maps of Section~\ref{sec:basins} finds three further cycles: the cycle of $3x+23$ through $41$ ($l=43$) and two cycles of $3x+29$ through $3811$ and $7055$ ($l=65$, $k=41$). The last two sit exactly at the convergent $65/41$ of $\log_2 3$, the one after $19/12$.
 
 \begin{figure}[H]
 \centering
@@ -913,7 +918,7 @@ First-passage sampling is cheap enough to survey many maps. For all $133$ maps $
 
 The survey confirms Proposition~\ref{prop:cosets} in every case. For $38$ of the maps the subgroup $H$ has index $2$, or $3$ for $c=247$, $259$ and $307$. In each of them every coset contains a cycle and holds the share $1/[G:H]$ of the integers prime to $c$, within $3\cdot10^{-4}$. Thirty-one observed cycles are the only \emph{known} cycles in their respective cosets; their measured basin shares agree with the coset shares. For $3x+97$, $3x+115$, $3x+217$, $3x+241$, $3x+311$ and $3x+383$, both observed primitive basins have measured shares close to one half of the integers prime to $c$. Exact equality for individual basins would require ruling out any positive-density set of orbits in the corresponding coset that do not reach those cycles. Simple features of a cycle explain much less. Within the maps, the share does not depend on the size of the cycle minimum (sign test over $98$ maps, $p=0.22$), and it increases only weakly with the word length ($p=0.002$). Pooled over all maps, both features seem to matter, but such correlations mix maps with few and with many cycles.
 
-\paragraph{Residue classes.} Beyond Propositions~\ref{prop:filtration} and~\ref{prop:cosets}, residue classes carry no information about the basin. We drew the starting values from up to $64$ fixed classes modulo $2^k$, $k=4,\dots,30$, and modulo $3^j$, $j=1,\dots,12$, with $10^6$ values per class, for $3x-1$, $3x+5$ and $3x+13$ (Run~E). The class shares agree within the sampling error. In the first run the $36$ chi-square tests gave $p$-values between $0.03$ and $1.00$; the extreme values for $3x+13$ did not recur in a repetition with new classes, and with $10^7$ values per class (Run~E2) the classes modulo $9$ and $27$ differ from the pooled shares by at most $3\cdot10^{-4}$. The classes modulo $5$ for $3x+5$ and modulo $13$ for $3x+13$ served as positive controls. This quantifies Table~\ref{table:classes}. A class modulo $2^k$ fixes the first $k$ parities and is mapped onto a progression modulo a power of $3$, and the $3$-adic mixing of the Syracuse offsets \cite{Tao_2022} explains, heuristically, why the class leaves no trace in the basin shares.
+\paragraph{Residue classes} Beyond Propositions~\ref{prop:filtration} and~\ref{prop:cosets}, residue classes carry no information about the basin. We drew the starting values from up to $64$ fixed classes modulo $2^k$, $k=4,\dots,30$, and modulo $3^j$, $j=1,\dots,12$, with $10^6$ values per class, for $3x-1$, $3x+5$ and $3x+13$ (Run~E). The class shares agree within the sampling error. In the first run the $36$ chi-square tests gave $p$-values between $0.03$ and $1.00$; the extreme values for $3x+13$ did not recur in a repetition with new classes, and with $10^7$ values per class (Run~E2) the classes modulo $9$ and $27$ differ from the pooled shares by at most $3\cdot10^{-4}$. The classes modulo $5$ for $3x+5$ and modulo $13$ for $3x+13$ served as positive controls. This quantifies Table~\ref{table:classes}. A class modulo $2^k$ fixes the first $k$ parities and is mapped onto a progression modulo a power of $3$, and the $3$-adic mixing of the Syracuse offsets \cite{Tao_2022} explains, heuristically, why the class leaves no trace in the basin shares.
 
 \subsection*{The mean value and the Syracuse profile of the potential}
 Proposition~\ref{prop:potential} does not say how large the potential is. A heuristic count gives its mean value. For a finite set $W$ of targets that are not periodic, $\sum_{a\in W}h(a)$ is the mean number of points that an orbit has in $W$, the mean taken over the starting values in the logarithmic sense. Along the orbit of a typical starting value, consecutive Syracuse iterates are related by $m'=(3m+c)/2^{\nu}$, and the valuations $\nu$ behave like independent geometric random variables of mean $2$ \cite{Tao_2022,GGM_2025}. The logarithm of the iterates decreases by $\log(4/3)$ per Syracuse step on average, and a Syracuse step consists of $\nu$ steps of $T_{3,c}$. A typical orbit therefore has $2/\log(4/3)$ points per unit of logarithmic scale, which suggests that $a\,h(a)$ has the mean value $2/\log(4/3)\approx6.95$. For $3x+1$ the typical behaviour behind this count is proved: almost every $m$, in natural density, descends to polylogarithmic height in $(2/\log(4/3))\log m+O(\sqrt{\log m\,\log\log m})$ steps \cite{Shaik_2026}. Such statements leave out a set of density zero, whereas the mean value also counts the orbits of this set; this is where the upper half of Conjecture~\ref{conj:profile} lies (Corollary~\ref{cor:remains}).
@@ -1057,7 +1062,7 @@ By Corollary~\ref{cor:local}, any answer to (b) and (c) must use global informat
 \section{Outlook}
 \label{sec:outlook}
 %=====================================================================
-The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see six directions, in order of priority:
+The local and the global view answer different questions. Cayley trees and their congruence classes describe how every forest of the family branches. Parity words and the numbers $2^l-q^k$ decide how many trees a forest has and where their cycles sit. We see seven directions, roughly in order of priority:
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{The values of the basin densities} (Problem~\ref{prob:basins}). Existence is settled in the logarithmic sense, Proposition~\ref{prop:cosets} fixes invariant-class densities (but not generally individual basin densities), and the backward mass predicts measured basin shares to about $3\,\%$, with the explicit constant $3/\log(4/3)$ (Conjecture~\ref{conj:formula}). The central open question is why: a proof that the level averages of the backward mass converge to the densities would turn this heuristic into a formula. For the mean value of the potential, the lower bound is proved (Theorem~\ref{thm:lower}), and the matching upper bound is at least as hard as the exclusion of unbounded orbits (Corollary~\ref{cor:remains}). Remark~\ref{rem:passage} expresses each density as a first-passage probability, which may be the route to such a proof and already allows numerical estimates far beyond brute-force enumeration (Table~\ref{table:passage}). Natural densities follow for every $c$ once \cite{Allikvere_2026} is confirmed (Theorem~\ref{thm:natural}); a further aim is the features of a cycle that determine the values. This is the direction with the largest potential for new theory, independently of the Collatz conjecture itself.
 	\item \emph{The upper bound for the potential} (Appendix~\ref{sec:tail-programme}): the deficit in~\eqref{eq:upper} splits into a clipping tail $T_X$ and a return term $R_X$ (Corollary~\ref{cor:two-tails}). Since the first-passage mass is exponentially tight up to a logarithmic exceptional set (Proposition~\ref{prop:tightness}), $T_X=o(X)$ reduces to Problem~\ref{prob:excursions}; a moment bound growing like $(\log X)^A$ with $A<\varepsilon_0$ would suffice (Corollary~\ref{cor:extreme-tail}), and so would uniform integrability of the stopped potential $a\,h(a)$ of the odd targets (Proposition~\ref{prop:potential-domination}), which is needed in its averaged form and does not follow from the structural properties of $h$ (Remark~\ref{rem:spikes}). Certificates that use only a fixed residue cannot work (Proposition~\ref{prop:residue-obstruction}). Only the window part $J_X$ of the return term matters (Remark~\ref{rem:return-divergence}), and the potential dominates it as well, with the full potential in place of the stopped one and an additional term for the points from which the returns start: under the same coupling hypotheses, uniform integrability of $a\,h(a)$ on the odd targets would give $T_X=o(X)$ and $J_X=o(X)$, hence~\eqref{eq:upper} (Proposition~\ref{prop:return-domination}).
@@ -1065,6 +1070,7 @@ The local and the global view answer different questions. Cayley trees and their
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
 	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
+	\item \emph{The Syracuse law itself} (Appendix~\ref{sec:syracuse-lp}): a bound for the unit-frequency energy (Conjecture~\ref{conj:energy}), which gives $p$-integrability of the profile for every $p<2$, and the exponential decay of the largest Fourier coefficients that \cite{Tao_2022} considers possible, numerically $\approx n^{-1}\,0.943^{\,n}$.
 \end{enumerate}
 
 \subsection*{Code and data availability}
@@ -1105,6 +1111,8 @@ H & Means of $a\,h(a)$ over targets in $[10^9,10^{26})$ from $10^7$ random orbit
 I & First-passage mass $\Phi_X/X$ along actual orbits and in the random-walk model: $c\in\{1,-1,5\}$, $X\le10^{30}$, $\beta\in\{0.05,0.005\}$ & Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/results/tail}{\texttt{tail/}} \\
 J & Tests of the cycle-count heuristic: exact counts of all words with $l\le30$, algebraic factors of $2^l-3^k$ & Section~\ref{sec:zoo}, Problem~\ref{prob:heuristic} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/results/heuristic}{\texttt{heuristic/}} \\
 K & Tails of $a\,h(a)$, odd targets, dangerous classes: counts of all targets $a\le2^{22}$ from all starts $n\le3\cdot10^{10}$, maps of Run~G & Proposition~\ref{prop:potential-domination}, Table~\ref{table:ui}, Figure~\ref{fig:ui} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/results/potential_ui}{\texttt{potential\_ui/}} \\
+L & Exact law of $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$ for $n\le20$: moments $H_p(n)$, energies $E_n$, twisted correlations, tails, Fourier maxima & Appendix~\ref{sec:syracuse-lp}, Table~\ref{table:syr-moments} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research/syracuse_lp}{\texttt{docs/research/\allowbreak syracuse\_lp}} \\
+M & Monte Carlo of $\chi_n(2^k)$, $16\le n\le80$, exact $128$-bit arithmetic: two runs of $10^{11}$ samples, windows centred at $4(n-1)/3$ and $n\log_23-6$ & Appendix~\ref{sec:syracuse-lp}, Table~\ref{table:syr-fourier} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research/syracuse_lp}{\texttt{docs/research/\allowbreak syracuse\_lp}} \\
 \end{longtable}
 \endgroup
 
@@ -1145,6 +1153,7 @@ Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} 
 Heuristic for primitive cycles, Problem~\ref{prob:heuristic} (Run~J) & \path{word_census.c}, \path{necklace_counts.py}, \path{algebraic_factor.c}, \path{heuristic_tests.py}, \path{run_J.sh} & \path{heuristic/report_J.txt}, \path{heuristic/*.txt} \\
 Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} (Run~I) & \path{tail_check.c}, \path{tail_fallback.py}, \path{tail_grid.sh}, \path{tail_report.py} & \path{tail/report_I.txt}, \path{tail/*.txt} \\
 Proposition~\ref{prop:potential-domination}, Table~\ref{table:ui}, Figure~\ref{fig:ui} (Run~K) & \path{potential.c}, \path{ui_report.py}, \path{run_K.sh}, \path{run_K_counts.sbatch}, \path{run_K_report.sbatch} & \path{potential_ui/report_K.txt}, \path{potential_ui/ui_*.csv}, \path{potential_ui/counts_c*.npz} (raw) \\
+Appendix~\ref{sec:syracuse-lp} (Runs~L, M) & \path{syracuse_lp.py}, \path{syrac_fourier_mc.c}, \path{mc_merge.py}, \path{decay_analysis.py}, \path{slurm/slp_*.sbatch} (all in \path{docs/research/syracuse_lp}) & \path{results_exact/*.csv}, \path{results_mc/}, \path{results_mc2/} (same folder) \\
 Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py}, \path{tests/run_ui_tests.sh}, \path{tests/ref_counts.c} & -- \\
 \end{longtable}
 \endgroup
@@ -1207,7 +1216,7 @@ First passage & $\operatorname{Pass}_x(m)$: the first Syracuse iterate of $m$ th
 For $q=1$ we have $z_1(B)=\sum_j 2^{p_j}$, the integer whose binary digits, least significant first, are $b_0,\ldots,b_{l-1}$. For $c=2^l-1$, the map $T_{1,c}$ acts on $\{0,\ldots,2^l-1\}$ as the cyclic right rotation of $l$-bit numbers. For example, the cycles of $x+7$ are $\{1,4,2\}$, $\{3,5,6\}$ and $\{7\}$, the rotation classes of $001$, $011$ and $111$. For $c=1$, by contrast, $0<z_1(B)<2^l-1$ unless $B=1^l$, so $T_{1,1}$ has only the cycle $\{1\}$. This also follows from the descent $(x+1)/2<x$ for odd $x>1$, a global, Archimedean argument. This is the trivial base case $1n+1$ of the family $an+b$.
 \end{remark}
 
-\paragraph{The product identity.}
+\paragraph{The product identity}
 Let $a_1,\ldots,a_k$ be the odd members of a positive cycle of~\eqref{eq:func_qxplus1} of type $(l,k)$, in cyclic order, and put $A_i=qa_i$. Dividing~\eqref{eq:condition_cycle_existance} by $q^k$ gives
 \[
 \prod_{i=1}^{k}\Bigl(1+\frac1{A_i}\Bigr)=\frac{2^l}{q^k},
@@ -2323,7 +2332,7 @@ profile & $n=8$ & 6.952 & 46.8 & 8.1 & 0 & 1.69 & 260 & -- \\
 \label{fig:ui}
 \end{figure}
 
-\paragraph{Run~K.} We recomputed the predecessor counts of Run~G with $N=3\cdot10^{10}$ for all targets $a\le2^{22}$ of $3x+1$, $3x-1$, $3x+5$ and $3x+13$, estimated $h(a)$ by the proportion of the starting values, and evaluated $v(a)=a\,h(a)$ on the windows $(X/2,X]$. The counts satisfy the identity of Proposition~\ref{prop:potential}(b) exactly, and every target lies on an orbit that reaches $[1,X^{1-2\beta}]$, so here $h^\downarrow=h$. The distribution of $v$ is the same for the four maps and stable from $X=2^{14}$ to $2^{22}$ (Table~\ref{table:ui}, Figure~\ref{fig:ui}). At $X=2^{22}$ its median is $2.3$, its $99$th percentile $68$, and its mean lies between $6.91$ and $6.98$, against $2/\log(4/3)=6.952$. The distribution is heavy-tailed. Targets with $v(a)>20$ carry half of the mean, those with $v(a)>100$ about $15\,\%$, and those with $v(a)>1000$ between $1.4$ and $2.4\,\%$. Restricted to odd targets, as in~\eqref{eq:UI}, these shares change by at most $0.4$ percentage points (rows `odd' of Table~\ref{table:ui}). For $20\le M\le200$ the share above $M$ decays like $M^{-\gamma}$, with fitted exponents $\gamma\approx0.8$. The Syracuse profile $v_n(a)=\frac{2}{\log(4/3)}\,3^n\,\mathbb P(c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)=a)$, computed exactly, has the same tail. Its far tail grows with $n$, as the measured one grows with $X$, and it converges by \cite[(1.26)]{Tao_2022}. The data are therefore consistent with~\eqref{eq:UI}, but they cannot decide the uniformity in $X$, and an $L^p$ bound can hold at most for $p<1+\gamma$. Finally, the mass of $v$ on the dangerous classes of depth $12$ ($b=8$, $\zeta_0=0.55$) equals their density to within $2\,\%$ for $X\ge2^{18}$, and for the odd targets at $X=2^{22}$ to within $0.4\,\%$ (last column of Table~\ref{table:ui}). The potential does not concentrate on these classes, and the sum in Proposition~\ref{prop:potential-domination} is of the order of $\alpha_b$ times the mean. The same holds for the starts of Proposition~\ref{prop:return-domination}. For the odd starts $u\in((2X_1-c)/3,X_1]$ with $X_1=2^{20}$ and $2^{22}$ and for $s=2,4,8,16,32,64$, the share of the potential on the starts whose excursion climbs to $su$ or higher, divided by the share of these starts, lies between $0.95$ and $1.04$ for all four maps, with one exception ($1.15$ for $3x+5$, $X_1=2^{20}$, $s=32$). The share itself is $1/2$ for $s=2$ and falls like $0.6/s$ for $s\ge4$ (research notes). Over the odd targets of the windows $(X/2,X]$, $2^{14}\le X\le2^{22}$, the $L^{3/2}$ means $(\operatorname{mean}v^{3/2})^{2/3}$ lie between $10.1$ and $14.7$ for all four maps. From $X=2^{16}$ to $2^{22}$ they increase by $3$ to $25\,\%$, and single large values move them by up to about $30\,\%$ at $X=2^{14}$. The $L^2$ means are larger and less stable, up to $38.6$.
+\paragraph{Run~K} We recomputed the predecessor counts of Run~G with $N=3\cdot10^{10}$ for all targets $a\le2^{22}$ of $3x+1$, $3x-1$, $3x+5$ and $3x+13$, estimated $h(a)$ by the proportion of the starting values, and evaluated $v(a)=a\,h(a)$ on the windows $(X/2,X]$. The counts satisfy the identity of Proposition~\ref{prop:potential}(b) exactly, and every target lies on an orbit that reaches $[1,X^{1-2\beta}]$, so here $h^\downarrow=h$. The distribution of $v$ is the same for the four maps and stable from $X=2^{14}$ to $2^{22}$ (Table~\ref{table:ui}, Figure~\ref{fig:ui}). At $X=2^{22}$ its median is $2.3$, its $99$th percentile $68$, and its mean lies between $6.91$ and $6.98$, against $2/\log(4/3)=6.952$. The distribution is heavy-tailed. Targets with $v(a)>20$ carry half of the mean, those with $v(a)>100$ about $15\,\%$, and those with $v(a)>1000$ between $1.4$ and $2.4\,\%$. Restricted to odd targets, as in~\eqref{eq:UI}, these shares change by at most $0.4$ percentage points (rows `odd' of Table~\ref{table:ui}). For $20\le M\le200$ the share above $M$ decays like $M^{-\gamma}$, with fitted exponents $\gamma\approx0.8$. The Syracuse profile $v_n(a)=\frac{2}{\log(4/3)}\,3^n\,\mathbb P(c\cdot\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)=a)$, computed exactly, has the same tail. Its far tail grows with $n$, as the measured one grows with $X$, and it converges by \cite[(1.26)]{Tao_2022}. The data are therefore consistent with~\eqref{eq:UI}, but they cannot decide the uniformity in $X$, and an $L^p$ bound can hold at most for $p<1+\gamma$. Finally, the mass of $v$ on the dangerous classes of depth $12$ ($b=8$, $\zeta_0=0.55$) equals their density to within $2\,\%$ for $X\ge2^{18}$, and for the odd targets at $X=2^{22}$ to within $0.4\,\%$ (last column of Table~\ref{table:ui}). The potential does not concentrate on these classes, and the sum in Proposition~\ref{prop:potential-domination} is of the order of $\alpha_b$ times the mean. The same holds for the starts of Proposition~\ref{prop:return-domination}. For the odd starts $u\in((2X_1-c)/3,X_1]$ with $X_1=2^{20}$ and $2^{22}$ and for $s=2,4,8,16,32,64$, the share of the potential on the starts whose excursion climbs to $su$ or higher, divided by the share of these starts, lies between $0.95$ and $1.04$ for all four maps, with one exception ($1.15$ for $3x+5$, $X_1=2^{20}$, $s=32$). The share itself is $1/2$ for $s=2$ and falls like $0.6/s$ for $s\ge4$ (research notes). Over the odd targets of the windows $(X/2,X]$, $2^{14}\le X\le2^{22}$, the $L^{3/2}$ means $(\operatorname{mean}v^{3/2})^{2/3}$ lie between $10.1$ and $14.7$ for all four maps. From $X=2^{16}$ to $2^{22}$ they increase by $3$ to $25\,\%$, and single large values move them by up to about $30\,\%$ at $X=2^{14}$. The $L^2$ means are larger and less stable, up to $38.6$.
 
 \begin{remark}[Averages, not maxima]
 \label{rem:spikes}
@@ -2341,7 +2350,7 @@ and with $b=\lceil(\log(2+G_X)+\log\log X)/\Delta_0\rceil$ this yields $T_X=o(X)
 \[
  \liminf_{X\to\infty}\frac1X\sum_{a\le X}\bigl(a\,h(a)\bigr)^p\ \ge\ \gamma_0^p\,H_p(n)
 \]
-for every $n$, so these moments of the potential tend to infinity for every $p\ge2$. For the odd targets and $h^\downarrow$ in~\eqref{eq:UI} this leaves $1<p<2$, in line with the tail exponent $\gamma\approx0.8$ of Run~K and with the decrease of the profile exponent in Table~\ref{table:ui} from $1.69$ at $n=8$ to $0.94$ at $n=16$.
+for every $n$, so these moments of the potential tend to infinity for every $p\ge2$. For the odd targets and $h^\downarrow$ in~\eqref{eq:UI} this leaves $1<p<2$, in line with the tail exponent $\gamma\approx0.8$ of Run~K and with the decrease of the profile exponent in Table~\ref{table:ui} from $1.69$ at $n=8$ to $0.94$ at $n=16$. Appendix~\ref{sec:syracuse-lp} shows that the window $1<p<2$ is sharp for the profile under a single $L^2$ condition. The profile lies in $L^p$ for every $p<2$ if the energy $E_n=H_2(n)-H_2(n-1)$ of the unit frequencies stays bounded, and numerically $E_n$ tends to about $0.475$ (Run~L).
 \end{remark}
 
 
@@ -2356,7 +2365,7 @@ Throughout this appendix $c\ge-1$ is odd with $3\nmid c$, and $\alpha=1.001$. Fo
  p_m(r)=\mathbb P\bigl(c\cdot\mathbf{Syrac}(\mathbb Z/3^m\mathbb Z)=r\bigr)\qquad(r\in\mathbb Z/3^m\mathbb Z).
 \]
 
-\paragraph{The transfer.} Table~\ref{table:transfer} lists every point at which the arguments of \cite[Sections~1.3--5]{Tao_2022} and \cite[Sections~2--6]{Allikvere_2026} use the map. Apart from the offset, they use only the valuation statistics of $3m+c$, which are the same for every odd $c$, and the positivity of the iterates, which holds for $c\ge-1$.
+\paragraph{The transfer} Table~\ref{table:transfer} lists every point at which the arguments of \cite[Sections~1.3--5]{Tao_2022} and \cite[Sections~2--6]{Allikvere_2026} use the map. Apart from the offset, they use only the valuation statistics of $3m+c$, which are the same for every odd $c$, and the positivity of the iterates, which holds for $c\ge-1$.
 
 \begin{table}[htbp]
 \centering
@@ -2420,6 +2429,143 @@ As in the proof of Corollary~\ref{cor:natural}, $\mathbb P(\mathbf L_y\in A_1)\t
 
 For a predecessor set $P(a)$, $3\nmid c$, the same argument applies to $A_1=P(a)\cap(2\N+1)$. The first-passage invariance~\eqref{eq:passage} now fails only on the event $\operatorname{Pass}_x=a'$, with $a'$ the odd part of $a$, as in the proof of Proposition~\ref{prop:potential}(a). Its probability under $\mathbf U_y$ is at most its probability under $\mathbf L_y$ plus $O(\log^{-c'}x)$ by~\eqref{eq:two-laws-tv}. Under $\mathbf L_y$ it is $O(\log^{-c'}x)$, because \cite[(5.12)--(5.15)]{Tao_2022} for $T_{3,c}$ give $\operatorname{Pass}_x(\mathbf L_y)\ge x\exp(-O(\log^{0.6}x))>a'$ outside an event of that probability. The numbers $2^ia$ form a set of natural density $0$. Hence $P(a)$ has the natural density $h(a)$.
 \end{proof}
+
+
+\section{The \texorpdfstring{$3$}{3}-adic Syracuse law: \texorpdfstring{$L^p$}{Lp} regularity and Fourier decay}
+\label{sec:syracuse-lp}
+The Syracuse profile $f_n$ of Remark~\ref{rem:spikes}(d) is the reference object of Theorem~\ref{thm:lower}, Conjecture~\ref{conj:profile} and Table~\ref{table:ui}. Its densities converge in $L^1$ \cite[(1.26)]{Tao_2022}, and it has no square-integrable density (Remark~\ref{rem:spikes}(d)). This appendix reduces its $p$-integrability for $1<p<2$ to a single $L^2$ quantity and identifies where its self-correlations become infinite. It then reports the exact laws up to $n=20$ (Run~L) and a Monte Carlo study of its largest Fourier coefficients up to $n=80$ (Run~M). Multiplication by the unit $c$ permutes the residues and the frequencies. So $H_p(n)$, the energies below and the set of values of $|\chi_n|$ on the units do not depend on $c$, and we take $c=1$.
+
+Let $a_1,a_2,\dots$ be independent with $\mathbb P(a_i=k)=2^{-k}$, $A_j=a_1+\dots+a_j$, and $S_n=\sum_{j=1}^n3^{j-1}2^{-A_j}\bmod3^n$. Reversing the order of the $a_i$ gives Tao's $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$. Moreover $S_n\bmod3^{n-1}=S_{n-1}$ and $S_n=2^{-a}(1+3S'_{n-1})$ with an independent copy $S'_{n-1}$. Let $f_n=3^n\,\mathbb P(S_n=\cdot)$, $H_p(n)=\mathbb E_xf_n(x)^p$ over the uniform $x\in\mathbb Z/3^n\mathbb Z$, and $\chi_n(\xi)=\mathbb E\,e(\xi S_n/3^n)$. The densities form a martingale for the $3$-adic filtration. Hence $H_p(n)$ increases with $n$, and $\sup_nH_p(n)<\infty$ for some $p>1$ means that the limiting density lies in $L^p(\mathbb Z_3)$. By Parseval and $\chi_n(3\xi)=\chi_{n-1}(\xi)$,
+\[
+ E_n:=H_2(n)-H_2(n-1)=\sum_{\xi\in(\mathbb Z/3^n\mathbb Z)^\times}|\chi_n(\xi)|^2 ,
+\]
+the $L^2$ energy of the unit frequencies.
+
+\begin{lemma}[Self-similarity]
+\label{lem:selfsim}
+Put $\psi_a(x)=(2^ax-1)/3\bmod3^{n-1}$ for $x\equiv2^{-a}\pmod3$. Then
+\[
+ f_n(x)=\sum_{a\ge1}3\cdot2^{-a}\,\mathbf 1[x\equiv2^{-a}\ (\mathrm{mod}\ 3)]\,f_{n-1}(\psi_a(x)).
+\]
+Each $\psi_a$ maps the class $\{x\equiv2^{-a}\pmod3\}$ bijectively onto $\mathbb Z/3^{n-1}\mathbb Z$. If $a\equiv b\pmod2$, then $\psi_b=g_{b-a}\circ\psi_a$ on this class, where $g_d(y)=2^dy+(2^d-1)/3$ for even $d$. The maps $g_d$ are affine isometries of $\mathbb Z_3$, and $g_{-d}=g_d^{-1}$.
+\end{lemma}
+
+\begin{proof}
+$\mathbb P(S_n=x)=\sum_a2^{-a}\,\mathbb P(1+3S'_{n-1}\equiv2^ax\pmod{3^n})$, which requires $2^ax\equiv1\pmod3$ and then equals $\mathbb P(S'_{n-1}=\psi_a(x))$. For $x=2^{-a}(1+3y)$ we have $\psi_b(x)=(2^{b-a}(1+3y)-1)/3=g_{b-a}(y)$.
+\end{proof}
+
+For an affine isometry $h(y)=uy+t$ of $\mathbb Z_3$ ($u$ a unit) let
+\[
+ \operatorname{Cor}_m(h)=\mathbb E_yf_m(y)f_m(h(y))=3^m\,\mathbb P\bigl(S'_m\equiv h(S_m)\pmod{3^m}\bigr),
+\]
+with independent $S_m$, $S'_m$. Thus $\operatorname{Cor}_m(\mathrm{id})=H_2(m)$ and $\operatorname{Cor}_m(h^{-1})=\operatorname{Cor}_m(h)$.
+
+\begin{proposition}[The second moment]
+\label{prop:energy}
+For $n\ge2$, $E_n=2\sum_{d\ge2\text{ even}}2^{-d}\operatorname{Cor}_{n-1}(g_d)$. More generally, for every affine isometry $h(y)=uy+t$,
+\[
+ \operatorname{Cor}_n(h)=3\sum_{a,b\ge1}2^{-a-b}\,\mathbf 1\bigl[2^{b-a}u+2^bt\equiv1\ (\mathrm{mod}\ 3)\bigr]\operatorname{Cor}_{n-1}(h_{a,b}),
+\]
+where $h_{a,b}(y)=2^{b-a}u\,y+(2^{b-a}u+2^bt-1)/3$.
+\end{proposition}
+
+\begin{proof}
+Write $S=2^{-a}(1+3S')$ and $T=2^{-b}(1+3T')$. The congruence $T\equiv h(S)$ reads $1+3T'\equiv2^{b-a}u(1+3S')+2^bt$. Modulo $3$ this is the indicator condition, and then it says $T'\equiv h_{a,b}(S')\pmod{3^{n-1}}$. For $h=\mathrm{id}$ the condition is $a\equiv b\pmod2$ and $h_{a,b}=g_{b-a}$. The terms with $a=b$ give $3\sum_a4^{-a}H_2(n-1)=H_2(n-1)$. For each even $d\ne0$, the pairs with $b-a=d$ carry the weight $3\sum_{a\ge1}2^{-2a-|d|}=2^{-|d|}$.
+\end{proof}
+
+\begin{proposition}[The singular set]
+\label{prop:singular}
+For every integer $e\ne0$ and the map $y\mapsto2^ey$, $\operatorname{Cor}_n(y\mapsto2^ey)\ge2^{-|e|}H_2(n-1)\to\infty$.
+\end{proposition}
+
+\begin{proof}
+For $u=2^e$, $t=0$, the pairs with $b-a=-e$ satisfy the condition and give $h_{a,b}=\mathrm{id}$. Their weight is $2^{-|e|}$, and all terms are nonnegative.
+\end{proof}
+
+This is the overlap principle of Remark~\ref{rem:spikes}(d) in correlation form. Multiplying by $2^e$ shifts the first valuation, so the law of $2^eS$ contains $2^{-|e|}$ times the law of $S$. The maps $g_d$ differ from $y\mapsto2^dy$ by the translation $(2^d-1)/3$, which is nonzero and has $3$-adic valuation $v_3(d/2)$.
+
+\begin{lemma}[Kahane--Peyri\`ere inequality]
+\label{lem:kp}
+For $1<p\le2$ and $n\ge1$,
+\[
+ H_p(n)\le\lambda_p\,H_p(n-1)+E_n^{p/2},\qquad\lambda_p=\frac{3^{p-1}}{2^p-1}.
+\]
+For $p=2$ this is the identity $H_2(n)=H_2(n-1)+E_n$. Since $\log(2^p-1)$ is strictly concave and $\lambda_1=\lambda_2=1$, we have $\lambda_p<1$ for $1<p<2$ (for example $\lambda_{1.5}=0.947$).
+\end{lemma}
+
+\begin{proof}
+Let $y_a(x)=3\cdot2^{-a}\mathbf 1[x\equiv2^{-a}]f_{n-1}(\psi_a(x))$, so that $f_n=\sum_ay_a$. As $s\mapsto s^{p/2}$ is subadditive,
+\[
+ f_n^p=\Bigl(\sum_ay_a^2+\sum_{a\ne b}y_ay_b\Bigr)^{p/2}\le\sum_ay_a^p+\Bigl(\sum_{a\ne b}y_ay_b\Bigr)^{p/2}.
+\]
+By the bijections of Lemma~\ref{lem:selfsim}, $\mathbb E_xy_a^p=\frac13(3\cdot2^{-a})^pH_p(n-1)$, and these sum to $\lambda_pH_p(n-1)$. By Jensen's inequality, the mean of the last term is at most $(\mathbb E_x\sum_{a\ne b}y_ay_b)^{p/2}$. The case $p=2$ of the same computation shows that $\mathbb E_x\sum_{a\ne b}y_ay_b=E_n$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:lp}
+If $E^*=\sup_nE_n<\infty$, then $\sup_nH_p(n)\le1+(E^*)^{p/2}/(1-\lambda_p)$ for every $1<p<2$. So the limiting density lies in $L^p(\mathbb Z_3)$ for every $p<2$ and, by Remark~\ref{rem:spikes}(d), not in $L^2$: the critical exponent is $2$. If only $E_n\le Cn^\theta$, then $H_p(n)=O(n^{\theta p/2})$, and the $L^q$ dimensions of the Syracuse measure equal $1$ for $1<q\le2$.
+\end{corollary}
+
+For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~\ref{lem:selfsim} is a multitype smoothing transform with spectral radius $\lambda_p$ at order $p$ \cite{Durrett_Liggett_1983,Kahane_Peyriere_1976}. Since $\lambda_2=1$, its tail $\mathrm{Haar}\{f>M\}\asymp M^{-2}$ sits exactly at the critical exponent. Lemma~\ref{lem:kp} replaces the missing independence by the single number $E_n$.
+
+\begin{conjecture}[Bounded energy]
+\label{conj:energy}
+$\sup_nE_n<\infty$; equivalently, by Proposition~\ref{prop:energy}, $\sup_m\sum_d2^{-d}\operatorname{Cor}_m(g_d)<\infty$.
+\end{conjecture}
+
+A stronger form measures the distance to the singular set, weighted as in the proof of Proposition~\ref{prop:singular}. Let $\delta(h)=\sum_{e\in\mathbb Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}$. It is infinite exactly on the singular set and satisfies $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$. The \emph{decorrelation conjecture} asserts $\limsup_m\operatorname{Cor}_m(h)\le A+B\,\delta(h)$ for all $h$ with $\delta(h)<\infty$, and it implies Conjecture~\ref{conj:energy}. The recursion of Proposition~\ref{prop:energy} is a positive linear recursion on the affine maps. Its identity is fixed with weight $\lambda_2=1$, which is the source of the linear growth of $H_2$. A proof would be a no-resonance estimate: started at $h$, the weighted walk $h\mapsto h_{a,b}$ comes within $3$-adic distance $3^{-\ell}$ of the singular set with total weight $O(3^{-\ell})$. The translation part of the walk is a $3$-adic sum of the same kind as $S_n$, so this is a mixing statement in the spirit of \cite[Propositions~1.14, 1.17]{Tao_2022}.
+
+\paragraph{Run~L} We computed the laws of $S_n$ exactly up to floating point for $n\le20$. The law at level $n$ is a cyclic correlation in the discrete logarithms of the units modulo $3^n$ ($2$ is a primitive root), evaluated by FFT. At $n=20$ this took $1.6$ hours and $205$~GB. The identity of Proposition~\ref{prop:energy} holds to all printed digits, and Lemma~\ref{lem:kp} holds at every level, for $p=1.5$ with slack at least $0.36$ (Table~\ref{table:syr-moments}). The increments of $E_n$ fall from $5.7\cdot10^{-4}$ at $n=15$ to $3.1\cdot10^{-4}$ at $n=20$, by a factor of about $0.87$ per level, so $E_n$ converges to about $0.4751$. The increments of $H_p(n)$ shrink by the factors $0.909$, $0.930$ and $0.959$ per level at $n=20$ for $p=1.25$, $1.5$ and $1.75$, while $H_2$ grows by $E_n$ per level. The correlations $\operatorname{Cor}_m(g_d)$ change by at most $0.014$ from $m=8$ to $m=20$, and by at most $0.003$ from $m=16$ to $m=20$. At $m=20$ they are $0.73$, $0.47$, $0.86$, $0.43$ for $d=2$, $4$, $8$, $14$ ($v_3(d/2)=0$); $1.24$, $1.37$ for $d=6$, $12$; and $2.11$, $2.36$, $2.78$ for $d=18$, $54$, $162$. So they grow by about $0.47$ per unit of $v_3(d/2)$. For the translation $y\mapsto y+3^j$, $\operatorname{Cor}_{20}-H_2(j)$ lies between $-0.30$ and $-0.15$ for $1\le j\le19$. For $y\mapsto2^ey$, $e=1$, $2$ and $4$, the correlation grows by $0.237$, $0.119$ and $0.030$ per level, that is by $2^{-e}E_n$ as Proposition~\ref{prop:singular} predicts. With the translations $1$, $9$, $81$ added, it stays constant. The tail $\mathrm{Haar}\{f_{20}>M\}$ equals $9.6\cdot10^{-3}$, $1.2\cdot10^{-3}$, $8.5\cdot10^{-5}$ and $5.4\cdot10^{-6}$ for $M=10$, $30$, $100$ and $300$, with local exponents $1.9$, $2.2$ and $2.5$ steepening towards the cut-off $\max f_{20}=4862$.
+
+\begin{table}[tp]
+\centering
+\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$n$ & $E_n$ & $H_{1.25}(n)$ & $H_{1.5}(n)$ & $H_{1.75}(n)$ & $H_2(n)$\\
+\midrule
+4 & 0.46421 & 1.2555 & 1.6389 & 2.2116 & 3.0686\\
+8 & 0.46592 & 1.3366 & 1.9256 & 2.9805 & 4.9317\\
+12 & 0.46894 & 1.3822 & 2.1136 & 3.5937 & 6.8029\\
+16 & 0.47135 & 1.4109 & 2.2472 & 4.1021 & 8.6849\\
+18 & 0.47223 & 1.4214 & 2.2999 & 4.3250 & 9.6290\\
+20 & 0.47291 & 1.4301 & 2.3453 & 4.5300 & 10.5745\\
+\bottomrule
+\end{tabular}
+\caption{Run~L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.}
+\label{table:syr-moments}
+\end{table}
+
+\paragraph{Fourier maxima (Run~M)} By the identity for $E_n$, $|\chi_n|$ is of size $3^{-n/2}$ on average over the units, and Conjecture~\ref{conj:energy} says exactly this. Its maximum $\chi^*_n=\max_{\xi\text{ unit}}|\chi_n(\xi)|$ decays much more slowly. Tao proves $\chi^*_n\ll_An^{-A}$ for every $A$ \cite[Proposition~1.17]{Tao_2022} and writes that the bound could perhaps be improved ``to as far as $O(\exp(-cn))$''. Toguchi computed $\chi^*_n$ up to $n=21$ \cite{Toguchi_2026}. He found the maximiser $\xi=2^k$ with $k\approx4(n-1)/3$, and a power law $n^{-2.1}$ fitted better than an exponential.
+
+We estimated $\chi_n(2^k)$ by Monte Carlo with exact $128$-bit arithmetic for $S_n$, computed by Horner's rule from the inside. The two runs had $10^{11}$ samples each and a standard error of $3.2\cdot10^{-6}$. They agree with the exact values of Run~L for $16\le n\le20$ within $1.4$ standard errors. The first run, with a window of $13$ exponents around $4(n-1)/3$, showed that the maximiser follows $n\log_23$ instead: $k^*-n\log_23\in[-6.6,-5.3]$ for $n\le42$. For $n=41$ and all $n\ge43$ its maximum sat at the window edge. The second run recentred the window at $\operatorname{round}(n\log_23)-6$ ($17$ exponents, $36\le n\le80$). There the maximum never reaches the edge, and $k^*-n\log_23\in[-7.5,-5.2]$. So $\xi\approx3^n/64$, a fixed fraction of the modulus, and for $\xi=2^k$ the recursion
+\[
+ \chi_n(2^k)=\sum_{a\le k}2^{-a}\,e\bigl(2^{k-a}/3^n\bigr)\chi_{n-1}\bigl(2^{k-a}\bigr)+\sum_{a>k}(\dots)
+\]
+acts on the relative frequency $2^k/3^n$ by multiplication with $3\cdot2^{-a}$. The first run for $16\le n\le35$ and the second for $36\le n\le80$ together give $65$ levels with $\chi^*_n\ge20$ standard errors, from $1.44\cdot10^{-2}$ to $6.3\cdot10^{-5}$. The fits in Table~\ref{table:syr-fourier} single out $\chi^*_n\approx A\,n^{-1}\,0.943^{\,n}$. Only this model reaches the noise level, with RMS residual $0.0099$ and largest residual $0.029$, and its parameters are stable on subranges. The local ratio per level rises slowly, from $0.892$ ($n=16$--$23$) through $0.919$ ($n=36$--$43$) to $0.930$ ($n=72$--$79$), as the factor $n^{-1}$ predicts. The bias-free window energy $(\sum_k|\chi_n(2^k)|^2)^{1/2}$ gives the same ratios. Every fixed power, including $n^{-2.1}$, is excluded. Numerically, the decay is exponential with $c\approx0.058$ in Tao's $O(\exp(-cn))$; a proof remains open.
+
+\begin{table}[tp]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+model for $\log\chi^*_n$ & RMS residual & parameters\\
+\midrule
+$a+bn$ (exponential) & $0.087$ & $e^b=0.921$\\
+$a+b\log n$ (power) & $0.226$ & \\
+$a+b(\log n)^2$ (quasi-power) & $0.138$ & \\
+$a-c\,n^g$ (stretched exponential) & $0.015$ & best $g=0.71$\\
+$a+bn+c\log n$ (exponential times power) & $0.0099$ & $e^b=0.942$, $c=-0.97$\\
+\quad the same on $16\le n\le50$ & & $e^b=0.945$, $c=-1.05$\\
+\quad the same on $30\le n\le80$ & & $e^b=0.941$, $c=-0.93$\\
+\quad the same on $50\le n\le80$ & & $e^b=0.945$, $c=-1.17$\\
+\bottomrule
+\end{tabular}
+\caption{Run~M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.}
+\label{table:syr-fourier}
+\end{table}
+
+\FloatBarrier
 
 \newpage
 \bibliographystyle{unsrt}
