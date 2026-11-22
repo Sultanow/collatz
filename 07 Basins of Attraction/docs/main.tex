@@ -259,7 +259,7 @@ Syracuse potential profile
 \addlinespace[2pt]
 Syracuse law
 & $L^1$ convergence of the densities and decay of the characteristic function \cite{Tao_2022}; no $L^2$ density (Remark~\ref{rem:spikes}(d)); Fourier maxima up to $n=21$ \cite{Toguchi_2026}.
-& Kahane--Peyri\`ere inequality: the profile lies in $L^p$ for every $p<2$ if the unit-frequency energy $E_n$ is bounded; exact second-moment identity and singular set (Appendix~\ref{sec:syracuse-lp}). Exact laws up to $n=20$ and Monte Carlo up to $n=80$: $E_n\to0.475$, largest Fourier coefficient $\approx n^{-1}0.943^n$ (Runs~L, M).
+& Kahane--Peyri\`ere inequality: the profile lies in $L^p$ for every $p<2$ if the unit-frequency energy $E_n$ is bounded; exact second-moment identity; logarithmic chart, in which $E_n$ is a weighted unit-frequency energy; the singular set of the correlations consists of the intertwiners of inverse Syracuse words and is avoided by the maps that enter $E_n$ (Appendix~\ref{sec:syracuse-lp}). Exact laws up to $n=20$ and Monte Carlo up to $n=80$: $E_n\to0.475$, with the slowest convergence at the fixed point $-1$; largest Fourier coefficient $\approx n^{-1}0.943^n$ (Runs~L--N).
 & \emph{Proof of the reduction; numerical evidence for its hypothesis and for exponential decay}. \\
 \addlinespace[2pt]
 Predicting basin shares
@@ -301,7 +301,7 @@ clipping tail and a return term and, conditionally on the coupling estimates of
 the proof of Theorem~\ref{thm:lower}, reduces both to uniform
 integrability of the potential of the odd targets
 (Propositions~\ref{prop:potential-domination} and~\ref{prop:return-domination}), which the counts of Run~K support
-but cannot decide. Appendix~\ref{sec:syracuse-lp} turns to the Syracuse profile itself: its $p$-integrability for $p<2$ follows from a bounded $L^2$ energy of the unit frequencies, which we observe numerically, as we do an exponential decay of its largest Fourier coefficients. All computations are labelled Run~A to Run~M;
+but cannot decide. Appendix~\ref{sec:syracuse-lp} turns to the Syracuse profile itself: its $p$-integrability for $p<2$ follows from a bounded $L^2$ energy of the unit frequencies, which we observe numerically, as we do an exponential decay of its largest Fourier coefficients. It also reduces the bounded energy to a quantitative non-resonance between the correlation maps and the intertwiners of inverse Syracuse words, whose exact form it proves. All computations are labelled Run~A to Run~N;
 Table~\ref{table:runs} lists them with links to their data.
 
 
@@ -1070,7 +1070,7 @@ The local and the global view answer different questions. Cayley trees and their
 	\item \emph{Longer words}: extending Proposition~\ref{prop:rational} to $l\le44$ and beyond, and the role of the convergents of $\log_2 3$, such as $65/41$.
 	\item \emph{A Steiner-type theorem for Ba\v{r}ina's $7x\pm1$} \cite{Barina_2022}: no non-trivial circuits, via Diophantine approximation of $\log_2 7$ and Baker-type bounds, in the spirit of \cite{Steiner_1977,Simons_deWeger_2005}.
 	\item \emph{Certification}: finite predecessor, hitting, clipping, return-pair and return-Lyapunov identities are kernel-checked in Lean~4 (Section~\ref{sec:contributions}); extending this to the analytic moment hypotheses, the valuation coupling and the Syracuse-profile lower bound remains future work.
-	\item \emph{The Syracuse law itself} (Appendix~\ref{sec:syracuse-lp}): a bound for the unit-frequency energy (Conjecture~\ref{conj:energy}), which gives $p$-integrability of the profile for every $p<2$, and the exponential decay of the largest Fourier coefficients that \cite{Tao_2022} considers possible, numerically $\approx n^{-1}\,0.943^{\,n}$.
+	\item \emph{The Syracuse law itself} (Appendix~\ref{sec:syracuse-lp}): a bound for the unit-frequency energy (Conjecture~\ref{conj:energy}), which gives $p$-integrability of the profile for every $p<2$; it follows from the decorrelation Conjecture~\ref{conj:decor}, whose exact part (no correlation map of the energy is an intertwiner) is Proposition~\ref{prop:intertwiners}, while the count of close approaches is an equidistribution problem for truncated Syracuse sums; and the exponential decay of the largest Fourier coefficients that \cite{Tao_2022} considers possible, numerically $\approx n^{-1}\,0.943^{\,n}$.
 \end{enumerate}
 
 \subsection*{Code and data availability}
@@ -1113,6 +1113,7 @@ J & Tests of the cycle-count heuristic: exact counts of all words with $l\le30$,
 K & Tails of $a\,h(a)$, odd targets, dangerous classes: counts of all targets $a\le2^{22}$ from all starts $n\le3\cdot10^{10}$, maps of Run~G & Proposition~\ref{prop:potential-domination}, Table~\ref{table:ui}, Figure~\ref{fig:ui} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/results/potential_ui}{\texttt{potential\_ui/}} \\
 L & Exact law of $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$ for $n\le20$: moments $H_p(n)$, energies $E_n$, twisted correlations, tails, Fourier maxima & Appendix~\ref{sec:syracuse-lp}, Table~\ref{table:syr-moments} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research/syracuse_lp}{\texttt{docs/research/\allowbreak syracuse\_lp}} \\
 M & Monte Carlo of $\chi_n(2^k)$, $16\le n\le80$, exact $128$-bit arithmetic: two runs of $10^{11}$ samples, windows centred at $4(n-1)/3$ and $n\log_23-6$ & Appendix~\ref{sec:syracuse-lp}, Table~\ref{table:syr-fourier} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research/syracuse_lp}{\texttt{docs/research/\allowbreak syracuse\_lp}} \\
+N & Logarithmic chart, exact for $n\le15$: log-IFS and spectral identity, angle shares of the unit-frequency energy, correlations at intertwiners and controls, fixed point $-1$ & Appendix~\ref{sec:syracuse-lp}, Table~\ref{table:syr-singular} & \href{https://github.com/Sultanow/collatz/tree/master/07\%20Basins\%20of\%20Attraction/docs/research/syracuse_lp}{\texttt{docs/research/\allowbreak syracuse\_lp}} \\
 \end{longtable}
 \endgroup
 
@@ -1153,7 +1154,7 @@ Proposition~\ref{prop:potential} (exact identities), Table~\ref{table:syracuse} 
 Heuristic for primitive cycles, Problem~\ref{prob:heuristic} (Run~J) & \path{word_census.c}, \path{necklace_counts.py}, \path{algebraic_factor.c}, \path{heuristic_tests.py}, \path{run_J.sh} & \path{heuristic/report_J.txt}, \path{heuristic/*.txt} \\
 Proposition~\ref{prop:tightness}, Remark~\ref{rem:tail-barrier} (Run~I) & \path{tail_check.c}, \path{tail_fallback.py}, \path{tail_grid.sh}, \path{tail_report.py} & \path{tail/report_I.txt}, \path{tail/*.txt} \\
 Proposition~\ref{prop:potential-domination}, Table~\ref{table:ui}, Figure~\ref{fig:ui} (Run~K) & \path{potential.c}, \path{ui_report.py}, \path{run_K.sh}, \path{run_K_counts.sbatch}, \path{run_K_report.sbatch} & \path{potential_ui/report_K.txt}, \path{potential_ui/ui_*.csv}, \path{potential_ui/counts_c*.npz} (raw) \\
-Appendix~\ref{sec:syracuse-lp} (Runs~L, M) & \path{syracuse_lp.py}, \path{syrac_fourier_mc.c}, \path{mc_merge.py}, \path{decay_analysis.py}, \path{slurm/slp_*.sbatch} (all in \path{docs/research/syracuse_lp}) & \path{results_exact/*.csv}, \path{results_mc/}, \path{results_mc2/} (same folder) \\
+Appendix~\ref{sec:syracuse-lp} (Runs~L--N) & \path{syracuse_lp.py}, \path{syrac_fourier_mc.c}, \path{mc_merge.py}, \path{decay_analysis.py}, \path{log_coordinates.py}, \path{slurm/slp_*.sbatch} (all in \path{docs/research/syracuse_lp}) & \path{results_exact/*.csv}, \path{results_mc/}, \path{results_mc2/}, \path{results_logchart/} (same folder) \\
 Tests & \path{tests/run_tests.sh}, \path{tests/ref_census.py}, \path{tests/run_passage_tests.sh}, \path{tests/run_potential_tests.sh}, \path{tests/ref_potential.py}, \path{tests/run_tail_tests.sh}, \path{tests/ref_tail.py}, \path{tests/run_ui_tests.sh}, \path{tests/ref_counts.c} & -- \\
 \end{longtable}
 \endgroup
@@ -2433,7 +2434,7 @@ For a predecessor set $P(a)$, $3\nmid c$, the same argument applies to $A_1=P(a)
 
 \section{The \texorpdfstring{$3$}{3}-adic Syracuse law: \texorpdfstring{$L^p$}{Lp} regularity and Fourier decay}
 \label{sec:syracuse-lp}
-The Syracuse profile $f_n$ of Remark~\ref{rem:spikes}(d) is the reference object of Theorem~\ref{thm:lower}, Conjecture~\ref{conj:profile} and Table~\ref{table:ui}. Its densities converge in $L^1$ \cite[(1.26)]{Tao_2022}, and it has no square-integrable density (Remark~\ref{rem:spikes}(d)). This appendix reduces its $p$-integrability for $1<p<2$ to a single $L^2$ quantity and identifies where its self-correlations become infinite. It then reports the exact laws up to $n=20$ (Run~L) and a Monte Carlo study of its largest Fourier coefficients up to $n=80$ (Run~M). Multiplication by the unit $c$ permutes the residues and the frequencies. So $H_p(n)$, the energies below and the set of values of $|\chi_n|$ on the units do not depend on $c$, and we take $c=1$.
+The Syracuse profile $f_n$ of Remark~\ref{rem:spikes}(d) is the reference object of Theorem~\ref{thm:lower}, Conjecture~\ref{conj:profile} and Table~\ref{table:ui}. Its densities converge in $L^1$ \cite[(1.26)]{Tao_2022}, and it has no square-integrable density (Remark~\ref{rem:spikes}(d)). This appendix reduces its $p$-integrability for $1<p<2$ to a single $L^2$ quantity and identifies where its self-correlations become infinite. It then reports the exact laws up to $n=20$ (Run~L) and a Monte Carlo study of its largest Fourier coefficients up to $n=80$ (Run~M). Finally it rewrites the energy in a logarithmic chart, determines the full singular set of the correlations, and shows that the maps entering the energy avoid it (Run~N). Multiplication by the unit $c$ permutes the residues and the frequencies. So $H_p(n)$, the energies below and the set of values of $|\chi_n|$ on the units do not depend on $c$, and we take $c=1$.
 
 Let $a_1,a_2,\dots$ be independent with $\mathbb P(a_i=k)=2^{-k}$, $A_j=a_1+\dots+a_j$, and $S_n=\sum_{j=1}^n3^{j-1}2^{-A_j}\bmod3^n$. Reversing the order of the $a_i$ gives Tao's $\mathbf{Syrac}(\mathbb Z/3^n\mathbb Z)$. Moreover $S_n\bmod3^{n-1}=S_{n-1}$ and $S_n=2^{-a}(1+3S'_{n-1})$ with an independent copy $S'_{n-1}$. Let $f_n=3^n\,\mathbb P(S_n=\cdot)$, $H_p(n)=\mathbb E_xf_n(x)^p$ over the uniform $x\in\mathbb Z/3^n\mathbb Z$, and $\chi_n(\xi)=\mathbb E\,e(\xi S_n/3^n)$. The densities form a martingale for the $3$-adic filtration. Hence $H_p(n)$ increases with $n$, and $\sup_nH_p(n)<\infty$ for some $p>1$ means that the limiting density lies in $L^p(\mathbb Z_3)$. By Parseval and $\chi_n(3\xi)=\chi_{n-1}(\xi)$,
 \[
@@ -2513,7 +2514,7 @@ For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~
 $\sup_nE_n<\infty$; equivalently, by Proposition~\ref{prop:energy}, $\sup_m\sum_d2^{-d}\operatorname{Cor}_m(g_d)<\infty$.
 \end{conjecture}
 
-A stronger form measures the distance to the singular set, weighted as in the proof of Proposition~\ref{prop:singular}. Let $\delta(h)=\sum_{e\in\mathbb Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}$. It is infinite exactly on the singular set and satisfies $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$. The \emph{decorrelation conjecture} asserts $\limsup_m\operatorname{Cor}_m(h)\le A+B\,\delta(h)$ for all $h$ with $\delta(h)<\infty$, and it implies Conjecture~\ref{conj:energy}. The recursion of Proposition~\ref{prop:energy} is a positive linear recursion on the affine maps. Its identity is fixed with weight $\lambda_2=1$, which is the source of the linear growth of $H_2$. A proof would be a no-resonance estimate: started at $h$, the weighted walk $h\mapsto h_{a,b}$ comes within $3$-adic distance $3^{-\ell}$ of the singular set with total weight $O(3^{-\ell})$. The translation part of the walk is a $3$-adic sum of the same kind as $S_n$, so this is a mixing statement in the spirit of \cite[Propositions~1.14, 1.17]{Tao_2022}.
+The recursion of Proposition~\ref{prop:energy} is a positive linear recursion on the affine maps. Its identity is fixed with weight $\lambda_2=1$, which is the source of the linear growth of $H_2$. After Runs~L and~M, this appendix rewrites $E_n$ in a logarithmic chart (Proposition~\ref{prop:spectral}), determines the full singular set of the recursion (Proposition~\ref{prop:intertwiners}), and states a decorrelation conjecture (Conjecture~\ref{conj:decor}) that implies Conjecture~\ref{conj:energy}.
 
 \paragraph{Run~L} We computed the laws of $S_n$ exactly up to floating point for $n\le20$. The law at level $n$ is a cyclic correlation in the discrete logarithms of the units modulo $3^n$ ($2$ is a primitive root), evaluated by FFT. At $n=20$ this took $1.6$ hours and $205$~GB. The identity of Proposition~\ref{prop:energy} holds to all printed digits, and Lemma~\ref{lem:kp} holds at every level, for $p=1.5$ with slack at least $0.36$ (Table~\ref{table:syr-moments}). The increments of $E_n$ fall from $5.7\cdot10^{-4}$ at $n=15$ to $3.1\cdot10^{-4}$ at $n=20$, by a factor of about $0.87$ per level, so $E_n$ converges to about $0.4751$. The increments of $H_p(n)$ shrink by the factors $0.909$, $0.930$ and $0.959$ per level at $n=20$ for $p=1.25$, $1.5$ and $1.75$, while $H_2$ grows by $E_n$ per level. The correlations $\operatorname{Cor}_m(g_d)$ change by at most $0.014$ from $m=8$ to $m=20$, and by at most $0.003$ from $m=16$ to $m=20$. At $m=20$ they are $0.73$, $0.47$, $0.86$, $0.43$ for $d=2$, $4$, $8$, $14$ ($v_3(d/2)=0$); $1.24$, $1.37$ for $d=6$, $12$; and $2.11$, $2.36$, $2.78$ for $d=18$, $54$, $162$. So they grow by about $0.47$ per unit of $v_3(d/2)$. For the translation $y\mapsto y+3^j$, $\operatorname{Cor}_{20}-H_2(j)$ lies between $-0.30$ and $-0.15$ for $1\le j\le19$. For $y\mapsto2^ey$, $e=1$, $2$ and $4$, the correlation grows by $0.237$, $0.119$ and $0.030$ per level, that is by $2^{-e}E_n$ as Proposition~\ref{prop:singular} predicts. With the translations $1$, $9$, $81$ added, it stays constant. The tail $\mathrm{Haar}\{f_{20}>M\}$ equals $9.6\cdot10^{-3}$, $1.2\cdot10^{-3}$, $8.5\cdot10^{-5}$ and $5.4\cdot10^{-6}$ for $M=10$, $30$, $100$ and $300$, with local exponents $1.9$, $2.2$ and $2.5$ steepening towards the cut-off $\max f_{20}=4862$.
 
@@ -2563,6 +2564,111 @@ $a+bn+c\log n$ (exponential times power) & $0.0099$ & $e^b=0.942$, $c=-0.97$\\
 \end{tabular}
 \caption{Run~M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.}
 \label{table:syr-fourier}
+\end{table}
+
+\paragraph{Logarithmic chart} We now attack Conjecture~\ref{conj:energy}. We do not prove it, but we rewrite $E_n$ exactly, determine the full singular set of the recursion of Proposition~\ref{prop:energy}, show that the maps $g_d$ avoid it, and locate the slowest part of the convergence of $E_n$. The maps $g_d$ become translations in the chart of the $3$-adic logarithm, which maps $1+3\Z_3$ isometrically onto $3\Z_3$ and satisfies $\log4\equiv3\pmod9$. Put $\Lambda(x)=\log(1+3x)/\log4$ for $x\in\Z_3$. Split the geometric variable as $a=c+2j$ with $c\in\{1,2\}$ and $j\ge0$. Then $c$ and $j$ are independent, $\mathbb P(c=1)=2/3$ and $\mathbb P(j=i)=\frac34\,4^{-i}$. Let $\gamma$ be the law of $-j$.
+
+\begin{lemma}[Logarithmic chart]
+\label{lem:logchart}
+\begin{enumerate}
+\item[(a)] $\Lambda$ is an isometry of $\Z_3$ onto itself, $\Lambda(x)\equiv x\pmod3$, and $\Lambda\circ g_d=\Lambda+d/2$ for even $d$.
+\item[(b)] The variables $L_n=\Lambda(S_n)\bmod3^n$ satisfy $L_n=\varphi_c(L'_{n-1}-j)$ with an independent copy $L'_{n-1}$ and $\varphi_c(z)=\log_4(1+3\cdot2^{-c}4^z)=\Lambda(2^{-c}4^z)$.
+\item[(c)] $\varphi_c$ maps $\Z_3$ onto the class of $2^{-c}$ modulo $3$, $|\varphi_c(z)-\varphi_c(w)|=|z-w|/3$, and $\varphi_c$ is analytic but not affine. Hence the law $\nu_n$ of $L_n$ satisfies $\nu_n=\frac23\varphi_{1*}(\nu_{n-1}*\gamma)+\frac13\varphi_{2*}(\nu_{n-1}*\gamma)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $|\log(1+3x)-\log(1+3y)|=|\log(1+3(x-y)/(1+3y))|=|3(x-y)|$ and $|\log4|=1/3$. Modulo $9$, $\log(1+3x)\equiv3x$ and $\log4\equiv3$. Since $1+3g_d(y)=4^{d/2}(1+3y)$, $\Lambda(g_d(y))=\Lambda(y)+d/2$. (b) From $S=2^{-a}(1+3S')$ and $1+3S'=4^{L'}$ we get $S=2^{-c}4^{L'-j}$. (c) By (a), $|\varphi_c(z)-\varphi_c(w)|=|4^z-4^w|=|(z-w)\log4|=|z-w|/3$, and $\varphi_c(z)\equiv2^{-c}\pmod3$. A similarity with ratio $1/3$ of $\Z_3$ into a class of Haar measure $1/3$ is onto. The derivative $\varphi_c'(z)=3\zeta/(1+3\zeta)$, $\zeta=2^{-c}4^z$, is not constant.
+\end{proof}
+
+In this chart the Syracuse law is an iterated function system of two nonlinear contractions with ratio $1/3$ and disjoint images, smeared by integer translations. In the discrete logarithm $X=\log_2S$ of the FFT of Run~L the same recursion reads $X_n=\log_2(1+3\cdot2^{X_{n-1}})-a_n$, the Syracuse step in logarithmic coordinates. Let $D_m(k)=3^m\,\mathbb P(L_m-L'_m\equiv k\pmod{3^m})$ for independent copies, $\widehat\nu_m(\eta)=\mathbb E\,e(\eta L_m/3^m)$, and
+\[
+ \kappa(x)=\sum_{k\ne0}4^{-|k|}e(kx)=\frac{8\cos2\pi x-2}{17-8\cos2\pi x}=\frac53\,|\widehat\gamma(x)|^2-1 .
+\]
+
+\begin{proposition}[Spectral form of the energy]
+\label{prop:spectral}
+$D_m(k)=\operatorname{Cor}_m(g_{2k})$, and for $n\ge0$ (with $D_0\equiv1$)
+\[
+ E_{n+1}=\sum_{k\ne0}4^{-|k|}D_n(k)=\sum_{\eta\bmod3^n}\kappa(\eta/3^n)\,|\widehat\nu_n(\eta)|^2=\sum_{\ell=0}^nQ_\ell,
+\]
+where $Q_\ell=\sum_{\omega\in(\Z/3^\ell\Z)^\times}\kappa(\omega/3^\ell)\,|\widehat\nu_\ell(\omega)|^2$.
+In particular $E_{n+1}-E_n=Q_n$ and $|Q_n|\le\frac23E_n$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:logchart}(a), $L'_m\equiv L_m+k$ if and only if $S'_m\equiv g_{2k}(S_m)\pmod{3^m}$. The first equality is Proposition~\ref{prop:energy} with $d=2k$. Fourier inversion gives $D_n(k)=\sum_\eta|\widehat\nu_n(\eta)|^2e(-\eta k/3^n)$. Grouping $\eta=3^{n-\ell}\omega$ with a unit $\omega$ modulo $3^\ell$ and using $\widehat\nu_n(3^{n-\ell}\omega)=\widehat\nu_\ell(\omega)$ gives the last form. Finally $|\kappa|\le2/3$, and $\sum_\omega|\widehat\nu_\ell(\omega)|^2=E_\ell$ since $\Lambda$ preserves collision probabilities. The closed forms of $\kappa$ are geometric series, with $|\widehat\gamma(x)|^2=9/(17-8\cos2\pi x)$.
+\end{proof}
+
+The identity $\int_0^1\kappa=0$ is $\frac53\sum_i\gamma(i)^2=1$, that is $\sum_a4^{-a}=\frac13$ or $\lambda_2=1$: the $L^2$ similarity dimension of the system of Lemma~\ref{lem:logchart} is exactly $1$. The energy produced at level $n+1$ is the $\kappa$-weighted energy of level $n$, and $\kappa$ is positive for $|x|<0.21$ and negative beyond. So Conjecture~\ref{conj:energy} says that the unit-frequency energy of the logarithmic law is equidistributed in the angle $\omega/3^\ell\in\mathbb R/\Z$ up to a summable defect.
+
+\paragraph{Renormalisation and the singular set} In Proposition~\ref{prop:energy}, $h_{a,b}=\psi_b\circ h\circ\psi_a^{-1}$ as maps of $\mathbb Q_3$, with $\psi_a(x)=(2^ax-1)/3$, and the indicator says that $h_{a,b}$ maps $\Z_3$ into itself. For a word $A=(a_1,\dots,a_k)$ let $\Psi_A=\psi_{a_k}\circ\dots\circ\psi_{a_1}$. Then $\Psi_A(x)=(2^{|A|}x-c_A)/3^k$ with $|A|=a_1+\dots+a_k$ and
+\[
+ c_A=\sum_{j=1}^k3^{j-1}2^{\alpha_j},\qquad\alpha_j=a_{j+1}+\dots+a_k,\qquad\alpha_1>\dots>\alpha_k=0 .
+\]
+Iterating the recursion $k$ times sums, over pairs $(A,B)$ of words of length $k$ and with weight $3^k2^{-|A|-|B|}$, the values $\operatorname{Cor}_{n-k}(\Psi_Bh\Psi_A^{-1})$. We call $\Psi_B^{-1}\Psi_A(y)=2^{|A|-|B|}y+(c_B-c_A)/2^{|B|}$, for words of the same length $k$, an \emph{intertwiner} of length $k$. Those of length $1$ are the maps $y\mapsto2^ey$, and $A=B$ gives the identity. A pair representing $h$ is minimal if no pair of proper prefixes represents $h$.
+
+\begin{proposition}[Singular set and non-resonance]
+\label{prop:intertwiners}
+\begin{enumerate}
+\item[(a)] If $h=\Psi_B^{-1}\Psi_A$ with words of length $k$, then $\operatorname{Cor}_n(h)\ge3^k2^{-|A|-|B|}H_2(n-k)$ for $n\ge k$, and these bounds add over the minimal pairs representing $h$. Conversely, if a path of positive weight leads from $h$ to the identity, then $h$ is an intertwiner.
+\item[(b)] An intertwiner with integral translation part is a map $y\mapsto2^ey$. In particular no $g_d$ with $d\ne0$ and no translation $y\mapsto y+t$ with $t\in\Z\setminus\{0\}$ is an intertwiner.
+\item[(c)] Let $d\ne0$ be even and $A,B$ words of length $k$. If $|A|-|B|=d$, then $\Psi_Bg_d\Psi_A^{-1}$ is the translation by $N/3^{k+1}$, where $N=2^{|A|}+3c_A-2^{|B|}-3c_B$ satisfies $0<|N|<3^{k+1}2^{\max(|A|,|B|)-k}$. So it is the identity modulo $3^r$ only if $\max(|A|,|B|)>k+r\log_23$. If $|A|-|B|\ne d$, its linear part is $\equiv1\pmod{3^r}$ only if $\bigl||A|-|B|-d\bigr|\ge2\cdot3^{r-1}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Along the path, the intermediate maps are the intertwiners of the suffix words, with translation parts in $\Z[1/2]\subset\Z_3$, so every indicator equals $1$. The path ends at the identity, where $\operatorname{Cor}_{n-k}(\mathrm{id})=H_2(n-k)$, and all terms are nonnegative. Minimal pairs are not prefixes of each other, so their paths are disjoint. Conversely, a path with $\Psi_Bh\Psi_A^{-1}=\mathrm{id}$ gives $h=\Psi_B^{-1}\Psi_A$.
+(b) Let $\beta_j$ be the exponents of $c_B$, so $\beta_j\le|B|-j<|B|$ for $j\ge1$. An integral translation part means $c_A\equiv c_B\pmod{2^{|B|}}$. If $\alpha_i=\beta_i$ for all $i>j$, then $\sum_{i\le j}3^{i-1}2^{\alpha_i}\equiv\sum_{i\le j}3^{i-1}2^{\beta_i}\pmod{2^{|B|}}$. The right side has $2$-adic valuation $\beta_j<|B|$ and the left side $\alpha_j$, so $\alpha_j=\beta_j$. By downward induction $c_A=c_B$, and the translation part is $0$. For $g_d$ it is $(2^d-1)/3\ne0$.
+(c) With $|A|=|B|+d$ and $\Psi_A^{-1}(y)=(3^ky+c_A)/2^{|A|}$, $\Psi_Bg_d\Psi_A^{-1}(y)=y+\bigl(2^{|B|}(2^d-1)/3+c_A-c_B\bigr)/3^k=y+N/3^{k+1}$. Put $X_A=2^{|A|}+3c_A=\sum_{j=0}^k3^j2^{\alpha_j}$ with $\alpha_0=|A|$. The argument of (b) without the modulus shows that $X_A$ determines $A$, so $N=X_A-X_B\ne0$. Since $\alpha_j\le|A|-j$, $0<X_A<2^{|A|}\sum_{j\le k}(3/2)^j<3^{k+1}2^{|A|-k}$. If $3^{k+1+r}\mid N$, then $3^{k+1+r}\le|N|<3^{k+1}2^{\max(|A|,|B|)-k}$. Finally, $2$ has order $2\cdot3^{r-1}$ modulo $3^r$.
+\end{proof}
+
+So the singular set of the recursion, the set of maps from which the identity is reached with positive weight, is the countable set of intertwiners. It contains maps far from the identity and from every $y\mapsto2^ey$. The translation $y\mapsto y-1/4=\Psi_{(2,1)}^{-1}\Psi_{(1,2)}$ has $\operatorname{Cor}_n\ge\frac9{64}H_2(n-2)\to\infty$. This refutes the decorrelation conjecture of the previous draft, which measured the distance to the identity and the maps $y\mapsto2^ey$ only. The mean of $\operatorname{Cor}_n(h)$ over all affine isometries $h$ of $\Z/3^n\Z$ is $1$, so by Fatou's lemma $\liminf_n\operatorname{Cor}_n(h)<\infty$ for Haar-almost every $h$. What matters are the specific maps of $E_n$. Proposition~\ref{prop:intertwiners}(b) shows that they avoid the singular set exactly, and (c) that close approaches of the walk started at $g_d$ to the identity need about $r\log_23$ letters beyond the length $k$. The missing piece is the count. Up to pairs with $||A|-|B|-d|\ge2\cdot3^{r-1}$, the weight of the pairs of length $k$ that bring $g_d$ within $3^{-r}$ of the identity is $3^k\,\mathbb P\bigl(|A|-|B|=d,\ S(B)\equiv g_d(S(A))\pmod{3^{k+r}}\bigr)$. Here $A,B$ are independent geometric words and $S(A)=\sum_{j\le k}3^{j-1}2^{-A_j}$, so that $X_A=2^{|A|}(1+3S(A))$. A bound $O(3^{-r})$, uniform in $k$, is an equidistribution statement for these truncated Syracuse sums modulo $3^{k+r}$, beyond the precision $3^k$ at which they have the law of $S_k$. Here a mixing estimate in the spirit of \cite[Propositions~1.14, 1.17]{Tao_2022} would have to enter, followed by a renewal decomposition at the close approaches. The following conjecture keeps the distance to the identity and to the maps $y\mapsto2^ey$, $\delta(h)=\sum_{e\in\Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}$ for $h(y)=uy+t$, and restricts the translation part as Proposition~\ref{prop:intertwiners}(b) suggests. Note that $\delta$ is infinite exactly at the identity and at the maps $y\mapsto2^ey$, and that $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$.
+
+\begin{conjecture}[Decorrelation]
+\label{conj:decor}
+There are constants $A$ and $B$ with the following property: for every affine isometry $h(y)=uy+t$ with $t\in\Z$ and $\delta(h)<\infty$, $\limsup_m\operatorname{Cor}_m(h)\le A+B\,\delta(h)$.
+\end{conjecture}
+
+Conjecture~\ref{conj:decor} implies Conjecture~\ref{conj:energy}, since $\sum_d2^{-d}v_3(d/2)<\infty$, and the example $y\mapsto y-1/4$ shows that the restriction $t\in\Z$ is needed. Runs~L and~N fit it: $\operatorname{Cor}(g_d)$ is about $0.4$ to $0.9$ plus $0.47\,v_3(d/2)$; $\operatorname{Cor}(y\mapsto y+3^j)$ follows $H_2(j)$ with an almost constant offset; $\operatorname{Cor}_{15}(y\mapsto y+1)=0.450$ and $\operatorname{Cor}_{15}(y\mapsto y-1/5)=0.777$ change by less than $10^{-3}$ per level.
+
+\paragraph{The fixed point $-1$} The slowest part of the convergence of $E_n$ sits at the fixed point $-1$ of $x\mapsto(3x+1)/2$, the $3$-adic trace of the cycle of $3x+1$ at $-1$.
+
+\begin{lemma}
+\label{lem:minusone}
+\begin{enumerate}
+\item[(a)] $f_n(-1)\ge(3/2)^n$, that is $\mathbb P(S_n\equiv-1\pmod{3^n})\ge2^{-n}$. So the Syracuse measure has local dimension at most $\log_32<1$ at $-1$.
+\item[(b)] $f_n(2x)=2f_n(x)$ for $x\not\equiv2\pmod3$. Hence $\operatorname{Cor}_n(h)=2\operatorname{Cor}_n(h(2\,\cdot))$ for every affine isometry $h$ with $h(1)\equiv0\pmod3$; in particular $\operatorname{Cor}_n(y\mapsto2y+1)=2\operatorname{Cor}_n(g_2)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Lemma~\ref{lem:selfsim} with $a=1$: $-1\equiv2^{-1}\pmod3$ and $\psi_1(-1)=-1$, so $f_n(-1)\ge\frac32f_{n-1}(-1)$. (b) With $T=1+3S'_{n-1}$, $\mathbb P(S=2x)=\sum_a2^{-a}\mathbb P(T=2^{a+1}x)=2\mathbb P(S=x)-\mathbb P(T=2x)$, and $T\equiv1\pmod3$. In $\operatorname{Cor}_n(h)=\mathbb E_zf_n(2z)f_n(h(2z))$ the correction term needs $2z\equiv1$, and then $h(2z)\equiv h(1)\equiv0\pmod3$, where $f_n$ vanishes.
+\end{proof}
+
+The map $y\mapsto2y+1$ fixes $-1$ and is fixed by the branch $(a,b)=(1,1)$ of the recursion, with weight $3/4$. More generally, the affine maps commuting with $\Psi_A$ are fixed by the $k$ steps $(A,A)$ of the recursion, with weight $3^k4^{-|A|}\le(3/4)^k$ and equality only for $A=(1,\dots,1)$. These subcritical resonances do not make $\operatorname{Cor}$ infinite, but they slow its convergence, and they carry the convergence of $E_n$. By Lemma~\ref{lem:minusone}(b) and Run~L, $Q_n=\frac12\bigl(\operatorname{Cor}_n(g_2)-\operatorname{Cor}_{n-1}(g_2)\bigr)(1\pm0.03)$ for $11\le n\le19$. So the term $d=2$ of Proposition~\ref{prop:energy}, the rotation $y\mapsto2y+1$ about $-1$, accounts for $97$ to $103$\,\% of the increments of $E_n$. These increments fall by the local factors $0.911$, $0.907$, $0.897$, $0.888$, $0.883$, $0.874$, $0.868$, $0.866$ from $n=13$ to $n=20$, and a fit $Cn^b\theta^n$ on $14\le n\le20$ gives $\theta=0.78$, $b=2.1$. The rate $3/4$ of the fixed point $-1$ is consistent with this but not settled by $n\le20$; we expect $E_\infty-E_n=O(n^B(3/4)^n)$. Extrapolating with the fitted model gives $E_\infty\approx0.4746$, with a constant factor $0.866$ per level $0.4749$.
+
+\paragraph{Run~N} Program \texttt{log\_coordinates.py} recomputes the laws exactly for $n\le15$ in the logarithmic chart (half a minute). The identity of Lemma~\ref{lem:logchart}(c) holds to $10^{-17}$ and that of Proposition~\ref{prop:spectral} to all ten printed digits. At $\ell=15$ the shares of $E_\ell$ in the angle bins $[0,\frac1{27})$, $[\frac1{27},\frac19)$, $[\frac19,\frac15)$, $[\frac15,\frac13)$, $[\frac13,\frac12]$ are $0.0744$, $0.1488$, $0.1781$, $0.2665$, $0.3321$, against the Haar shares $0.0741$, $0.1481$, $0.1778$, $0.2667$, $0.3333$ of the units, and $Q_{15}=5.2\cdot10^{-4}$ is the residual of $\kappa$-weighted bin contributions of size up to $5.7\cdot10^{-2}$. The intertwiners grow as Proposition~\ref{prop:intertwiners}(a) predicts, and its lower bound is sharp in the growth (Table~\ref{table:syr-singular}). The maximum of $f_n$ sits at $-1$ for every $n\le15$, and $f_n(-1)(2/3)^n$ increases to $1.4620$ at $n=15$; Run~L's $\max f_{20}=4862$ equals $1.462\,(3/2)^{20}$ as well. A search over all pairs of length $k\le4$ with letters $\le8$ finds no pair representing $g_d$ ($2\le d\le20$) or $y\mapsto y+t$ ($t=1,2,-1,\frac12,-\frac15$), as Proposition~\ref{prop:intertwiners}(b) requires.
+
+\begin{table}[tp]
+\centering
+\small
+\begin{tabular}{@{}lllrrrr@{}}
+\toprule
+$h(y)$ & minimal pair $(A,B)$ & $w(h)$ & $\operatorname{Cor}_{10}(h)$ & $\operatorname{Cor}_{15}(h)$ & $\operatorname{Cor}_{15}-\operatorname{Cor}_{14}$ & $w(h)E_{14}$\\
+\midrule
+$y-1/4$ & $(1,2),(2,1)$ & $0.1875$ & $1.532$ & $1.977$ & $0.0890$ & $0.0882$\\
+$y-3/8$ & $(1,3),(3,1)$ & $0.1874$ & $2.154$ & $2.607$ & $0.0900$ & $0.0881$\\
+$y-1/8$ & $(2,2),(3,1)$ & $0.0469$ & $0.733$ & $0.849$ & $0.0228$ & $0.0220$\\
+$2y-3/4$ & $(1,3),(2,1)$ & $0.0937$ & $1.808$ & $2.045$ & $0.0464$ & $0.0441$\\
+\midrule
+$y+1$ & none & $0$ & $0.446$ & $0.450$ & $0.0006$ & $0$\\
+$y-1/5$ & none & $0$ & $0.779$ & $0.777$ & $-0.0003$ & $0$\\
+$4y+1=g_2$ & none & $0$ & $0.723$ & $0.729$ & $0.0010$ & $0$\\
+\bottomrule
+\end{tabular}
+\caption{Run~N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs with $k\le3$ and letters $\le7$. $\operatorname{Cor}_n(h)$ minus the lower bound of Proposition~\ref{prop:intertwiners}(a) changes by at most $0.02$ from $n=10$ to $n=15$.}
+\label{table:syr-singular}
 \end{table}
 
 \FloatBarrier

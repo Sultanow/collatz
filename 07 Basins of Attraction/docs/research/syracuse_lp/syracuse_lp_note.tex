@@ -21,13 +21,13 @@
 
 \title{$L^p$ regularity of the $3$-adic Syracuse law:\\ a reduction to the unit-frequency energy}
 \author{Research notes for \emph{Same Shadows, Different Forests} (draft)}
-\date{20 November 2026, updated 22 November 2026 with the cluster runs}
+\date{20 November 2026, updated 22 November 2026 with the cluster runs and the logarithmic chart}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Let $f_n$ be the density, with respect to the uniform measure on $\Z/3^n\Z$, of Tao's Syracuse random variable $\mathbf{Syrac}(\Z/3^n\Z)$, and $H_p(n)$ the mean of $f_n^p$. It is known that $f_n$ converges in $L^1$ \cite{Tao} and that $H_2(n)\to\infty$ (research notes \texttt{transfer/}). We prove the inequality $H_p(n)\le\rho(p)H_p(n-1)+E_n^{p/2}$ for $1<p\le2$, where $\rho(p)=3^{p-1}/(2^p-1)<1$ and $E_n=H_2(n)-H_2(n-1)$ is the $L^2$ energy of the unit frequencies at level $n$. Hence $\sup_nE_n<\infty$ implies that the limiting density lies in $L^p$ for every $p<2$, so that $2$ is the critical exponent. We write $E_n$ exactly as a weighted sum of twisted self-correlations $R(g_d)$ of $f_{n-1}$ under explicit affine isometries $g_d$ of $\Z_3$. We also identify the maps under which the self-correlation is infinite: the multiplications by integer powers of $2$. Exact computations up to $n=20$ give $E_{20}=0.47291$. The increments of $E_n$ shrink by a factor of about $0.87$ per level (extrapolated limit $0.4751$), and the correlations $R(g_d)$ are stable in $n$ and grow only with $v_3(d/2)$. Two Monte Carlo runs with $10^{11}$ samples each concern the largest Fourier coefficient $M_n$ at the unit frequencies. Its maximiser is $\xi=2^k$ with $k\approx n\log_23-6$, so $\xi\approx3^n/64$. Up to $n=80$, $M_n$ follows $An^{-1}\rho^n$ with $\rho\approx0.943$ to within the noise. This is numerical evidence for the exponential decay that Tao suggests is plausible. The boundedness of $E_n$ is stated as a conjecture, together with a route to it. Status: the inequality, the identities and the singular set are proved; $\sup_nE_n<\infty$ is open.
+Let $f_n$ be the density, with respect to the uniform measure on $\Z/3^n\Z$, of Tao's Syracuse random variable $\mathbf{Syrac}(\Z/3^n\Z)$, and $H_p(n)$ the mean of $f_n^p$. It is known that $f_n$ converges in $L^1$ \cite{Tao} and that $H_2(n)\to\infty$ (research notes \texttt{transfer/}). We prove the inequality $H_p(n)\le\rho(p)H_p(n-1)+E_n^{p/2}$ for $1<p\le2$, where $\rho(p)=3^{p-1}/(2^p-1)<1$ and $E_n=H_2(n)-H_2(n-1)$ is the $L^2$ energy of the unit frequencies at level $n$. Hence $\sup_nE_n<\infty$ implies that the limiting density lies in $L^p$ for every $p<2$, so that $2$ is the critical exponent. We write $E_n$ exactly as a weighted sum of twisted self-correlations $R(g_d)$ of $f_{n-1}$ under explicit affine isometries $g_d$ of $\Z_3$. We also identify the maps under which the self-correlation is infinite: the multiplications by integer powers of $2$. In a logarithmic chart the Syracuse law is an iterated function system of two nonlinear contractions with ratio $1/3$, smeared by integer translations. There the maps $g_d$ become translations, and $E_{n+1}-E_n$ is the unit-frequency energy of level $n$ weighted with an explicit kernel of mean zero, which expresses that the $L^2$ similarity dimension is exactly $1$. The full singular set of the correlation recursion consists of the intertwiners $\Psi_B^{-1}\Psi_A$ of pairs of inverse Syracuse words. It contains translations such as $y\mapsto y-1/4$, which refutes our earlier decorrelation conjecture, but by a $2$-adic digit argument none of the maps $g_d$. The slowest part of the convergence of $E_n$ sits at the fixed point $-1$ of $x\mapsto(3x+1)/2$, which is also the maximiser of $f_n$. Exact computations up to $n=20$ give $E_{20}=0.47291$. The increments of $E_n$ shrink by a factor of about $0.87$ per level (extrapolated limit $0.4751$), and the correlations $R(g_d)$ are stable in $n$ and grow only with $v_3(d/2)$. Two Monte Carlo runs with $10^{11}$ samples each concern the largest Fourier coefficient $M_n$ at the unit frequencies. Its maximiser is $\xi=2^k$ with $k\approx n\log_23-6$, so $\xi\approx3^n/64$. Up to $n=80$, $M_n$ follows $An^{-1}\rho^n$ with $\rho\approx0.943$ to within the noise. This is numerical evidence for the exponential decay that Tao suggests is plausible. The boundedness of $E_n$ is stated as a conjecture, together with a route to it. Status: the inequality, the identities, the singular set and its avoidance by the $g_d$ are proved; $\sup_nE_n<\infty$ is open.
 \end{abstract}
 
 \section{Setting}
@@ -137,19 +137,7 @@ For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~
 $\sup_nE_n<\infty$. Equivalently, by Proposition~\ref{prop:energy}, $\sup_m\sum_{d}2^{-d}R_m(g_d)<\infty$.
 \end{conjecture}
 
-A natural stronger form measures the distance to the singular set of Proposition~\ref{prop:singular}, weighted as in its proof. For $h(y)=uy+t$ let
-\[
- \delta(h)=\sum_{e\in\Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}\in[0,\infty].
-\]
-Then $\delta(h)=\infty$ exactly for $h=\mathrm{id}$ and $h=m_e$. The term $e=0$ measures the distance to the identity, which carries weight $1$. Thus $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$ and $\delta(\tau_j)=j+O(1)$ for the translations $\tau_j(y)=y+3^j$.
-
-\begin{conjecture}[Decorrelation]\label{conj:decor}
-There are constants $A,B$ with $\limsup_mR_m(h)\le A+B\,\delta(h)$ for every affine isometry $h$ with $\delta(h)<\infty$.
-\end{conjecture}
-
-Conjecture~\ref{conj:decor} implies Conjecture~\ref{conj:energy}, since $\sum_d2^{-d}v_3(d/2)<\infty$. The numerics in Section~\ref{sec:numerics} fit it: $R(g_d)$ is about $0.4$ to $0.9$ plus $0.47\,v_3(d/2)$, and $R(\tau_j)$ follows $H_2(j)$ with an almost constant offset. The latter is what one expects from~\eqref{eq:twisted}: with $u=1$ and $3\mid t$, the diagonal terms $a=b$ have total weight $\rho(2)=1$ and map $\tau_t$ to $\tau_{2^at/3}$, one level shallower, while the off-diagonal terms contribute a bounded amount per level. For the linear map $y\mapsto7y$, whose distance $\delta$ to the singular set is finite, $R$ stays at $1.55$ for $7\le n\le15$.
-
-\paragraph{A route.} Equation~\eqref{eq:twisted} is a positive linear recursion on affine maps. The identity is fixed with weight $1$ (the source of the linear growth of $H_2$), and the linear maps $m_e$ feed into it (Proposition~\ref{prop:singular}). A proof of Conjecture~\ref{conj:decor} amounts to a no-resonance estimate. Started at $h$ with $\delta(h)=k$, the weighted walk $h\mapsto h_{a,b}$ comes within $3$-adic distance $3^{-\ell}$ of the singular set with total weight $O(3^{-\ell})$ uniformly in $\ell$. Then a renewal decomposition at these visits gives $R(h)\le A+B\delta(h)$. The translation part $t$ of the walk is a $3$-adic sum of the same kind as $S_n$, so its equidistribution modulo $3^\ell$ is a Tao-type mixing statement \cite[Prop.~1.14, 1.17]{Tao}. Note that exact returns to the singular set would require rational identities between powers of $2$ and $3$, much as in cycle equations.
+Section~\ref{sec:logchart} rewrites $E_n$ in a logarithmic chart, determines the full singular set of~\eqref{eq:twisted}, shows that the maps $g_d$ avoid it, and states a corrected decorrelation conjecture (Conjecture~\ref{conj:decor}). For the record: the decorrelation conjecture of the earlier version of these notes bounded $\limsup_mR_m(h)$ by $A+B\,\delta(h)$ for all affine isometries $h$ with $\delta(h)<\infty$, where $\delta$ (defined in~\eqref{eq:delta} below) measures the distance to the identity and the maps $m_e$ only. That form is false; the translation $y\mapsto y-1/4$ has $\delta=0$ and $R_n\to\infty$ (Proposition~\ref{prop:intertwiners}).
 
 \section{Numerics}\label{sec:numerics}
 All values are exact up to floating point (program \texttt{syracuse\_lp.py}; $n\le16$ locally, $n\le20$ in cluster job A, 1.6 hours and 205 GB at $n=20$). The identity of Proposition~\ref{prop:energy} holds to all printed digits.
@@ -208,8 +196,138 @@ $a+bn+c\log n$ (exponential times power) & $0.0099$ & $e^b=0.942$, $c=-0.97$\\
 \end{center}
 Only the last model reaches the noise level; its largest residual is $0.029$. Its parameters are stable on subranges: $e^b=0.9446$, $0.9414$ and $0.9449$ and $c=-1.05$, $-0.93$ and $-1.17$ for $16\le n\le50$, $30\le n\le80$ and $50\le n\le80$. So $M_n\approx An^{-1}\rho^n$ with $\rho\approx0.943$, that is $c\approx0.058$ in Tao's $O(\exp(-cn))$. The local ratio per level on windows of eight levels rises slowly, from $0.892$ ($n=16$--$23$) through $0.919$ ($n=36$--$43$) to $0.930$ ($n=72$--$79$). That is what the factor $n^{-1}$ predicts, $\rho(1-1/n)$, and the window energy $(\sum_k|\chi_n(2^k)|^2)^{1/2}$, which carries no bias from taking a maximum, shows the same ratios. The power law $n^{-2.1}$ found for $n\le21$, and every fixed power, are excluded. A proof of $M_n=O(\exp(-cn))$ remains open.
 
+\section{Logarithmic chart and renormalisation}\label{sec:logchart}
+This section is a first attack on Conjecture~\ref{conj:energy}. It does not prove it, but it rewrites $E_n$ exactly, finds the complete singular set of~\eqref{eq:twisted}, shows that the maps $g_d$ avoid it, and locates the slowest part of the convergence of $E_n$ at the fixed point $-1$ of $x\mapsto(3x+1)/2$. The numerics are in program \texttt{log\_coordinates.py} (exact for $n\le15$, folder \texttt{results\_logchart/}) and in job~A.
+
+\subsection*{The logarithmic chart}
+Let $\log$ be the $3$-adic logarithm. It maps $1+3\Z_3$ isometrically onto $3\Z_3$, and $\log4\equiv3\pmod9$. Put
+\[
+ \Lambda(x)=\frac{\log(1+3x)}{\log4}\qquad(x\in\Z_3).
+\]
+
+\begin{lemma}[Logarithmic chart]\label{lem:logchart}
+\begin{enumerate}
+\item[(a)] $\Lambda$ is an isometry of $\Z_3$ onto itself, $\Lambda(x)\equiv x\pmod3$, and $\Lambda\circ g_d=\Lambda+d/2$ for even $d$.
+\item[(b)] Write the geometric variable as $a=c+2j$ with $c\in\{1,2\}$ and $j\ge0$. Then $c$ and $j$ are independent, $\Prob(c=1)=2/3$ and $\Prob(j=i)=\frac34\,4^{-i}$. The variables $L_n=\Lambda(S_n)\bmod3^n$ satisfy $L_n=\varphi_c(L'_{n-1}-j)$ with an independent copy $L'_{n-1}$ and
+\[
+ \varphi_c(z)=\log_4\bigl(1+3\cdot2^{-c}4^z\bigr)=\Lambda\bigl(2^{-c}4^z\bigr).
+\]
+\item[(c)] $\varphi_c$ maps $\Z_3$ onto the class of $2^{-c}$ modulo $3$, $|\varphi_c(z)-\varphi_c(w)|=|z-w|/3$, and $\varphi_c$ is analytic but not affine. Hence the law $\nu_n$ of $L_n$ satisfies
+\[
+ \nu_n=\tfrac23\,\varphi_{1*}(\nu_{n-1}*\gamma)+\tfrac13\,\varphi_{2*}(\nu_{n-1}*\gamma),
+\]
+where $\gamma$ is the law of $-j$, and $\varphi_c(z)\bmod3^n$ depends only on $z\bmod3^{n-1}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $|\log(1+3x)-\log(1+3y)|=|\log(1+3(x-y)/(1+3y))|=|3(x-y)|$ and $|\log4|=1/3$. Modulo $9$, $\log(1+3x)\equiv3x$ and $\log4\equiv3$, so $\Lambda(x)\equiv x\pmod3$. Since $1+3g_d(y)=2^d(1+3y)=4^{d/2}(1+3y)$, we get $\Lambda(g_d(y))=\Lambda(y)+d/2$. (b) $\Prob(c,j)=2^{-c}4^{-j}$ factorises. From $S=2^{-a}(1+3S')$ and $1+3S'=4^{L'}$ we get $S=2^{-c}4^{L'-j}$, that is $L=\varphi_c(L'-j)$; modulo $3^n$ by (a). (c) By (a), $|\varphi_c(z)-\varphi_c(w)|=|4^z-4^w|=|(z-w)\log4|=|z-w|/3$, and $\varphi_c(z)\equiv2^{-c}4^z\equiv2^{-c}\pmod3$. A similarity with ratio $1/3$ of $\Z_3$ into a class of Haar measure $1/3$ is onto. The derivative $\varphi_c'(z)=3\zeta/(1+3\zeta)$, $\zeta=2^{-c}4^z$, is not constant.
+\end{proof}
+
+So the Syracuse law is, in this chart, an iterated function system of two nonlinear contractions with ratio $1/3$ and disjoint images, smeared by integer translations. In the discrete logarithm $X=\log_2S$ used by the FFT of \texttt{syracuse\_lp.py}, the same recursion reads $X_n=\log_2(1+3\cdot2^{X_{n-1}})-a_n$: the Syracuse step in logarithmic coordinates. The identity of Lemma~\ref{lem:logchart}(c) holds in the computation to $10^{-17}$ for $n\le15$.
+
+\subsection*{Spectral form of the energy}
+Let $D_m(k)=3^m\,\Prob(L_m-L'_m\equiv k\pmod{3^m})$ for independent copies, $\widehat\nu_m(\eta)=\E\,e(\eta L_m/3^m)$, and
+\[
+ \kappa(x)=\sum_{k\ne0}4^{-|k|}e(kx)=\frac{8\cos2\pi x-2}{17-8\cos2\pi x}=\frac53\,|\widehat\gamma(x)|^2-1,\qquad \widehat\gamma(x)=\sum_{i\ge0}\tfrac34\,4^{-i}e(-ix).
+\]
+
+\begin{proposition}[Spectral form]\label{prop:spectral}
+$D_m(k)=R_m(g_{2k})$, and for $n\ge0$ (with $D_0\equiv1$)
+\[
+ E_{n+1}=\sum_{k\ne0}4^{-|k|}D_n(k)=\sum_{\eta\bmod3^n}\kappa(\eta/3^n)\,|\widehat\nu_n(\eta)|^2=\sum_{\ell=0}^nQ_\ell,
+\]
+where
+\[
+ Q_\ell=\sum_{\omega\in(\Z/3^\ell\Z)^\times}\kappa(\omega/3^\ell)\,|\widehat\nu_\ell(\omega)|^2 .
+\]
+In particular $E_{n+1}-E_n=Q_n$ and $|Q_n|\le\frac23E_n$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:logchart}(a), $L'_m\equiv L_m+k$ if and only if $S'_m\equiv g_{2k}(S_m)\pmod{3^m}$, so $D_m(k)=R_m(g_{2k})$, and the first equality is Proposition~\ref{prop:energy} with $d=2k$ and $R(g_{-d})=R(g_d)$. Fourier inversion gives $D_n(k)=\sum_\eta|\widehat\nu_n(\eta)|^2e(-\eta k/3^n)$, and $\kappa$ is even. Grouping $\eta=3^{n-\ell}\omega$ with a unit $\omega$ modulo $3^\ell$ and using $\widehat\nu_n(3^{n-\ell}\omega)=\widehat\nu_\ell(\omega)$ gives the last form. Finally $|\kappa|\le2/3$, and $\sum_\omega|\widehat\nu_\ell(\omega)|^2=E_\ell$ because $\Lambda$ preserves collision probabilities. The closed forms of $\kappa$ are geometric series, with $|\widehat\gamma(x)|^2=9/(17-8\cos2\pi x)$.
+\end{proof}
+
+\begin{remark}[Criticality]\label{rem:criticality}
+$\int_0^1\kappa=0$ is the identity $\frac53\sum_i\gamma(i)^2=1$, that is $\sum_a4^{-a}=\frac13$, that is $\rho(2)=1$: the $L^2$ similarity dimension of the system of Lemma~\ref{lem:logchart} is exactly $1$. The energy produced at level $n+1$ is the $\kappa$-weighted energy of level $n$, and $\kappa$ is positive for $|x|<0.21$ and negative beyond. Conjecture~\ref{conj:energy} says that the partial sums of $Q_\ell$ stay bounded: the unit-frequency energy of the logarithmic law must be equidistributed in the angle $\omega/3^\ell\in\mathbb R/\Z$ up to a summable defect. In the computation the identity of Proposition~\ref{prop:spectral} holds to all ten printed digits for $n\le15$. At $\ell=15$ the shares of $E_\ell$ in the angle bins $[0,\frac1{27})$, $[\frac1{27},\frac19)$, $[\frac19,\frac15)$, $[\frac15,\frac13)$, $[\frac13,\frac12]$ are $0.0744$, $0.1488$, $0.1781$, $0.2665$, $0.3321$, against the Haar shares $0.0741$, $0.1481$, $0.1778$, $0.2667$, $0.3333$ of the units, and $Q_{15}=5.2\cdot10^{-4}$ is the residual of $\kappa$-weighted bin contributions of size up to $5.7\cdot10^{-2}$.
+\end{remark}
+
+\subsection*{Renormalisation and the singular set}
+In~\eqref{eq:twisted}, $h_{a,b}=\psi_b\circ h\circ\psi_a^{-1}$ as maps of $\mathbb Q_3$, with the inverse Syracuse branches $\psi_a(x)=(2^ax-1)/3$, and the indicator says that $h_{a,b}$ maps $\Z_3$ into itself. For a word $A=(a_1,\dots,a_k)$ let $\Psi_A=\psi_{a_k}\circ\dots\circ\psi_{a_1}$. Then $\Psi_A(x)=(2^{|A|}x-c_A)/3^k$ with $|A|=a_1+\dots+a_k$ and
+\[
+ c_A=\sum_{j=1}^k3^{j-1}2^{\alpha_j},\qquad \alpha_j=a_{j+1}+\dots+a_k,\qquad \alpha_1>\alpha_2>\dots>\alpha_k=0 .
+\]
+Iterating~\eqref{eq:twisted} $k$ times sums over pairs $(A,B)$ of words of length $k$, with weight $3^k2^{-|A|-|B|}$, the values $R_{n-k}(\Psi_Bh\Psi_A^{-1})$. We call $\Psi_B^{-1}\Psi_A$, for words $A,B$ of the same length $k$, an \emph{intertwiner} of length $k$:
+\[
+ \Psi_B^{-1}\Psi_A(y)=2^{|A|-|B|}y+\frac{c_B-c_A}{2^{|B|}} .
+\]
+The intertwiners of length $1$ are the maps $m_e$, and $A=B$ gives the identity. A pair $(A,B)$ representing $h$ is \emph{minimal} if no pair of proper prefixes represents $h$.
+
+\begin{proposition}[Singular set and non-resonance]\label{prop:intertwiners}
+\begin{enumerate}
+\item[(a)] If $h=\Psi_B^{-1}\Psi_A$ with words of length $k$, then $R_n(h)\ge3^k2^{-|A|-|B|}H_2(n-k)$ for $n\ge k$, and these bounds add over the minimal pairs representing $h$. Conversely, if a path of positive weight in~\eqref{eq:twisted} leads from $h$ to the identity, then $h$ is an intertwiner.
+\item[(b)] An intertwiner with integral translation part is one of the maps $m_e$. In particular no $g_d$ with $d\ne0$ and no translation $y\mapsto y+t$ with $t\in\Z\setminus\{0\}$ is an intertwiner.
+\item[(c)] Let $d\ne0$ be even and $A,B$ words of length $k$. If $|A|-|B|=d$, then $\Psi_Bg_d\Psi_A^{-1}$ is the translation by $N/3^{k+1}$, where $N=2^{|A|}+3c_A-2^{|B|}-3c_B$ satisfies $0<|N|<3^{k+1}2^{\max(|A|,|B|)-k}$. So it is the identity modulo $3^r$ only if $\max(|A|,|B|)>k+r\log_23$. If $|A|-|B|\ne d$, its linear part $2^{|B|+d-|A|}$ is $\equiv1\pmod{3^r}$ only if $\bigl||A|-|B|-d\bigr|\ge2\cdot3^{r-1}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Along the path $(a_1,b_1),\dots,(a_k,b_k)$ the intermediate maps are the intertwiners of the suffix words. Their translation parts lie in $\Z[1/2]\subset\Z_3$, so every indicator equals $1$. The path ends at the identity, where $R_{n-k}(\mathrm{id})=H_2(n-k)$, and all terms of~\eqref{eq:twisted} are nonnegative. Minimal pairs are not prefixes of each other, so their paths are disjoint. Conversely, a path with $\Psi_Bh\Psi_A^{-1}=\mathrm{id}$ gives $h=\Psi_B^{-1}\Psi_A$.
+
+(b) Let $\beta_j$ be the exponents of $c_B$. Then $\beta_j\le|B|-j<|B|$ for $j\ge1$, and an integral translation part means $c_A\equiv c_B\pmod{2^{|B|}}$. Suppose $\alpha_i=\beta_i$ for all $i>j$ (true for $j=k-1$). Then $\sum_{i\le j}3^{i-1}2^{\alpha_i}\equiv\sum_{i\le j}3^{i-1}2^{\beta_i}\pmod{2^{|B|}}$. The right side has $2$-adic valuation $\beta_j<|B|$ and the left side $\alpha_j$, so $\alpha_j=\beta_j$. By induction $c_A=c_B$, and the translation part is $0$. For $g_d$ it is $(2^d-1)/3\ne0$.
+
+(c) With $|A|=|B|+d$, $\Psi_B(g_d(x))=\bigl(2^{|A|}x+2^{|B|}(2^d-1)/3-c_B\bigr)/3^k$ and $\Psi_A^{-1}(y)=(3^ky+c_A)/2^{|A|}$, so $\Psi_Bg_d\Psi_A^{-1}(y)=y+N/3^{k+1}$. Put $X_A=2^{|A|}+3c_A=\sum_{j=0}^k3^j2^{\alpha_j}$ with $\alpha_0=|A|$. The argument of (b), without the modulus, shows that $X_A$ determines $A$, so $N=X_A-X_B\ne0$. Since $\alpha_j\le|A|-j$, $0<X_A<2^{|A|}\sum_{j=0}^k(3/2)^j<3^{k+1}2^{|A|-k}$. If $3^{k+1+r}$ divides $N$, then $3^{k+1+r}\le|N|<3^{k+1}2^{\max(|A|,|B|)-k}$. The last claim holds because $2$ has order $2\cdot3^{r-1}$ modulo $3^r$.
+\end{proof}
+
+So the singular set of~\eqref{eq:twisted}, the set of maps from which the identity is reached with positive weight, is the countable set of intertwiners. It contains maps far from the identity and from every $m_e$: the translation $y\mapsto y-1/4=\Psi_{(2,1)}^{-1}\Psi_{(1,2)}$ has $R_n\ge\frac9{64}H_2(n-2)\to\infty$. The mean of $R_n(h)$ over all affine isometries $h$ of $\Z/3^n\Z$ is $1$, so by Fatou's lemma $\liminf_nR_n(h)<\infty$ for Haar-almost every $h$. The point is the specific maps of $E_n$. Proposition~\ref{prop:intertwiners}(b) shows that they avoid the singular set exactly, and (c) that close approaches of the walk started at $g_d$ to the identity need words with about $r\log_23$ letters beyond the length $k$. What (c) does not give is the count. Up to pairs with $\bigl||A|-|B|-d\bigr|\ge2\cdot3^{r-1}$, the weight of the pairs of length $k$ that bring $g_d$ within $3^{-r}$ of the identity is $3^k\,\Prob\bigl(|A|-|B|=d,\ S(B)\equiv g_d(S(A))\pmod{3^{k+r}}\bigr)$, with independent geometric words and the truncated Syracuse sums $S(A)=\sum_{j\le k}3^{j-1}2^{-A_j}$ (indeed $X_A=2^{|A|}(1+3S(A))$). A bound $O(3^{-r})$, uniform in $k$, is an equidistribution statement for $S(A)$ modulo $3^{k+r}$, beyond the precision $3^k$ at which it has the law of $S_k$. This is where a mixing estimate of Tao's type \cite[Prop.~1.14, 1.17]{Tao} would have to enter. With it, a renewal decomposition at the close approaches would bound $R(g_d)$.
+
+The corrected conjecture keeps the distance to the identity and the maps $m_e$,
+\begin{equation}\label{eq:delta}
+ \delta(h)=\sum_{e\in\Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}\qquad(h(y)=uy+t),
+\end{equation}
+which is infinite exactly for $h=\mathrm{id}$ and $h=m_e$ and satisfies $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$. It restricts the translation part as Proposition~\ref{prop:intertwiners}(b) suggests.
+
+\begin{conjecture}[Decorrelation, corrected]\label{conj:decor}
+There are constants $A$ and $B$ with the following property: for every affine isometry $h(y)=uy+t$ with $t\in\Z$ and $\delta(h)<\infty$, $\limsup_mR_m(h)\le A+B\,\delta(h)$.
+\end{conjecture}
+
+Conjecture~\ref{conj:decor} implies Conjecture~\ref{conj:energy}, since $\sum_d2^{-d}v_3(d/2)<\infty$. The restriction $t\in\Z$ is necessary by the example $y\mapsto y-1/4$. The numerics fit it: $R(g_d)$ is about $0.4$ to $0.9$ plus $0.47\,v_3(d/2)$ (Section~\ref{sec:numerics}); $R(y\mapsto y+3^j)$ follows $H_2(j)$ with an almost constant offset; $R(y\mapsto7y)$ stays at $1.55$ for $7\le n\le15$; and $R_{15}(y\mapsto y+1)=0.450$ and $R_{15}(y\mapsto y-1/5)=0.777$ change by less than $10^{-3}$ per level.
+
+The intertwiners behave as Proposition~\ref{prop:intertwiners}(a) predicts, and the lower bound is sharp in its growth. With $w(h)$ the total weight of the minimal pairs of length $k\le3$ and letters $\le7$, $R_n(h)$ minus the bound of (a) changes by at most $0.02$ from $n=10$ to $n=15$:
+\begin{center}
+\begin{tabular}{@{}lllrrrr@{}}
+\toprule
+$h(y)$ & example pair $(A,B)$ & $w(h)$ & $R_{10}(h)$ & $R_{15}(h)$ & $R_{15}-R_{14}$ & $w(h)E_{14}$\\
+\midrule
+$y-1/4$ & $(1,2),(2,1)$ & $0.1875$ & $1.532$ & $1.977$ & $0.0890$ & $0.0882$\\
+$y-3/8$ & $(1,3),(3,1)$ & $0.1874$ & $2.154$ & $2.607$ & $0.0900$ & $0.0881$\\
+$y-1/8$ & $(2,2),(3,1)$ & $0.0469$ & $0.733$ & $0.849$ & $0.0228$ & $0.0220$\\
+$2y-3/4$ & $(1,3),(2,1)$ & $0.0937$ & $1.808$ & $2.045$ & $0.0464$ & $0.0441$\\
+\midrule
+$y+1$ & none & $0$ & $0.446$ & $0.450$ & $0.0006$ & $0$\\
+$y-1/5$ & none & $0$ & $0.779$ & $0.777$ & $-0.0003$ & $0$\\
+$4y+1=g_2$ & none & $0$ & $0.723$ & $0.729$ & $0.0010$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+A search over all pairs of length $k\le4$ with letters $\le8$ finds no pair representing $g_d$ ($2\le d\le20$) or $y\mapsto y+t$ ($t=1,2,-1,\frac12,-\frac15$), as (b) requires.
+
+\subsection*{The fixed point $-1$}
+\begin{lemma}\label{lem:minusone}
+\begin{enumerate}
+\item[(a)] $f_n(-1)\ge(3/2)^n$, that is $\Prob(S_n\equiv-1\pmod{3^n})\ge2^{-n}$. So the Syracuse measure has local dimension at most $\log_32<1$ at $-1$, the fixed point of $x\mapsto(3x+1)/2$.
+\item[(b)] $f_n(2x)=2f_n(x)$ for $x\not\equiv2\pmod3$. Hence $R_n(h)=2R_n(h\circ m_1)$ for every affine isometry $h$ with $h(1)\equiv0\pmod3$; in particular $R_n(y\mapsto2y+1)=2R_n(g_2)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Lemma~\ref{lem:selfsim} with $a=1$: $-1\equiv2^{-1}\pmod3$ and $\psi_1(-1)=-1$, so $f_n(-1)\ge W_1f_{n-1}(-1)=\frac32f_{n-1}(-1)$. (b) With $T=1+3S'_{n-1}$, $\Prob(S=2x)=\sum_a2^{-a}\Prob(T=2^{a+1}x)=2\Prob(S=x)-\Prob(T=2x)$, and $T\equiv1\pmod3$. In $R_n(h)=\E_zf_n(2z)f_n(h(2z))$ the correction term needs $2z\equiv1$, and then $h(2z)\equiv h(1)\equiv0\pmod3$, where $f_n$ vanishes.
+\end{proof}
+
+Numerically, $f_n(-1)(2/3)^n$ increases to $1.4620$ at $n=15$, and $-1$ is the maximiser of $f_n$ for every $n\le15$; job A's $\max f_{20}=4862$ equals $1.462\,(3/2)^{20}$ as well. The map $y\mapsto2y+1$ fixes $-1$ and is fixed by the branch $(a,b)=(1,1)$ of~\eqref{eq:twisted}, with weight $3/4$. More generally, the affine maps commuting with $\Psi_A$ (those fixing its fixed point) are fixed by the branch $(A,A)$, with weight $3^k4^{-|A|}\le(3/4)^k$ and equality only for $A=(1,\dots,1)$. These are subcritical resonances: they do not make $R$ infinite, but they slow its convergence. And they carry the convergence of $E_n$. By Lemma~\ref{lem:minusone}(b) and the data of job A, $Q_n=\frac12\bigl(R_n(g_2)-R_{n-1}(g_2)\bigr)(1\pm0.03)$ for $11\le n\le19$: the term $d=2$ of Proposition~\ref{prop:energy}, that is the rotation $y\mapsto2y+1$ about $-1$, accounts for $97$ to $103$\,\% of the increments of $E_n$. The increments of $R_n(g_2)$ fall by the local factors $0.911$, $0.907$, $0.897$, $0.888$, $0.883$, $0.874$, $0.868$, $0.866$ from $n=13$ to $n=20$, and a fit $Cn^b\theta^n$ on $14\le n\le20$ gives $\theta=0.78$, $b=2.1$. The rate $3/4$ of the fixed point $-1$ is consistent with this but not settled by $n\le20$. We therefore expect $E_\infty-E_n=O(n^B(3/4)^n)$. Extrapolating with the fitted model gives $E_\infty\approx0.4746$, with a constant factor $0.866$ per level $0.4749$.
+
 \section{Status}
-Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp} and Corollary~\ref{cor:lp}. Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
+Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp}, Corollary~\ref{cor:lp}, and in Section~\ref{sec:logchart} Lemma~\ref{lem:logchart}, Proposition~\ref{prop:spectral}, Proposition~\ref{prop:intertwiners} and Lemma~\ref{lem:minusone}. Refuted: the decorrelation conjecture of the earlier version (distance to the maps $m_e$ only). Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), the counting statement after Proposition~\ref{prop:intertwiners} that would prove them, and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
 
 \begin{thebibliography}{9}
 \bibitem{DL} R.~Durrett and T.~Liggett, Fixed points of the smoothing transformation, \emph{Z. Wahrsch. Verw. Gebiete} 64 (1983), 275--301.

@@ -313,3 +313,26 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   reproduction table row; references Kahane-Peyriere 1976, Durrett-Liggett 1983, Toguchi 2026.
 - Paragraph headings no longer end with a full stop of their own (the class adds one: "Run K.." before).
 - 82 pages.
+
+## v4j (Appendix F: logarithmic chart, singular set, fixed point -1)
+- Appendix F, after Run M (new paragraphs "Logarithmic chart", "Renormalisation and the singular set",
+  "The fixed point -1", "Run N"): a first attack on Conjecture 3, without a proof of it.
+  Lemma 10 (logarithmic chart Lambda(x) = log_4(1+3x): g_d become translations; the Syracuse law is an iterated
+  function system of two nonlinear 1/3-contractions smeared by integer translations).
+  Proposition 18 (E_{n+1} = sum_eta kappa(eta/3^n)|nu_hat_n(eta)|^2 with a kernel kappa of mean zero, so
+  E_{n+1} - E_n is a weighted unit-frequency energy; L^2 similarity dimension exactly 1).
+  Proposition 19 (the singular set of the correlation recursion is the set of intertwiners Psi_B^-1 Psi_A of
+  inverse Syracuse words, with lower bound 3^k 2^-(|A|+|B|) H_2(n-k); an intertwiner with integral translation
+  part is a map y -> 2^e y, so no g_d is singular; height bound for close approaches).
+  Lemma 11 (f_n(-1) >= (3/2)^n at the fixed point -1 of x -> (3x+1)/2; Cor_n(2y+1) = 2 Cor_n(g_2)).
+  Conjecture 4 (decorrelation, restricted to integral translation parts; implies Conjecture 3).
+- The decorrelation conjecture of v4i (distance to the identity and the maps y -> 2^e y only) is false:
+  y -> y - 1/4 is an intertwiner with delta = 0 and Cor_n -> infinity. The paragraph after Conjecture 3 is
+  replaced by a pointer.
+- Run N (log_coordinates.py, exact for n <= 15): log-IFS and spectral identity, angle shares of the unit energy,
+  correlations at intertwiners and controls (Table 17), f_n(-1) (2/3)^n -> 1.462 with -1 the maximiser of f_n.
+  From Run L: the term d = 2 (rotation y -> 2y+1 about -1) carries 97-103 % of the increments of E_n
+  for 11 <= n <= 19; local ratios fall from 0.911 to 0.866; fit C n^b theta^n gives theta = 0.78.
+- Pointers: appendix introduction, contribution table row, introduction (Run A to Run N), Outlook item (7),
+  runs table row N, reproduction table (log_coordinates.py, results_logchart/).
+- 87 pages.
