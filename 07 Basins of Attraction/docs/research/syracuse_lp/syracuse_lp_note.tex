@@ -21,7 +21,7 @@
 
 \title{$L^p$ regularity of the $3$-adic Syracuse law:\\ a reduction to the unit-frequency energy}
 \author{Research notes for \emph{Same Shadows, Different Forests} (draft)}
-\date{20 November 2026, updated 22 November 2026 with the cluster runs and the logarithmic chart}
+\date{20 November 2026, updated 22 November 2026 (cluster runs, logarithmic chart, first-hit decomposition)}
 
 \begin{document}
 \maketitle
@@ -326,8 +326,88 @@ A search over all pairs of length $k\le4$ with letters $\le8$ finds no pair repr
 
 Numerically, $f_n(-1)(2/3)^n$ increases to $1.4620$ at $n=15$, and $-1$ is the maximiser of $f_n$ for every $n\le15$; job A's $\max f_{20}=4862$ equals $1.462\,(3/2)^{20}$ as well. The map $y\mapsto2y+1$ fixes $-1$ and is fixed by the branch $(a,b)=(1,1)$ of~\eqref{eq:twisted}, with weight $3/4$. More generally, the affine maps commuting with $\Psi_A$ (those fixing its fixed point) are fixed by the branch $(A,A)$, with weight $3^k4^{-|A|}\le(3/4)^k$ and equality only for $A=(1,\dots,1)$. These are subcritical resonances: they do not make $R$ infinite, but they slow its convergence. And they carry the convergence of $E_n$. By Lemma~\ref{lem:minusone}(b) and the data of job A, $Q_n=\frac12\bigl(R_n(g_2)-R_{n-1}(g_2)\bigr)(1\pm0.03)$ for $11\le n\le19$: the term $d=2$ of Proposition~\ref{prop:energy}, that is the rotation $y\mapsto2y+1$ about $-1$, accounts for $97$ to $103$\,\% of the increments of $E_n$. The increments of $R_n(g_2)$ fall by the local factors $0.911$, $0.907$, $0.897$, $0.888$, $0.883$, $0.874$, $0.868$, $0.866$ from $n=13$ to $n=20$, and a fit $Cn^b\theta^n$ on $14\le n\le20$ gives $\theta=0.78$, $b=2.1$. The rate $3/4$ of the fixed point $-1$ is consistent with this but not settled by $n\le20$. We therefore expect $E_\infty-E_n=O(n^B(3/4)^n)$. Extrapolating with the fitted model gives $E_\infty\approx0.4746$, with a constant factor $0.866$ per level $0.4749$.
 
+\subsection*{Dilation rules (roadmap A0)}
+\begin{lemma}\label{lem:dilation}
+Let $h$ be an affine isometry of $\Z_3$ and $m_1(y)=2y$.
+\begin{enumerate}
+\item[(a)] If $h(1)\equiv0\pmod3$, then $R_n(h)=2R_n(h\circ m_1)$.
+\item[(b)] If $h(1)\not\equiv2$ and $h(2)\not\equiv2\pmod3$, then $R_n(m_1\circ h)=2R_n(h)$.
+\item[(c)] Consequently $R_n(g_2)=R_n(y\mapsto y+\tfrac12)=\tfrac12R_n(y\mapsto2y+1)$ and $f_n(-\tfrac12)=\tfrac12f_n(-1)$. The translation $y\mapsto y\pm\frac12$ is not an intertwiner.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Both rules rest on $f_n(2x)=2f_n(x)-f^T_n(2x)$, where $f^T_n$ is the density of $T=1+3S'_{n-1}$, supported on $1+3\Z$ (proof of Lemma~\ref{lem:minusone}). (a) is Lemma~\ref{lem:minusone}(b). (b) $R_n(m_1\circ h)=\E_yf_n(y)f_n(2h(y))=2R_n(h)-\E_yf_n(y)f^T_n(2h(y))$, and the last term needs a unit $y$ with $h(y)\equiv2\pmod3$. (c) (a) for $h(y)=2y+1$ gives $R_n(2y+1)=2R_n(g_2)$; (b) for $h(y)=y+\frac12$, where $h(1)\equiv0$ and $h(2)\equiv1$ ($\frac12\equiv2\pmod3$), gives $R_n(2y+1)=2R_n(y+\frac12)$. Since $-\frac12\equiv1\pmod3$, $f_n(-1)=2f_n(-\frac12)$. Finally let $\Psi_B^{-1}\Psi_A(y)=y+\frac12$ with words of length $k$; then $|A|=|B|$ and $c_B-c_A=2^{|B|-1}$. The induction in the proof of Proposition~\ref{prop:intertwiners}(b), now modulo $2^{|B|-1}$, gives $\alpha_j=\beta_j$ for $j\ge2$, because $\beta_j\le|B|-2$ there. So $2^{\beta_1}-2^{\alpha_1}=2^{|B|-1}$ with $\beta_1,\alpha_1\le|B|-1$, which is impossible. The case $-\frac12$ is the inverse map.
+\end{proof}
+
+Since $R_n(y\mapsto y+t)=3^n\,\Prob(S'_n-S_n\equiv t\pmod{3^n})$, the pilot target of the roadmap, $\sup_nR_n(g_2)<\infty$, says: \emph{the law of the difference $S'-S$ of two independent Syracuse variables has a bounded density at the point $\frac12$.} The slow part of its convergence is the pair of singular points $-1$ and $-\frac12$ (Lemma~\ref{lem:minusone}), at distance exactly $\frac12$; heuristically its contribution at level $n$ is $3^n\mu(B(-1,3^{-n}))\mu(B(-\frac12,3^{-n}))\asymp3^n4^{-n}$.
+
+\subsection*{First-hit decomposition (roadmap A1)}
+For words $A,B$ of length $k$ the state of the walk started at $g_d$ is $h_{A,B}=\Psi_Bg_d\Psi_A^{-1}$ (in the notation of Proposition~\ref{prop:intertwiners}). A short computation with $X_A=2^{|A|}(1+3S(A))$ gives
+\begin{equation}\label{eq:state}
+ h_{A,B}(y)=2^{|B|+d-|A|}\,y+\frac{2^{|B|}\bigl(g_d(S(A))-S(B)\bigr)}{3^k},\qquad S(A)=\sum_{j\le k}3^{j-1}2^{-A_j}\in\Z_3 .
+\end{equation}
+So all indicators along the path equal $1$ if and only if $S(B)\equiv g_d(S(A))\pmod{3^k}$, and the state is the identity modulo $3^r$ if and only if the \emph{hit event}
+\[
+ H_d(k,r)=\bigl\{|A|-|B|\equiv d\ (\mathrm{mod}\ 2\cdot3^{r-1}),\ S(B)\equiv g_d(S(A))\ (\mathrm{mod}\ 3^{k+r})\bigr\}
+\]
+occurs (no length condition for $r=0$). Let $w_d(k,r)=3^k\Prob(H_d(k,r))$ for independent geometric words, the total weight of the paths of length $k$ that end within $3^{-r}$ of the identity. Then $w_d(k,0)=R_k(g_d)$, and $K(j,r)=w_0(j,r)$, the \emph{identity kernel}, satisfies $K(j,0)=H_2(j)$, $K(0,r)=1$ and $K(j,r)\ge1$ (the diagonal $A=B$). Fix $N$. A pair of length $k\le N$ \emph{hits first} at depth $k$ if $H_d(k,N-k)$ holds and $H_d(k',N-k')$ fails for its prefixes of every length $k'<k$; let $F_d(k,N-k)$ be the weight of these pairs.
+
+\begin{proposition}[First-hit decomposition]\label{prop:renewal}
+For $0\le k\le N$,
+\[
+ w_d(k,N-k)=\sum_{k'=0}^kF_d(k',N-k')\,K(k-k',N-k),
+\]
+and in particular
+\[
+ R_N(g_d)=\sum_{k'=0}^NF_d(k',N-k')\,H_2(N-k')=\underbrace{F_d(N,0)}_{\text{regular part}}+\underbrace{\sum_{r=1}^NF_d(N-r,r)\,H_2(r)}_{\text{near-resonance part}} .
+\]
+Moreover $0\le F_d\le w_d$.
+\end{proposition}
+
+\begin{proof}
+Split a pair with $H_d(k,N-k)$ at its first hit $k'$ into a prefix $(A',B')$ and a suffix $(A'',B'')$ of length $k-k'$. The state $h'$ after the prefix is the identity modulo $3^{N-k'}$. Since $\Psi_{B''}(x)-\Psi_{B''}(x')=2^{|B''|}(x-x')/3^{k-k'}$, the states along the suffix agree with those of the walk started at the identity modulo $3^{N-k'-i}\supseteq3^{N-k}$ after $i$ steps. Hence the indicators agree, and the end state is the identity modulo $3^{N-k}$ if and only if the suffix pair lies in $H_0(k-k',N-k)$. The weights $3^k2^{-|A|-|B|}$ multiply, and conversely every such concatenation hits at $(k,N-k)$ with first hit at $k'$. For $k=N$, $K(j,0)=H_2(j)$. Finally $K\ge0$ and $K(0,\cdot)=1$.
+\end{proof}
+
+The near-resonance part contains all of the growth mechanism of $H_2$, and it needs only a crude bound. Let $\varrho_d(k,r)=w_d(k,r)\,|\mathrm{Aff}(\Z/3^r\Z)|/R_k(g_d)$, where $|\mathrm{Aff}(\Z/3^r\Z)|=2\cdot3^{2r-1}$. This is the density, relative to the uniform distribution, of the depth-$k$ states at the identity class modulo $3^r$; it equals $1$ if these states are equidistributed modulo $3^r$.
+
+\begin{corollary}[Bootstrap]\label{cor:bootstrap}
+Let $v_3(d/2)=0$, $\varrho^*_d=\sup_{k,r\ge1}\varrho_d(k,r)$ and $F^*_d=\sup_NF_d(N,0)$. If $\varrho^*_d<44/15$, then
+\[
+ \sup_NR_N(g_d)\le\frac{\max(1,F^*_d)}{1-\frac{15}{44}\varrho^*_d}.
+\]
+\end{corollary}
+
+\begin{proof}
+$g_d$ is not the identity modulo $3$, so $F_d(0,N)=0$ for $N\ge1$. By Proposition~\ref{prop:renewal}, $F_d\le w_d=\frac32\varrho_d9^{-r}R_k(g_d)$ and $H_2(r)\le(5/3)^r$ (by Proposition~\ref{prop:spectral} and $D_{n-1}(k)\le H_2(n-1)$, $E_n\le\frac23H_2(n-1)$), so $R_N(g_d)\le F^*_d+\frac32\varrho^*_d\sum_{r\ge1}(5/27)^r\max_{m<N}R_m(g_d)$, and $\frac32\cdot\frac5{22}=\frac{15}{44}$. Induction on $N$.
+\end{proof}
+
+So the pilot target follows from two statements: an upper bound $\varrho^*_2<2.93$, an anti-concentration of the walk at the identity, and a bound for the regular part, the weight of the paths that never come close to the identity. The second is where the difficulty now sits. In the computation (Run~O below) $\varrho_d\le1.15$ throughout for $d=2,4$ (and $\le1.57$ for $d=6$, where $v_3(d/2)=1$). For $d=2$ the regular part decreases monotonically from $N=2$ on ($0.694$ to $0.529$ at $N=13$), and for $d=4$ it stays between $0.335$ and $0.363$ from $N=3$ on.
+
+\subsection*{Large deviations (roadmap A2)}
+\begin{lemma}\label{lem:largedev}
+For even $d\ne0$, $k,r\ge1$ and $1<q<2$,
+\[
+ w_d(k,r)\le2\Bigl(\frac3{2-q}\Bigr)^k\Bigl(q^{-r\log_23}+q^{|d|-2\cdot3^{r-1}}\Bigr).
+\]
+Hence for every $\beta>\beta^*=\min_{1<q<2}\frac{\log(3/(2-q))}{\log_23\cdot\log q}=2.7022$ (at $q=1.6214$) there are $C,\varepsilon>0$ with $w_d(k,r)\le Ce^{-\varepsilon r}$ whenever $r\ge\beta k$. With the a priori bound $H_2(r)\le(5/3)^r$ the terms with $r\ge\beta k$ of the near-resonance part are $O(e^{-\varepsilon'N})$ as soon as $\beta>\beta^{**}=6.4188$ (at $q=1.8210$), and with $H_2(r)=O(r)$ as soon as $\beta>\beta^*$.
+\end{lemma}
+
+\begin{proof}
+On $H_d(k,r)$, either $|A|-|B|=d$, and then $\max(|A|,|B|)>k+r\log_23$ by Proposition~\ref{prop:intertwiners}(c); or $|A|-|B|\ne d$ and $|A|-|B|\equiv d\pmod{2\cdot3^{r-1}}$, and then $\max(|A|-k,|B|-k)\ge2\cdot3^{r-1}-|d|$. Since $\E\,q^{a-1}=1/(2-q)$, Chernoff's bound gives $\Prob(|A|-k\ge m)\le q^{-m}(2-q)^{-k}$. Multiply by $3^k$ and add the two words. In the near-resonance part $k=N-r$, so $r\ge\beta k$ means $r\ge\beta N/(1+\beta)$.
+\end{proof}
+
+The bound uses only the height of the integers $X_A$; the exponent $\beta^*$ is the same as that of the entropy count $\binom{m+k-1}{k-1}2^{-m}$ with $m=r\log_23$. What remains is the region $1\le r<\beta^*k$, and there the counts are of order $9^{-r}$ (Run~O), far below the large-deviation bound.
+
+\subsection*{Run O, local part}
+Program \texttt{congruence\_counts.py} computes $w_d(k,r)$ exactly up to floating point for $k+r\le N$. For each of the length phases $\theta=j/162$ it computes the complex law of $S(A)\bmod3^N$, weighted with $e(\theta(|A|-k))$, by the recursion $S(A)=2^{-a}(1+3S(A'))$ started from the point mass at $0$ modulo $3^{N-k}$. An inverse Fourier transform in $\theta$ then gives the law of $|A|-|B|$ on the coincidence event. It reproduces $H_2$ and $R_N(g_d)$ of job~A to all digits, and a brute-force walk over pairs of letters $\le14$ ($N\le2$) and $\le10$ ($N=3$) to within the truncation error. The local run goes to $N=13$ (four minutes, folder \texttt{results\_runO\_local/}); the cluster job \texttt{slurm/slp\_runO.sbatch} goes to $N=17$.
+\begin{itemize}
+\item $d=4$: $\varrho_4(k,1)$ is $0.95$, $0.92$, $0.94$, $0.99$, $0.98$, $0.99$, $0.997$, $0.998$, $0.999$ for $k=4,\dots,12$, and $\varrho_4(k,2)$ lies between $0.96$ and $1.01$ for $k\ge4$. The walk equidistributes fast; regular part $0.338$, near-resonance part $0.135$.
+\item $d=2$: $\varrho_2(k,1)=0.16$, $0.35$, $0.49$, $0.63$, $0.72$, $0.79$, $0.85$, $0.89$, $0.92$, $0.94$, $0.957$ for $k=2,\dots,12$. The approach to $1$ is slow (differences shrink by about $0.74$), as expected from the resonance at $-1$, which keeps the walk near $y\mapsto2y+1$, far from the identity. At $N=13$ the regular part is $0.5294$ and the near-resonance part $0.1976$. Their increments have opposite signs and shrink by about $0.72$ and $0.76$ per level; the increments of the sum $R_N(g_2)$ shrink only by about $0.91$. So the local factors $0.87$--$0.91$ of Run~L come from a near-cancellation of two faster parts. Whether the asymptotic rate is about $3/4$ is for the cluster run to decide.
+\end{itemize}
+
 \section{Status}
-Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp}, Corollary~\ref{cor:lp}, and in Section~\ref{sec:logchart} Lemma~\ref{lem:logchart}, Proposition~\ref{prop:spectral}, Proposition~\ref{prop:intertwiners} and Lemma~\ref{lem:minusone}. Refuted: the decorrelation conjecture of the earlier version (distance to the maps $m_e$ only). Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), the counting statement after Proposition~\ref{prop:intertwiners} that would prove them, and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
+Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp}, Corollary~\ref{cor:lp}, and in Section~\ref{sec:logchart} Lemma~\ref{lem:logchart}, Proposition~\ref{prop:spectral}, Proposition~\ref{prop:intertwiners} and Lemma~\ref{lem:minusone}. After the roadmap (\texttt{docs/research/ROADMAP.md}, tasks A0--A2): Lemmas~\ref{lem:dilation} and~\ref{lem:largedev}, Proposition~\ref{prop:renewal} and Corollary~\ref{cor:bootstrap}; the pilot target $\sup_nR_n(g_2)<\infty$ is reduced to $\varrho^*_2<44/15$ and a bound for the regular part. Refuted: the decorrelation conjecture of the earlier version (distance to the maps $m_e$ only). Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), the counting statement after Proposition~\ref{prop:intertwiners} that would prove them, and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
 
 \begin{thebibliography}{9}
 \bibitem{DL} R.~Durrett and T.~Liggett, Fixed points of the smoothing transformation, \emph{Z. Wahrsch. Verw. Gebiete} 64 (1983), 275--301.

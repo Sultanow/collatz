@@ -71,6 +71,32 @@ Numerics (`log_coordinates.py 15 results_logchart`, about 30 s, exact for n <= 1
   `C n^b theta^n` on 14..20: theta = 0.78, b = 2.1; heuristic rate 3/4 (weight of the branch (1,1)).
   Extrapolated `E_infinity` 0.4746 (fitted model) to 0.4749 (constant factor 0.866).
 
+## Track 1c: roadmap tasks A0-A2 and Run O (local), note Section 8 (end)
+
+Proved (note Lemmas 14, 17, Proposition 15, Corollary 16):
+
+- **Dilation rules (A0):** `R(h) = 2 R(h o m_1)` if `h(1) = 0 mod 3`; `R(m_1 o h) = 2 R(h)` if `h(1), h(2) != 2 mod 3`.
+  Hence `R_n(g_2) = R_n(y + 1/2) = R_n(2y+1)/2` and `f_n(-1/2) = f_n(-1)/2`; `y +- 1/2` is not an intertwiner.
+  Pilot target: **the law of S' - S has a bounded density at 1/2**; the slow part is the singular pair -1, -1/2.
+- **First-hit decomposition (A1):** with the hit weights `w_d(k, r) = 3^k P(|A|-|B| = d mod 2*3^{r-1},
+  S(B) = g_d(S(A)) mod 3^{k+r})` (truncated Syracuse sums of independent words of length k) and the identity kernel
+  `K = w_0`: `w_d(k, N-k) = sum_{k'} F_d(k', N-k') K(k-k', N-k)`, so
+  `R_N(g_d) = F_d(N, 0) [regular part] + sum_{r>=1} F_d(N-r, r) H_2(r) [near-resonance part]`.
+- **Bootstrap:** with `rho_d(k, r) = w_d(k, r) |Aff(Z/3^r)| / R_k(g_d)` (density of the depth-k states at the identity
+  class), `sup_N R_N(g_d) <= max(1, F*) / (1 - (15/44) rho*)` if `rho* < 44/15` (v_3(d/2) = 0). Uses only
+  `H_2(r) <= (5/3)^r`. Remaining difficulty: the regular part F_d(N, 0).
+- **Large deviations (A2):** `w_d(k, r) <= 2 (3/(2-q))^k (q^{-r log_2 3} + q^{|d| - 2*3^{r-1}})`; exponentially small for
+  `r >= beta k`, `beta > beta* = 2.7022` (q = 1.6214); `beta** = 6.4188` with the a priori bound on H_2.
+
+Run O, local (`congruence_counts.py`, N <= 13, 4 min; `results_runO_local/`; selftest against brute force):
+
+- d = 4: rho(k, 1) -> 0.999 by k = 12, rho(k, 2) in [0.96, 1.01]; regular 0.338, near-resonance 0.135.
+- d = 2: rho(k, 1) = 0.16 ... 0.957 (k = 2..12), slow (factor about 0.74). Regular part decreases 0.694 -> 0.529,
+  near-resonance part increases to 0.198; their increments shrink by about 0.72 and 0.76 per level but have
+  opposite signs, so the sum R_N(g_2) converges with local factor 0.91: the slow rate of Run L is a near-cancellation.
+- rho <= 1.15 for d = 2, 4 (<= 1.57 for d = 6).
+- Cluster: `slurm/slp_runO.sbatch` (N <= 17 by default, about 50 min; N = 18 on n12/n13).
+
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
 Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2e-6; `results_mc/`):
@@ -115,6 +141,7 @@ on n11; `results_mc2/`):
     sbatch slurm/slp_exact.sbatch          # job A (done 2026-11-22)
     sbatch slurm/slp_fourier_mc.sbatch     # job B (done 2026-11-22)
     sbatch slurm/slp_fourier_mc2.sbatch    # job B2 (done 2026-11-22)
+    sbatch slurm/slp_runO.sbatch           # Run O (roadmap A3), N <= 17
     python3 mc_merge.py results_mc2 results_mc2/mc_task*.csv
     python3 decay_analysis.py results_mc/mc_merged.csv results_mc2/mc_merged.csv
 
@@ -128,6 +155,7 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
   `round(n log2 3) - SHIFT`
 - `mc_merge.py`: merges the Monte Carlo runs and fits the decay
 - `decay_analysis.py`: decay models on the combined runs (`results_mc2/decay_fits.txt`)
+- `congruence_counts.py`: Run O, hit weights w_d(k, r), first-hit decomposition (`run`, `merge`, `selftest`)
 - `log_coordinates.py`: logarithmic chart, spectral identity, angle shares, intertwiners, fixed point -1
   (`python3 log_coordinates.py 15 results_logchart`; imports `syracuse_lp.py`)
 - `slurm/`: job scripts A, B, B2
@@ -135,6 +163,7 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `results_mc/`: job B output
 - `results_mc2/`: job B2 output and the decay fits
 - `results_logchart/`: output of `log_coordinates.py` for n <= 15 (summary, angle shares, D_l(k), intertwiners)
+- `results_runO_local/`: Run O for N <= 13 (summary, hit weights, first hits, raw phases)
 - `results_local/`: first local runs. Exact statistics for n <= 16 (superseded by `results_exact/`),
   the Monte Carlo validation against the exact values for n = 6..15 (`mc_validation.csv`, 2e7 samples)
   and a rough 2e6-sample Monte Carlo run (`mc_rough_2e6.csv`)
