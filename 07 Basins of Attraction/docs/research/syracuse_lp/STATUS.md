@@ -1,4 +1,4 @@
-# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-22)
+# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-22, evening)
 
 Two tracks on the Syracuse law itself, the reference object of Theorem 3, Remark 12(d) and Table 13.
 Nothing here enters the paper yet. Note: `syracuse_lp_note.tex`/`.pdf` (updated with the cluster runs).
@@ -46,18 +46,39 @@ Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2
   - The local power exponent steepens from -2.2 to -3.1. This is faster than any fixed power, and
     Toguchi's `n^{-2.1}` was pre-asymptotic.
   - The ratio per level rises from 0.892 to 0.917.
-  - Exponential and quasi-polynomial decay cannot be told apart yet.
+  - Exponential and quasi-polynomial decay could not be told apart from job B alone (settled by B2 below).
 
-Next: **job B2** (`slurm/slp_fourier_mc2.sbatch`) with the window centred at `round(n log2 3) - 6`,
-`W = 8`, `n = 36..80`, 4 x 2.5e10 samples (about 2 h per task). If the ratio levels off below 1, that
-supports exponential decay; if it keeps rising, decay is subexponential.
+Job B2 (window recentred at `round(n log2 3) - 6`, `W = 8`, n = 36..80, 1e11 samples, 4 x 1 h 51 min
+on n11; `results_mc2/`):
+
+- **Maximiser:** never at the window edge; `k* - n log2 3` stays in [-7.5, -5.2], so `xi ~ 3^n/64`.
+- **Decay:** jobs B (16..35) and B2 (36..80) together give 65 levels with `M >= 20 se`
+  (`decay_analysis.py` -> `results_mc2/decay_fits.txt`). Model fits of `log M_n`:
+
+  | model | RMS residual |
+  |---|---|
+  | exponential | 0.087 |
+  | power | 0.226 |
+  | quasi-power | 0.138 |
+  | stretched exponential (g = 0.71) | 0.015 |
+  | **exponential x power `A n^c rho^n`** | **0.0099** (max 0.029) |
+
+  The winning model has `rho = 0.942`, `c = -0.97`. On subranges: rho = 0.9446 / 0.9414 / 0.9449 and
+  c = -1.05 / -0.93 / -1.17 for n = 16..50 / 30..80 / 50..80.
+- **Conclusion:** numerically `M_n ~ A n^{-1} rho^n` with `rho ~ 0.943`. This supports Tao's suggested
+  `O(exp(-cn))` with `c ~ 0.058`, and rules out every fixed power, including Toguchi's `n^{-2.1}`.
+- **Local ratio per level:** rises 0.892 -> 0.919 -> 0.930 (n ~ 20, 40, 76), as `rho (1 - 1/n)`
+  predicts. The unbiased window energy gives the same ratios.
+- **Open:** a proof. Route: transfer operator on the relative frequency `theta = 2^k/3^n`
+  (`theta -> 3 theta / 2^a`), see the note.
 
 ## Cluster runs (std partition; submit from this folder)
 
     sbatch slurm/slp_exact.sbatch          # job A (done 2026-11-22)
     sbatch slurm/slp_fourier_mc.sbatch     # job B (done 2026-11-22)
-    sbatch slurm/slp_fourier_mc2.sbatch    # job B2 (next)
+    sbatch slurm/slp_fourier_mc2.sbatch    # job B2 (done 2026-11-22)
     python3 mc_merge.py results_mc2 results_mc2/mc_task*.csv
+    python3 decay_analysis.py results_mc/mc_merged.csv results_mc2/mc_merged.csv
 
 `results_mc/mc_summary.txt` was regenerated with the current `mc_merge.py`, which adds the `EDGE` flags
 and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster output.
@@ -68,8 +89,13 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `syrac_fourier_mc.c`: Monte Carlo of `chi_n(2^k)`; optional `SHIFT` centres the window at
   `round(n log2 3) - SHIFT`
 - `mc_merge.py`: merges the Monte Carlo runs and fits the decay
+- `decay_analysis.py`: decay models on the combined runs (`results_mc2/decay_fits.txt`)
 - `slurm/`: job scripts A, B, B2
 - `results_exact/`: job A output (n <= 20)
 - `results_mc/`: job B output
-- `logs/`: job logs
-- `results_local/mc_validation.csv`: Monte Carlo against the exact values for n = 6..15 (local, 2e7 samples)
+- `results_mc2/`: job B2 output and the decay fits
+- `results_local/`: first local runs. Exact statistics for n <= 16 (superseded by `results_exact/`),
+  the Monte Carlo validation against the exact values for n = 6..15 (`mc_validation.csv`, 2e7 samples)
+  and a rough 2e6-sample Monte Carlo run (`mc_rough_2e6.csv`)
+
+Run times on n11: job A 1 h 33 min (peak 205 GB); job B 4 x 2 h; job B2 4 x 1 h 51 min.

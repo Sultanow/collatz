@@ -1,0 +1,46 @@
+== results_mc/mc_merged.csv: 26 levels 16..42 (edge-free, M >= 20 se)
+  local ratio per level, max M_n:
+    n = 16..23: 0.8920 +- 0.0020
+    n = 20..27: 0.9042 +- 0.0012
+    n = 24..31: 0.9101 +- 0.0009
+    n = 28..35: 0.9146 +- 0.0006
+    n = 32..39: 0.9170 +- 0.0006
+  local ratio per level, window energy P_n:
+    n = 16..23: 0.8993 +- 0.0014
+    n = 20..27: 0.9085 +- 0.0006
+    n = 24..31: 0.9121 +- 0.0004
+    n = 28..35: 0.9105 +- 0.0013
+    n = 32..39: 0.9087 +- 0.0026
+== results_mc2/mc_merged.csv: 45 levels 36..80 (edge-free, M >= 20 se)
+  local ratio per level, max M_n:
+    n = 36..43: 0.9191 +- 0.0007
+    n = 40..47: 0.9215 +- 0.0006
+    n = 44..51: 0.9229 +- 0.0004
+    n = 48..55: 0.9247 +- 0.0007
+    n = 52..59: 0.9252 +- 0.0008
+    n = 56..63: 0.9256 +- 0.0012
+    n = 60..67: 0.9259 +- 0.0013
+    n = 64..71: 0.9288 +- 0.0023
+    n = 68..75: 0.9324 +- 0.0023
+    n = 72..79: 0.9304 +- 0.0021
+  local ratio per level, window energy P_n:
+    n = 36..43: 0.9212 +- 0.0002
+    n = 40..47: 0.9231 +- 0.0003
+    n = 44..51: 0.9244 +- 0.0002
+    n = 48..55: 0.9260 +- 0.0003
+    n = 52..59: 0.9261 +- 0.0003
+    n = 56..63: 0.9280 +- 0.0002
+    n = 60..67: 0.9275 +- 0.0005
+    n = 64..71: 0.9298 +- 0.0009
+    n = 68..75: 0.9295 +- 0.0012
+    n = 72..79: 0.9312 +- 0.0014
+== combined: 65 levels 16..80, model fits of log M_n
+  exponential        a + b n             RMS 0.0872  max|res| 0.284  ratio e^b = 0.9211
+  power              a + b log n         RMS 0.2260  max|res| 0.545
+  quasi-power        a + b (log n)^2     RMS 0.1381  max|res| 0.296
+  exponential*power  a + b n + c log n   RMS 0.0099  max|res| 0.029  ratio e^b = 0.9420  power c = -0.965
+  stretched exp.     a - c n^g           RMS 0.0150  (best g = 0.71)
+  exponential*power on subranges:
+    n = 16..50: ratio 0.9446, power -1.045
+    n = 30..80: ratio 0.9414, power -0.933
+    n = 50..80: ratio 0.9449, power -1.170
