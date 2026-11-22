@@ -5,6 +5,8 @@ paper ([`../main.tex`](../main.tex)). It is not part of the paper: only what the
 its stated hypotheses, is claimed there. Numbers below refer to version 3 of the paper and to the
 draft after it (Remark 12).
 
+Work plan and red thread (German): [`ROADMAP.md`](ROADMAP.md).
+
 ## Notes that entered the paper
 
 | Folder | Content | In the paper (version 3) |
