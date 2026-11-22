@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+
+\title{$L^p$ regularity of the $3$-adic Syracuse law:\\ a reduction to the unit-frequency energy}
+\author{Research notes for \emph{Same Shadows, Different Forests} (draft)}
+\date{20 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $f_n$ be the density, with respect to the uniform measure on $\Z/3^n\Z$, of Tao's Syracuse random variable $\mathbf{Syrac}(\Z/3^n\Z)$, and $H_p(n)$ the mean of $f_n^p$. It is known that $f_n$ converges in $L^1$ \cite{Tao} and that $H_2(n)\to\infty$ (research notes \texttt{transfer/}). We prove the inequality $H_p(n)\le\rho(p)H_p(n-1)+E_n^{p/2}$ for $1<p\le2$, where $\rho(p)=3^{p-1}/(2^p-1)<1$ and $E_n=H_2(n)-H_2(n-1)$ is the $L^2$ energy of the unit frequencies at level $n$. Hence $\sup_nE_n<\infty$ implies that the limiting density lies in $L^p$ for every $p<2$, so that $2$ is the critical exponent. We write $E_n$ exactly as a weighted sum of twisted self-correlations $R(g_d)$ of $f_{n-1}$ under explicit affine isometries $g_d$ of $\Z_3$. We also identify the maps under which the self-correlation is infinite: the multiplications by integer powers of $2$. Exact computations up to $n=16$ give $E_n\approx0.471$, slowly increasing with decreasing increments, and correlations $R(g_d)$ that are stable in $n$ and grow only with $v_3(d/2)$. The boundedness of $E_n$ is stated as a conjecture, together with a route to it. Status: the inequality, the identities and the singular set are proved; $\sup_nE_n<\infty$ is open.
+\end{abstract}
+
+\section{Setting}
+Let $a_1,a_2,\dots$ be independent with $\Prob(a_i=k)=2^{-k}$ ($k\ge1$), $A_j=a_1+\dots+a_j$, and
+\[
+ S_n=\sum_{j=1}^n3^{j-1}2^{-A_j}\bmod 3^n .
+\]
+By reversing the order of the $a_i$ this has the law of Tao's $\mathbf{Syrac}(\Z/3^n\Z)$ \cite{Tao}, and $S_n\bmod 3^{n-1}=S_{n-1}$. Moreover $S_n=2^{-a}(1+3S'_{n-1})$, where $a$ is geometric and $S'_{n-1}$ is an independent copy of $S_{n-1}$. Let $\mu_n$ be the law of $S_n$, and let $f_n=3^n\mu_n$ be its density with respect to the uniform probability measure on $\Z/3^n\Z$. Means over $x\in\Z/3^n\Z$ are written $\E_x$, and
+\[
+ H_p(n)=\E_x f_n(x)^p,\qquad E_n=H_2(n)-H_2(n-1),\qquad \chi_n(\xi)=\E\,e(\xi S_n/3^n).
+\]
+Since $S_n\bmod3^{n-1}=S_{n-1}$, $(f_n)$ is a martingale for the $3$-adic filtration, so $H_p(n)$ increases with $n$ for $p\ge1$. If $\sup_nH_p(n)<\infty$ for some $p>1$, then $f_n$ converges in $L^p(\Z_3)$ to the density $f_\infty$ of the limiting law. By Parseval and $\chi_n(3\xi)=\chi_{n-1}(\xi)$,
+\begin{equation}\label{eq:parseval}
+ H_2(n)=\sum_{\xi\bmod3^n}|\chi_n(\xi)|^2,\qquad E_n=\sum_{\xi\in(\Z/3^n\Z)^\times}|\chi_n(\xi)|^2 .
+\end{equation}
+
+\section{Self-similarity}
+Put $W_a=3\cdot2^{-a}$ and $\psi_a(x)=(2^ax-1)/3\bmod3^{n-1}$ for $x\equiv2^{-a}\pmod3$.
+
+\begin{lemma}\label{lem:selfsim}
+For $n\ge1$ and $x\in\Z/3^n\Z$,
+\[
+ f_n(x)=\sum_{a\ge1}W_a\,\mathbf 1[x\equiv2^{-a}\ (\mathrm{mod}\ 3)]\,f_{n-1}(\psi_a(x)).
+\]
+For each $a$, $\psi_a$ maps the class $\{x\equiv2^{-a}\pmod 3\}$ bijectively onto $\Z/3^{n-1}\Z$. If $a\equiv b\pmod2$, then on this class $\psi_b=g_{b-a}\circ\psi_a$ with
+\[
+ g_d(y)=2^dy+\frac{2^d-1}{3}\qquad(d\in2\Z),
+\]
+an affine isometry of $\Z_3$ (and of every $\Z/3^m\Z$), with $g_{-d}=g_d^{-1}$.
+\end{lemma}
+
+\begin{proof}
+$\Prob(S_n=x)=\sum_a2^{-a}\Prob(1+3S'_{n-1}\equiv2^ax\pmod{3^n})$. The event requires $2^ax\equiv1\pmod3$, and then it is $\{S'_{n-1}\equiv\psi_a(x)\}$. Multiply by $3^n$. The bijection is clear. For $x=2^{-a}(1+3y)$ we get $2^bx=2^{b-a}(1+3y)$, so $\psi_b(x)=(2^{b-a}(1+3y)-1)/3=g_{b-a}(y)$, and $2^d\equiv1\pmod3$ for even $d$.
+\end{proof}
+
+\section{The second moment}
+For an affine isometry $h(y)=uy+t$ ($u\in\Z_3^\times$, $t\in\Z_3$) let
+\[
+ R_m(h)=\E_y f_m(y)\,f_m(h(y))=3^m\,\Prob\bigl(S'_m\equiv h(S_m)\pmod{3^m}\bigr),
+\]
+with independent copies $S_m,S'_m$. Then $R_m(\mathrm{id})=H_2(m)$, and $R_m(h^{-1})=R_m(h)$.
+
+\begin{proposition}\label{prop:energy}
+For $n\ge2$,
+\[
+ E_n=2\sum_{d\ge2,\ d\text{ even}}2^{-d}\,R_{n-1}(g_d).
+\]
+More generally, for every affine isometry $h(y)=uy+t$,
+\begin{equation}\label{eq:twisted}
+ R_n(h)=\frac13\sum_{a,b\ge1}W_aW_b\,\mathbf 1\bigl[2^{b-a}u+2^bt\equiv1\ (\mathrm{mod}\ 3)\bigr]\,R_{n-1}(h_{a,b}),
+\end{equation}
+where $h_{a,b}(y)=2^{b-a}u\,y+(2^{b-a}u+2^bt-1)/3$.
+\end{proposition}
+
+\begin{proof}
+Write $S=2^{-a}(1+3S')$ and $T=2^{-b}(1+3T')$ with independent $a,b,S',T'$. Then $T\equiv h(S)$ means $1+3T'\equiv2^{b-a}u(1+3S')+2^bt$. Modulo $3$ this is the indicator condition, and then it says $T'\equiv h_{a,b}(S')\pmod{3^{n-1}}$. Multiplying by $3^n=3\cdot3^{n-1}$ gives~\eqref{eq:twisted}. For $h=\mathrm{id}$ the condition is $a\equiv b\pmod2$ and $h_{a,b}=g_{b-a}$. The terms with $a=b$ give $\frac13\sum_aW_a^2H_2(n-1)=H_2(n-1)$. For fixed even $d\ne0$, $\frac13\sum_{b-a=d}W_aW_b=2^{-|d|}$, and $R(g_{-d})=R(g_d)$.
+\end{proof}
+
+\begin{proposition}[The singular set]\label{prop:singular}
+For every integer $e\ne0$ and the linear map $m_e(y)=2^ey$,
+\[
+ R_n(m_e)\ \ge\ 2^{-|e|}H_2(n-1)\ \longrightarrow\ \infty .
+\]
+\end{proposition}
+
+\begin{proof}
+In~\eqref{eq:twisted} with $u=2^e$, $t=0$, the pairs with $b-a=-e$ satisfy the condition and give $h_{a,b}=\mathrm{id}$. Their weight is $\frac13\sum_{b-a=-e}W_aW_b=2^{-|e|}$, and all other terms are nonnegative.
+\end{proof}
+
+This is the overlap principle of Remark~12(d) of the paper in another form. The law of $2^eS$ contains $2^{-|e|}$ times the law of $S$, because multiplying by $2^e$ shifts the first valuation. So $f$ and $f\circ m_e$ share their singular part. The maps $g_d$ differ from $m_d$ by the translation $(2^d-1)/3\ne0$, of $3$-adic valuation $v_3(d/2)$ (lifting the exponent).
+
+\section{The Kahane--Peyri\`ere inequality}
+\begin{lemma}\label{lem:kp}
+For $1<p\le2$ and $n\ge1$,
+\[
+ H_p(n)\ \le\ \rho(p)\,H_p(n-1)+E_n^{p/2},\qquad \rho(p)=\frac{3^{p-1}}{2^p-1}.
+\]
+For $p=2$ this is the identity $H_2(n)=H_2(n-1)+E_n$. The function $\log\rho$ is strictly convex with $\rho(1)=\rho(2)=1$, so $\rho(p)<1$ for $1<p<2$ (for example $\rho(1.5)=0.947$).
+\end{lemma}
+
+\begin{proof}
+Let $y_a(x)=W_a\mathbf 1[x\equiv2^{-a}]f_{n-1}(\psi_a(x))\ge0$, so that $f_n=\sum_ay_a$ by Lemma~\ref{lem:selfsim}. Since $0<p/2\le1$, the map $s\mapsto s^{p/2}$ is subadditive, and
+\[
+ f_n^p=\Bigl(\sum_ay_a^2+\sum_{a\ne b}y_ay_b\Bigr)^{p/2}\le\sum_ay_a^p+\Bigl(\sum_{a\ne b}y_ay_b\Bigr)^{p/2}.
+\]
+By the bijection in Lemma~\ref{lem:selfsim}, $\E_xy_a^p=\frac13W_a^pH_p(n-1)$, and $\frac13\sum_aW_a^p=3^{p-1}\sum_a2^{-ap}=\rho(p)$. By Jensen's inequality for the concave map $s\mapsto s^{p/2}$, the mean of the second term is at most $(\E_x\sum_{a\ne b}y_ay_b)^{p/2}$. The case $p=2$ of the same computation gives $\E_x\sum_{a\ne b}y_ay_b=H_2(n)-\rho(2)H_2(n-1)=E_n$. Finally, $\frac{d^2}{dp^2}\log(2^p-1)=-(\log2)^2\,2^p/(2^p-1)^2<0$.
+\end{proof}
+
+\begin{corollary}\label{cor:lp}
+If $E^*=\sup_nE_n<\infty$, then for every $1<p<2$
+\[
+ \sup_nH_p(n)\ \le\ 1+\frac{(E^*)^{p/2}}{1-\rho(p)},
+\]
+so $f_\infty\in L^p(\Z_3)$ and $f_n\to f_\infty$ in $L^p$. Since $H_2(n)\to\infty$, the critical exponent is then exactly $2$: $f_\infty\in L^p$ if and only if $p<2$. More generally, if $E_n\le Cn^\theta$, then $H_p(n)=O(n^{\theta p/2})$, and the $L^q$ dimensions of the Syracuse measure are $1$ for $1<q\le2$.
+\end{corollary}
+
+\begin{proof}
+Iterate Lemma~\ref{lem:kp} from $H_p(0)=1$: $H_p(n)\le\rho^n+\sum_{j\le n}\rho^{n-j}E_j^{p/2}$.
+\end{proof}
+
+\begin{remark}
+For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~\ref{lem:selfsim} is a multitype smoothing transform. Its spectral radius at order $p$ is $\rho(p)$, and $\rho(2)=1$ places the tail $\mathrm{Haar}\{f>M\}\asymp M^{-2}$ at the critical exponent \cite{DL,KP}. The exact densities show this tail: $\mathrm{Haar}\{f_{16}>M\}=9.4\cdot10^{-3}$, $1.0\cdot10^{-3}$ and $6.7\cdot10^{-5}$ for $M=10$, $30$ and $100$ (local exponents $2.0$ and $2.3$). Without independence, Lemma~\ref{lem:kp} replaces the cross terms by the single number $E_n$.
+\end{remark}
+
+\section{Towards bounded energy}
+\begin{conjecture}\label{conj:energy}
+$\sup_nE_n<\infty$. Equivalently, by Proposition~\ref{prop:energy}, $\sup_m\sum_{d}2^{-d}R_m(g_d)<\infty$.
+\end{conjecture}
+
+A natural stronger form measures the distance to the singular set of Proposition~\ref{prop:singular}, weighted as in its proof. For $h(y)=uy+t$ let
+\[
+ \delta(h)=\sum_{e\in\Z}2^{-|e|}\min\{v_3(u-2^e),v_3(t)\}\in[0,\infty].
+\]
+Then $\delta(h)=\infty$ exactly for $h=\mathrm{id}$ and $h=m_e$. The term $e=0$ measures the distance to the identity, which carries weight $1$. Thus $v_3(d/2)\le\delta(g_d)\le3v_3(d/2)$ and $\delta(\tau_j)=j+O(1)$ for the translations $\tau_j(y)=y+3^j$.
+
+\begin{conjecture}[Decorrelation]\label{conj:decor}
+There are constants $A,B$ with $\limsup_mR_m(h)\le A+B\,\delta(h)$ for every affine isometry $h$ with $\delta(h)<\infty$.
+\end{conjecture}
+
+Conjecture~\ref{conj:decor} implies Conjecture~\ref{conj:energy}, since $\sum_d2^{-d}v_3(d/2)<\infty$. The numerics in Section~\ref{sec:numerics} fit it: $R(g_d)$ is about $0.4$ to $0.9$ plus $0.47\,v_3(d/2)$, and $R(\tau_j)$ follows $H_2(j)$ with an almost constant offset. The latter is what one expects from~\eqref{eq:twisted}: with $u=1$ and $3\mid t$, the diagonal terms $a=b$ have total weight $\rho(2)=1$ and map $\tau_t$ to $\tau_{2^at/3}$, one level shallower, while the off-diagonal terms contribute a bounded amount per level. For the linear map $y\mapsto7y$, whose distance $\delta$ to the singular set is finite, $R$ stays at $1.55$ for $7\le n\le15$.
+
+\paragraph{A route.} Equation~\eqref{eq:twisted} is a positive linear recursion on affine maps. The identity is fixed with weight $1$ (the source of the linear growth of $H_2$), and the linear maps $m_e$ feed into it (Proposition~\ref{prop:singular}). A proof of Conjecture~\ref{conj:decor} amounts to a no-resonance estimate. Started at $h$ with $\delta(h)=k$, the weighted walk $h\mapsto h_{a,b}$ comes within $3$-adic distance $3^{-\ell}$ of the singular set with total weight $O(3^{-\ell})$ uniformly in $\ell$. Then a renewal decomposition at these visits gives $R(h)\le A+B\delta(h)$. The translation part $t$ of the walk is a $3$-adic sum of the same kind as $S_n$, so its equidistribution modulo $3^\ell$ is a Tao-type mixing statement \cite[Prop.~1.14, 1.17]{Tao}. Note that exact returns to the singular set would require rational identities between powers of $2$ and $3$, much as in cycle equations.
+
+\section{Numerics}\label{sec:numerics}
+All values are exact up to floating point (program \texttt{syracuse\_lp.py}, $n\le16$; the cluster job A extends to $n=20$). The identity of Proposition~\ref{prop:energy} holds to all printed digits.
+
+\begin{center}
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$n$ & $E_n$ & $H_{1.25}(n)$ & $H_{1.5}(n)$ & $H_{1.75}(n)$ & $H_2(n)$\\
+\midrule
+4 & 0.46421 & 1.2555 & 1.6389 & 2.2116 & 3.0686\\
+8 & 0.46592 & 1.3366 & 1.9256 & 2.9805 & 4.9317\\
+12 & 0.46894 & 1.3822 & 2.1136 & 3.5937 & 6.8029\\
+14 & 0.47025 & 1.3981 & 2.1857 & 3.8592 & 7.7428\\
+16 & 0.47135 & 1.4109 & 2.2472 & 4.1021 & 8.6849\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $p=1.25$, $1.5$ and $1.75$ the increments of $H_p(n)$ shrink by the factors $0.90$, $0.92$ and $0.96$ per level at $n=16$, while those of $H_2$ stay at $E_n$. The increments of $E_n$ fall from $8\cdot10^{-4}$ ($n=9$) to $5\cdot10^{-4}$ ($n=16$).
+
+\begin{center}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+$d$ & 2 & 4 & 8 & 14 & 6 & 12 & 18 & 54 & 162\\
+$v_3(d/2)$ & 0 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 4\\
+\midrule
+$R_8(g_d)$ & 0.719 & 0.474 & 0.861 & 0.428 & 1.239 & 1.375 & 2.123 & 2.368 & 2.783\\
+$R_{16}(g_d)$ & 0.730 & 0.473 & 0.861 & 0.428 & 1.237 & 1.372 & 2.112 & 2.361 & 2.783\\
+\bottomrule
+\end{tabular}
+\end{center}
+Translations at $n=16$: $R(\tau_j)-H_2(j)=-0.55$, $-0.26$, $-0.27$, $-0.27$, $-0.24$ for $j=0,1,3,8,15$. Linear maps at $n=16$: $R(m_1)=4.70$, $R(m_2)=3.06$, $R(m_4)=1.57$, growing like $2^{-e}E_\infty$ per level as Proposition~\ref{prop:singular} predicts, whereas $y\mapsto 2^ey+t$ with $t\in\{1,9,81\}$ stays constant in $n$ (for example $0.730$, $1.346$, $1.479$ for $e=2$).
+
+\section{The Fourier side}
+By~\eqref{eq:parseval}, $E_n$ is the mean square of $\chi_n$ over the $2\cdot3^{n-1}$ units, times their number. Its boundedness says that $|\chi_n|$ is of size $3^{-n/2}$ on average. The maximum $M_n=\max_{\xi\text{ unit}}|\chi_n(\xi)|$ decays much more slowly. Tao proves $M_n\ll_An^{-A}$ \cite[Prop.~1.17]{Tao} and remarks that the bound might be improved, ``perhaps to as far as $O(\exp(-cn))$''. The maximum is attained at $\xi=2^k$ with $k\approx4(n-1)/3$. Our exact values ($M_{16}=1.441\cdot10^{-2}$ at $k=20$) have the same maximising exponents as Toguchi's computation where we compared them ($n=4$, $10$) \cite{Toguchi}; up to $n=21$ he finds that a power law $n^{-2.1}$ fits better than an exponential. Job B estimates $\chi_n(2^k)$ by Monte Carlo up to $n=80$. Its exact $128$-bit computation of $S_n$ was validated against the exact values for $n\le15$ (all deviations within $1.7$ standard errors). It separates $M_n\sim n^{-2}$ from $M_n\sim0.89^n$ by a factor of about $10$ at $n=60$. A heuristic large-deviation count of the paths with $A_n\le4n/3$ gives the rate $2^{-2/3}\cdot\frac43=0.840$ per level, which matches the ratios $0.83$ observed for $n=11$--$13$ but not the larger ratios reported for $n\ge17$. Whether the decay is exponential is open in both directions.
+
+\section{Status}
+Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp} and Corollary~\ref{cor:lp}. Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor}, and the rate of decay of $M_n$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
+
+\begin{thebibliography}{9}
+\bibitem{DL} R.~Durrett and T.~Liggett, Fixed points of the smoothing transformation, \emph{Z. Wahrsch. Verw. Gebiete} 64 (1983), 275--301.
+\bibitem{KP} J.-P.~Kahane and J.~Peyri\`ere, Sur certaines martingales de Beno\^it Mandelbrot, \emph{Adv. Math.} 22 (1976), 131--145.
+\bibitem{Tao} T.~Tao, Almost all orbits of the Collatz map attain almost bounded values, \emph{Forum Math. Pi} 10 (2022), e12; arXiv:1909.03562.
+\bibitem{Toguchi} T.~Toguchi, Numerical observations on extremal Fourier coefficients of the Syracuse random variable, preprint (May 2026), \url{https://github.com/toguchitaku/syrac-extremal-fourier}.
+\end{thebibliography}
+\end{document}

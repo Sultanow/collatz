@@ -21,6 +21,7 @@ draft after it (Remark 12).
 | [`entrance/`](entrance) | early returns: local first-passage progression theorem, Cesaro form of the entrance law, collision criterion | Remark 7, paragraph "Early returns" (draft after version 3) |
 | [`transfer/`](transfer) | threshold transfer of the entrance law; residue-by-residue transfer refuted (incl. the refuted note); no L^2 density of the Syracuse profile | Remark 7 (one sentence), Remark 12(d) (draft after version 3) |
 | [`overlap/`](overlap) | 3-adic overlap principle (obstruction); domination of all returns by the potential at the excursion starts; pathwise and Run K checks | Proposition 15, Remark 7 (end), Run K paragraph (draft after version 3) |
+| [`syracuse_lp/`](syracuse_lp) | L^p regularity of the 3-adic Syracuse law (Kahane-Peyriere inequality, reduction to the unit-frequency energy, singular set) and Monte Carlo of the Fourier sup; cluster jobs A and B | not in the paper (separate track) |
 
 Each folder has a `STATUS.md` (or `README.md`) with the audit and what was taken over. The other
 statements of these notes stay here.
