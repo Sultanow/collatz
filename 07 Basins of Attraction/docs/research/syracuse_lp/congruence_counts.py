@@ -125,6 +125,31 @@ def load_phi(files):
     return phi
 
 
+def delta_law(phi, N, k, d):
+    """G[delta mod LT]: weight of the coincidence S(B) = g_d(S(A)) mod 3^N with |A| - |B| = delta (words of length k)."""
+    full = np.empty(LT, dtype=np.complex128)
+    for j in range(LT // 2 + 1):
+        full[j] = phi[(j, N, k, d)]
+    for j in range(LT // 2 + 1, LT):
+        full[j] = np.conj(phi[(LT - j, N, k, d)])
+    return np.real(np.fft.fft(full)) / LT
+
+
+def rho_split(phi, nmax, d):
+    """rho = rho_t * rho_len: rho_t(k, r) = 3^(k+r) P(coincidence mod 3^(k+r)) / Cor_k(g_d) (t-part, 1 if the r
+    extra digits were equidistributed), rho_len(k, r) = L P(|A|-|B| = d mod L | coincidence), L = 2*3^(r-1)."""
+    out = {}
+    for k in range(1, nmax):
+        Rk = 3 ** k * delta_law(phi, k, k, d).sum()
+        for r in range(1, nmax - k + 1):
+            g = delta_law(phi, k + r, k, d)
+            tot = g.sum()
+            L = 2 * 3 ** (r - 1)
+            sel = sum(g[i] for i in range(LT) if (i - d) % L == 0) if LT % L == 0 else g[d % LT]
+            out[(k, r)] = (3 ** (k + r) * tot / Rk, L * sel / tot if tot > 0 else float("nan"))
+    return out
+
+
 def hit_weights(phi, nmax, ds):
     """w[d][(k, r)] for 1 <= k <= N <= nmax, r = N - k; plus k = 0 entries."""
     w = {d: {} for d in ds}
@@ -213,6 +238,14 @@ def merge(outdir, nmax, files, ds=(0, 2, 4, 6)):
         P(f"  modulo 3^r (|Aff(Z/3^r)| = 2*3^(2r-1)); rows k, columns r = 1..:")
         for k in range(1, nmax):
             P(f"  k={k:2d}: " + " ".join(f"{w[d][(k, r)] * 2 * 3 ** (2 * r - 1) / w[d][(k, 0)]:7.4f}" for r in range(1, nmax - k + 1)))
+        sp = rho_split(phi, nmax, d)
+        with open(os.path.join(outdir, f"rho_split_d{d}.csv"), "w") as fs:
+            fs.write("k,r,rho_t,rho_len\n")
+            for (k, r), (rt, rl) in sorted(sp.items()):
+                fs.write(f"{k},{r},{rt:.8f},{rl:.8f}\n")
+        P(f"  rho = rho_t * rho_len (t-part / length congruence), rows k, columns r = 1..:")
+        for k in range(1, nmax):
+            P(f"  k={k:2d}: " + " ".join(f"{sp[(k, r)][0]:.2f}/{sp[(k, r)][1]:.2f}" for r in range(1, nmax - k + 1)))
         P(f"  9^r FH_d(k, r):")
         for k in range(1, nmax):
             P(f"  k={k:2d}: " + " ".join(f"{FH[(k, r)] * 9 ** r:7.4f}" for r in range(1, nmax - k + 1)))

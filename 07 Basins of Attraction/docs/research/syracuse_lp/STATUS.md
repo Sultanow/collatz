@@ -82,9 +82,12 @@ Proved (note Lemmas 14, 17, Proposition 15, Corollary 16):
   S(B) = g_d(S(A)) mod 3^{k+r})` (truncated Syracuse sums of independent words of length k) and the identity kernel
   `K = w_0`: `w_d(k, N-k) = sum_{k'} F_d(k', N-k') K(k-k', N-k)`, so
   `R_N(g_d) = F_d(N, 0) [regular part] + sum_{r>=1} F_d(N-r, r) H_2(r) [near-resonance part]`.
-- **Bootstrap:** with `rho_d(k, r) = w_d(k, r) |Aff(Z/3^r)| / R_k(g_d)` (density of the depth-k states at the identity
-  class), `sup_N R_N(g_d) <= max(1, F*) / (1 - (15/44) rho*)` if `rho* < 44/15` (v_3(d/2) = 0). Uses only
-  `H_2(r) <= (5/3)^r`. Remaining difficulty: the regular part F_d(N, 0).
+- **Bootstrap (weighted form):** with `rho_d(k, r) = w_d(k, r) |Aff(Z/3^r)| / R_k(g_d)` (density of the depth-k
+  states at the identity class) and `c_d = (3/2) sum_r sup_k rho_d(k, r) (5/27)^r`:
+  `sup_N R_N(g_d) <= max(1, F*) / (1 - c_d)` if `c_d < 1` (v_3(d/2) = 0). Uses only `H_2(r) <= (5/3)^r`.
+  The weighted form is needed because of the length congruence: `rho = rho_t * rho_len`, and `rho_len` could grow
+  like `L / sqrt(8 pi k)` (L = 2*3^{r-1}); measured: `rho_len <= 1.4` for k + r <= 13. Remaining difficulty: the
+  regular part F_d(N, 0).
 - **Large deviations (A2):** `w_d(k, r) <= 2 (3/(2-q))^k (q^{-r log_2 3} + q^{|d| - 2*3^{r-1}})`; exponentially small for
   `r >= beta k`, `beta > beta* = 2.7022` (q = 1.6214); `beta** = 6.4188` with the a priori bound on H_2.
 
@@ -96,6 +99,20 @@ Run O, local (`congruence_counts.py`, N <= 13, 4 min; `results_runO_local/`; sel
   opposite signs, so the sum R_N(g_2) converges with local factor 0.91: the slow rate of Run L is a near-cancellation.
 - rho <= 1.15 for d = 2, 4 (<= 1.57 for d = 6).
 - Cluster: `slurm/slp_runO.sbatch` (N <= 17 by default, about 50 min; N = 18 on n12/n13).
+
+## Track 1d: the regular part, class distribution (open)
+
+- Exact: the one-step weights depend only on the class c = (u mod 3, t mod 3): W = 5/3, 4/3, 2/3, 2/3, 4/3, 1/3 for
+  (1,0), (2,0), (1,1), (1,2), (2,1), (2,2). So `R_{k+1}/R_k - 1 = sum_c W(c) (nu_k(c) - 1/6)`: R bounded iff the
+  drifts have bounded partial products (class distribution -> uniform, summably).
+- `class_distribution.py` (k <= 13, `results_classes/`): d = 4 equidistributes fast (|nu - 1/6| <= 1e-3 from k = 10).
+  d = 2: excess in class (2,1) (the class of 2y+1) decays by **0.749-0.752** for k = 8..13, the resonance at -1
+  seen directly; other classes 0.70-0.77, class (2,0) 0.82-0.86 (small). Weighted deviations up to 1.6e-2 cancel to
+  a drift of 1.6e-3 (factor 0.91 per level).
+- `ulam_spectrum.py`: the mean-field (Ulam) discretisation on classes mod 3^s has, besides 1, exactly the
+  eigenvalues 1/(5 - 4 cos(2 pi j/L)), L = 2*3^{s-1}, of the random walk of the exponent e (diffusive, gap ~ 8 pi^2/L^2),
+  and is nilpotent in t. It misses the resonance at -1. Certification (A6) must work on the correlations.
+- No closing recursion for the regular part found; its monotonicity is special to d = 2.
 
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
@@ -156,6 +173,8 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `mc_merge.py`: merges the Monte Carlo runs and fits the decay
 - `decay_analysis.py`: decay models on the combined runs (`results_mc2/decay_fits.txt`)
 - `congruence_counts.py`: Run O, hit weights w_d(k, r), first-hit decomposition (`run`, `merge`, `selftest`)
+- `class_distribution.py`: class distribution mod 3 of the walk from g_d (`results_classes/`)
+- `ulam_spectrum.py`: spectrum of the mean-field (Ulam) discretisation of the walk
 - `log_coordinates.py`: logarithmic chart, spectral identity, angle shares, intertwiners, fixed point -1
   (`python3 log_coordinates.py 15 results_logchart`; imports `syracuse_lp.py`)
 - `slurm/`: job scripts A, B, B2

@@ -34,7 +34,7 @@ Seit v4j (noch nicht im Paper, mit `syracuse_lp.py` bis n = 13 exakt geprüft):
 | A1 | Exakte **Renewal-Identität** (Vorschlag 7, Theorieteil): `Cor_n(g_d)` nach der ersten Annäherung des Walks an die Singularmenge zerlegen, mit den Gewichten `C_{k,r}(d)` (siehe A3) und den Werten `H_2(r)`. Gegen Run L prüfen. | Proposition: legt fest, **was** gezählt werden muss | – | Theorie und kleine Numerik | **erledigt** (Note Prop. 15, Kor. 16): `Cor_N(g_d)` = Regulärteil `F_d(N,0)` + Σ `F_d(N-r,r) H_2(r)`. Bootstrap: Pilotziel folgt aus `rho* < 44/15` (Dichte der Tiefe-k-Zustände an der Identitätsklasse) und beschränktem Regulärteil. |
 | A2 | **Großabweichungs-Lemma** (Vorschlag 5): Höhenschranke (Prop. 19(c)) plus Chernoff für `\|A\| - k`. Annäherungen mit Zusatzpräzision `r >= beta_0 k` haben das Gewicht `(3/2)^k binom(m+k-1, k-1) 3^{-r}` mit `m = r log_2 3`, also exponentiell klein, sobald `beta_0 ≈ 2.70` (erste Rechnung). Rigoros mit expliziten Konstanten machen. | Lemma und Karte des Restgebiets `1 <= r < 3k` | A1 (Einbau) | Schreibtisch | **erledigt** (Note Lemma 17): `beta* = 2.7022`, mit a-priori-Schranke für `H_2` `beta** = 6.4188` |
 | A3 | **Run O** (Vorschläge 1 und 4): exakte gewichtete Kongruenzzählungen `C_{k,r}(d) = 3^{k+r} P(\|A\|-\|B\| = d, S(B) ≡ g_d(S(A)) mod 3^{k+r})`. Rechnung per FFT auf `Z/3^M` mit einem Fourierparameter `theta` für die Länge; er trennt die Diagonale (`d = 0`) exakt ab. Für `M <= 17–18` auf dem Cluster; Meet-in-the-Middle für kleine `k` und große `r` (bis `M ≈ 40`). Frage: Fällt `C_{k,r}` gleichmäßig in `k` wie `3^{-r}`? Gibt es eine Kontraktionsungleichung in `k`? Vorschlag 6 (`r = 1, 2, 3`) läuft hier als Diagnosespalte mit. | Tabelle `C_{k,r}(2)`, Fits, Kandidaten-Ungleichung | A1 | Cluster (Run O) | Skript `congruence_counts.py` fertig, lokal bis N = 13; Cluster-Job `slurm/slp_runO.sbatch` (N ≤ 17) bereit |
-| A4 | **Resonanz bei −1** (Vorschlag 3): Renormierungsoperator auf dem Orbit von `2y+1` (Abbildungen `2^e y + t`, `t` in `Z[1/2]`). Die `(1,1)`-Schleife (Gewicht 3/4) und das Paar `-1`, `-1/2` abspalten, dominante Moden bestimmen. Die beobachteten Raten (0,866 bei n = 20, Fit 0,78) quantitativ erklären. | Zerlegung „Resonanz + Rest“, Rate des Rests | A0 | Numerik, ggf. Cluster | offen |
+| A4 | **Resonanz bei −1** (Vorschlag 3): Renormierungsoperator auf dem Orbit von `2y+1` (Abbildungen `2^e y + t`, `t` in `Z[1/2]`). Die `(1,1)`-Schleife (Gewicht 3/4) und das Paar `-1`, `-1/2` abspalten, dominante Moden bestimmen. Die beobachteten Raten (0,866 bei n = 20, Fit 0,78) quantitativ erklären. | Zerlegung „Resonanz + Rest“, Rate des Rests | A0 | Numerik, ggf. Cluster | teilweise: Resonanz-Mode mit Faktor 0,750 in der Klassenverteilung bestätigt; naive Ulam-Diskretisierung ungeeignet (s. Note) |
 | **E1** | **Entscheidungspunkt:** Schließen Renewal (A1), Großabweichung (A2) und Zählung (A3)? | ja: A5; nein: Plan revidieren | A1–A4 | – | – |
 | A5 | Bedingter Satz: `Cor_n(g_2) <= C` unter einer präzise formulierten Mischungshypothese `H(k, r)` für die abgeschnittenen Syracuse-Summen modulo `3^{k+r}` im Restgebiet `r < 3k`. | Satz (bedingt) | E1 | Theorie | – |
 | A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | – |
@@ -63,8 +63,15 @@ schließen.
 - Lokal (N ≤ 13) konvergieren Regulärteil (Faktor ≈ 0,72) und Resonanzteil (≈ 0,76) einzeln schneller als
   `Cor_N(g_2)` (≈ 0,91). Die langsame Rate aus Run L ist eine Beinahe-Auslöschung. Run O auf dem Cluster (N ≤ 17)
   soll zeigen, ob die asymptotische Rate ≈ 3/4 ist.
-- Nächste Schreibtisch-Aufgabe vor E1: Regulärteil verstehen. Ist er monoton? Gibt es eine Rekursion, die ihn
-  durch `rho` und sich selbst schließt?
+- ~~Nächste Schreibtisch-Aufgabe vor E1: Regulärteil verstehen. Ist er monoton? Gibt es eine Rekursion, die ihn
+  durch `rho` und sich selbst schließt?~~ Ergebnis (Note, Abschnitt „regular part“): keine schließende Rekursion
+  gefunden; monoton nur für d = 2. Exakt gilt `Cor_{k+1}/Cor_k - 1 = Σ_c W(c)(nu_k(c) - 1/6)` über die sechs
+  Klassen mod 3. Die Klassenverteilung zeigt die Resonanz bei −1 direkt: Überschuss in der Klasse von `2y+1` mit
+  Faktor **0,750** pro Stufe (k = 8..13).
+- Bootstrap jetzt in gewichteter Form (`c_d = (3/2) Σ_r sup_k rho(k,r) (5/27)^r < 1`), weil die Längenkongruenz
+  `rho` mit r wachsen lassen kann (gemessen: höchstens 1,4).
+- A4: Die naive Ulam-Diskretisierung sieht nur die Diffusion des Exponenten e (Spektrum `1/(5 - 4 cos(2πj/L))`)
+  und verfehlt die Resonanz. A4/A6 müssen auf den Korrelationen (Observablen) arbeiten.
 
 ## Strang B: Fourier-Maximum (geparkt)
 
