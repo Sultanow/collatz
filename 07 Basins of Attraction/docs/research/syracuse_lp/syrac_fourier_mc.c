@@ -1,5 +1,8 @@
 // Monte Carlo estimate of the Syracuse characteristic function chi_n(xi) = E e(xi S_n / 3^n) at the
-// unit frequencies xi = 2^k, k = round(4(n-1)/3) - W .. + W, for nmin <= n <= nmax <= 80
+// unit frequencies xi = 2^k, k = c(n) - W .. c(n) + W, for nmin <= n <= nmax <= 80, with the window centre
+// c(n) = round(4(n-1)/3) (Toguchi's empirical maximiser for n <= 21) or, if SHIFT is given,
+// c(n) = round(n log2 3) - SHIFT (the maximiser of the first cluster run for 16 <= n <= 40 has
+// k* - n log2 3 between -6.4 and -5.4, i.e. xi = 2^k* is about 3^n / 64)
 // (research notes, syracuse_lp, job B).
 //
 // S_n = sum_{j=1}^n 3^{j-1} 2^{-A_j} mod 3^n, A_j = a_1 + ... + a_j, a_i iid geometric, P(a = k) = 2^-k.
@@ -9,7 +12,7 @@
 // The phase 2^k S_n mod 3^n is obtained by doubling; cos and sin are accumulated per (n, k).
 //
 // build: gcc -O3 -march=native -fopenmp -o syrac_fourier_mc syrac_fourier_mc.c -lm
-// usage: syrac_fourier_mc NMIN NMAX SAMPLES SEED [W] > out.csv   (W = 6 by default)
+// usage: syrac_fourier_mc NMIN NMAX SAMPLES SEED [W [SHIFT]] > out.csv   (W = 6 by default)
 #define _GNU_SOURCE
 #include <math.h>
 #include <omp.h>
@@ -20,7 +23,7 @@
 
 typedef unsigned __int128 u128;
 #define NMAXMAX 80          // values stay below 2*3^80 < 2^128
-#define WMAX 8
+#define WMAX 12
 
 static inline uint64_t rotl(const uint64_t x, int k) { return (x << k) | (x >> (64 - k)); }
 typedef struct { uint64_t s[4]; } rng_t;
@@ -45,18 +48,20 @@ static inline int geometric(rng_t *r) {             // P(a = k) = 2^-k, k >= 1
 }
 
 int main(int argc, char **argv) {
-    if (argc < 5) { fprintf(stderr, "usage: %s NMIN NMAX SAMPLES SEED [W]\n", argv[0]); return 1; }
+    if (argc < 5) { fprintf(stderr, "usage: %s NMIN NMAX SAMPLES SEED [W [SHIFT]]\n", argv[0]); return 1; }
     int nmin = atoi(argv[1]), nmax = atoi(argv[2]);
     long long N = atoll(argv[3]);
     uint64_t seed = strtoull(argv[4], 0, 10);
     int W = argc > 5 ? atoi(argv[5]) : 6;
+    int use_shift = argc > 6, shift = use_shift ? atoi(argv[6]) : 0;
     if (nmin < 1 || nmax > NMAXMAX || nmin > nmax || W < 0 || W > WMAX) { fprintf(stderr, "bad arguments\n"); return 1; }
     u128 P3[NMAXMAX + 2];
     P3[0] = 1;
     for (int i = 1; i <= NMAXMAX + 1; i++) P3[i] = P3[i - 1] * 3;
     int K = 2 * W + 1, NN = nmax - nmin + 1;
     int kmin[NMAXMAX + 1];
-    for (int n = nmin; n <= nmax; n++) kmin[n] = (int)lround(4.0 * (n - 1) / 3.0) - W;
+    for (int n = nmin; n <= nmax; n++)
+        kmin[n] = (use_shift ? (int)lround(n * log2(3.0)) - shift : (int)lround(4.0 * (n - 1) / 3.0)) - W;
     size_t cells = (size_t)NN * K;
     double *C = calloc(cells, sizeof(double)), *Sn = calloc(cells, sizeof(double)),
            *C2 = calloc(cells, sizeof(double)), *S2 = calloc(cells, sizeof(double));

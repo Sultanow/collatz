@@ -11,7 +11,9 @@ Writes OUTDIR/mc_merged.csv (sample-weighted means per (n, k)) and OUTDIR/mc_sum
       quasi-power   log M = a + b (log n)^2
     with RMS residuals, and the local power exponent d log M / d log n on windows of 8 levels.
 The maximum over k of noisy values is biased upward by about 2.3 standard errors (13 values of k);
-only levels with M_n >= 20 standard errors enter the fits.
+only levels with M_n >= 20 standard errors enter the fits. A maximum at the edge of the k-window is
+only a lower bound for M_n (the maximiser may lie outside the window); such levels are flagged EDGE
+and left out of the fits.
 """
 import csv
 import math
@@ -57,10 +59,13 @@ def main(argv):
             re, im, se = sr / N, si / N, math.sqrt(sv) / N
             f.write(f"{n},{k},{re:.10e},{im:.10e},{math.hypot(re, im):.10e},{se:.3e},{N}\n")
             rows.append((n, k, math.hypot(re, im), se))
-    best = {}
+    best, kr = {}, {}
     for n, k, a, se in rows:
         if n not in best or a > best[n][0]:
             best[n] = (a, k, se)
+        lo, hi = kr.get(n, (k, k))
+        kr[n] = (min(lo, k), max(hi, k))
+    edge = {n: best[n][1] in kr[n] for n in best}
     out = open(f"{outdir}/mc_summary.txt", "w")
 
     def P(s=""):
@@ -68,12 +73,13 @@ def main(argv):
         out.write(s + "\n")
 
     P(f"files: {len(files)}; samples per cell: {next(iter(acc.values()))[3]}")
-    P(" n   M_n          k*   stderr     M/se    exact(n<=20)")
+    P(" n   M_n          k*  k*-n*log2(3)  stderr     M/se    exact(n<=20)")
     for n in sorted(best):
         a, k, se = best[n]
         ex = exact.get((n, k))
-        P(f"{n:3d} {a:.6e} {k:4d} {se:.2e} {a / se:8.1f}   " + (f"{ex:.6e}" if ex is not None else ""))
-    good = [n for n in sorted(best) if best[n][0] >= 20 * best[n][2]]
+        P(f"{n:3d} {a:.6e} {k:4d} {k - n * math.log2(3):+8.2f}   {se:.2e} {a / se:8.1f}   " +
+          (f"{ex:.6e}" if ex is not None else "") + ("  EDGE" if edge[n] else ""))
+    good = [n for n in sorted(best) if best[n][0] >= 20 * best[n][2] and not edge[n]]
     if len(good) >= 5:
         ys = [math.log(best[n][0]) for n in good]
         for name, xs in (("exponential  log M = a + b n", [float(n) for n in good]),

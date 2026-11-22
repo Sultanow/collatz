@@ -21,13 +21,13 @@
 
 \title{$L^p$ regularity of the $3$-adic Syracuse law:\\ a reduction to the unit-frequency energy}
 \author{Research notes for \emph{Same Shadows, Different Forests} (draft)}
-\date{20 November 2026}
+\date{20 November 2026, updated 22 November 2026 with the cluster runs}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Let $f_n$ be the density, with respect to the uniform measure on $\Z/3^n\Z$, of Tao's Syracuse random variable $\mathbf{Syrac}(\Z/3^n\Z)$, and $H_p(n)$ the mean of $f_n^p$. It is known that $f_n$ converges in $L^1$ \cite{Tao} and that $H_2(n)\to\infty$ (research notes \texttt{transfer/}). We prove the inequality $H_p(n)\le\rho(p)H_p(n-1)+E_n^{p/2}$ for $1<p\le2$, where $\rho(p)=3^{p-1}/(2^p-1)<1$ and $E_n=H_2(n)-H_2(n-1)$ is the $L^2$ energy of the unit frequencies at level $n$. Hence $\sup_nE_n<\infty$ implies that the limiting density lies in $L^p$ for every $p<2$, so that $2$ is the critical exponent. We write $E_n$ exactly as a weighted sum of twisted self-correlations $R(g_d)$ of $f_{n-1}$ under explicit affine isometries $g_d$ of $\Z_3$. We also identify the maps under which the self-correlation is infinite: the multiplications by integer powers of $2$. Exact computations up to $n=16$ give $E_n\approx0.471$, slowly increasing with decreasing increments, and correlations $R(g_d)$ that are stable in $n$ and grow only with $v_3(d/2)$. The boundedness of $E_n$ is stated as a conjecture, together with a route to it. Status: the inequality, the identities and the singular set are proved; $\sup_nE_n<\infty$ is open.
+Let $f_n$ be the density, with respect to the uniform measure on $\Z/3^n\Z$, of Tao's Syracuse random variable $\mathbf{Syrac}(\Z/3^n\Z)$, and $H_p(n)$ the mean of $f_n^p$. It is known that $f_n$ converges in $L^1$ \cite{Tao} and that $H_2(n)\to\infty$ (research notes \texttt{transfer/}). We prove the inequality $H_p(n)\le\rho(p)H_p(n-1)+E_n^{p/2}$ for $1<p\le2$, where $\rho(p)=3^{p-1}/(2^p-1)<1$ and $E_n=H_2(n)-H_2(n-1)$ is the $L^2$ energy of the unit frequencies at level $n$. Hence $\sup_nE_n<\infty$ implies that the limiting density lies in $L^p$ for every $p<2$, so that $2$ is the critical exponent. We write $E_n$ exactly as a weighted sum of twisted self-correlations $R(g_d)$ of $f_{n-1}$ under explicit affine isometries $g_d$ of $\Z_3$. We also identify the maps under which the self-correlation is infinite: the multiplications by integer powers of $2$. Exact computations up to $n=20$ give $E_{20}=0.47291$. The increments of $E_n$ shrink by a factor of about $0.87$ per level (extrapolated limit $0.4751$), and the correlations $R(g_d)$ are stable in $n$ and grow only with $v_3(d/2)$. A Monte Carlo computation with $10^{11}$ samples shows that up to $n=42$ the largest Fourier coefficient at the unit frequencies decays faster than any fixed power of $n$. Its maximiser is $\xi=2^k$ with $k\approx n\log_23-6$. The boundedness of $E_n$ is stated as a conjecture, together with a route to it. Status: the inequality, the identities and the singular set are proved; $\sup_nE_n<\infty$ is open.
 \end{abstract}
 
 \section{Setting}
@@ -129,7 +129,7 @@ Iterate Lemma~\ref{lem:kp} from $H_p(0)=1$: $H_p(n)\le\rho^n+\sum_{j\le n}\rho^{
 \end{proof}
 
 \begin{remark}
-For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~\ref{lem:selfsim} is a multitype smoothing transform. Its spectral radius at order $p$ is $\rho(p)$, and $\rho(2)=1$ places the tail $\mathrm{Haar}\{f>M\}\asymp M^{-2}$ at the critical exponent \cite{DL,KP}. The exact densities show this tail: $\mathrm{Haar}\{f_{16}>M\}=9.4\cdot10^{-3}$, $1.0\cdot10^{-3}$ and $6.7\cdot10^{-5}$ for $M=10$, $30$ and $100$ (local exponents $2.0$ and $2.3$). Without independence, Lemma~\ref{lem:kp} replaces the cross terms by the single number $E_n$.
+For independent copies in place of $f_{n-1}\circ\psi_a$, the recursion of Lemma~\ref{lem:selfsim} is a multitype smoothing transform. Its spectral radius at order $p$ is $\rho(p)$, and $\rho(2)=1$ places the tail $\mathrm{Haar}\{f>M\}\asymp M^{-2}$ at the critical exponent \cite{DL,KP}. The exact densities show this tail: $\mathrm{Haar}\{f_{20}>M\}=9.6\cdot10^{-3}$, $1.2\cdot10^{-3}$, $8.5\cdot10^{-5}$ and $5.4\cdot10^{-6}$ for $M=10$, $30$, $100$ and $300$. The local exponents are $1.9$, $2.2$ and $2.5$; they steepen towards the cut-off $\max f_{20}=4862$, and at fixed $M$ they decrease with $n$. Without independence, Lemma~\ref{lem:kp} replaces the cross terms by the single number $E_n$.
 \end{remark}
 
 \section{Towards bounded energy}
@@ -152,7 +152,7 @@ Conjecture~\ref{conj:decor} implies Conjecture~\ref{conj:energy}, since $\sum_d2
 \paragraph{A route.} Equation~\eqref{eq:twisted} is a positive linear recursion on affine maps. The identity is fixed with weight $1$ (the source of the linear growth of $H_2$), and the linear maps $m_e$ feed into it (Proposition~\ref{prop:singular}). A proof of Conjecture~\ref{conj:decor} amounts to a no-resonance estimate. Started at $h$ with $\delta(h)=k$, the weighted walk $h\mapsto h_{a,b}$ comes within $3$-adic distance $3^{-\ell}$ of the singular set with total weight $O(3^{-\ell})$ uniformly in $\ell$. Then a renewal decomposition at these visits gives $R(h)\le A+B\delta(h)$. The translation part $t$ of the walk is a $3$-adic sum of the same kind as $S_n$, so its equidistribution modulo $3^\ell$ is a Tao-type mixing statement \cite[Prop.~1.14, 1.17]{Tao}. Note that exact returns to the singular set would require rational identities between powers of $2$ and $3$, much as in cycle equations.
 
 \section{Numerics}\label{sec:numerics}
-All values are exact up to floating point (program \texttt{syracuse\_lp.py}, $n\le16$; the cluster job A extends to $n=20$). The identity of Proposition~\ref{prop:energy} holds to all printed digits.
+All values are exact up to floating point (program \texttt{syracuse\_lp.py}; $n\le16$ locally, $n\le20$ in cluster job A, 1.6 hours and 205 GB at $n=20$). The identity of Proposition~\ref{prop:energy} holds to all printed digits.
 
 \begin{center}
 \begin{tabular}{@{}rrrrrr@{}}
@@ -162,12 +162,13 @@ $n$ & $E_n$ & $H_{1.25}(n)$ & $H_{1.5}(n)$ & $H_{1.75}(n)$ & $H_2(n)$\\
 4 & 0.46421 & 1.2555 & 1.6389 & 2.2116 & 3.0686\\
 8 & 0.46592 & 1.3366 & 1.9256 & 2.9805 & 4.9317\\
 12 & 0.46894 & 1.3822 & 2.1136 & 3.5937 & 6.8029\\
-14 & 0.47025 & 1.3981 & 2.1857 & 3.8592 & 7.7428\\
 16 & 0.47135 & 1.4109 & 2.2472 & 4.1021 & 8.6849\\
+18 & 0.47223 & 1.4214 & 2.2999 & 4.3250 & 9.6290\\
+20 & 0.47291 & 1.4301 & 2.3453 & 4.5300 & 10.5745\\
 \bottomrule
 \end{tabular}
 \end{center}
-For $p=1.25$, $1.5$ and $1.75$ the increments of $H_p(n)$ shrink by the factors $0.90$, $0.92$ and $0.96$ per level at $n=16$, while those of $H_2$ stay at $E_n$. The increments of $E_n$ fall from $8\cdot10^{-4}$ ($n=9$) to $5\cdot10^{-4}$ ($n=16$).
+The increments of $E_n$ fall from $5.7\cdot10^{-4}$ ($n=15$) to $3.1\cdot10^{-4}$ ($n=20$), by a factor of about $0.87$ per level, so $E_n$ converges to about $0.4751$. At $n=20$ the increments of $H_p(n)$ shrink by the factors $0.909$, $0.930$ and $0.959$ per level for $p=1.25$, $1.5$ and $1.75$. These factors still rise slowly with $n$, but by Lemma~\ref{lem:kp} the $H_p$ stay bounded as long as $E_n$ does. The increments of $H_2$ stay at $E_n$. The bound of Lemma~\ref{lem:kp} holds at every level, for $p=1.5$ with slack at least $0.42$.
 
 \begin{center}
 \begin{tabular}{@{}lrrrrrrrrr@{}}
@@ -176,17 +177,21 @@ $d$ & 2 & 4 & 8 & 14 & 6 & 12 & 18 & 54 & 162\\
 $v_3(d/2)$ & 0 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 4\\
 \midrule
 $R_8(g_d)$ & 0.719 & 0.474 & 0.861 & 0.428 & 1.239 & 1.375 & 2.123 & 2.368 & 2.783\\
-$R_{16}(g_d)$ & 0.730 & 0.473 & 0.861 & 0.428 & 1.237 & 1.372 & 2.112 & 2.361 & 2.783\\
+$R_{20}(g_d)$ & 0.733 & 0.474 & 0.861 & 0.428 & 1.237 & 1.372 & 2.112 & 2.361 & 2.783\\
 \bottomrule
 \end{tabular}
 \end{center}
-Translations at $n=16$: $R(\tau_j)-H_2(j)=-0.55$, $-0.26$, $-0.27$, $-0.27$, $-0.24$ for $j=0,1,3,8,15$. Linear maps at $n=16$: $R(m_1)=4.70$, $R(m_2)=3.06$, $R(m_4)=1.57$, growing like $2^{-e}E_\infty$ per level as Proposition~\ref{prop:singular} predicts, whereas $y\mapsto 2^ey+t$ with $t\in\{1,9,81\}$ stays constant in $n$ (for example $0.730$, $1.346$, $1.479$ for $e=2$).
+Translations at $n=20$: $R(\tau_j)-H_2(j)=-0.55$, $-0.26$, $-0.27$, $-0.28$, $-0.20$, $-0.24$ for $j=0,1,3,8,15,19$. Linear maps at $n=20$: $R(m_1)=5.64$, $R(m_2)=3.53$, $R(m_4)=1.68$. From $n=16$ to $20$ they grow by $0.237$, $0.119$ and $0.030$ per level, that is by $2^{-e}E_n$, as Proposition~\ref{prop:singular} predicts. The maps $y\mapsto 2^ey+t$ with $t\in\{1,9,81\}$ stay constant in $n$ (for example $0.733$, $1.348$, $1.478$ for $e=2$).
 
 \section{The Fourier side}
-By~\eqref{eq:parseval}, $E_n$ is the mean square of $\chi_n$ over the $2\cdot3^{n-1}$ units, times their number. Its boundedness says that $|\chi_n|$ is of size $3^{-n/2}$ on average. The maximum $M_n=\max_{\xi\text{ unit}}|\chi_n(\xi)|$ decays much more slowly. Tao proves $M_n\ll_An^{-A}$ \cite[Prop.~1.17]{Tao} and remarks that the bound might be improved, ``perhaps to as far as $O(\exp(-cn))$''. The maximum is attained at $\xi=2^k$ with $k\approx4(n-1)/3$. Our exact values ($M_{16}=1.441\cdot10^{-2}$ at $k=20$) have the same maximising exponents as Toguchi's computation where we compared them ($n=4$, $10$) \cite{Toguchi}; up to $n=21$ he finds that a power law $n^{-2.1}$ fits better than an exponential. Job B estimates $\chi_n(2^k)$ by Monte Carlo up to $n=80$. Its exact $128$-bit computation of $S_n$ was validated against the exact values for $n\le15$ (all deviations within $1.7$ standard errors). It separates $M_n\sim n^{-2}$ from $M_n\sim0.89^n$ by a factor of about $10$ at $n=60$. A heuristic large-deviation count of the paths with $A_n\le4n/3$ gives the rate $2^{-2/3}\cdot\frac43=0.840$ per level, which matches the ratios $0.83$ observed for $n=11$--$13$ but not the larger ratios reported for $n\ge17$. Whether the decay is exponential is open in both directions.
+By~\eqref{eq:parseval}, $E_n$ is the mean square of $\chi_n$ over the $2\cdot3^{n-1}$ units, times their number. Its boundedness says that $|\chi_n|$ is of size $3^{-n/2}$ on average. The maximum $M_n=\max_{\xi\text{ unit}}|\chi_n(\xi)|$ decays much more slowly. Tao proves $M_n\ll_An^{-A}$ for every $A$ \cite[Prop.~1.17]{Tao} and remarks that the bound might be improved, ``perhaps to as far as $O(\exp(-cn))$''. Toguchi computed $M_n$ up to $n=21$ \cite{Toguchi}. He found the maximiser $\xi=2^k$ with $k\approx4(n-1)/3$ and a power law $n^{-2.1}$ that fits better than an exponential. We have the exact values up to $n=20$ (job A) and a Monte Carlo computation of $\chi_n(2^k)$ in a window of $13$ exponents $k$ around $4(n-1)/3$ (job B). Job B used $10^{11}$ samples, exact $128$-bit arithmetic for $S_n$, and has standard error $3.2\cdot10^{-6}$. For $16\le n\le20$ it agrees with the exact values within $1.4$ standard errors.
+
+\emph{The maximiser.} Our exact maximisers agree with Toguchi's, including $k=23$ at $n=18$ and $k=26$ at $n=20$, as does the ratio $M_{20}/M_{19}=0.905$. For larger $n$ the maximiser follows $n\log_23$, not $4n/3$. For all $16\le n\le42$ without edge effect, $k^*-n\log_23$ lies between $-6.6$ and $-5.3$, so $\xi=2^{k^*}$ is about $3^n/64$, a fixed fraction of the modulus. From $n=41$ on, the maximum of job B sits at the upper edge of its window, so those values are only lower bounds and are not used below.
+
+\emph{The decay.} On the $26$ levels $16\le n\le42$ without edge effect, $M_n$ falls from $1.44\cdot10^{-2}$ to $1.16\cdot10^{-3}$. The local exponent $d\log M_n/d\log n$ on windows of eight levels steepens from $-2.2$ ($n=16$--$23$) to $-3.1$ ($n=32$--$39$). So the decay is faster than any fixed power, as Tao's bound requires, and the power law found for $n\le21$ is a pre-asymptotic effect. The ratio per level rises from $0.892$ to $0.917$ over the same range. Exponential decay with a ratio near $0.92$ and a slower, quasi-polynomial decay (with $\log M_n$ linear in $(\log n)^2$, the best of the three fits on $n\le42$) cannot yet be told apart. Job B2 recentres the window at $\operatorname{round}(n\log_23)-6$ for $36\le n\le80$. If the ratio levels off below $1$ there, the data support Tao's exponential decay; if it keeps rising towards $1$, they point to a subexponential rate.
 
 \section{Status}
-Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp} and Corollary~\ref{cor:lp}. Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor}, and the rate of decay of $M_n$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
+Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp} and Corollary~\ref{cor:lp}. Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), and the rate of decay of $M_n$ (numerically faster than any fixed power for $n\le42$; exponential or not is open). For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
 
 \begin{thebibliography}{9}
 \bibitem{DL} R.~Durrett and T.~Liggett, Fixed points of the smoothing transformation, \emph{Z. Wahrsch. Verw. Gebiete} 64 (1983), 275--301.

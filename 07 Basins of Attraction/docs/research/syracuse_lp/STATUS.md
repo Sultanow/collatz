@@ -1,65 +1,75 @@
-# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-20)
+# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-22)
 
 Two tracks on the Syracuse law itself, the reference object of Theorem 3, Remark 12(d) and Table 13.
-Nothing here enters the paper yet.
+Nothing here enters the paper yet. Note: `syracuse_lp_note.tex`/`.pdf` (updated with the cluster runs).
 
-## Track 1: critical L^p exponent (note `syracuse_lp_note.tex`/`.pdf`)
+## Track 1: critical L^p exponent
 
 Proved in the note:
 
-- **Kahane–Peyrière inequality.** `H_p(n) <= rho(p) H_p(n-1) + E_n^{p/2}` for `1 < p <= 2`, with
-  `rho(p) = 3^{p-1}/(2^p - 1) < 1` on `(1, 2)` and `E_n = H_2(n) - H_2(n-1)`. This is the energy of
-  the unit frequencies, `sum over units xi of |chi_n(xi)|^2`.
-- **Conditional theorem.** If `sup_n E_n < infinity`, the limiting density is in `L^p` for every
-  `p < 2`. Together with `H_2 -> infinity` (`transfer/`, Remark 12(d)), 2 is then the critical exponent.
-- **Exact identity.** `E_n = 2 sum_{d even >= 2} 2^{-d} R_{n-1}(g_d)`, where
-  `R(h) = mean f(y) f(h(y))` and `g_d(y) = 2^d y + (2^d - 1)/3`.
-- **Twisted-collision recursion.** An exact recursion for `R(h)` over all affine isometries `h`.
-- **Singular set.** `R_n(y -> 2^e y) >= 2^{-|e|} H_2(n-1) -> infinity`. This is the overlap
-  principle in correlation form.
+- **Kahane–Peyrière inequality:** `H_p(n) <= rho(p) H_p(n-1) + E_n^{p/2}` for `1 < p <= 2`, where
+  `rho(p) = 3^{p-1}/(2^p - 1) < 1` on `(1, 2)` and `E_n = H_2(n) - H_2(n-1)` is the energy of the unit
+  frequencies.
+- **Conditional theorem:** `sup E_n < infinity` implies that the limiting density is in `L^p` for every
+  `p < 2`. With `H_2 -> infinity` (`transfer/`, Remark 12(d)), 2 is then the critical exponent.
+- **Exact identity** `E_n = 2 sum_{d even >= 2} 2^{-d} R_{n-1}(g_d)`.
+- **Twisted-collision recursion** for the correlations.
+- **Singular set:** `y -> 2^e y`, where the correlations diverge.
 
-Open: **Conjecture 7**, `sup E_n < infinity`. A stronger form is the decorrelation **Conjecture 8**,
-`R(h) <= A + B delta(h)`, where `delta` is the weighted 3-adic distance to the singular set. The note
-sketches a route via a no-resonance estimate for the weighted affine walk.
+Open: Conjecture 7 (`sup E_n < infinity`) and the decorrelation Conjecture 8.
 
-Numerics (exact, n <= 16, `results_local/`):
+Cluster job A (exact, n <= 20; 1 h 33 min, 205 GB on n11; `results_exact/`):
 
-- `E_n`: 0.4642 (n=4), 0.4659 (8), 0.4689 (12), 0.4714 (16). The increments fall from 8e-4 to 5e-4.
-- The increments of `H_p` shrink geometrically for `p = 1.25, 1.5, 1.75` (factors 0.90, 0.92, 0.96).
-- `R(g_d)` is stable in `n` and grows like 0.47 per unit of `v_3(d/2)`.
-- Tail of `f_16`: `Haar{f > M}` falls like `M^{-2}` (local exponents 2.0 and 2.3 for `M = 10..100`).
+- **`E_n`:** 0.47135 (n=16), 0.47223 (18), 0.47291 (20). The increments shrink by about 0.87 per
+  level, so the extrapolated limit is 0.4751. E_n is numerically bounded.
+- **`H_p`:** the increments shrink at n = 20 by 0.909 (p=1.25), 0.930 (p=1.5), 0.959 (p=1.75); `H_2`
+  grows by `E_n` per level.
+- **Kahane–Peyrière bound** holds at every level; for p = 1.5 the slack is at least 0.42.
+- **Exact identity for `E_n`** holds to all printed digits.
+- **`R(g_d)`:** identical at n = 8, 16 and 20 to three decimals; grows about 0.47 per unit of
+  `v_3(d/2)`.
+- **Linear maps `2^e y`:** grow by `2^{-e} E_n` per level, as predicted; with a translation added they
+  stay constant.
+- **Tail of `f_20`:** local exponents 1.9, 2.2, 2.5 for M = 10..300. They steepen towards the cut-off and
+  decrease with n at fixed M, consistent with `M^{-2}`.
 
-## Track 2: decay of the Fourier sup (Tao, Prop. 1.17 and the remark after it)
+## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
-Tao proves `M_n = max_unit |chi_n| << n^{-A}` and says the bound might improve "perhaps to as far as
-O(exp(-cn))". Toguchi (preprint, May 2026) computed up to n = 21: the maximiser is `xi = 2^k` with
-`k ~ 4(n-1)/3`, and a power law `n^{-2.1}` fits better than an exponential. Job B pushes the
-maximising family to n = 80 by exact Monte Carlo.
+Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2e-6; `results_mc/`):
 
-- **Validation.** Against the exact values for n = 6..15: 90 cells, all within 1.71 standard errors
-  (`results_local/mc_validation.csv`).
-- **Rough first run.** 2e6 samples (`results_local/mc_rough_2e6.csv`): too noisy beyond n ~ 28. Up to
-  there the decay looks more like `n^{-2}` than `0.89^n`. Not a result yet.
+- **Validation:** agrees with the exact values for n = 16..20 within 1.4 standard errors.
+- **Maximiser:** `k* - n log2 3` stays in [-6.6, -5.3] for all edge-free n <= 42, so `xi ~ 3^n/64`.
+  Toguchi's `k ~ 4(n-1)/3` holds only for small n. The window of job B was centred at `4(n-1)/3`, so
+  from n = 41 on the maximum sits at the window edge. Those values are lower bounds only; `mc_merge.py`
+  now flags them `EDGE` and leaves them out of the fits.
+- **Decay on the 26 edge-free levels 16 <= n <= 42:** `M_n` falls from 1.44e-2 to 1.16e-3.
+  - The local power exponent steepens from -2.2 to -3.1. This is faster than any fixed power, and
+    Toguchi's `n^{-2.1}` was pre-asymptotic.
+  - The ratio per level rises from 0.892 to 0.917.
+  - Exponential and quasi-polynomial decay cannot be told apart yet.
+
+Next: **job B2** (`slurm/slp_fourier_mc2.sbatch`) with the window centred at `round(n log2 3) - 6`,
+`W = 8`, `n = 36..80`, 4 x 2.5e10 samples (about 2 h per task). If the ratio levels off below 1, that
+supports exponential decay; if it keeps rising, decay is subexponential.
 
 ## Cluster runs (std partition; submit from this folder)
 
-    sbatch slurm/slp_exact.sbatch          # job A: exact law n <= 20, about 2-3 h, about 210 GB
-    sbatch slurm/slp_fourier_mc.sbatch     # job B: 4 x 2.5e10 samples, n = 16..80, 2-3 h per task
-    # when both are done (login node is fine):
-    python3 mc_merge.py results_mc results_mc/mc_task*.csv --exact results_exact/fourier.csv
+    sbatch slurm/slp_exact.sbatch          # job A (done 2026-11-22)
+    sbatch slurm/slp_fourier_mc.sbatch     # job B (done 2026-11-22)
+    sbatch slurm/slp_fourier_mc2.sbatch    # job B2 (next)
+    python3 mc_merge.py results_mc2 results_mc2/mc_task*.csv
 
-What to send back or check in:
-- `results_exact/*.csv`;
-- `results_mc/mc_task*.csv`, `mc_merged.csv`, `mc_summary.txt`;
-- the two job logs from `/home/esul01/data/outputs/logs/`.
-
-Job A writes after every level, so partial results are usable if the job is cut off.
+`results_mc/mc_summary.txt` was regenerated with the current `mc_merge.py`, which adds the `EDGE` flags
+and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster output.
 
 ## Files
 
 - `syracuse_lp.py`: exact law and all statistics (`selftest`, `exact`)
-- `syrac_fourier_mc.c`: Monte Carlo of `chi_n(2^k)`
-- `mc_merge.py`: merge and decay fits
-- `slurm/`: the two job scripts
-- `syracuse_lp_note.tex`/`.pdf`: the note
-- `results_local/`: exact results for n <= 16, MC validation and rough run
+- `syrac_fourier_mc.c`: Monte Carlo of `chi_n(2^k)`; optional `SHIFT` centres the window at
+  `round(n log2 3) - SHIFT`
+- `mc_merge.py`: merges the Monte Carlo runs and fits the decay
+- `slurm/`: job scripts A, B, B2
+- `results_exact/`: job A output (n <= 20)
+- `results_mc/`: job B output
+- `logs/`: job logs
+- `results_local/mc_validation.csv`: Monte Carlo against the exact values for n = 6..15 (local, 2e7 samples)
