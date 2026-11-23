@@ -1,4 +1,4 @@
-# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-22, late evening)
+# L^p regularity and Fourier decay of the 3-adic Syracuse law: status (2026-11-23)
 
 Two tracks on the Syracuse law itself, the reference object of Theorem 3, Remark 12(d) and Table 13.
 In the paper since draft v4i: Appendix F (Lemmas 8, 9, Propositions 16, 17, Corollary 10, Conjecture 3; Runs L and M), a pointer at the end of Remark 12(d) and Outlook item (7). Draft v4j adds the logarithmic chart (Lemmas 10, 11, Propositions 18, 19, Conjecture 4, Run N, Table 17). Note: `syracuse_lp_note.tex`/`.pdf` (cluster runs and Section 8, logarithmic chart).
@@ -134,6 +134,34 @@ the precision of the stored values).
 - **E1:** the structure (renewal, large deviations, weighted anti-concentration) is confirmed; the open core is the
   regular part = summable equidistribution of the class distribution, a mixing statement of Tao's type.
 
+## Track 1f: all d and the energy walk (roadmap A7, easy part; note Section 8, end)
+
+`energy_renewal.py` (`run`, `merge`, `scan`, `selftest`; `results_energy/`). In the log chart every g_d is a
+translation, so one cyclic autocorrelation per length phase gives the coincidence weights of all d at once.
+N <= 13, |d| <= 80, a few minutes on 2 cores. Agrees with Run O to 1e-16 and with E_{k+1} = H_2(k+1) - H_2(k)
+to 1e-14; the selftest checks brute-force first hits for d = 2, 6, 18, 54. The raw phases (2 x 10 MB) are not
+stored (rerun: `run 13 results_energy --theta-slice I/2`, then `merge`).
+
+- **Start near the identity (exact, Lemma "nearid"):** for d = 2*3^s*m, Cor_N(g_d) = H_2(N) for N <= s; for N > s
+  Cor_N(g_d) = H_2(s) - E_{s+1}/2 + (equidistribution defects of the unit energy at levels s+2..N), checked to
+  1e-12. Main term 0.67, 1.43, 1.91, 2.37, 2.84 for s = 0..4: this is the "0.47 per unit of v_3(d/2)" of job A.
+  Defects at n = 20: -0.24..+0.20.
+- **Corollary 11 for all d:** sup over k >= 1 with k + r > s (for N > s the diagonal never enters); bound
+  max(H_2(s), F*_d/(1 - c_d)). c_d in [0.31, 0.68] for 37 of the 40 values d <= 80. Exceptions c_18 = 0.82,
+  c_62 = 0.98, c_70 = 1.10: spikes at depth k <= 5 (up to rho_18(4,3) = 27), where a small length difference
+  satisfies the length congruence and brings the walk near g_{d'} with v_3(d'/2) >= 1 (d = 70: |A|-|B| = -2, d' = 72).
+- **Energy walk (Corollary 12):** start at sum_{d != 0} 2^{-|d|} g_d; E_{N+1} = F_E(N,0) + sum_r F_E(N-r,r) H_2(r).
+  rho_E <= 0.97 throughout, c_E = 0.317. Regular part F_E(N,0) decreases monotonically 0.4448 (N = 2) -> 0.3409
+  (N = 13), increments shrinking by about 0.7; near-resonance part -> 0.1293. Bound on the computed range:
+  max(2/3, 0.651) = 2/3, against E_14 = 0.4703. **Conjecture 3 is reduced to c_E < 1 and a bounded regular part
+  of the energy walk; no case distinction in v_3(d/2) is needed.**
+- **All d at once (`scan 15`):** Cor_N(g_d) = D_N(d/2) depends only on d/2 mod 3^N. For |d| <= 80,
+  Cor_N(g_d) < H_2(v_3(d/2)) for N <= 15 (max ratio 0.991 at d = 18, N = 8). Over all d the max ratio exceeds 1 from
+  N = 6 on (large |d|), reaches 1.080 at N = 15, increments x0.8 per level (extrapolated about 1.09). So the
+  pointwise bound is false, but a uniform bound C H_2(v_3(d/2)) (Conjecture 4 for the g_d) fits the data; it
+  would give E_n <= 0.688 C.
+- Paper: v4m (Corollary 11 for all d, Lemma 13, Corollary 12, paragraph "Run O, all d").
+
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
 Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2e-6; `results_mc/`):
@@ -193,6 +221,7 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `mc_merge.py`: merges the Monte Carlo runs and fits the decay
 - `decay_analysis.py`: decay models on the combined runs (`results_mc2/decay_fits.txt`)
 - `congruence_counts.py`: Run O, hit weights w_d(k, r), first-hit decomposition (`run`, `merge`, `selftest`)
+- `energy_renewal.py`: Run O for all d and the energy walk, scan over all d (`results_energy/`)
 - `class_distribution.py`: class distribution mod 3 of the walk from g_d (`results_classes/`)
 - `ulam_spectrum.py`: spectrum of the mean-field (Ulam) discretisation of the walk
 - `log_coordinates.py`: logarithmic chart, spectral identity, angle shares, intertwiners, fixed point -1
@@ -203,6 +232,7 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `results_mc2/`: job B2 output and the decay fits
 - `results_logchart/`: output of `log_coordinates.py` for n <= 15 (summary, angle shares, D_l(k), intertwiners)
 - `results_runO_local/`: Run O for N <= 13 (summary, hit weights, first hits, raw phases)
+- `results_energy/`: Run O for all |d| <= 80 and the energy walk (N <= 13), scan over all d (N <= 15)
 - `results_runO/`: Run O on the cluster, N <= 17 (job 169344: phases, summary, hit weights, first hits, rho split, log)
 - `results_local/`: first local runs. Exact statistics for n <= 16 (superseded by `results_exact/`),
   the Monte Carlo validation against the exact values for n = 6..15 (`mc_validation.csv`, 2e7 samples)

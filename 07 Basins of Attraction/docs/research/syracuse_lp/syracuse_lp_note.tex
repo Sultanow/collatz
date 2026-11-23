@@ -435,8 +435,50 @@ so $R_N(g_d)$ is bounded if and only if these drifts have bounded partial produc
 \end{itemize}
 No recursion that closes the regular part in terms of $\varrho$ and itself has turned up. Its monotonicity is special to $d=2$. The natural finite model fails. Program \texttt{ulam\_spectrum.py} averages over the next digit, which gives the Ulam discretisation of the forward walk on the classes modulo $3^s$. For $s\le4$ its eigenvalues other than $1$ are exactly those of the random walk $e\mapsto e+b-a$ of the exponent of the linear part modulo $L=2\cdot3^{s-1}$, namely $1/(5-4\cos(2\pi j/L))$: $\frac19$; $\frac13,\frac17$; $0.806,0.517,\dots$; $0.974,0.903,0.806,0.702,\dots$ for $s=1,\dots,4$. The rest is nilpotent, because the averaging replaces the deterministic digits of $t$ by fresh noise. So the discretisation sees only the diffusion of the linear part, whose gap closes like $8\pi^2/L^2$, and misses the resonance at $-1$ completely. A certified contraction (roadmap A6) must act on the correlations, where the resonance is an exact fixed point. It has to treat the diffusive direction of the linear part separately; in Run~O this direction is the length part $\varrho_{\mathrm{len}}$, and its weight $9^{-r}$ is what keeps it harmless.
 
+\subsection*{All $d$ and the energy (roadmap A7)}
+Write $d=2\cdot3^sm$ with $3\nmid m$. Since $v_3(2^d-1)=s+1$, $g_d$ is the identity modulo $3^s$ but not modulo $3^{s+1}$, so $R_N(g_d)=H_2(N)$ for $N\le s$. Along the diagonal $A=B$ the walk passes through $y\mapsto2^dy+t$ with $v_3(t)=s-k$ (and fails the indicator for $k>s$). These maps give $\varrho_d(k,r)\ge2\cdot3^{2r-1}/H_2(k)$ for $k+r\le s$, so the unrestricted constant $c_d$ is at least $1$ once $s\ge2$. They do not enter the first-hit decomposition of $R_N(g_d)$ for $N>s$, because there $k=N-r$ and $k+r=N>s$.
+
+\begin{corollary}[Bootstrap for all $d$]\label{cor:bootstrap-all}
+Let $\varrho^*_d(r)=\sup\{\varrho_d(k,r):k\ge1,\ k+r>s\}$ and $F^*_d=\sup_{N>s}F_d(N,0)$, and let $c_d=\frac32\sum_r\varrho^*_d(r)(5/27)^r$. If $c_d<1$, then $\sup_NR_N(g_d)\le\max\bigl(H_2(s),F^*_d/(1-c_d)\bigr)$.
+\end{corollary}
+
+\begin{proof}
+For $N\le s$, $R_N(g_d)=H_2(N)\le H_2(s)$. For $N>s$, $F_d(0,N)=0$, and the proof of Corollary~\ref{cor:bootstrap} gives $R_N(g_d)\le F^*_d+c_d\max_{1\le m<N}R_m(g_d)$.
+\end{proof}
+
+\begin{lemma}[Start near the identity]\label{lem:nearid}
+For $N>s$,
+\[
+ R_N(g_d)=H_2(s)-\frac12E_{s+1}+\sum_{\ell=s+2}^N\ \sum_{\omega\in(\Z/3^\ell\Z)^\times}|\widehat\nu_\ell(\omega)|^2\cos\frac{2\pi\omega m}{3^{\ell-s}} ,
+\]
+and the sum of level $\ell$ vanishes if the unit energy of level $\ell$ is equidistributed over the classes of $\omega$ modulo $3^{\ell-s}$.
+\end{lemma}
+
+\begin{proof}
+$R_N(g_d)=D_N(3^sm)=\sum_\eta|\widehat\nu_N(\eta)|^2e(-\eta3^sm/3^N)$; group by levels as in Proposition~\ref{prop:spectral}. The levels $\ell\le s$ give $H_2(s)$; at $\ell=s+1$ every cosine is $-\frac12$; for $\ell\ge s+2$ the Ramanujan sum $c_{3^{\ell-s}}(m)$ vanishes.
+\end{proof}
+
+The main term $H_2(s)-\frac12E_{s+1}$ is $0.67$, $1.43$, $1.91$, $2.37$, $2.84$ for $s=0,\dots,4$: this is the growth by about $0.47$ per unit of $v_3(d/2)$ seen in job~A. The remainder, the angular equidistribution defect of the unit energy, lies between $-0.24$ and $+0.20$ at $n=20$ for the $d$ of job~A. The lemma was checked numerically to $10^{-12}$.
+
+\emph{The energy walk.} Start at the mixture $\mu=\sum_{d\ne0}2^{-|d|}\delta_{g_d}$. With $w_E=\sum_d2^{-|d|}w_d$ and $F_E=\sum_d2^{-|d|}F_d$ we have $w_E(k,0)=E_{k+1}$ and $E_{N+1}=F_E(N,0)+\sum_{r=1}^NF_E(N-r,r)H_2(r)$. Only the weight $w_E(0,r)=2/(4^{3^r}-1)$ sits on maps that are the identity modulo $3^r$, so no depth is excluded.
+
+\begin{corollary}[Bootstrap for the energy]\label{cor:bootstrap-energy}
+Let $\varrho_E(k,r)=w_E(k,r)|\mathrm{Aff}(\Z/3^r\Z)|/E_{k+1}$, $c_E=\frac32\sum_r\sup_{k\ge0}\varrho_E(k,r)(5/27)^r$ and $F^*_E=\sup_{N\ge1}F_E(N,0)$. If $c_E<1$ and $F^*_E<\infty$, then $\sup_nE_n\le\max(\frac23,F^*_E/(1-c_E))$, so Conjecture~\ref{conj:energy} holds and the profile lies in $L^p$ for every $p<2$.
+\end{corollary}
+
+\begin{proof}
+$E_{N+1}\le F^*_E+c_E\max_{1\le m\le N}E_m$ (the term $r=N$ is now included), and $E_1=\frac23$.
+\end{proof}
+
+\emph{Run O, all $d$} (\texttt{energy\_renewal.py}, folder \texttt{results\_energy/}). In the logarithmic chart every $g_d$ is a translation, so one cyclic autocorrelation per length phase gives the coincidence weights of all $d$. For $N\le13$, $|d|\le80$ (a few minutes on two cores) the program reproduces Run~O to $10^{-16}$ and $E_{k+1}=H_2(k+1)-H_2(k)$ to $10^{-14}$.
+\begin{itemize}
+\item \emph{Energy walk.} $\varrho_E\le0.97$ throughout ($\varrho_E(k,1)$ and $\varrho_E(k,2)$ increase towards $1$), $c_E=0.317$. The regular part $F_E(N,0)$ decreases monotonically from $0.4448$ ($N=2$) to $0.3409$ ($N=13$), with increments shrinking by about $0.7$; the near-resonance part grows to $0.1293$. On the computed range the corollary gives $E_n\le\max(\frac23,0.651)=\frac23$; $E_{14}=0.4703$.
+\item \emph{Single $d$.} $c_d\in[0.31,0.68]$ for $37$ of the $40$ values $2\le d\le80$; exceptions $c_{18}=0.82$, $c_{62}=0.98$, $c_{70}=1.10$. Spikes at depth $k\le5$ (up to $\varrho_{18}(4,3)=27$), where a small length difference satisfies the length congruence and brings the walk near some $g_{d'}$ with $v_3(d'/2)\ge1$ ($d=70$: $|A|-|B|=-2$, $d'=72$). They carry the weights $2^{-|d|}$ in the energy.
+\item \emph{All $d$ at once} (\texttt{energy\_renewal.py scan 15}). $R_N(g_d)=D_N(d/2)$ depends only on $d/2\bmod3^N$. For $|d|\le80$, $R_N(g_d)<H_2(v_3(d/2))$ for $N\le15$ (largest ratio $0.991$, $d=18$, $N=8$). Over all $d$ the largest ratio exceeds $1$ from $N=6$ on (at $|d|$ of order $10^2$ to $10^7$) and reaches $1.080$ at $N=15$; increments shrink by about $0.8$ per level (extrapolation: about $1.09$). So the pointwise bound $R_N(g_d)\le H_2(v_3(d/2))$ is false, but a uniform bound $R_N(g_d)\le C\,H_2(v_3(d/2))$, which is Conjecture~\ref{conj:decor} for the $g_d$, is consistent with the data. It would give $E_n\le C\sum_{d\ne0}2^{-|d|}H_2(v_3(d/2))=0.688\,C$.
+\end{itemize}
+
 \section{Status}
-Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp}, Corollary~\ref{cor:lp}, and in Section~\ref{sec:logchart} Lemma~\ref{lem:logchart}, Proposition~\ref{prop:spectral}, Proposition~\ref{prop:intertwiners} and Lemma~\ref{lem:minusone}. After the roadmap (\texttt{docs/research/ROADMAP.md}, tasks A0--A2): Lemmas~\ref{lem:dilation} and~\ref{lem:largedev}, Proposition~\ref{prop:renewal} and Corollary~\ref{cor:bootstrap}; the pilot target $\sup_nR_n(g_2)<\infty$ is reduced to the weighted anti-concentration $c_2<1$ (numerically $c_2\approx0.33$ for $N\le17$) and a bound for the regular part; the class distribution shows the resonance at $-1$ directly (factor $0.75$); slow components at higher precision make the final convergence of $E_n$ probably slower than geometric. Refuted: the decorrelation conjecture of the earlier version (distance to the maps $m_e$ only). Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), the counting statement after Proposition~\ref{prop:intertwiners} that would prove them, and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
+Proved: Lemma~\ref{lem:selfsim}, Propositions~\ref{prop:energy} and~\ref{prop:singular}, Lemma~\ref{lem:kp}, Corollary~\ref{cor:lp}, and in Section~\ref{sec:logchart} Lemma~\ref{lem:logchart}, Proposition~\ref{prop:spectral}, Proposition~\ref{prop:intertwiners} and Lemma~\ref{lem:minusone}. After the roadmap (\texttt{docs/research/ROADMAP.md}, tasks A0--A2): Lemmas~\ref{lem:dilation} and~\ref{lem:largedev}, Proposition~\ref{prop:renewal} and Corollary~\ref{cor:bootstrap}; the pilot target $\sup_nR_n(g_2)<\infty$ is reduced to the weighted anti-concentration $c_2<1$ (numerically $c_2\approx0.33$ for $N\le17$) and a bound for the regular part; the class distribution shows the resonance at $-1$ directly (factor $0.75$); slow components at higher precision make the final convergence of $E_n$ probably slower than geometric. After task A7 (easy part): Corollaries~\ref{cor:bootstrap-all} and~\ref{cor:bootstrap-energy} and Lemma~\ref{lem:nearid}; Conjecture~\ref{conj:energy} is reduced to $c_E<1$ (numerically $0.32$) and a bounded regular part of the energy walk (numerically decreasing). Refuted: the decorrelation conjecture of the earlier version (distance to the maps $m_e$ only). Open: Conjectures~\ref{conj:energy} and~\ref{conj:decor} (numerically, $E_n$ converges to about $0.475$), the counting statement after Proposition~\ref{prop:intertwiners} that would prove them, and the decay of $M_n$, numerically $An^{-1}\rho^n$ with $\rho\approx0.943$ for $n\le80$. For the paper this sharpens Remark~12(d): the moment window $1<p<2$ for~(UI) is exactly the range in which the Syracuse profile itself is $p$-integrable, conditionally on Conjecture~\ref{conj:energy}.
 
 \begin{thebibliography}{9}
 \bibitem{DL} R.~Durrett and T.~Liggett, Fixed points of the smoothing transformation, \emph{Z. Wahrsch. Verw. Gebiete} 64 (1983), 275--301.

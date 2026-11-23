@@ -38,7 +38,7 @@ Seit v4j (noch nicht im Paper, mit `syracuse_lp.py` bis n = 13 exakt geprüft):
 | **E1** | **Entscheidungspunkt:** Schließen Renewal (A1), Großabweichung (A2) und Zählung (A3)? | ja: A5; nein: Plan revidieren | A1–A4 | – | **Befund (23.11.):** Struktur bestätigt; alles bis auf den Regulärteil ist numerisch mit Reserve erfüllt. Offener Kern: Regulärteil = summierbare Gleichverteilung der Klassenverteilung (Mischung vom Tao-Typ). Entscheidung steht aus (siehe unten). |
 | A5 | Bedingter Satz: `Cor_n(g_2) <= C` unter einer präzise formulierten Mischungshypothese `H(k, r)` für die abgeschnittenen Syracuse-Summen modulo `3^{k+r}` im Restgebiet `r < 3k`. | Satz (bedingt) | E1 | Theorie | **erledigt** (Paper v4k, Korollar 11: Anti-Konzentration `c_d < 1` plus beschränkter Regulärteil) |
 | A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | geparkt (harter Brocken) |
-| A7 | Von `g_2` auf alle `g_d`: `v_3(d/2) = 0` analog; `v_3(d/2) >= 1` bringt Nähe zur Identität, also einen `H_2(v_3)`-Term. Daraus folgen Conjecture 4 für die `g_d`, Conjecture 3 und `L^p` für `p < 2`. | Satz | A6 | Theorie | – |
+| A7 | Von `g_2` auf alle `g_d`: `v_3(d/2) = 0` analog; `v_3(d/2) >= 1` bringt Nähe zur Identität, also einen `H_2(v_3)`-Term. Daraus folgen Conjecture 4 für die `g_d`, Conjecture 3 und `L^p` für `p < 2`. | Satz | A6 | Theorie | leichter Teil erledigt (v4m: Kor. 11 für alle `g_d`, Kor. 12 für `E_n` selbst, Lemma 13 exakter `H_2(s)`-Term); Rest hängt an A6 |
 
 **Abbruchkriterium Strang A:** Fällt `C_{k,r}` in Run O nicht gleichmäßig in `k` ab, ist Conjecture 4
 in Frage zu stellen. Dann gilt: Numerik und Teilresultate (A0, A2, Prop. 19) sichern und Strang A
@@ -133,8 +133,11 @@ Optionen (zur Dokumentation):
 Leichte Früchte zuerst:
 
 1. ~~**C1** Halbwort-Kollisionsformel (Schreibtisch, Run-J-Daten): Lemma für Abschnitt 4.~~ erledigt (v4l)
-2. **A7-leicht** Korollar 11 auf alle `g_d` und auf `E_n` selbst erweitern (bedingt). Dabei `v_3(d/2) >= 1`
-   (Start nahe der Identität) sauber behandeln.
+2. ~~**A7-leicht** Korollar 11 auf alle `g_d` und auf `E_n` selbst erweitern (bedingt). Dabei `v_3(d/2) >= 1`
+   (Start nahe der Identität) sauber behandeln.~~ erledigt (v4m). Befund: Für `E_n` selbst (Start in der Mischung
+   der `g_d`) entfällt die Fallunterscheidung; `c_E = 0.32`, Regulärteil der Energie monoton fallend (N <= 13).
+   Die punktweise Schranke `Cor_N(g_d) <= H_2(v_3(d/2))` ist falsch (max. Quotient 1.08 bei N = 15, sehr große `|d|`),
+   eine gleichmäßige Schranke `C H_2(v_3(d/2))` passt zu den Daten.
 3. **D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).
 4. **C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand).
 
@@ -149,5 +152,5 @@ Harte Brocken danach:
 | Run | Inhalt | Status |
 |---|---|---|
 | L, M, N | exaktes Gesetz bis n = 20; Monte Carlo Fourier bis n = 80; logarithmische Karte bis n = 15 | im Paper (v4j) |
-| O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung, Klassenverteilung (lokal N ≤ 13, Cluster N ≤ 17, Job 169344) | im Paper (v4k, Tabelle 18) |
+| O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung, Klassenverteilung (lokal N ≤ 13, Cluster N ≤ 17, Job 169344); alle `d` und Energie-Walk (lokal N ≤ 13, `energy_renewal.py`) | im Paper (v4k, Tabelle 18; v4m) |
 | P | Meet-in-the-Middle-Zykluszensus (C2) | geplant |

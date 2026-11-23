@@ -368,3 +368,19 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Problem 1: the question on the algebraic factors is replaced by the residual factor 0.86.
 - Runs table row J and reproduction table: C/halfword_collisions.py, results/heuristic/halfword_report.txt.
 - 92 pages.
+
+## v4m (Appendix F: all g_d and the energy itself; roadmap A7, easy part)
+- Corollary 11 now holds for every even d = 2*3^s*m (3 does not divide m): the supremum runs over k >= 1 with
+  k + r > s, so the diagonal pairs of the start near the identity never enter, and the bound is
+  max(H_2(s), F*_d/(1 - c_d)).
+- Lemma 13 (new, start near the identity): Cor_N(g_d) = H_2(s) - E_{s+1}/2 + (angular equidistribution defects of the
+  unit energy at levels s+2..N), exact via Proposition 18. It explains the growth by about 0.47 per unit of v_3(d/2).
+- Corollary 12 (new, conditional bound for the energy): the walk started at the mixture sum_d 2^{-|d|} g_d has
+  E_{N+1} = F_E(N,0) + sum_r F_E(N-r,r) H_2(r); if c_E < 1 and its regular part is bounded, then
+  sup E_n <= max(2/3, F*_E/(1 - c_E)), hence Conjecture 3 and L^p for p < 2.
+- Paragraph "Run O, all d" (energy_renewal.py): c_E = 0.32, rho_E <= 0.97, regular part of the energy decreasing
+  0.445 -> 0.341 (N = 2..13); c_d in [0.31, 0.68] for 37 of 40 d <= 80 (spikes for d = 18, 62, 70); scan over all d:
+  Cor_N(g_d) < H_2(v_3(d/2)) for |d| <= 80, but the maximum over all d reaches 1.080 at N = 15.
+- Pointers: contribution row, Outlook (7), runs table row O, reproduction table (energy_renewal.py, results_energy/),
+  Run L paragraph (Lemma 13). Lemma numbers in Appendix F after Lemma 12 shift by one (Large deviations: Lemma 14).
+- 94 pages.
