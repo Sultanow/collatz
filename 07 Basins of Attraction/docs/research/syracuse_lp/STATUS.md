@@ -114,6 +114,26 @@ Run O, local (`congruence_counts.py`, N <= 13, 4 min; `results_runO_local/`; sel
   and is nilpotent in t. It misses the resonance at -1. Certification (A6) must work on the correlations.
 - No closing recursion for the regular part found; its monotonicity is special to d = 2.
 
+## Track 1e: Run O on the cluster (N <= 17), roadmap A3 and decision point E1
+
+Job 169344 (n11, 42 min, 82 processes, 216 GB; `results_runO/`). Agrees with job A to 4e-8 (Cor_N(g_d)) and to all
+digits (H_2).
+
+- **d = 2 split:** regular part 0.52937 -> 0.52469 (N = 13..17), increments shrinking faster (local factors
+  0.72 -> 0.655); near-resonance part 0.2061, increments factor about 0.77 (slowly rising); sum: 0.883 at N = 17.
+- **Slow components at higher precision:** near-resonance terms F(N-r, r) H_2(r) have increment factors 0.70 (r=1),
+  0.83 (r=2), 0.88-0.92 (r=3), 0.93-1.0 (r=4); r = 5 still grows; amplitudes ~ 9^{-r}. Diffusive relaxation of the
+  length congruence mod 2*3^{r-1} (time scale ~ 9^r). Two-component extrapolation predicts local factors 0.863,
+  0.846, 0.832 at N = 18-20; job A has 0.874, 0.868, 0.866. So the final convergence of Cor_N(g_2) and E_n is
+  probably slower than geometric; the expectation O(n^B (3/4)^n) in Appendix F of v4j has to be revised (D4).
+  Boundedness is not affected (weights 9^{-r}).
+- **Length part grows:** d = 4: rho_len up to 1.6 / 3.4 / 5.7 / 7.2 for r = 4..7; rho_t <= 1.004 for k >= 7.
+  max rho_4 = 4.96 at (k, r) = (10, 7): the unweighted bootstrap hypothesis fails, the weighted one holds:
+  c_2 = 0.33, c_4 = 0.38, c_6 = 0.34 on the computed range (0.31, 0.36, 0.32 with the actual H_2).
+- **Regular part:** d = 4 constant 0.33777 (N = 13..17); d = 2 decreasing.
+- **E1:** the structure (renewal, large deviations, weighted anti-concentration) is confirmed; the open core is the
+  regular part = summable equidistribution of the class distribution, a mixing statement of Tao's type.
+
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
 Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2e-6; `results_mc/`):
@@ -158,7 +178,7 @@ on n11; `results_mc2/`):
     sbatch slurm/slp_exact.sbatch          # job A (done 2026-11-22)
     sbatch slurm/slp_fourier_mc.sbatch     # job B (done 2026-11-22)
     sbatch slurm/slp_fourier_mc2.sbatch    # job B2 (done 2026-11-22)
-    sbatch slurm/slp_runO.sbatch           # Run O (roadmap A3), N <= 17
+    sbatch slurm/slp_runO.sbatch           # Run O (roadmap A3), N <= 17 (done 2026-11-23, job 169344)
     python3 mc_merge.py results_mc2 results_mc2/mc_task*.csv
     python3 decay_analysis.py results_mc/mc_merged.csv results_mc2/mc_merged.csv
 
@@ -183,6 +203,7 @@ and the column `k* - n log2(3)`. `mc_merged.csv` is identical to the cluster out
 - `results_mc2/`: job B2 output and the decay fits
 - `results_logchart/`: output of `log_coordinates.py` for n <= 15 (summary, angle shares, D_l(k), intertwiners)
 - `results_runO_local/`: Run O for N <= 13 (summary, hit weights, first hits, raw phases)
+- `results_runO/`: Run O on the cluster, N <= 17 (job 169344: phases, summary, hit weights, first hits, rho split, log)
 - `results_local/`: first local runs. Exact statistics for n <= 16 (superseded by `results_exact/`),
   the Monte Carlo validation against the exact values for n = 6..15 (`mc_validation.csv`, 2e7 samples)
   and a rough 2e6-sample Monte Carlo run (`mc_rough_2e6.csv`)
