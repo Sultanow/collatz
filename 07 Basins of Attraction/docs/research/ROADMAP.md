@@ -36,8 +36,8 @@ Seit v4j (noch nicht im Paper, mit `syracuse_lp.py` bis n = 13 exakt geprüft):
 | A3 | **Run O** (Vorschläge 1 und 4): exakte gewichtete Kongruenzzählungen `C_{k,r}(d) = 3^{k+r} P(\|A\|-\|B\| = d, S(B) ≡ g_d(S(A)) mod 3^{k+r})`. Rechnung per FFT auf `Z/3^M` mit einem Fourierparameter `theta` für die Länge; er trennt die Diagonale (`d = 0`) exakt ab. Für `M <= 17–18` auf dem Cluster; Meet-in-the-Middle für kleine `k` und große `r` (bis `M ≈ 40`). Frage: Fällt `C_{k,r}` gleichmäßig in `k` wie `3^{-r}`? Gibt es eine Kontraktionsungleichung in `k`? Vorschlag 6 (`r = 1, 2, 3`) läuft hier als Diagnosespalte mit. | Tabelle `C_{k,r}(2)`, Fits, Kandidaten-Ungleichung | A1 | Cluster (Run O) | **erledigt** (Job 169344, N ≤ 17): Trefferwerte gleichmäßig in k, t-Anteil ≤ Gleichverteilung, gewichtete Anti-Konzentration `c_2 ≈ 0,33`; Längenanteil wächst mit r (bis 7) |
 | A4 | **Resonanz bei −1** (Vorschlag 3): Renormierungsoperator auf dem Orbit von `2y+1` (Abbildungen `2^e y + t`, `t` in `Z[1/2]`). Die `(1,1)`-Schleife (Gewicht 3/4) und das Paar `-1`, `-1/2` abspalten, dominante Moden bestimmen. Die beobachteten Raten (0,866 bei n = 20, Fit 0,78) quantitativ erklären. | Zerlegung „Resonanz + Rest“, Rate des Rests | A0 | Numerik, ggf. Cluster | teilweise: Resonanz-Mode mit Faktor 0,750 in der Klassenverteilung bestätigt; naive Ulam-Diskretisierung ungeeignet (s. Note) |
 | **E1** | **Entscheidungspunkt:** Schließen Renewal (A1), Großabweichung (A2) und Zählung (A3)? | ja: A5; nein: Plan revidieren | A1–A4 | – | **Befund (23.11.):** Struktur bestätigt; alles bis auf den Regulärteil ist numerisch mit Reserve erfüllt. Offener Kern: Regulärteil = summierbare Gleichverteilung der Klassenverteilung (Mischung vom Tao-Typ). Entscheidung steht aus (siehe unten). |
-| A5 | Bedingter Satz: `Cor_n(g_2) <= C` unter einer präzise formulierten Mischungshypothese `H(k, r)` für die abgeschnittenen Syracuse-Summen modulo `3^{k+r}` im Restgebiet `r < 3k`. | Satz (bedingt) | E1 | Theorie | – |
-| A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | – |
+| A5 | Bedingter Satz: `Cor_n(g_2) <= C` unter einer präzise formulierten Mischungshypothese `H(k, r)` für die abgeschnittenen Syracuse-Summen modulo `3^{k+r}` im Restgebiet `r < 3k`. | Satz (bedingt) | E1 | Theorie | **erledigt** (Paper v4k, Korollar 11: Anti-Konzentration `c_d < 1` plus beschränkter Regulärteil) |
+| A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | geparkt (harter Brocken) |
 | A7 | Von `g_2` auf alle `g_d`: `v_3(d/2) = 0` analog; `v_3(d/2) >= 1` bringt Nähe zur Identität, also einen `H_2(v_3)`-Term. Daraus folgen Conjecture 4 für die `g_d`, Conjecture 3 und `L^p` für `p < 2`. | Satz | A6 | Theorie | – |
 
 **Abbruchkriterium Strang A:** Fällt `C_{k,r}` in Run O nicht gleichmäßig in `k` ab, ist Conjecture 4
@@ -86,7 +86,9 @@ Befund:
   3/4 ist bestätigt, aber Komponenten höherer Präzision relaxieren diffusiv (Zeitskala ~ 9^r), so dass die
   Konvergenz am Ende wohl langsamer als geometrisch ist. Die Beschränktheit ist davon nicht betroffen.
 
-Optionen:
+**Entscheidung (23.11.):** Option 1 + 3. A5 ist im Paper (v4k: Prop. 20, Kor. 11, Lemma 12, Run O, Tabelle 18; Ratenaussage korrigiert). A6 ist geparkt. Weiter mit den „low hanging fruits“, die harten Brocken danach (siehe „Reihenfolge ab 23.11.“).
+
+Optionen (zur Dokumentation):
 
 1. **A5 jetzt** (empfohlen): bedingten Satz sauber formulieren (Prop. 15, Kor. 16, Lemma 17 mit der Hypothese
    „Regulärteil beschränkt“) und bei D2 in einen kompakten Anhang F übernehmen; A6 als Langfristprojekt parken.
@@ -116,7 +118,7 @@ Optionen:
 | D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | offen |
 | D2 | Auswahl Haupttext / Anhang / research notes. Anhang F auf den Kern eindampfen (Lemma 8, 9, Prop. 16, 17, 19(b), Kor. 10, Conj. 3, 4), den Rest in `syracuse_lp_note` | offen |
 | D3 | Zielzeitschrift und Seitenbudget festlegen | offen |
-| D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren (Run O) | offen |
+| D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; ~~Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren~~ (erledigt in v4k) | offen |
 
 ## Reihenfolge
 
@@ -126,10 +128,26 @@ Optionen:
 4. **Parallel, wenn Luft ist:** C1 (Schreibtisch); C2, wenn der Cluster frei ist.
 5. **Danach:** D1–D4, Journal-Version.
 
+## Reihenfolge ab 23.11.2026
+
+Leichte Früchte zuerst:
+
+1. **C1** Halbwort-Kollisionsformel (Schreibtisch, Run-J-Daten): Lemma für Abschnitt 4.
+2. **A7-leicht** Korollar 11 auf alle `g_d` und auf `E_n` selbst erweitern (bedingt). Dabei `v_3(d/2) >= 1`
+   (Start nahe der Identität) sauber behandeln.
+3. **D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).
+4. **C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand).
+
+Harte Brocken danach:
+
+5. **A6** Mischung der Klassenverteilung, also der Regulärteil (zertifizierte Kontraktion auf den Korrelationen).
+6. **B1** Fourier-Maximum (Transferoperator auf `theta`).
+7. **D2–D4** Kompaktierung und Journal-Version (braucht Entscheidungen zu Zeitschrift und Umfang).
+
 ## Runs (vergeben und geplant)
 
 | Run | Inhalt | Status |
 |---|---|---|
 | L, M, N | exaktes Gesetz bis n = 20; Monte Carlo Fourier bis n = 80; logarithmische Karte bis n = 15 | im Paper (v4j) |
-| O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung (A1/A3) | erledigt: lokal N ≤ 13, Cluster N ≤ 17 (Job 169344) |
+| O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung, Klassenverteilung (lokal N ≤ 13, Cluster N ≤ 17, Job 169344) | im Paper (v4k, Tabelle 18) |
 | P | Meet-in-the-Middle-Zykluszensus (C2) | geplant |

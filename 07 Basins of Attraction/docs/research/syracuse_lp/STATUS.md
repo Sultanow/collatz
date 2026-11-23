@@ -116,8 +116,8 @@ Run O, local (`congruence_counts.py`, N <= 13, 4 min; `results_runO_local/`; sel
 
 ## Track 1e: Run O on the cluster (N <= 17), roadmap A3 and decision point E1
 
-Job 169344 (n11, 42 min, 82 processes, 216 GB; `results_runO/`). Agrees with job A to 4e-8 (Cor_N(g_d)) and to all
-digits (H_2).
+Job 169344 (n11, 42 min, 82 processes, 216 GB; `results_runO/`). Agrees with job A to 5e-11 (Cor_N(g_d) and H_2;
+the precision of the stored values).
 
 - **d = 2 split:** regular part 0.52937 -> 0.52469 (N = 13..17), increments shrinking faster (local factors
   0.72 -> 0.655); near-resonance part 0.2061, increments factor about 0.77 (slowly rising); sum: 0.883 at N = 17.

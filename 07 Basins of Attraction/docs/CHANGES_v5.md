@@ -336,3 +336,21 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Pointers: appendix introduction, contribution table row, introduction (Run A to Run N), Outlook item (7),
   runs table row N, reproduction table (log_coordinates.py, results_logchart/).
 - 87 pages.
+
+## v4k (Appendix F: first-hit decomposition, conditional bound, Run O)
+- Lemma 11 extended: second dilation rule (c) and (d) Cor_n(g_2) = Cor_n(y + 1/2), f_n(-1/2) = f_n(-1)/2,
+  y +- 1/2 not an intertwiner. New sentence: the main term of the energy is bounded iff the law of S' - S has a
+  bounded density at 1/2.
+- New (after Table 17): Proposition 20 (first-hit decomposition: Cor_N(g_d) = regular part + near-resonance part),
+  Corollary 11 (conditional bound: Cor_N(g_d) bounded if the weighted anti-concentration c_d < 1 holds and the
+  regular part is bounded), Lemma 12 (large deviations, far range r >= 2.71 k), the exact class identity
+  Cor_{k+1}/Cor_k - 1 = sum_c W(c)(nu_k(c) - 1/6); the open core is a mixing statement for the class distribution.
+- Run O (local N <= 13, cluster N <= 17, job 169344) with Table 18: regular and near-resonance parts converge
+  faster than their sum (near-cancellation); slow components at higher precision (diffusive length congruence);
+  length part up to 7.2, so the weighting in Corollary 11 is needed (c_2 = 0.33, c_4 = 0.38); resonance at -1
+  seen in the class distribution (factor 0.750); the mean-field discretisation misses it.
+- Correction: the expectation E_infinity - E_n = O(n^B (3/4)^n) of v4j is withdrawn; the convergence of E_n is
+  probably slower than geometric in the end (boundedness unaffected).
+- Pointers: appendix introduction, contribution table, introduction (Run A to Run O), Outlook item (7), runs table
+  row O, reproduction table.
+- 91 pages.
