@@ -107,9 +107,9 @@ Optionen (zur Dokumentation):
 
 | ID | Aufgabe | Ergebnis | braucht | Art | Status |
 |---|---|---|---|---|---|
-| C1 | **Halbwort-Kollisionsformel:** Für gerade `l, k` und `P = 2^{l/2} + 3^{k/2}` reduziert `2^{l/2} ≡ -3^{k/2} (mod P)` die Bedingung `P \| z_3(B_1 B_2)` auf eine (bei ungleichen Halbtypen verdrehte) Kongruenz zwischen `z_3(B_1)` und `z_3(B_2)`. Weil die Halbwort-Zähler von der Größe `P` sind, ist sie fast eine Gleichung, und fast nur die Diagonale `B'B'` überlebt. Ziel: exakte Formel, Vergleich mit den Faktoren 0,61 (`D > 0`) und 1,40 (`D < 0`) aus Run J. | Lemma für Abschnitt 4 | – | Schreibtisch, Run-J-Daten | offen |
+| C1 | **Halbwort-Kollisionsformel:** Für gerade `l, k` und `P = 2^{l/2} + 3^{k/2}` reduziert `2^{l/2} ≡ -3^{k/2} (mod P)` die Bedingung `P \| z_3(B_1 B_2)` auf eine (bei ungleichen Halbtypen verdrehte) Kongruenz zwischen `z_3(B_1)` und `z_3(B_2)`. Weil die Halbwort-Zähler von der Größe `P` sind, ist sie fast eine Gleichung, und fast nur die Diagonale `B'B'` überlebt. Ziel: exakte Formel, Vergleich mit den Faktoren 0,61 (`D > 0`) und 1,40 (`D < 0`) aus Run J. | Lemma für Abschnitt 4 | – | Schreibtisch, Run-J-Daten | **erledigt** (v4l, Lemma 2; Defizit für D > 0: leerer Null-Slot + lokale Faktoren bei 2 und 3, Rest 0,86; D < 0: konstante Zählungen je Nullenzahl, S-Einheiten) |
 | C2 | **Meet-in-the-Middle-Zykluszählung (Run P):** Paritätswort halbieren, `z_3` modulo `2^l - 3^k` über Hash-Tabellen der Hälften abgleichen (C++/MPI). Ziel: Wortlänge 60–70 statt 40. Zuerst eine Laufzeitprobe bei `l = 48`. | erweiterter Zensus | C1 (Deutung), Cluster frei | Cluster | offen |
-| C3 | Abschnitt 4: Lemma und Tabelle ergänzen; Problem 1 und Outlook (3) anpassen. | Paper | C1, C2 | Schreiben | – |
+| C3 | Abschnitt 4: Lemma und Tabelle ergänzen; Problem 1 und Outlook (3) anpassen. | Paper | C1, C2 | Schreiben | teilweise (v4l: Lemma 2, Problem 1); Tabelle nach C2 |
 
 ## Strang D: Kompaktierung und Journal (nach E1)
 
@@ -132,7 +132,7 @@ Optionen (zur Dokumentation):
 
 Leichte Früchte zuerst:
 
-1. **C1** Halbwort-Kollisionsformel (Schreibtisch, Run-J-Daten): Lemma für Abschnitt 4.
+1. ~~**C1** Halbwort-Kollisionsformel (Schreibtisch, Run-J-Daten): Lemma für Abschnitt 4.~~ erledigt (v4l)
 2. **A7-leicht** Korollar 11 auf alle `g_d` und auf `E_n` selbst erweitern (bedingt). Dabei `v_3(d/2) >= 1`
    (Start nahe der Identität) sauber behandeln.
 3. **D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).

@@ -354,3 +354,17 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Pointers: appendix introduction, contribution table, introduction (Run A to Run O), Outlook item (7), runs table
   row O, reproduction table.
 - 91 pages.
+
+## v4l (Section 4: half-word collisions; roadmap C1)
+- Lemma 2 (new, half-word collisions): for even l = 2h, k = 2 kappa and P = 2^h + 3^kappa,
+  z_3(B1 B2) = 3^{k2} z_3(B1) + 2^h z_3(B2) = 3^{k2} z_3(B1) - 3^kappa z_3(B2) (mod P); P | z_3 is rotation invariant,
+  every word has a balanced rotation, and there P | z_3 iff z_3(B2) - z_3(B1) = m P; m = 0 exactly for the periodic
+  words B'B' (z_3 injective on half-words of fixed weight); |m| < (3/2)^kappa (D > 0), < 2^{h-kappa} (D < 0).
+  Lemma numbers from 2 on shift by one (Appendix F: Lemmas 9-13).
+- Run J, continued (after Lemma 2): the deficit for D > 0 is explained by the empty zero slot (39 % of the heuristic
+  expectation) and the local densities at 2 and 3 (prediction 0.389 of the heuristic against 0.334 observed in the
+  balanced count, 33 types with l <= 28); for D < 0 the counts depend only on the number of zeros per half-word
+  (0, 16, 104-124, 544-606 for 3-6 zeros, h <= 21), an S-unit phenomenon (Evertse 1984, new reference).
+- Problem 1: the question on the algebraic factors is replaced by the residual factor 0.86.
+- Runs table row J and reproduction table: C/halfword_collisions.py, results/heuristic/halfword_report.txt.
+- 92 pages.
