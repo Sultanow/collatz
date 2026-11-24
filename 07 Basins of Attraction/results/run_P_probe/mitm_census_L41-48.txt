@@ -1,0 +1,450 @@
+# q=3 DMAX=1000 l=41 k=1 D=2199023255549 dstar=139,23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=21 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=10 D=2199023196503 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.138
+# q=3 DMAX=1000 l=41 k=11 D=2199023078405 dstar=331,5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.220
+# q=3 DMAX=1000 l=41 k=12 D=2199022724111 dstar=23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.230
+# q=3 DMAX=1000 l=41 k=13 D=2199021661229 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.255
+# q=3 DMAX=1000 l=41 k=14 D=2199018472583 dstar=17 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.250
+# q=3 DMAX=1000 l=41 k=15 D=2199008906645 dstar=215 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.254
+c=343 min=13 l=41 k=16 D=2198980208831 word=11011000010011101100010100100001010100000
+# q=3 DMAX=1000 l=41 k=16 D=2198980208831 dstar=343 groups=1 pairs=41 words=41 cycles=1 mismatches=0 passes=1 maxlist=352716 rss_mb=16 seconds=0.278
+c=293 min=11 l=41 k=17 D=2198894115389 word=11110110001011000100110000010011110000000
+# q=3 DMAX=1000 l=41 k=17 D=2198894115389 dstar=293,19 groups=1 pairs=451 words=41 cycles=1 mismatches=0 passes=1 maxlist=352716 rss_mb=17 seconds=0.281
+# q=3 DMAX=1000 l=41 k=18 D=2198635835063 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=18 seconds=0.293
+# q=3 DMAX=1000 l=41 k=19 D=2197860994085 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=20 seconds=0.409
+# q=3 DMAX=1000 l=41 k=2 D=2199023255543 dstar=809,137 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=210 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=20 D=2195536471151 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=20 seconds=0.296
+# q=3 DMAX=1000 l=41 k=21 D=2188562902349 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=20 seconds=0.285
+# q=3 DMAX=1000 l=41 k=22 D=2167642195943 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=20 seconds=0.308
+# q=3 DMAX=1000 l=41 k=23 D=2104880076725 dstar=575,431 groups=1 pairs=23411 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=18 seconds=0.346
+# q=3 DMAX=1000 l=41 k=24 D=1916593719071 dstar=31 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=17 seconds=0.311
+# q=3 DMAX=1000 l=41 k=25 D=1351734646109 dstar=29 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=16 seconds=0.278
+# q=3 DMAX=1000 l=41 k=26 D=-342842572777 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.276
+# q=3 DMAX=1000 l=41 k=27 D=-5426574229435 dstar=865 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.263
+# q=3 DMAX=1000 l=41 k=28 D=-20677769199409 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.245
+# q=3 DMAX=1000 l=41 k=29 D=-66431354109331 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.226
+# q=3 DMAX=1000 l=41 k=3 D=2199023255525 dstar=601,25 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1330 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=30 D=-203692108839097 dstar=799 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.202
+# q=3 DMAX=1000 l=41 k=31 D=-615474373028395 dstar=653,355 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.162
+# q=3 DMAX=1000 l=41 k=32 D=-1850821165596289 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=293930 rss_mb=13 seconds=0.095
+# q=3 DMAX=1000 l=41 k=33 D=-5556861543299971 dstar=283,53 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=203490 rss_mb=10 seconds=0.057
+# q=3 DMAX=1000 l=41 k=34 D=-16674982676411017 dstar=161 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=116280 rss_mb=7 seconds=0.031
+# q=3 DMAX=1000 l=41 k=35 D=-50029346075744155 dstar=485,95 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=54264 rss_mb=5 seconds=0.011
+# q=3 DMAX=1000 l=41 k=36 D=-150092436273743569 dstar=353 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=20349 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=41 k=37 D=-450281706867741811 dstar=503 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=5985 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=41 k=38 D=-1350849518649736537 dstar=521,487 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1330 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=39 D=-4052552953995720715 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=210 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=4 D=2199023255471 dstar=727,7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=5985 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=41 k=40 D=-12157663260033673249 dstar=623 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=21 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=41 D=-36472994178147530851 dstar=821 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=41 k=5 D=2199023255309 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=20349 rss_mb=4 seconds=0.003
+# q=3 DMAX=1000 l=41 k=6 D=2199023254823 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=54264 rss_mb=5 seconds=0.011
+# q=3 DMAX=1000 l=41 k=7 D=2199023253365 dstar=887,235 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=116280 rss_mb=7 seconds=0.026
+# q=3 DMAX=1000 l=41 k=8 D=2199023248991 dstar=463,79 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=203490 rss_mb=10 seconds=0.057
+# q=3 DMAX=1000 l=41 k=9 D=2199023235869 dstar=191 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=293930 rss_mb=12 seconds=0.094
+# q=3 DMAX=1000 l=42 k=1 D=4398046511101 dstar=193,47 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=21 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=10 D=4398046452055 dstar=727,577,5 groups=1 pairs=168 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=16 seconds=0.200
+# q=3 DMAX=1000 l=42 k=11 D=4398046333957 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.235
+# q=3 DMAX=1000 l=42 k=12 D=4398045979663 dstar=959,553,223,119 groups=2 pairs=46333 words=112 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.615
+# q=3 DMAX=1000 l=42 k=13 D=4398044916781 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.332
+# q=3 DMAX=1000 l=42 k=14 D=4398041728135 dstar=319,145,55 groups=1 pairs=15 words=15 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.408
+# q=3 DMAX=1000 l=42 k=15 D=4398032162197 dstar=349 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.363
+# q=3 DMAX=1000 l=42 k=16 D=4398003464383 dstar=103 groups=1 pairs=21 words=21 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=17 seconds=0.378
+# q=3 DMAX=1000 l=42 k=17 D=4397917370941 dstar=193,61 groups=1 pairs=462 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=19 seconds=0.386
+c=707 min=47 l=42 k=18 D=4397659090615 word=100011101101000101010110100001100110100000
+c=335 min=1 l=42 k=18 D=4397659090615 word=111101000110111001101011010001000100000000
+c=155 min=1 l=42 k=18 D=4397659090615 word=110011000010111101100111000111000100000000
+# q=3 DMAX=1000 l=42 k=18 D=4397659090615 dstar=707,505,469,335,307,217,155,35 groups=2 pairs=43687 words=322 cycles=3 mismatches=0 passes=1 maxlist=352716 rss_mb=22 seconds=0.810
+c=529 min=49 l=42 k=19 D=4396884249637 word=101011001110101000001110101010010101100000
+c=253 min=17 l=42 k=19 D=4396884249637 word=100011110010010011110001011001101011000000
+c=529 min=29 l=42 k=19 D=4396884249637 word=100100111101100101101101010001001100010000
+# q=3 DMAX=1000 l=42 k=19 D=4396884249637 dstar=529,253 groups=1 pairs=882 words=126 cycles=3 mismatches=0 passes=1 maxlist=352716 rss_mb=23 seconds=0.390
+# q=3 DMAX=1000 l=42 k=2 D=4398046511095 dstar=773,295 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=210 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=20 D=4394559726703 dstar=73 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=25 seconds=0.427
+# q=3 DMAX=1000 l=42 k=21 D=4387586157901 dstar=37 groups=1 pairs=20 words=20 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=26 seconds=0.391
+# q=3 DMAX=1000 l=42 k=22 D=4366665451495 dstar=367,5 groups=1 pairs=42 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=26 seconds=0.407
+# q=3 DMAX=1000 l=42 k=23 D=4303903332277 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=24 seconds=0.374
+c=517 min=251 l=42 k=24 D=4115616974623 word=111111110110000001111100110110110110000100
+c=517 min=173 l=42 k=24 D=4115616974623 word=101110111110110010101101110011001110010000
+c=133 min=59 l=42 k=24 D=4115616974623 word=111111011101110101001111000010100101100100
+# q=3 DMAX=1000 l=42 k=24 D=4115616974623 dstar=893,517,329,209,133,77 groups=1 pairs=7665 words=609 cycles=3 mismatches=0 passes=1 maxlist=352716 rss_mb=22 seconds=0.397
+# q=3 DMAX=1000 l=42 k=25 D=3550757901661 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=19 seconds=0.388
+c=149 min=667 l=42 k=26 D=1856180682775 word=111101101011110010110111100111010110001100
+c=991 min=6481 l=42 k=26 D=1856180682775 word=111100111011001111010110110010101110111000
+c=745 min=3463 l=42 k=26 D=1856180682775 word=111101111000110101111010110110011111001000
+c=991 min=4961 l=42 k=26 D=1856180682775 word=111111010001101011111110101011111000001100
+c=991 min=4025 l=42 k=26 D=1856180682775 word=111011111111001110001110101011100010011100
+c=991 min=3001 l=42 k=26 D=1856180682775 word=111011111101101010110110111100110101000010
+c=991 min=2689 l=42 k=26 D=1856180682775 word=111110110110110111001011110011110101100000
+# q=3 DMAX=1000 l=42 k=26 D=1856180682775 dstar=991,745,25 groups=1 pairs=313824 words=294 cycles=7 mismatches=0 passes=1 maxlist=352716 rss_mb=17 seconds=0.504
+# q=3 DMAX=1000 l=42 k=27 D=-3227550973883 dstar=61 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.376
+# q=3 DMAX=1000 l=42 k=28 D=-18478745943857 dstar=17 groups=1 pairs=15 words=15 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.362
+# q=3 DMAX=1000 l=42 k=29 D=-64232330853779 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.333
+# q=3 DMAX=1000 l=42 k=3 D=4398046511077 dstar=37 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1330 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=30 D=-201493085583545 dstar=805,679,485,457,371,265 groups=1 pairs=137963 words=49 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.368
+# q=3 DMAX=1000 l=42 k=31 D=-613275349772843 dstar=59 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=14 seconds=0.255
+# q=3 DMAX=1000 l=42 k=32 D=-1848622142340737 dstar=167,73 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=352716 rss_mb=15 seconds=0.201
+# q=3 DMAX=1000 l=42 k=33 D=-5554662520044419 dstar=431,373,193 groups=1 pairs=406 words=0 cycles=0 mismatches=0 passes=1 maxlist=293930 rss_mb=13 seconds=0.127
+# q=3 DMAX=1000 l=42 k=34 D=-16672783653155465 dstar=55 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=203490 rss_mb=10 seconds=0.064
+# q=3 DMAX=1000 l=42 k=35 D=-50027147052488603 dstar=911,179 groups=1 pairs=6 words=6 cycles=0 mismatches=0 passes=1 maxlist=116280 rss_mb=7 seconds=0.033
+# q=3 DMAX=1000 l=42 k=36 D=-150090237250488017 dstar=857,601,7 groups=1 pairs=91 words=7 cycles=0 mismatches=0 passes=1 maxlist=54264 rss_mb=5 seconds=0.014
+# q=3 DMAX=1000 l=42 k=37 D=-450279507844486259 dstar=61 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=20349 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=42 k=38 D=-1350847319626480985 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=5985 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=42 k=39 D=-4052550754972465163 dstar=407 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1330 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=4 D=4398046511023 dstar=913 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=5985 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=42 k=40 D=-12157661061010417697 dstar=151,67 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=210 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=41 D=-36472991979124275299 dstar=23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=21 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=42 D=-109418984733465848105 dstar=931,817,665,551,497,463,355,301,245,215,203,145 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=42 k=5 D=4398046510861 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=20349 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=42 k=6 D=4398046510375 dstar=917,883,875,665,655,475 groups=1 pairs=3514 words=7 cycles=0 mismatches=0 passes=1 maxlist=54264 rss_mb=5 seconds=0.012
+# q=3 DMAX=1000 l=42 k=7 D=4398046508917 dstar=71,61 groups=1 pairs=6 words=6 cycles=0 mismatches=0 passes=1 maxlist=116280 rss_mb=7 seconds=0.030
+# q=3 DMAX=1000 l=42 k=8 D=4398046504543 dstar=233,73,23 groups=1 pairs=42 words=0 cycles=0 mismatches=0 passes=1 maxlist=203490 rss_mb=10 seconds=0.063
+# q=3 DMAX=1000 l=42 k=9 D=4398046491421 dstar=877,11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=293930 rss_mb=13 seconds=0.114
+# q=3 DMAX=1000 l=43 k=1 D=8796093022205 dstar=211,5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=22 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=10 D=8796092963159 dstar=289 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=646646 rss_mb=24 seconds=0.266
+# q=3 DMAX=1000 l=43 k=11 D=8796092845061 dstar=359 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.355
+# q=3 DMAX=1000 l=43 k=12 D=8796092490767 dstar=353,31 groups=1 pairs=43 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.393
+# q=3 DMAX=1000 l=43 k=13 D=8796091427885 dstar=835,95 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.495
+# q=3 DMAX=1000 l=43 k=14 D=8796088239239 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.534
+# q=3 DMAX=1000 l=43 k=15 D=8796078673301 dstar=23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=30 seconds=0.557
+c=257 min=1 l=43 k=16 D=8796049975487 word=1010101000001101001010111011010000100000000
+# q=3 DMAX=1000 l=43 k=16 D=8796049975487 dstar=727,257,79 groups=1 pairs=451285 words=43 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.732
+# q=3 DMAX=1000 l=43 k=17 D=8795963882045 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=28 seconds=0.598
+# q=3 DMAX=1000 l=43 k=18 D=8795705601719 dstar=71,47 groups=1 pairs=129 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=30 seconds=0.595
+# q=3 DMAX=1000 l=43 k=19 D=8794930760741 dstar=311 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=33 seconds=0.606
+# q=3 DMAX=1000 l=43 k=2 D=8796093022199 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=231 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=20 D=8792606237807 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=35 seconds=0.618
+# q=3 DMAX=1000 l=43 k=21 D=8785632669005 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=37 seconds=0.626
+# q=3 DMAX=1000 l=43 k=22 D=8764711962599 dstar=137 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=37 seconds=0.648
+# q=3 DMAX=1000 l=43 k=23 D=8701949843381 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=35 seconds=0.602
+c=743 min=313 l=43 k=24 D=8513663485727 word=1111100100101011111010010110111100001110000
+# q=3 DMAX=1000 l=43 k=24 D=8513663485727 dstar=743 groups=1 pairs=43 words=43 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=33 seconds=0.620
+c=485 min=299 l=43 k=25 D=7948804412765 word=1111001101110101001011110101110111100100000
+c=485 min=283 l=43 k=25 D=7948804412765 word=1111111101100110001010101111011100100010100
+# q=3 DMAX=1000 l=43 k=25 D=7948804412765 dstar=485 groups=1 pairs=86 words=86 cycles=2 mismatches=0 passes=1 maxlist=705432 rss_mb=30 seconds=0.610
+c=833 min=1711 l=43 k=26 D=6254227193879 word=1111011101010011100111110101100011110001100
+c=23 min=41 l=43 k=26 D=6254227193879 word=1111110111010111100010101111010000111001010
+# q=3 DMAX=1000 l=43 k=26 D=6254227193879 dstar=833,391,161 groups=1 pairs=1376 words=86 cycles=2 mismatches=0 passes=1 maxlist=705432 rss_mb=27 seconds=0.596
+# q=3 DMAX=1000 l=43 k=27 D=1170495537221 dstar=53,43 groups=1 pairs=344 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.598
+# q=3 DMAX=1000 l=43 k=28 D=-14080699432753 dstar=487 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.627
+# q=3 DMAX=1000 l=43 k=29 D=-59834284342675 dstar=25 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.554
+# q=3 DMAX=1000 l=43 k=3 D=8796093022181 dstar=29 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1540 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=30 D=-197095039072441 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.480
+# q=3 DMAX=1000 l=43 k=31 D=-608877303261739 dstar=599,551 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.436
+# q=3 DMAX=1000 l=43 k=32 D=-1844224095829633 dstar=337,7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.372
+# q=3 DMAX=1000 l=43 k=33 D=-5550264473533315 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=646646 rss_mb=25 seconds=0.248
+# q=3 DMAX=1000 l=43 k=34 D=-16668385606644361 dstar=823 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=497420 rss_mb=20 seconds=0.159
+# q=3 DMAX=1000 l=43 k=35 D=-50022749005977499 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=319770 rss_mb=14 seconds=0.073
+# q=3 DMAX=1000 l=43 k=36 D=-150085839203976913 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=170544 rss_mb=9 seconds=0.032
+# q=3 DMAX=1000 l=43 k=37 D=-450275109797975155 dstar=907,115 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=74613 rss_mb=6 seconds=0.019
+# q=3 DMAX=1000 l=43 k=38 D=-1350842921579969881 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=26334 rss_mb=5 seconds=0.004
+# q=3 DMAX=1000 l=43 k=39 D=-4052546356925954059 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=7315 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=43 k=4 D=8796093022127 dstar=199,23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=7315 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=43 k=40 D=-12157656662963906593 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1540 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=41 D=-36472987581077764195 dstar=557,409,235 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=231 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=42 D=-109418980335419337001 dstar=527 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=22 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=43 D=-328256958598444055419 dstar=431 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=43 k=5 D=8796093021965 dstar=719,5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=26334 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=43 k=6 D=8796093021479 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=74613 rss_mb=6 seconds=0.014
+# q=3 DMAX=1000 l=43 k=7 D=8796093020021 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=170544 rss_mb=8 seconds=0.037
+# q=3 DMAX=1000 l=43 k=8 D=8796093015647 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=319770 rss_mb=13 seconds=0.082
+# q=3 DMAX=1000 l=43 k=9 D=8796093002525 dstar=745,25 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=497420 rss_mb=19 seconds=0.153
+# q=3 DMAX=1000 l=44 k=1 D=17592186044413 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=22 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=10 D=17592185985367 dstar=431,343,263,259 groups=1 pairs=220814 words=0 cycles=0 mismatches=0 passes=1 maxlist=646646 rss_mb=25 seconds=0.354
+# q=3 DMAX=1000 l=44 k=11 D=17592185867269 dstar=299 groups=1 pairs=4 words=4 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.479
+# q=3 DMAX=1000 l=44 k=12 D=17592185512975 dstar=415,235,215,25 groups=1 pairs=75317 words=11 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.655
+# q=3 DMAX=1000 l=44 k=13 D=17592184450093 dstar=121 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.662
+# q=3 DMAX=1000 l=44 k=14 D=17592181261447 dstar=673,13 groups=1 pairs=88 words=44 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.731
+# q=3 DMAX=1000 l=44 k=15 D=17592171695509 dstar=109 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.748
+# q=3 DMAX=1000 l=44 k=16 D=17592142997695 dstar=541,281,35 groups=1 pairs=129778 words=77 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.881
+# q=3 DMAX=1000 l=44 k=17 D=17592056904253 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=30 seconds=0.792
+c=121 min=5 l=44 k=18 D=17591798623927 word=10010110001110001011011110001000100100010000
+# q=3 DMAX=1000 l=44 k=18 D=17591798623927 dstar=127,121 groups=1 pairs=792 words=44 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=35 seconds=0.845
+# q=3 DMAX=1000 l=44 k=19 D=17591023782949 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=39 seconds=0.830
+# q=3 DMAX=1000 l=44 k=2 D=17592186044407 dstar=247 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=231 rss_mb=3 seconds=0.000
+c=551 min=37 l=44 k=20 D=17588699260015 word=11001110001100010010111101101001010010010000
+c=485 min=101 l=44 k=20 D=17588699260015 word=10101011101001001001101000110101001010101000
+c=551 min=59 l=44 k=20 D=17588699260015 word=10010010101001100011110011011101000101100000
+c=377 min=53 l=44 k=20 D=17588699260015 word=10011011110101100010001001001110100101001000
+c=79 min=1 l=44 k=20 D=17588699260015 word=11110100101110111000100110110001000110000000
+c=79 min=7 l=44 k=20 D=17588699260015 word=10111000011111011010100010010010110100001000
+# q=3 DMAX=1000 l=44 k=20 D=17588699260015 dstar=551,485,395,377,361,247,145,95,65 groups=2 pairs=382239 words=594 cycles=6 mismatches=0 passes=1 maxlist=705432 rss_mb=44 seconds=1.991
+c=383 min=41 l=44 k=21 D=17581725691213 word=11100010011111010101100011001101100001001000
+# q=3 DMAX=1000 l=44 k=21 D=17581725691213 dstar=383 groups=1 pairs=44 words=44 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=46 seconds=0.871
+c=859 min=163 l=44 k=22 D=17560804984807 word=10110001111110100010011110010100100111100000
+c=859 min=181 l=44 k=22 D=17560804984807 word=11110101010011010101101001100010110010101000
+c=727 min=125 l=44 k=22 D=17560804984807 word=11010001101010111010111000110101010100110000
+c=727 min=79 l=44 k=22 D=17560804984807 word=10111001001111100101101100101011001100001000
+c=727 min=89 l=44 k=22 D=17560804984807 word=11110010001101101111100001110010101000110000
+c=727 min=49 l=44 k=22 D=17560804984807 word=11100111100111101101000001110101001001100000
+c=161 min=25 l=44 k=22 D=17560804984807 word=10110111010110101010110000010011111101000000
+# q=3 DMAX=1000 l=44 k=22 D=17560804984807 dstar=859,727,161 groups=2 pairs=83784 words=314 cycles=7 mismatches=0 passes=1 maxlist=705432 rss_mb=48 seconds=1.711
+c=169 min=17 l=44 k=23 D=17498042865589 word=10111110011101110011100001001110101010010000
+# q=3 DMAX=1000 l=44 k=23 D=17498042865589 dstar=169,143,121 groups=1 pairs=2420 words=44 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=46 seconds=0.757
+c=265 min=67 l=44 k=24 D=17309756507935 word=11010111111111010001000101011101001011001000
+c=901 min=479 l=44 k=24 D=17309756507935 word=11001101100111000111110110010011101010100100
+c=901 min=299 l=44 k=24 D=17309756507935 word=11110111110100011010110011100110001001100100
+c=901 min=379 l=44 k=24 D=17309756507935 word=11111111000001010111111000010011110001011000
+# q=3 DMAX=1000 l=44 k=24 D=17309756507935 dstar=901,265,85 groups=1 pairs=572 words=176 cycles=4 mismatches=0 passes=1 maxlist=705432 rss_mb=44 seconds=0.860
+c=659 min=293 l=44 k=25 D=16744897434973 word=11101111010110010101110100100111110110001000
+# q=3 DMAX=1000 l=44 k=25 D=16744897434973 dstar=659 groups=1 pairs=44 words=44 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=39 seconds=0.884
+# q=3 DMAX=1000 l=44 k=26 D=15050320216087 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=35 seconds=0.887
+c=601 min=1303 l=44 k=27 D=9966588559429 word=11110111111111100100010101001111011100100010
+# q=3 DMAX=1000 l=44 k=27 D=9966588559429 dstar=601 groups=1 pairs=44 words=44 cycles=1 mismatches=0 passes=1 maxlist=705432 rss_mb=30 seconds=0.799
+c=-605 min=5213 l=44 k=28 D=-5284606410545 word=11111111100010110100111111111110100101010000
+c=-605 min=5677 l=44 k=28 D=-5284606410545 word=11110111011011011011101101011001011011011000
+c=-973 min=7757 l=44 k=28 D=-5284606410545 word=11111110011101011011101101101011010011011000
+c=-973 min=7117 l=44 k=28 D=-5284606410545 word=11111111111010001111001011011011001110001100
+c=-847 min=8587 l=44 k=28 D=-5284606410545 word=11011011111101010111111100110010111011010000
+c=-121 min=1085 l=44 k=28 D=-5284606410545 word=11011111111110111011000010110110110010111000
+c=-407 min=6035 l=44 k=28 D=-5284606410545 word=11011110110101111000111011111100100110011100
+c=-185 min=1273 l=44 k=28 D=-5284606410545 word=11111101110111110100011110011111110000100010
+c=-407 min=3095 l=44 k=28 D=-5284606410545 word=11111110111011011100010111010101011101110000
+# q=3 DMAX=1000 l=44 k=28 D=-5284606410545 dstar=973,847,695,605,407,385,259,185 groups=2 pairs=381359 words=2420 cycles=9 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=1.770
+# q=3 DMAX=1000 l=44 k=29 D=-51038191320467 dstar=923 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=26 seconds=0.851
+# q=3 DMAX=1000 l=44 k=3 D=17592186044389 dstar=121 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1540 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=30 D=-188298946050233 dstar=277,157 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.747
+# q=3 DMAX=1000 l=44 k=31 D=-600081210239531 dstar=683 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.739
+# q=3 DMAX=1000 l=44 k=32 D=-1835428002807425 dstar=685,325 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.630
+# q=3 DMAX=1000 l=44 k=33 D=-5541468380511107 dstar=253,121 groups=1 pairs=4 words=4 cycles=0 mismatches=0 passes=1 maxlist=705432 rss_mb=25 seconds=0.514
+# q=3 DMAX=1000 l=44 k=34 D=-16659589513622153 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=646646 rss_mb=25 seconds=0.339
+# q=3 DMAX=1000 l=44 k=35 D=-50013952912955291 dstar=611 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=497420 rss_mb=20 seconds=0.208
+# q=3 DMAX=1000 l=44 k=36 D=-150077043110954705 dstar=701,155 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=319770 rss_mb=14 seconds=0.110
+# q=3 DMAX=1000 l=44 k=37 D=-450266313704952947 dstar=313 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=170544 rss_mb=9 seconds=0.046
+# q=3 DMAX=1000 l=44 k=38 D=-1350834125486947673 dstar=767,649,247,209,143,121 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=74613 rss_mb=6 seconds=0.022
+# q=3 DMAX=1000 l=44 k=39 D=-4052537560832931851 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=26334 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=44 k=4 D=17592186044335 dstar=905,409,293,35 groups=1 pairs=231 words=0 cycles=0 mismatches=0 passes=1 maxlist=7315 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=44 k=40 D=-12157647866870884385 dstar=749,595,571,535,479 groups=1 pairs=231 words=0 cycles=0 mismatches=0 passes=1 maxlist=7315 rss_mb=3 seconds=0.002
+# q=3 DMAX=1000 l=44 k=41 D=-36472978784984741987 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1540 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=42 D=-109418971539326314793 dstar=109 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=231 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=43 D=-328256949802351033211 dstar=587,121 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=22 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=44 D=-984770884591425188465 dstar=529,331,299,115,65 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=44 k=5 D=17592186044173 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=26334 rss_mb=4 seconds=0.005
+# q=3 DMAX=1000 l=44 k=6 D=17592186043687 dstar=31 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=74613 rss_mb=6 seconds=0.017
+# q=3 DMAX=1000 l=44 k=7 D=17592186042229 dstar=179 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=170544 rss_mb=9 seconds=0.044
+# q=3 DMAX=1000 l=44 k=8 D=17592186037855 dstar=935,865,715,605,373,221 groups=1 pairs=76824 words=0 cycles=0 mismatches=0 passes=1 maxlist=319770 rss_mb=14 seconds=0.094
+# q=3 DMAX=1000 l=44 k=9 D=17592186024733 dstar=59 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=497420 rss_mb=20 seconds=0.213
+# q=3 DMAX=1000 l=45 k=1 D=35184372088829 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=23 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=10 D=35184372029783 dstar=503 groups=1 pairs=36 words=36 cycles=0 mismatches=0 passes=1 maxlist=1144066 rss_mb=39 seconds=0.470
+# q=3 DMAX=1000 l=45 k=11 D=35184371911685 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.661
+# q=3 DMAX=1000 l=45 k=12 D=35184371557391 dstar=511 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.922
+# q=3 DMAX=1000 l=45 k=13 D=35184370494509 dstar=67 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.079
+# q=3 DMAX=1000 l=45 k=14 D=35184367305863 dstar=41 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.265
+# q=3 DMAX=1000 l=45 k=15 D=35184357739925 dstar=571,485,25 groups=1 pairs=14169 words=84 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.272
+# q=3 DMAX=1000 l=45 k=16 D=35184329042111 dstar=89 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=53 seconds=1.283
+# q=3 DMAX=1000 l=45 k=17 D=35184242948669 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=48 seconds=1.188
+# q=3 DMAX=1000 l=45 k=18 D=35183984668343 dstar=487,199,161 groups=1 pairs=773110 words=70 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=51 seconds=1.554
+# q=3 DMAX=1000 l=45 k=19 D=35183209827365 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=56 seconds=1.287
+# q=3 DMAX=1000 l=45 k=2 D=35184372088823 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=253 rss_mb=3 seconds=0.000
+c=271 min=17 l=45 k=20 D=35180885304431 word=111110010100011110001011100000100011100010000
+# q=3 DMAX=1000 l=45 k=20 D=35180885304431 dstar=431,271 groups=1 pairs=10611 words=171 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=61 seconds=1.341
+c=577 min=17 l=45 k=21 D=35173911735629 word=101001100011111101011100110001100100011000000
+# q=3 DMAX=1000 l=45 k=21 D=35173911735629 dstar=577,53 groups=1 pairs=7830 words=150 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=66 seconds=1.352
+c=103 min=23 l=45 k=22 D=35152991029223 word=101001101110010110010011000101110110101010000
+c=697 min=79 l=45 k=22 D=35152991029223 word=111010111001011001010000111000111101010100000
+# q=3 DMAX=1000 l=45 k=22 D=35152991029223 dstar=697,103 groups=1 pairs=8055 words=90 cycles=2 mismatches=0 passes=1 maxlist=1352078 rss_mb=68 seconds=1.339
+c=523 min=115 l=45 k=23 D=35090228910005 word=101101010010110011000111111000110111100100000
+c=523 min=209 l=45 k=23 D=35090228910005 word=110011010111100101000110010101110101010100100
+c=523 min=89 l=45 k=23 D=35090228910005 word=110101011111011001000110010001110111100010000
+# q=3 DMAX=1000 l=45 k=23 D=35090228910005 dstar=523,5 groups=1 pairs=450 words=135 cycles=3 mismatches=0 passes=1 maxlist=1352078 rss_mb=68 seconds=1.282
+c=553 min=239 l=45 k=24 D=34901942552351 word=111000101011110101100011000111110101011010000
+c=511 min=293 l=45 k=24 D=34901942552351 word=110111001001010101110011110010100101110100100
+# q=3 DMAX=1000 l=45 k=24 D=34901942552351 dstar=553,511,359 groups=2 pairs=5160 words=255 cycles=2 mismatches=0 passes=1 maxlist=1352078 rss_mb=66 seconds=2.670
+# q=3 DMAX=1000 l=45 k=25 D=34337083479389 dstar=269 groups=1 pairs=126 words=126 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=62 seconds=1.297
+# q=3 DMAX=1000 l=45 k=26 D=32642506260503 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=56 seconds=1.256
+# q=3 DMAX=1000 l=45 k=27 D=27558774603845 dstar=95 groups=1 pairs=10 words=10 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=51 seconds=1.336
+c=727 min=1577 l=45 k=28 D=12307579633871 word=111111110111111001110110011100110100111000000
+# q=3 DMAX=1000 l=45 k=28 D=12307579633871 dstar=727 groups=1 pairs=45 words=45 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=49 seconds=1.261
+# q=3 DMAX=1000 l=45 k=29 D=-33446005276051 dstar=307,47,23 groups=1 pairs=6075 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=47 seconds=1.320
+# q=3 DMAX=1000 l=45 k=3 D=35184372088805 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1771 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=30 D=-170706760005817 dstar=641,287,217 groups=1 pairs=15504 words=174 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.276
+# q=3 DMAX=1000 l=45 k=31 D=-582489024195115 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.152
+# q=3 DMAX=1000 l=45 k=32 D=-1817835816763009 dstar=439 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.015
+# q=3 DMAX=1000 l=45 k=33 D=-5523876194466691 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.631
+# q=3 DMAX=1000 l=45 k=34 D=-16641997327577737 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.388
+# q=3 DMAX=1000 l=45 k=35 D=-49996360726910875 dstar=335,125 groups=1 pairs=36 words=0 cycles=0 mismatches=0 passes=1 maxlist=1144066 rss_mb=39 seconds=0.480
+# q=3 DMAX=1000 l=45 k=36 D=-150059450924910289 dstar=511,49 groups=1 pairs=5 words=5 cycles=0 mismatches=0 passes=1 maxlist=817190 rss_mb=30 seconds=0.262
+# q=3 DMAX=1000 l=45 k=37 D=-450248721518908531 dstar=29 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=490314 rss_mb=19 seconds=0.131
+# q=3 DMAX=1000 l=45 k=38 D=-1350816533300903257 dstar=697 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=245157 rss_mb=12 seconds=0.063
+# q=3 DMAX=1000 l=45 k=39 D=-4052519968646887435 dstar=215 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=100947 rss_mb=7 seconds=0.025
+# q=3 DMAX=1000 l=45 k=4 D=35184372088751 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=8855 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=45 k=40 D=-12157630274684839969 dstar=263,191,71,23 groups=1 pairs=9 words=0 cycles=0 mismatches=0 passes=1 maxlist=33649 rss_mb=5 seconds=0.007
+# q=3 DMAX=1000 l=45 k=41 D=-36472961192798697571 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=8855 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=45 k=42 D=-109418953947140270377 dstar=959 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1771 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=43 D=-328256932210164988795 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=253 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=44 D=-984770866999239144049 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=23 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=45 D=-2954312671366461609811 dstar=211,19 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=45 k=5 D=35184372088589 dstar=701,509,101,71 groups=1 pairs=54 words=9 cycles=0 mismatches=0 passes=1 maxlist=33649 rss_mb=4 seconds=0.006
+# q=3 DMAX=1000 l=45 k=6 D=35184372088103 dstar=799,697,329,287,119 groups=1 pairs=105 words=0 cycles=0 mismatches=0 passes=1 maxlist=100947 rss_mb=6 seconds=0.020
+# q=3 DMAX=1000 l=45 k=7 D=35184372086645 dstar=115 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=245157 rss_mb=11 seconds=0.064
+# q=3 DMAX=1000 l=45 k=8 D=35184372082271 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=490314 rss_mb=19 seconds=0.123
+# q=3 DMAX=1000 l=45 k=9 D=35184372069149 dstar=551 groups=1 pairs=5 words=5 cycles=0 mismatches=0 passes=1 maxlist=817190 rss_mb=29 seconds=0.268
+# q=3 DMAX=1000 l=46 k=1 D=70368744177661 dstar=227 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=23 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=10 D=70368744118615 dstar=985,485,439 groups=1 pairs=1104 words=0 cycles=0 mismatches=0 passes=1 maxlist=1144066 rss_mb=39 seconds=0.553
+# q=3 DMAX=1000 l=46 k=11 D=70368744000517 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.798
+# q=3 DMAX=1000 l=46 k=12 D=70368743646223 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.072
+# q=3 DMAX=1000 l=46 k=13 D=70368742583341 dstar=419 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.420
+# q=3 DMAX=1000 l=46 k=14 D=70368739394695 dstar=805 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.619
+# q=3 DMAX=1000 l=46 k=15 D=70368729828757 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.600
+# q=3 DMAX=1000 l=46 k=16 D=70368701130943 dstar=71,59,19 groups=1 pairs=1288 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=47 seconds=1.657
+c=407 min=1 l=46 k=17 D=70368615037501 word=1110110000001111001101000101000001110000000000
+# q=3 DMAX=1000 l=46 k=17 D=70368615037501 dstar=407 groups=1 pairs=46 words=46 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=49 seconds=1.712
+c=557 min=5 l=46 k=18 D=70368356757175 word=1011010100100100101101001010101000110010000000
+# q=3 DMAX=1000 l=46 k=18 D=70368356757175 dstar=601,557,265,25 groups=2 pairs=1024972 words=161 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=55 seconds=3.589
+# q=3 DMAX=1000 l=46 k=19 D=70367581916197 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=65 seconds=1.779
+# q=3 DMAX=1000 l=46 k=2 D=70368744177655 dstar=385 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=253 rss_mb=3 seconds=0.000
+c=833 min=31 l=46 k=20 D=70365257393263 word=1111100000110010111110100000110000101011000000
+# q=3 DMAX=1000 l=46 k=20 D=70365257393263 dstar=833,581 groups=1 pairs=5336 words=46 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=75 seconds=1.877
+# q=3 DMAX=1000 l=46 k=21 D=70358283824461 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=82 seconds=1.703
+# q=3 DMAX=1000 l=46 k=22 D=70337363118055 dstar=55 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=88 seconds=1.791
+# q=3 DMAX=1000 l=46 k=23 D=70274600998837 dstar=47 groups=1 pairs=2 words=2 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=88 seconds=1.800
+c=191 min=47 l=46 k=24 D=70086314641183 word=1010010111011101010111010011010110101000011000
+# q=3 DMAX=1000 l=46 k=24 D=70086314641183 dstar=191,43,31 groups=1 pairs=29463 words=69 cycles=1 mismatches=0 passes=1 maxlist=1352078 rss_mb=88 seconds=1.774
+# q=3 DMAX=1000 l=46 k=25 D=69521455568221 dstar=23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=82 seconds=1.711
+# q=3 DMAX=1000 l=46 k=26 D=67826878349335 dstar=203,145,35 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=75 seconds=1.727
+# q=3 DMAX=1000 l=46 k=27 D=62743146692677 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=65 seconds=1.879
+# q=3 DMAX=1000 l=46 k=28 D=47491951722703 dstar=79 groups=1 pairs=46 words=46 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=55 seconds=1.757
+# q=3 DMAX=1000 l=46 k=29 D=1738366812781 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=49 seconds=1.726
+# q=3 DMAX=1000 l=46 k=3 D=70368744177637 dstar=157,23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1771 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=30 D=-135522387916985 dstar=431,5 groups=1 pairs=23 words=23 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=47 seconds=1.756
+# q=3 DMAX=1000 l=46 k=31 D=-547304652106283 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.603
+# q=3 DMAX=1000 l=46 k=32 D=-1782651444674177 dstar=979,623,77 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.558
+# q=3 DMAX=1000 l=46 k=33 D=-5488691822377859 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.159
+# q=3 DMAX=1000 l=46 k=34 D=-16606812955488905 dstar=727,505,95 groups=1 pairs=46 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=1.147
+# q=3 DMAX=1000 l=46 k=35 D=-49961176354822043 dstar=251,37 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1352078 rss_mb=46 seconds=0.872
+# q=3 DMAX=1000 l=46 k=36 D=-150024266552821457 dstar=449,391,289,127 groups=1 pairs=34431 words=0 cycles=0 mismatches=0 passes=1 maxlist=1144066 rss_mb=39 seconds=0.614
+# q=3 DMAX=1000 l=46 k=37 D=-450213537146819699 dstar=107,11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=817190 rss_mb=29 seconds=0.340
+# q=3 DMAX=1000 l=46 k=38 D=-1350781348928814425 dstar=175 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=490314 rss_mb=19 seconds=0.179
+# q=3 DMAX=1000 l=46 k=39 D=-4052484784274798603 dstar=347,167 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=245157 rss_mb=11 seconds=0.080
+# q=3 DMAX=1000 l=46 k=4 D=70368744177583 dstar=17 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=8855 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=46 k=40 D=-12157595090312751137 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=100947 rss_mb=7 seconds=0.018
+# q=3 DMAX=1000 l=46 k=41 D=-36472926008426608739 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=33649 rss_mb=4 seconds=0.004
+# q=3 DMAX=1000 l=46 k=42 D=-109418918762768181545 dstar=941,55 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=8855 rss_mb=4 seconds=0.002
+# q=3 DMAX=1000 l=46 k=43 D=-328256897025792899963 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1771 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=44 D=-984770831814867055217 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=253 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=45 D=-2954312636182089520979 dstar=59 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=23 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=46 D=-8862938049283756918265 dstar=461,235 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=46 k=5 D=70368744177421 dstar=587 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=33649 rss_mb=4 seconds=0.006
+# q=3 DMAX=1000 l=46 k=6 D=70368744176935 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=100947 rss_mb=7 seconds=0.021
+# q=3 DMAX=1000 l=46 k=7 D=70368744175477 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=245157 rss_mb=11 seconds=0.069
+# q=3 DMAX=1000 l=46 k=8 D=70368744171103 dstar=499,7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=490314 rss_mb=19 seconds=0.149
+# q=3 DMAX=1000 l=46 k=9 D=70368744157981 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=817190 rss_mb=29 seconds=0.337
+# q=3 DMAX=1000 l=47 k=1 D=140737488355325 dstar=25 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=24 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=10 D=140737488296279 dstar=919,161 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1961256 rss_mb=65 seconds=0.731
+# q=3 DMAX=1000 l=47 k=11 D=140737488178181 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2496144 rss_mb=82 seconds=1.115
+# q=3 DMAX=1000 l=47 k=12 D=140737487823887 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=1.621
+# q=3 DMAX=1000 l=47 k=13 D=140737486761005 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=1.966
+# q=3 DMAX=1000 l=47 k=14 D=140737483572359 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.164
+# q=3 DMAX=1000 l=47 k=15 D=140737474006421 dstar=53,29 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.458
+# q=3 DMAX=1000 l=47 k=16 D=140737445308607 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=2.484
+c=461 min=7 l=47 k=17 D=140737359215165 word=11000010110100010000100111100100100101001000000
+# q=3 DMAX=1000 l=47 k=17 D=140737359215165 dstar=461,235 groups=1 pairs=1927 words=47 cycles=1 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=2.609
+c=527 min=13 l=47 k=18 D=140737100934839 word=11000010001110101100001101010001100100011000000
+# q=3 DMAX=1000 l=47 k=18 D=140737100934839 dstar=527 groups=1 pairs=47 words=47 cycles=1 mismatches=0 passes=1 maxlist=2704156 rss_mb=91 seconds=2.679
+c=499 min=1 l=47 k=19 D=140736326093861 word=11011000010101100110100001111110100100000000000
+c=499 min=23 l=47 k=19 D=140736326093861 word=10010011000100111010110000110011001000111000000
+# q=3 DMAX=1000 l=47 k=19 D=140736326093861 dstar=499 groups=1 pairs=94 words=94 cycles=2 mismatches=0 passes=1 maxlist=2704156 rss_mb=97 seconds=2.677
+# q=3 DMAX=1000 l=47 k=2 D=140737488355319 dstar=17 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=276 rss_mb=3 seconds=0.000
+c=167 min=13 l=47 k=20 D=140734001570927 word=11010100010001110100011000111101001001001010000
+# q=3 DMAX=1000 l=47 k=20 D=140734001570927 dstar=167 groups=1 pairs=47 words=47 cycles=1 mismatches=0 passes=1 maxlist=2704156 rss_mb=107 seconds=2.607
+c=479 min=37 l=47 k=21 D=140727028002125 word=11011010000101001010111010010011011001010010000
+c=575 min=19 l=47 k=21 D=140727028002125 word=10010100001101111010110100010101110011001000000
+# q=3 DMAX=1000 l=47 k=21 D=140727028002125 dstar=575,479,125 groups=1 pairs=119004 words=94 cycles=2 mismatches=0 passes=1 maxlist=2704156 rss_mb=118 seconds=2.737
+c=929 min=119 l=47 k=22 D=140706107295719 word=11100001100011111000110011100011110000101001000
+c=929 min=35 l=47 k=22 D=140706107295719 word=11000110110011010111000001101011101110010000000
+c=809 min=83 l=47 k=22 D=140706107295719 word=11011111110000100011010011001000111001010001000
+# q=3 DMAX=1000 l=47 k=22 D=140706107295719 dstar=929,809,401,7 groups=2 pairs=543367 words=141 cycles=3 mismatches=0 passes=1 maxlist=2704156 rss_mb=124 seconds=5.754
+# q=3 DMAX=1000 l=47 k=23 D=140643345176501 dstar=197,19 groups=1 pairs=423 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=131 seconds=2.771
+c=223 min=71 l=47 k=24 D=140455058818847 word=10110010011001111010011110111000101100100010100
+c=223 min=35 l=47 k=24 D=140455058818847 word=10011100101101011101110100110101001010100110000
+# q=3 DMAX=1000 l=47 k=24 D=140455058818847 dstar=223 groups=1 pairs=94 words=94 cycles=2 mismatches=0 passes=1 maxlist=2704156 rss_mb=131 seconds=2.728
+# q=3 DMAX=1000 l=47 k=25 D=139890199745885 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=124 seconds=2.667
+# q=3 DMAX=1000 l=47 k=26 D=138195622526999 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=118 seconds=2.646
+# q=3 DMAX=1000 l=47 k=27 D=133111890870341 dstar=71 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=107 seconds=2.636
+# q=3 DMAX=1000 l=47 k=28 D=117860695900367 dstar=7 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=97 seconds=2.763
+# q=3 DMAX=1000 l=47 k=29 D=72107110990445 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=91 seconds=2.704
+# q=3 DMAX=1000 l=47 k=3 D=140737488355301 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2024 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=30 D=-65153643739321 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=2.616
+# q=3 DMAX=1000 l=47 k=31 D=-476935907928619 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=2.596
+# q=3 DMAX=1000 l=47 k=32 D=-1712282700496513 dstar=199,79,23 groups=1 pairs=282 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.490
+# q=3 DMAX=1000 l=47 k=33 D=-5418323078200195 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.132
+# q=3 DMAX=1000 l=47 k=34 D=-16536444211311241 dstar=119 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.014
+# q=3 DMAX=1000 l=47 k=35 D=-49890807610644379 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=0.820
+# q=3 DMAX=1000 l=47 k=36 D=-149953897808643793 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2496144 rss_mb=82 seconds=0.499
+# q=3 DMAX=1000 l=47 k=37 D=-450143168402642035 dstar=359,5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1961256 rss_mb=65 seconds=0.816
+# q=3 DMAX=1000 l=47 k=38 D=-1350710980184636761 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1307504 rss_mb=44 seconds=0.221
+# q=3 DMAX=1000 l=47 k=39 D=-4052414415530620939 dstar=773,457 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=735471 rss_mb=27 seconds=0.223
+# q=3 DMAX=1000 l=47 k=4 D=140737488355247 dstar=791,343 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=10626 rss_mb=4 seconds=0.001
+# q=3 DMAX=1000 l=47 k=40 D=-12157524721568573473 dstar=727,431,329 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=346104 rss_mb=14 seconds=0.085
+# q=3 DMAX=1000 l=47 k=41 D=-36472855639682431075 dstar=475 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=134596 rss_mb=8 seconds=0.024
+# q=3 DMAX=1000 l=47 k=42 D=-109418848394024003881 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=42504 rss_mb=5 seconds=0.005
+# q=3 DMAX=1000 l=47 k=43 D=-328256826657048722299 dstar=667 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=10626 rss_mb=4 seconds=0.002
+# q=3 DMAX=1000 l=47 k=44 D=-984770761446122877553 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2024 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=45 D=-2954312565813345343315 dstar=647,5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=276 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=46 D=-8862937978915012740601 dstar=311,49 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=24 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=47 D=-26588814218220014932459 dstar=1 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=47 k=5 D=140737488355085 dstar=485,95 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=42504 rss_mb=5 seconds=0.007
+# q=3 DMAX=1000 l=47 k=6 D=140737488354599 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=134596 rss_mb=7 seconds=0.026
+# q=3 DMAX=1000 l=47 k=7 D=140737488353141 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=346104 rss_mb=14 seconds=0.079
+# q=3 DMAX=1000 l=47 k=8 D=140737488348767 dstar=487,191 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=735471 rss_mb=26 seconds=0.196
+# q=3 DMAX=1000 l=47 k=9 D=140737488335645 dstar=215 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1307504 rss_mb=44 seconds=0.402
+# q=3 DMAX=1000 l=48 k=1 D=281474976710653 dstar=239,167,11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=24 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=48 k=10 D=281474976651607 dstar=151 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1961256 rss_mb=65 seconds=0.953
+# q=3 DMAX=1000 l=48 k=11 D=281474976533509 dstar=517 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2496144 rss_mb=82 seconds=1.463
+# q=3 DMAX=1000 l=48 k=12 D=281474976179215 dstar=689,665,589,455,403,371,313,265,247,217,155 groups=1 pairs=1228724 words=52 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.222
+# q=3 DMAX=1000 l=48 k=13 D=281474975116333 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.462
+# q=3 DMAX=1000 l=48 k=14 D=281474971927687 dstar=311 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=2.918
+# q=3 DMAX=1000 l=48 k=15 D=281474962361749 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=3.208
+# q=3 DMAX=1000 l=48 k=16 D=281474933663935 dstar=935,803,565,365 groups=1 pairs=62583 words=183 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=3.523
+# q=3 DMAX=1000 l=48 k=17 D=281474847570493 dstar=23 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=90 seconds=3.232
+# q=3 DMAX=1000 l=48 k=18 D=281474589290167 dstar=973,793,433,427,283,229,169,91 groups=2 pairs=1007608 words=136 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=93 seconds=7.423
+# q=3 DMAX=1000 l=48 k=19 D=281473814449189 dstar=887 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=106 seconds=3.573
+# q=3 DMAX=1000 l=48 k=2 D=281474976710647 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=276 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=48 k=20 D=281471489926255 dstar=5 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=126 seconds=3.422
+# q=3 DMAX=1000 l=48 k=21 D=281464516357453 dstar=443,143 groups=1 pairs=13504 words=80 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=143 seconds=3.693
+# q=3 DMAX=1000 l=48 k=22 D=281443595651047 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=160 seconds=3.578
+# q=3 DMAX=1000 l=48 k=23 D=281380833531829 dstar=59 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=167 seconds=3.653
+c=925 min=73 l=48 k=24 D=281192547174175 word=100110111111101001001010011000110110101010100000
+c=965 min=43 l=48 k=24 D=281192547174175 word=111101010010001001101111111101001101100001000000
+c=925 min=103 l=48 k=24 D=281192547174175 word=110011100010111111010001100101110100110010001000
+c=455 min=43 l=48 k=24 D=281192547174175 word=100111101100010111011100111011110000100000110000
+c=965 min=77 l=48 k=24 D=281192547174175 word=101111010110110011101010001000111100101001100000
+c=455 min=31 l=48 k=24 D=281192547174175 word=101111010100111101110001100000111110010100010000
+c=91 min=1 l=48 k=24 D=281192547174175 word=110011101110111101101001110100010101100010000000
+c=965 min=37 l=48 k=24 D=281192547174175 word=101011111110010111110100011011110000001000010000
+# q=3 DMAX=1000 l=48 k=24 D=281192547174175 dstar=965,925,481,455,337,325,259,175 groups=2 pairs=4036750 words=1292 cycles=8 mismatches=0 passes=1 maxlist=2704156 rss_mb=173 seconds=8.499
+# q=3 DMAX=1000 l=48 k=25 D=280627688101213 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=167 seconds=3.651
+c=827 min=229 l=48 k=26 D=278933110882327 word=111110001011000110111001111110100101001010110000
+c=827 min=161 l=48 k=26 D=278933110882327 word=110011101011010101101110111101101100000011001000
+# q=3 DMAX=1000 l=48 k=26 D=278933110882327 dstar=827,11 groups=1 pairs=2112 words=192 cycles=2 mismatches=0 passes=1 maxlist=2704156 rss_mb=160 seconds=3.852
+# q=3 DMAX=1000 l=48 k=27 D=273849379225669 dstar=13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=143 seconds=3.750
+# q=3 DMAX=1000 l=48 k=28 D=258598184255695 dstar=515,415,365,305,115 groups=2 pairs=201960 words=48 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=126 seconds=7.175
+# q=3 DMAX=1000 l=48 k=29 D=212844599345773 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=106 seconds=3.518
+# q=3 DMAX=1000 l=48 k=3 D=281474976710629 dstar=923 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2024 rss_mb=3 seconds=0.000
+c=931 min=9517 l=48 k=30 D=75583844616007 word=111101111100011101101110101001110001111110001010
+c=499 min=2381 l=48 k=30 D=75583844616007 word=111111011000111111111101111100110001110001010000
+# q=3 DMAX=1000 l=48 k=30 D=75583844616007 dstar=931,871,637,499,469,247 groups=2 pairs=92608 words=832 cycles=2 mismatches=0 passes=1 maxlist=2704156 rss_mb=93 seconds=7.177
+# q=3 DMAX=1000 l=48 k=31 D=-336198419573291 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=90 seconds=3.607
+c=-145 min=241 l=48 k=32 D=-1571545212141185 word=111110110111111110111001011010111100101100101100
+# q=3 DMAX=1000 l=48 k=32 D=-1571545212141185 dstar=577,493,145,85 groups=1 pairs=2463 words=207 cycles=1 mismatches=0 passes=1 maxlist=2704156 rss_mb=89 seconds=3.407
+# q=3 DMAX=1000 l=48 k=33 D=-5277585589844867 dstar=181,13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=3.338
+# q=3 DMAX=1000 l=48 k=34 D=-16395706722955913 dstar=107,47 groups=1 pairs=48 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=3.035
+# q=3 DMAX=1000 l=48 k=35 D=-49750070122289051 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=1.479
+# q=3 DMAX=1000 l=48 k=36 D=-149813160320288465 dstar=985,869,763,715,559,553,545,473,455,395,385,301,215 groups=1 pairs=346196 words=28 cycles=0 mismatches=0 passes=1 maxlist=2704156 rss_mb=88 seconds=1.774
+# q=3 DMAX=1000 l=48 k=37 D=-450002430914286707 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2496144 rss_mb=82 seconds=0.446
+# q=3 DMAX=1000 l=48 k=38 D=-1350570242696281433 dstar=613,71,61 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1961256 rss_mb=65 seconds=0.999
+# q=3 DMAX=1000 l=48 k=39 D=-4052273678042265611 dstar=299,277 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=1307504 rss_mb=44 seconds=0.544
+# q=3 DMAX=1000 l=48 k=4 D=281474976710575 dstar=725,365,317 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=10626 rss_mb=4 seconds=0.002
+# q=3 DMAX=1000 l=48 k=40 D=-12157383984080218145 dstar=965,895,865,365,307 groups=1 pairs=10818 words=6 cycles=0 mismatches=0 passes=1 maxlist=735471 rss_mb=27 seconds=0.223
+# q=3 DMAX=1000 l=48 k=41 D=-36472714902194075747 dstar=11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=346104 rss_mb=14 seconds=0.049
+# q=3 DMAX=1000 l=48 k=42 D=-109418707656535648553 dstar=769,541,481,403,349,259,217,91 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=134596 rss_mb=8 seconds=0.040
+# q=3 DMAX=1000 l=48 k=43 D=-328256685919560366971 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=42504 rss_mb=5 seconds=0.004
+# q=3 DMAX=1000 l=48 k=44 D=-984770620708634522225 dstar=655,25 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=10626 rss_mb=4 seconds=0.002
+# q=3 DMAX=1000 l=48 k=45 D=-2954312425075856987987 dstar=433,13 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=2024 rss_mb=3 seconds=0.001
+# q=3 DMAX=1000 l=48 k=46 D=-8862937838177524385273 dstar=727,11 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=276 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=48 k=47 D=-26588814077482526577131 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=24 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=48 k=48 D=-79766442795397533152705 dstar=793,679,665,595,485,455,427,401,323,305,247,221 groups=1 pairs=1 words=1 cycles=0 mismatches=0 passes=1 maxlist=1 rss_mb=3 seconds=0.000
+# q=3 DMAX=1000 l=48 k=5 D=281474976710413 dstar=1 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=42504 rss_mb=5 seconds=0.008
+# q=3 DMAX=1000 l=48 k=6 D=281474976709927 dstar=851,481,407,307,299,259,253,211,161,143,91,77 groups=1 pairs=3144 words=8 cycles=0 mismatches=0 passes=1 maxlist=134596 rss_mb=8 seconds=0.028
+# q=3 DMAX=1000 l=48 k=7 D=281474976708469 dstar=431 groups=1 pairs=0 words=0 cycles=0 mismatches=0 passes=1 maxlist=346104 rss_mb=14 seconds=0.090
+# q=3 DMAX=1000 l=48 k=8 D=281474976704095 dstar=965,821,335,305 groups=1 pairs=14466 words=6 cycles=0 mismatches=0 passes=1 maxlist=735471 rss_mb=27 seconds=0.237
+# q=3 DMAX=1000 l=48 k=9 D=281474976690973 dstar=601,109,13 groups=1 pairs=560 words=16 cycles=0 mismatches=0 passes=1 maxlist=1307504 rss_mb=44 seconds=0.507

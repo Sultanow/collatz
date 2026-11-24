@@ -16,6 +16,12 @@ census: census.c
 census_all: census_all.c
 	$(CC) $(CFLAGS) -o $@ $< -lm
 
+# Run P: meet-in-the-middle census (C++17, __int128)
+CXX ?= g++
+CXXFLAGS ?= -O2 -std=c++17
+mitm_census: mitm_census.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
 basin: basin.c
 	$(CC) $(CFLAGS) -o $@ $<
 
@@ -36,6 +42,9 @@ passage: passage.c
 
 test: all
 	bash tests/run_tests.sh
+
+test-mitm: census_all mitm_census
+	bash tests/run_mitm_tests.sh
 
 test-passage: passage
 	bash tests/run_passage_tests.sh

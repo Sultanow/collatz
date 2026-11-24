@@ -1,0 +1,68 @@
+Run P: meet-in-the-middle census of the primitive cycles of 3x+c, |c0| <= 1000, word lengths 41..48
+types: 356 done, 0 missing, 0 skipped; mismatches = 0
+CPU time 0.08 h in total, longest type 0.1 min; max passes 1, largest half-list 2.704e+06
+merged census: 1097 cycles with l <= 40 (Run A) + 94 with 40 < l <= 48 -> res_probe2/rational_cycles_q3_d1000_L48.csv
+selftest l <= 24 (selftest_L24.txt): 804 cycles, Run A 804; identical: True
+
+primitive cycles per word length against the heuristic sum_k E(l,k):
+   l   observed   expected   distinct |c0|
+  41          2        3.7        2
+  42         16       16.7       10
+  43          6        7.3        5
+  44         31       25.6       19
+  45         10       13.3        8
+  46          4        5.8        4
+  47         12        9.6        9
+  48         13       24.0        8
+
+O/E by class (types with |D| > DMAX and E >= 1), as in Run J:
+  l = 1..40:
+    all                types  116   E    879.8   O    839   O/E  0.95
+    even l,k           types   53   E    492.5   O    446   O/E  0.91
+    even l,k D<0       types    7   E    112.7   O    117   O/E  1.04
+    even l,k D>0       types   46   E    379.8   O    329   O/E  0.87
+    gcd=1              types   49   E    338.2   O    348   O/E  1.03
+    gcd=1 D<0          types    4   E    144.1   O    152   O/E  1.06
+    gcd=1 D>0          types   45   E    194.2   O    196   O/E  1.01
+    other gcd>1        types   14   E     49.1   O     45   O/E  0.92
+    other gcd>1 D<0    types    1   E      5.2   O      6   O/E  1.16
+    other gcd>1 D>0    types   13   E     43.9   O     39   O/E  0.89
+  l = 41..48:
+    all                types   29   E     87.6   O     76   O/E  0.87
+    even l,k           types   15   E     59.2   O     53   O/E  0.90
+    even l,k D<0       types    1   E      6.9   O      9   O/E  1.30
+    even l,k D>0       types   14   E     52.2   O     44   O/E  0.84
+    gcd=1              types   11   E     22.1   O     19   O/E  0.86
+    gcd=1 D>0          types   11   E     22.1   O     19   O/E  0.86
+    other gcd>1        types    3   E      6.3   O      4   O/E  0.63
+    other gcd>1 D>0    types    3   E      6.3   O      4   O/E  0.63
+
+cycles of 3x+1, 3x-1, 3x+5, 3x+13 with word length in the new range (c0 = +-1, 5, 13):
+  none
+
+new cycles with the smallest |c0|:
+  c0=   23  min=          41  l=43  k=26
+  c0=   79  min=           1  l=44  k=20
+  c0=   79  min=           7  l=44  k=20
+  c0=   91  min=           1  l=48  k=24
+  c0=  103  min=          23  l=45  k=22
+  c0=  121  min=           5  l=44  k=18
+  c0= -121  min=        1085  l=44  k=28
+  c0=  133  min=          59  l=42  k=24
+  c0= -145  min=         241  l=48  k=32
+  c0=  149  min=         667  l=42  k=26
+  c0=  155  min=           1  l=42  k=18
+  c0=  161  min=          25  l=44  k=22
+  c0=  167  min=          13  l=47  k=20
+  c0=  169  min=          17  l=44  k=23
+  c0= -185  min=        1273  l=44  k=28
+  c0=  191  min=          47  l=46  k=24
+  c0=  223  min=          35  l=47  k=24
+  c0=  223  min=          71  l=47  k=24
+  c0=  253  min=          17  l=42  k=19
+  c0=  257  min=           1  l=43  k=16
+  c0=  265  min=          67  l=44  k=24
+  c0=  271  min=          17  l=45  k=20
+  c0=  293  min=          11  l=41  k=17
+  c0=  335  min=           1  l=42  k=18
+  c0=  343  min=          13  l=41  k=16
