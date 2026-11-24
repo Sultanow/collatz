@@ -1,0 +1,70 @@
+key,status,role,d2,short,note
+prop:local,bewiesen,Hauptergebnis,Haupttext,,
+cor:local,bewiesen,Hauptergebnis,Haupttext,(lokale Statistik entscheidet nicht),"unmittelbar aus Prop. 1, ohne eigenen Beweis"
+remark:1,Bemerkung,Kontext,Haupttext,Scope,
+lem:words,bewiesen (Literatur),Stütze,Haupttext,,"Böhm–Sontacchi, Lagarias; kein Beweis im Paper"
+ex:971,Bemerkung,Kontext,Haupttext,(Zyklus von 5x+971),Kürzbar
+prop:census,Rechnung,Hauptergebnis,Haupttext,,"vollständig innerhalb der Schranken (Runs A, I, J)"
+cor:near_miss,bewiesen,Ergänzung,Anhang,"(kein (8,5)-Zyklus von 3x+1)",Beweis mit endlicher Prüfung von sieben Kandidaten
+prop:rational,Rechnung,Hauptergebnis,Haupttext,,"1097 primitive Zyklen, |c| ≤ 1000, l ≤ 40"
+lem:halfword,bewiesen,Stütze,Haupttext,,"Alternativ Anhang; neu in v4l; erklärt das Defizit der Heuristik bis auf den Restfaktor 0,86"
+prob:heuristic,offen,Kontext,Haupttext,(Güte der Heuristik),
+prop:filtration,bewiesen (Literatur),Stütze,Haupttext,,"Lagarias, Belaga–Mignotte, Wegner; kein Beweis im Paper"
+prop:cosets,bewiesen,Hauptergebnis,Haupttext,,
+prop:verification,Rechnung,Ergänzung,Haupttext,,"Run B, n ≤ 10^10"
+thm:logdens,bewiesen,Hauptergebnis,Haupttext,,"Beweis eventuell in den Anhang; stützt sich auf Tao 2022 und GGM 2025 (begutachtet); Beweis 1,6 Seiten"
+cor:collatz,bewiesen,Hauptergebnis,Haupttext,,
+rem:consequences,Bemerkung,Kontext,Haupttext,,
+rem:passage,Bemerkung,Ergänzung,Note,,
+cor:natural,bewiesen mit Preprint,Hauptergebnis,Haupttext,,Mazur 2026 (Preprint)
+rem:mazur,Bemerkung,Kontext,Haupttext,,Kürzen
+thm:natural,bewiesen mit Preprint,Hauptergebnis,Haupttext,,"Annahme im Satz: Allikvere 2026, Abschn. 6 (nicht begutachtet); Beweis in Anhang E"
+prop:potential,bewiesen,Faden,Haupttext,,"stützt sich auf GGM 2025; Beweis 1,3 Seiten"
+cor:dichotomy,bewiesen mit Preprint,Hauptergebnis,Haupttext,,"El Jaouhari 2026, Mazur (Prädezessoren) 2026"
+conj:profile,Vermutung,Faden,Haupttext,,"untere Hälfte bewiesen (Satz 3), numerisch gestützt (Runs G, K)"
+thm:lower,bewiesen,Faden,Haupttext,,"Beweis in Anhang C (1,7 Seiten plus Lemmata 3–6)"
+cor:remains,bewiesen,Faden,Haupttext,,Äquivalenz (a) und Folgerung (b); Beweis in Anhang C
+conj:formula,Vermutung,Hauptergebnis,Haupttext,,"410 Basin-Anteile, Medianfehler etwa 3 %; Umgebung enthält Erläuterungen (0,76 Seiten)"
+prob:basins,offen,Kontext,Haupttext,(offene Fragen zu Basin-Dichten),"Kürzen; 1,2 Seiten"
+remark:5,Bemerkung,Kontext,Note,The case q=1,
+lem:reduction,bewiesen,Stütze,Anhang,,
+lem:valuations,bewiesen,Stütze,Anhang,,
+lem:model,bewiesen,Stütze,Anhang,,"längster Einzelbeweis (2,4 Seiten)"
+lem:escape-ladder,bewiesen,Stütze,Anhang,,für Kor. 6(b)
+prop:clipped-calibration,bedingt,Faden,Anhang,,"Kürzen; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+cor:two-tails,bedingt,Faden,Anhang,,"Zerlegung S_X = C_X + T_X + R_X; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+rem:moment-criterion,Bemerkung,Ergänzung,Note,,
+rem:return-divergence,Bemerkung,Stütze,Anhang,,"Kürzen, als Lemma fassen; Prop. 15 nutzt die Zerlegung R_X = S_Y + J_X; enthält Beweise; 1,5 Seiten"
+prop:tightness,bedingt,Stütze,Anhang,,"Kürzen; genutzt von Prop. 12–15; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+cor:extreme-tail,bedingt,Ergänzung,Note,,"Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+rem:tail-barrier,Bemerkung,Kontext,Note,,
+lem:finite-horizon-residue,bewiesen,Stütze,Note,,vgl. Terras 1976
+rem:entrance-support,Bemerkung,Ergänzung,Note,,
+prop:lyapunov-return,"bewiesen, Lean",Ergänzung,Note,,endliche Fassung in ReturnLyapunov.lean
+cor:lyapunov-tail,bedingt,Ergänzung,Note,,Annahme: gleichmäßige Lyapunov-Zertifikate
+prop:residue-obstruction,"bewiesen, Lean",Ergänzung,Note,,ReturnLargeShell.lean
+rem:lyapunov-certification,Bemerkung,Kontext,Note,,
+prop:first-excess,bedingt,Stütze,Anhang,,"Kürzen; für Prop. 13–15; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+prob:excursions,offen,Kontext,Note,,äquivalent zu T_X = o(X)
+rem:rigidity,Bemerkung,Stütze,Anhang,,"enthält die Identität, die Prop. 13–15 benutzen; als Lemma fassen"
+prop:single-depth,bedingt,Ergänzung,Note,,"Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+prop:potential-domination,bedingt,Faden,Anhang,,"(UI) ⇒ T_X = o(X); Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+prop:return-domination,bedingt,Faden,Anhang,,"(UI) ⇒ J_X = o(X) und obere Schranke (eq:upper); Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
+rem:spikes,Bemerkung,Faden,Anhang,,"Kürzen; Run K; verbindet (UI) mit dem Fenster 1 < p < 2 (Anhang F); 1,7 Seiten"
+lem:two-laws,bewiesen mit Preprint,Stütze,Anhang,,"Annahme: Allikvere 2026, Abschn. 6"
+lem:selfsim,bewiesen,Stütze,Anhang (Kern F),,
+prop:energy,bewiesen,Faden,Anhang (Kern F),,
+prop:singular,bewiesen,Ergänzung,Anhang (Kern F),,
+lem:kp,bewiesen,Faden,Anhang (Kern F),,
+cor:lp,bedingt,Faden,Anhang (Kern F),(L^p für p < 2),Voraussetzung: sup E_n < ∞ (Vermutung 3)
+conj:energy,Vermutung,Faden,Anhang (Kern F),,"numerisch E_n → 0,475 (Runs L, M); reduziert durch Kor. 12"
+lem:logchart,bewiesen,Stütze,Anhang (Kern F),,Für die Kette entbehrlich (a-priori-Schranke aus Prop. 16 und Cauchy–Schwarz); trägt die Spektraldeutung
+prop:spectral,bewiesen,Stütze,Anhang (Kern F),,Für die Kette entbehrlich (a-priori-Schranke aus Prop. 16 und Cauchy–Schwarz); trägt die Spektraldeutung und Lemma 13
+prop:intertwiners,bewiesen,Stütze,Anhang (Kern F),,Kern: (b) und (c)
+conj:decor,Vermutung,Faden,Anhang (Kern F),,"Runs L, N, O stützen sie; für die g_d gleichmäßig bis N = 15"
+lem:minusone,bewiesen,Ergänzung,Note,"(Fixpunkt −1, Dilatationsregeln)",
+prop:renewal,bewiesen,Faden,Anhang (Kern F),,
+cor:bootstrap,bedingt,Ergänzung,Note,,"Voraussetzungen: c_d < 1, Regulärteil beschränkt; der Beweis von Kor. 12 verweist darauf und müsste bei Auslagerung ausgeschrieben werden (drei Zeilen)"
+lem:nearid,bewiesen,Ergänzung,Note,,
+cor:energy-bootstrap,bedingt,Faden,Anhang (Kern F),,"Voraussetzungen: c_E < 1 (numerisch 0,32), Regulärteil der Energie beschränkt (numerisch fallend)"
+lem:largedev,bewiesen,Ergänzung,Note,,

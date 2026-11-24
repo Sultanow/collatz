@@ -115,8 +115,8 @@ Optionen (zur Dokumentation):
 
 | ID | Aufgabe | Status |
 |---|---|---|
-| D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | offen |
-| D2 | Auswahl Haupttext / Anhang / research notes. Anhang F auf den Kern eindampfen (Lemma 8, 9, Prop. 16, 17, 19(b), Kor. 10, Conj. 3, 4), den Rest in `syracuse_lp_note` | offen |
+| D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | **erledigt** (v4m, 94 S.): `inventory/INVENTAR.md`, reproduzierbar mit `inventory/inventory.py`; Status in `inventory/status.csv` |
+| D2 | Auswahl Haupttext / Anhang / research notes. Anhang F auf den Kern eindampfen (Lemma 9, 10, Prop. 16, 17, 19(b), Kor. 10, Conj. 3, 4; seit v4k/v4m dazu Prop. 20 und Kor. 12), den Rest in `syracuse_lp_note`. Größter Hebel laut D1: Anhang D (22 S.) auf die Kette Prop. 8 → Kor. 7 → Prop. 14/15 | offen (Vorschläge in der Spalte D2 des Inventars) |
 | D3 | Zielzeitschrift und Seitenbudget festlegen | offen |
 | D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; ~~Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren~~ (erledigt in v4k) | offen |
 
@@ -138,7 +138,9 @@ Leichte Früchte zuerst:
    der `g_d`) entfällt die Fallunterscheidung; `c_E = 0.32`, Regulärteil der Energie monoton fallend (N <= 13).
    Die punktweise Schranke `Cor_N(g_d) <= H_2(v_3(d/2))` ist falsch (max. Quotient 1.08 bei N = 15, sehr große `|d|`),
    eine gleichmäßige Schranke `C H_2(v_3(d/2))` passt zu den Daten.
-3. **D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).
+3. ~~**D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).~~ erledigt
+   (`inventory/INVENTAR.md`). Befund: 94 S., davon Haupttext 42, Anhänge 48; Anhang D, Abschnitt 6, Anhang F
+   und Anhang C tragen 68 %. Realistisch ohne Ergebnisverlust: rund 70–80 S. (Szenarien im Inventar).
 4. **C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand).
 
 Harte Brocken danach:
