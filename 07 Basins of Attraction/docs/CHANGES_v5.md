@@ -384,3 +384,26 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Pointers: contribution row, Outlook (7), runs table row O, reproduction table (energy_renewal.py, results_energy/),
   Run L paragraph (Lemma 13). Lemma numbers in Appendix F after Lemma 12 shift by one (Large deviations: Lemma 14).
 - 94 pages.
+
+## v4n (Section 5: census up to word length 66, birthday factor; roadmap C3)
+- Proposition 3 (rational cycles) now covers l <= 66: 1296 primitive cycles of 3x+c0, |c0| <= 1000 (947 with c0 > 0,
+  349 with c0 < 0, 257 distinct |c0|); the l <= 40 numbers (1097, 763, 334, 199) are kept as a second sentence.
+  Proposition 2 (census) and the mirror table: L = 66 for 3x+1, 3x-1, 3x+5, 3x+13 (no new cycles of these maps).
+- Run P described after Proposition 3: half-word split z(B) = 3^{k2} z(B1) + 2^h z(B2), matching modulo |D|/L for groups
+  of maximal divisors <= 1000, exact check of every match; 1391 types, 46 core-hours, reproduces Run A for l <= 24.
+- Comparison with the OEIS tables up to 66 elements: 947 cycles coincide, 278 listed cycles have 67..426 elements,
+  91 maps have only longer known cycles (results/run_P/oeis_comparison_L66.txt).
+- Paragraph "Longer words" rewritten: the 199 cycles with 41 <= l <= 66, the three cycles of the start search inside the
+  census, type (65,41) with 2 cycles of 3x+29 and 7 of 3x+551 against E = 8.0.
+- New paragraph "A birthday factor" with equation (10): each divisor e gets exp(-k^2 |2^{l/k}-3| / (alpha e)).
+  alpha = 6 fitted on l <= 40 predicts 163.4 cycles for the 80 types with 41 <= l <= 66 against 146 observed
+  (plain heuristic 206.3); deviance 125.5 -> 99.8; generic one-parameter corrections 112.4..117.8. All l <= 66:
+  1296.7 against 1296 (plain 1422.5). Boundary effect < 1 %. Remaining: even types with D > 0 (0.86), l = 49..56 (0.65).
+  Source: C/heuristic_P.py, results/run_P/heuristic_P.txt.
+- Problem 1 asks in addition for a derivation of the birthday factor and its constant, and for the block 49 <= l <= 56.
+- Figure 1 up to l = 66 with the birthday curve (dashed) and the Run A | Run P divider; caption updated.
+  Figure 1 and Table 7 now float ([htbp]) like the other figures; with [H] the figure left half a page empty.
+- Run D paragraph: 69 cycles with words of length 41..66 and 57 longer; the cycles up to l = 66 are exactly those of
+  Proposition 3. Abstract, contribution row, Outlook (3) and (4), code availability, runs table (row P),
+  reproduction table (Run P rows, heuristic_P.py, oeis_comparison_L66.txt, tests/run_mitm_tests.sh).
+- 96 pages (before: 94), no overfull boxes.

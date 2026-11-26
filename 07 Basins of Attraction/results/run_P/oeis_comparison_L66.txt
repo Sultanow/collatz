@@ -1,0 +1,9 @@
+stream used up to position 1225 of 1740; rows assigned for k=1..997; empty rows: 0
+rows compared: 333 (k <= 997), OEIS cycles: 1225, census cycles (c0>0): 947  [19 s]
+rows where OEIS cycles with word length <= 66 coincide exactly with the census: 333/333
+OEIS cycles with l <= 66 missing in census: [] 0
+our cycles missing in OEIS: [] 0
+OEIS cycles not found by census or search n<1e5: [(343, 177337, 149)]
+OEIS cycles with word length > 66: 278, between 67 and 426
+OEIS cycles with word length <= 66: 947
+rows with OEIS cycles only beyond l=66 (census empty): 91

@@ -67,6 +67,7 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 │   ├── merge_census_all.py    merge census_all shards into one CSV
 │   ├── run_P_tasks.py         task list of Run P, the most expensive types first
 │   ├── run_P_report.py        checks and merges Run P, census against the heuristic
+│   ├── heuristic_P.py         the cycle heuristic up to l = 66: boundary effect, birthday factor (Run P, Problem 1)
 │   ├── cycles_for_map.py      cycles of one map from that CSV (input for basin)
 │   ├── merge_census.py        merge census outputs
 │   ├── merge_basin.py         merge basin outputs, window shares
@@ -507,7 +508,12 @@ cd "07 Basins of Attraction/C" && make census_all mitm_census && make test-mitm
 LMIN=41 LMAX=64 sbatch slurm/run_P.sbatch                                   # any std node, under 1 h
 LMIN=41 LMAX=66 PAR=48 MEMGB=12 sbatch --mem=700G slurm/run_P.sbatch        # 768 GB node, about 2 h
 python3 run_P_report.py out_P ../results/rational_cycles_q3_d1000_L40.csv ../results/run_P
+python3 heuristic_P.py ../results/run_P/rational_cycles_q3_d1000_L66.csv > ../results/run_P/heuristic_P.txt     # 1 s
+(cd ../oeis && python3 compare_oeis.py ../results/run_P/rational_cycles_q3_d1000_L66.csv 66 > ../results/run_P/oeis_comparison_L66.txt)
+(cd ../figures && python3 fig1_cycles_vs_heuristic.py ../results/run_P/rational_cycles_q3_d1000_L66.csv ../docs/fig1_cycles_vs_heuristic.pdf)
 ```
+
+The last three steps run locally: the heuristic with the birthday factor (Section 5 of the paper, equation (10)), the comparison with OEIS A226607 up to 66 elements and Figure 1 (also written as PNG).
 
 **Run B** – basins of $3x-1$ and all $3x+c$, $0 < c \le 50$, $\gcd(c,6)=1$ (18 maps) up to $N=10^{11}$, with window output. The cycle lists come from Run A:
 
@@ -532,7 +538,7 @@ python3 merge_passage.py out/passage_*.csv --csv ../results/passage/passage_shar
 tar czf ../results/passage/runC_raw.tar.gz out/passage_*.csv     # raw outputs, needed for --replicates
 ```
 
-**Run D** – basin landscape: all 133 maps $3x+c$ with $1 \le c \le 400$ and $\gcd(c,6)=1$, window $[10^{30}, 10^{33}]$, $5\cdot 10^7$ logarithmic starting values per map. `landscape.py` describes every cycle by its parity word, checks the gcd classes against Proposition 4 and cross-checks the cycles with $l \le 40$ against the census; `fig3_landscape.py` draws the landscape and prints rank correlations between the shares and simple features of the cycles:
+**Run D** – basin landscape: all 133 maps $3x+c$ with $1 \le c \le 400$ and $\gcd(c,6)=1$, window $[10^{30}, 10^{33}]$, $5\cdot 10^7$ logarithmic starting values per map. `landscape.py` describes every cycle by its parity word, checks the gcd classes against Proposition 4 and cross-checks the cycles with $l \le 66$ against the census of Runs A and P (the default; with `--census` any other census and its bound); `fig3_landscape.py` draws the landscape and prints rank correlations between the shares and simple features of the cycles:
 
 ```console
 CONFIGS=slurm/landscape_configs.txt REPS=5 OUTDIR=out_landscape sbatch --array=0-664 --export=ALL slurm/passage_array.sbatch
@@ -592,9 +598,10 @@ Which artifact produces which result of the paper (numbered as in version 3; the
 | Residue classes mod 18 and 288 of $3x\pm1$, forest density (Table 3, upper rows); members of one class in different trees of $3x-1$ (Table 4); residues mod 13 of the near miss $(8,5)$ | `local_structure.py` | printed |
 | Cycles by binary rotation (Table 5) | `04 Cycles`: `eldar_parityvector_k1.ipynb`, `eldar_rotate.ipynb` | – |
 | Complete cycle lists of single maps (Table 6) | `census.c`, `slurm/census_array.sbatch`, `merge_census.py` | `results/census_q*_L*.txt` |
-| All primitive cycles of $3x+c$, $\lvert c_0\rvert \le 1000$, $l \le 40$ (Run A); census vs. heuristic (Figure 1) | `census_all.c`, `slurm/census_all_array.sbatch`, `merge_census_all.py`; `figures/fig1_cycles_vs_heuristic.py` | `results/rational_cycles_q3_d1000_L40.csv` |
-| The same census by meet-in-the-middle for word lengths 41 to 66 (Run P, roadmap C2) | `mitm_census.cpp`, `run_P_tasks.py`, `run_P_report.py`, `slurm/run_P.sbatch`, `tests/run_mitm_tests.sh` | `results/run_P/` (local probe 41..48: `results/run_P_probe/`) |
-| Agreement with Belaga, Mignotte and Morley (OEIS A226607) | `oeis/compare_oeis.py` | `oeis/a226607_first1740.txt` |
+| All primitive cycles of $3x+c$, $\lvert c_0\rvert \le 1000$, $l \le 40$ (Run A, Proposition 3) | `census_all.c`, `slurm/census_all_array.sbatch`, `merge_census_all.py` | `results/rational_cycles_q3_d1000_L40.csv` |
+| The same census by meet-in-the-middle for word lengths 41 to 66 (Run P, roadmap C2; Proposition 3 for $l \le 66$); census vs. heuristic (Figure 1) | `mitm_census.cpp`, `run_P_tasks.py`, `run_P_report.py`, `slurm/run_P.sbatch`, `tests/run_mitm_tests.sh`; `figures/fig1_cycles_vs_heuristic.py` | `results/run_P/` (local probe 41..48: `results/run_P_probe/`) |
+| Birthday factor of the cycle heuristic, fitted on $l \le 40$ and tested on $41 \le l \le 66$ (Run P, equation (10), Problem 1) | `heuristic_P.py` | `results/run_P/heuristic_P.txt` |
+| Agreement with Belaga, Mignotte and Morley (OEIS A226607), up to 66 elements | `oeis/compare_oeis.py` | `oeis/a226607_first1740.txt`, `results/run_P/oeis_comparison_L66.txt` |
 | Cycles with longer words ($3x+23$ through 41; $3x+29$ through 3811 and 7055) | `cycles_for_map.py --search 100000` | printed |
 | Basin shares up to $10^6$, $10^8$, $10^{10}$ (Run B, Table 7); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv`, `results/runB_N1e10.tar.gz` (raw) |
 | Basin shares far beyond enumeration, natural vs. logarithmic counting (Run C, Table 8) | `passage.c`, `slurm/passage_array.sbatch`, `slurm/passage_configs.txt`, `merge_passage.py --pool 20 --replicates` | `results/passage/passage_shares.csv`, `results/passage/report.txt`, `results/passage/runC_raw.tar.gz` (raw) |
@@ -623,7 +630,7 @@ Which artifact produces which result of the paper (numbered as in version 3; the
 
 Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are exactly the seven candidates for a $3x+1$ cycle of that type; they fail because none of their members is divisible by $13 = 2^8-3^5$.
 
-**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$). Run P (`mitm_census.cpp`) reproduces this census exactly and extends it to $l \le 66$ (`results/run_P/rational_cycles_q3_d1000_L66.csv`): 199 further primitive cycles, 1296 in total, among them all three cycles of the start-value search, against 274 expected by the heuristic for $41 \le l \le 66$. There is no further cycle of $3x\pm1$, $3x+5$ or $3x+13$, so the complete cycle lists of these four maps below hold for $L = 66$.
+**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$). Run P (`mitm_census.cpp`) reproduces this census exactly and extends it to $l \le 66$ (`results/run_P/rational_cycles_q3_d1000_L66.csv`): 199 further primitive cycles, 1296 in total, among them all three cycles of the start-value search, against 274 expected by the heuristic for $41 \le l \le 66$. The growing deficit (observed/expected 0.95 for $l \le 40$, 0.71 for $41 \le l \le 66$, types with $E \ge 1$) is mostly a birthday effect: the $k$ odd members of a cycle must be distinct, and their typical size is $M_e = e/|2^{l/k}-3|$ for $|c_0| = e$. The factor $\exp(-k^2|2^{l/k}-3|/(\alpha e))$ per divisor $e$, with $\alpha = 6$ fitted on $l \le 40$, predicts 163 instead of 206 cycles for $41 \le l \le 66$ (146 observed) and 1296.7 in total for $l \le 66$ (`results/run_P/heuristic_P.txt`, Figure 1 dashed). All 947 primitive cycles of OEIS A226607 with at most 66 elements coincide with the census (`results/run_P/oeis_comparison_L66.txt`). There is no further cycle of $3x\pm1$, $3x+5$ or $3x+13$, so the complete cycle lists of these four maps below hold for $L = 66$.
 
 **Basin shares** for $n \le 10^{10}$ (Run B; all 18 maps in Figure 2 of the paper, every $n \le 10^{10}$ reaches a known cycle; exact counts in `results/basin_q3_c*_N1e10.txt`, for $3x-1$, $3x+5$, $3x+13$ also up to $10^6$ and $10^8$ in `*_N1e6.txt`, `*_N1e8.txt`):
 

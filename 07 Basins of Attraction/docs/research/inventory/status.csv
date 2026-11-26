@@ -4,11 +4,11 @@ cor:local,bewiesen,Hauptergebnis,Haupttext,(lokale Statistik entscheidet nicht),
 remark:1,Bemerkung,Kontext,Haupttext,Scope,
 lem:words,bewiesen (Literatur),Stütze,Haupttext,,"Böhm–Sontacchi, Lagarias; kein Beweis im Paper"
 ex:971,Bemerkung,Kontext,Haupttext,(Zyklus von 5x+971),Kürzbar
-prop:census,Rechnung,Hauptergebnis,Haupttext,,"vollständig innerhalb der Schranken (Runs A, I, J)"
+prop:census,Rechnung,Hauptergebnis,Haupttext,,"vollständig innerhalb der Schranken (Runs A, P, I, J)"
 cor:near_miss,bewiesen,Ergänzung,Anhang,"(kein (8,5)-Zyklus von 3x+1)",Beweis mit endlicher Prüfung von sieben Kandidaten
-prop:rational,Rechnung,Hauptergebnis,Haupttext,,"1097 primitive Zyklen, |c| ≤ 1000, l ≤ 40"
+prop:rational,Rechnung,Hauptergebnis,Haupttext,,"1296 primitive Zyklen, |c| ≤ 1000, l ≤ 66 (Runs A, P); in v4n von l ≤ 40 erweitert"
 lem:halfword,bewiesen,Stütze,Haupttext,,"Alternativ Anhang; neu in v4l; erklärt das Defizit der Heuristik bis auf den Restfaktor 0,86"
-prob:heuristic,offen,Kontext,Haupttext,(Güte der Heuristik),
+prob:heuristic,offen,Kontext,Haupttext,(Güte der Heuristik),"v4n: Geburtstagsfaktor (10), out of sample bestätigt (Run P); offen: Herleitung von α, Block 49 ≤ l ≤ 56"
 prop:filtration,bewiesen (Literatur),Stütze,Haupttext,,"Lagarias, Belaga–Mignotte, Wegner; kein Beweis im Paper"
 prop:cosets,bewiesen,Hauptergebnis,Haupttext,,
 prop:verification,Rechnung,Ergänzung,Haupttext,,"Run B, n ≤ 10^10"

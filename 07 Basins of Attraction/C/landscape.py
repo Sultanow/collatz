@@ -9,8 +9,9 @@ multiplier m = gcd(cycle, c), so that the cycle is m times a primitive cycle of 
 (Proposition 5). The relative share of a cycle is its share divided by the density
 phi(c/m)/c of its gcd class, i.e. its share among the integers with the same gcd with c.
 The script checks that the shares of every map add up to 1 and that every gcd class has
-the density phi(c/m)/c (as a z-score), and it cross-checks the cycles with word length at most 40 against
-the census of primitive cycles (default ../results/rational_cycles_q3_d1000_L40.csv).
+the density phi(c/m)/c (as a z-score), and it cross-checks the cycles whose word length is covered by
+the census of primitive cycles against it (default ../results/run_P/rational_cycles_q3_d1000_L66.csv,
+Runs A and P, l <= 66; Run A alone: ../results/rational_cycles_q3_d1000_L40.csv).
 """
 import csv
 import glob
@@ -36,7 +37,7 @@ def phi(n):
 def main():
     argv = sys.argv[1:]
     here = os.path.dirname(os.path.abspath(__file__))
-    census = os.path.join(here, "..", "results", "rational_cycles_q3_d1000_L40.csv")
+    census = os.path.join(here, "..", "results", "run_P", "rational_cycles_q3_d1000_L66.csv")
     out_csv = None
     for opt in ("--census", "--csv"):
         if opt in argv:
@@ -69,6 +70,7 @@ def main():
     with open(census) as fh:
         for r in csv.DictReader(fh):
             prim[(int(r["c"]), int(r["min"]))] = (int(r["l"]), int(r["k"]), int(r["D"]), r["word"])
+    lmax = max(v[0] for v in prim.values())           # the census is complete up to this word length
 
     rows, mismatch, missing, sum_err, class_err, unresolved = [], [], [], 0.0, 0.0, 0
     nprim = nlong = 0
@@ -94,7 +96,7 @@ def main():
             rel = share * c / phi(c0)
             by_class[m] += share
             nprim += m == 1
-            if l <= 40:
+            if l <= lmax:
                 seen.add((c0, cy // m))
                 if (c0, cy // m) not in prim:
                     mismatch.append((c, cy))
@@ -110,12 +112,12 @@ def main():
             if c % c0 == 0 and c0 > 0 and (c0, mn) not in seen:
                 missing.append((c, mn * (c // c0)))
 
-    print(f"maps: {len(counts)}, cycles: {len(rows)} ({nprim} primitive, {nlong} with word length > 40), "
+    print(f"maps: {len(counts)}, cycles: {len(rows)} ({nprim} primitive, {nlong} with word length > {lmax}), "
           f"samples per map: {min(total.values()):,} to {max(total.values()):,}")
     print(f"unresolved orbits: {unresolved}")
     print(f"max |sum of shares - 1| per map: {sum_err:.2e}")
     print(f"gcd classes: share against density phi(c/m)/c, max |z| = {class_err:.2f}")
-    print(f"cycles with l <= 40 that are not in the census: {mismatch if mismatch else 'none'}")
+    print(f"cycles with l <= {lmax} that are not in the census: {mismatch if mismatch else 'none'}")
     print(f"census cycles of these maps that were not observed: {missing if missing else 'none'}")
     if out_csv:
         with open(out_csv, "w", newline="") as fh:

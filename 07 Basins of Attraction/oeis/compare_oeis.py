@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Cross-check of the census (results/rational_cycles_q3_d1000_L40.csv) with OEIS A226607
-(primitive cycles of 3x+k found by Belaga, Mignotte and Morley), for all k < 1000.
+"""Cross-check of the census with OEIS A226607 (primitive cycles of 3x+k found by Belaga, Mignotte
+and Morley), for all k < 1000.
 Input: the first 1740 terms of A226607 (a226607_first1740.txt, transcribed from the b-file).
-Run from this folder: python3 compare_oeis.py"""
+Run from this folder:
+  python3 compare_oeis.py                                                       (Run A, l <= 40)
+  python3 compare_oeis.py ../results/run_P/rational_cycles_q3_d1000_L66.csv 66  (Runs A and P, l <= 66)"""
 import csv, math, sys, time
 sys.path.insert(0, '../C')
 from cycles_for_map import from_search
 
+CENSUS = sys.argv[1] if len(sys.argv) > 1 else '../results/rational_cycles_q3_d1000_L40.csv'
+LMAX = int(sys.argv[2]) if len(sys.argv) > 2 else 40
 stream = [int(v) for v in open('a226607_first1740.txt').read().split()]
 def T(x, k): return x // 2 if x % 2 == 0 else (3 * x + k) // 2
 def cycle_info(x, k, limit=100000):
@@ -34,7 +38,7 @@ print(f"stream used up to position {pos} of {len(stream)}; rows assigned for k=1
 if ki < len(ks) - 1: print("WARNING: stream too short for all k <= 1000")
 
 census = {k: set() for k in ks}
-for r in csv.DictReader(open('../results/rational_cycles_q3_d1000_L40.csv')):
+for r in csv.DictReader(open(CENSUS)):
     c0 = int(r['c'])
     if c0 > 0 and c0 in census: census[c0].add(int(r['min']))
 
@@ -46,17 +50,19 @@ for k in ks:
     R = {x for x, _ in rows[k]}; Rl = dict(rows[k]); oeis_total += len(R)
     S = {m for m in from_search(k, 100000) if math.gcd(m, k) == 1}
     U = census[k] | S
-    short = {x for x in R if Rl[x] <= 40}
+    short = {x for x in R if Rl[x] <= LMAX}
     if short == census[k]: agree_short += 1
     for x in short - census[k]: only_oeis_short.append((k, x, Rl[x]))
     for x in census[k] - R: only_ours.append((k, x, 'census'))
     for x in S - R: only_ours.append((k, x, 'search'))
     for x in R - U: only_oeis_long.append((k, x, Rl[x]))
 print(f"rows compared: {n_rows} (k <= {ks[n_rows-1]}), OEIS cycles: {oeis_total}, census cycles (c0>0): {sum(len(census[k]) for k in ks[:n_rows])}  [{time.time()-t0:.0f} s]")
-print(f"rows where OEIS cycles with word length <= 40 coincide exactly with the census: {agree_short}/{n_rows}")
-print("OEIS cycles with l <= 40 missing in census:", only_oeis_short[:10], len(only_oeis_short))
+print(f"rows where OEIS cycles with word length <= {LMAX} coincide exactly with the census: {agree_short}/{n_rows}")
+print(f"OEIS cycles with l <= {LMAX} missing in census:", only_oeis_short[:10], len(only_oeis_short))
 print("our cycles missing in OEIS:", only_ours[:10], len(only_ours))
 print("OEIS cycles not found by census or search n<1e5:", only_oeis_long)
 import collections
-print("OEIS cycles per word length > 40:", sorted(collections.Counter(Rl for k in ks for x, Rl in rows[k] if Rl > 40).items()))
-print("rows with OEIS cycles only beyond l=40 (census empty):", sum(1 for k in ks if rows[k] and not census[k]))
+longer = [Rl for k in ks for x, Rl in rows[k] if Rl > LMAX]
+print(f"OEIS cycles with word length > {LMAX}: {len(longer)}, between {min(longer)} and {max(longer)}")
+print(f"OEIS cycles with word length <= {LMAX}: {sum(1 for k in ks for x, Rl in rows[k] if Rl <= LMAX)}")
+print(f"rows with OEIS cycles only beyond l={LMAX} (census empty):", sum(1 for k in ks if rows[k] and not census[k]))

@@ -1,4 +1,4 @@
-# Schlachtplan und roter Faden (Stand 22.11.2026, nach Entwurf v4j)
+# Schlachtplan und roter Faden (Stand 26.11.2026, nach Entwurf v4n)
 
 Die Sammelphase ist abgeschlossen. Diese Datei ist der rote Faden für alles Weitere. Sie wird bei
 jedem Schritt aktualisiert (Spalte Status). Details stehen in den `STATUS.md` der Unterordner.
@@ -103,19 +103,19 @@ Optionen (zur Dokumentation):
 |---|---|---|
 | B1 | Transferoperator auf `theta = 2^k/3^n` (`theta -> 3 theta / 2^a`) für Taos `O(exp(-cn))`; numerisch `A n^{-1} 0.943^n` (Run M). Nur aufnehmen, falls A3/A6 Werkzeuge liefern. | geparkt |
 
-## Strang C: Zyklus-Paket (Abschnitt 4, „für später“)
+## Strang C: Zyklus-Paket (Abschnitt 5)
 
 | ID | Aufgabe | Ergebnis | braucht | Art | Status |
 |---|---|---|---|---|---|
 | C1 | **Halbwort-Kollisionsformel:** Für gerade `l, k` und `P = 2^{l/2} + 3^{k/2}` reduziert `2^{l/2} ≡ -3^{k/2} (mod P)` die Bedingung `P \| z_3(B_1 B_2)` auf eine (bei ungleichen Halbtypen verdrehte) Kongruenz zwischen `z_3(B_1)` und `z_3(B_2)`. Weil die Halbwort-Zähler von der Größe `P` sind, ist sie fast eine Gleichung, und fast nur die Diagonale `B'B'` überlebt. Ziel: exakte Formel, Vergleich mit den Faktoren 0,61 (`D > 0`) und 1,40 (`D < 0`) aus Run J. | Lemma für Abschnitt 4 | – | Schreibtisch, Run-J-Daten | **erledigt** (v4l, Lemma 2; Defizit für D > 0: leerer Null-Slot + lokale Faktoren bei 2 und 3, Rest 0,86; D < 0: konstante Zählungen je Nullenzahl, S-Einheiten) |
 | C2 | **Meet-in-the-Middle-Zykluszählung (Run P):** Paritätswort halbieren, `z_3` modulo `2^l - 3^k` über Hash-Tabellen der Hälften abgleichen (C++/MPI). Ziel: Wortlänge 60–70 statt 40. Zuerst eine Laufzeitprobe bei `l = 48`. | erweiterter Zensus | C1 (Deutung), Cluster frei | Cluster | **erledigt** (26.11.): ein Prozess je Typ, Abgleich über einen Hash der Reste; l ≤ 40 identisch mit Run A; Clusterlauf l = 41..66 in 46 Kernstunden: 199 neue primitive Zyklen (1296 für l ≤ 66) gegen 274 erwartete, darunter die drei bekannten (3x+23, zweimal 3x+29 bei 65/41); keine neuen Zyklen von 3x±1, 3x+5, 3x+13. Das Verhältnis beobachtet/erwartet fällt von 0,95 (l ≤ 40) auf 0,71 (l = 41..66, Typen mit E ≥ 1) |
-| C3 | Abschnitt 4: Lemma und Tabelle ergänzen; Problem 1 und Outlook (3) anpassen. | Paper | C1, C2 | Schreiben | teilweise (v4l: Lemma 2, Problem 1); Tabelle nach C2 |
+| C3 | Abschnitt 5: Lemma und Tabelle ergänzen; Problem 1 und Outlook (3) anpassen. | Paper | C1, C2 | Schreiben | **erledigt** (v4l: Lemma 2; v4n: Prop. 2 und 3 bis l = 66, Run P im Text, OEIS- und Run-D-Abgleich bis 66, Absatz „A birthday factor“ mit Gl. (10), Problem 1 und Outlook (3), (4) erweitert, Abbildung 1 bis 66). Neuer Befund: Der wachsende Fehlbetrag der Heuristik ist größtenteils ein Geburtstagseffekt (die k ungeraden Glieder eines Zyklus sind verschieden); Faktor exp(−k²·\|2^{l/k}−3\|/(α e)) je Teiler e, α = 6 aus l ≤ 40, sagt für l = 41..66 163,4 statt 206,3 voraus (146 beobachtet). Offen: Herleitung von α, gerade Typen mit D > 0 (0,86), Block l = 49..56 (0,65) |
 
 ## Strang D: Kompaktierung und Journal (nach E1)
 
 | ID | Aufgabe | Status |
 |---|---|---|
-| D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | **erledigt** (v4m, 94 S.): `inventory/INVENTAR.md`, reproduzierbar mit `inventory/inventory.py`; Status in `inventory/status.csv` |
+| D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | **erledigt** (v4m, 94 S.; nachgeführt in v4n, 96 S.): `inventory/INVENTAR.md`, reproduzierbar mit `inventory/inventory.py`; Status in `inventory/status.csv` |
 | D2 | Auswahl Haupttext / Anhang / research notes. Anhang F auf den Kern eindampfen (Lemma 9, 10, Prop. 16, 17, 19(b), Kor. 10, Conj. 3, 4; seit v4k/v4m dazu Prop. 20 und Kor. 12), den Rest in `syracuse_lp_note`. Größter Hebel laut D1: Anhang D (22 S.) auf die Kette Prop. 8 → Kor. 7 → Prop. 14/15 | offen (Vorschläge in der Spalte D2 des Inventars) |
 | D3 | Zielzeitschrift und Seitenbudget festlegen | teilweise: **Entscheidung 24.11.:** kein Teilen des Papers; der Umfang darf wachsen (voraussichtlich unter 100 S.). Ausgelagert wird nur, was die Lesbarkeit verbessert. Zeitschrift offen |
 | D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; ~~Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren~~ (erledigt in v4k) | offen |
@@ -144,12 +144,16 @@ Leichte Früchte zuerst:
 4. ~~**C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand).~~ erledigt (26.11., Job 170847):
    Zensus bis l = 66, `results/run_P/`. Nächster Schritt C3 (Abschnitt 4/5: Prop. 2 und 3, Abbildung 1, Problem 1;
    der wachsende Fehlbetrag gegenüber der Heuristik ist ein neuer Befund für Problem 1).
+5. ~~**C3** Run P ins Paper (Prop. 2 und 3, Abbildung 1, Problem 1).~~ erledigt (v4n, 96 S.). Befund: Ein
+   Geburtstagsfaktor (die k ungeraden Glieder eines Zyklus sind verschieden, typische Größe M_e = e/|2^{l/k}−3|)
+   erklärt den wachsenden Fehlbetrag größtenteils; mit α = 6 aus l ≤ 40 außerhalb der Stichprobe bestätigt
+   (Devianz 125,5 → 99,8; insgesamt 1296,7 erwartet gegen 1296 beobachtet). `C/heuristic_P.py`.
 
 Harte Brocken danach:
 
-5. **A6** Mischung der Klassenverteilung, also der Regulärteil (zertifizierte Kontraktion auf den Korrelationen).
-6. **B1** Fourier-Maximum (Transferoperator auf `theta`).
-7. **D2–D4** Kompaktierung und Journal-Version (braucht Entscheidungen zu Zeitschrift und Umfang).
+6. **A6** Mischung der Klassenverteilung, also der Regulärteil (zertifizierte Kontraktion auf den Korrelationen).
+7. **B1** Fourier-Maximum (Transferoperator auf `theta`).
+8. **D2–D4** Kompaktierung und Journal-Version (braucht Entscheidungen zu Zeitschrift und Umfang).
 
 ## Runs (vergeben und geplant)
 
@@ -157,4 +161,4 @@ Harte Brocken danach:
 |---|---|---|
 | L, M, N | exaktes Gesetz bis n = 20; Monte Carlo Fourier bis n = 80; logarithmische Karte bis n = 15 | im Paper (v4j) |
 | O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung, Klassenverteilung (lokal N ≤ 13, Cluster N ≤ 17, Job 169344); alle `d` und Energie-Walk (lokal N ≤ 13, `energy_renewal.py`) | im Paper (v4k, Tabelle 18; v4m) |
-| P | Meet-in-the-Middle-Zykluszensus (C2): `mitm_census.cpp`, `slurm/run_P.sbatch` | erledigt: l = 41..66 (Job 170847, 46 Kernstunden), `results/run_P/` |
+| P | Meet-in-the-Middle-Zykluszensus (C2): `mitm_census.cpp`, `slurm/run_P.sbatch`; Heuristik mit Geburtstagsfaktor: `heuristic_P.py` | im Paper (v4n): l = 41..66 (Job 170847, 46 Kernstunden), `results/run_P/` |

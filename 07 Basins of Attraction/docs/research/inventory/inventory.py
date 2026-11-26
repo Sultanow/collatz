@@ -446,7 +446,7 @@ def main():
             num = labels.get(fl["label"], ("", ""))[0] if fl["label"] else ""
             w.writerow([fl["env"], fl["label"], num, fl["b"][0], fl["line"], f"{fl['cost']:.3f}", fl["caption"][:160]])
 
-    write_report(a.out, stmts, secs, floats, used_by, labels, npages, refstart, geo)
+    write_report(a.out, stmts, secs, floats, used_by, labels, npages, refstart, geo, draft_name(a.docs))
     if problems:
         print("problems:", *problems, sep="\n  ")
 
@@ -460,12 +460,21 @@ def fmt(x):
     return f"{x:.2f}"
 
 
-def write_report(out, stmts, secs, floats, used_by, labels, npages, refstart, geo):
+def draft_name(docs):
+    """name of the draft: the last '## v...' heading of docs/CHANGES_v5.md (or '?' if there is none)"""
+    try:
+        heads = re.findall(r"^## (v\w+)", open(os.path.join(docs, "CHANGES_v5.md"), encoding="utf-8").read(), re.M)
+    except OSError:
+        heads = []
+    return heads[-1] if heads else "?"
+
+
+def write_report(out, stmts, secs, floats, used_by, labels, npages, refstart, geo, draft="?"):
     L = []
     P = L.append
     P("# D1: Inventar aller Aussagen mit Status und Seitenkosten")
     P("")
-    P(f"Stand: Entwurf v4m, {npages} Seiten (davon Literatur ab S. {refstart}). Erzeugt mit "
+    P(f"Stand: Entwurf {draft}, {npages} Seiten (davon Literatur ab S. {refstart}). Erzeugt mit "
       "`inventory/inventory.py` aus `docs/main.tex`; der Status stammt aus `inventory/status.csv` (von Hand gepflegt).")
     P("")
     P("**Seitenkosten** sind in Seiten Satzspiegel gemessen (Position jedes Elements im PDF via `\\pdfsavepos`). "

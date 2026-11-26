@@ -1,5 +1,7 @@
 ## Befunde für D2 und D3
 
+*Die Zahlen der Befunde beziehen sich auf v4m (94 Seiten). v4n (Run P im Abschnitt 5, Zeilen in den Tabellen 11 und 12) fügt zwei Seiten hinzu und ändert an den Befunden nichts.*
+
 1. **Umfang.** 94 Seiten. Davon entfallen 42,4 Seiten auf den Haupttext (Abschnitte 1–7) und 47,8 Seiten auf die Anhänge A–F; die Literatur steht auf rund drei Seiten. Die Anhänge sind also länger als der Haupttext.
 2. **Vier Blöcke tragen gut zwei Drittel.** Anhang D (22,4 S.), Abschnitt 6 (19,9 S.), Anhang F (14,1 S.) und Anhang C (7,8 S.) ergeben zusammen 64,1 Seiten (68 %). Jede ernsthafte Kompaktierung setzt hier an.
 3. **Aussagen gegen Fließtext.** Die 69 nummerierten Aussagen kosten 21,9 Seiten, ihre Beweise 21,8 Seiten, zusammen knapp die Hälfte. Gleitobjekte und lange Tabellen kosten 15,4 Seiten. Davon sind 5,7 Seiten die drei Langtabellen (Beiträge 2,4, Runs 1,6, Reproduktion 1,7). Der Rest, rund 31 Seiten, ist Fließtext: Einleitung, Run-Absätze, Erläuterungen.

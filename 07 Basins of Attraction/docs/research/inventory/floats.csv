@@ -5,21 +5,21 @@ table,table:mirror,3,10,351,0.314,"The mirror pair $3x\pm1$: identical local str
 table,table:classes,4,11,394,0.266,"Members of the same residue class in different trees of the forest of $3x-1$. For example, $32\to16\to8\to4\to2$, whereas $14\to7\to20\to10\to5\to14$."
 table,table:non_q1_cycles,5,13,460,0.262,"Cycles determined via binary rotation ; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$, see [eq:D_equals_c]. The notebook is"
 table,table:zoo,6,14,501,0.639,"All positive integer cycles of $T_{q,c}$ with word length $l\le L$ (Proposition [prop:census]), given by their minima and decoded by their type $(l,k)$. $N_{l,k"
-figure,fig:cycles,1,18,604,0.558,"Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l$: census (bars) and heuristic $\sum_k E_{1000}(l,k)$ (line). The peaks at $l=19$ an"
-table,table:basins,7,20,626,0.624,"Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins)."
-figure,fig:basins,2,22,687,0.606,How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).
-table,table:passage,8,30,892,0.676,"Basin shares from $4\cdot10^8$ odd starting values per counting mode in the windows $[y,y^{1.1}]$ with $y=10^{20}$, $10^{50}$, $10^{100}$ and $10^{200}$, drawn "
-figure,fig:landscape,3,31,931,0.502,"The landscape of basin densities: for each of the $133$ maps $3x+c$ with $1\le c\le400$ and $\gcd(c,6)=1$, the shares of its primitive basins among the integers"
-table,table:syracuse,9,36,995,0.598,"The potential against the Syracuse law: means of $a\,h(a)$. Run G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\l"
-table,table:convergence,10,37,1038,0.355,Convergence of the backward-mass predictor in the depth: the mean mass $M$ of ten consecutive levels against the measured shares of the $410$ primitive cycles o
-figure,fig:predictor,4,38,1058,0.605,"Predicted against measured basin shares, one point per cycle: the $410$ primitive cycles of the $98$ maps $3x+c$ of Figure [fig:landscape] that have at least tw"
-longtable,table:runs,11,40,1105,1.599,The computational runs referred to in the text. The data folders are linked; programs and scripts are listed in Table [table:reproduction].
-longtable,table:reproduction,12,42,1145,1.668,"Programs, scripts and data behind the results of the paper."
-table,,,44,1192,0.376,
-table,table:ui,13,72,2311,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
-figure,fig:ui,5,73,2349,0.441,"Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run K) and the Syracuse profile at the depths $n=8$, $12$ and $16$."
-table,table:transfer,14,76,2391,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
-table,table:syr-moments,15,81,2541,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
-table,table:syr-fourier,16,82,2568,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
-table,table:syr-singular,17,87,2677,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
-table,table:syr-runO,18,91,2798,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."
+figure,fig:cycles,1,20,611,0.584,"Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l\le66$: census (bars; Run A for $l\le40$, Run P for $41\le l\le66$), heuristic $\sum"
+table,table:basins,7,21,633,0.624,"Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins)."
+figure,fig:basins,2,23,694,0.606,How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).
+table,table:passage,8,31,899,0.676,"Basin shares from $4\cdot10^8$ odd starting values per counting mode in the windows $[y,y^{1.1}]$ with $y=10^{20}$, $10^{50}$, $10^{100}$ and $10^{200}$, drawn "
+figure,fig:landscape,3,32,938,0.502,"The landscape of basin densities: for each of the $133$ maps $3x+c$ with $1\le c\le400$ and $\gcd(c,6)=1$, the shares of its primitive basins among the integers"
+table,table:syracuse,9,36,1002,0.598,"The potential against the Syracuse law: means of $a\,h(a)$. Run G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\l"
+table,table:convergence,10,38,1045,0.355,Convergence of the backward-mass predictor in the depth: the mean mass $M$ of ten consecutive levels against the measured shares of the $410$ primitive cycles o
+figure,fig:predictor,4,38,1065,0.605,"Predicted against measured basin shares, one point per cycle: the $410$ primitive cycles of the $98$ maps $3x+c$ of Figure [fig:landscape] that have at least tw"
+longtable,table:runs,11,41,1112,1.703,The computational runs referred to in the text. The data folders are linked; programs and scripts are listed in Table [table:reproduction].
+longtable,table:reproduction,12,43,1153,2.089,"Programs, scripts and data behind the results of the paper."
+table,,,46,1202,0.376,
+table,table:ui,13,74,2321,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
+figure,fig:ui,5,75,2359,0.441,"Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run K) and the Syracuse profile at the depths $n=8$, $12$ and $16$."
+table,table:transfer,14,78,2401,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
+table,table:syr-moments,15,82,2551,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
+table,table:syr-fourier,16,83,2578,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
+table,table:syr-singular,17,88,2687,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
+table,table:syr-runO,18,93,2808,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."
