@@ -116,7 +116,8 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
     ├── passage/               sampled basin shares (Run C)
     ├── tail/                  first-passage mass Phi_X/X, actual vs. model (Run I)
     ├── heuristic/             diagnostics of the cycle-count heuristic (Run J)
-    ├── run_P_probe/           census for word lengths 41..48 by meet-in-the-middle, local probe (Run P)
+    ├── run_P/                 census for word lengths 41..66 by meet-in-the-middle (Run P): report, merged list l <= 66, raw outputs
+    ├── run_P_probe/           local probe of Run P, word lengths 41..48
     └── potential_ui/          tails of the potential a*h(a), Syracuse profile, dangerous classes (Run K)
 ```
 
@@ -252,7 +253,7 @@ $ ./mitm_census 3 1000 40 40 20 20 | tail -1
 
 #### cost
 
-About 120 ns per residue for small lists and 170 ns for lists of $4\cdot10^7$ entries (one core). All types with $l \le 40$ take 13 seconds on one core (Run A: $2.2\cdot10^{12}$ words, 512 array tasks); $l = 41,\dots,48$ take 5 minutes; the type $(56,28)$ takes 92 seconds and 2.6 GB. For $l \le 64$ about 60 core-hours, for $l = 65, 66$ about as much again; beyond $l = 66$ the half-lists outgrow a node and the passes dominate.
+About 90 ns per residue on one core. All types with $l \le 40$ take 7 seconds (Run A: $2.2\cdot10^{12}$ words, 512 array tasks); the type $(56,28)$ takes 49 seconds and 2.6 GB. The cluster run for $l = 41,\dots,66$ took 46 core-hours (longest type $(66,33)$: 41 minutes, 11 GB); beyond $l = 66$ the half-lists outgrow a node and the passes dominate. A process stays about 0.2 GB above `--mem`.
 
 #### verification
 
@@ -503,8 +504,8 @@ python3 merge_census_all.py out/census_all_q3_d1000_L1-40_*.txt > ../results/rat
 
 ```console
 cd "07 Basins of Attraction/C" && make census_all mitm_census && make test-mitm
-LMIN=41 LMAX=64 sbatch slurm/run_P.sbatch                                   # any std node, about 1-2 h
-LMIN=41 LMAX=66 PAR=48 MEMGB=14 sbatch --nodelist=n12 slurm/run_P.sbatch    # 768 GB node, about 3-4 h
+LMIN=41 LMAX=64 sbatch slurm/run_P.sbatch                                   # any std node, under 1 h
+LMIN=41 LMAX=66 PAR=48 MEMGB=12 sbatch --mem=700G slurm/run_P.sbatch        # 768 GB node, about 2 h
 python3 run_P_report.py out_P ../results/rational_cycles_q3_d1000_L40.csv ../results/run_P
 ```
 
@@ -592,7 +593,7 @@ Which artifact produces which result of the paper (numbered as in version 3; the
 | Cycles by binary rotation (Table 5) | `04 Cycles`: `eldar_parityvector_k1.ipynb`, `eldar_rotate.ipynb` | – |
 | Complete cycle lists of single maps (Table 6) | `census.c`, `slurm/census_array.sbatch`, `merge_census.py` | `results/census_q*_L*.txt` |
 | All primitive cycles of $3x+c$, $\lvert c_0\rvert \le 1000$, $l \le 40$ (Run A); census vs. heuristic (Figure 1) | `census_all.c`, `slurm/census_all_array.sbatch`, `merge_census_all.py`; `figures/fig1_cycles_vs_heuristic.py` | `results/rational_cycles_q3_d1000_L40.csv` |
-| The same census by meet-in-the-middle, word lengths 41 to 48 (local probe) and beyond (Run P, roadmap C2) | `mitm_census.cpp`, `run_P_tasks.py`, `run_P_report.py`, `slurm/run_P.sbatch`, `tests/run_mitm_tests.sh` | `results/run_P_probe/` |
+| The same census by meet-in-the-middle for word lengths 41 to 66 (Run P, roadmap C2) | `mitm_census.cpp`, `run_P_tasks.py`, `run_P_report.py`, `slurm/run_P.sbatch`, `tests/run_mitm_tests.sh` | `results/run_P/` (local probe 41..48: `results/run_P_probe/`) |
 | Agreement with Belaga, Mignotte and Morley (OEIS A226607) | `oeis/compare_oeis.py` | `oeis/a226607_first1740.txt` |
 | Cycles with longer words ($3x+23$ through 41; $3x+29$ through 3811 and 7055) | `cycles_for_map.py --search 100000` | printed |
 | Basin shares up to $10^6$, $10^8$, $10^{10}$ (Run B, Table 7); every $n \le 10^{10}$ reaches a known cycle; dyadic windows and the split of 18 forests (Figure 2) | `basin.c`, `slurm/submit_basins.sh`, `slurm/basin_array.sbatch`, `merge_basin.py`; `figures/fig2_basins.py` | `results/basin_q3_c*_N1e{6,8,10}.txt`, `results/basin_q3_c*_windows_N1e10.csv`, `results/runB_N1e10.tar.gz` (raw) |
@@ -609,20 +610,20 @@ Which artifact produces which result of the paper (numbered as in version 3; the
 
 ## Reference results
 
-**Complete cycle lists** (all positive integer cycles with word length $l \le L$; for the maps $3x+c$ from Run A, for $5x+1$ and $181x+1$ from `census.c`):
+**Complete cycle lists** (all positive integer cycles with word length $l \le L$; for the maps $3x+c$ from Runs A and P, for $5x+1$ and $181x+1$ from `census.c`):
 
 | map | $L$ | cycle minima | type $(l,k)$ | $D=2^l-q^k$ |
 |---|---|---|---|---|
-| $3x+1$ | 40 | 1 | (2,1) | 1 |
-| $3x-1$ | 40 | 1 / 5 / 17 | (1,1) / (3,2) / (11,7) | −1 / −1 / −139 |
-| $3x+5$ | 40 | 5 / 1 / 19, 23 / 187, 347 | (2,1) / (3,1) / (5,3) / (27,17) | 1 / 5 / 5 / 5 077 565 |
-| $3x+13$ | 40 | 13 / 1 / 211, 227, 251, 259, 283, 287, 319 / 131 | (2,1) / (4,1) / (8,5) / (24,15) | 1 / 13 / 13 / 2 428 309 |
+| $3x+1$ | 66 | 1 | (2,1) | 1 |
+| $3x-1$ | 66 | 1 / 5 / 17 | (1,1) / (3,2) / (11,7) | −1 / −1 / −139 |
+| $3x+5$ | 66 | 5 / 1 / 19, 23 / 187, 347 | (2,1) / (3,1) / (5,3) / (27,17) | 1 / 5 / 5 / 5 077 565 |
+| $3x+13$ | 66 | 13 / 1 / 211, 227, 251, 259, 283, 287, 319 / 131 | (2,1) / (4,1) / (8,5) / (24,15) | 1 / 13 / 13 / 2 428 309 |
 | $5x+1$ | 28 | 1 / 13, 17 | (5,2) / (7,3) | 7 / 3 |
 | $181x+1$ | 40 | 27, 35 | (15,2) | 7 |
 
 Cycles sit where $2^l$ and $q^k$ nearly coincide, e.g. $2^{15}-181^2=7$ and $2^7-5^3=3$. The seven cycles of $3x+13$ of type $(8,5)$ are exactly the seven candidates for a $3x+1$ cycle of that type; they fail because none of their members is divisible by $13 = 2^8-3^5$.
 
-**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$). Run P (`mitm_census.cpp`) reproduces this census exactly and extends it; the local probe for $41 \le l \le 48$ (`results/run_P_probe/`) finds 94 further primitive cycles (1191 for $l \le 48$), among them the cycle of $3x+23$ through 41, against 106 expected by the heuristic, and no further cycle of $3x\pm1$, $3x+5$ or $3x+13$.
+**Rational cycles** (`results/rational_cycles_q3_d1000_L40.csv`, Run A): all primitive cycles of the maps $3x+c$ with $|c_0| \le 1000$ and word length $l \le 40$, from all $2.2\cdot 10^{12}$ parity words. There are 1097 of them, 763 with $c_0>0$ and 334 with $c_0<0$, for 199 different values of $|c_0|$. The heuristic $\sum L(l,k)\,S(D)/|D|$ predicts 1149 (Figure 1 of the paper). A start-value search adds three cycles with longer words: $3x+23$ through 41 ($l=43$) and $3x+29$ through 3811 and 7055 ($l=65$, the convergent $65/41$ of $\log_2 3$). Run P (`mitm_census.cpp`) reproduces this census exactly and extends it to $l \le 66$ (`results/run_P/rational_cycles_q3_d1000_L66.csv`): 199 further primitive cycles, 1296 in total, among them all three cycles of the start-value search, against 274 expected by the heuristic for $41 \le l \le 66$. There is no further cycle of $3x\pm1$, $3x+5$ or $3x+13$, so the complete cycle lists of these four maps below hold for $L = 66$.
 
 **Basin shares** for $n \le 10^{10}$ (Run B; all 18 maps in Figure 2 of the paper, every $n \le 10^{10}$ reaches a known cycle; exact counts in `results/basin_q3_c*_N1e10.txt`, for $3x-1$, $3x+5$, $3x+13$ also up to $10^6$ and $10^8$ in `*_N1e6.txt`, `*_N1e8.txt`):
 

@@ -108,7 +108,7 @@ Optionen (zur Dokumentation):
 | ID | Aufgabe | Ergebnis | braucht | Art | Status |
 |---|---|---|---|---|---|
 | C1 | **Halbwort-Kollisionsformel:** Für gerade `l, k` und `P = 2^{l/2} + 3^{k/2}` reduziert `2^{l/2} ≡ -3^{k/2} (mod P)` die Bedingung `P \| z_3(B_1 B_2)` auf eine (bei ungleichen Halbtypen verdrehte) Kongruenz zwischen `z_3(B_1)` und `z_3(B_2)`. Weil die Halbwort-Zähler von der Größe `P` sind, ist sie fast eine Gleichung, und fast nur die Diagonale `B'B'` überlebt. Ziel: exakte Formel, Vergleich mit den Faktoren 0,61 (`D > 0`) und 1,40 (`D < 0`) aus Run J. | Lemma für Abschnitt 4 | – | Schreibtisch, Run-J-Daten | **erledigt** (v4l, Lemma 2; Defizit für D > 0: leerer Null-Slot + lokale Faktoren bei 2 und 3, Rest 0,86; D < 0: konstante Zählungen je Nullenzahl, S-Einheiten) |
-| C2 | **Meet-in-the-Middle-Zykluszählung (Run P):** Paritätswort halbieren, `z_3` modulo `2^l - 3^k` über Hash-Tabellen der Hälften abgleichen (C++/MPI). Ziel: Wortlänge 60–70 statt 40. Zuerst eine Laufzeitprobe bei `l = 48`. | erweiterter Zensus | C1 (Deutung), Cluster frei | Cluster | **Probe erledigt** (24.11.): sortierter Abgleich statt Hash/MPI, ein Prozess je Typ; l ≤ 40 identisch mit Run A; l = 41..48 lokal in 5 Kernminuten; Ziel l ≤ 64 (etwa 60 Kernstunden) oder l ≤ 66 mit der Konvergente 65/41; Clusterlauf offen |
+| C2 | **Meet-in-the-Middle-Zykluszählung (Run P):** Paritätswort halbieren, `z_3` modulo `2^l - 3^k` über Hash-Tabellen der Hälften abgleichen (C++/MPI). Ziel: Wortlänge 60–70 statt 40. Zuerst eine Laufzeitprobe bei `l = 48`. | erweiterter Zensus | C1 (Deutung), Cluster frei | Cluster | **erledigt** (26.11.): ein Prozess je Typ, Abgleich über einen Hash der Reste; l ≤ 40 identisch mit Run A; Clusterlauf l = 41..66 in 46 Kernstunden: 199 neue primitive Zyklen (1296 für l ≤ 66) gegen 274 erwartete, darunter die drei bekannten (3x+23, zweimal 3x+29 bei 65/41); keine neuen Zyklen von 3x±1, 3x+5, 3x+13. Das Verhältnis beobachtet/erwartet fällt von 0,95 (l ≤ 40) auf 0,71 (l = 41..66, Typen mit E ≥ 1) |
 | C3 | Abschnitt 4: Lemma und Tabelle ergänzen; Problem 1 und Outlook (3) anpassen. | Paper | C1, C2 | Schreiben | teilweise (v4l: Lemma 2, Problem 1); Tabelle nach C2 |
 
 ## Strang D: Kompaktierung und Journal (nach E1)
@@ -141,9 +141,9 @@ Leichte Früchte zuerst:
 3. ~~**D1** Inventar aller Aussagen mit Status und Seitenkosten (Vorbereitung der Kompaktierung).~~ erledigt
    (`inventory/INVENTAR.md`). Befund: 94 S., davon Haupttext 42, Anhänge 48; Anhang D, Abschnitt 6, Anhang F
    und Anhang C tragen 68 %. Realistisch ohne Ergebnisverlust: rund 70–80 S. (Szenarien im Inventar).
-4. **C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand). Programm fertig und validiert
-   (`C/mitm_census.cpp`, reproduziert Run A für l ≤ 40 exakt in 13 s); lokale Probe l = 41..48: 94 neue
-   primitive Zyklen gegen 106 erwartete. Offen: Clusterlauf l = 41..64 (oder 41..66), danach C3.
+4. ~~**C2** Meet-in-the-Middle-Zykluszensus (Run P, Cluster; mittlerer Aufwand).~~ erledigt (26.11., Job 170847):
+   Zensus bis l = 66, `results/run_P/`. Nächster Schritt C3 (Abschnitt 4/5: Prop. 2 und 3, Abbildung 1, Problem 1;
+   der wachsende Fehlbetrag gegenüber der Heuristik ist ein neuer Befund für Problem 1).
 
 Harte Brocken danach:
 
@@ -157,4 +157,4 @@ Harte Brocken danach:
 |---|---|---|
 | L, M, N | exaktes Gesetz bis n = 20; Monte Carlo Fourier bis n = 80; logarithmische Karte bis n = 15 | im Paper (v4j) |
 | O | Trefferwerte `w_d(k, r)`, First-hit-Zerlegung, Klassenverteilung (lokal N ≤ 13, Cluster N ≤ 17, Job 169344); alle `d` und Energie-Walk (lokal N ≤ 13, `energy_renewal.py`) | im Paper (v4k, Tabelle 18; v4m) |
-| P | Meet-in-the-Middle-Zykluszensus (C2): `mitm_census.cpp`, `slurm/run_P.sbatch` | Probe lokal l ≤ 48 (`results/run_P_probe/`); Clusterlauf bereit |
+| P | Meet-in-the-Middle-Zykluszensus (C2): `mitm_census.cpp`, `slurm/run_P.sbatch` | erledigt: l = 41..66 (Job 170847, 46 Kernstunden), `results/run_P/` |
