@@ -1,8 +1,8 @@
 key,name,title,section,page,line,cost_statement,cost_proof,used_by,status,role,d2
-prop:local,Proposition 1,Local indistinguishability,3,10,373,0.121,0.194,Abschn. 1; Abschn. 2,bewiesen,Hauptergebnis,Haupttext
-cor:local,Korollar 1,,3,10,382,0.177,0.000,Abschn. 3; Problem 2,bewiesen,Hauptergebnis,Haupttext
+prop:local,Proposition 1,Local indistinguishability,3,10,373,0.119,0.178,Abschn. 1; Abschn. 2,bewiesen,Hauptergebnis,Haupttext
+cor:local,Korollar 1,,3,11,382,0.172,0.000,Abschn. 3; Problem 2,bewiesen,Hauptergebnis,Haupttext
 lem:words,Lemma 1,"Cycles from words; Böhm–Sontacchi, Lagarias",4,12,425,0.256,0.000,Abschn. 4; Abschn. 5; Korollar 2; Lemma 2,bewiesen (Literatur),Stütze,Haupttext
-prop:census,Proposition 2,Census,5,13,487,0.121,0.000,Abschn. 5,Rechnung,Hauptergebnis,Haupttext
+prop:census,Proposition 2,Census,5,13,487,0.125,0.000,Abschn. 5,Rechnung,Hauptergebnis,Haupttext
 cor:near_miss,Korollar 2,,5,14,540,0.093,0.189,Abschn. 5,bewiesen,Ergänzung,Anhang
 prop:rational,Proposition 3,Rational cycles,5,15,554,0.174,0.000,Abschn. 2; Proposition 2; Abschn. 5; Proposition 6; Abschn. 6; Abschn. 7,Rechnung,Hauptergebnis,Haupttext
 lem:halfword,Lemma 2,Half-word collisions,5,17,571,0.335,0.267,Problem 1; Abschn. 7,bewiesen,Stütze,Haupttext
@@ -15,7 +15,7 @@ cor:collatz,Korollar 3,The basin of $1$ for $3x+1$,6,23,707,0.116,0.081,Abschn. 
 rem:passage,Bemerkung 1,A first-passage formula,6,26,770,0.257,0.000,Abschn. 6; Abschn. 7,Bemerkung,Ergänzung,Note
 cor:natural,Korollar 4,Natural densities for $3x+1$,6,26,781,0.121,0.377,Abschn. 1; Abschn. 2; Abschn. 6; Problem 2; Satz 2,bewiesen mit Preprint,Hauptergebnis,Haupttext
 rem:mazur,Bemerkung 2,Two routes to natural density,6,27,794,0.303,0.000,Abschn. 6,Bemerkung,Kontext,Haupttext
-thm:natural,Satz 2,Natural densities for all maps $3x+c$,6,27,799,0.123,0.548,Abschn. 1; Abschn. 2; Abschn. 6; Problem 2; Abschn. 7,bewiesen mit Preprint,Hauptergebnis,Haupttext
+thm:natural,Satz 2,Natural densities for all maps $3x+c$,6,27,799,0.123,0.517,Abschn. 1; Abschn. 2; Abschn. 6; Problem 2; Abschn. 7,bewiesen mit Preprint,Hauptergebnis,Haupttext
 prop:potential,Proposition 7,Predecessor potential,6,27,813,0.274,1.238,Abschn. 1; Abschn. 2; Abschn. 6; Korollar 5; Abschn. 7; Satz 3; Korollar 7; Abschn. D; Proposition 12; Bemerkung 3; Satz 2; Lemma 3,bewiesen,Faden,Haupttext
 cor:dichotomy,Korollar 5,No sparse invariant sets for $3x\pm1$,6,29,864,0.171,0.526,Abschn. 1; Abschn. 2; Korollar 6; Abschn. 6,bewiesen mit Preprint,Hauptergebnis,Haupttext
 conj:profile,Vermutung 1,Syracuse profile of the potential,6,34,946,0.215,0.000,Abschn. 2; Abschn. 6; Korollar 6; Problem 2; Abschn. 7; Abschn. D; Abschn. F,Vermutung,Faden,Haupttext
@@ -27,25 +27,25 @@ lem:reduction,Lemma 3,Reduction to a window just above the targets,C,45,1226,0.3
 lem:valuations,Lemma 4,Valuations in a logarithmic window,C,46,1247,0.211,0.569,Satz 3; Abschn. D; Proposition 8,bewiesen,Stütze,Anhang
 lem:model,Lemma 5,The model,C,47,1261,0.379,2.408,Abschn. 2; Satz 3; Abschn. D; Proposition 8; Proposition 9,bewiesen,Stütze,Anhang
 lem:escape-ladder,Lemma 6,Escape ladder,C,51,1431,0.232,0.312,Abschn. 6; Korollar 6; Lemma 7,bewiesen,Stütze,Anhang
-prop:clipped-calibration,Proposition 8,Sharp calibration after clipping,D,53,1502,0.232,1.072,Abschn. 2; Abschn. 6; Korollar 7; Lemma 7; Abschn. D; Proposition 9; Proposition 10,bedingt,Faden,Anhang
-cor:two-tails,Korollar 7,Two nonnegative obstructions to the mean upper bound,D,55,1595,0.550,0.239,Abschn. 7; Abschn. D,bedingt,Faden,Anhang
-rem:return-divergence,Lemma 7,Unbounded orbits and the return term,D,55,1643,0.329,0.250,Abschn. 7; Abschn. D; Proposition 12,bedingt,Stütze,Anhang
-prop:tightness,Proposition 9,Exponential tightness up to a logarithmic exceptional set,D,57,1683,0.156,1.473,Abschn. 2; Abschn. 6; Abschn. 7; Abschn. D; Proposition 10; Proposition 11,bedingt,Stütze,Anhang
-prop:first-excess,Proposition 10,First-excess transport,D,59,1834,0.296,0.220,Abschn. 7; Abschn. D; Proposition 11; Proposition 12,bedingt,Stütze,Anhang
-rem:rigidity,Lemma 8,Arithmetic rigidity of returns,D,59,1851,0.392,0.347,Abschn. D; Proposition 11; Proposition 12,bewiesen,Stütze,Anhang
-prop:potential-domination,Proposition 11,Domination by the stopped potential of odd targets,D,60,1875,0.439,0.623,Abschn. 2; Abschn. 7; Abschn. D; Proposition 12; Bemerkung 3,bedingt,Faden,Anhang
-prop:return-domination,Proposition 12,Domination of the returns by the potential,D,62,1900,0.298,1.595,Abschn. 2; Abschn. 7; Abschn. D,bedingt,Faden,Anhang
-rem:spikes,Bemerkung 3,"Averages, not maxima",D,66,1976,1.688,0.000,Abschn. 2; Abschn. 7; Abschn. D; Abschn. F; Korollar 8,Bemerkung,Faden,Anhang
-lem:two-laws,Lemma 9,"One block, two laws",E,68,2032,0.222,0.569,Satz 2,bewiesen mit Preprint,Stütze,Anhang
+prop:clipped-calibration,Proposition 8,Sharp calibration after clipping,D,53,1502,0.338,1.132,Abschn. 2; Abschn. 6; Korollar 7; Lemma 7; Abschn. D; Proposition 9; Proposition 10,bedingt,Faden,Anhang
+cor:two-tails,Korollar 7,Two nonnegative obstructions to the mean upper bound,D,55,1595,0.550,0.236,Abschn. 7; Abschn. D,bedingt,Faden,Anhang
+rem:return-divergence,Lemma 7,Unbounded orbits and the return term,D,56,1643,0.310,0.250,Abschn. 7; Abschn. D; Proposition 12,bedingt,Stütze,Anhang
+prop:tightness,Proposition 9,Exponential tightness up to a logarithmic exceptional set,D,57,1683,0.156,1.517,Abschn. 2; Abschn. 6; Abschn. 7; Abschn. D; Proposition 10; Proposition 11,bedingt,Stütze,Anhang
+prop:first-excess,Proposition 10,First-excess transport,D,59,1834,0.319,0.218,Abschn. 7; Abschn. D; Proposition 11; Proposition 12,bedingt,Stütze,Anhang
+rem:rigidity,Lemma 8,Arithmetic rigidity of returns,D,60,1851,0.346,0.345,Abschn. D; Proposition 11; Proposition 12,bewiesen,Stütze,Anhang
+prop:potential-domination,Proposition 11,Domination by the stopped potential of odd targets,D,61,1875,0.359,0.636,Abschn. 2; Abschn. 7; Abschn. D; Proposition 12; Bemerkung 3,bedingt,Faden,Anhang
+prop:return-domination,Proposition 12,Domination of the returns by the potential,D,62,1900,0.298,1.558,Abschn. 2; Abschn. 7; Abschn. D,bedingt,Faden,Anhang
+rem:spikes,Bemerkung 3,"Averages, not maxima",D,66,1976,1.662,0.000,Abschn. 2; Abschn. 7; Abschn. D; Abschn. F; Korollar 8,Bemerkung,Faden,Anhang
+lem:two-laws,Lemma 9,"One block, two laws",E,68,2032,0.222,0.676,Satz 2,bewiesen mit Preprint,Stütze,Anhang
 lem:selfsim,Lemma 10,Self-similarity,F,71,2083,0.230,0.112,Lemma 11; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
-prop:energy,Proposition 13,The second moment,F,71,2102,0.198,0.168,Vermutung 3; Abschn. F; Proposition 15,bewiesen,Faden,Anhang (Kern F)
-prop:singular,Proposition 14,The singular set,F,71,2115,0.094,0.116,Abschn. F,bewiesen,Ergänzung,Anhang (Kern F)
+prop:energy,Proposition 13,The second moment,F,71,2102,0.198,0.171,Vermutung 3; Abschn. F; Proposition 15,bewiesen,Faden,Anhang (Kern F)
+prop:singular,Proposition 14,The singular set,F,72,2115,0.094,0.086,Abschn. F,bewiesen,Ergänzung,Anhang (Kern F)
 lem:kp,Lemma 11,Kahane–Peyrière inequality,F,72,2126,0.190,0.239,Abschn. F,bewiesen,Faden,Anhang (Kern F)
 cor:lp,Korollar 8,,F,72,2143,0.147,0.000,Korollar 9,bedingt,Faden,Anhang (Kern F)
-conj:energy,Vermutung 3,Bounded energy,F,72,2150,0.097,0.000,Abschn. 7; Abschn. F; Korollar 9,Vermutung,Faden,Anhang (Kern F)
-lem:logchart,Lemma 12,Logarithmic chart,F,75,2209,0.223,0.185,Proposition 15; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
-prop:spectral,Proposition 15,Spectral form of the energy,F,75,2227,0.235,0.181,Abschn. F; Korollar 9,bewiesen,Stütze,Anhang (Kern F)
-prop:intertwiners,Proposition 16,Singular set and non-resonance,F,76,2249,0.338,0.422,Abschn. 7; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
+conj:energy,Vermutung 3,Bounded energy,F,72,2150,0.413,0.000,Abschn. 7; Abschn. F; Korollar 9,Vermutung,Faden,Anhang (Kern F)
+lem:logchart,Lemma 12,Logarithmic chart,F,75,2209,0.227,0.189,Proposition 15; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
+prop:spectral,Proposition 15,Spectral form of the energy,F,75,2227,0.239,0.197,Abschn. F; Korollar 9,bewiesen,Stütze,Anhang (Kern F)
+prop:intertwiners,Proposition 16,Singular set and non-resonance,F,76,2249,0.338,0.412,Abschn. 7; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
 conj:decor,Vermutung 4,Decorrelation,F,77,2266,0.121,0.000,Abschn. 7; Abschn. F,Vermutung,Faden,Anhang (Kern F)
 prop:renewal,Proposition 17,First-hit decomposition,F,79,2308,0.240,0.219,Abschn. F; Korollar 9,bewiesen,Faden,Anhang (Kern F)
-cor:energy-bootstrap,Korollar 9,Conditional bound for the energy,F,80,2329,0.150,0.141,Abschn. 2; Abschn. 7; Abschn. F,bedingt,Faden,Anhang (Kern F)
+cor:energy-bootstrap,Korollar 9,Conditional bound for the energy,F,80,2329,0.146,0.138,Abschn. 2; Abschn. 7; Abschn. F,bedingt,Faden,Anhang (Kern F)

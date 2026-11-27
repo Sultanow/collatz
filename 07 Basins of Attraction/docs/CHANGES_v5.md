@@ -447,3 +447,23 @@ Decision 27.11.: move out only what improves readability (D3 of 24.11.); all fou
   Appendix F row, halfword_collisions.py; numbers updated to v4p). Text and caption of Table 11 point to the README.
 - Outlook (2), Section 6, contributions row "First-passage tails", code availability, runs table row I adjusted.
 - 85 pages (before: 96), no overfull boxes; Lemma/Proposition numbers in Appendices D-F shift.
+
+## v4q (roadmap D4: consistency pass)
+- Tao's equation numbers follow the published version (Forum Math. Pi), as the bibliography entry says: the no-hit
+  bound is (1.19) and the stabilisation of first passages (1.20); before, two citations used the arXiv numbering
+  ((1.18), (1.19)). All other pinpoint citations of Tao ((1.7), (1.13), (1.26), Propositions 1.9, 1.11, 1.14, 1.17,
+  5.2, Remark 1.15, Lemma 2.1, (5.1), (5.2), (5.7), (5.10)-(5.15), (5.20), (5.21)) checked against the published
+  version.
+- Bibliography: Tao's entry notes the numerical slip in Section 6 of the published version (L. Mazur, comment on
+  Tao's blog, 5 July 2026; Tao's fix 6 July) and that arXiv v7 (16 July 2026) corrects the proof with unchanged
+  statements. Our results use only statements (Propositions 1.11, 1.14, 1.17), and GGM's own proof of the analogue
+  already uses the uncritical window (C_A^3 log n, as in v7). Allikvere: version 2 (22 July 2026; main theorem and
+  Sections 3-6 unchanged). Mazur (natural density): link to the current ProofAtlas page. Status of the other
+  preprints unchanged: Mazur (positive density) manuscript 2.1, Lean checked, acceptance review open at ProofAtlas;
+  Mazur (predecessors) version 1.0; El Jaouhari version 1 (Zenodo, not peer reviewed); none published in a journal.
+- Appendix D title: "First-passage tails: calibration, tightness and the potential" (after D2).
+- Contribution rows: Syracuse law (pair mixing, no certificate at finite precision), Lean core (return certificates
+  stated in the research note); Section 2, machine-checked core, likewise.
+- Checked: no hard-coded statement numbers in the text, no duplicated words, all labels resolved, runs table rows,
+  abstract against the contents. The notation table of Appendix A stays without number (the appendix title is its
+  caption). 85 pages.

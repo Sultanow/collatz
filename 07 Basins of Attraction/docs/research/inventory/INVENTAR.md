@@ -1,6 +1,6 @@
 # D1: Inventar aller Aussagen mit Status und Seitenkosten
 
-Stand: Entwurf v4p, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory/inventory.py` aus `docs/main.tex`; der Status stammt aus `inventory/status.csv` (von Hand gepflegt).
+Stand: Entwurf v4q, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory/inventory.py` aus `docs/main.tex`; der Status stammt aus `inventory/status.csv` (von Hand gepflegt).
 
 **Seitenkosten** sind in Seiten Satzspiegel gemessen (Position jedes Elements im PDF via `\pdfsavepos`). Eine Aussage kostet Kopf und Text, der Beweis wird getrennt gezählt; Gleitobjekte, die in einen Beweis fallen, sind abgezogen. Abschnittskosten reichen von der Überschrift bis zur nächsten Überschrift gleicher oder höherer Ebene und enthalten die dort platzierten Gleitobjekte.
 
@@ -8,15 +8,15 @@ Stand: Entwurf v4p, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory
 
 | Status | Anzahl | Aussagen (S.) | Beweise (S.) |
 |---|---|---|---|
-| bewiesen | 23 | 5.18 | 12.06 |
+| bewiesen | 23 | 5.14 | 12.03 |
 | bewiesen (Literatur) | 2 | 0.99 | 0.00 |
-| bewiesen mit Preprint | 4 | 0.64 | 2.02 |
-| bedingt | 9 | 2.60 | 5.61 |
+| bewiesen mit Preprint | 4 | 0.64 | 2.10 |
+| bedingt | 9 | 2.62 | 5.68 |
 | Rechnung | 3 | 0.42 | 0.00 |
-| Vermutung | 4 | 0.59 | 0.00 |
+| Vermutung | 4 | 0.91 | 0.00 |
 | offen | 2 | 0.77 | 0.00 |
-| Bemerkung | 3 | 2.25 | 0.00 |
-| **alle** | **50** | **13.42** | **19.70** |
+| Bemerkung | 3 | 2.22 | 0.00 |
+| **alle** | **50** | **13.70** | **19.81** |
 
 ## Übersicht nach D2-Vorschlag
 
@@ -24,9 +24,9 @@ Aussagen und Beweise allein sowie hochgerechnet mit dem Faktor Abschnittsseiten 
 
 | D2-Vorschlag | Anzahl | Aussagen + Beweise (S.) | hochgerechnet (S.) |
 |---|---|---|---|
-| Anhang | 15 | 16.16 | 26.43 |
-| Anhang (Kern F) | 12 | 4.04 | 12.52 |
-| Haupttext | 22 | 12.66 | 28.56 |
+| Anhang | 15 | 16.30 | 26.59 |
+| Anhang (Kern F) | 12 | 4.34 | 12.31 |
+| Haupttext | 22 | 12.61 | 28.28 |
 | Note | 1 | 0.26 | 0.47 |
 
 ## Befunde für D2 und D3
@@ -59,18 +59,18 @@ Aussagen und Beweise allein sowie hochgerechnet mit dem Faktor Abschnittsseiten 
 | Abschn. | Titel | ab S. | Seiten | davon Gleitobj. | Aussagen | Beweise (S.) |
 |---|---|---|---|---|---|---|
 | 1 | Introduction | 1 | 3.81 | 0.31 | 0 | 0.00 |
-| 2 | Contributions | 5 | 3.76 | 0.00 | 0 | 0.00 |
-| 3 | Local structure: one forest, several trees | 9 | 2.32 | 0.58 | 2 | 0.19 |
-| 4 | Parity words and cycles | 11 | 1.84 | 0.26 | 1 | 0.00 |
-| 5 | The decoded zoo: cycles live where $2^l\approx q^k$ | 13 | 6.03 | 0.64 | 5 | 0.46 |
-| 6 | Measuring forests: basin densities | 19 | 20.10 | 4.55 | 16 | 7.16 |
+| 2 | Contributions | 5 | 4.09 | 0.00 | 0 | 0.00 |
+| 3 | Local structure: one forest, several trees | 9 | 2.22 | 0.58 | 2 | 0.18 |
+| 4 | Parity words and cycles | 11 | 1.81 | 0.26 | 1 | 0.00 |
+| 5 | The decoded zoo: cycles live where $2^l\approx q^k$ | 13 | 5.83 | 0.64 | 5 | 0.46 |
+| 6 | Measuring forests: basin densities | 19 | 20.10 | 4.55 | 16 | 7.13 |
 | 7 | Outlook | 39 | 3.91 | 0.00 | 0 | 0.00 |
 | A | Notation | 43 | 1.16 | 0.38 | 0 | 0.00 |
 | B | Supplementary remarks on cycles | 44 | 0.58 | 0.00 | 0 | 0.00 |
 | C | Proof of Theorem [thm:lower] and Corollary [cor:remains] | 45 | 7.87 | 0.00 | 4 | 3.72 |
-| D | First-passage tails: reduction, tightness and obstructions | 53 | 15.10 | 1.15 | 9 | 5.82 |
-| E | Natural densities for all maps $3x+c$ | 68 | 2.20 | 0.62 | 1 | 0.57 |
-| F | The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay | 70 | 12.52 | 1.33 | 12 | 1.78 |
+| D | First-passage tails: calibration, tightness and the potential | 53 | 15.23 | 1.15 | 9 | 5.89 |
+| E | Natural densities for all maps $3x+c$ | 68 | 2.28 | 0.62 | 1 | 0.68 |
+| F | The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay | 70 | 12.31 | 1.33 | 12 | 1.76 |
 | | **Haupttext (1–7)** | | **41.76** | | | |
 | | **Anhänge (A–F)** | | **39.42** | | | |
 
@@ -82,8 +82,8 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 
 | Aussage | Titel | S. | Aussage | Beweis | Status | Rolle | D2 | genutzt von |
 |---|---|---|---|---|---|---|---|---|
-| Proposition 1 | Local indistinguishability | 10 | 0.12 | 0.19 | bewiesen | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2 |
-| Korollar 1 | (lokale Statistik entscheidet nicht) | 10 | 0.18 | – | bewiesen | Hauptergebnis | Haupttext | Abschn. 3, Problem 2 |
+| Proposition 1 | Local indistinguishability | 10 | 0.12 | 0.18 | bewiesen | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2 |
+| Korollar 1 | (lokale Statistik entscheidet nicht) | 11 | 0.17 | – | bewiesen | Hauptergebnis | Haupttext | Abschn. 3, Problem 2 |
 
 - *Korollar 1:* unmittelbar aus Prop. 1, ohne eigenen Beweis
 
@@ -99,7 +99,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 
 | Aussage | Titel | S. | Aussage | Beweis | Status | Rolle | D2 | genutzt von |
 |---|---|---|---|---|---|---|---|---|
-| Proposition 2 | Census | 13 | 0.12 | – | Rechnung | Hauptergebnis | Haupttext | Abschn. 5 |
+| Proposition 2 | Census | 13 | 0.13 | – | Rechnung | Hauptergebnis | Haupttext | Abschn. 5 |
 | Korollar 2 | (kein (8,5)-Zyklus von 3x+1) | 14 | 0.09 | 0.19 | bewiesen | Ergänzung | Anhang | Abschn. 5 |
 | Proposition 3 | Rational cycles | 15 | 0.17 | – | Rechnung | Hauptergebnis | Haupttext | Abschn. 2, Proposition 2, Abschn. 5, Proposition 6, Abschn. 6, Abschn. 7 |
 | Lemma 2 | Half-word collisions | 17 | 0.33 | 0.27 | bewiesen | Stütze | Haupttext | Problem 1, Abschn. 7 |
@@ -123,7 +123,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | Bemerkung 1 | A first-passage formula | 26 | 0.26 | – | Bemerkung | Ergänzung | Note | Abschn. 6, Abschn. 7 |
 | Korollar 4 | Natural densities for $3x+1$ | 26 | 0.12 | 0.38 | bewiesen mit Preprint | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2, Abschn. 6, Problem 2, Satz 2 |
 | Bemerkung 2 | Two routes to natural density | 27 | 0.30 | – | Bemerkung | Kontext | Haupttext | Abschn. 6 |
-| Satz 2 | Natural densities for all maps $3x+c$ | 27 | 0.12 | 0.55 | bewiesen mit Preprint | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2, Abschn. 6, Problem 2, Abschn. 7 |
+| Satz 2 | Natural densities for all maps $3x+c$ | 27 | 0.12 | 0.52 | bewiesen mit Preprint | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2, Abschn. 6, Problem 2, Abschn. 7 |
 | Proposition 7 | Predecessor potential | 27 | 0.27 | 1.24 | bewiesen | Faden | Haupttext | Abschn. 1, Abschn. 2, Abschn. 6, Korollar 5, Abschn. 7, Satz 3, Korollar 7, Abschn. D (+4) |
 | Korollar 5 | No sparse invariant sets for $3x\pm1$ | 29 | 0.17 | 0.53 | bewiesen mit Preprint | Hauptergebnis | Haupttext | Abschn. 1, Abschn. 2, Korollar 6, Abschn. 6 |
 | Vermutung 1 | Syracuse profile of the potential | 34 | 0.21 | – | Vermutung | Faden | Haupttext | Abschn. 2, Abschn. 6, Korollar 6, Problem 2, Abschn. 7, Abschn. D, Abschn. F |
@@ -158,19 +158,19 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 - *Lemma 5:* längster Einzelbeweis (2,4 Seiten)
 - *Lemma 6:* für Kor. 6(b)
 
-### D. First-passage tails: reduction, tightness and obstructions
+### D. First-passage tails: calibration, tightness and the potential
 
 | Aussage | Titel | S. | Aussage | Beweis | Status | Rolle | D2 | genutzt von |
 |---|---|---|---|---|---|---|---|---|
-| Proposition 8 | Sharp calibration after clipping | 53 | 0.23 | 1.07 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 6, Korollar 7, Lemma 7, Abschn. D, Proposition 9, Proposition 10 |
+| Proposition 8 | Sharp calibration after clipping | 53 | 0.34 | 1.13 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 6, Korollar 7, Lemma 7, Abschn. D, Proposition 9, Proposition 10 |
 | Korollar 7 | Two nonnegative obstructions to the mean upper bound | 55 | 0.55 | 0.24 | bedingt | Faden | Anhang | Abschn. 7, Abschn. D |
-| Lemma 7 | Unbounded orbits and the return term | 55 | 0.33 | 0.25 | bedingt | Stütze | Anhang | Abschn. 7, Abschn. D, Proposition 12 |
-| Proposition 9 | Exponential tightness up to a logarithmic exceptional set | 57 | 0.16 | 1.47 | bedingt | Stütze | Anhang | Abschn. 2, Abschn. 6, Abschn. 7, Abschn. D, Proposition 10, Proposition 11 |
-| Proposition 10 | First-excess transport | 59 | 0.30 | 0.22 | bedingt | Stütze | Anhang | Abschn. 7, Abschn. D, Proposition 11, Proposition 12 |
-| Lemma 8 | Arithmetic rigidity of returns | 59 | 0.39 | 0.35 | bewiesen | Stütze | Anhang | Abschn. D, Proposition 11, Proposition 12 |
-| Proposition 11 | Domination by the stopped potential of odd targets | 60 | 0.44 | 0.62 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Proposition 12, Bemerkung 3 |
-| Proposition 12 | Domination of the returns by the potential | 62 | 0.30 | 1.59 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D |
-| Bemerkung 3 | Averages, not maxima | 66 | 1.69 | – | Bemerkung | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Abschn. F, Korollar 8 |
+| Lemma 7 | Unbounded orbits and the return term | 56 | 0.31 | 0.25 | bedingt | Stütze | Anhang | Abschn. 7, Abschn. D, Proposition 12 |
+| Proposition 9 | Exponential tightness up to a logarithmic exceptional set | 57 | 0.16 | 1.52 | bedingt | Stütze | Anhang | Abschn. 2, Abschn. 6, Abschn. 7, Abschn. D, Proposition 10, Proposition 11 |
+| Proposition 10 | First-excess transport | 59 | 0.32 | 0.22 | bedingt | Stütze | Anhang | Abschn. 7, Abschn. D, Proposition 11, Proposition 12 |
+| Lemma 8 | Arithmetic rigidity of returns | 60 | 0.35 | 0.35 | bewiesen | Stütze | Anhang | Abschn. D, Proposition 11, Proposition 12 |
+| Proposition 11 | Domination by the stopped potential of odd targets | 61 | 0.36 | 0.64 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Proposition 12, Bemerkung 3 |
+| Proposition 12 | Domination of the returns by the potential | 62 | 0.30 | 1.56 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D |
+| Bemerkung 3 | Averages, not maxima | 66 | 1.66 | – | Bemerkung | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Abschn. F, Korollar 8 |
 
 - *Proposition 8:* Kürzen; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)
 - *Korollar 7:* Zerlegung S_X = C_X + T_X + R_X; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)
@@ -186,7 +186,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 
 | Aussage | Titel | S. | Aussage | Beweis | Status | Rolle | D2 | genutzt von |
 |---|---|---|---|---|---|---|---|---|
-| Lemma 9 | One block, two laws | 68 | 0.22 | 0.57 | bewiesen mit Preprint | Stütze | Anhang | Satz 2 |
+| Lemma 9 | One block, two laws | 68 | 0.22 | 0.68 | bewiesen mit Preprint | Stütze | Anhang | Satz 2 |
 
 - *Lemma 9:* Annahme: Allikvere 2026, Abschn. 6
 
@@ -196,13 +196,13 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 |---|---|---|---|---|---|---|---|---|
 | Lemma 10 | Self-similarity | 71 | 0.23 | 0.11 | bewiesen | Stütze | Anhang (Kern F) | Lemma 11, Abschn. F |
 | Proposition 13 | The second moment | 71 | 0.20 | 0.17 | bewiesen | Faden | Anhang (Kern F) | Vermutung 3, Abschn. F, Proposition 15 |
-| Proposition 14 | The singular set | 71 | 0.09 | 0.12 | bewiesen | Ergänzung | Anhang (Kern F) | Abschn. F |
+| Proposition 14 | The singular set | 72 | 0.09 | 0.09 | bewiesen | Ergänzung | Anhang (Kern F) | Abschn. F |
 | Lemma 11 | Kahane–Peyrière inequality | 72 | 0.19 | 0.24 | bewiesen | Faden | Anhang (Kern F) | Abschn. F |
 | Korollar 8 | (L^p für p < 2) | 72 | 0.15 | – | bedingt | Faden | Anhang (Kern F) | Korollar 9 |
-| Vermutung 3 | Bounded energy | 72 | 0.10 | – | Vermutung | Faden | Anhang (Kern F) | Abschn. 7, Abschn. F, Korollar 9 |
-| Lemma 12 | Logarithmic chart | 75 | 0.22 | 0.18 | bewiesen | Stütze | Anhang (Kern F) | Proposition 15, Abschn. F |
-| Proposition 15 | Spectral form of the energy | 75 | 0.24 | 0.18 | bewiesen | Stütze | Anhang (Kern F) | Abschn. F, Korollar 9 |
-| Proposition 16 | Singular set and non-resonance | 76 | 0.34 | 0.42 | bewiesen | Stütze | Anhang (Kern F) | Abschn. 7, Abschn. F |
+| Vermutung 3 | Bounded energy | 72 | 0.41 | – | Vermutung | Faden | Anhang (Kern F) | Abschn. 7, Abschn. F, Korollar 9 |
+| Lemma 12 | Logarithmic chart | 75 | 0.23 | 0.19 | bewiesen | Stütze | Anhang (Kern F) | Proposition 15, Abschn. F |
+| Proposition 15 | Spectral form of the energy | 75 | 0.24 | 0.20 | bewiesen | Stütze | Anhang (Kern F) | Abschn. F, Korollar 9 |
+| Proposition 16 | Singular set and non-resonance | 76 | 0.34 | 0.41 | bewiesen | Stütze | Anhang (Kern F) | Abschn. 7, Abschn. F |
 | Vermutung 4 | Decorrelation | 77 | 0.12 | – | Vermutung | Faden | Anhang (Kern F) | Abschn. 7, Abschn. F |
 | Proposition 17 | First-hit decomposition | 79 | 0.24 | 0.22 | bewiesen | Faden | Anhang (Kern F) | Abschn. F, Korollar 9 |
 | Korollar 9 | Conditional bound for the energy | 80 | 0.15 | 0.14 | bedingt | Faden | Anhang (Kern F) | Abschn. 2, Abschn. 7, Abschn. F |
@@ -220,7 +220,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | Objekt | Inhalt | S. | Seiten |
 |---|---|---|---|
 | Tabelle 1 | Non-trivial $qx+1$ cycles for odd $q\leq1000$. Their role for Crandall's conjecture was studied by Franco a… | 2 | 0.31 |
-| Tabelle (lang) 2 | What was known, what is added here, and the logical status of each result. | 5 | 2.38 |
+| Tabelle (lang) 2 | What was known, what is added here, and the logical status of each result. | 5 | 2.66 |
 | Tabelle 3 | The mirror pair $3x\pm1$: identical local structure (upper rows; the Upward classes are negatives of each o… | 10 | 0.31 |
 | Tabelle 4 | Members of the same residue class in different trees of the forest of $3x-1$. For example, $32\to16\to8\to4… | 11 | 0.27 |
 | Tabelle 5 | Cycles determined via binary rotation ; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, … | 13 | 0.26 |
@@ -240,9 +240,9 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | Tabelle 13 | Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $… | 69 | 0.62 |
 | Tabelle 14 | Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law. | 73 | 0.29 |
 | Tabelle 15 | Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$. | 74 | 0.34 |
-| Tabelle 16 | Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the tot… | 78 | 0.40 |
+| Tabelle 16 | Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the tot… | 79 | 0.40 |
 | Tabelle 17 | Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part… | 82 | 0.30 |
-| | **Summe** | | **13.88** |
+| | **Summe** | | **14.15** |
 
 ## Feinstruktur (Unterabschnitte und Absatzüberschriften; im Haupttext ab 0,5 Seiten)
 
@@ -250,10 +250,10 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 |---|---|---|---|
 | 1 | Related work | 3 | 1.05 |
 | 1 | Main results | 4 | 0.93 |
-| 2 | Machine-checked finite core and its scope | 8 | 0.50 |
-| 3 | Local indistinguishability | 10 | 0.69 |
+| 2 | Machine-checked finite core and its scope | 9 | 0.53 |
+| 3 | Local indistinguishability | 10 | 0.66 |
 | 3 | Residue classes do not decide membership | 11 | 0.52 |
-| 4 | Words with $D=c$ | 12 | 0.53 |
+| 4 | Words with $D=c$ | 12 | 0.51 |
 | 5 | The near miss of $3x+1$ | 14 | 0.59 |
 | 5 | All maps at once: rational cycles | 15 | 4.06 |
 | 5 | Heuristic | 16 | 1.88 |
@@ -267,20 +267,20 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | 7 | Code and data availability | 41 | 2.14 |
 | B | The case $q=1$ | 44 | 0.19 |
 | B | The product identity | 44 | 0.32 |
-| D | Calibration and decomposition | 53 | 2.98 |
-| D | Exponential tightness of the first-passage mass | 56 | 2.52 |
-| D | Run I | 58 | 0.48 |
-| D | First excess and the potential | 59 | 9.10 |
-| D | Run K | 64 | 3.57 |
-| E | The transfer | 68 | 2.00 |
-| F | Run L | 72 | 0.86 |
+| D | Calibration and decomposition | 53 | 3.12 |
+| D | Exponential tightness of the first-passage mass | 56 | 2.64 |
+| D | Run I | 58 | 0.52 |
+| D | First excess and the potential | 59 | 8.95 |
+| D | Run K | 64 | 3.54 |
+| E | The transfer | 68 | 2.08 |
+| F | Run L | 73 | 0.49 |
 | F | Fourier maxima (Run M) | 73 | 1.05 |
-| F | Logarithmic chart | 74 | 1.30 |
-| F | Renormalisation and the singular set | 76 | 1.81 |
-| F | The fixed point $-1$ | 77 | 0.65 |
+| F | Logarithmic chart | 74 | 1.34 |
+| F | Renormalisation and the singular set | 76 | 1.83 |
+| F | The fixed point $-1$ | 78 | 0.24 |
 | F | Run N | 78 | 0.29 |
-| F | First-hit decomposition | 78 | 1.81 |
-| F | Run O | 80 | 0.93 |
-| F | Run O, all $d$ | 81 | 0.30 |
-| F | What a proof needs | 81 | 1.09 |
+| F | First-hit decomposition | 78 | 2.20 |
+| F | Run O | 80 | 0.88 |
+| F | Run O, all $d$ | 81 | 0.63 |
+| F | What a proof needs | 82 | 0.64 |
 

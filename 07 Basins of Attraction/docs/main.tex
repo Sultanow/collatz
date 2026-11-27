@@ -259,7 +259,7 @@ Syracuse potential profile
 \addlinespace[2pt]
 Syracuse law
 & $L^1$ convergence of the densities and decay of the characteristic function \cite{Tao_2022}; no $L^2$ density (Remark~\ref{rem:spikes}(d)); Fourier maxima up to $n=21$ \cite{Toguchi_2026}.
-& Kahane--Peyri\`ere inequality: the profile lies in $L^p$ for every $p<2$ if the unit-frequency energy $E_n$ is bounded; exact second-moment identity; logarithmic chart, in which $E_n$ is a weighted unit-frequency energy; the singular set of the correlations consists of the intertwiners of inverse Syracuse words and is avoided by the maps that enter $E_n$ (Appendix~\ref{sec:syracuse-lp}). A first-hit decomposition reduces the boundedness of $E_n$ to a mixing statement (Corollary~\ref{cor:energy-bootstrap}). Exact laws up to $n=20$ and Monte Carlo up to $n=80$: $E_n\to0.475$, with the slowest convergence at the fixed point $-1$; largest Fourier coefficient $\approx n^{-1}0.943^n$ (Runs~L--O).
+& Kahane--Peyri\`ere inequality: the profile lies in $L^p$ for every $p<2$ if the unit-frequency energy $E_n$ is bounded; exact second-moment identity; logarithmic chart, in which $E_n$ is a weighted unit-frequency energy; the singular set of the correlations consists of the intertwiners of inverse Syracuse words and is avoided by the maps that enter $E_n$ (Appendix~\ref{sec:syracuse-lp}). A first-hit decomposition reduces the boundedness of $E_n$ to a mixing statement for pairs (Corollary~\ref{cor:energy-bootstrap}); since the intertwiners are dense, it cannot be certified at a fixed finite precision. Exact laws up to $n=20$ and Monte Carlo up to $n=80$: $E_n\to0.475$, with the slowest convergence at the fixed point $-1$; largest Fourier coefficient $\approx n^{-1}0.943^n$ (Runs~L--O).
 & \emph{Proof of the reduction; numerical evidence for its hypothesis and for exponential decay}. \\
 \addlinespace[2pt]
 Predicting basin shares
@@ -274,7 +274,7 @@ First-passage tails
 \addlinespace[2pt]
 Lean-checked finite core
 & Elementary inverse branches, truncation bounds, return-pair counting and Green-type occupation identities.
-& Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates. Algebraic tools, not return-tail estimates.
+& Immediate predecessors for odd $c$, finite hitting-time recursion and weighted hitting mass; clipping identity and quadratic excess bound; $N^2=N+2\,{\rm pairs}$ for recorded visits; finite return certificates (stated in a research note). Algebraic tools, not return-tail estimates.
 & \emph{Lean~4 checked}: \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Basic.lean\#L70}{predecessors}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L28}{hits}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/FiniteFlow.lean\#L50}{weights}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/Clipping.lean}{clipping}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnPairs.lean}{return pairs}; \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lyapunov}, \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{large shells}. \\
 \end{longtable}
 \endgroup
@@ -313,7 +313,7 @@ hitting-mass identity for arbitrary finite samples. The separately checked
 modules \texttt{Clipping.lean} and \texttt{ReturnPairs.lean} certify
 finite truncation inequalities and the chronological return-pair identity. The links in the last row of Table~\ref{table:contributions} point to the
 individual declarations, among them the finite return certificates and explicit
-congruence witnesses. These statements are checked by the
+congruence witnesses, whose statements are in the research note \texttt{tail\_programme}. All these declarations are checked by the
 \href{https://github.com/Sultanow/collatz/actions/workflows/collatz-lean.yml}{GitHub Actions workflow}
 with Lean~4 and Mathlib. It builds every module, so that every declaration
 passes the Lean kernel; it rejects \texttt{sorry}, \texttt{admit},
@@ -784,7 +784,7 @@ Every set $A\subseteq\N$ that is completely invariant under $T_{3,1}$ has a natu
 \end{corollary}
 
 \begin{proof}
-Let $\alpha=1001/1000$ as in \cite{Mazur_2026}. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$; the odd integers in $[y,y^\alpha]=[N^{1/\alpha},N]$ form a block of \cite[Theorem~3.1]{Mazur_2026}. Let $\mathbf U_y$ be uniform and $\mathbf L_y$ logarithmic on this block. By~\eqref{eq:passage}, by the scheduled no-hit bound and the $\ell^1$ transport bound of \cite[Theorem~3.1]{Mazur_2026}, and by the no-hit bound \cite[(1.18)]{Tao_2022} for $\mathbf L_y$, which \cite{Mazur_2026} uses with this $\alpha$,
+Let $\alpha=1001/1000$ as in \cite{Mazur_2026}. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$; the odd integers in $[y,y^\alpha]=[N^{1/\alpha},N]$ form a block of \cite[Theorem~3.1]{Mazur_2026}. Let $\mathbf U_y$ be uniform and $\mathbf L_y$ logarithmic on this block. By~\eqref{eq:passage}, by the scheduled no-hit bound and the $\ell^1$ transport bound of \cite[Theorem~3.1]{Mazur_2026}, and by the no-hit bound \cite[(1.19)]{Tao_2022} for $\mathbf L_y$, which \cite{Mazur_2026} uses with this $\alpha$,
 \[
 \mathbb P(\mathbf U_y\in A_1)=\mathbb P(\mathbf L_y\in A_1)+o(1)\qquad(N\to\infty).
 \]
@@ -1462,7 +1462,7 @@ which contradicts~\eqref{eq:upper}. Finally, let $c\in\{1,-1\}$. An unbounded or
 
 
 %=====================================================================
-\section{First-passage tails: reduction, tightness and obstructions}
+\section{First-passage tails: calibration, tightness and the potential}
 \label{sec:tail-programme}
 %=====================================================================
 The lower bound of Theorem~\ref{thm:lower} uses a clipped first-passage
@@ -2060,7 +2060,7 @@ by \cite[Proposition~1.14]{Tao_2022}, which holds for $c\cdot\mathbf{Syrac}$ by 
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:natural}]
-For $3\mid c$ we reduce to $c'=c/3$ as in Step~0 of the proof of Theorem~\ref{thm:logdens}: an odd $n$ lies in $A$ if and only if $(n+c')/2$ lies in $A'=\{m:3m\in A\}$, and $n\mapsto(n+c')/2$ maps the odd integers below $Y$ onto the integers in $[(1+c')/2,(Y+c')/2)$, so that a natural density of $A'$ gives one of the odd part of $A$. Let now $3\nmid c$. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$, so that $\mathbf U_y$ is uniform on the odd integers in $[N^{1/\alpha},N]$. By~\eqref{eq:passage} for $\mathbf U_y$ and for $\mathbf L_y$, by \eqref{eq:two-laws-hit}, by \cite[(1.19)]{Tao_2022} for $T_{3,c}$ and by \eqref{eq:two-laws-tv} with $E=A_1\cap[1,x]$,
+For $3\mid c$ we reduce to $c'=c/3$ as in Step~0 of the proof of Theorem~\ref{thm:logdens}: an odd $n$ lies in $A$ if and only if $(n+c')/2$ lies in $A'=\{m:3m\in A\}$, and $n\mapsto(n+c')/2$ maps the odd integers below $Y$ onto the integers in $[(1+c')/2,(Y+c')/2)$, so that a natural density of $A'$ gives one of the odd part of $A$. Let now $3\nmid c$. For large $N$ put $x=N^{1/\alpha^2}$ and $y=x^\alpha$, so that $\mathbf U_y$ is uniform on the odd integers in $[N^{1/\alpha},N]$. By~\eqref{eq:passage} for $\mathbf U_y$ and for $\mathbf L_y$, by \eqref{eq:two-laws-hit}, by \cite[(1.20)]{Tao_2022} for $T_{3,c}$ and by \eqref{eq:two-laws-tv} with $E=A_1\cap[1,x]$,
 \[
  \bigl|\mathbb P(\mathbf U_y\in A_1)-\mathbb P(\mathbf L_y\in A_1)\bigr|\ll(\log x)^{-c'}.
 \]

@@ -118,7 +118,7 @@ Optionen (zur Dokumentation):
 | D1 | Inventar aller Aussagen (bewiesen/bedingt/numerisch) mit Seitenkosten; Entwurf v4j hat 87 Seiten | **erledigt** (v4m, 94 S.; nachgeführt in v4n, 96 S.): `inventory/INVENTAR.md`, reproduzierbar mit `inventory/inventory.py`; Status in `inventory/status.csv` |
 | D2 | Auswahl Haupttext / Anhang / research notes. Anhang F auf den Kern eindampfen (Lemma 9, 10, Prop. 16, 17, 19(b), Kor. 10, Conj. 3, 4; seit v4k/v4m dazu Prop. 20 und Kor. 12), den Rest in `syracuse_lp_note`. Größter Hebel laut D1: Anhang D (22 S.) auf die Kette Prop. 8 → Kor. 7 → Prop. 14/15 | **erledigt** (v4p, 27.11.): Anhang D auf die Kette (Bem. 7, 11 als Lemmata; Rest in `tail_programme/`), Anhang F auf den Kern (Rest in `syracuse_lp_note`), Bemerkungen gestrafft, Reproduktionstabelle in die README; 96 → 85 S. |
 | D3 | Zielzeitschrift und Seitenbudget festlegen | teilweise: **Entscheidung 24.11.:** kein Teilen des Papers; der Umfang darf wachsen (voraussichtlich unter 100 S.). Ausgelagert wird nur, was die Lesbarkeit verbessert. Zeitschrift offen |
-| D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; ~~Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren~~ (erledigt in v4k) | offen |
+| D4 | Konsistenzdurchlauf: Nummerierung, Runs- und Reproduktionstabelle, Abstract, Lean-Hinweis; ~~Ratenaussage `O(n^B (3/4)^n)` in Anhang F revidieren~~ (erledigt in v4k) | **erledigt** (v4q, 27.11.): Tao-Gleichungsnummern einheitlich nach der Zeitschriftenfassung ((1.18)/(1.19) korrigiert); Tao-Eintrag mit Hinweis auf den Fehler in Abschnitt 6 und die Korrektur in arXiv v7 (Mazur/Tao, Juli 2026; GGM nutzt schon das unkritische Fenster C_A³ log n); Allikvere v2; Preprint-Status geprüft (keiner in einer Zeitschrift); Titel Anhang D; Beitragszeilen; keine fest kodierten Nummern |
 
 ## Reihenfolge
 
@@ -155,8 +155,7 @@ Harte Brocken danach:
 7. ~~**B1** Fourier-Maximum (Transferoperator auf `theta`).~~ **Entscheidung 27.11.:** A6 und B1 bleiben offene Probleme
    im Paper (v4o, Absatz „What a proof needs“ in Anhang F: Zertifikat mit endlicher Präzision unmöglich, fehlend ist
    eine Paar-Version von Taos Feinskalen-Mischung; exponentieller Abfall nach Tao Remark 1.15 offen). Weiter mit D2–D4.
-8. **D2–D4** Kompaktierung und Journal-Version. ~~D2~~ erledigt (v4p, 85 S.); offen: D3 (Zeitschrift), D4 (Konsistenz,
-   Status der Preprints, Tao-Version v7 als Grundlage von Allikvere prüfen).
+8. **D2–D4** Kompaktierung und Journal-Version. ~~D2~~ erledigt (v4p, 85 S.); ~~D4~~ erledigt (v4q); offen: D3 (Zeitschrift).
 
 ## Runs (vergeben und geplant)
 

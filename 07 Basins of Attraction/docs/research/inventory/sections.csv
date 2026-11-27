@@ -3,15 +3,15 @@ section,1,Introduction,1,104,3.807,0.314
 subsection*,,Related work,3,164,1.051,0.000
 subsection*,,Two views of the same maps,4,171,0.455,0.000
 subsection*,,Main results,4,178,0.934,0.000
-section,2,Contributions,5,184,3.765,0.000
-subsection*,,Machine-checked finite core and its scope,8,308,0.504,0.000
-section,3,"Local structure: one forest, several trees",9,337,2.322,0.579
-subsection*,,Local indistinguishability,10,370,0.687,0.000
+section,2,Contributions,5,184,4.090,0.000
+subsection*,,Machine-checked finite core and its scope,9,308,0.533,0.000
+section,3,"Local structure: one forest, several trees",9,337,2.222,0.579
+subsection*,,Local indistinguishability,10,370,0.656,0.000
 subsection*,,Residue classes do not decide membership,11,389,0.515,0.266
-section,4,Parity words and cycles,11,410,1.838,0.262
-paragraph,,Words with $D=c$,12,444,0.529,0.262
+section,4,Parity words and cycles,11,410,1.809,0.262
+paragraph,,Words with $D=c$,12,444,0.512,0.262
 paragraph,,Mirror and $D=1$,13,472,0.305,0.000
-section,5,The decoded zoo: cycles live where $2^l\approx q^k$,13,482,6.026,0.639
+section,5,The decoded zoo: cycles live where $2^l\approx q^k$,13,482,5.829,0.639
 subsection*,,Near-coincidences,14,526,0.307,0.000
 subsection*,,The near miss of $3x+1$,14,537,0.588,0.000
 subsection*,,All maps at once: rational cycles,15,551,4.057,0.000
@@ -36,22 +36,22 @@ section,B,Supplementary remarks on cycles,44,1189,0.576,0.000
 paragraph,,The case $q=1$,44,1191,0.190,0.000
 paragraph,,The product identity,44,1193,0.325,0.000
 section,C,Proof of Theorem [thm:lower] and Corollary [cor:remains],45,1205,7.871,0.000
-section,D,"First-passage tails: reduction, tightness and obstructions",53,1465,15.100,1.148
-subsection,,Calibration and decomposition,53,1489,2.976,0.000
-subsection,,Exponential tightness of the first-passage mass,56,1663,2.520,0.000
-paragraph,,Run I,58,1805,0.485,0.000
-subsection,,First excess and the potential,59,1826,9.103,1.148
-paragraph,,Run K,64,1974,3.572,1.148
-section,E,Natural densities for all maps $3x+c$,68,1999,2.202,0.623
-paragraph,,The transfer,68,2007,2.001,0.623
-section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,70,2073,12.516,1.328
-paragraph,,Run L,72,2157,0.862,0.288
+section,D,"First-passage tails: calibration, tightness and the potential",53,1465,15.230,1.148
+subsection,,Calibration and decomposition,53,1489,3.120,0.000
+subsection,,Exponential tightness of the first-passage mass,56,1663,2.636,0.000
+paragraph,,Run I,58,1805,0.518,0.000
+subsection,,First excess and the potential,59,1826,8.946,1.148
+paragraph,,Run K,64,1974,3.545,1.148
+section,E,Natural densities for all maps $3x+c$,68,1999,2.279,0.623
+paragraph,,The transfer,68,2007,2.077,0.623
+section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,70,2073,12.310,1.328
+paragraph,,Run L,73,2157,0.493,0.000
 paragraph,,Fourier maxima (Run M),73,2178,1.049,0.340
-paragraph,,Logarithmic chart,74,2207,1.296,0.000
-paragraph,,Renormalisation and the singular set,76,2243,1.813,0.000
-paragraph,,The fixed point $-1$,77,2273,0.645,0.402
+paragraph,,Logarithmic chart,74,2207,1.336,0.000
+paragraph,,Renormalisation and the singular set,76,2243,1.825,0.000
+paragraph,,The fixed point $-1$,78,2273,0.235,0.000
 paragraph,,Run N,78,2275,0.289,0.000
-paragraph,,First-hit decomposition,78,2298,1.809,0.000
-paragraph,,Run O,80,2344,0.929,0.000
-paragraph,,"Run O, all $d$",81,2353,0.296,0.000
-paragraph,,What a proof needs,81,2355,1.088,0.299
+paragraph,,First-hit decomposition,78,2298,2.197,0.402
+paragraph,,Run O,80,2344,0.876,0.000
+paragraph,,"Run O, all $d$",81,2353,0.632,0.299
+paragraph,,What a proof needs,82,2355,0.644,0.000
