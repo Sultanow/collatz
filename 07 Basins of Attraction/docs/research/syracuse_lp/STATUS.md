@@ -162,6 +162,28 @@ stored (rerun: `run 13 results_energy --theta-slice I/2`, then `merge`).
   would give E_n <= 0.688 C.
 - Paper: v4m (Corollary 11 for all d, Lemma 13, Corollary 12, paragraph "Run O, all d").
 
+## Track 1g: roadmap A6, scoping (27.11.2026)
+
+- **Literature:** nothing that closes A6 or B1. Tao names exponential decay of the Fourier sup as open (Prop. 1.17
+  and the remark after it); Slitni (Zenodo 2026) and Tavares (arXiv:2608.27617, Wirsching's invariant density, a
+  different object) do not touch the energy or pair correlations.
+- **No certificate at finite precision for the whole walk:** the intertwiners are dense in Aff(Z_3). Proof (paper
+  v4o): B = A except b_1 = a_1 + eps, b_k = a_k + delta gives 2^{-eps-delta} y + (2^delta - 1) 2^{a_k-|B|} c' with
+  c' = sum_{j<k} 3^(j-1) 2^(gamma_j); for k >= m+2 the gamma_j (chosen mod 6, one at a time) make c' any unit mod 3^m,
+  a_1 fixes |B|, delta the valuation, eps the linear part. `intertwiner_density.py` checks the construction (all
+  classes for m <= 3, 3000 random ones for m = 4..6) and finds intertwiners of length <= max(2, m) for m <= 3.
+  Cor_n is unbounded at every intertwiner, so a bound Cor_n(h) <= V(h) with V depending on h mod 3^m forces
+  V = infinity. A certificate can only address the killed walk (regular part), and there the worst case over the
+  unknown next digit is at least the mean-field (Ulam) operator, whose gap closes like 9^{-m} (track 1d). The
+  contraction has to come from a statement about the distribution of the unknown digits, i.e. a mixing theorem.
+- **What would suffice:** summable rates, not exponential ones. Tao's fine-scale mixing (Prop. 1.14,
+  Osc_{m,n} << m^{-A}) has summable rates, but it is an L^1 statement for one variable. The class distribution
+  needs it for pairs, conditioned on the coincidence mod 3^k, i.e. pointwise. The direct transfer fails at the
+  spikes: the error term carries max f_k >= (3/2)^k (Lemma minusone). Missing piece: a pair version of Tao's
+  fine-scale mixing with the spikes at -1 and their images removed. That is a project of its own.
+- **Decision 27.11.:** A6 and B1 stay open problems in the paper (v4o: paragraph "What a proof needs" in Appendix F,
+  Outlook (7)); no separate project. Next: D2-D4.
+
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 
 Job B (Monte Carlo of `chi_n(2^k)`, n = 16..80, 1e11 samples, standard error 3.2e-6; `results_mc/`):

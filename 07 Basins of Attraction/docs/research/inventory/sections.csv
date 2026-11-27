@@ -28,7 +28,7 @@ paragraph,,Residue classes,33,947,0.286,0.000
 subsection*,,The mean value and the Syracuse profile of the potential,33,949,3.493,0.598
 subsection*,,A predictor from the backward tree,36,1030,2.763,0.959
 section,7,Outlook,39,1088,6.000,0.000
-subsection*,,Code and data availability,41,1102,4.246,0.000
+subsection*,,Code and data availability,41,1102,4.225,0.000
 subsection*,,Acknowledgments,45,1192,0.100,0.000
 subsection*,,Use of Artificial Intelligence,45,1195,0.169,0.000
 section,A,Notation,45,1199,1.066,0.376
@@ -42,7 +42,7 @@ subsection,,Return certificates and their limits,63,1992,13.997,1.148
 paragraph,,Run K,73,2366,3.545,1.148
 section,E,Natural densities for all maps $3x+c$,77,2391,2.304,0.623
 paragraph,,The transfer,77,2399,2.103,0.623
-section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,79,2465,14.310,1.328
+section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,79,2465,14.616,1.328
 paragraph,,Run L,82,2549,0.466,0.000
 paragraph,,Fourier maxima (Run M),82,2570,1.049,0.340
 paragraph,,Logarithmic chart,83,2599,1.310,0.000
@@ -51,4 +51,5 @@ paragraph,,The fixed point $-1$,87,2665,1.461,0.402
 paragraph,,Run N,88,2685,0.290,0.000
 paragraph,,First-hit decomposition,88,2708,2.858,0.000
 paragraph,,Run O,91,2793,0.854,0.000
-paragraph,,"Run O, all $d$",92,2801,1.488,0.299
+paragraph,,"Run O, all $d$",92,2801,0.616,0.000
+paragraph,,What a proof needs,93,2808,1.178,0.299

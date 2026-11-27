@@ -37,7 +37,7 @@ Seit v4j (noch nicht im Paper, mit `syracuse_lp.py` bis n = 13 exakt geprüft):
 | A4 | **Resonanz bei −1** (Vorschlag 3): Renormierungsoperator auf dem Orbit von `2y+1` (Abbildungen `2^e y + t`, `t` in `Z[1/2]`). Die `(1,1)`-Schleife (Gewicht 3/4) und das Paar `-1`, `-1/2` abspalten, dominante Moden bestimmen. Die beobachteten Raten (0,866 bei n = 20, Fit 0,78) quantitativ erklären. | Zerlegung „Resonanz + Rest“, Rate des Rests | A0 | Numerik, ggf. Cluster | teilweise: Resonanz-Mode mit Faktor 0,750 in der Klassenverteilung bestätigt; naive Ulam-Diskretisierung ungeeignet (s. Note) |
 | **E1** | **Entscheidungspunkt:** Schließen Renewal (A1), Großabweichung (A2) und Zählung (A3)? | ja: A5; nein: Plan revidieren | A1–A4 | – | **Befund (23.11.):** Struktur bestätigt; alles bis auf den Regulärteil ist numerisch mit Reserve erfüllt. Offener Kern: Regulärteil = summierbare Gleichverteilung der Klassenverteilung (Mischung vom Tao-Typ). Entscheidung steht aus (siehe unten). |
 | A5 | Bedingter Satz: `Cor_n(g_2) <= C` unter einer präzise formulierten Mischungshypothese `H(k, r)` für die abgeschnittenen Syracuse-Summen modulo `3^{k+r}` im Restgebiet `r < 3k`. | Satz (bedingt) | E1 | Theorie | **erledigt** (Paper v4k, Korollar 11: Anti-Konzentration `c_d < 1` plus beschränkter Regulärteil) |
-| A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | geparkt (harter Brocken) |
+| A6 | **Mehrskalen-Kontraktion** (Vorschlag 2): Blockoperatoren exakt berechnen und Kontraktionsfaktoren mit Intervallarithmetik zertifizieren. Kontrahieren müssen die **Inkremente** bzw. die Abweichung von der Gleichverteilung, nicht `E_n` selbst (das gegen 0,475 > 0 geht). Die Norm kommt aus A1/A4; Taos Proposition 1.14/1.17 dient als Ausgangspunkt. Ziel: `H(k, r)` beweisen. | Beweis von `H` (Ziel) | A5 | Theorie, Cluster | **Bestandsaufnahme 27.11. (v4o, Anhang F „What a proof needs“):** Zertifikat mit endlicher Präzision unmöglich, weil die Intertwiner dicht liegen (bewiesen: jede Klasse mod 3^m enthält einen; `intertwiner_density.py`); für den Regulärteil braucht die Kontraktion einen Mischungssatz. Summierbare Raten genügen, aber paarweise und punktweise; Taos L¹-Aussage scheitert an den Spitzen bei −1. Fehlendes Stück: Paar-Version von Taos Feinskalen-Mischung. **Entscheidung 27.11.:** bleibt offenes Problem im Paper, kein eigenes Projekt |
 | A7 | Von `g_2` auf alle `g_d`: `v_3(d/2) = 0` analog; `v_3(d/2) >= 1` bringt Nähe zur Identität, also einen `H_2(v_3)`-Term. Daraus folgen Conjecture 4 für die `g_d`, Conjecture 3 und `L^p` für `p < 2`. | Satz | A6 | Theorie | leichter Teil erledigt (v4m: Kor. 11 für alle `g_d`, Kor. 12 für `E_n` selbst, Lemma 13 exakter `H_2(s)`-Term); Rest hängt an A6 |
 
 **Abbruchkriterium Strang A:** Fällt `C_{k,r}` in Run O nicht gleichmäßig in `k` ab, ist Conjecture 4
@@ -151,8 +151,10 @@ Leichte Früchte zuerst:
 
 Harte Brocken danach:
 
-6. **A6** Mischung der Klassenverteilung, also der Regulärteil (zertifizierte Kontraktion auf den Korrelationen).
-7. **B1** Fourier-Maximum (Transferoperator auf `theta`).
+6. ~~**A6** Mischung der Klassenverteilung, also der Regulärteil (zertifizierte Kontraktion auf den Korrelationen).~~
+7. ~~**B1** Fourier-Maximum (Transferoperator auf `theta`).~~ **Entscheidung 27.11.:** A6 und B1 bleiben offene Probleme
+   im Paper (v4o, Absatz „What a proof needs“ in Anhang F: Zertifikat mit endlicher Präzision unmöglich, fehlend ist
+   eine Paar-Version von Taos Feinskalen-Mischung; exponentieller Abfall nach Tao Remark 1.15 offen). Weiter mit D2–D4.
 8. **D2–D4** Kompaktierung und Journal-Version (braucht Entscheidungen zu Zeitschrift und Umfang).
 
 ## Runs (vergeben und geplant)

@@ -13,7 +13,7 @@ figure,fig:landscape,3,32,938,0.502,"The landscape of basin densities: for each 
 table,table:syracuse,9,36,1002,0.598,"The potential against the Syracuse law: means of $a\,h(a)$. Run G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\l"
 table,table:convergence,10,38,1045,0.355,Convergence of the backward-mass predictor in the depth: the mean mass $M$ of ten consecutive levels against the measured shares of the $410$ primitive cycles o
 figure,fig:predictor,4,38,1065,0.605,"Predicted against measured basin shares, one point per cycle: the $410$ primitive cycles of the $98$ maps $3x+c$ of Figure [fig:landscape] that have at least tw"
-longtable,table:runs,11,41,1112,1.703,The computational runs referred to in the text. The data folders are linked; programs and scripts are listed in Table [table:reproduction].
+longtable,table:runs,11,41,1112,1.677,The computational runs referred to in the text. The data folders are linked; programs and scripts are listed in Table [table:reproduction].
 longtable,table:reproduction,12,43,1153,2.089,"Programs, scripts and data behind the results of the paper."
 table,,,46,1202,0.376,
 table,table:ui,13,74,2321,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
@@ -22,4 +22,4 @@ table,table:transfer,14,78,2401,0.623,"Where the natural-density argument of and
 table,table:syr-moments,15,82,2551,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
 table,table:syr-fourier,16,83,2578,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
 table,table:syr-singular,17,88,2687,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
-table,table:syr-runO,18,93,2808,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."
+table,table:syr-runO,18,94,2810,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."

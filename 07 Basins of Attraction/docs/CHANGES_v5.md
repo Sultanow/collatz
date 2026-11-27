@@ -407,3 +407,17 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
   Proposition 3. Abstract, contribution row, Outlook (3) and (4), code availability, runs table (row P),
   reproduction table (Run P rows, heuristic_P.py, oeis_comparison_L66.txt, tests/run_mitm_tests.sh).
 - 96 pages (before: 94), no overfull boxes.
+
+## v4o (Appendix F: what a proof of the bounded energy needs; roadmap A6, scoping)
+- New paragraph "What a proof needs" after "Run O, all d":
+  (1) the intertwiners are dense in Aff(Z_3): every class modulo 3^m contains one (explicit construction with words
+  that differ only in the first and the last letter; for m <= 3 already length max(2, m), intertwiner_density.py).
+  Since Cor_n is unbounded at every intertwiner, no certificate at a fixed finite precision can bound the
+  correlations; for the regular part the mean-field operator already has a gap of order 9^{-m}.
+  (2) Summable rates suffice (drift identity of the class distribution); Tao's fine-scale mixing has such rates but
+  is an L^1 statement for one variable, and the transfer to pairs conditioned on coincidence pays max f_k >= (3/2)^k.
+  Missing: a pair version of Tao's fine-scale mixing with the spikes at -1 removed. Exponential decay of the Fourier
+  maximum (B1) needs more; Tao expects it but does not attempt it (Remark 1.15).
+- Outlook (7): the regular part needs a pair version of Tao's fine-scale mixing and cannot be certified at a fixed
+  finite precision. Reproduction table: intertwiner_density.py.
+- Decision 27.11.: A6 and B1 stay open problems in the paper; next D2-D4. 96 pages.
