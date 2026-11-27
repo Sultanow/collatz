@@ -5,51 +5,53 @@ subsection*,,Two views of the same maps,4,171,0.455,0.000
 subsection*,,Main results,4,178,0.934,0.000
 section,2,Contributions,5,184,3.765,0.000
 subsection*,,Machine-checked finite core and its scope,8,308,0.504,0.000
-section,3,"Local structure: one forest, several trees",9,337,2.348,0.579
-subsection*,,Local indistinguishability,10,370,0.713,0.000
-subsection*,,Residue classes do not decide membership,11,391,0.515,0.266
-section,4,Parity words and cycles,11,412,1.812,0.262
-paragraph,,Words with $D=c$,12,453,0.446,0.262
-paragraph,,Mirror and $D=1$,13,481,0.305,0.000
-section,5,The decoded zoo: cycles live where $2^l\approx q^k$,13,491,6.026,0.639
-subsection*,,Near-coincidences,14,535,0.307,0.000
-subsection*,,The near miss of $3x+1$,14,546,0.588,0.000
-subsection*,,All maps at once: rational cycles,15,560,4.057,0.000
-paragraph,,Comparison with the published tables,16,570,0.179,0.000
-paragraph,,Heuristic,16,572,1.881,0.000
-paragraph,,Longer words,18,597,0.231,0.000
-paragraph,,A birthday factor,18,599,0.896,0.000
-section,6,Measuring forests: basin densities,19,619,20.097,4.549
-subsection*,,Existence of the densities,22,701,4.924,0.606
-subsection*,,The predecessor potential,27,818,2.917,0.000
-subsection*,,Basin shares far beyond brute force,30,896,1.400,0.676
-subsection*,,The landscape of basin densities,32,935,1.362,0.502
-paragraph,,Residue classes,33,947,0.286,0.000
-subsection*,,The mean value and the Syracuse profile of the potential,33,949,3.493,0.598
-subsection*,,A predictor from the backward tree,36,1030,2.763,0.959
-section,7,Outlook,39,1088,6.000,0.000
-subsection*,,Code and data availability,41,1102,4.225,0.000
-subsection*,,Acknowledgments,45,1192,0.100,0.000
-subsection*,,Use of Artificial Intelligence,45,1195,0.169,0.000
-section,A,Notation,45,1199,1.066,0.376
-section,B,Supplementary remarks on cycles,46,1244,0.576,0.000
-paragraph,,The product identity,46,1250,0.324,0.000
-section,C,Proof of Theorem [thm:lower] and Corollary [cor:remains],47,1262,7.871,0.000
-section,D,"First-passage tails: reduction, tightness and obstructions",55,1522,22.204,1.148
-subsection,,Calibration and decomposition,55,1546,4.021,0.000
-subsection,,Exponential tightness of the first-passage mass,59,1739,3.763,0.000
-subsection,,Return certificates and their limits,63,1992,13.997,1.148
-paragraph,,Run K,73,2366,3.545,1.148
-section,E,Natural densities for all maps $3x+c$,77,2391,2.304,0.623
-paragraph,,The transfer,77,2399,2.103,0.623
-section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,79,2465,14.616,1.328
-paragraph,,Run L,82,2549,0.466,0.000
-paragraph,,Fourier maxima (Run M),82,2570,1.049,0.340
-paragraph,,Logarithmic chart,83,2599,1.310,0.000
-paragraph,,Renormalisation and the singular set,85,2635,1.799,0.000
-paragraph,,The fixed point $-1$,87,2665,1.461,0.402
-paragraph,,Run N,88,2685,0.290,0.000
-paragraph,,First-hit decomposition,88,2708,2.858,0.000
-paragraph,,Run O,91,2793,0.854,0.000
-paragraph,,"Run O, all $d$",92,2801,0.616,0.000
-paragraph,,What a proof needs,93,2808,1.178,0.299
+section,3,"Local structure: one forest, several trees",9,337,2.322,0.579
+subsection*,,Local indistinguishability,10,370,0.687,0.000
+subsection*,,Residue classes do not decide membership,11,389,0.515,0.266
+section,4,Parity words and cycles,11,410,1.838,0.262
+paragraph,,Words with $D=c$,12,444,0.529,0.262
+paragraph,,Mirror and $D=1$,13,472,0.305,0.000
+section,5,The decoded zoo: cycles live where $2^l\approx q^k$,13,482,6.026,0.639
+subsection*,,Near-coincidences,14,526,0.307,0.000
+subsection*,,The near miss of $3x+1$,14,537,0.588,0.000
+subsection*,,All maps at once: rational cycles,15,551,4.057,0.000
+paragraph,,Comparison with the published tables,16,561,0.179,0.000
+paragraph,,Heuristic,16,563,1.881,0.000
+paragraph,,Longer words,18,588,0.231,0.000
+paragraph,,A birthday factor,18,590,0.896,0.000
+section,6,Measuring forests: basin densities,19,610,20.097,4.549
+subsection*,,Existence of the densities,22,692,4.872,0.606
+subsection*,,The predecessor potential,27,806,2.846,0.000
+subsection*,,Basin shares far beyond brute force,30,884,1.522,0.676
+subsection*,,The landscape of basin densities,32,923,1.362,0.502
+paragraph,,Residue classes,33,935,0.286,0.000
+subsection*,,The mean value and the Syracuse profile of the potential,33,937,3.493,0.598
+subsection*,,A predictor from the backward tree,36,1018,2.763,0.959
+section,7,Outlook,39,1076,3.911,0.000
+subsection*,,Code and data availability,41,1090,2.136,0.000
+subsection*,,Acknowledgments,43,1137,0.100,0.000
+subsection*,,Use of Artificial Intelligence,43,1140,0.169,0.000
+section,A,Notation,43,1144,1.155,0.376
+section,B,Supplementary remarks on cycles,44,1189,0.576,0.000
+paragraph,,The case $q=1$,44,1191,0.190,0.000
+paragraph,,The product identity,44,1193,0.325,0.000
+section,C,Proof of Theorem [thm:lower] and Corollary [cor:remains],45,1205,7.871,0.000
+section,D,"First-passage tails: reduction, tightness and obstructions",53,1465,15.100,1.148
+subsection,,Calibration and decomposition,53,1489,2.976,0.000
+subsection,,Exponential tightness of the first-passage mass,56,1663,2.520,0.000
+paragraph,,Run I,58,1805,0.485,0.000
+subsection,,First excess and the potential,59,1826,9.103,1.148
+paragraph,,Run K,64,1974,3.572,1.148
+section,E,Natural densities for all maps $3x+c$,68,1999,2.202,0.623
+paragraph,,The transfer,68,2007,2.001,0.623
+section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,70,2073,12.516,1.328
+paragraph,,Run L,72,2157,0.862,0.288
+paragraph,,Fourier maxima (Run M),73,2178,1.049,0.340
+paragraph,,Logarithmic chart,74,2207,1.296,0.000
+paragraph,,Renormalisation and the singular set,76,2243,1.813,0.000
+paragraph,,The fixed point $-1$,77,2273,0.645,0.402
+paragraph,,Run N,78,2275,0.289,0.000
+paragraph,,First-hit decomposition,78,2298,1.809,0.000
+paragraph,,Run O,80,2344,0.929,0.000
+paragraph,,"Run O, all $d$",81,2353,0.296,0.000
+paragraph,,What a proof needs,81,2355,1.088,0.299

@@ -29,7 +29,7 @@ Eldar Sultanow · Preprints.org, version 3, November 2026 (not peer-reviewed)
 
 **[Preprints.org](https://www.preprints.org/manuscript/202610.2552)** · [DOI 10.20944/preprints202610.2552.v3](https://doi.org/10.20944/preprints202610.2552.v3) · version 1 (26 October 2026, subtitle *Local Predecessor Structure and Global Dynamics of Collatz-Type Maps*): [DOI …v1](https://doi.org/10.20944/preprints202610.2552.v1) · version 2: [DOI …v2](https://doi.org/10.20944/preprints202610.2552.v2)
 
-Current draft after version 3: [PDF](docs/main.pdf) · [LaTeX sources](docs) · [changes](docs/CHANGES_v5.md) · [research notes](docs/research) (working material, not part of the paper). Table 11 of the paper lists the computational runs A–K with links to their data in `results/`; Table 12 and the [reproduction map](#reproduction-map) below list programs and files.
+Current draft after version 3: [PDF](docs/main.pdf) · [LaTeX sources](docs) · [changes](docs/CHANGES_v5.md) · [research notes](docs/research) (working material, not part of the paper). Table 11 of the paper lists the computational runs A–P with links to their data in `results/`; the [reproduction map](#reproduction-map) below lists programs and files (it replaces the reproduction table of the paper since draft v4p). Research notes with material moved out of the paper: [`syracuse_lp`](docs/research/syracuse_lp) (Appendix F) and [`tail_programme`](docs/research/tail_programme) (Appendix D).
 
 Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex main`
 
@@ -55,7 +55,7 @@ Build: `cd docs && pdflatex main && bibtex main && pdflatex main && pdflatex mai
 07 Basins of Attraction/
 ├── README.md
 ├── docs/                      working paper (LaTeX sources and PDF)
-├── figures/                   scripts for the two figures of the paper
+├── figures/                   scripts for the figures of the paper
 ├── oeis/                      cross-check of the census with OEIS A226607
 ├── lean/                      Lean 4 proofs of the finite statements (see "Lean" below)
 ├── C/
@@ -466,10 +466,10 @@ The counts take 8 bytes per starting value (240 GB for $N=3\cdot10^{10}$) and, a
 | `Basic.lean` | accelerated map $T_{3,c}$ on $\mathbb Z$, exact immediate predecessors for odd $c$, positivity for $c\ge-1$ | Table 2, last row ("predecessors") |
 | `FiniteFlow.lean` | finite-horizon hitting recursion, weighted hitting mass for finite samples | Table 2 ("hits", "weights") |
 | `Clipping.lean` | clipping identity, quadratic excess bound | Table 2 ("clipping") |
-| `ReturnPairs.lean`, `ReturnGreen.lean` | $N^2=N+2\,$pairs, odd-sum and Green-type occupation identities | Table 2, Remark on Lean verification |
-| `EntranceTransport.lean` | finite entrance-measure inequalities | Remark on Lean verification |
-| `ReturnLyapunov.lean` | two-level return certificate on terminating return graphs, one-step return arithmetic | Proposition "Two-level return certificate" |
-| `ReturnLargeShell.lean` | fixed-modulus obstruction on every real shell with $X\ge24\cdot2^k+12|c|+24$ | Proposition "Fixed-modulus obstruction" |
+| `ReturnPairs.lean`, `ReturnGreen.lean` | $N^2=N+2\,$pairs, odd-sum and Green-type occupation identities | Table 2; remark on Lean verification in `docs/research/tail_programme` |
+| `EntranceTransport.lean` | finite entrance-measure inequalities | remark on Lean verification in `docs/research/tail_programme` |
+| `ReturnLyapunov.lean` | two-level return certificate on terminating return graphs, one-step return arithmetic | Proposition "Two-level return certificate" (`docs/research/tail_programme`; in the paper up to draft v4o) |
+| `ReturnLargeShell.lean` | fixed-modulus obstruction on every real shell with $X\ge24\cdot2^k+12|c|+24$ | Proposition "Fixed-modulus obstruction" (`docs/research/tail_programme`; in the paper up to draft v4o) |
 | `Mod16Escape.lean`, `FiniteHorizonTransport.lean` | auxiliary escape residues modulo 16 | not used |
 
 ```console
@@ -591,7 +591,7 @@ tar czf ../results/potential/runG_raw.tar.gz out_potential/potential_c*.csv
 
 ## Reproduction map
 
-Which artifact produces which result of the paper (numbered as in version 3; the runs are listed in Table 11 of the paper):
+Which artifact produces which result of the paper (numbered as in the current draft; the runs are listed in Table 11 of the paper). Since draft v4p this map replaces the reproduction table of the paper:
 
 | Result | Artifacts (in `C/` unless noted) | Data |
 |---|---|---|
@@ -609,10 +609,11 @@ Which artifact produces which result of the paper (numbered as in version 3; the
 | Residue classes carry no further information (Runs E, E2; Section 6) | `passage.c`, `slurm/residue_configs.txt`, `slurm/residue9_configs.txt`, `residue_flatness.py` | `results/residue/` |
 | Backward-mass predictor, normalised and absolute with the constant $3/\log(4/3)$ (Run F, Table 10, Figure 4, Conjecture 2) | `backward_mass.c`, `slurm/backward_mass_array.sbatch`, `predictor_eval.py`, `cosets.py`; `figures/fig4_backward_mass.py` | `results/landscape/backward_mass_D70.csv`, `predictions_D70.csv`, `predictor_D70.txt`, `runF_raw.tar.gz` (raw) |
 | Predecessor potential: exact flow and level identities, mean value and Syracuse profile of $a\,h(a)$ (Runs G, H; Proposition 7, Table 9, Conjecture 1) | `potential.c`, `slurm/potential_array.sbatch`, `slurm/potential_configs.txt`, `potential_report.py`; `orbit_profile.c`, `orbit_profile_report.py` (large targets) | `results/potential/report.txt`, `results/potential/runG_raw.tar.gz`; `results/potential/orbit_profile_c*.txt`, `results/potential/report_H.txt` |
-| First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I, new in version 3; Proposition 9, Remark 8) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
-| Heuristic for primitive cycles: deficit from the algebraic factors of $2^l-3^k$, dispersion against the bound (Run J, new in version 3; Problem 1) | `word_census.c`, `necklace_counts.py`, `algebraic_factor.c`, `heuristic_tests.py`, `run_J.sh` | `results/heuristic/report_J.txt` |
-| Tails of the potential $a\,h(a)$ against the Syracuse profile, dangerous classes (Run K, new in version 3; Proposition 14, Table 13, Figure 5) | `potential.c`, `ui_report.py`, `run_K.sh`, `slurm/run_K_counts.sbatch`, `slurm/run_K_report.sbatch` | `results/potential_ui/` |
-| Lean 4 proofs of the finite statements (Table 2, last row; Propositions 10 and 11) | `lean/`, `.github/workflows/collatz-lean.yml` (repository root) | links pinned to commit `ee5a5b4` |
+| First-passage mass $\Phi_X/X$: actual orbits vs. random-walk model, exponential tails (Run I, new in version 3; Proposition 9, paragraph "Run I" in Appendix D) | `tail_check.c`, `tail_fallback.py`, `tail_grid.sh`, `tail_report.py` | `results/tail/report_I.txt`, `results/tail/{actual,model}_*.txt` |
+| Heuristic for primitive cycles: deficit from the algebraic factors of $2^l-3^k$, dispersion against the bound (Run J, new in version 3; Lemma 2, Problem 1) | `word_census.c`, `necklace_counts.py`, `algebraic_factor.c`, `heuristic_tests.py`, `halfword_collisions.py`, `run_J.sh` | `results/heuristic/report_J.txt`, `results/heuristic/halfword_report.txt` |
+| Tails of the potential $a\,h(a)$ against the Syracuse profile, dangerous classes (Run K, new in version 3; Propositions 11 and 12, Table 12, Figure 5) | `potential.c`, `ui_report.py`, `run_K.sh`, `slurm/run_K_counts.sbatch`, `slurm/run_K_report.sbatch` | `results/potential_ui/` |
+| The $3$-adic Syracuse law: $L^p$ regularity, Fourier decay, logarithmic chart, singular set, first-hit decomposition, density of the intertwiners (Appendix F, Runs L–O; Conjectures 3 and 4, Corollary 9, Tables 14–17) | `syracuse_lp.py`, `syrac_fourier_mc.c`, `mc_merge.py`, `decay_analysis.py`, `log_coordinates.py`, `congruence_counts.py`, `energy_renewal.py`, `class_distribution.py`, `ulam_spectrum.py`, `intertwiner_density.py`, `slurm/slp_*.sbatch` (all in `docs/research/syracuse_lp`) | `results_exact/*.csv`, `results_mc/`, `results_mc2/`, `results_logchart/`, `results_runO*/`, `results_energy/`, `results_classes/` (same folder) |
+| Lean 4 proofs of the finite statements (Table 2, last row; the two-level certificate and the fixed-modulus obstruction of `docs/research/tail_programme`) | `lean/`, `.github/workflows/collatz-lean.yml` (repository root) | links pinned to commit `ee5a5b4` |
 | Tests | `tests/run_tests.sh` (census vs. exact rational reference `tests/ref_census.py`, shards, cache); `tests/run_mitm_tests.sh` (Run P against `census_all` and Run A); `tests/run_potential_tests.sh` (predecessor counts vs. brute force `tests/ref_potential.py`, exact identities); `tests/run_passage_tests.sh` (sampling vs. exact enumeration and an independent Python reference); `tests/run_tail_tests.sh` (Run I: actual vs. model vs. big-integer reference `tests/ref_tail.py`); `tests/run_ui_tests.sh` (Run K report on brute-force counts `tests/ref_counts.c`, `potential` vs. brute force) | – |
 
 ## Reference results

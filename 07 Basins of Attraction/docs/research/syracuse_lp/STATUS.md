@@ -183,6 +183,9 @@ stored (rerun: `run 13 results_energy --theta-slice I/2`, then `merge`).
   fine-scale mixing with the spikes at -1 and their images removed. That is a project of its own.
 - **Decision 27.11.:** A6 and B1 stay open problems in the paper (v4o: paragraph "What a proof needs" in Appendix F,
   Outlook (7)); no separate project. Next: D2-D4.
+- **Paper v4p (D2):** Appendix F reduced to its core. Lemma "fixed point -1" (dilation rules), Corollary "Conditional
+  bound" for single g_d, Lemma "Start near the identity", Lemma "Large deviations" and most of "Run O, all d" left
+  the paper; all of them are in `syracuse_lp_note` (new section on the density of the intertwiners, 27.11.).
 
 ## Track 2: decay of the Fourier sup (Tao, Prop. 1.17: "perhaps to as far as O(exp(-cn))")
 

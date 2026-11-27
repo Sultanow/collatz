@@ -2,24 +2,23 @@ env,label,number,page,line,cost,caption
 table,table:known_cycles,1,2,136,0.314,Non-trivial $qx+1$ cycles for odd $q\leq1000$. Their role for Crandall's conjecture was studied by Franco and Pomerance ; Koch et al.\ confirmed them in a data-
 longtable,table:contributions,2,5,203,2.383,"What was known, what is added here, and the logical status of each result."
 table,table:mirror,3,10,351,0.314,"The mirror pair $3x\pm1$: identical local structure (upper rows; the Upward classes are negatives of each other modulo $288$), different global structure (lower"
-table,table:classes,4,11,394,0.266,"Members of the same residue class in different trees of the forest of $3x-1$. For example, $32\to16\to8\to4\to2$, whereas $14\to7\to20\to10\to5\to14$."
-table,table:non_q1_cycles,5,13,460,0.262,"Cycles determined via binary rotation ; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$, see [eq:D_equals_c]. The notebook is"
-table,table:zoo,6,14,501,0.639,"All positive integer cycles of $T_{q,c}$ with word length $l\le L$ (Proposition [prop:census]), given by their minima and decoded by their type $(l,k)$. $N_{l,k"
-figure,fig:cycles,1,20,611,0.584,"Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l\le66$: census (bars; Run A for $l\le40$, Run P for $41\le l\le66$), heuristic $\sum"
-table,table:basins,7,21,633,0.624,"Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins)."
-figure,fig:basins,2,23,694,0.606,How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).
-table,table:passage,8,31,899,0.676,"Basin shares from $4\cdot10^8$ odd starting values per counting mode in the windows $[y,y^{1.1}]$ with $y=10^{20}$, $10^{50}$, $10^{100}$ and $10^{200}$, drawn "
-figure,fig:landscape,3,32,938,0.502,"The landscape of basin densities: for each of the $133$ maps $3x+c$ with $1\le c\le400$ and $\gcd(c,6)=1$, the shares of its primitive basins among the integers"
-table,table:syracuse,9,36,1002,0.598,"The potential against the Syracuse law: means of $a\,h(a)$. Run G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\l"
-table,table:convergence,10,38,1045,0.355,Convergence of the backward-mass predictor in the depth: the mean mass $M$ of ten consecutive levels against the measured shares of the $410$ primitive cycles o
-figure,fig:predictor,4,38,1065,0.605,"Predicted against measured basin shares, one point per cycle: the $410$ primitive cycles of the $98$ maps $3x+c$ of Figure [fig:landscape] that have at least tw"
-longtable,table:runs,11,41,1112,1.677,The computational runs referred to in the text. The data folders are linked; programs and scripts are listed in Table [table:reproduction].
-longtable,table:reproduction,12,43,1153,2.089,"Programs, scripts and data behind the results of the paper."
-table,,,46,1202,0.376,
-table,table:ui,13,74,2321,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
-figure,fig:ui,5,75,2359,0.441,"Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run K) and the Syracuse profile at the depths $n=8$, $12$ and $16$."
-table,table:transfer,14,78,2401,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
-table,table:syr-moments,15,82,2551,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
-table,table:syr-fourier,16,83,2578,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
-table,table:syr-singular,17,88,2687,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
-table,table:syr-runO,18,94,2810,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."
+table,table:classes,4,11,392,0.266,"Members of the same residue class in different trees of the forest of $3x-1$. For example, $32\to16\to8\to4\to2$, whereas $14\to7\to20\to10\to5\to14$."
+table,table:non_q1_cycles,5,13,451,0.262,"Cycles determined via binary rotation ; $r$ is the left-rotational distance from $B_{\min}$ to $B_{\max}$, and $c=2^l-5^k$, see [eq:D_equals_c]. The notebook is"
+table,table:zoo,6,14,492,0.639,"All positive integer cycles of $T_{q,c}$ with word length $l\le L$ (Proposition [prop:census]), given by their minima and decoded by their type $(l,k)$. $N_{l,k"
+figure,fig:cycles,1,20,602,0.584,"Primitive cycles of all maps $3x+c_0$ with $|c_0|\le1000$ per word length $l\le66$: census (bars; Run A for $l\le40$, Run P for $41\le l\le66$), heuristic $\sum"
+table,table:basins,7,21,624,0.624,"Empirical basin densities $d_N$ of all cycles of $3x-1$, $3x+5$ and $3x+13$ (every $n\le10^{10}$ lies in one of the listed basins)."
+figure,fig:basins,2,23,685,0.606,How the forest splits: empirical basin densities for $1\le n\le10^{10}$ (left) and the three basins of $3x-1$ per dyadic window (right).
+table,table:passage,8,31,887,0.676,"Basin shares from $4\cdot10^8$ odd starting values per counting mode in the windows $[y,y^{1.1}]$ with $y=10^{20}$, $10^{50}$, $10^{100}$ and $10^{200}$, drawn "
+figure,fig:landscape,3,32,926,0.502,"The landscape of basin densities: for each of the $133$ maps $3x+c$ with $1\le c\le400$ and $\gcd(c,6)=1$, the shares of its primitive basins among the integers"
+table,table:syracuse,9,36,990,0.598,"The potential against the Syracuse law: means of $a\,h(a)$. Run G: over the non-periodic targets $a\le10^6$, with $h(a)$ estimated from all starting values $n\l"
+table,table:convergence,10,38,1033,0.355,Convergence of the backward-mass predictor in the depth: the mean mass $M$ of ten consecutive levels against the measured shares of the $410$ primitive cycles o
+figure,fig:predictor,4,38,1053,0.605,"Predicted against measured basin shares, one point per cycle: the $410$ primitive cycles of the $98$ maps $3x+c$ of Figure [fig:landscape] that have at least tw"
+longtable,table:runs,11,41,1100,1.677,"The computational runs referred to in the text. The data folders are linked; programs, scripts and the result each of them supports are listed in the README of "
+table,,,44,1147,0.376,
+table,table:ui,12,65,1929,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
+figure,fig:ui,5,66,1967,0.441,"Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run K) and the Syracuse profile at the depths $n=8$, $12$ and $16$."
+table,table:transfer,13,69,2009,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
+table,table:syr-moments,14,73,2159,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
+table,table:syr-fourier,15,74,2186,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
+table,table:syr-singular,16,78,2277,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
+table,table:syr-runO,17,82,2357,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."

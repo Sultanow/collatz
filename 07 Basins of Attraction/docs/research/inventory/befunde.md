@@ -1,6 +1,6 @@
 ## Befunde für D2 und D3
 
-*Die Zahlen der Befunde beziehen sich auf v4m (94 Seiten). v4n (Run P im Abschnitt 5, Zeilen in den Tabellen 11 und 12) fügt zwei Seiten hinzu und ändert an den Befunden nichts.*
+*Die Zahlen der Befunde beziehen sich auf v4m (94 Seiten). v4n fügte Run P hinzu (+2 S.). **Umgesetzt in v4p (D2, 27.11.):** Punkt 5 (tragende Bemerkungen als Lemmata, unreferenzierte als Fließtext), Punkt 6 (Anhang D auf die Kette, Rest in `docs/research/tail_programme`), Punkt 7 (Anhang F auf den Kern, Rest in `syracuse_lp_note`) und die Reproduktionstabelle aus Punkt 9 (jetzt in der README): 96 → 85 Seiten. Die Aufstellung unten ist der Stand vor D2.*
 
 1. **Umfang.** 94 Seiten. Davon entfallen 42,4 Seiten auf den Haupttext (Abschnitte 1–7) und 47,8 Seiten auf die Anhänge A–F; die Literatur steht auf rund drei Seiten. Die Anhänge sind also länger als der Haupttext.
 2. **Vier Blöcke tragen gut zwei Drittel.** Anhang D (22,4 S.), Abschnitt 6 (19,9 S.), Anhang F (14,1 S.) und Anhang C (7,8 S.) ergeben zusammen 64,1 Seiten (68 %). Jede ernsthafte Kompaktierung setzt hier an.

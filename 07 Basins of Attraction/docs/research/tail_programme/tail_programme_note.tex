@@ -1,0 +1,398 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\setlength{\emergencystretch}{3em}
+
+\title{First-passage tails: criteria, certificates and obstructions}
+\author{Research notes for \emph{Same Shadows, Different Forests} (draft v4p)}
+\date{27 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Appendix~D of the paper reduces the upper bound for the mean of $a\,h(a)$ to the clipping tail $T_X$ and the window part $J_X$ of the return term, and both to uniform integrability of the potential of the odd targets. This note keeps the further criteria and obstructions that were part of that appendix up to draft v4o: moment criteria and the location of the clipping tail, the transfer problem for the early returns, two-level return certificates with a fixed-modulus obstruction (both checked in Lean~4), the problem of the weighted occupation of long finite excursions, and its restatement at a single $2$-adic modulus. The text is the one of draft v4o. References with the prefix P, such as Lemma~P3 or~(P17), point to draft v4p of the paper; the notation is that of its Appendix~D. None of the conditional statements is claimed beyond its stated hypotheses.
+\end{abstract}
+
+\section{Moment criteria and the location of the clipping tail}
+
+\begin{remark}[Moment criteria]
+\label{rem:moment-criterion}
+For $t\ge0$ and $\theta>0$ we have $(t-H_X)_+\le t^{1+\theta}H_X^{-\theta}$.
+Hence, if for some $\theta>0$ and some $M$ independent of large $X$
+\begin{equation}\label{eq:weighted-passage-moment}
+  \mathbb E_{\log}\Bigl[\Bigl(\frac{\Phi_X(w^\flat)}{X}\Bigr)^{1+\theta}\Bigr]\le M,
+\end{equation}
+then $T_X\le MX(\log X)^{-\varepsilon_0\theta/2}=o(X)$.
+Corollary~\ref{cor:extreme-tail}(c) below relaxes
+\eqref{eq:weighted-passage-moment} to moments that grow like a small power
+of $\log X$. The weighting matters. The unweighted number $V_X(m)$ of
+points of $W_X$ in the same blocks satisfies $\Phi_X\le XV_X$, but it
+cannot obey a moment bound uniform in $X$: in the model of
+Lemma~P5 its mean is $\gamma_0\beta\log X+O(1)$, because
+$W_X$ has logarithmic length $\beta\log X$, and the coupling in Step~3 of
+the proof of Theorem~P3, applied with unit weights, transfers
+the lower bound $(\gamma_0\beta-o(1))\log X$ to
+$\mathbb E_{\log}V_X(w^\flat)$. Most of these points lie far below $X$ and
+contribute little to $\Phi_X$. None of these conditions says anything
+about the return term $R_X$.
+\end{remark}
+
+\begin{corollary}[Where the clipping tail can live]
+\label{cor:extreme-tail}
+Assume the hypotheses of Proposition~P8, and
+let $C$ and $X_0$ be as in Proposition~P9.
+\begin{enumerate}[label=(\alph*)]
+ \item For $X\ge X_0$ and $0\le L\le M$, the means $T_X(L)$ and $T_X(M)$
+ exist, and
+ \[
+  T_X(M)\le T_X(L)\le T_X(M)+C^2Xe^{-L/C}+CXM(\log X)^{-\varepsilon_0}.
+ \]
+ \item If $M_X\ge(\log X)^{\varepsilon_0/2}$ and
+ $M_X=o\bigl((\log X)^{\varepsilon_0}\bigr)$, then
+ $T_X=T_X(M_X)+o(X)$. In particular, $T_X=o(X)$ if and only if
+ $T_X(M_X)=o(X)$.
+ \item Suppose that there are $p>1$, $A<(p-1)\varepsilon_0$ and $K$
+ such that, for all large $X$,
+ \[
+  \limsup_{N\to\infty}\frac1{\log N}\sum_{1\le w<N}\frac1w
+  \Bigl(\frac{\Phi_X(w^\flat)}X\Bigr)^p\le K(\log X)^A .
+ \]
+ Then $T_X=O\bigl(X(\log X)^{-\kappa}\bigr)$ with
+ $\kappa=\bigl((p-1)\varepsilon_0-A\bigr)/p>0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Let $B_X=\sum_{a\in W_X}a$. By Step~1 of the proof of
+Theorem~P3, $0\le\Phi_X\le B_X$. Lemma~P3,
+applied to the bounded invariant function $(\Phi_X-MX)_+/B_X$, gives the
+existence of $T_X(M)$.
+
+(a) The first inequality holds because $(t-MX)_+\le(t-LX)_+$. For
+$t\ge0$,
+\[
+ (t-LX)_+-(t-MX)_+=X\int_L^M\mathbf 1[t>\lambda X]\,d\lambda .
+\]
+We insert $t=\Phi_X(w^\flat)$, multiply by $1/w$, sum over $w<N$ and
+divide by $\log N$. For each $N$ the finite sum and the integral may be
+interchanged. The resulting integrands converge to $\mu_X(\lambda)$ for
+every $\lambda$ by Proposition~P9, and they are bounded
+by $2$ for large $N$. By dominated convergence and (P30),
+\[
+ T_X(L)-T_X(M)=X\int_L^M\mu_X(\lambda)\,d\lambda
+ \le X\int_L^\infty Ce^{-\lambda/C}\,d\lambda+CX(M-L)(\log X)^{-\varepsilon_0}.
+\]
+
+(b) Apply (a) with $L=(\log X)^{\varepsilon_0/2}$, for which
+$T_X(L)=T_X$, and $M=M_X$:
+$0\le T_X-T_X(M_X)\le C^2Xe^{-(\log X)^{\varepsilon_0/2}/C}
++CXM_X(\log X)^{-\varepsilon_0}=o(X)$.
+
+(c) For $t\ge0$ and $M>0$ we have $(t-MX)_+\le t^p(MX)^{1-p}$, hence
+$T_X(M)\le KX(\log X)^AM^{1-p}$. Let $L=(\log X)^{\varepsilon_0/2}$. If
+$(A+\varepsilon_0)/p\ge\varepsilon_0/2$, apply (a) with
+$M=(\log X)^{(A+\varepsilon_0)/p}\ge L$; then
+$KX(\log X)^AM^{1-p}$ and $CXM(\log X)^{-\varepsilon_0}$ are both
+$O(X(\log X)^{-\kappa})$. Otherwise $A<\varepsilon_0(p/2-1)$, and the
+bound with $M=L$ gives directly
+$T_X\le KX(\log X)^{A-(p-1)\varepsilon_0/2}$, where
+$A-(p-1)\varepsilon_0/2<-\kappa$. In both cases the term
+$C^2Xe^{-L/C}$ is $O(X(\log X)^{-\kappa})$.
+\end{proof}
+
+\begin{remark}[What remains]
+\label{rem:tail-barrier}
+Proposition~P9 says that actual orbits inherit the
+exponential tail of the model except on an exceptional set $E_X$ of
+logarithmic density $O((\log X)^{-\varepsilon_0})$. The exponent
+$\varepsilon_0$ comes from (P12) and (P13); it
+is small and not explicit. On $E_X$ the only available bound is
+$\Phi_X\le B_X<X^2$. Thus the trivial estimate of the contribution of
+$E_X$ to $T_X$ is $X^2(\log X)^{-\varepsilon_0}$, which misses the
+target $o(X)$ by a factor $X(\log X)^{-\varepsilon_0}$.
+Corollary~\ref{cor:extreme-tail}(b) isolates exactly this: the clipping
+tail vanishes if and only if the orbits with $\Phi_X>M_XX$ carry mass
+$o(X)$, for one (equivalently, every) choice of $M_X$ between
+$(\log X)^{\varepsilon_0/2}$ and $o((\log X)^{\varepsilon_0})$.
+By definition, $\Phi_X(m)=0$ if the orbit of $m$ never reaches
+$[1,X_1]$. This does not exclude contributions from orbits that
+first descend below $X_1$ and later become unbounded or enter a
+cycle above $X_1$. The obstruction for the clipping tail consists of
+finite initial excursions that, before their first passage below $X_1$,
+collect more than $X(\log X)^{\varepsilon_0/2}$ in $W_X$.
+Excluding them requires information about individual orbits beyond the
+$2$-adic horizon of Lemma~P4 and beyond the
+total-variation scale of (P13); return certificates that
+depend only on a residue modulo a fixed power of $2$ cannot provide it
+(Proposition~\ref{prop:residue-obstruction}).
+\end{remark}
+
+\section{Early returns and the entrance law}
+
+For starting values distributed uniformly below $X_1$, the parity bijection and Doob's inequality for $3^{q}/2^t$, with $q$ the number of odd steps among the first $t$, make this rigorous for the first $\lfloor\log X\rfloor$ steps: at most a proportion $O(X^{-\beta})$ of them exceeds $Y$ in that time. It also holds after an actual first passage from one source shell. For $c=1$, $\beta=1/200$ and odd starting values distributed uniformly in $(X_1,2X_1]$, the first passage below $X_1$ followed by $\lfloor\log X\rfloor$ steps reaches $Y$ with probability $O(X^{-\beta})$. The odd starting values with a given valuation word $(a_1,\dots,a_k)$, $A=a_1+\dots+a_k$, form one residue class modulo $2^{A+1}$, as in the proof of Lemma~P4, and on this class the affine form $\operatorname{Syr}^k(n)=3^k2^{-A}n+c\,F_k$ of Remark~P2 gives
+\[
+ \operatorname{Syr}^k(n+2^{A+1})=\operatorname{Syr}^k(n)+2\cdot3^k.
+\]
+Since $3^k$ is invertible modulo $2^{\lfloor\log X\rfloor-1}$, the entrance points of consecutive members of the class run through all odd classes modulo $2^{\lfloor\log X\rfloor}$. The starting values in $(X_1,2X_1]$ that pass below $X_1$ with a given word are consecutive members, so every odd class receives the same number of them up to one. Chernoff bounds dispose of long passages and of large valuation sums (research notes). The logarithmic entrance law, however, is the Ces\`aro mean over $j$ of the entrance laws from the source shells $(2^jX_1,2^{j+1}X_1]$ with harmonic weights, and the transfer to $j\to\infty$ is open. Let $q(r)$ be its mass on the odd class $r$ modulo $2^{\lfloor\log X\rfloor}$, $m=2^{\lfloor\log X\rfloor-1}$ the number of these classes, and $Q=m\sum_rq(r)^2$ its collision energy. By Cauchy--Schwarz the early returns contribute $O(\sqrt Q\,X^{1-\beta/2}\log X)$ to $J_X$, so $Q=O(1)$ would suffice. Total-variation estimates such as Lemma~P3 do not give this bound, since an error $\varepsilon$ placed on a single class raises $Q$ to about $1+m\varepsilon^2$. Nor can the transfer be organised residue by residue. The first passage does not factor through the classes modulo $2^{\lfloor\log X\rfloor}$, and for $c=1$ the class $z\equiv-5\cdot3^{-1}\pmod{2^{\lfloor\log X\rfloor}}$ sends a third of its members in $(X_1,2X_1]$, in one Syracuse step with valuation $2$, to entrance points $y\equiv-1\pmod{2^{\lfloor\log X\rfloor-2}}$, whose next $\lfloor\log X\rfloor-2$ steps are odd and carry the orbit above $Y$ (research notes; compare Proposition~\ref{prop:residue-obstruction}). In experiments $Q$ stays within $2\,\%$ of $1$, both for the first source shell and for log-uniform starting values far above it, and the early escape frequency of the entrance law agrees with that of uniformly distributed odd starting values to about $1\,\%$. Proposition~P12 below avoids the entrance law altogether. It dominates all returns, early and late, by the potential at the points from which they start and on the dangerous classes of Proposition~P11, and uses the theorem on almost bounded orbits for the orbits that never come below $X_1$, so that $J_X=o(X)$ follows from~(P32) with $h$ in place of $h^\downarrow$. Without such a hypothesis $J_X=o(X)$ remains open.
+
+\section{Return certificates and their limits}
+
+Finite parity-cylinder balance holds up to any fixed horizon, but it
+cannot be restarted after many returns, and certificates built on a fixed
+residue fail on all large shells. The following results make this
+precise.
+
+\begin{lemma}[Finite-horizon residue balance; cf. Terras~\cite{Terras_1976}]
+\label{lem:finite-horizon-residue}
+Fix an odd $c\ge-1$, a positive stopping threshold, a shell $I$ and a
+starting interval $J=[A,D)\cap\N$ with $A\ge1$. Let $E_{k,\le T}$ be
+the starts $m\in J$ whose $k$-th visit to $I$ occurs by time $T$ before stopping,
+and let $Y_k$ be that visited state. For any $b\ge1$ and any set
+$G\subset\Z/2^b\Z$, put $p=|G|/2^b$. Then
+\[
+\left|\sum_{m\in E_{k,\le T}}\frac{\mathbf1_G(Y_k(m))-p}{m}\right|
+\le\frac{8(T+1)2^{T+b}}{A}.
+\]
+The same bound without $1/A$ holds for unweighted counting.
+\end{lemma}
+\begin{proof}
+Fix a time $t\le T$ and a parity cylinder $m=r+2^t j$.
+For $0\le s\le t$, the iterate is affine and increasing in $j$,
+with $T_{3,c}^t(m)$ advancing by the odd step $3^{h_t}$, where $h_t$ is
+the number of odd steps among the first $t$, which is fixed on the cylinder.
+Thus its values cycle through all classes modulo $2^b$.
+Stopping and shell-visit conditions partition the $j$-range into at
+most $3(t+1)+1$ intervals. Each contributes discrepancy at most
+$2^b$, also after harmonic weighting by summation by parts (with an
+additional factor $1/A$). Sum over $2^t$ cylinders and $0\le t\le T$.
+\end{proof}
+This is a quantitative form of classical parity-cylinder balance,
+not a new long-time mixing theorem. Its error is absolute, not
+relative to the mass of $E_{k,\le T}$, and it gives no uniform bound
+for visits beyond the chosen horizon.
+
+\begin{remark}[Finite-support obstruction to independent restarts]
+\label{rem:entrance-support}
+Let $I_{X,j}$ be one of the finite dyadic shells, and suppose the
+conditional distribution $\mu_{X,j,k}$ of the odd part of its $k$-th
+visited state is defined. It is supported on at most
+$s_{X,j}=\#(I_{X,j}\cap\mathbb N)$ states. Writing $U_B$ for the
+uniform law on the $2^{B-1}$ odd classes modulo $2^B$ (with $d_{\mathrm{TV}}$ defined as the supremum over events), we therefore have
+\[
+ d_{\mathrm{TV}}(\mu_{X,j,k}\bmod 2^B,U_B)
+ \ge 1-\frac{s_{X,j}}{2^{B-1}}.
+\]
+Indeed, the union of residue classes in the support has
+$\mu_{X,j,k}$-mass one and uniform mass at most
+$s_{X,j}/2^{B-1}$. For fixed $X,j$, the right-hand side tends to one
+as $B\to\infty$. Thus the usual approximate uniformity modulo large
+powers of two cannot simply be restarted after arbitrarily many
+shell returns. This observation does \emph{not} disprove geometric
+return tails. It identifies a limitation of the direct independent-
+valuation transfer and motivates a conditional entrance-measure
+criterion, developed separately in the research notes. Neither this
+remark nor the finite Lean modules proves the open return-moment
+bound or $T_X=o(X)$.
+\end{remark}
+
+The Green-operator identities for finite return chains can be used without
+assuming a strict contraction of the ordinary occupation measure.  Here is
+an alternative that targets the second moment directly.
+Fix a finite shell $I\subset\N$ and a first-passage threshold $a<\min I$.
+Restrict attention to states $y\in I$ whose forward orbit under $T_{3,c}$
+reaches a value below $a$.  Let $R_I(y)$ be the next visit to $I$
+\emph{before} that passage, or $\dagger$ if there is none.  On the
+resulting terminating return graph write
+\[
+  (P_I F)(y)=
+  \begin{cases}F(R_I(y)),&R_I(y)\ne\dagger,\\
+  0,&R_I(y)=\dagger.
+  \end{cases}
+\]
+Let $N_I(y)\ge1$ denote the number of visits from $y$, including the
+initial visit.  This definition excludes unresolved orbits; no assertion
+about their convergence is implicit.
+
+\begin{proposition}[Two-level return certificate]
+\label{prop:lyapunov-return}
+Suppose nonnegative functions $U,V$ on the terminating return graph obey
+\begin{equation}\label{eq:two-level-lyapunov}
+ U\ge1+P_IU,\qquad V\ge1+2P_IU+P_IV.
+\end{equation}
+Then $N_I(y)\le U(y)$ and $N_I(y)^2\le V(y)$ for every state $y$ of
+that graph.  Consequently, for any nonnegative finite first-entry
+subprobability $q_1$ supported on these states,
+\begin{equation}\label{eq:lyapunov-second-moment}
+ \sum_{y\in I}q_1(y)N_I(y)^2
+ \le \sum_{y\in I}q_1(y)V(y).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Induct backwards along the finite return chain.  At a terminal state,
+$P_IU=P_IV=0$ and $N_I=1$, so both inequalities follow.  If the next
+return is $z$ and $N_I(z)=n$, then $N_I(y)=n+1$.  The induction
+hypotheses and~\eqref{eq:two-level-lyapunov} give
+\[
+ U(y)\ge1+U(z)\ge n+1,\qquad
+ V(y)\ge1+2U(z)+V(z)\ge1+2n+n^2=(n+1)^2.
+\]
+Multiply the latter inequality by $q_1(y)$ and sum.
+\end{proof}
+
+The functions $U(y)=N_I(y)$ and $V(y)=N_I(y)^2$ themselves satisfy
+\eqref{eq:two-level-lyapunov} with equality.  Thus existence of a
+certificate on a fixed finite graph is automatic.  The real problem is
+to find \emph{explicit certificates with uniformly bounded first-entry
+averages} as the shell varies.  In the dyadic decomposition
+$I_{X,j}=(X2^{-j-1},X2^{-j}]\cap W_X$ of the observable $\Phi_X$, write
+$q_{1,X,j}$ for the logarithmically induced (possibly subprobability)
+first-entry law and $N_{X,j}$ for the corresponding number of visits.
+
+\begin{corollary}[Conditional removal of the clipping tail]
+\label{cor:lyapunov-tail}
+Assume the first-entry laws and corresponding second moments exist,
+and, for all sufficiently large $X$ and every relevant $j$, that
+functions $U_{X,j},V_{X,j}$ satisfy~\eqref{eq:two-level-lyapunov} on
+the supported terminating return paths with
+\begin{equation}\label{eq:lyapunov-uniform-open}
+ \sup_{X,j}\sum_{y\in I_{X,j}}q_{1,X,j}(y)V_{X,j}(y)
+ \le B<\infty.
+\end{equation}
+Then $T_X\le 4BX^2/H_X=o(X)$, where $T_X,H_X$ are defined in
+Corollary~P7.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:lyapunov-return}, every shell count has second
+moment at most $B$.  Each point in $I_{X,j}$ has weight at most
+$X2^{-j}$, so Minkowski's inequality gives
+\[
+ \left\|\frac{\Phi_X}{X}\right\|_2
+ \le\sum_{j\ge0}2^{-j}\|N_{X,j}\|_2\le2\sqrt B.
+\]
+For $t\ge0$ one has $(t-H_X)_+\le t^2/H_X$.  Taking the logarithmic
+mean yields $T_X\le\mathbb E_{\log}(\Phi_X^2)/H_X\le4BX^2/H_X$.
+Since $H_X=X(\log X)^{\varepsilon_0/2}$, this is $o(X)$.
+\end{proof}
+
+There is a simple arithmetic reason why certificates based solely on a
+fixed binary residue cannot work on all large dyadic shells.
+
+\begin{proposition}[Fixed-modulus obstruction]
+\label{prop:residue-obstruction}
+For every odd $c\in\Z$ and every $k\ge0$, put $X_0(c,k)=24\cdot2^k+12|c|+24$.
+For every real $X\ge X_0(c,k)$ one can find positive integers
+$y,z\in(X/2,X]$ with
+\[
+ T_{3,c}(y)=z,\qquad y\equiv z\pmod{2^k}.
+\]
+Consequently, on any such shell, no function $U$ depending only on
+$y\bmod2^k$ can satisfy $U\ge1+P_IU$ at every state of a return graph
+containing this one-step return (with any cutoff $a<X/2$).
+\end{proposition}
+\begin{proof}
+Set $m=2^k$.  For $X\ge X_0(c,k)$, the interval
+\[
+ \left(\frac X4+\frac c2,\;\frac{X+c}{3}\right]
+\]
+has length $X/12-c/6>m$ and is contained in $(0,\infty)$.
+It therefore contains a positive multiple $A$ of $m$.  Set
+$y=2A-c$ and $z=3A-c$.  Since $c$ is odd, $y$ is odd and
+$T_{3,c}(y)=(3y+c)/2=z$; the inequalities for $A$ imply
+$X/2<y<z\le X$.  Finally $z-y=A\equiv0\pmod m$.
+The next shell return from $y$ is thus $z$ itself.  A residue-only
+$U$ would give $U(y)=U(z)$ while the first inequality in
+\eqref{eq:two-level-lyapunov} forces $U(y)\ge1+U(z)$, a contradiction.
+\end{proof}
+
+\begin{remark}[Lean verification and the unresolved step]
+\label{rem:lyapunov-certification}
+The \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLyapunov.lean}{Lean~4 return-certificate module}
+formalises the finite rational-valued certificate and weighted inequality,
+as well as exact one-step arithmetic and an explicit family of dyadic
+congruence witnesses.  The module \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnLargeShell.lean}{\texttt{ReturnLargeShell.lean}}
+formalises Proposition~\ref{prop:residue-obstruction} for every real
+$X\ge X_0(c,k)$; it does not assert that the exhibited return lies on an
+orbit that terminates below a given cutoff.  The related finite
+\href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/ReturnGreen.lean}{Green identities}
+and \href{https://github.com/Sultanow/collatz/blob/ee5a5b4/07\%20Basins\%20of\%20Attraction/lean/CollatzBasins/EntranceTransport.lean}{entrance-measure inequalities}
+are also formalised.  None of these kernel checks establishes
+\eqref{eq:lyapunov-uniform-open} for the actual logarithmic entrance
+measures, nor the bounds $T_X=o(X)$ or $R_X=o(X)$ without further
+assumptions.  Certificates must encode more than a fixed congruence
+class, for instance relative shell position or return-history data.
+\end{remark}
+
+\section{Long finite excursions}
+
+In kernel form, $\sum_y\eta_{X,L}(y)\mathbf 1[N^+_{X,j}(y)\ge n]=\eta_{X,L}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1$, where $E_{X,j}$ is the first-entry kernel into $I_{X,j}$ and $Q_{X,j}$ the first-return kernel on $I_{X,j}$ of the terminating return graph of Proposition~\ref{prop:lyapunov-return}. The first $(\log X)^\sigma2^{\omega j}$ later visits to each shell are thus free; only an excess of late returns of a rare entrance law matters. Such excess returns do occur. Concatenate the parity blocks $(\mathrm{odd},\mathrm{odd},\mathrm{even})$ and $(\mathrm{odd},\mathrm{even})$, which multiply by about $9/8$ and $3/4$, choosing the first whenever the product so far is at most $1$; the product then stays in $[3/4,9/8]$. Follow $b$ blocks by $\lceil(m+2)/99\rceil+2$ halvings, $m\le3b$ being the length of the block word, and realise the word by Terras' bijection. For every $b\ge100$ this gives a start $a$ such that $X=\lfloor6a/5\rfloor$ satisfies $\log_2X<\frac{100}{33}b+6$, $a\in(X/2,X]$, and the orbit of $a$ visits $(X/2,X]$ at least $b+1$ times before its first value at most $X^{1-2\beta}$ (for $c=1$; the construction carries over to every odd $c$, and we checked $c=-1,5,13$ exactly). Every block endpoint is at least $\frac34a\ge\frac58X$, so $\Phi_X(a)\ge\frac58\,bX$: these are finite excursions of the kind isolated in Remark~\ref{rem:tail-barrier}. So return counts of order $\log X$, far above $K_{X,j}$, exist at arbitrarily large scales, and Problem~\ref{prob:excursions} concerns the mass of the entrance law on such states, not their existence.
+
+\begin{problem}[Weighted occupation of long finite excursions]
+\label{prob:excursions}
+Show that unusually long but finite first-passage excursions carry a weighted occupation mass $o(X)$ in $W_X$, that is, $\mathcal E_X(L_X;K_X)\to0$ in Proposition~P10(c); this is equivalent to $T_X=o(X)$. The object is the first-excess entrance law $\eta_{X,L_X}$, of total mass $O((\log X)^{-\varepsilon_0})$, transported by the return kernels of the shells $I_{X,j}$; the residues of its first steps cannot carry the argument (Remark~\ref{rem:entrance-support}, Proposition~\ref{prop:residue-obstruction}). It suffices to control the survival $s_{X,j}(n)=\eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}\mathbf 1$ at the dyadic return counts $n=2^\ell K_{X,j}$, summed over the shells. Put
+\[
+ B_{X,\ell}=\sum_{j\ge0}2^{-j}K_{X,j}\,s_{X,j}\bigl(2^\ell K_{X,j}\bigr),\qquad D_X=\sum_{\ell\ge1}2^\ell B_{X,\ell},\qquad S_X=\sum_{j\ge0}2^{-j}K_{X,j}.
+\]
+Since $s_{X,j}$ is nonincreasing, grouping the counts $n\in(2^\ell K_{X,j},2^{\ell+1}K_{X,j}]$ gives $\frac12D_X\le\mathcal E_X(L_X;K_X)\le B_{X,0}+D_X$, and $B_{X,0}\le\mu_X(L_X)S_X$. Hence $T_X=o(X)$ if and only if $D_X\to0$, and an aggregate polynomial survival bound
+\[
+ B_{X,\ell}\ \le\ A\,2^{-(1+\kappa)\ell}\,\mu_X(L_X)\,S_X\qquad(\ell\ge1),
+\]
+with constants $A$ and $\kappa>0$, gives $T_X=O\bigl(X(\log X)^{\sigma-\varepsilon_0}\bigr)$. It holds if $B_{X,\ell+1}\le qB_{X,\ell}$ for all $\ell$ with a fixed $q<\frac12$, and if every shell satisfies $s_{X,j}(n)\le A\,\mu_X(L_X)(K_{X,j}/n)^{1+\kappa}$ for $n>K_{X,j}$, but it does not need the latter shell by shell. An additive error $e_{X,\ell}$ in the ratio condition is admissible if $\sum_\ell2^\ell e_{X,\ell}\to0$; an error of the size $(\log X)^{-\varepsilon_0}$ of the exceptional set is not (Remark~\ref{rem:tail-barrier}).
+\end{problem}
+
+For $A\ge1$ and a finite measure $\nu$ on $\N$ let
+\[
+ \mathfrak d_t(\nu;A)=\sum_{r\bmod2^t}\bigl(\nu(r+2^t\Z)-A\,2^{-t}|\nu|\bigr)_+
+\]
+be the mass by which $\nu$ exceeds the relative cap $A\,2^{-t}|\nu|$ on the classes modulo $2^t$. Let $\nu_{X,j,n}=\eta_{X,L_X}E_{X,j}Q_{X,j}^{\,n-1}$ be the law of the $n$-th later visit to $I_{X,j}$, so that $|\nu_{X,j,n}|=s_{X,j}(n)$.
+
+\begin{proposition}[Single-depth concentration criterion]
+\label{prop:single-depth}
+Assume the hypotheses of Proposition~P10(c). Let $A>1$, choose an integer $b\ge t_0(\zeta_0)$ with $q=Ae^{-\Delta_0b}/(1-e^{-\Delta_0})<1$, and put
+\[
+ \mathfrak D_X(A)=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+Then, for all large $X$,
+\[
+ \mathfrak D_X(A)\ \le\ \mathcal E_X(L_X;K_X)\ \le\ \frac{2b\,\mu_X(L_X)+\mathfrak D_X(A)}{1-q}.
+\]
+In particular, $T_X=o(X)$ if and only if $\mathfrak D_X(A)\to0$.
+\end{proposition}
+
+\begin{proof}
+The identity $(N-K)_+=\sum_{n>K}\mathbf 1[N\ge n]$ gives
+\[
+ \mathcal E_X(L_X;K_X)=\sum_{j\ge0}2^{-j}\sum_{n>K_{X,j}}s_{X,j}(n),
+\]
+and $\mathfrak d_t(\nu;A)\le|\nu|$; this is the lower bound. For the upper bound, let $y$ be a state at the $n$-th visit that makes $b$ further visits, the last one at time $\tau\ge b$. If $\tau<t_X$, Lemma~P8 gives $h_\tau(y)\ge\zeta_0\tau$; otherwise $y$ survives $t_X$ steps, and $h_{t_X}(y)\ge\zeta_0t_X$. In both cases the parity word of length $t_X$ of $y$ has a prefix of some length $t\in[b,t_X]$ with at least $\zeta_0t$ odd entries. By Terras' bijection these words form a set $\mathcal C_X$ of classes modulo $2^{t_X}$ of density $\alpha_X\le\sum_{t\ge b}e^{-\Delta_0t}=q/A$. Each class carries at most $A\,2^{-t_X}|\nu|$ plus its excess, so
+\[
+ s_{X,j}(n+b)\le\nu_{X,j,n}(\mathcal C_X)\le q\,s_{X,j}(n)+\mathfrak d_{t_X}(\nu_{X,j,n};A).
+\]
+Summing over $n>K$ and using $s_{X,j}\le\mu_X(L_X)$ for the first $b$ terms gives $(1-q)\sum_{n>K}s_{X,j}(n)\le b\,\mu_X(L_X)+\sum_{n>K}\mathfrak d_{t_X}(\nu_{X,j,n};A)$. Take $K=K_{X,j}$ and sum over $j$ with the weights $2^{-j}$. The last claim follows from Propositions~P9 and~P10(c).
+\end{proof}
+
+The criterion is an equivalence. It does not make Problem~\ref{prob:excursions} easier, but it restates it as a question about the $2$-adic distribution of the return laws at the single modulus $2^{t_X}$. The same two-sided bound holds, with $\alpha_X$ in place of $q$, for the excess $(\nu(\mathcal C_X)-\alpha_X|\nu|)_+$ on the dangerous classes alone. The defect has two sources, and neither is reached by the parity counting of Lemma~P8 and Lemma~\ref{lem:finite-horizon-residue}; this is where new mathematics is needed. First, the return laws are conditioned on repeated survival and have total mass $O((\log X)^{-\varepsilon_0})$, so they may concentrate in relative terms, while Lemma~P3 bounds only absolute errors of that size (Remark~\ref{rem:tail-barrier}). Second, a law $\nu$ on $r$ states has $\mathfrak d_t(\nu;A)\ge(1-Ar\,2^{-t})_+|\nu|$ (Remark~\ref{rem:entrance-support}). The laws of the latest visits live on few states, so once $r\le2^{t_X-1}/A$ they contribute at least half their mass; their contribution can only be made small by bounding the later visits of these few orbits directly. The converse is false: a law on many states can still have a large defect through a few heavy atoms.
+
+\section{Status}
+Proved: Lemma~\ref{lem:finite-horizon-residue}, Proposition~\ref{prop:lyapunov-return} and Proposition~\ref{prop:residue-obstruction} (the last two also in Lean~4). Conditional on the uniformities of Lemmas~P3--P5: Corollaries~\ref{cor:extreme-tail} and~\ref{cor:lyapunov-tail} and Proposition~\ref{prop:single-depth}. Open: Problem~\ref{prob:excursions}, equivalent to $T_X=o(X)$, and the transfer of the entrance law for the early returns. The paper proves $T_X=o(X)$ and $J_X=o(X)$ under uniform integrability of the potential of the odd targets (Propositions~P11 and~P12), which avoids both open points.
+
+\bibliographystyle{plain}
+\bibliography{../../main}
+\end{document}

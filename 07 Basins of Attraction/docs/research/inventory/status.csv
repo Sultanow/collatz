@@ -34,7 +34,7 @@ lem:escape-ladder,bewiesen,Stütze,Anhang,,für Kor. 6(b)
 prop:clipped-calibration,bedingt,Faden,Anhang,,"Kürzen; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 cor:two-tails,bedingt,Faden,Anhang,,"Zerlegung S_X = C_X + T_X + R_X; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 rem:moment-criterion,Bemerkung,Ergänzung,Note,,
-rem:return-divergence,Bemerkung,Stütze,Anhang,,"Kürzen, als Lemma fassen; Prop. 15 nutzt die Zerlegung R_X = S_Y + J_X; enthält Beweise; 1,5 Seiten"
+rem:return-divergence,bedingt,Stütze,Anhang,,"v4p: als Lemma gefasst (Zerlegung R_X = S_Y + J_X, unbeschränkte Bahnen); frühe Rückkehrer in die Notiz tail_programme"
 prop:tightness,bedingt,Stütze,Anhang,,"Kürzen; genutzt von Prop. 12–15; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 cor:extreme-tail,bedingt,Ergänzung,Note,,"Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 rem:tail-barrier,Bemerkung,Kontext,Note,,
@@ -46,7 +46,7 @@ prop:residue-obstruction,"bewiesen, Lean",Ergänzung,Note,,ReturnLargeShell.lean
 rem:lyapunov-certification,Bemerkung,Kontext,Note,,
 prop:first-excess,bedingt,Stütze,Anhang,,"Kürzen; für Prop. 13–15; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 prob:excursions,offen,Kontext,Note,,äquivalent zu T_X = o(X)
-rem:rigidity,Bemerkung,Stütze,Anhang,,"enthält die Identität, die Prop. 13–15 benutzen; als Lemma fassen"
+rem:rigidity,bewiesen,Stütze,Anhang,,"v4p: als Lemma gefasst; Identität und Zählung, die Prop. 11 und 12 benutzen"
 prop:single-depth,bedingt,Ergänzung,Note,,"Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 prop:potential-domination,bedingt,Faden,Anhang,,"(UI) ⇒ T_X = o(X); Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"
 prop:return-domination,bedingt,Faden,Anhang,,"(UI) ⇒ J_X = o(X) und obere Schranke (eq:upper); Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)"

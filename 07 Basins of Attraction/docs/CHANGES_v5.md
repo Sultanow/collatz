@@ -421,3 +421,29 @@ Unchanged: title, keywords, all theorems of the main text, all numerical results
 - Outlook (7): the regular part needs a pair version of Tao's fine-scale mixing and cannot be certified at a fixed
   finite precision. Reproduction table: intertwiner_density.py.
 - Decision 27.11.: A6 and B1 stay open problems in the paper; next D2-D4. 96 pages.
+
+## v4p (roadmap D2: readability; Appendices D and F to their core)
+Decision 27.11.: move out only what improves readability (D3 of 24.11.); all four proposals of D2 adopted.
+- Appendix D on the chain calibration -> two tails -> tightness -> first excess -> potential domination:
+  - Remark "Unbounded orbits and the return term" is now Lemma 7 (R_X = S_Y + J_X; (upper) iff T_X + J_X = o(X);
+    unbounded orbits; J_X >= h(a)(X - 2Y)); its paragraph on early returns and the entrance law moved to the note.
+  - Remark "Arithmetic rigidity of returns" is now Lemma 8 with proof; the set C_{X,b} is defined directly before
+    Proposition 11 (no longer through the proof of the single-depth criterion).
+  - Remark "What remains" became the paragraph "Run I" (numerics kept, analysis moved).
+  - Moved to the new research note docs/research/tail_programme (tail_programme_note.tex/.pdf, 7 pages, text of
+    v4o, references to the paper as P-numbers of v4p): Remark "Moment criteria", Corollary "Where the clipping tail
+    can live", the subsection "Return certificates and their limits" (Lemma "Finite-horizon residue balance",
+    Remark "Finite-support obstruction", Propositions "Two-level return certificate" and "Fixed-modulus
+    obstruction" (Lean), Corollary "Conditional removal of the clipping tail", Remark "Lean verification"), the
+    kernel form with the long excursions, Problem 3 and Proposition "Single-depth concentration criterion".
+  - New subsection D.3 "First excess and the potential" (defines the dyadic shells I_{X,j}).
+- Appendix F on its core: Lemma "fixed point -1" (dilation rules), Corollary "Conditional bound" (single g_d),
+  Lemma "Start near the identity" and Lemma "Large deviations" moved to the syracuse_lp note (already there);
+  the paragraph "The fixed point -1" is three sentences, "Run O, all d" one paragraph; Corollary 9 (energy) has a
+  self-contained proof. The syracuse_lp note gets a section on the density of the intertwiners.
+- Remarks: "Scope", "Consequences and limits", Example 1 (5x+971) and "The case q = 1" became plain text
+  (shortened); 3 remarks remain (first-passage formula, two routes to natural density, averages not maxima).
+- Reproduction table removed; the README reproduction map replaces it (rows checked against the table; added:
+  Appendix F row, halfword_collisions.py; numbers updated to v4p). Text and caption of Table 11 point to the README.
+- Outlook (2), Section 6, contributions row "First-passage tails", code availability, runs table row I adjusted.
+- 85 pages (before: 96), no overfull boxes; Lemma/Proposition numbers in Appendices D-F shift.
