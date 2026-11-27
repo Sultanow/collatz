@@ -467,3 +467,9 @@ Decision 27.11.: move out only what improves readability (D3 of 24.11.); all fou
 - Checked: no hard-coded statement numbers in the text, no duplicated words, all labels resolved, runs table rows,
   abstract against the contents. The notation table of Appendix A stays without number (the appendix title is its
   caption). 85 pages.
+
+## v4r (polish: lists in statements)
+- Statements whose body starts with a list (a), (b), ... now start the list on a new line after the head (Lemma 12
+  "Logarithmic chart", Proposition 16 "Singular set and non-resonance"); Remark 3 "Averages, not maxima" starts its
+  paragraph (a) on a new line. Same in syracuse_lp_note (three lemmas). Statements with an introductory sentence
+  already started their lists on a new line. 85 pages.

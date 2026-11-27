@@ -35,17 +35,17 @@ prop:first-excess,Proposition 10,First-excess transport,D,59,1834,0.319,0.218,Ab
 rem:rigidity,Lemma 8,Arithmetic rigidity of returns,D,60,1851,0.346,0.345,Abschn. D; Proposition 11; Proposition 12,bewiesen,Stütze,Anhang
 prop:potential-domination,Proposition 11,Domination by the stopped potential of odd targets,D,61,1875,0.359,0.636,Abschn. 2; Abschn. 7; Abschn. D; Proposition 12; Bemerkung 3,bedingt,Faden,Anhang
 prop:return-domination,Proposition 12,Domination of the returns by the potential,D,62,1900,0.298,1.558,Abschn. 2; Abschn. 7; Abschn. D,bedingt,Faden,Anhang
-rem:spikes,Bemerkung 3,"Averages, not maxima",D,66,1976,1.662,0.000,Abschn. 2; Abschn. 7; Abschn. D; Abschn. F; Korollar 8,Bemerkung,Faden,Anhang
-lem:two-laws,Lemma 9,"One block, two laws",E,68,2032,0.222,0.676,Satz 2,bewiesen mit Preprint,Stütze,Anhang
-lem:selfsim,Lemma 10,Self-similarity,F,71,2083,0.230,0.112,Lemma 11; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
-prop:energy,Proposition 13,The second moment,F,71,2102,0.198,0.171,Vermutung 3; Abschn. F; Proposition 15,bewiesen,Faden,Anhang (Kern F)
-prop:singular,Proposition 14,The singular set,F,72,2115,0.094,0.086,Abschn. F,bewiesen,Ergänzung,Anhang (Kern F)
-lem:kp,Lemma 11,Kahane–Peyrière inequality,F,72,2126,0.190,0.239,Abschn. F,bewiesen,Faden,Anhang (Kern F)
-cor:lp,Korollar 8,,F,72,2143,0.147,0.000,Korollar 9,bedingt,Faden,Anhang (Kern F)
-conj:energy,Vermutung 3,Bounded energy,F,72,2150,0.413,0.000,Abschn. 7; Abschn. F; Korollar 9,Vermutung,Faden,Anhang (Kern F)
-lem:logchart,Lemma 12,Logarithmic chart,F,75,2209,0.227,0.189,Proposition 15; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
-prop:spectral,Proposition 15,Spectral form of the energy,F,75,2227,0.239,0.197,Abschn. F; Korollar 9,bewiesen,Stütze,Anhang (Kern F)
-prop:intertwiners,Proposition 16,Singular set and non-resonance,F,76,2249,0.338,0.412,Abschn. 7; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
-conj:decor,Vermutung 4,Decorrelation,F,77,2266,0.121,0.000,Abschn. 7; Abschn. F,Vermutung,Faden,Anhang (Kern F)
-prop:renewal,Proposition 17,First-hit decomposition,F,79,2308,0.240,0.219,Abschn. F; Korollar 9,bewiesen,Faden,Anhang (Kern F)
-cor:energy-bootstrap,Korollar 9,Conditional bound for the energy,F,80,2329,0.146,0.138,Abschn. 2; Abschn. 7; Abschn. F,bedingt,Faden,Anhang (Kern F)
+rem:spikes,Bemerkung 3,"Averages, not maxima",D,66,1976,1.724,0.000,Abschn. 2; Abschn. 7; Abschn. D; Abschn. F; Korollar 8,Bemerkung,Faden,Anhang
+lem:two-laws,Lemma 9,"One block, two laws",E,68,2033,0.222,0.614,Satz 2,bewiesen mit Preprint,Stütze,Anhang
+lem:selfsim,Lemma 10,Self-similarity,F,71,2084,0.230,0.112,Lemma 11; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
+prop:energy,Proposition 13,The second moment,F,71,2103,0.198,0.171,Vermutung 3; Abschn. F; Proposition 15,bewiesen,Faden,Anhang (Kern F)
+prop:singular,Proposition 14,The singular set,F,72,2116,0.094,0.086,Abschn. F,bewiesen,Ergänzung,Anhang (Kern F)
+lem:kp,Lemma 11,Kahane–Peyrière inequality,F,72,2127,0.190,0.239,Abschn. F,bewiesen,Faden,Anhang (Kern F)
+cor:lp,Korollar 8,,F,72,2144,0.147,0.000,Korollar 9,bedingt,Faden,Anhang (Kern F)
+conj:energy,Vermutung 3,Bounded energy,F,72,2151,0.413,0.000,Abschn. 7; Abschn. F; Korollar 9,Vermutung,Faden,Anhang (Kern F)
+lem:logchart,Lemma 12,Logarithmic chart,F,75,2210,0.256,0.187,Proposition 15; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
+prop:spectral,Proposition 15,Spectral form of the energy,F,75,2228,0.238,0.178,Abschn. F; Korollar 9,bewiesen,Stütze,Anhang (Kern F)
+prop:intertwiners,Proposition 16,Singular set and non-resonance,F,76,2250,0.342,0.408,Abschn. 7; Abschn. F,bewiesen,Stütze,Anhang (Kern F)
+conj:decor,Vermutung 4,Decorrelation,F,77,2267,0.121,0.000,Abschn. 7; Abschn. F,Vermutung,Faden,Anhang (Kern F)
+prop:renewal,Proposition 17,First-hit decomposition,F,79,2309,0.240,0.219,Abschn. F; Korollar 9,bewiesen,Faden,Anhang (Kern F)
+cor:energy-bootstrap,Korollar 9,Conditional bound for the energy,F,80,2330,0.146,0.138,Abschn. 2; Abschn. 7; Abschn. F,bedingt,Faden,Anhang (Kern F)

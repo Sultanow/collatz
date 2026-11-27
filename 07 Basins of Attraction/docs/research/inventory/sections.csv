@@ -36,22 +36,22 @@ section,B,Supplementary remarks on cycles,44,1189,0.576,0.000
 paragraph,,The case $q=1$,44,1191,0.190,0.000
 paragraph,,The product identity,44,1193,0.325,0.000
 section,C,Proof of Theorem [thm:lower] and Corollary [cor:remains],45,1205,7.871,0.000
-section,D,"First-passage tails: calibration, tightness and the potential",53,1465,15.230,1.148
+section,D,"First-passage tails: calibration, tightness and the potential",53,1465,15.292,1.148
 subsection,,Calibration and decomposition,53,1489,3.120,0.000
 subsection,,Exponential tightness of the first-passage mass,56,1663,2.636,0.000
 paragraph,,Run I,58,1805,0.518,0.000
-subsection,,First excess and the potential,59,1826,8.946,1.148
-paragraph,,Run K,64,1974,3.545,1.148
-section,E,Natural densities for all maps $3x+c$,68,1999,2.279,0.623
-paragraph,,The transfer,68,2007,2.077,0.623
-section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,70,2073,12.310,1.328
-paragraph,,Run L,73,2157,0.493,0.000
-paragraph,,Fourier maxima (Run M),73,2178,1.049,0.340
-paragraph,,Logarithmic chart,74,2207,1.336,0.000
-paragraph,,Renormalisation and the singular set,76,2243,1.825,0.000
-paragraph,,The fixed point $-1$,78,2273,0.235,0.000
-paragraph,,Run N,78,2275,0.289,0.000
-paragraph,,First-hit decomposition,78,2298,2.197,0.402
-paragraph,,Run O,80,2344,0.876,0.000
-paragraph,,"Run O, all $d$",81,2353,0.632,0.299
-paragraph,,What a proof needs,82,2355,0.644,0.000
+subsection,,First excess and the potential,59,1826,9.009,1.148
+paragraph,,Run K,64,1974,3.607,1.148
+section,E,Natural densities for all maps $3x+c$,68,2000,2.216,0.623
+paragraph,,The transfer,68,2008,2.015,0.623
+section,F,The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay,70,2074,12.310,1.328
+paragraph,,Run L,73,2158,0.493,0.000
+paragraph,,Fourier maxima (Run M),73,2179,1.049,0.340
+paragraph,,Logarithmic chart,74,2208,1.336,0.000
+paragraph,,Renormalisation and the singular set,76,2244,1.825,0.000
+paragraph,,The fixed point $-1$,78,2274,0.235,0.000
+paragraph,,Run N,78,2276,0.289,0.000
+paragraph,,First-hit decomposition,78,2299,2.197,0.402
+paragraph,,Run O,80,2345,0.876,0.000
+paragraph,,"Run O, all $d$",81,2354,0.632,0.299
+paragraph,,What a proof needs,82,2356,0.644,0.000

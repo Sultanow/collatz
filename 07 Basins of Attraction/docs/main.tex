@@ -1975,6 +1975,7 @@ profile & $n=8$ & 6.952 & 46.8 & 8.1 & 0 & 1.69 & 260 & -- \\
 
 \begin{remark}[Averages, not maxima]
 \label{rem:spikes}
+\leavevmode\par
 (a) \emph{Pointwise bounds are too strong.} Let $G_X$ be the largest value of $a\,h^\downarrow(a)$ over the odd $a\in(X_1,X]$. Since at most $(\alpha_b+2^{t_X}/X)X$ integers up to $X$ lie in $\mathcal C_{X,b}$, Proposition~\ref{prop:potential-domination} gives
 \[
  \frac{T_X}X\ \le\ (3+2b)\,\mu_X(L_X)+8\,G_X\Bigl(\alpha_b+\frac{2^{t_X}}X\Bigr),
@@ -2208,7 +2209,7 @@ $a+bn+c\log n$ (exponential times power) & $0.0099$ & $e^b=0.942$, $c=-0.97$\\
 
 \begin{lemma}[Logarithmic chart]
 \label{lem:logchart}
-\begin{enumerate}
+\leavevmode\begin{enumerate}
 \item[(a)] $\Lambda$ is an isometry of $\Z_3$ onto itself, $\Lambda(x)\equiv x\pmod3$, and $\Lambda\circ g_d=\Lambda+d/2$ for even $d$.
 \item[(b)] The variables $L_n=\Lambda(S_n)\bmod3^n$ satisfy $L_n=\varphi_c(L'_{n-1}-j)$ with an independent copy $L'_{n-1}$ and $\varphi_c(z)=\log_4(1+3\cdot2^{-c}4^z)=\Lambda(2^{-c}4^z)$.
 \item[(c)] $\varphi_c$ maps $\Z_3$ onto the class of $2^{-c}$ modulo $3$, $|\varphi_c(z)-\varphi_c(w)|=|z-w|/3$, and $\varphi_c$ is analytic but not affine. Hence the law $\nu_n$ of $L_n$ satisfies $\nu_n=\frac23\varphi_{1*}(\nu_{n-1}*\gamma)+\frac13\varphi_{2*}(\nu_{n-1}*\gamma)$.
@@ -2248,7 +2249,7 @@ Iterating the recursion $k$ times sums, over pairs $(A,B)$ of words of length $k
 
 \begin{proposition}[Singular set and non-resonance]
 \label{prop:intertwiners}
-\begin{enumerate}
+\leavevmode\begin{enumerate}
 \item[(a)] If $h=\Psi_B^{-1}\Psi_A$ with words of length $k$, then $\operatorname{Cor}_n(h)\ge3^k2^{-|A|-|B|}H_2(n-k)$ for $n\ge k$, and these bounds add over the minimal pairs representing $h$. Conversely, if a path of positive weight leads from $h$ to the identity, then $h$ is an intertwiner.
 \item[(b)] An intertwiner with integral translation part is a map $y\mapsto2^ey$. In particular no $g_d$ with $d\ne0$ and no translation $y\mapsto y+t$ with $t\in\Z\setminus\{0\}$ is an intertwiner.
 \item[(c)] Let $d\ne0$ be even and $A,B$ words of length $k$. If $|A|-|B|=d$, then $\Psi_Bg_d\Psi_A^{-1}$ is the translation by $N/3^{k+1}$, where $N=2^{|A|}+3c_A-2^{|B|}-3c_B$ satisfies $0<|N|<3^{k+1}2^{\max(|A|,|B|)-k}$. So it is the identity modulo $3^r$ only if $\max(|A|,|B|)>k+r\log_23$. If $|A|-|B|\ne d$, its linear part is $\equiv1\pmod{3^r}$ only if $\bigl||A|-|B|-d\bigr|\ge2\cdot3^{r-1}$.

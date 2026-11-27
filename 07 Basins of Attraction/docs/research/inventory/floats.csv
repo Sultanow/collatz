@@ -17,8 +17,8 @@ longtable,table:runs,11,41,1100,1.677,"The computational runs referred to in the
 table,,,44,1147,0.376,
 table,table:ui,12,65,1929,0.707,"Run K: the distribution of $v(a)=a\,h(a)$ on the windows $(X/2,X]$, and of the Syracuse profile $v_n$ under Haar measure (the same for every $c$)."
 figure,fig:ui,5,66,1967,0.441,"Share of the mean of $a\,h(a)$ above $M$: the four maps at $X=2^{22}$ (Run K) and the Syracuse profile at the depths $n=8$, $12$ and $16$."
-table,table:transfer,13,69,2009,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
-table,table:syr-moments,14,73,2159,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
-table,table:syr-fourier,15,74,2186,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
-table,table:syr-singular,16,79,2277,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
-table,table:syr-runO,17,82,2357,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."
+table,table:transfer,13,69,2010,0.623,"Where the natural-density argument of and the first-passage analysis of use the map, and what changes for $T_{3,c}$ with $c\ge-1$ odd and $3\nmid c$."
+table,table:syr-moments,14,73,2160,0.288,Run L: unit-frequency energy $E_n$ and moments $H_p(n)$ of the exact Syracuse law.
+table,table:syr-fourier,15,74,2187,0.340,Run M: fits of the largest Fourier coefficient $\chi^*_n$ over $65$ levels $16\le n\le80$.
+table,table:syr-singular,16,79,2278,0.402,Run N: correlations at intertwiners (top) and at maps that are not intertwiners (bottom). $w(h)$ is the total weight $\sum3^k2^{-|A|-|B|}$ of the minimal pairs 
+table,table:syr-runO,17,82,2358,0.299,"Run O: the split of Proposition [prop:renewal] into the regular part $F_d(N,0)$ and the near-resonance part $\sum_rF_d(N-r,r)H_2(r)$."

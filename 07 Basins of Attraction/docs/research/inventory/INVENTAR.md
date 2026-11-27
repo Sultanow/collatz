@@ -1,6 +1,6 @@
 # D1: Inventar aller Aussagen mit Status und Seitenkosten
 
-Stand: Entwurf v4q, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory/inventory.py` aus `docs/main.tex`; der Status stammt aus `inventory/status.csv` (von Hand gepflegt).
+Stand: Entwurf v4r, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory/inventory.py` aus `docs/main.tex`; der Status stammt aus `inventory/status.csv` (von Hand gepflegt).
 
 **Seitenkosten** sind in Seiten Satzspiegel gemessen (Position jedes Elements im PDF via `\pdfsavepos`). Eine Aussage kostet Kopf und Text, der Beweis wird getrennt gezählt; Gleitobjekte, die in einen Beweis fallen, sind abgezogen. Abschnittskosten reichen von der Überschrift bis zur nächsten Überschrift gleicher oder höherer Ebene und enthalten die dort platzierten Gleitobjekte.
 
@@ -8,15 +8,15 @@ Stand: Entwurf v4q, 85 Seiten (davon Literatur ab S. 83). Erzeugt mit `inventory
 
 | Status | Anzahl | Aussagen (S.) | Beweise (S.) |
 |---|---|---|---|
-| bewiesen | 23 | 5.14 | 12.03 |
+| bewiesen | 23 | 5.17 | 12.00 |
 | bewiesen (Literatur) | 2 | 0.99 | 0.00 |
-| bewiesen mit Preprint | 4 | 0.64 | 2.10 |
+| bewiesen mit Preprint | 4 | 0.64 | 2.03 |
 | bedingt | 9 | 2.62 | 5.68 |
 | Rechnung | 3 | 0.42 | 0.00 |
 | Vermutung | 4 | 0.91 | 0.00 |
 | offen | 2 | 0.77 | 0.00 |
-| Bemerkung | 3 | 2.22 | 0.00 |
-| **alle** | **50** | **13.70** | **19.81** |
+| Bemerkung | 3 | 2.28 | 0.00 |
+| **alle** | **50** | **13.79** | **19.72** |
 
 ## Übersicht nach D2-Vorschlag
 
@@ -25,7 +25,7 @@ Aussagen und Beweise allein sowie hochgerechnet mit dem Faktor Abschnittsseiten 
 | D2-Vorschlag | Anzahl | Aussagen + Beweise (S.) | hochgerechnet (S.) |
 |---|---|---|---|
 | Anhang | 15 | 16.30 | 26.59 |
-| Anhang (Kern F) | 12 | 4.34 | 12.31 |
+| Anhang (Kern F) | 12 | 4.35 | 12.31 |
 | Haupttext | 22 | 12.61 | 28.28 |
 | Note | 1 | 0.26 | 0.47 |
 
@@ -68,9 +68,9 @@ Aussagen und Beweise allein sowie hochgerechnet mit dem Faktor Abschnittsseiten 
 | A | Notation | 43 | 1.16 | 0.38 | 0 | 0.00 |
 | B | Supplementary remarks on cycles | 44 | 0.58 | 0.00 | 0 | 0.00 |
 | C | Proof of Theorem [thm:lower] and Corollary [cor:remains] | 45 | 7.87 | 0.00 | 4 | 3.72 |
-| D | First-passage tails: calibration, tightness and the potential | 53 | 15.23 | 1.15 | 9 | 5.89 |
-| E | Natural densities for all maps $3x+c$ | 68 | 2.28 | 0.62 | 1 | 0.68 |
-| F | The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay | 70 | 12.31 | 1.33 | 12 | 1.76 |
+| D | First-passage tails: calibration, tightness and the potential | 53 | 15.29 | 1.15 | 9 | 5.89 |
+| E | Natural densities for all maps $3x+c$ | 68 | 2.22 | 0.62 | 1 | 0.61 |
+| F | The $3$-adic Syracuse law: $L^p$ regularity and Fourier decay | 70 | 12.31 | 1.33 | 12 | 1.74 |
 | | **Haupttext (1–7)** | | **41.76** | | | |
 | | **Anhänge (A–F)** | | **39.42** | | | |
 
@@ -170,7 +170,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | Lemma 8 | Arithmetic rigidity of returns | 60 | 0.35 | 0.35 | bewiesen | Stütze | Anhang | Abschn. D, Proposition 11, Proposition 12 |
 | Proposition 11 | Domination by the stopped potential of odd targets | 61 | 0.36 | 0.64 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Proposition 12, Bemerkung 3 |
 | Proposition 12 | Domination of the returns by the potential | 62 | 0.30 | 1.56 | bedingt | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D |
-| Bemerkung 3 | Averages, not maxima | 66 | 1.66 | – | Bemerkung | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Abschn. F, Korollar 8 |
+| Bemerkung 3 | Averages, not maxima | 66 | 1.72 | – | Bemerkung | Faden | Anhang | Abschn. 2, Abschn. 7, Abschn. D, Abschn. F, Korollar 8 |
 
 - *Proposition 8:* Kürzen; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)
 - *Korollar 7:* Zerlegung S_X = C_X + T_X + R_X; Uniformitäten der Lemmata 3–5 (Anhang D, Einleitung)
@@ -186,7 +186,7 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 
 | Aussage | Titel | S. | Aussage | Beweis | Status | Rolle | D2 | genutzt von |
 |---|---|---|---|---|---|---|---|---|
-| Lemma 9 | One block, two laws | 68 | 0.22 | 0.68 | bewiesen mit Preprint | Stütze | Anhang | Satz 2 |
+| Lemma 9 | One block, two laws | 68 | 0.22 | 0.61 | bewiesen mit Preprint | Stütze | Anhang | Satz 2 |
 
 - *Lemma 9:* Annahme: Allikvere 2026, Abschn. 6
 
@@ -200,8 +200,8 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | Lemma 11 | Kahane–Peyrière inequality | 72 | 0.19 | 0.24 | bewiesen | Faden | Anhang (Kern F) | Abschn. F |
 | Korollar 8 | (L^p für p < 2) | 72 | 0.15 | – | bedingt | Faden | Anhang (Kern F) | Korollar 9 |
 | Vermutung 3 | Bounded energy | 72 | 0.41 | – | Vermutung | Faden | Anhang (Kern F) | Abschn. 7, Abschn. F, Korollar 9 |
-| Lemma 12 | Logarithmic chart | 75 | 0.23 | 0.19 | bewiesen | Stütze | Anhang (Kern F) | Proposition 15, Abschn. F |
-| Proposition 15 | Spectral form of the energy | 75 | 0.24 | 0.20 | bewiesen | Stütze | Anhang (Kern F) | Abschn. F, Korollar 9 |
+| Lemma 12 | Logarithmic chart | 75 | 0.26 | 0.19 | bewiesen | Stütze | Anhang (Kern F) | Proposition 15, Abschn. F |
+| Proposition 15 | Spectral form of the energy | 75 | 0.24 | 0.18 | bewiesen | Stütze | Anhang (Kern F) | Abschn. F, Korollar 9 |
 | Proposition 16 | Singular set and non-resonance | 76 | 0.34 | 0.41 | bewiesen | Stütze | Anhang (Kern F) | Abschn. 7, Abschn. F |
 | Vermutung 4 | Decorrelation | 77 | 0.12 | – | Vermutung | Faden | Anhang (Kern F) | Abschn. 7, Abschn. F |
 | Proposition 17 | First-hit decomposition | 79 | 0.24 | 0.22 | bewiesen | Faden | Anhang (Kern F) | Abschn. F, Korollar 9 |
@@ -270,9 +270,9 @@ Spalten: **S.** Seite; **Aussage/Beweis** Seitenkosten; **genutzt von** Stellen,
 | D | Calibration and decomposition | 53 | 3.12 |
 | D | Exponential tightness of the first-passage mass | 56 | 2.64 |
 | D | Run I | 58 | 0.52 |
-| D | First excess and the potential | 59 | 8.95 |
-| D | Run K | 64 | 3.54 |
-| E | The transfer | 68 | 2.08 |
+| D | First excess and the potential | 59 | 9.01 |
+| D | Run K | 64 | 3.61 |
+| E | The transfer | 68 | 2.01 |
 | F | Run L | 73 | 0.49 |
 | F | Fourier maxima (Run M) | 73 | 1.05 |
 | F | Logarithmic chart | 74 | 1.34 |
